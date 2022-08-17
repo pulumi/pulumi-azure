@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@exmaple.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewProduct(ctx, "exampleProduct", &apimanagement.ProductArgs{
-// 			ProductId:            pulumi.String("test-product"),
-// 			ApiManagementName:    exampleService.Name,
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			DisplayName:          pulumi.String("Test Product"),
-// 			SubscriptionRequired: pulumi.Bool(true),
-// 			ApprovalRequired:     pulumi.Bool(true),
-// 			Published:            pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewProduct(ctx, "exampleProduct", &apimanagement.ProductArgs{
+//				ProductId:            pulumi.String("test-product"),
+//				ApiManagementName:    exampleService.Name,
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				DisplayName:          pulumi.String("Test Product"),
+//				SubscriptionRequired: pulumi.Bool(true),
+//				ApprovalRequired:     pulumi.Bool(true),
+//				Published:            pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // API Management Products can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/product:Product example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct
+//
+//	$ pulumi import azure:apimanagement/product:Product example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/products/myproduct
+//
 // ```
 type Product struct {
 	pulumi.CustomResourceState
@@ -257,7 +262,7 @@ func (i *Product) ToProductOutputWithContext(ctx context.Context) ProductOutput 
 // ProductArrayInput is an input type that accepts ProductArray and ProductArrayOutput values.
 // You can construct a concrete instance of `ProductArrayInput` via:
 //
-//          ProductArray{ ProductArgs{...} }
+//	ProductArray{ ProductArgs{...} }
 type ProductArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +287,7 @@ func (i ProductArray) ToProductArrayOutputWithContext(ctx context.Context) Produ
 // ProductMapInput is an input type that accepts ProductMap and ProductMapOutput values.
 // You can construct a concrete instance of `ProductMapInput` via:
 //
-//          ProductMap{ "key": ProductArgs{...} }
+//	ProductMap{ "key": ProductArgs{...} }
 type ProductMapInput interface {
 	pulumi.Input
 

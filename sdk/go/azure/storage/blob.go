@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
-// 			StorageAccountName:   exampleAccount.Name,
-// 			StorageContainerName: exampleContainer.Name,
-// 			Type:                 pulumi.String("Block"),
-// 			Source:               pulumi.NewFileAsset("some-local-file.zip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//				StorageAccountName:   exampleAccount.Name,
+//				StorageContainerName: exampleContainer.Name,
+//				Type:                 pulumi.String("Block"),
+//				Source:               pulumi.NewFileAsset("some-local-file.zip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Storage Blob's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
+//
+//	$ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
+//
 // ```
 type Blob struct {
 	pulumi.CustomResourceState
@@ -310,7 +315,7 @@ func (i *Blob) ToBlobOutputWithContext(ctx context.Context) BlobOutput {
 // BlobArrayInput is an input type that accepts BlobArray and BlobArrayOutput values.
 // You can construct a concrete instance of `BlobArrayInput` via:
 //
-//          BlobArray{ BlobArgs{...} }
+//	BlobArray{ BlobArgs{...} }
 type BlobArrayInput interface {
 	pulumi.Input
 
@@ -335,7 +340,7 @@ func (i BlobArray) ToBlobArrayOutputWithContext(ctx context.Context) BlobArrayOu
 // BlobMapInput is an input type that accepts BlobMap and BlobMapOutput values.
 // You can construct a concrete instance of `BlobMapInput` via:
 //
-//          BlobMap{ "key": BlobArgs{...} }
+//	BlobMap{ "key": BlobArgs{...} }
 type BlobMapInput interface {
 	pulumi.Input
 

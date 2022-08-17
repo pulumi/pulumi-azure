@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			DomainNameLabel:   pulumi.String("example-public-ip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			TrafficRoutingMethod: pulumi.String("Weighted"),
-// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-// 				RelativeName: pulumi.String("example-profile"),
-// 				Ttl:          pulumi.Int(100),
-// 			},
-// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("HTTP"),
-// 				Port:                      pulumi.Int(80),
-// 				Path:                      pulumi.String("/"),
-// 				IntervalInSeconds:         pulumi.Int(30),
-// 				TimeoutInSeconds:          pulumi.Int(9),
-// 				ToleratedNumberOfFailures: pulumi.Int(3),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewTrafficManagerAzureEndpoint(ctx, "exampleTrafficManagerAzureEndpoint", &network.TrafficManagerAzureEndpointArgs{
-// 			ProfileId:        exampleTrafficManagerProfile.ID(),
-// 			Weight:           pulumi.Int(100),
-// 			TargetResourceId: examplePublicIp.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				DomainNameLabel:   pulumi.String("example-public-ip"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: pulumi.String("example-profile"),
+//					Ttl:          pulumi.Int(100),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol:                  pulumi.String("HTTP"),
+//					Port:                      pulumi.Int(80),
+//					Path:                      pulumi.String("/"),
+//					IntervalInSeconds:         pulumi.Int(30),
+//					TimeoutInSeconds:          pulumi.Int(9),
+//					ToleratedNumberOfFailures: pulumi.Int(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewTrafficManagerAzureEndpoint(ctx, "exampleTrafficManagerAzureEndpoint", &network.TrafficManagerAzureEndpointArgs{
+//				ProfileId:        exampleTrafficManagerProfile.ID(),
+//				Weight:           pulumi.Int(100),
+//				TargetResourceId: examplePublicIp.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // Azure Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/AzureEndpoints/example-endpoint
+//
+//	$ pulumi import azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Network/trafficManagerProfiles/example-profile/AzureEndpoints/example-endpoint
+//
 // ```
 type TrafficManagerAzureEndpoint struct {
 	pulumi.CustomResourceState
@@ -270,7 +275,7 @@ func (i *TrafficManagerAzureEndpoint) ToTrafficManagerAzureEndpointOutputWithCon
 // TrafficManagerAzureEndpointArrayInput is an input type that accepts TrafficManagerAzureEndpointArray and TrafficManagerAzureEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerAzureEndpointArrayInput` via:
 //
-//          TrafficManagerAzureEndpointArray{ TrafficManagerAzureEndpointArgs{...} }
+//	TrafficManagerAzureEndpointArray{ TrafficManagerAzureEndpointArgs{...} }
 type TrafficManagerAzureEndpointArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +300,7 @@ func (i TrafficManagerAzureEndpointArray) ToTrafficManagerAzureEndpointArrayOutp
 // TrafficManagerAzureEndpointMapInput is an input type that accepts TrafficManagerAzureEndpointMap and TrafficManagerAzureEndpointMapOutput values.
 // You can construct a concrete instance of `TrafficManagerAzureEndpointMapInput` via:
 //
-//          TrafficManagerAzureEndpointMap{ "key": TrafficManagerAzureEndpointArgs{...} }
+//	TrafficManagerAzureEndpointMap{ "key": TrafficManagerAzureEndpointArgs{...} }
 type TrafficManagerAzureEndpointMapInput interface {
 	pulumi.Input
 

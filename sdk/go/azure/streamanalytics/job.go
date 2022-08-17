@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
-// 			ResourceGroupName:                  exampleResourceGroup.Name,
-// 			Location:                           exampleResourceGroup.Location,
-// 			CompatibilityLevel:                 pulumi.String("1.2"),
-// 			DataLocale:                         pulumi.String("en-GB"),
-// 			EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
-// 			EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
-// 			EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
-// 			OutputErrorPolicy:                  pulumi.String("Drop"),
-// 			StreamingUnits:                     pulumi.Int(3),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Example"),
-// 			},
-// 			TransformationQuery: pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
+//				ResourceGroupName:                  exampleResourceGroup.Name,
+//				Location:                           exampleResourceGroup.Location,
+//				CompatibilityLevel:                 pulumi.String("1.2"),
+//				DataLocale:                         pulumi.String("en-GB"),
+//				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
+//				EventsOutOfOrderMaxDelayInSeconds:  pulumi.Int(50),
+//				EventsOutOfOrderPolicy:             pulumi.String("Adjust"),
+//				OutputErrorPolicy:                  pulumi.String("Drop"),
+//				StreamingUnits:                     pulumi.Int(3),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Example"),
+//				},
+//				TransformationQuery: pulumi.String(fmt.Sprintf("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Stream Analytics Job's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
+//
+//	$ pulumi import azure:streamanalytics/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1
+//
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -302,7 +307,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 // JobArrayInput is an input type that accepts JobArray and JobArrayOutput values.
 // You can construct a concrete instance of `JobArrayInput` via:
 //
-//          JobArray{ JobArgs{...} }
+//	JobArray{ JobArgs{...} }
 type JobArrayInput interface {
 	pulumi.Input
 
@@ -327,7 +332,7 @@ func (i JobArray) ToJobArrayOutputWithContext(ctx context.Context) JobArrayOutpu
 // JobMapInput is an input type that accepts JobMap and JobMapOutput values.
 // You can construct a concrete instance of `JobMapInput` via:
 //
-//          JobMap{ "key": JobArgs{...} }
+//	JobMap{ "key": JobArgs{...} }
 type JobMapInput interface {
 	pulumi.Input
 

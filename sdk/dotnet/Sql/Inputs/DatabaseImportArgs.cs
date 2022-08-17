@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql.Inputs
 {
 
-    public sealed class DatabaseImportArgs : Pulumi.ResourceArgs
+    public sealed class DatabaseImportArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the SQL administrator.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Sql.Inputs
         public DatabaseImportArgs()
         {
         }
+        public static new DatabaseImportArgs Empty => new DatabaseImportArgs();
     }
 }

@@ -17,25 +17,24 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetDatabase.InvokeAsync(new Azure.Sql.GetDatabaseArgs
-        ///         {
-        ///             Name = "example_db",
-        ///             ServerName = "example_db_server",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlDatabaseId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example_db",
+        ///         ServerName = "example_db_server",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlDatabaseId")]
-        ///     public Output&lt;string&gt; SqlDatabaseId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlDatabaseId"] = example.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,25 +48,24 @@ namespace Pulumi.Azure.Sql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sql.GetDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sql.GetDatabase.InvokeAsync(new Azure.Sql.GetDatabaseArgs
-        ///         {
-        ///             Name = "example_db",
-        ///             ServerName = "example_db_server",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.SqlDatabaseId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example_db",
+        ///         ServerName = "example_db_server",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("sqlDatabaseId")]
-        ///     public Output&lt;string&gt; SqlDatabaseId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["sqlDatabaseId"] = example.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.Sql
     }
 
 
-    public sealed class GetDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Database.
@@ -112,9 +110,10 @@ namespace Pulumi.Azure.Sql
         public GetDatabaseArgs()
         {
         }
+        public static new GetDatabaseArgs Empty => new GetDatabaseArgs();
     }
 
-    public sealed class GetDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Database.
@@ -149,6 +148,7 @@ namespace Pulumi.Azure.Sql
         public GetDatabaseInvokeArgs()
         {
         }
+        public static new GetDatabaseInvokeArgs Empty => new GetDatabaseInvokeArgs();
     }
 
 

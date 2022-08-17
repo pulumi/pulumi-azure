@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class CustomDomainPortalArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainPortalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Base64 Encoded Certificate. (Mutually exclusive with `key_vault_id`.)
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public CustomDomainPortalArgs()
         {
         }
+        public static new CustomDomainPortalArgs Empty => new CustomDomainPortalArgs();
     }
 }

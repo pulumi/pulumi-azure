@@ -21,102 +21,105 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.5.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.5.1.0/24"),
-// 			},
-// 			EnforcePrivateLinkServiceNetworkPolicies: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Sku:               pulumi.String("Standard"),
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Sku:               pulumi.String("Standard"),
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
-// 					Name:              examplePublicIp.Name,
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewLinkService(ctx, "exampleLinkService", &privatedns.LinkServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AutoApprovalSubscriptionIds: pulumi.StringArray{
-// 				pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			VisibilitySubscriptionIds: pulumi.StringArray{
-// 				pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-// 				exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (string, error) {
-// 					return frontendIpConfigurations[0].Id, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
-// 				&privatedns.LinkServiceNatIpConfigurationArgs{
-// 					Name:                    pulumi.String("primary"),
-// 					PrivateIpAddress:        pulumi.String("10.5.1.17"),
-// 					PrivateIpAddressVersion: pulumi.String("IPv4"),
-// 					SubnetId:                exampleSubnet.ID(),
-// 					Primary:                 pulumi.Bool(true),
-// 				},
-// 				&privatedns.LinkServiceNatIpConfigurationArgs{
-// 					Name:                    pulumi.String("secondary"),
-// 					PrivateIpAddress:        pulumi.String("10.5.1.18"),
-// 					PrivateIpAddressVersion: pulumi.String("IPv4"),
-// 					SubnetId:                exampleSubnet.ID(),
-// 					Primary:                 pulumi.Bool(false),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.5.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.5.1.0/24"),
+//				},
+//				EnforcePrivateLinkServiceNetworkPolicies: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Sku:               pulumi.String("Standard"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				Sku:               pulumi.String("Standard"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              examplePublicIp.Name,
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewLinkService(ctx, "exampleLinkService", &privatedns.LinkServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AutoApprovalSubscriptionIds: pulumi.StringArray{
+//					pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				VisibilitySubscriptionIds: pulumi.StringArray{
+//					pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (string, error) {
+//						return frontendIpConfigurations[0].Id, nil
+//					}).(pulumi.StringOutput),
+//				},
+//				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
+//					&privatedns.LinkServiceNatIpConfigurationArgs{
+//						Name:                    pulumi.String("primary"),
+//						PrivateIpAddress:        pulumi.String("10.5.1.17"),
+//						PrivateIpAddressVersion: pulumi.String("IPv4"),
+//						SubnetId:                exampleSubnet.ID(),
+//						Primary:                 pulumi.Bool(true),
+//					},
+//					&privatedns.LinkServiceNatIpConfigurationArgs{
+//						Name:                    pulumi.String("secondary"),
+//						PrivateIpAddress:        pulumi.String("10.5.1.18"),
+//						PrivateIpAddressVersion: pulumi.String("IPv4"),
+//						SubnetId:                exampleSubnet.ID(),
+//						Primary:                 pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -124,7 +127,9 @@ import (
 // Private Link Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
+//
+//	$ pulumi import azure:privatedns/linkService:LinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/privateLinkServices/service1
+//
 // ```
 type LinkService struct {
 	pulumi.CustomResourceState
@@ -317,7 +322,7 @@ func (i *LinkService) ToLinkServiceOutputWithContext(ctx context.Context) LinkSe
 // LinkServiceArrayInput is an input type that accepts LinkServiceArray and LinkServiceArrayOutput values.
 // You can construct a concrete instance of `LinkServiceArrayInput` via:
 //
-//          LinkServiceArray{ LinkServiceArgs{...} }
+//	LinkServiceArray{ LinkServiceArgs{...} }
 type LinkServiceArrayInput interface {
 	pulumi.Input
 
@@ -342,7 +347,7 @@ func (i LinkServiceArray) ToLinkServiceArrayOutputWithContext(ctx context.Contex
 // LinkServiceMapInput is an input type that accepts LinkServiceMap and LinkServiceMapOutput values.
 // You can construct a concrete instance of `LinkServiceMapInput` via:
 //
-//          LinkServiceMap{ "key": LinkServiceArgs{...} }
+//	LinkServiceMap{ "key": LinkServiceArgs{...} }
 type LinkServiceMapInput interface {
 	pulumi.Input
 

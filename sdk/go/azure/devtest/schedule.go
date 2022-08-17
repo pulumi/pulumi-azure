@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewSchedule(ctx, "exampleSchedule", &devtest.ScheduleArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LabName:           exampleLab.Name,
-// 			WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
-// 				Time: pulumi.String("1100"),
-// 				WeekDays: pulumi.StringArray{
-// 					pulumi.String("Monday"),
-// 					pulumi.String("Tuesday"),
-// 				},
-// 			},
-// 			TimeZoneId:           pulumi.String("Pacific Standard Time"),
-// 			TaskType:             pulumi.String("LabVmsStartupTask"),
-// 			NotificationSettings: nil,
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewSchedule(ctx, "exampleSchedule", &devtest.ScheduleArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				LabName:           exampleLab.Name,
+//				WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
+//					Time: pulumi.String("1100"),
+//					WeekDays: pulumi.StringArray{
+//						pulumi.String("Monday"),
+//						pulumi.String("Tuesday"),
+//					},
+//				},
+//				TimeZoneId:           pulumi.String("Pacific Standard Time"),
+//				TaskType:             pulumi.String("LabVmsStartupTask"),
+//				NotificationSettings: nil,
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // DevTest Schedule's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
+//
+//	$ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
+//
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState
@@ -263,7 +268,7 @@ func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutp
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
 // You can construct a concrete instance of `ScheduleArrayInput` via:
 //
-//          ScheduleArray{ ScheduleArgs{...} }
+//	ScheduleArray{ ScheduleArgs{...} }
 type ScheduleArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +293,7 @@ func (i ScheduleArray) ToScheduleArrayOutputWithContext(ctx context.Context) Sch
 // ScheduleMapInput is an input type that accepts ScheduleMap and ScheduleMapOutput values.
 // You can construct a concrete instance of `ScheduleMapInput` via:
 //
-//          ScheduleMap{ "key": ScheduleArgs{...} }
+//	ScheduleMap{ "key": ScheduleArgs{...} }
 type ScheduleMapInput interface {
 	pulumi.Input
 

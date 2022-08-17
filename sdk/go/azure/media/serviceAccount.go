@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Media Services Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:media/serviceAccount:ServiceAccount account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaservices/account1
+//
+//	$ pulumi import azure:media/serviceAccount:ServiceAccount account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaservices/account1
+//
 // ```
 type ServiceAccount struct {
 	pulumi.CustomResourceState
@@ -240,7 +245,7 @@ func (i *ServiceAccount) ToServiceAccountOutputWithContext(ctx context.Context) 
 // ServiceAccountArrayInput is an input type that accepts ServiceAccountArray and ServiceAccountArrayOutput values.
 // You can construct a concrete instance of `ServiceAccountArrayInput` via:
 //
-//          ServiceAccountArray{ ServiceAccountArgs{...} }
+//	ServiceAccountArray{ ServiceAccountArgs{...} }
 type ServiceAccountArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +270,7 @@ func (i ServiceAccountArray) ToServiceAccountArrayOutputWithContext(ctx context.
 // ServiceAccountMapInput is an input type that accepts ServiceAccountMap and ServiceAccountMapOutput values.
 // You can construct a concrete instance of `ServiceAccountMapInput` via:
 //
-//          ServiceAccountMap{ "key": ServiceAccountArgs{...} }
+//	ServiceAccountMap{ "key": ServiceAccountArgs{...} }
 type ServiceAccountMapInput interface {
 	pulumi.Input
 

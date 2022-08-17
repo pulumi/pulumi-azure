@@ -21,88 +21,91 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("west europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewAadDiagnosticSetting(ctx, "exampleAadDiagnosticSetting", &monitoring.AadDiagnosticSettingArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 			Logs: monitoring.AadDiagnosticSettingLogArray{
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category: pulumi.String("SignInLogs"),
-// 					Enabled:  pulumi.Bool(true),
-// 					RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(true),
-// 						Days:    pulumi.Int(1),
-// 					},
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category: pulumi.String("AuditLogs"),
-// 					Enabled:  pulumi.Bool(true),
-// 					RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(true),
-// 						Days:    pulumi.Int(1),
-// 					},
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category: pulumi.String("NonInteractiveUserSignInLogs"),
-// 					Enabled:  pulumi.Bool(true),
-// 					RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(true),
-// 						Days:    pulumi.Int(1),
-// 					},
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category: pulumi.String("ServicePrincipalSignInLogs"),
-// 					Enabled:  pulumi.Bool(true),
-// 					RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(true),
-// 						Days:    pulumi.Int(1),
-// 					},
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category:        pulumi.String("ManagedIdentitySignInLogs"),
-// 					Enabled:         pulumi.Bool(false),
-// 					RetentionPolicy: nil,
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category:        pulumi.String("ProvisioningLogs"),
-// 					Enabled:         pulumi.Bool(false),
-// 					RetentionPolicy: nil,
-// 				},
-// 				&monitoring.AadDiagnosticSettingLogArgs{
-// 					Category:        pulumi.String("ADFSSignInLogs"),
-// 					Enabled:         pulumi.Bool(false),
-// 					RetentionPolicy: nil,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("west europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewAadDiagnosticSetting(ctx, "exampleAadDiagnosticSetting", &monitoring.AadDiagnosticSettingArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				Logs: monitoring.AadDiagnosticSettingLogArray{
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category: pulumi.String("SignInLogs"),
+//						Enabled:  pulumi.Bool(true),
+//						RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(true),
+//							Days:    pulumi.Int(1),
+//						},
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category: pulumi.String("AuditLogs"),
+//						Enabled:  pulumi.Bool(true),
+//						RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(true),
+//							Days:    pulumi.Int(1),
+//						},
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category: pulumi.String("NonInteractiveUserSignInLogs"),
+//						Enabled:  pulumi.Bool(true),
+//						RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(true),
+//							Days:    pulumi.Int(1),
+//						},
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category: pulumi.String("ServicePrincipalSignInLogs"),
+//						Enabled:  pulumi.Bool(true),
+//						RetentionPolicy: &monitoring.AadDiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(true),
+//							Days:    pulumi.Int(1),
+//						},
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category:        pulumi.String("ManagedIdentitySignInLogs"),
+//						Enabled:         pulumi.Bool(false),
+//						RetentionPolicy: nil,
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category:        pulumi.String("ProvisioningLogs"),
+//						Enabled:         pulumi.Bool(false),
+//						RetentionPolicy: nil,
+//					},
+//					&monitoring.AadDiagnosticSettingLogArgs{
+//						Category:        pulumi.String("ADFSSignInLogs"),
+//						Enabled:         pulumi.Bool(false),
+//						RetentionPolicy: nil,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -110,7 +113,9 @@ import (
 // Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+//
+//	$ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+//
 // ```
 type AadDiagnosticSetting struct {
 	pulumi.CustomResourceState
@@ -251,7 +256,7 @@ func (i *AadDiagnosticSetting) ToAadDiagnosticSettingOutputWithContext(ctx conte
 // AadDiagnosticSettingArrayInput is an input type that accepts AadDiagnosticSettingArray and AadDiagnosticSettingArrayOutput values.
 // You can construct a concrete instance of `AadDiagnosticSettingArrayInput` via:
 //
-//          AadDiagnosticSettingArray{ AadDiagnosticSettingArgs{...} }
+//	AadDiagnosticSettingArray{ AadDiagnosticSettingArgs{...} }
 type AadDiagnosticSettingArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +281,7 @@ func (i AadDiagnosticSettingArray) ToAadDiagnosticSettingArrayOutputWithContext(
 // AadDiagnosticSettingMapInput is an input type that accepts AadDiagnosticSettingMap and AadDiagnosticSettingMapOutput values.
 // You can construct a concrete instance of `AadDiagnosticSettingMapInput` via:
 //
-//          AadDiagnosticSettingMap{ "key": AadDiagnosticSettingArgs{...} }
+//	AadDiagnosticSettingMap{ "key": AadDiagnosticSettingArgs{...} }
 type AadDiagnosticSettingMapInput interface {
 	pulumi.Input
 

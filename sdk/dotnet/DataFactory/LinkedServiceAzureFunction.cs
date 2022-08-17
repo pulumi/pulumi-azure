@@ -15,36 +15,37 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFunctionApp = Azure.AppService.GetFunctionApp.Invoke(new Azure.AppService.GetFunctionAppInvokeArgs
-    ///         {
-    ///             Name = "test-azure-functions",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceAzureFunction = new Azure.DataFactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", new Azure.DataFactory.LinkedServiceAzureFunctionArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Url = exampleFunctionApp.Apply(exampleFunctionApp =&gt; $"https://{exampleFunctionApp.DefaultHostname}"),
-    ///             Key = "foo",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFunctionApp = Azure.AppService.GetFunctionApp.Invoke(new()
+    ///     {
+    ///         Name = "test-azure-functions",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureFunction = new Azure.DataFactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Url = $"https://{exampleFunctionApp.Apply(getFunctionAppResult =&gt; getFunctionAppResult.DefaultHostname)}",
+    ///         Key = "foo",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction")]
-    public partial class LinkedServiceAzureFunction : Pulumi.CustomResource
+    public partial class LinkedServiceAzureFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -163,7 +164,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceAzureFunctionArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureFunctionArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -247,9 +248,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureFunctionArgs()
         {
         }
+        public static new LinkedServiceAzureFunctionArgs Empty => new LinkedServiceAzureFunctionArgs();
     }
 
-    public sealed class LinkedServiceAzureFunctionState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureFunctionState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -333,5 +335,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureFunctionState()
         {
         }
+        public static new LinkedServiceAzureFunctionState Empty => new LinkedServiceAzureFunctionState();
     }
 }

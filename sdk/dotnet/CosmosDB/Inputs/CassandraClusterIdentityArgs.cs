@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class CassandraClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class CassandraClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public CassandraClusterIdentityArgs()
         {
         }
+        public static new CassandraClusterIdentityArgs Empty => new CassandraClusterIdentityArgs();
     }
 }

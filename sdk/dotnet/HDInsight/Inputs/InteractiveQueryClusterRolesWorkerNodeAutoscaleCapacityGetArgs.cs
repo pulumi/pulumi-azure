@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number of worker nodes to autoscale to based on the cluster's activity.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityGetArgs()
         {
         }
+        public static new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityGetArgs Empty => new InteractiveQueryClusterRolesWorkerNodeAutoscaleCapacityGetArgs();
     }
 }

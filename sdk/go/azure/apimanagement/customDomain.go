@@ -23,106 +23,109 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-// 			Name:              "mykeyvault",
-// 			ResourceGroupName: "some-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("pub1"),
-// 			PublisherEmail:    pulumi.String("pub1@email.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
-// 			KeyVaultId: pulumi.String(exampleKeyVault.Id),
-// 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
-// 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
-// 					Name: pulumi.String("Self"),
-// 				},
-// 				KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
-// 					Exportable: pulumi.Bool(true),
-// 					KeySize:    pulumi.Int(2048),
-// 					KeyType:    pulumi.String("RSA"),
-// 					ReuseKey:   pulumi.Bool(true),
-// 				},
-// 				LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
-// 					&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
-// 						Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
-// 							ActionType: pulumi.String("AutoRenew"),
-// 						},
-// 						Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
-// 							DaysBeforeExpiry: pulumi.Int(30),
-// 						},
-// 					},
-// 				},
-// 				SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
-// 					ContentType: pulumi.String("application/x-pkcs12"),
-// 				},
-// 				X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
-// 					KeyUsages: pulumi.StringArray{
-// 						pulumi.String("cRLSign"),
-// 						pulumi.String("dataEncipherment"),
-// 						pulumi.String("digitalSignature"),
-// 						pulumi.String("keyAgreement"),
-// 						pulumi.String("keyCertSign"),
-// 						pulumi.String("keyEncipherment"),
-// 					},
-// 					Subject:          pulumi.String("CN=api.example.com"),
-// 					ValidityInMonths: pulumi.Int(12),
-// 					SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
-// 						DnsNames: pulumi.StringArray{
-// 							pulumi.String("api.example.com"),
-// 							pulumi.String("portal.example.com"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewCustomDomain(ctx, "exampleCustomDomain", &apimanagement.CustomDomainArgs{
-// 			ApiManagementId: exampleService.ID(),
-// 			Gateways: apimanagement.CustomDomainGatewayArray{
-// 				&apimanagement.CustomDomainGatewayArgs{
-// 					HostName:   pulumi.String("api.example.com"),
-// 					KeyVaultId: exampleCertificate.SecretId,
-// 				},
-// 			},
-// 			DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
-// 				&apimanagement.CustomDomainDeveloperPortalArgs{
-// 					HostName:   pulumi.String("portal.example.com"),
-// 					KeyVaultId: exampleCertificate.SecretId,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "mykeyvault",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: pulumi.String(exampleKeyVault.Id),
+//				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
+//					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
+//						Name: pulumi.String("Self"),
+//					},
+//					KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
+//						Exportable: pulumi.Bool(true),
+//						KeySize:    pulumi.Int(2048),
+//						KeyType:    pulumi.String("RSA"),
+//						ReuseKey:   pulumi.Bool(true),
+//					},
+//					LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
+//						&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
+//							Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
+//								ActionType: pulumi.String("AutoRenew"),
+//							},
+//							Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
+//								DaysBeforeExpiry: pulumi.Int(30),
+//							},
+//						},
+//					},
+//					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+//						ContentType: pulumi.String("application/x-pkcs12"),
+//					},
+//					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+//						KeyUsages: pulumi.StringArray{
+//							pulumi.String("cRLSign"),
+//							pulumi.String("dataEncipherment"),
+//							pulumi.String("digitalSignature"),
+//							pulumi.String("keyAgreement"),
+//							pulumi.String("keyCertSign"),
+//							pulumi.String("keyEncipherment"),
+//						},
+//						Subject:          pulumi.String("CN=api.example.com"),
+//						ValidityInMonths: pulumi.Int(12),
+//						SubjectAlternativeNames: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs{
+//							DnsNames: pulumi.StringArray{
+//								pulumi.String("api.example.com"),
+//								pulumi.String("portal.example.com"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewCustomDomain(ctx, "exampleCustomDomain", &apimanagement.CustomDomainArgs{
+//				ApiManagementId: exampleService.ID(),
+//				Gateways: apimanagement.CustomDomainGatewayArray{
+//					&apimanagement.CustomDomainGatewayArgs{
+//						HostName:   pulumi.String("api.example.com"),
+//						KeyVaultId: exampleCertificate.SecretId,
+//					},
+//				},
+//				DeveloperPortals: apimanagement.CustomDomainDeveloperPortalArray{
+//					&apimanagement.CustomDomainDeveloperPortalArgs{
+//						HostName:   pulumi.String("portal.example.com"),
+//						KeyVaultId: exampleCertificate.SecretId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -130,7 +133,9 @@ import (
 // API Management Custom Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/customDomains/default
+//
+//	$ pulumi import azure:apimanagement/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/customDomains/default
+//
 // ```
 type CustomDomain struct {
 	pulumi.CustomResourceState
@@ -271,7 +276,7 @@ func (i *CustomDomain) ToCustomDomainOutputWithContext(ctx context.Context) Cust
 // CustomDomainArrayInput is an input type that accepts CustomDomainArray and CustomDomainArrayOutput values.
 // You can construct a concrete instance of `CustomDomainArrayInput` via:
 //
-//          CustomDomainArray{ CustomDomainArgs{...} }
+//	CustomDomainArray{ CustomDomainArgs{...} }
 type CustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (i CustomDomainArray) ToCustomDomainArrayOutputWithContext(ctx context.Cont
 // CustomDomainMapInput is an input type that accepts CustomDomainMap and CustomDomainMapOutput values.
 // You can construct a concrete instance of `CustomDomainMapInput` via:
 //
-//          CustomDomainMap{ "key": CustomDomainArgs{...} }
+//	CustomDomainMap{ "key": CustomDomainArgs{...} }
 type CustomDomainMapInput interface {
 	pulumi.Input
 

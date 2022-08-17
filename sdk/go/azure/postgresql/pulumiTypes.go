@@ -20,7 +20,7 @@ type FlexibleServerHighAvailability struct {
 // FlexibleServerHighAvailabilityInput is an input type that accepts FlexibleServerHighAvailabilityArgs and FlexibleServerHighAvailabilityOutput values.
 // You can construct a concrete instance of `FlexibleServerHighAvailabilityInput` via:
 //
-//          FlexibleServerHighAvailabilityArgs{...}
+//	FlexibleServerHighAvailabilityArgs{...}
 type FlexibleServerHighAvailabilityInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrO
 // FlexibleServerHighAvailabilityPtrInput is an input type that accepts FlexibleServerHighAvailabilityArgs, FlexibleServerHighAvailabilityPtr and FlexibleServerHighAvailabilityPtrOutput values.
 // You can construct a concrete instance of `FlexibleServerHighAvailabilityPtrInput` via:
 //
-//          FlexibleServerHighAvailabilityArgs{...}
+//	        FlexibleServerHighAvailabilityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlexibleServerHighAvailabilityPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type FlexibleServerMaintenanceWindow struct {
 // FlexibleServerMaintenanceWindowInput is an input type that accepts FlexibleServerMaintenanceWindowArgs and FlexibleServerMaintenanceWindowOutput values.
 // You can construct a concrete instance of `FlexibleServerMaintenanceWindowInput` via:
 //
-//          FlexibleServerMaintenanceWindowArgs{...}
+//	FlexibleServerMaintenanceWindowArgs{...}
 type FlexibleServerMaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPt
 // FlexibleServerMaintenanceWindowPtrInput is an input type that accepts FlexibleServerMaintenanceWindowArgs, FlexibleServerMaintenanceWindowPtr and FlexibleServerMaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `FlexibleServerMaintenanceWindowPtrInput` via:
 //
-//          FlexibleServerMaintenanceWindowArgs{...}
+//	        FlexibleServerMaintenanceWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlexibleServerMaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ type ServerIdentity struct {
 // ServerIdentityInput is an input type that accepts ServerIdentityArgs and ServerIdentityOutput values.
 // You can construct a concrete instance of `ServerIdentityInput` via:
 //
-//          ServerIdentityArgs{...}
+//	ServerIdentityArgs{...}
 type ServerIdentityInput interface {
 	pulumi.Input
 
@@ -393,11 +393,11 @@ func (i ServerIdentityArgs) ToServerIdentityPtrOutputWithContext(ctx context.Con
 // ServerIdentityPtrInput is an input type that accepts ServerIdentityArgs, ServerIdentityPtr and ServerIdentityPtrOutput values.
 // You can construct a concrete instance of `ServerIdentityPtrInput` via:
 //
-//          ServerIdentityArgs{...}
+//	        ServerIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerIdentityPtrInput interface {
 	pulumi.Input
 
@@ -536,7 +536,7 @@ type ServerThreatDetectionPolicy struct {
 // ServerThreatDetectionPolicyInput is an input type that accepts ServerThreatDetectionPolicyArgs and ServerThreatDetectionPolicyOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyInput` via:
 //
-//          ServerThreatDetectionPolicyArgs{...}
+//	ServerThreatDetectionPolicyArgs{...}
 type ServerThreatDetectionPolicyInput interface {
 	pulumi.Input
 
@@ -584,11 +584,11 @@ func (i ServerThreatDetectionPolicyArgs) ToServerThreatDetectionPolicyPtrOutputW
 // ServerThreatDetectionPolicyPtrInput is an input type that accepts ServerThreatDetectionPolicyArgs, ServerThreatDetectionPolicyPtr and ServerThreatDetectionPolicyPtrOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyPtrInput` via:
 //
-//          ServerThreatDetectionPolicyArgs{...}
+//	        ServerThreatDetectionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerThreatDetectionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -779,7 +779,7 @@ type GetServerIdentity struct {
 // GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
 // You can construct a concrete instance of `GetServerIdentityInput` via:
 //
-//          GetServerIdentityArgs{...}
+//	GetServerIdentityArgs{...}
 type GetServerIdentityInput interface {
 	pulumi.Input
 
@@ -811,7 +811,7 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
-//          GetServerIdentityArray{ GetServerIdentityArgs{...} }
+//	GetServerIdentityArray{ GetServerIdentityArgs{...} }
 type GetServerIdentityArrayInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetNetworkProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether to enable accelerated networking or not. Defaults to `false`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetNetworkProfileGetArgs()
         {
         }
+        public static new ScaleSetNetworkProfileGetArgs Empty => new ScaleSetNetworkProfileGetArgs();
     }
 }

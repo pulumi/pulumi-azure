@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterNodeTypeEphemeralPortsGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterNodeTypeEphemeralPortsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of the Ephemeral Port Range on this Node Type.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterNodeTypeEphemeralPortsGetArgs()
         {
         }
+        public static new ClusterNodeTypeEphemeralPortsGetArgs Empty => new ClusterNodeTypeEphemeralPortsGetArgs();
     }
 }

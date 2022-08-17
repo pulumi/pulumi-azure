@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class LinkedServiceAzureFunctionKeyVaultKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureFunctionKeyVaultKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of an existing Key Vault Data Factory Linked Service.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public LinkedServiceAzureFunctionKeyVaultKeyGetArgs()
         {
         }
+        public static new LinkedServiceAzureFunctionKeyVaultKeyGetArgs Empty => new LinkedServiceAzureFunctionKeyVaultKeyGetArgs();
     }
 }

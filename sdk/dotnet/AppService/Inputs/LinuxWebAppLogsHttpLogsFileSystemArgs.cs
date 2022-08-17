@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppLogsHttpLogsFileSystemArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppLogsHttpLogsFileSystemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The retention period in days. A values of `0` means no retention.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppLogsHttpLogsFileSystemArgs()
         {
         }
+        public static new LinuxWebAppLogsHttpLogsFileSystemArgs Empty => new LinuxWebAppLogsHttpLogsFileSystemArgs();
     }
 }

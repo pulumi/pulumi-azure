@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionWebhookEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionWebhookEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionWebhookEndpointGetArgs()
         {
         }
+        public static new EventSubscriptionWebhookEndpointGetArgs Empty => new EventSubscriptionWebhookEndpointGetArgs();
     }
 }

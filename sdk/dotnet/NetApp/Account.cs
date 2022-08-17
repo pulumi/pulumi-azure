@@ -17,37 +17,36 @@ namespace Pulumi.Azure.NetApp
     /// ## NetApp Account Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
-    ///             {
-    ///                 Username = "aduser",
-    ///                 Password = "aduserpwd",
-    ///                 SmbServerName = "SMBSERVER",
-    ///                 DnsServers = 
-    ///                 {
-    ///                     "1.2.3.4",
-    ///                 },
-    ///                 Domain = "westcentralus.com",
-    ///                 OrganizationalUnit = "OU=FirstLevel",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ActiveDirectory = new Azure.NetApp.Inputs.AccountActiveDirectoryArgs
+    ///         {
+    ///             Username = "aduser",
+    ///             Password = "aduserpwd",
+    ///             SmbServerName = "SMBSERVER",
+    ///             DnsServers = new[]
+    ///             {
+    ///                 "1.2.3.4",
+    ///             },
+    ///             Domain = "westcentralus.com",
+    ///             OrganizationalUnit = "OU=FirstLevel",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Azure.NetApp
     /// ```
     /// </summary>
     [AzureResourceType("azure:netapp/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `active_directory` block as defined below.
@@ -135,7 +134,7 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `active_directory` block as defined below.
@@ -176,9 +175,10 @@ namespace Pulumi.Azure.NetApp
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `active_directory` block as defined below.
@@ -219,5 +219,6 @@ namespace Pulumi.Azure.NetApp
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "exampleTimeSeriesInsightsStandardEnvironment", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("S1_1"),
-// 			DataRetentionTime: pulumi.String("P30D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewTimeSeriesInsightsReferenceDataSet(ctx, "exampleTimeSeriesInsightsReferenceDataSet", &iot.TimeSeriesInsightsReferenceDataSetArgs{
-// 			TimeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.ID(),
-// 			Location:                        exampleResourceGroup.Location,
-// 			KeyProperties: iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArray{
-// 				&iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{
-// 					Name: pulumi.String("keyProperty1"),
-// 					Type: pulumi.String("String"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "exampleTimeSeriesInsightsStandardEnvironment", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("S1_1"),
+//				DataRetentionTime: pulumi.String("P30D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewTimeSeriesInsightsReferenceDataSet(ctx, "exampleTimeSeriesInsightsReferenceDataSet", &iot.TimeSeriesInsightsReferenceDataSetArgs{
+//				TimeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.ID(),
+//				Location:                        exampleResourceGroup.Location,
+//				KeyProperties: iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArray{
+//					&iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{
+//						Name: pulumi.String("keyProperty1"),
+//						Type: pulumi.String("String"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
+//
+//	$ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
+//
 // ```
 type TimeSeriesInsightsReferenceDataSet struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *TimeSeriesInsightsReferenceDataSet) ToTimeSeriesInsightsReferenceDataSe
 // TimeSeriesInsightsReferenceDataSetArrayInput is an input type that accepts TimeSeriesInsightsReferenceDataSetArray and TimeSeriesInsightsReferenceDataSetArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetArrayInput` via:
 //
-//          TimeSeriesInsightsReferenceDataSetArray{ TimeSeriesInsightsReferenceDataSetArgs{...} }
+//	TimeSeriesInsightsReferenceDataSetArray{ TimeSeriesInsightsReferenceDataSetArgs{...} }
 type TimeSeriesInsightsReferenceDataSetArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i TimeSeriesInsightsReferenceDataSetArray) ToTimeSeriesInsightsReferenceDa
 // TimeSeriesInsightsReferenceDataSetMapInput is an input type that accepts TimeSeriesInsightsReferenceDataSetMap and TimeSeriesInsightsReferenceDataSetMapOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsReferenceDataSetMapInput` via:
 //
-//          TimeSeriesInsightsReferenceDataSetMap{ "key": TimeSeriesInsightsReferenceDataSetArgs{...} }
+//	TimeSeriesInsightsReferenceDataSetMap{ "key": TimeSeriesInsightsReferenceDataSetArgs{...} }
 type TimeSeriesInsightsReferenceDataSetMapInput interface {
 	pulumi.Input
 

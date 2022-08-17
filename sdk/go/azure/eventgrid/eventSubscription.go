@@ -19,51 +19,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewEventSubscription(ctx, "exampleEventSubscription", &eventgrid.EventSubscriptionArgs{
-// 			Scope: exampleResourceGroup.ID(),
-// 			StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
-// 				StorageAccountId: exampleAccount.ID(),
-// 				QueueName:        exampleQueue.Name,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewEventSubscription(ctx, "exampleEventSubscription", &eventgrid.EventSubscriptionArgs{
+//				Scope: exampleResourceGroup.ID(),
+//				StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
+//					StorageAccountId: exampleAccount.ID(),
+//					QueueName:        exampleQueue.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // EventGrid Event Subscription's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
+//
+//	$ pulumi import azure:eventgrid/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
+//
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState
@@ -368,7 +373,7 @@ func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Con
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `EventSubscriptionArrayInput` via:
 //
-//          EventSubscriptionArray{ EventSubscriptionArgs{...} }
+//	EventSubscriptionArray{ EventSubscriptionArgs{...} }
 type EventSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -393,7 +398,7 @@ func (i EventSubscriptionArray) ToEventSubscriptionArrayOutputWithContext(ctx co
 // EventSubscriptionMapInput is an input type that accepts EventSubscriptionMap and EventSubscriptionMapOutput values.
 // You can construct a concrete instance of `EventSubscriptionMapInput` via:
 //
-//          EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
+//	EventSubscriptionMap{ "key": EventSubscriptionArgs{...} }
 type EventSubscriptionMapInput interface {
 	pulumi.Input
 

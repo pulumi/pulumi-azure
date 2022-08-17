@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterOmsAgentOmsAgentIdentityArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterOmsAgentOmsAgentIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterOmsAgentOmsAgentIdentityArgs()
         {
         }
+        public static new KubernetesClusterOmsAgentOmsAgentIdentityArgs Empty => new KubernetesClusterOmsAgentOmsAgentIdentityArgs();
     }
 }

@@ -10,165 +10,188 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService
 {
     /// <summary>
-    /// Manages an App Service Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration)).
+    /// Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
     /// 
-    /// &gt; **Note:** This resource can be used for both `azure.appservice.AppService` and `azure.appservice.FunctionApp`.
+    /// This resource can be used for both App Services and Function Apps.
     /// 
-    /// &gt; **Note:** There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
+    /// &gt; **Note:** The following resources support associating the vNet for Regional vNet Integration directly on the resource and via the `azure.appservice.VirtualNetworkSwiftConnection` resource. You can't use both simultaneously.
+    /// 
+    ///  - azure.appservice.LinuxFunctionApp
+    ///  - azure.appservice.LinuxFunctionAppSlot
+    ///  - azure.appservice.LinuxWebApp
+    ///  - azure.appservice.LinuxWebAppSlot
+    ///  - azure.logicapps.Standard
+    ///  - azure.appservice.WindowsFunctionApp
+    ///  - azure.appservice.WindowsFunctionAppSlot
+    ///  - azure.appservice.WindowsWebApp
+    ///  - azure.appservice.WindowsWebAppSlot
+    /// 
+    /// This resource requires the `Microsoft.Network/virtualNetworks/subnets/write` permission scope on the subnet.
+    /// 
+    /// The resource specific vNet integration requires the `Microsoft.Network/virtualNetworks/subnets/join/action` permission scope.
+    /// 
+    /// There is a hard limit of [one VNet integration per App Service Plan](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
     /// Multiple apps in the same App Service plan can use the same VNet.
     /// 
     /// ## Example Usage
     /// ### With App Service)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "example-delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "example-delegation",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.Web/serverFarms",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.Web/serverFarms",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
-    ///                         },
+    ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
-    ///         {
-    ///             AppServiceId = exampleAppService.Id,
-    ///             SubnetId = exampleSubnet.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new()
+    ///     {
+    ///         AppServiceId = exampleAppService.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Function App)
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "example-delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "example-delegation",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.Web/serverFarms",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.Web/serverFarms",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/action",
-    ///                         },
+    ///                         "Microsoft.Network/virtualNetworks/subnets/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///         var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new Azure.AppService.VirtualNetworkSwiftConnectionArgs
-    ///         {
-    ///             AppServiceId = exampleFunctionApp.Id,
-    ///             SubnetId = exampleSubnet.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("exampleVirtualNetworkSwiftConnection", new()
+    ///     {
+    ///         AppServiceId = exampleFunctionApp.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -180,7 +203,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection")]
-    public partial class VirtualNetworkSwiftConnection : Pulumi.CustomResource
+    public partial class VirtualNetworkSwiftConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -238,7 +261,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class VirtualNetworkSwiftConnectionArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkSwiftConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -255,9 +278,10 @@ namespace Pulumi.Azure.AppService
         public VirtualNetworkSwiftConnectionArgs()
         {
         }
+        public static new VirtualNetworkSwiftConnectionArgs Empty => new VirtualNetworkSwiftConnectionArgs();
     }
 
-    public sealed class VirtualNetworkSwiftConnectionState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkSwiftConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -274,5 +298,6 @@ namespace Pulumi.Azure.AppService
         public VirtualNetworkSwiftConnectionState()
         {
         }
+        public static new VirtualNetworkSwiftConnectionState Empty => new VirtualNetworkSwiftConnectionState();
     }
 }

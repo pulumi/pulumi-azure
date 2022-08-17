@@ -13,47 +13,47 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleMxRecord = new Azure.Dns.MxRecord("exampleMxRecord", new Azure.Dns.MxRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.Dns.Inputs.MxRecordRecordArgs
-    ///                 {
-    ///                     Preference = "10",
-    ///                     Exchange = "mail1.contoso.com",
-    ///                 },
-    ///                 new Azure.Dns.Inputs.MxRecordRecordArgs
-    ///                 {
-    ///                     Preference = "20",
-    ///                     Exchange = "mail2.contoso.com",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleMxRecord = new Azure.Dns.MxRecord("exampleMxRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///             {
+    ///                 Preference = "10",
+    ///                 Exchange = "mail1.contoso.com",
+    ///             },
+    ///             new Azure.Dns.Inputs.MxRecordRecordArgs
+    ///             {
+    ///                 Preference = "20",
+    ///                 Exchange = "mail2.contoso.com",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/mxRecord:MxRecord")]
-    public partial class MxRecord : Pulumi.CustomResource
+    public partial class MxRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS MX Record.
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class MxRecordArgs : Pulumi.ResourceArgs
+    public sealed class MxRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
@@ -206,9 +206,10 @@ namespace Pulumi.Azure.Dns
         public MxRecordArgs()
         {
         }
+        public static new MxRecordArgs Empty => new MxRecordArgs();
     }
 
-    public sealed class MxRecordState : Pulumi.ResourceArgs
+    public sealed class MxRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS MX Record.
@@ -267,5 +268,6 @@ namespace Pulumi.Azure.Dns
         public MxRecordState()
         {
         }
+        public static new MxRecordState Empty => new MxRecordState();
     }
 }

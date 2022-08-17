@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesTemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteNestedItemsDuringDeletion", required: true)]
         public Input<bool> DeleteNestedItemsDuringDeletion { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesTemplateDeploymentArgs()
         {
         }
+        public static new ProviderFeaturesTemplateDeploymentArgs Empty => new ProviderFeaturesTemplateDeploymentArgs();
     }
 }

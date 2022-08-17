@@ -134,6 +134,8 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
         """
         Manages a Spring Cloud API Portal Domain.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         ## Example Usage
 
         ```python
@@ -174,6 +176,8 @@ class SpringCloudApiPortalCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud API Portal Domain.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         ## Example Usage
 

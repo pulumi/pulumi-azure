@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolIdentityArgs : Pulumi.ResourceArgs
+    public sealed class PoolIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolIdentityArgs()
         {
         }
+        public static new PoolIdentityArgs Empty => new PoolIdentityArgs();
     }
 }

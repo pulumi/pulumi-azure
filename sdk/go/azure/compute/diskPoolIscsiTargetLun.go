@@ -18,7 +18,9 @@ import (
 // iSCSI Target Luns can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+//
+//	$ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+//
 // ```
 type DiskPoolIscsiTargetLun struct {
 	pulumi.CustomResourceState
@@ -138,7 +140,7 @@ func (i *DiskPoolIscsiTargetLun) ToDiskPoolIscsiTargetLunOutputWithContext(ctx c
 // DiskPoolIscsiTargetLunArrayInput is an input type that accepts DiskPoolIscsiTargetLunArray and DiskPoolIscsiTargetLunArrayOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetLunArrayInput` via:
 //
-//          DiskPoolIscsiTargetLunArray{ DiskPoolIscsiTargetLunArgs{...} }
+//	DiskPoolIscsiTargetLunArray{ DiskPoolIscsiTargetLunArgs{...} }
 type DiskPoolIscsiTargetLunArrayInput interface {
 	pulumi.Input
 
@@ -163,7 +165,7 @@ func (i DiskPoolIscsiTargetLunArray) ToDiskPoolIscsiTargetLunArrayOutputWithCont
 // DiskPoolIscsiTargetLunMapInput is an input type that accepts DiskPoolIscsiTargetLunMap and DiskPoolIscsiTargetLunMapOutput values.
 // You can construct a concrete instance of `DiskPoolIscsiTargetLunMapInput` via:
 //
-//          DiskPoolIscsiTargetLunMap{ "key": DiskPoolIscsiTargetLunArgs{...} }
+//	DiskPoolIscsiTargetLunMap{ "key": DiskPoolIscsiTargetLunArgs{...} }
 type DiskPoolIscsiTargetLunMapInput interface {
 	pulumi.Input
 

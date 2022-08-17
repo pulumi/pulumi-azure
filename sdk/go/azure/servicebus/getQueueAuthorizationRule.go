@@ -18,25 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := servicebus.LookupQueueAuthorizationRule(ctx, &servicebus.LookupQueueAuthorizationRuleArgs{
-// 			Name:              "example-tfex_name",
-// 			ResourceGroupName: pulumi.StringRef("example-resources"),
-// 			QueueName:         pulumi.StringRef("example-servicebus_queue"),
-// 			NamespaceName:     pulumi.StringRef("example-namespace"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := servicebus.LookupQueueAuthorizationRule(ctx, &servicebus.LookupQueueAuthorizationRuleArgs{
+//				Name:              "example-tfex_name",
+//				ResourceGroupName: pulumi.StringRef("example-resources"),
+//				QueueName:         pulumi.StringRef("example-servicebus_queue"),
+//				NamespaceName:     pulumi.StringRef("example-namespace"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupQueueAuthorizationRuleResult, error) {
 	var rv LookupQueueAuthorizationRuleResult

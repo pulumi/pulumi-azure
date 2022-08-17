@@ -19,27 +19,24 @@ namespace Pulumi.Azure.DataProtection
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataProtection.GetBackupVault.InvokeAsync(new Azure.DataProtection.GetBackupVaultArgs
-        ///         {
-        ///             Name = "existing-backup-vault",
-        ///             ResourceGroupName = "existing-resource-group",
-        ///         }));
-        ///         this.AzurermDataProtectionBackupVaultId = data.Azurerm_vpn_gateway.Example.Id;
-        ///         this.AzurermDataProtectionBackupVaultPrincipalId = example.Apply(example =&gt; example.Identities?[0]?.PrincipalId);
-        ///     }
+        ///         Name = "existing-backup-vault",
+        ///         ResourceGroupName = "existing-resource-group",
+        ///     });
         /// 
-        ///     [Output("azurermDataProtectionBackupVaultId")]
-        ///     public Output&lt;string&gt; AzurermDataProtectionBackupVaultId { get; set; }
-        ///     [Output("azurermDataProtectionBackupVaultPrincipalId")]
-        ///     public Output&lt;string&gt; AzurermDataProtectionBackupVaultPrincipalId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
+        ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +52,24 @@ namespace Pulumi.Azure.DataProtection
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataProtection.GetBackupVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataProtection.GetBackupVault.InvokeAsync(new Azure.DataProtection.GetBackupVaultArgs
-        ///         {
-        ///             Name = "existing-backup-vault",
-        ///             ResourceGroupName = "existing-resource-group",
-        ///         }));
-        ///         this.AzurermDataProtectionBackupVaultId = data.Azurerm_vpn_gateway.Example.Id;
-        ///         this.AzurermDataProtectionBackupVaultPrincipalId = example.Apply(example =&gt; example.Identities?[0]?.PrincipalId);
-        ///     }
+        ///         Name = "existing-backup-vault",
+        ///         ResourceGroupName = "existing-resource-group",
+        ///     });
         /// 
-        ///     [Output("azurermDataProtectionBackupVaultId")]
-        ///     public Output&lt;string&gt; AzurermDataProtectionBackupVaultId { get; set; }
-        ///     [Output("azurermDataProtectionBackupVaultPrincipalId")]
-        ///     public Output&lt;string&gt; AzurermDataProtectionBackupVaultPrincipalId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
+        ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +79,7 @@ namespace Pulumi.Azure.DataProtection
     }
 
 
-    public sealed class GetBackupVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Backup Vault.
@@ -102,9 +96,10 @@ namespace Pulumi.Azure.DataProtection
         public GetBackupVaultArgs()
         {
         }
+        public static new GetBackupVaultArgs Empty => new GetBackupVaultArgs();
     }
 
-    public sealed class GetBackupVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBackupVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Backup Vault.
@@ -121,6 +116,7 @@ namespace Pulumi.Azure.DataProtection
         public GetBackupVaultInvokeArgs()
         {
         }
+        public static new GetBackupVaultInvokeArgs Empty => new GetBackupVaultInvokeArgs();
     }
 
 

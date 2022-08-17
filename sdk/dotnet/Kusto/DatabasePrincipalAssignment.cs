@@ -15,49 +15,51 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///             HotCachePeriod = "P7D",
-    ///             SoftDeletePeriod = "P31D",
-    ///         });
-    ///         var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new Azure.Kusto.DatabasePrincipalAssignmentArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClusterName = exampleCluster.Name,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             PrincipalId = current.Apply(current =&gt; current.ClientId),
-    ///             PrincipalType = "App",
-    ///             Role = "Viewer",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterName = exampleCluster.Name,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         PrincipalType = "App",
+    ///         Role = "Viewer",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +71,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment")]
-    public partial class DatabasePrincipalAssignment : Pulumi.CustomResource
+    public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -172,7 +174,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class DatabasePrincipalAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class DatabasePrincipalAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -222,9 +224,10 @@ namespace Pulumi.Azure.Kusto
         public DatabasePrincipalAssignmentArgs()
         {
         }
+        public static new DatabasePrincipalAssignmentArgs Empty => new DatabasePrincipalAssignmentArgs();
     }
 
-    public sealed class DatabasePrincipalAssignmentState : Pulumi.ResourceArgs
+    public sealed class DatabasePrincipalAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the cluster in which to create the resource. Changing this forces a new resource to be created.
@@ -286,5 +289,6 @@ namespace Pulumi.Azure.Kusto
         public DatabasePrincipalAssignmentState()
         {
         }
+        public static new DatabasePrincipalAssignmentState Empty => new DatabasePrincipalAssignmentState();
     }
 }

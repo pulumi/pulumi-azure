@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountNetworkRulesGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountNetworkRulesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("bypasses")]
         private InputList<string>? _bypasses;
@@ -70,5 +70,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountNetworkRulesGetArgs()
         {
         }
+        public static new AccountNetworkRulesGetArgs Empty => new AccountNetworkRulesGetArgs();
     }
 }

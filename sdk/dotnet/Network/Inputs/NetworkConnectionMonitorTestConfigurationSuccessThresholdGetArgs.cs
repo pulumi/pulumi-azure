@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum percentage of failed checks permitted for a test to be successful.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs Empty => new NetworkConnectionMonitorTestConfigurationSuccessThresholdGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterWindowsProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterWindowsProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterWindowsProfileGetArgs()
         {
         }
+        public static new KubernetesClusterWindowsProfileGetArgs Empty => new KubernetesClusterWindowsProfileGetArgs();
     }
 }

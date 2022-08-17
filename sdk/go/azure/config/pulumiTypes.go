@@ -26,7 +26,7 @@ type Features struct {
 // FeaturesInput is an input type that accepts FeaturesArgs and FeaturesOutput values.
 // You can construct a concrete instance of `FeaturesInput` via:
 //
-//          FeaturesArgs{...}
+//	FeaturesArgs{...}
 type FeaturesInput interface {
 	pulumi.Input
 
@@ -121,7 +121,7 @@ type FeaturesApiManagement struct {
 // FeaturesApiManagementInput is an input type that accepts FeaturesApiManagementArgs and FeaturesApiManagementOutput values.
 // You can construct a concrete instance of `FeaturesApiManagementInput` via:
 //
-//          FeaturesApiManagementArgs{...}
+//	FeaturesApiManagementArgs{...}
 type FeaturesApiManagementInput interface {
 	pulumi.Input
 
@@ -157,11 +157,11 @@ func (i FeaturesApiManagementArgs) ToFeaturesApiManagementPtrOutputWithContext(c
 // FeaturesApiManagementPtrInput is an input type that accepts FeaturesApiManagementArgs, FeaturesApiManagementPtr and FeaturesApiManagementPtrOutput values.
 // You can construct a concrete instance of `FeaturesApiManagementPtrInput` via:
 //
-//          FeaturesApiManagementArgs{...}
+//	        FeaturesApiManagementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesApiManagementPtrInput interface {
 	pulumi.Input
 
@@ -268,7 +268,7 @@ type FeaturesApplicationInsights struct {
 // FeaturesApplicationInsightsInput is an input type that accepts FeaturesApplicationInsightsArgs and FeaturesApplicationInsightsOutput values.
 // You can construct a concrete instance of `FeaturesApplicationInsightsInput` via:
 //
-//          FeaturesApplicationInsightsArgs{...}
+//	FeaturesApplicationInsightsArgs{...}
 type FeaturesApplicationInsightsInput interface {
 	pulumi.Input
 
@@ -303,11 +303,11 @@ func (i FeaturesApplicationInsightsArgs) ToFeaturesApplicationInsightsPtrOutputW
 // FeaturesApplicationInsightsPtrInput is an input type that accepts FeaturesApplicationInsightsArgs, FeaturesApplicationInsightsPtr and FeaturesApplicationInsightsPtrOutput values.
 // You can construct a concrete instance of `FeaturesApplicationInsightsPtrInput` via:
 //
-//          FeaturesApplicationInsightsArgs{...}
+//	        FeaturesApplicationInsightsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesApplicationInsightsPtrInput interface {
 	pulumi.Input
 
@@ -401,7 +401,7 @@ type FeaturesCognitiveAccount struct {
 // FeaturesCognitiveAccountInput is an input type that accepts FeaturesCognitiveAccountArgs and FeaturesCognitiveAccountOutput values.
 // You can construct a concrete instance of `FeaturesCognitiveAccountInput` via:
 //
-//          FeaturesCognitiveAccountArgs{...}
+//	FeaturesCognitiveAccountArgs{...}
 type FeaturesCognitiveAccountInput interface {
 	pulumi.Input
 
@@ -436,11 +436,11 @@ func (i FeaturesCognitiveAccountArgs) ToFeaturesCognitiveAccountPtrOutputWithCon
 // FeaturesCognitiveAccountPtrInput is an input type that accepts FeaturesCognitiveAccountArgs, FeaturesCognitiveAccountPtr and FeaturesCognitiveAccountPtrOutput values.
 // You can construct a concrete instance of `FeaturesCognitiveAccountPtrInput` via:
 //
-//          FeaturesCognitiveAccountArgs{...}
+//	        FeaturesCognitiveAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesCognitiveAccountPtrInput interface {
 	pulumi.Input
 
@@ -542,7 +542,7 @@ type FeaturesKeyVault struct {
 // FeaturesKeyVaultInput is an input type that accepts FeaturesKeyVaultArgs and FeaturesKeyVaultOutput values.
 // You can construct a concrete instance of `FeaturesKeyVaultInput` via:
 //
-//          FeaturesKeyVaultArgs{...}
+//	FeaturesKeyVaultArgs{...}
 type FeaturesKeyVaultInput interface {
 	pulumi.Input
 
@@ -585,11 +585,11 @@ func (i FeaturesKeyVaultArgs) ToFeaturesKeyVaultPtrOutputWithContext(ctx context
 // FeaturesKeyVaultPtrInput is an input type that accepts FeaturesKeyVaultArgs, FeaturesKeyVaultPtr and FeaturesKeyVaultPtrOutput values.
 // You can construct a concrete instance of `FeaturesKeyVaultPtrInput` via:
 //
-//          FeaturesKeyVaultArgs{...}
+//	        FeaturesKeyVaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -787,7 +787,7 @@ type FeaturesLogAnalyticsWorkspace struct {
 // FeaturesLogAnalyticsWorkspaceInput is an input type that accepts FeaturesLogAnalyticsWorkspaceArgs and FeaturesLogAnalyticsWorkspaceOutput values.
 // You can construct a concrete instance of `FeaturesLogAnalyticsWorkspaceInput` via:
 //
-//          FeaturesLogAnalyticsWorkspaceArgs{...}
+//	FeaturesLogAnalyticsWorkspaceArgs{...}
 type FeaturesLogAnalyticsWorkspaceInput interface {
 	pulumi.Input
 
@@ -822,11 +822,11 @@ func (i FeaturesLogAnalyticsWorkspaceArgs) ToFeaturesLogAnalyticsWorkspacePtrOut
 // FeaturesLogAnalyticsWorkspacePtrInput is an input type that accepts FeaturesLogAnalyticsWorkspaceArgs, FeaturesLogAnalyticsWorkspacePtr and FeaturesLogAnalyticsWorkspacePtrOutput values.
 // You can construct a concrete instance of `FeaturesLogAnalyticsWorkspacePtrInput` via:
 //
-//          FeaturesLogAnalyticsWorkspaceArgs{...}
+//	        FeaturesLogAnalyticsWorkspaceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesLogAnalyticsWorkspacePtrInput interface {
 	pulumi.Input
 
@@ -920,7 +920,7 @@ type FeaturesNetwork struct {
 // FeaturesNetworkInput is an input type that accepts FeaturesNetworkArgs and FeaturesNetworkOutput values.
 // You can construct a concrete instance of `FeaturesNetworkInput` via:
 //
-//          FeaturesNetworkArgs{...}
+//	FeaturesNetworkArgs{...}
 type FeaturesNetworkInput interface {
 	pulumi.Input
 
@@ -955,11 +955,11 @@ func (i FeaturesNetworkArgs) ToFeaturesNetworkPtrOutputWithContext(ctx context.C
 // FeaturesNetworkPtrInput is an input type that accepts FeaturesNetworkArgs, FeaturesNetworkPtr and FeaturesNetworkPtrOutput values.
 // You can construct a concrete instance of `FeaturesNetworkPtrInput` via:
 //
-//          FeaturesNetworkArgs{...}
+//	        FeaturesNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesNetworkPtrInput interface {
 	pulumi.Input
 
@@ -1053,7 +1053,7 @@ type FeaturesResourceGroup struct {
 // FeaturesResourceGroupInput is an input type that accepts FeaturesResourceGroupArgs and FeaturesResourceGroupOutput values.
 // You can construct a concrete instance of `FeaturesResourceGroupInput` via:
 //
-//          FeaturesResourceGroupArgs{...}
+//	FeaturesResourceGroupArgs{...}
 type FeaturesResourceGroupInput interface {
 	pulumi.Input
 
@@ -1088,11 +1088,11 @@ func (i FeaturesResourceGroupArgs) ToFeaturesResourceGroupPtrOutputWithContext(c
 // FeaturesResourceGroupPtrInput is an input type that accepts FeaturesResourceGroupArgs, FeaturesResourceGroupPtr and FeaturesResourceGroupPtrOutput values.
 // You can construct a concrete instance of `FeaturesResourceGroupPtrInput` via:
 //
-//          FeaturesResourceGroupArgs{...}
+//	        FeaturesResourceGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesResourceGroupPtrInput interface {
 	pulumi.Input
 
@@ -1186,7 +1186,7 @@ type FeaturesTemplateDeployment struct {
 // FeaturesTemplateDeploymentInput is an input type that accepts FeaturesTemplateDeploymentArgs and FeaturesTemplateDeploymentOutput values.
 // You can construct a concrete instance of `FeaturesTemplateDeploymentInput` via:
 //
-//          FeaturesTemplateDeploymentArgs{...}
+//	FeaturesTemplateDeploymentArgs{...}
 type FeaturesTemplateDeploymentInput interface {
 	pulumi.Input
 
@@ -1221,11 +1221,11 @@ func (i FeaturesTemplateDeploymentArgs) ToFeaturesTemplateDeploymentPtrOutputWit
 // FeaturesTemplateDeploymentPtrInput is an input type that accepts FeaturesTemplateDeploymentArgs, FeaturesTemplateDeploymentPtr and FeaturesTemplateDeploymentPtrOutput values.
 // You can construct a concrete instance of `FeaturesTemplateDeploymentPtrInput` via:
 //
-//          FeaturesTemplateDeploymentArgs{...}
+//	        FeaturesTemplateDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesTemplateDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -1321,7 +1321,7 @@ type FeaturesVirtualMachine struct {
 // FeaturesVirtualMachineInput is an input type that accepts FeaturesVirtualMachineArgs and FeaturesVirtualMachineOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineInput` via:
 //
-//          FeaturesVirtualMachineArgs{...}
+//	FeaturesVirtualMachineArgs{...}
 type FeaturesVirtualMachineInput interface {
 	pulumi.Input
 
@@ -1358,11 +1358,11 @@ func (i FeaturesVirtualMachineArgs) ToFeaturesVirtualMachinePtrOutputWithContext
 // FeaturesVirtualMachinePtrInput is an input type that accepts FeaturesVirtualMachineArgs, FeaturesVirtualMachinePtr and FeaturesVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachinePtrInput` via:
 //
-//          FeaturesVirtualMachineArgs{...}
+//	        FeaturesVirtualMachineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -1484,7 +1484,7 @@ type FeaturesVirtualMachineScaleSet struct {
 // FeaturesVirtualMachineScaleSetInput is an input type that accepts FeaturesVirtualMachineScaleSetArgs and FeaturesVirtualMachineScaleSetOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineScaleSetInput` via:
 //
-//          FeaturesVirtualMachineScaleSetArgs{...}
+//	FeaturesVirtualMachineScaleSetArgs{...}
 type FeaturesVirtualMachineScaleSetInput interface {
 	pulumi.Input
 
@@ -1521,11 +1521,11 @@ func (i FeaturesVirtualMachineScaleSetArgs) ToFeaturesVirtualMachineScaleSetPtrO
 // FeaturesVirtualMachineScaleSetPtrInput is an input type that accepts FeaturesVirtualMachineScaleSetArgs, FeaturesVirtualMachineScaleSetPtr and FeaturesVirtualMachineScaleSetPtrOutput values.
 // You can construct a concrete instance of `FeaturesVirtualMachineScaleSetPtrInput` via:
 //
-//          FeaturesVirtualMachineScaleSetArgs{...}
+//	        FeaturesVirtualMachineScaleSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FeaturesVirtualMachineScaleSetPtrInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppSlotAuthSettingsActiveDirectoryGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSlotAuthSettingsActiveDirectoryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppSlotAuthSettingsActiveDirectoryGetArgs()
         {
         }
+        public static new FunctionAppSlotAuthSettingsActiveDirectoryGetArgs Empty => new FunctionAppSlotAuthSettingsActiveDirectoryGetArgs();
     }
 }

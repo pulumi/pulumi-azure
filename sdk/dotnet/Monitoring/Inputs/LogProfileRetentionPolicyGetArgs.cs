@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class LogProfileRetentionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class LogProfileRetentionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days for the retention policy. Defaults to 0.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public LogProfileRetentionPolicyGetArgs()
         {
         }
+        public static new LogProfileRetentionPolicyGetArgs Empty => new LogProfileRetentionPolicyGetArgs();
     }
 }

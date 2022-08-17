@@ -20,66 +20,133 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			ServiceProviderName: pulumi.String("Equinix"),
-// 			PeeringLocation:     pulumi.String("Silicon Valley"),
-// 			BandwidthInMbps:     pulumi.Int(50),
-// 			Sku: &network.ExpressRouteCircuitSkuArgs{
-// 				Tier:   pulumi.String("Standard"),
-// 				Family: pulumi.String("MeteredData"),
-// 			},
-// 			AllowClassicOperations: pulumi.Bool(false),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewExpressRouteCircuitPeering(ctx, "exampleExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
-// 			PeeringType:                pulumi.String("MicrosoftPeering"),
-// 			ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			PeerAsn:                    pulumi.Int(100),
-// 			PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
-// 			SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
-// 			VlanId:                     pulumi.Int(300),
-// 			MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
-// 				AdvertisedPublicPrefixes: pulumi.StringArray{
-// 					pulumi.String("123.1.0.0/24"),
-// 				},
-// 			},
-// 			Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
-// 				PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
-// 				SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
-// 				MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
-// 					AdvertisedPublicPrefixes: pulumi.StringArray{
-// 						pulumi.String("2002:db01::/126"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				ServiceProviderName: pulumi.String("Equinix"),
+//				PeeringLocation:     pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:     pulumi.Int(50),
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
+//				AllowClassicOperations: pulumi.Bool(false),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRouteCircuitPeering(ctx, "exampleExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
+//				PeeringType:                pulumi.String("MicrosoftPeering"),
+//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				PeerAsn:                    pulumi.Int(100),
+//				PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
+//				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
+//				Ipv4Enabled:                pulumi.Bool(true),
+//				VlanId:                     pulumi.Int(300),
+//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
+//					AdvertisedPublicPrefixes: pulumi.StringArray{
+//						pulumi.String("123.1.0.0/24"),
+//					},
+//				},
+//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
+//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
+//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
+//					Enabled:                    pulumi.Bool(true),
+//					MicrosoftPeering: &network.ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs{
+//						AdvertisedPublicPrefixes: pulumi.StringArray{
+//							pulumi.String("2002:db01::/126"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Creating Azure Private Peering)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				ServiceProviderName: pulumi.String("Equinix"),
+//				PeeringLocation:     pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:     pulumi.Int(50),
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
+//				AllowClassicOperations: pulumi.Bool(false),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRouteCircuitPeering(ctx, "exampleExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
+//				PeeringType:                pulumi.String("AzurePrivatePeering"),
+//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				PeerAsn:                    pulumi.Int(100),
+//				PrimaryPeerAddressPrefix:   pulumi.String("123.0.0.0/30"),
+//				SecondaryPeerAddressPrefix: pulumi.String("123.0.0.4/30"),
+//				Ipv4Enabled:                pulumi.Bool(true),
+//				VlanId:                     pulumi.Int(300),
+//				Ipv6: &network.ExpressRouteCircuitPeeringIpv6Args{
+//					PrimaryPeerAddressPrefix:   pulumi.String("2002:db01::/126"),
+//					SecondaryPeerAddressPrefix: pulumi.String("2003:db01::/126"),
+//					Enabled:                    pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -87,7 +154,9 @@ import (
 // ExpressRoute Circuit Peerings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering peering1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/peerings/peering1
+//
+//	$ pulumi import azure:network/expressRouteCircuitPeering:ExpressRouteCircuitPeering peering1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/peerings/peering1
+//
 // ```
 type ExpressRouteCircuitPeering struct {
 	pulumi.CustomResourceState
@@ -96,9 +165,12 @@ type ExpressRouteCircuitPeering struct {
 	AzureAsn pulumi.IntOutput `pulumi:"azureAsn"`
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringOutput `pulumi:"expressRouteCircuitName"`
+	GatewayManagerEtag      pulumi.StringOutput `pulumi:"gatewayManagerEtag"`
+	// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+	Ipv4Enabled pulumi.BoolPtrOutput `pulumi:"ipv4Enabled"`
 	// A `ipv6` block as defined below.
 	Ipv6 ExpressRouteCircuitPeeringIpv6PtrOutput `pulumi:"ipv6"`
-	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput `pulumi:"microsoftPeeringConfig"`
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntOutput `pulumi:"peerAsn"`
@@ -107,7 +179,7 @@ type ExpressRouteCircuitPeering struct {
 	// The Primary Port used by Azure for this Peering.
 	PrimaryAzurePort pulumi.StringOutput `pulumi:"primaryAzurePort"`
 	// A subnet for the primary link.
-	PrimaryPeerAddressPrefix pulumi.StringOutput `pulumi:"primaryPeerAddressPrefix"`
+	PrimaryPeerAddressPrefix pulumi.StringPtrOutput `pulumi:"primaryPeerAddressPrefix"`
 	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
@@ -115,7 +187,7 @@ type ExpressRouteCircuitPeering struct {
 	// The Secondary Port used by Azure for this Peering.
 	SecondaryAzurePort pulumi.StringOutput `pulumi:"secondaryAzurePort"`
 	// A subnet for the secondary link.
-	SecondaryPeerAddressPrefix pulumi.StringOutput `pulumi:"secondaryPeerAddressPrefix"`
+	SecondaryPeerAddressPrefix pulumi.StringPtrOutput `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey pulumi.StringPtrOutput `pulumi:"sharedKey"`
 	// A valid VLAN ID to establish this peering on.
@@ -135,14 +207,8 @@ func NewExpressRouteCircuitPeering(ctx *pulumi.Context,
 	if args.PeeringType == nil {
 		return nil, errors.New("invalid value for required argument 'PeeringType'")
 	}
-	if args.PrimaryPeerAddressPrefix == nil {
-		return nil, errors.New("invalid value for required argument 'PrimaryPeerAddressPrefix'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.SecondaryPeerAddressPrefix == nil {
-		return nil, errors.New("invalid value for required argument 'SecondaryPeerAddressPrefix'")
 	}
 	if args.VlanId == nil {
 		return nil, errors.New("invalid value for required argument 'VlanId'")
@@ -173,9 +239,12 @@ type expressRouteCircuitPeeringState struct {
 	AzureAsn *int `pulumi:"azureAsn"`
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName *string `pulumi:"expressRouteCircuitName"`
+	GatewayManagerEtag      *string `pulumi:"gatewayManagerEtag"`
+	// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+	Ipv4Enabled *bool `pulumi:"ipv4Enabled"`
 	// A `ipv6` block as defined below.
 	Ipv6 *ExpressRouteCircuitPeeringIpv6 `pulumi:"ipv6"`
-	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringMicrosoftPeeringConfig `pulumi:"microsoftPeeringConfig"`
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn *int `pulumi:"peerAsn"`
@@ -204,9 +273,12 @@ type ExpressRouteCircuitPeeringState struct {
 	AzureAsn pulumi.IntPtrInput
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringPtrInput
+	GatewayManagerEtag      pulumi.StringPtrInput
+	// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+	Ipv4Enabled pulumi.BoolPtrInput
 	// A `ipv6` block as defined below.
 	Ipv6 ExpressRouteCircuitPeeringIpv6PtrInput
-	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntPtrInput
@@ -237,22 +309,24 @@ func (ExpressRouteCircuitPeeringState) ElementType() reflect.Type {
 type expressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName string `pulumi:"expressRouteCircuitName"`
+	// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+	Ipv4Enabled *bool `pulumi:"ipv4Enabled"`
 	// A `ipv6` block as defined below.
 	Ipv6 *ExpressRouteCircuitPeeringIpv6 `pulumi:"ipv6"`
-	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 	MicrosoftPeeringConfig *ExpressRouteCircuitPeeringMicrosoftPeeringConfig `pulumi:"microsoftPeeringConfig"`
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn *int `pulumi:"peerAsn"`
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType string `pulumi:"peeringType"`
 	// A subnet for the primary link.
-	PrimaryPeerAddressPrefix string `pulumi:"primaryPeerAddressPrefix"`
+	PrimaryPeerAddressPrefix *string `pulumi:"primaryPeerAddressPrefix"`
 	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId *string `pulumi:"routeFilterId"`
 	// A subnet for the secondary link.
-	SecondaryPeerAddressPrefix string `pulumi:"secondaryPeerAddressPrefix"`
+	SecondaryPeerAddressPrefix *string `pulumi:"secondaryPeerAddressPrefix"`
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey *string `pulumi:"sharedKey"`
 	// A valid VLAN ID to establish this peering on.
@@ -263,22 +337,24 @@ type expressRouteCircuitPeeringArgs struct {
 type ExpressRouteCircuitPeeringArgs struct {
 	// The name of the ExpressRoute Circuit in which to create the Peering.
 	ExpressRouteCircuitName pulumi.StringInput
+	// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+	Ipv4Enabled pulumi.BoolPtrInput
 	// A `ipv6` block as defined below.
 	Ipv6 ExpressRouteCircuitPeeringIpv6PtrInput
-	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+	// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 	MicrosoftPeeringConfig ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrInput
 	// The Either a 16-bit or a 32-bit ASN. Can either be public or private.
 	PeerAsn pulumi.IntPtrInput
 	// The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
 	PeeringType pulumi.StringInput
 	// A subnet for the primary link.
-	PrimaryPeerAddressPrefix pulumi.StringInput
+	PrimaryPeerAddressPrefix pulumi.StringPtrInput
 	// The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Route Filter. Only available when `peeringType` is set to `MicrosoftPeering`.
 	RouteFilterId pulumi.StringPtrInput
 	// A subnet for the secondary link.
-	SecondaryPeerAddressPrefix pulumi.StringInput
+	SecondaryPeerAddressPrefix pulumi.StringPtrInput
 	// The shared key. Can be a maximum of 25 characters.
 	SharedKey pulumi.StringPtrInput
 	// A valid VLAN ID to establish this peering on.
@@ -311,7 +387,7 @@ func (i *ExpressRouteCircuitPeering) ToExpressRouteCircuitPeeringOutputWithConte
 // ExpressRouteCircuitPeeringArrayInput is an input type that accepts ExpressRouteCircuitPeeringArray and ExpressRouteCircuitPeeringArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitPeeringArrayInput` via:
 //
-//          ExpressRouteCircuitPeeringArray{ ExpressRouteCircuitPeeringArgs{...} }
+//	ExpressRouteCircuitPeeringArray{ ExpressRouteCircuitPeeringArgs{...} }
 type ExpressRouteCircuitPeeringArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +412,7 @@ func (i ExpressRouteCircuitPeeringArray) ToExpressRouteCircuitPeeringArrayOutput
 // ExpressRouteCircuitPeeringMapInput is an input type that accepts ExpressRouteCircuitPeeringMap and ExpressRouteCircuitPeeringMapOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitPeeringMapInput` via:
 //
-//          ExpressRouteCircuitPeeringMap{ "key": ExpressRouteCircuitPeeringArgs{...} }
+//	ExpressRouteCircuitPeeringMap{ "key": ExpressRouteCircuitPeeringArgs{...} }
 type ExpressRouteCircuitPeeringMapInput interface {
 	pulumi.Input
 
@@ -382,12 +458,21 @@ func (o ExpressRouteCircuitPeeringOutput) ExpressRouteCircuitName() pulumi.Strin
 	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringOutput { return v.ExpressRouteCircuitName }).(pulumi.StringOutput)
 }
 
+func (o ExpressRouteCircuitPeeringOutput) GatewayManagerEtag() pulumi.StringOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringOutput { return v.GatewayManagerEtag }).(pulumi.StringOutput)
+}
+
+// A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+func (o ExpressRouteCircuitPeeringOutput) Ipv4Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.BoolPtrOutput { return v.Ipv4Enabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `ipv6` block as defined below.
 func (o ExpressRouteCircuitPeeringOutput) Ipv6() ExpressRouteCircuitPeeringIpv6PtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeering) ExpressRouteCircuitPeeringIpv6PtrOutput { return v.Ipv6 }).(ExpressRouteCircuitPeeringIpv6PtrOutput)
 }
 
-// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+// A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
 func (o ExpressRouteCircuitPeeringOutput) MicrosoftPeeringConfig() ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput {
 	return o.ApplyT(func(v *ExpressRouteCircuitPeering) ExpressRouteCircuitPeeringMicrosoftPeeringConfigPtrOutput {
 		return v.MicrosoftPeeringConfig
@@ -410,8 +495,8 @@ func (o ExpressRouteCircuitPeeringOutput) PrimaryAzurePort() pulumi.StringOutput
 }
 
 // A subnet for the primary link.
-func (o ExpressRouteCircuitPeeringOutput) PrimaryPeerAddressPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringOutput { return v.PrimaryPeerAddressPrefix }).(pulumi.StringOutput)
+func (o ExpressRouteCircuitPeeringOutput) PrimaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.PrimaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
@@ -430,8 +515,8 @@ func (o ExpressRouteCircuitPeeringOutput) SecondaryAzurePort() pulumi.StringOutp
 }
 
 // A subnet for the secondary link.
-func (o ExpressRouteCircuitPeeringOutput) SecondaryPeerAddressPrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringOutput { return v.SecondaryPeerAddressPrefix }).(pulumi.StringOutput)
+func (o ExpressRouteCircuitPeeringOutput) SecondaryPeerAddressPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExpressRouteCircuitPeering) pulumi.StringPtrOutput { return v.SecondaryPeerAddressPrefix }).(pulumi.StringPtrOutput)
 }
 
 // The shared key. Can be a maximum of 25 characters.

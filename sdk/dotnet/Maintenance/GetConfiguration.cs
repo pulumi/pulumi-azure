@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Maintenance
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Maintenance.GetConfiguration.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Maintenance.GetConfiguration.InvokeAsync(new Azure.Maintenance.GetConfigurationArgs
-        ///         {
-        ///             Name = "example-mc",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = azurerm_maintenance_configuration.Existing.Id;
-        ///     }
+        ///         Name = "example-mc",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_maintenance_configuration.Existing.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Maintenance
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Maintenance.GetConfiguration.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Maintenance.GetConfiguration.InvokeAsync(new Azure.Maintenance.GetConfigurationArgs
-        ///         {
-        ///             Name = "example-mc",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = azurerm_maintenance_configuration.Existing.Id;
-        ///     }
+        ///         Name = "example-mc",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_maintenance_configuration.Existing.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Maintenance
     }
 
 
-    public sealed class GetConfigurationArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Maintenance Configuration.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Maintenance
         public GetConfigurationArgs()
         {
         }
+        public static new GetConfigurationArgs Empty => new GetConfigurationArgs();
     }
 
-    public sealed class GetConfigurationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Maintenance Configuration.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Maintenance
         public GetConfigurationInvokeArgs()
         {
         }
+        public static new GetConfigurationInvokeArgs Empty => new GetConfigurationInvokeArgs();
     }
 
 

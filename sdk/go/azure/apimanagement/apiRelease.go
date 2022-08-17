@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@terraform.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			Revision:          pulumi.String("1"),
-// 			DisplayName:       pulumi.String("Example API"),
-// 			Path:              pulumi.String("example"),
-// 			Protocols: pulumi.StringArray{
-// 				pulumi.String("https"),
-// 			},
-// 			Import: &apimanagement.ApiImportArgs{
-// 				ContentFormat: pulumi.String("swagger-link-json"),
-// 				ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiRelease(ctx, "exampleApiRelease", &apimanagement.ApiReleaseArgs{
-// 			ApiId: exampleApi.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				Revision:          pulumi.String("1"),
+//				DisplayName:       pulumi.String("Example API"),
+//				Path:              pulumi.String("example"),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("https"),
+//				},
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiRelease(ctx, "exampleApiRelease", &apimanagement.ApiReleaseArgs{
+//				ApiId: exampleApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // API Management API Releases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
+//
+//	$ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
+//
 // ```
 type ApiRelease struct {
 	pulumi.CustomResourceState
@@ -186,7 +191,7 @@ func (i *ApiRelease) ToApiReleaseOutputWithContext(ctx context.Context) ApiRelea
 // ApiReleaseArrayInput is an input type that accepts ApiReleaseArray and ApiReleaseArrayOutput values.
 // You can construct a concrete instance of `ApiReleaseArrayInput` via:
 //
-//          ApiReleaseArray{ ApiReleaseArgs{...} }
+//	ApiReleaseArray{ ApiReleaseArgs{...} }
 type ApiReleaseArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +216,7 @@ func (i ApiReleaseArray) ToApiReleaseArrayOutputWithContext(ctx context.Context)
 // ApiReleaseMapInput is an input type that accepts ApiReleaseMap and ApiReleaseMapOutput values.
 // You can construct a concrete instance of `ApiReleaseMapInput` via:
 //
-//          ApiReleaseMap{ "key": ApiReleaseArgs{...} }
+//	ApiReleaseMap{ "key": ApiReleaseArgs{...} }
 type ApiReleaseMapInput interface {
 	pulumi.Input
 

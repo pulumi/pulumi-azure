@@ -15,47 +15,48 @@ namespace Pulumi.Azure.Batch
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Batch.Account("exampleAccount", new Azure.Batch.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var examplePool = new Azure.Batch.Pool("examplePool", new Azure.Batch.PoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleAccount.Name,
-    ///             NodeAgentSkuId = "batch.node.ubuntu 16.04",
-    ///             VmSize = "Standard_A1",
-    ///             FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
-    ///             {
-    ///                 TargetDedicatedNodes = 1,
-    ///             },
-    ///             StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04.0-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///         });
-    ///         var exampleJob = new Azure.Batch.Job("exampleJob", new Azure.Batch.JobArgs
-    ///         {
-    ///             BatchPoolId = examplePool.Id,
-    ///         });
-    ///     }
+    ///         Location = "west europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Batch.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.Batch.Pool("examplePool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///         VmSize = "Standard_A1",
+    ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
+    ///         {
+    ///             TargetDedicatedNodes = 1,
+    ///         },
+    ///         StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04.0-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.Batch.Job("exampleJob", new()
+    ///     {
+    ///         BatchPoolId = examplePool.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Azure.Batch
     /// ```
     /// </summary>
     [AzureResourceType("azure:batch/job:Job")]
-    public partial class Job : Pulumi.CustomResource
+    public partial class Job : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
@@ -149,7 +150,7 @@ namespace Pulumi.Azure.Batch
         }
     }
 
-    public sealed class JobArgs : Pulumi.ResourceArgs
+    public sealed class JobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
@@ -196,9 +197,10 @@ namespace Pulumi.Azure.Batch
         public JobArgs()
         {
         }
+        public static new JobArgs Empty => new JobArgs();
     }
 
-    public sealed class JobState : Pulumi.ResourceArgs
+    public sealed class JobState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Batch Pool. Changing this forces a new Batch Job to be created.
@@ -245,5 +247,6 @@ namespace Pulumi.Azure.Batch
         public JobState()
         {
         }
+        public static new JobState Empty => new JobState();
     }
 }

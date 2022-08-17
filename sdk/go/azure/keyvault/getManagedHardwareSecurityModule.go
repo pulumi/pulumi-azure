@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := keyvault.LookupManagedHardwareSecurityModule(ctx, &keyvault.LookupManagedHardwareSecurityModuleArgs{
-// 			Name:              "mykeyvaultHsm",
-// 			ResourceGroupName: "some-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("hsmUri", example.HsmUri)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := keyvault.LookupManagedHardwareSecurityModule(ctx, &keyvault.LookupManagedHardwareSecurityModuleArgs{
+//				Name:              "mykeyvaultHsm",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("hsmUri", example.HsmUri)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupManagedHardwareSecurityModule(ctx *pulumi.Context, args *LookupManagedHardwareSecurityModuleArgs, opts ...pulumi.InvokeOption) (*LookupManagedHardwareSecurityModuleResult, error) {
 	var rv LookupManagedHardwareSecurityModuleResult

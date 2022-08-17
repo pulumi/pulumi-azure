@@ -15,29 +15,29 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new Azure.Cdn.FrontdoorProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard_AzureFrontDoor",
-    ///         });
-    ///         var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", new Azure.Cdn.FrontdoorRuleSetArgs
-    ///         {
-    ///             CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", new()
+    ///     {
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/frontdoorRuleSet:FrontdoorRuleSet")]
-    public partial class FrontdoorRuleSet : Pulumi.CustomResource
+    public partial class FrontdoorRuleSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class FrontdoorRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
@@ -124,9 +124,10 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorRuleSetArgs()
         {
         }
+        public static new FrontdoorRuleSetArgs Empty => new FrontdoorRuleSetArgs();
     }
 
-    public sealed class FrontdoorRuleSetState : Pulumi.ResourceArgs
+    public sealed class FrontdoorRuleSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Profile. Changing this forces a new CDN FrontDoor Rule Set to be created.
@@ -143,5 +144,6 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorRuleSetState()
         {
         }
+        public static new FrontdoorRuleSetState Empty => new FrontdoorRuleSetState();
     }
 }

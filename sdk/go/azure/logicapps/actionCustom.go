@@ -19,52 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewActionCustom(ctx, "exampleActionCustom", &logicapps.ActionCustomArgs{
-// 			LogicAppId: exampleWorkflow.ID(),
-// 			Body: pulumi.String(fmt.Sprintf(`{
-//     "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
-//     "inputs": {
-//         "variables": [
-//             {
-//                 "name": "ExpirationAgeInDays",
-//                 "type": "Integer",
-//                 "value": -30
-//             }
-//         ]
-//     },
-//     "runAfter": {},
-//     "type": "InitializeVariable"
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewActionCustom(ctx, "exampleActionCustom", &logicapps.ActionCustomArgs{
+//				LogicAppId: exampleWorkflow.ID(),
+//				Body: pulumi.String(fmt.Sprintf(`{
+//	    "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
+//	    "inputs": {
+//	        "variables": [
+//	            {
+//	                "name": "ExpirationAgeInDays",
+//	                "type": "Integer",
+//	                "value": -30
+//	            }
+//	        ]
+//	    },
+//	    "runAfter": {},
+//	    "type": "InitializeVariable"
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +77,9 @@ import (
 // Logic App Custom Actions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
+//
+//	$ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
+//
 // ```
 type ActionCustom struct {
 	pulumi.CustomResourceState
@@ -186,7 +193,7 @@ func (i *ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) Acti
 // ActionCustomArrayInput is an input type that accepts ActionCustomArray and ActionCustomArrayOutput values.
 // You can construct a concrete instance of `ActionCustomArrayInput` via:
 //
-//          ActionCustomArray{ ActionCustomArgs{...} }
+//	ActionCustomArray{ ActionCustomArgs{...} }
 type ActionCustomArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +218,7 @@ func (i ActionCustomArray) ToActionCustomArrayOutputWithContext(ctx context.Cont
 // ActionCustomMapInput is an input type that accepts ActionCustomMap and ActionCustomMapOutput values.
 // You can construct a concrete instance of `ActionCustomMapInput` via:
 //
-//          ActionCustomMap{ "key": ActionCustomArgs{...} }
+//	ActionCustomMap{ "key": ActionCustomArgs{...} }
 type ActionCustomMapInput interface {
 	pulumi.Input
 

@@ -15,32 +15,32 @@ namespace Pulumi.Azure.AppConfiguration
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new Azure.AppConfiguration.ConfigurationStoreArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///         });
-    ///         var test = new Azure.AppConfiguration.ConfigurationFeature("test", new Azure.AppConfiguration.ConfigurationFeatureArgs
-    ///         {
-    ///             ConfigurationStoreId = appconf.Id,
-    ///             Description = "test description",
-    ///             Label = "acctest-ackeylabel-%d",
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var test = new Azure.AppConfiguration.ConfigurationFeature("test", new()
+    ///     {
+    ///         ConfigurationStoreId = appconf.Id,
+    ///         Description = "test description",
+    ///         Label = "acctest-ackeylabel-%d",
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// ```
     /// </summary>
     [AzureResourceType("azure:appconfiguration/configurationFeature:ConfigurationFeature")]
-    public partial class ConfigurationFeature : Pulumi.CustomResource
+    public partial class ConfigurationFeature : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.AppConfiguration
         }
     }
 
-    public sealed class ConfigurationFeatureArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationFeatureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -253,9 +253,10 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationFeatureArgs()
         {
         }
+        public static new ConfigurationFeatureArgs Empty => new ConfigurationFeatureArgs();
     }
 
-    public sealed class ConfigurationFeatureState : Pulumi.ResourceArgs
+    public sealed class ConfigurationFeatureState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -341,5 +342,6 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationFeatureState()
         {
         }
+        public static new ConfigurationFeatureState Empty => new ConfigurationFeatureState();
     }
 }

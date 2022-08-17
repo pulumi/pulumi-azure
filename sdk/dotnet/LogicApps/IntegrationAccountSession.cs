@@ -15,35 +15,35 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleIntegrationAccountSession = new Azure.LogicApps.IntegrationAccountSession("exampleIntegrationAccountSession", new Azure.LogicApps.IntegrationAccountSessionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///             Content = @"	{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountSession = new Azure.LogicApps.IntegrationAccountSession("exampleIntegrationAccountSession", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         Content = @"	{
     ///        ""controlNumber"": ""1234""
     ///     }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountSession:IntegrationAccountSession")]
-    public partial class IntegrationAccountSession : Pulumi.CustomResource
+    public partial class IntegrationAccountSession : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content of the Logic App Integration Account Session.
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountSessionArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSessionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the Logic App Integration Account Session.
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountSessionArgs()
         {
         }
+        public static new IntegrationAccountSessionArgs Empty => new IntegrationAccountSessionArgs();
     }
 
-    public sealed class IntegrationAccountSessionState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSessionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the Logic App Integration Account Session.
@@ -185,5 +186,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountSessionState()
         {
         }
+        public static new IntegrationAccountSessionState Empty => new IntegrationAccountSessionState();
     }
 }

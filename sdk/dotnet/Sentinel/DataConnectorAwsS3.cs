@@ -15,55 +15,56 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorAwsS3 = new Azure.Sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", new Azure.Sentinel.DataConnectorAwsS3Args
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///             AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
-    ///             DestinationTable = "AWSGuardDuty",
-    ///             SqsUrls = 
-    ///             {
-    ///                 "https://sqs.us-east-1.amazonaws.com/000000000000/example",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAnalyticsSolution,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorAwsS3 = new Azure.Sentinel.DataConnectorAwsS3("exampleDataConnectorAwsS3", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
+    ///         DestinationTable = "AWSGuardDuty",
+    ///         SqsUrls = new[]
+    ///         {
+    ///             "https://sqs.us-east-1.amazonaws.com/000000000000/example",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAnalyticsSolution,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +76,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorAwsS3:DataConnectorAwsS3")]
-    public partial class DataConnectorAwsS3 : Pulumi.CustomResource
+    public partial class DataConnectorAwsS3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
@@ -151,7 +152,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorAwsS3Args : Pulumi.ResourceArgs
+    public sealed class DataConnectorAwsS3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
@@ -192,9 +193,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAwsS3Args()
         {
         }
+        public static new DataConnectorAwsS3Args Empty => new DataConnectorAwsS3Args();
     }
 
-    public sealed class DataConnectorAwsS3State : Pulumi.ResourceArgs
+    public sealed class DataConnectorAwsS3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS role, which is connected to this AWS CloudTrail Data Connector. See the [Azure document](https://docs.microsoft.com/azure/sentinel/connect-aws?tabs=s3#create-an-aws-assumed-role-and-grant-access-to-the-aws-sentinel-account) for details.
@@ -235,5 +237,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAwsS3State()
         {
         }
+        public static new DataConnectorAwsS3State Empty => new DataConnectorAwsS3State();
     }
 }

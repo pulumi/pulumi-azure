@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRewriteRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRewriteRuleSetArgs()
         {
         }
+        public static new ApplicationGatewayRewriteRuleSetArgs Empty => new ApplicationGatewayRewriteRuleSetArgs();
     }
 }

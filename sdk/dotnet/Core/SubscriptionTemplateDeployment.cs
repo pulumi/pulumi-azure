@@ -15,17 +15,16 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.SubscriptionTemplateDeployment("example", new()
     ///     {
-    ///         var example = new Azure.Core.SubscriptionTemplateDeployment("example", new Azure.Core.SubscriptionTemplateDeploymentArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             TemplateContent = @" {
+    ///         Location = "West Europe",
+    ///         TemplateContent = @" {
     ///    ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
     ///    ""contentVersion"": ""1.0.0.0"",
     ///    ""parameters"": {},
@@ -42,10 +41,9 @@ namespace Pulumi.Azure.Core
     ///  }
     ///  
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +55,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment")]
-    public partial class SubscriptionTemplateDeployment : Pulumi.CustomResource
+    public partial class SubscriptionTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -151,7 +149,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class SubscriptionTemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -204,9 +202,10 @@ namespace Pulumi.Azure.Core
         public SubscriptionTemplateDeploymentArgs()
         {
         }
+        public static new SubscriptionTemplateDeploymentArgs Empty => new SubscriptionTemplateDeploymentArgs();
     }
 
-    public sealed class SubscriptionTemplateDeploymentState : Pulumi.ResourceArgs
+    public sealed class SubscriptionTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Subscription Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -265,5 +264,6 @@ namespace Pulumi.Azure.Core
         public SubscriptionTemplateDeploymentState()
         {
         }
+        public static new SubscriptionTemplateDeploymentState Empty => new SubscriptionTemplateDeploymentState();
     }
 }

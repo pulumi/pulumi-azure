@@ -19,95 +19,101 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 			RetentionInDays:   pulumi.Int(30),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("exampleact"),
-// 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
-// 				&monitoring.ActionGroupWebhookReceiverArgs{
-// 					Name:       pulumi.String("callmyapi"),
-// 					ServiceUri: pulumi.String("http://example.com/alert"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Scopes: pulumi.StringArray{
-// 				exampleAnalyticsWorkspace.ID(),
-// 			},
-// 			Description: pulumi.String(fmt.Sprintf("Action will be triggered when Average_%v Idle Time metric is less than 10.", "%")),
-// 			Frequency:   pulumi.String("PT1M"),
-// 			WindowSize:  pulumi.String("PT5M"),
-// 			Criterias: monitoring.MetricAlertCriteriaArray{
-// 				&monitoring.MetricAlertCriteriaArgs{
-// 					MetricNamespace: pulumi.String("Microsoft.OperationalInsights/workspaces"),
-// 					MetricName:      pulumi.String("UsedCapacity"),
-// 					Aggregation:     pulumi.String("Average"),
-// 					Operator:        pulumi.String("LessThan"),
-// 					Threshold:       pulumi.Float64(10),
-// 				},
-// 			},
-// 			Actions: monitoring.MetricAlertActionArray{
-// 				&monitoring.MetricAlertActionArgs{
-// 					ActionGroupId: exampleActionGroup.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewScheduledQueryRulesLog(ctx, "exampleScheduledQueryRulesLog", &monitoring.ScheduledQueryRulesLogArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
-// 				MetricName: pulumi.String(fmt.Sprintf("Average_%v Idle Time", "%")),
-// 				Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
-// 					&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
-// 						Name:     pulumi.String("Computer"),
-// 						Operator: pulumi.String("Include"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("targetVM"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			DataSourceId: exampleAnalyticsWorkspace.ID(),
-// 			Description:  pulumi.String("Scheduled query rule LogToMetric example"),
-// 			Enabled:      pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//				RetentionInDays:   pulumi.Int(30),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("exampleact"),
+//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+//					&monitoring.ActionGroupWebhookReceiverArgs{
+//						Name:       pulumi.String("callmyapi"),
+//						ServiceUri: pulumi.String("http://example.com/alert"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scopes: pulumi.StringArray{
+//					exampleAnalyticsWorkspace.ID(),
+//				},
+//				Description: pulumi.String(fmt.Sprintf("Action will be triggered when Average_%v Idle Time metric is less than 10.", "%")),
+//				Frequency:   pulumi.String("PT1M"),
+//				WindowSize:  pulumi.String("PT5M"),
+//				Criterias: monitoring.MetricAlertCriteriaArray{
+//					&monitoring.MetricAlertCriteriaArgs{
+//						MetricNamespace: pulumi.String("Microsoft.OperationalInsights/workspaces"),
+//						MetricName:      pulumi.String("UsedCapacity"),
+//						Aggregation:     pulumi.String("Average"),
+//						Operator:        pulumi.String("LessThan"),
+//						Threshold:       pulumi.Float64(10),
+//					},
+//				},
+//				Actions: monitoring.MetricAlertActionArray{
+//					&monitoring.MetricAlertActionArgs{
+//						ActionGroupId: exampleActionGroup.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewScheduledQueryRulesLog(ctx, "exampleScheduledQueryRulesLog", &monitoring.ScheduledQueryRulesLogArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
+//					MetricName: pulumi.String(fmt.Sprintf("Average_%v Idle Time", "%")),
+//					Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{
+//						&monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs{
+//							Name:     pulumi.String("Computer"),
+//							Operator: pulumi.String("Include"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("targetVM"),
+//							},
+//						},
+//					},
+//				},
+//				DataSourceId: exampleAnalyticsWorkspace.ID(),
+//				Description:  pulumi.String("Scheduled query rule LogToMetric example"),
+//				Enabled:      pulumi.Bool(true),
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -115,7 +121,9 @@ import (
 // Scheduled Query Rule Log can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+//
+//	$ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+//
 // ```
 type ScheduledQueryRulesLog struct {
 	pulumi.CustomResourceState
@@ -133,8 +141,9 @@ type ScheduledQueryRulesLog struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName pulumi.StringOutput    `pulumi:"resourceGroupName"`
-	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
 
 // NewScheduledQueryRulesLog registers a new resource with the given unique name, arguments, and options.
@@ -188,8 +197,9 @@ type scheduledQueryRulesLogState struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName *string           `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 type ScheduledQueryRulesLogState struct {
@@ -207,7 +217,8 @@ type ScheduledQueryRulesLogState struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringPtrInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ScheduledQueryRulesLogState) ElementType() reflect.Type {
@@ -228,8 +239,9 @@ type scheduledQueryRulesLogArgs struct {
 	// The name of the scheduled query rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the scheduled query rule instance.
-	ResourceGroupName string            `pulumi:"resourceGroupName"`
-	Tags              map[string]string `pulumi:"tags"`
+	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// A mapping of tags to assign to the resource.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScheduledQueryRulesLog resource.
@@ -248,7 +260,8 @@ type ScheduledQueryRulesLogArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the scheduled query rule instance.
 	ResourceGroupName pulumi.StringInput
-	Tags              pulumi.StringMapInput
+	// A mapping of tags to assign to the resource.
+	Tags pulumi.StringMapInput
 }
 
 func (ScheduledQueryRulesLogArgs) ElementType() reflect.Type {
@@ -277,7 +290,7 @@ func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutputWithContext(ctx c
 // ScheduledQueryRulesLogArrayInput is an input type that accepts ScheduledQueryRulesLogArray and ScheduledQueryRulesLogArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesLogArrayInput` via:
 //
-//          ScheduledQueryRulesLogArray{ ScheduledQueryRulesLogArgs{...} }
+//	ScheduledQueryRulesLogArray{ ScheduledQueryRulesLogArgs{...} }
 type ScheduledQueryRulesLogArrayInput interface {
 	pulumi.Input
 
@@ -302,7 +315,7 @@ func (i ScheduledQueryRulesLogArray) ToScheduledQueryRulesLogArrayOutputWithCont
 // ScheduledQueryRulesLogMapInput is an input type that accepts ScheduledQueryRulesLogMap and ScheduledQueryRulesLogMapOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesLogMapInput` via:
 //
-//          ScheduledQueryRulesLogMap{ "key": ScheduledQueryRulesLogArgs{...} }
+//	ScheduledQueryRulesLogMap{ "key": ScheduledQueryRulesLogArgs{...} }
 type ScheduledQueryRulesLogMapInput interface {
 	pulumi.Input
 
@@ -376,6 +389,7 @@ func (o ScheduledQueryRulesLogOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
+// A mapping of tags to assign to the resource.
 func (o ScheduledQueryRulesLogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ScheduledQueryRulesLog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

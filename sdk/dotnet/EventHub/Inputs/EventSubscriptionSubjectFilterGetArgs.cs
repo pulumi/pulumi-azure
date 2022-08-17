@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionSubjectFilterGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionSubjectFilterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionSubjectFilterGetArgs()
         {
         }
+        public static new EventSubscriptionSubjectFilterGetArgs Empty => new EventSubscriptionSubjectFilterGetArgs();
     }
 }

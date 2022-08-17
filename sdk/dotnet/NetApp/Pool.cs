@@ -15,33 +15,33 @@ namespace Pulumi.Azure.NetApp
     /// ## NetApp Pool Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePool = new Azure.NetApp.Pool("examplePool", new Azure.NetApp.PoolArgs
-    ///         {
-    ///             AccountName = exampleAccount.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceLevel = "Premium",
-    ///             SizeInTb = 4,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.NetApp.Pool("examplePool", new()
+    ///     {
+    ///         AccountName = exampleAccount.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceLevel = "Premium",
+    ///         SizeInTb = 4,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.NetApp
     /// ```
     /// </summary>
     [AzureResourceType("azure:netapp/pool:Pool")]
-    public partial class Pool : Pulumi.CustomResource
+    public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
-    public sealed class PoolArgs : Pulumi.ResourceArgs
+    public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -206,9 +206,10 @@ namespace Pulumi.Azure.NetApp
         public PoolArgs()
         {
         }
+        public static new PoolArgs Empty => new PoolArgs();
     }
 
-    public sealed class PoolState : Pulumi.ResourceArgs
+    public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp account in which the NetApp Pool should be created. Changing this forces a new resource to be created.
@@ -267,5 +268,6 @@ namespace Pulumi.Azure.NetApp
         public PoolState()
         {
         }
+        public static new PoolState Empty => new PoolState();
     }
 }

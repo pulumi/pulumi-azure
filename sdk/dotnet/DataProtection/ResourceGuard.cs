@@ -15,25 +15,24 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleResourceGuard = new Azure.DataProtection.ResourceGuard("exampleResourceGuard", new Azure.DataProtection.ResourceGuardArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGuard = new Azure.DataProtection.ResourceGuard("exampleResourceGuard", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/resourceGuard:ResourceGuard")]
-    public partial class ResourceGuard : Pulumi.CustomResource
+    public partial class ResourceGuard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -121,7 +120,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class ResourceGuardArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGuardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -168,9 +167,10 @@ namespace Pulumi.Azure.DataProtection
         public ResourceGuardArgs()
         {
         }
+        public static new ResourceGuardArgs Empty => new ResourceGuardArgs();
     }
 
-    public sealed class ResourceGuardState : Pulumi.ResourceArgs
+    public sealed class ResourceGuardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -217,5 +217,6 @@ namespace Pulumi.Azure.DataProtection
         public ResourceGuardState()
         {
         }
+        public static new ResourceGuardState Empty => new ResourceGuardState();
     }
 }

@@ -21,44 +21,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelAlexa(ctx, "exampleChannelAlexa", &bot.ChannelAlexaArgs{
-// 			BotName:           exampleChannelsRegistration.Name,
-// 			Location:          exampleChannelsRegistration.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkillId:           pulumi.String("amzn1.ask.skill.00000000-0000-0000-0000-000000000000"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelAlexa(ctx, "exampleChannelAlexa", &bot.ChannelAlexaArgs{
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkillId:           pulumi.String("amzn1.ask.skill.00000000-0000-0000-0000-000000000000"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // The Alexa Integration for a Bot Channel can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
+//
+//	$ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
+//
 // ```
 type ChannelAlexa struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *ChannelAlexa) ToChannelAlexaOutputWithContext(ctx context.Context) Chan
 // ChannelAlexaArrayInput is an input type that accepts ChannelAlexaArray and ChannelAlexaArrayOutput values.
 // You can construct a concrete instance of `ChannelAlexaArrayInput` via:
 //
-//          ChannelAlexaArray{ ChannelAlexaArgs{...} }
+//	ChannelAlexaArray{ ChannelAlexaArgs{...} }
 type ChannelAlexaArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i ChannelAlexaArray) ToChannelAlexaArrayOutputWithContext(ctx context.Cont
 // ChannelAlexaMapInput is an input type that accepts ChannelAlexaMap and ChannelAlexaMapOutput values.
 // You can construct a concrete instance of `ChannelAlexaMapInput` via:
 //
-//          ChannelAlexaMap{ "key": ChannelAlexaArgs{...} }
+//	ChannelAlexaMap{ "key": ChannelAlexaArgs{...} }
 type ChannelAlexaMapInput interface {
 	pulumi.Input
 

@@ -15,38 +15,38 @@ namespace Pulumi.Azure.Relay
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "terraform" },
-    ///             },
-    ///         });
-    ///         var exampleNamespaceAuthorizationRule = new Azure.Relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new Azure.Relay.NamespaceAuthorizationRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             Listen = true,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "terraform" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNamespaceAuthorizationRule = new Azure.Relay.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Relay
     /// ```
     /// </summary>
     [AzureResourceType("azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule")]
-    public partial class NamespaceAuthorizationRule : Pulumi.CustomResource
+    public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Grants listen access to this Authorization Rule. Defaults to `false`.
@@ -164,7 +164,7 @@ namespace Pulumi.Azure.Relay
         }
     }
 
-    public sealed class NamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class NamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this Authorization Rule. Defaults to `false`.
@@ -205,9 +205,10 @@ namespace Pulumi.Azure.Relay
         public NamespaceAuthorizationRuleArgs()
         {
         }
+        public static new NamespaceAuthorizationRuleArgs Empty => new NamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class NamespaceAuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class NamespaceAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this Authorization Rule. Defaults to `false`.
@@ -272,5 +273,6 @@ namespace Pulumi.Azure.Relay
         public NamespaceAuthorizationRuleState()
         {
         }
+        public static new NamespaceAuthorizationRuleState Empty => new NamespaceAuthorizationRuleState();
     }
 }

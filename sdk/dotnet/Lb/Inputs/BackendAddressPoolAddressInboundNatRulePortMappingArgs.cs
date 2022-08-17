@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lb.Inputs
 {
 
-    public sealed class BackendAddressPoolAddressInboundNatRulePortMappingArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolAddressInboundNatRulePortMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Lb.Inputs
         public BackendAddressPoolAddressInboundNatRulePortMappingArgs()
         {
         }
+        public static new BackendAddressPoolAddressInboundNatRulePortMappingArgs Empty => new BackendAddressPoolAddressInboundNatRulePortMappingArgs();
     }
 }

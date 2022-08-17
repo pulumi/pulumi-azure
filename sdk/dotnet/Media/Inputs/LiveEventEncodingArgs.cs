@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class LiveEventEncodingArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventEncodingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use an `ISO 8601` time value between 0.5 to 20 seconds to specify the output fragment length for the video and audio tracks of an encoding live event. For example, use `PT2S` to indicate 2 seconds. For the video track it also defines the key frame interval, or the length of a GoP (group of pictures). If this value is not set for an encoding live event, the fragment duration defaults to 2 seconds. The value cannot be set for pass-through live events.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Media.Inputs
         public LiveEventEncodingArgs()
         {
         }
+        public static new LiveEventEncodingArgs Empty => new LiveEventEncodingArgs();
     }
 }

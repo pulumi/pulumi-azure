@@ -21,7 +21,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain")]
-    public partial class SpringCloudCustomDomain : Pulumi.CustomResource
+    public partial class SpringCloudCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
@@ -120,9 +120,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudCustomDomainArgs()
         {
         }
+        public static new SpringCloudCustomDomainArgs Empty => new SpringCloudCustomDomainArgs();
     }
 
-    public sealed class SpringCloudCustomDomainState : Pulumi.ResourceArgs
+    public sealed class SpringCloudCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
@@ -151,5 +152,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudCustomDomainState()
         {
         }
+        public static new SpringCloudCustomDomainState Empty => new SpringCloudCustomDomainState();
     }
 }

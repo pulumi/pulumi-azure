@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetVirtualMachineScaleSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetVirtualMachineScaleSet.InvokeAsync(new Azure.Compute.GetVirtualMachineScaleSetArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getVirtualMachineScaleSetResult =&gt; getVirtualMachineScaleSetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetVirtualMachineScaleSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetVirtualMachineScaleSet.InvokeAsync(new Azure.Compute.GetVirtualMachineScaleSetArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getVirtualMachineScaleSetResult =&gt; getVirtualMachineScaleSetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetVirtualMachineScaleSetArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Virtual Machine Scale Set.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetVirtualMachineScaleSetArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetArgs Empty => new GetVirtualMachineScaleSetArgs();
     }
 
-    public sealed class GetVirtualMachineScaleSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineScaleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Virtual Machine Scale Set.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetVirtualMachineScaleSetInvokeArgs()
         {
         }
+        public static new GetVirtualMachineScaleSetInvokeArgs Empty => new GetVirtualMachineScaleSetInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class AssetFilterPresentationTimeRangeGetArgs : Pulumi.ResourceArgs
+    public sealed class AssetFilterPresentationTimeRangeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The absolute end time boundary. Applies to Video on Demand (VoD).
@@ -53,5 +53,6 @@ namespace Pulumi.Azure.Media.Inputs
         public AssetFilterPresentationTimeRangeGetArgs()
         {
         }
+        public static new AssetFilterPresentationTimeRangeGetArgs Empty => new AssetFilterPresentationTimeRangeGetArgs();
     }
 }

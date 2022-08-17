@@ -448,14 +448,14 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
     @Import(name="virtualNetworkSubnetId")
     private @Nullable Output<String> virtualNetworkSubnetId;
 
     /**
-     * @return The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * @return The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
     public Optional<Output<String>> virtualNetworkSubnetId() {
@@ -1169,7 +1169,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * @return builder
          * 
@@ -1180,7 +1180,7 @@ public final class LinuxWebAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param virtualNetworkSubnetId The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
          * 
          * @return builder
          * 

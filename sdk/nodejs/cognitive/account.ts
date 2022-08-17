@@ -65,6 +65,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customQuestionAnsweringSearchServiceId!: pulumi.Output<string | undefined>;
     /**
+     * If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     */
+    public readonly customQuestionAnsweringSearchServiceKey!: pulumi.Output<string | undefined>;
+    /**
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      */
     public readonly customSubdomainName!: pulumi.Output<string | undefined>;
@@ -167,6 +171,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["customQuestionAnsweringSearchServiceId"] = state ? state.customQuestionAnsweringSearchServiceId : undefined;
+            resourceInputs["customQuestionAnsweringSearchServiceKey"] = state ? state.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = state ? state.customSubdomainName : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["fqdns"] = state ? state.fqdns : undefined;
@@ -201,6 +206,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'skuName'");
             }
             resourceInputs["customQuestionAnsweringSearchServiceId"] = args ? args.customQuestionAnsweringSearchServiceId : undefined;
+            resourceInputs["customQuestionAnsweringSearchServiceKey"] = args ? args.customQuestionAnsweringSearchServiceKey : undefined;
             resourceInputs["customSubdomainName"] = args ? args.customSubdomainName : undefined;
             resourceInputs["fqdns"] = args ? args.fqdns : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -237,6 +243,10 @@ export interface AccountState {
      * If `kind` is `TextAnalytics` this specifies the ID of the Search service.
      */
     customQuestionAnsweringSearchServiceId?: pulumi.Input<string>;
+    /**
+     * If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     */
+    customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      */
@@ -335,6 +345,10 @@ export interface AccountArgs {
      * If `kind` is `TextAnalytics` this specifies the ID of the Search service.
      */
     customQuestionAnsweringSearchServiceId?: pulumi.Input<string>;
+    /**
+     * If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     */
+    customQuestionAnsweringSearchServiceKey?: pulumi.Input<string>;
     /**
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      */

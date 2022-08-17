@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnSiteLinkArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `bgp` block as defined above.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnSiteLinkArgs()
         {
         }
+        public static new VpnSiteLinkArgs Empty => new VpnSiteLinkArgs();
     }
 }

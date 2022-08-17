@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayPrivateLinkConfigurationIpConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayPrivateLinkConfigurationIpConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the IP configuration.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayPrivateLinkConfigurationIpConfigurationGetArgs()
         {
         }
+        public static new ApplicationGatewayPrivateLinkConfigurationIpConfigurationGetArgs Empty => new ApplicationGatewayPrivateLinkConfigurationIpConfigurationGetArgs();
     }
 }

@@ -13,12 +13,66 @@ import (
 
 // Manages a CDN FrontDoor Origin Group.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorOriginGroup(ctx, "exampleFrontdoorOriginGroup", &cdn.FrontdoorOriginGroupArgs{
+//				CdnFrontdoorProfileId:                            exampleFrontdoorProfile.ID(),
+//				SessionAffinityEnabled:                           pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
+//				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
+//					IntervalInSeconds: pulumi.Int(240),
+//					Path:              pulumi.String("/healthProbe"),
+//					Protocol:          pulumi.String("Https"),
+//					RequestType:       pulumi.String("HEAD"),
+//				},
+//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
+//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
+//					SampleSize:                      pulumi.Int(16),
+//					SuccessfulSamplesRequired:       pulumi.Int(3),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
+//
+//	$ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
+//
 // ```
 type FrontdoorOriginGroup struct {
 	pulumi.CustomResourceState
@@ -162,7 +216,7 @@ func (i *FrontdoorOriginGroup) ToFrontdoorOriginGroupOutputWithContext(ctx conte
 // FrontdoorOriginGroupArrayInput is an input type that accepts FrontdoorOriginGroupArray and FrontdoorOriginGroupArrayOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupArrayInput` via:
 //
-//          FrontdoorOriginGroupArray{ FrontdoorOriginGroupArgs{...} }
+//	FrontdoorOriginGroupArray{ FrontdoorOriginGroupArgs{...} }
 type FrontdoorOriginGroupArrayInput interface {
 	pulumi.Input
 
@@ -187,7 +241,7 @@ func (i FrontdoorOriginGroupArray) ToFrontdoorOriginGroupArrayOutputWithContext(
 // FrontdoorOriginGroupMapInput is an input type that accepts FrontdoorOriginGroupMap and FrontdoorOriginGroupMapOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupMapInput` via:
 //
-//          FrontdoorOriginGroupMap{ "key": FrontdoorOriginGroupArgs{...} }
+//	FrontdoorOriginGroupMap{ "key": FrontdoorOriginGroupArgs{...} }
 type FrontdoorOriginGroupMapInput interface {
 	pulumi.Input
 

@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
-// 			Description: pulumi.String("Test Description"),
-// 			DisplayName: pulumi.String("Test Display Name"),
-// 			Severity:    pulumi.String("Medium"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
+//				Description: pulumi.String("Test Description"),
+//				DisplayName: pulumi.String("Test Display Name"),
+//				Severity:    pulumi.String("Medium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Security Assessments Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
+//
+//	$ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
+//
 // ```
 type AssessmentPolicy struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *AssessmentPolicy) ToAssessmentPolicyOutputWithContext(ctx context.Conte
 // AssessmentPolicyArrayInput is an input type that accepts AssessmentPolicyArray and AssessmentPolicyArrayOutput values.
 // You can construct a concrete instance of `AssessmentPolicyArrayInput` via:
 //
-//          AssessmentPolicyArray{ AssessmentPolicyArgs{...} }
+//	AssessmentPolicyArray{ AssessmentPolicyArgs{...} }
 type AssessmentPolicyArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i AssessmentPolicyArray) ToAssessmentPolicyArrayOutputWithContext(ctx cont
 // AssessmentPolicyMapInput is an input type that accepts AssessmentPolicyMap and AssessmentPolicyMapOutput values.
 // You can construct a concrete instance of `AssessmentPolicyMapInput` via:
 //
-//          AssessmentPolicyMap{ "key": AssessmentPolicyArgs{...} }
+//	AssessmentPolicyMap{ "key": AssessmentPolicyArgs{...} }
 type AssessmentPolicyMapInput interface {
 	pulumi.Input
 

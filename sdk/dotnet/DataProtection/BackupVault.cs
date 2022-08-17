@@ -15,27 +15,26 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/backupVault:BackupVault")]
-    public partial class BackupVault : Pulumi.CustomResource
+    public partial class BackupVault : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
@@ -135,7 +134,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class BackupVaultArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
@@ -188,9 +187,10 @@ namespace Pulumi.Azure.DataProtection
         public BackupVaultArgs()
         {
         }
+        public static new BackupVaultArgs Empty => new BackupVaultArgs();
     }
 
-    public sealed class BackupVaultState : Pulumi.ResourceArgs
+    public sealed class BackupVaultState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of the data store. Possible values are `ArchiveStore`, `SnapshotStore` and `VaultStore`.
@@ -243,5 +243,6 @@ namespace Pulumi.Azure.DataProtection
         public BackupVaultState()
         {
         }
+        public static new BackupVaultState Empty => new BackupVaultState();
     }
 }

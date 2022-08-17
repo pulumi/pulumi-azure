@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupVpnGateway(ctx, &network.LookupVpnGatewayArgs{
-// 			Name:              "existing-local-vpn_gateway",
-// 			ResourceGroupName: "existing-vpn_gateway",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("azurermVpnGatewayId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupVpnGateway(ctx, &network.LookupVpnGatewayArgs{
+//				Name:              "existing-local-vpn_gateway",
+//				ResourceGroupName: "existing-vpn_gateway",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azurermVpnGatewayId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupVpnGateway(ctx *pulumi.Context, args *LookupVpnGatewayArgs, opts ...pulumi.InvokeOption) (*LookupVpnGatewayResult, error) {
 	var rv LookupVpnGatewayResult

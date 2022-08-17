@@ -117,7 +117,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     public readonly skuName!: pulumi.Output<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
      */
     public readonly skuTier!: pulumi.Output<string>;
     /**
@@ -236,7 +236,7 @@ export interface FirewallState {
      */
     skuName?: pulumi.Input<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
      */
     skuTier?: pulumi.Input<string>;
     /**
@@ -298,7 +298,7 @@ export interface FirewallArgs {
      */
     skuName: pulumi.Input<string>;
     /**
-     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.  Changing this forces a new resource to be created.
+     * SKU tier of the Firewall. Possible values are `Premium` and `Standard`.
      */
     skuTier: pulumi.Input<string>;
     /**

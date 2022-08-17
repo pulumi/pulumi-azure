@@ -15,8 +15,6 @@ import (
 //
 // ## Disclaimers
 //
-// > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
-//
 // > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
 //
 // ## Example Usage
@@ -27,83 +25,86 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		firstPublicKey := "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Standard_F2"),
-// 			Instances:         pulumi.Int(1),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
-// 				&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
-// 					Username:  pulumi.String("adminuser"),
-// 					PublicKey: pulumi.String(firstPublicKey),
-// 				},
-// 			},
-// 			SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 				Caching:            pulumi.String("ReadWrite"),
-// 			},
-// 			NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
-// 				&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
-// 					Name:    pulumi.String("example"),
-// 					Primary: pulumi.Bool(true),
-// 					IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-// 						&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-// 							Name:     pulumi.String("internal"),
-// 							Primary:  pulumi.Bool(true),
-// 							SubnetId: internal.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			firstPublicKey := "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(1),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("adminuser"),
+//						PublicKey: pulumi.String(firstPublicKey),
+//					},
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("internal"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: internal.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -111,7 +112,9 @@ import (
 // Linux Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
+//	$ pulumi import azure:compute/linuxVirtualMachineScaleSet:LinuxVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
 // ```
 type LinuxVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
@@ -156,8 +159,8 @@ type LinuxVirtualMachineScaleSet struct {
 	HealthProbeId pulumi.StringPtrOutput `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set.
-	Instances pulumi.IntOutput `pulumi:"instances"`
+	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
+	Instances pulumi.IntPtrOutput `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -229,9 +232,6 @@ func NewLinuxVirtualMachineScaleSet(ctx *pulumi.Context,
 
 	if args.AdminUsername == nil {
 		return nil, errors.New("invalid value for required argument 'AdminUsername'")
-	}
-	if args.Instances == nil {
-		return nil, errors.New("invalid value for required argument 'Instances'")
 	}
 	if args.NetworkInterfaces == nil {
 		return nil, errors.New("invalid value for required argument 'NetworkInterfaces'")
@@ -307,7 +307,7 @@ type linuxVirtualMachineScaleSetState struct {
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set.
+	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
 	Instances *int `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -412,7 +412,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	HealthProbeId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
-	// The number of Virtual Machines in the Scale Set.
+	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
 	Instances pulumi.IntPtrInput
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -521,8 +521,8 @@ type linuxVirtualMachineScaleSetArgs struct {
 	HealthProbeId *string `pulumi:"healthProbeId"`
 	// An `identity` block as defined below.
 	Identity *LinuxVirtualMachineScaleSetIdentity `pulumi:"identity"`
-	// The number of Virtual Machines in the Scale Set.
-	Instances int `pulumi:"instances"`
+	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
+	Instances *int `pulumi:"instances"`
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -625,8 +625,8 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	HealthProbeId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity LinuxVirtualMachineScaleSetIdentityPtrInput
-	// The number of Virtual Machines in the Scale Set.
-	Instances pulumi.IntInput
+	// The number of Virtual Machines in the Scale Set. Defaults to `0`.
+	Instances pulumi.IntPtrInput
 	// The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The maximum price you're willing to pay for each Virtual Machine in this Scale Set, in US Dollars; which must be greater than the current spot price. If this bid price falls below the current spot price the Virtual Machines in the Scale Set will be evicted using the `evictionPolicy`. Defaults to `-1`, which means that each Virtual Machine in this Scale Set should not be evicted for price reasons.
@@ -713,7 +713,7 @@ func (i *LinuxVirtualMachineScaleSet) ToLinuxVirtualMachineScaleSetOutputWithCon
 // LinuxVirtualMachineScaleSetArrayInput is an input type that accepts LinuxVirtualMachineScaleSetArray and LinuxVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetArray{ LinuxVirtualMachineScaleSetArgs{...} }
+//	LinuxVirtualMachineScaleSetArray{ LinuxVirtualMachineScaleSetArgs{...} }
 type LinuxVirtualMachineScaleSetArrayInput interface {
 	pulumi.Input
 
@@ -738,7 +738,7 @@ func (i LinuxVirtualMachineScaleSetArray) ToLinuxVirtualMachineScaleSetArrayOutp
 // LinuxVirtualMachineScaleSetMapInput is an input type that accepts LinuxVirtualMachineScaleSetMap and LinuxVirtualMachineScaleSetMapOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetMapInput` via:
 //
-//          LinuxVirtualMachineScaleSetMap{ "key": LinuxVirtualMachineScaleSetArgs{...} }
+//	LinuxVirtualMachineScaleSetMap{ "key": LinuxVirtualMachineScaleSetArgs{...} }
 type LinuxVirtualMachineScaleSetMapInput interface {
 	pulumi.Input
 
@@ -890,9 +890,9 @@ func (o LinuxVirtualMachineScaleSetOutput) Identity() LinuxVirtualMachineScaleSe
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetIdentityPtrOutput { return v.Identity }).(LinuxVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// The number of Virtual Machines in the Scale Set.
-func (o LinuxVirtualMachineScaleSetOutput) Instances() pulumi.IntOutput {
-	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.IntOutput { return v.Instances }).(pulumi.IntOutput)
+// The number of Virtual Machines in the Scale Set. Defaults to `0`.
+func (o LinuxVirtualMachineScaleSetOutput) Instances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.IntPtrOutput { return v.Instances }).(pulumi.IntPtrOutput)
 }
 
 // The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.

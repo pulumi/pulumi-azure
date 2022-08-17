@@ -20,53 +20,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Windows"),
-// 			SkuName:           pulumi.String("P1v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleServicePlan.Location,
-// 			ServicePlanId:     exampleServicePlan.ID(),
-// 			SiteConfig:        nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWindowsWebAppSlot, err := appservice.NewWindowsWebAppSlot(ctx, "exampleWindowsWebAppSlot", &appservice.WindowsWebAppSlotArgs{
-// 			AppServiceId: exampleWindowsWebApp.Name,
-// 			SiteConfig:   nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewWebAppActiveSlot(ctx, "exampleWebAppActiveSlot", &appservice.WebAppActiveSlotArgs{
-// 			SlotId: exampleWindowsWebAppSlot.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Windows"),
+//				SkuName:           pulumi.String("P1v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleServicePlan.Location,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWindowsWebAppSlot, err := appservice.NewWindowsWebAppSlot(ctx, "exampleWindowsWebAppSlot", &appservice.WindowsWebAppSlotArgs{
+//				AppServiceId: exampleWindowsWebApp.Name,
+//				SiteConfig:   nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewWebAppActiveSlot(ctx, "exampleWebAppActiveSlot", &appservice.WebAppActiveSlotArgs{
+//				SlotId: exampleWindowsWebAppSlot.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // a Web App Active Slot can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/webAppActiveSlot:WebAppActiveSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1"
+//
+//	$ pulumi import azure:appservice/webAppActiveSlot:WebAppActiveSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1"
+//
 // ```
 type WebAppActiveSlot struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *WebAppActiveSlot) ToWebAppActiveSlotOutputWithContext(ctx context.Conte
 // WebAppActiveSlotArrayInput is an input type that accepts WebAppActiveSlotArray and WebAppActiveSlotArrayOutput values.
 // You can construct a concrete instance of `WebAppActiveSlotArrayInput` via:
 //
-//          WebAppActiveSlotArray{ WebAppActiveSlotArgs{...} }
+//	WebAppActiveSlotArray{ WebAppActiveSlotArgs{...} }
 type WebAppActiveSlotArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i WebAppActiveSlotArray) ToWebAppActiveSlotArrayOutputWithContext(ctx cont
 // WebAppActiveSlotMapInput is an input type that accepts WebAppActiveSlotMap and WebAppActiveSlotMapOutput values.
 // You can construct a concrete instance of `WebAppActiveSlotMapInput` via:
 //
-//          WebAppActiveSlotMap{ "key": WebAppActiveSlotArgs{...} }
+//	WebAppActiveSlotMap{ "key": WebAppActiveSlotArgs{...} }
 type WebAppActiveSlotMapInput interface {
 	pulumi.Input
 

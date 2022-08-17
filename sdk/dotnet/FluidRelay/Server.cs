@@ -15,25 +15,24 @@ namespace Pulumi.Azure.FluidRelay
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.FluidRelay.Server("exampleServer", new Azure.FluidRelay.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.FluidRelay.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.FluidRelay
     /// ```
     /// </summary>
     [AzureResourceType("azure:fluidrelay/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Fluid tenantId for this server.
@@ -145,7 +144,7 @@ namespace Pulumi.Azure.FluidRelay
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -192,9 +191,10 @@ namespace Pulumi.Azure.FluidRelay
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Fluid tenantId for this server.
@@ -271,5 +271,6 @@ namespace Pulumi.Azure.FluidRelay
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

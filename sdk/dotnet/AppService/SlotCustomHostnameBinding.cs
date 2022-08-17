@@ -15,48 +15,50 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServiceName = exampleAppService.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var exampleSlotCustomHostnameBinding = new Azure.AppService.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", new Azure.AppService.SlotCustomHostnameBindingArgs
-    ///         {
-    ///             AppServiceSlotId = exampleSlot.Id,
-    ///             Hostname = "www.mywebsite.com",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var exampleSlotCustomHostnameBinding = new Azure.AppService.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", new()
+    ///     {
+    ///         AppServiceSlotId = exampleSlot.Id,
+    ///         Hostname = "www.mywebsite.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +70,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding")]
-    public partial class SlotCustomHostnameBinding : Pulumi.CustomResource
+    public partial class SlotCustomHostnameBinding : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service Slot. Changing this forces a new resource to be created.
@@ -144,7 +146,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SlotCustomHostnameBindingArgs : Pulumi.ResourceArgs
+    public sealed class SlotCustomHostnameBindingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Slot. Changing this forces a new resource to be created.
@@ -173,9 +175,10 @@ namespace Pulumi.Azure.AppService
         public SlotCustomHostnameBindingArgs()
         {
         }
+        public static new SlotCustomHostnameBindingArgs Empty => new SlotCustomHostnameBindingArgs();
     }
 
-    public sealed class SlotCustomHostnameBindingState : Pulumi.ResourceArgs
+    public sealed class SlotCustomHostnameBindingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Slot. Changing this forces a new resource to be created.
@@ -210,5 +213,6 @@ namespace Pulumi.Azure.AppService
         public SlotCustomHostnameBindingState()
         {
         }
+        public static new SlotCustomHostnameBindingState Empty => new SlotCustomHostnameBindingState();
     }
 }

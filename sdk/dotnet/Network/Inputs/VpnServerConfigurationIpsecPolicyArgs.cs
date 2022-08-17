@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationIpsecPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationIpsecPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DH Group, used in IKE Phase 1. Possible values include `DHGroup1`, `DHGroup2`, `DHGroup14`, `DHGroup24`, `DHGroup2048`, `ECP256`, `ECP384` and `None`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationIpsecPolicyArgs()
         {
         }
+        public static new VpnServerConfigurationIpsecPolicyArgs Empty => new VpnServerConfigurationIpsecPolicyArgs();
     }
 }

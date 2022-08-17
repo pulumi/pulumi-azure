@@ -15,23 +15,21 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Compute.SshPublicKey("example", new()
     ///     {
-    ///         var example = new Azure.Compute.SshPublicKey("example", new Azure.Compute.SshPublicKeyArgs
-    ///         {
-    ///             ResourceGroupName = "example",
-    ///             Location = "West Europe",
-    ///             PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///         });
-    ///     }
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
+    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/sshPublicKey:SshPublicKey")]
-    public partial class SshPublicKey : Pulumi.CustomResource
+    public partial class SshPublicKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
@@ -119,7 +117,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class SshPublicKeyArgs : Pulumi.ResourceArgs
+    public sealed class SshPublicKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
@@ -160,9 +158,10 @@ namespace Pulumi.Azure.Compute
         public SshPublicKeyArgs()
         {
         }
+        public static new SshPublicKeyArgs Empty => new SshPublicKeyArgs();
     }
 
-    public sealed class SshPublicKeyState : Pulumi.ResourceArgs
+    public sealed class SshPublicKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the SSH Public Key should exist. Changing this forces a new SSH Public Key to be created.
@@ -203,5 +202,6 @@ namespace Pulumi.Azure.Compute
         public SshPublicKeyState()
         {
         }
+        public static new SshPublicKeyState Empty => new SshPublicKeyState();
     }
 }

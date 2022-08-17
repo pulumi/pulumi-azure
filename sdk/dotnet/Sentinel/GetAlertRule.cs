@@ -19,29 +19,29 @@ namespace Pulumi.Azure.Sentinel
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAnalyticsWorkspace = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
-        ///         var exampleAnalyticsWorkspace = Output.Create(Azure.OperationalInsights.GetAnalyticsWorkspace.InvokeAsync(new Azure.OperationalInsights.GetAnalyticsWorkspaceArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         var exampleAlertRule = exampleAnalyticsWorkspace.Apply(exampleAnalyticsWorkspace =&gt; Output.Create(Azure.Sentinel.GetAlertRule.InvokeAsync(new Azure.Sentinel.GetAlertRuleArgs
-        ///         {
-        ///             Name = "existing",
-        ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-        ///         })));
-        ///         this.Id = exampleAlertRule.Apply(exampleAlertRule =&gt; exampleAlertRule.Id);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +57,29 @@ namespace Pulumi.Azure.Sentinel
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAnalyticsWorkspace = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
-        ///         var exampleAnalyticsWorkspace = Output.Create(Azure.OperationalInsights.GetAnalyticsWorkspace.InvokeAsync(new Azure.OperationalInsights.GetAnalyticsWorkspaceArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         var exampleAlertRule = exampleAnalyticsWorkspace.Apply(exampleAnalyticsWorkspace =&gt; Output.Create(Azure.Sentinel.GetAlertRule.InvokeAsync(new Azure.Sentinel.GetAlertRuleArgs
-        ///         {
-        ///             Name = "existing",
-        ///             LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
-        ///         })));
-        ///         this.Id = exampleAlertRule.Apply(exampleAlertRule =&gt; exampleAlertRule.Id);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Sentinel
     }
 
 
-    public sealed class GetAlertRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
@@ -106,9 +106,10 @@ namespace Pulumi.Azure.Sentinel
         public GetAlertRuleArgs()
         {
         }
+        public static new GetAlertRuleArgs Empty => new GetAlertRuleArgs();
     }
 
-    public sealed class GetAlertRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace this Sentinel Alert Rule belongs to.
@@ -125,6 +126,7 @@ namespace Pulumi.Azure.Sentinel
         public GetAlertRuleInvokeArgs()
         {
         }
+        public static new GetAlertRuleInvokeArgs Empty => new GetAlertRuleInvokeArgs();
     }
 
 

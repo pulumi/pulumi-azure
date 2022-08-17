@@ -21,73 +21,76 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Dynamic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVirtualNetworkGateway(ctx, "exampleVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Type:              pulumi.String("Vpn"),
-// 			VpnType:           pulumi.String("RouteBased"),
-// 			ActiveActive:      pulumi.Bool(false),
-// 			EnableBgp:         pulumi.Bool(false),
-// 			Sku:               pulumi.String("Basic"),
-// 			IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
-// 				&network.VirtualNetworkGatewayIpConfigurationArgs{
-// 					Name:                       pulumi.String("vnetGatewayConfig"),
-// 					PublicIpAddressId:          examplePublicIp.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 				},
-// 			},
-// 			VpnClientConfiguration: &network.VirtualNetworkGatewayVpnClientConfigurationArgs{
-// 				AddressSpaces: pulumi.StringArray{
-// 					pulumi.String("10.2.0.0/24"),
-// 				},
-// 				RootCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{
-// 					&network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{
-// 						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
-// 						PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Dynamic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVirtualNetworkGateway(ctx, "exampleVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Type:              pulumi.String("Vpn"),
+//				VpnType:           pulumi.String("RouteBased"),
+//				ActiveActive:      pulumi.Bool(false),
+//				EnableBgp:         pulumi.Bool(false),
+//				Sku:               pulumi.String("Basic"),
+//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
+//					&network.VirtualNetworkGatewayIpConfigurationArgs{
+//						Name:                       pulumi.String("vnetGatewayConfig"),
+//						PublicIpAddressId:          examplePublicIp.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//						SubnetId:                   exampleSubnet.ID(),
+//					},
+//				},
+//				VpnClientConfiguration: &network.VirtualNetworkGatewayVpnClientConfigurationArgs{
+//					AddressSpaces: pulumi.StringArray{
+//						pulumi.String("10.2.0.0/24"),
+//					},
+//					RootCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArray{
+//						&network.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs{
+//							Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
+//							PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//
 // MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
 // d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
 // Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -108,22 +111,24 @@ import (
 // WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
 // M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
 // `)),
-// 					},
-// 				},
-// 				RevokedCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{
-// 					&network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{
-// 						Name:       pulumi.String("Verizon-Global-Root-CA"),
-// 						Thumbprint: pulumi.String("912198EEF23DCAC40939312FEE97DD560BAE49B1"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//						},
+//					},
+//					RevokedCertificates: network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArray{
+//						&network.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs{
+//							Name:       pulumi.String("Verizon-Global-Root-CA"),
+//							Thumbprint: pulumi.String("912198EEF23DCAC40939312FEE97DD560BAE49B1"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -131,7 +136,9 @@ import (
 // Virtual Network Gateways can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/virtualNetworkGateway:VirtualNetworkGateway exampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/virtualNetworkGateways/myGateway1
+//
+//	$ pulumi import azure:network/virtualNetworkGateway:VirtualNetworkGateway exampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/virtualNetworkGateways/myGateway1
+//
 // ```
 type VirtualNetworkGateway struct {
 	pulumi.CustomResourceState
@@ -511,7 +518,7 @@ func (i *VirtualNetworkGateway) ToVirtualNetworkGatewayOutputWithContext(ctx con
 // VirtualNetworkGatewayArrayInput is an input type that accepts VirtualNetworkGatewayArray and VirtualNetworkGatewayArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayArrayInput` via:
 //
-//          VirtualNetworkGatewayArray{ VirtualNetworkGatewayArgs{...} }
+//	VirtualNetworkGatewayArray{ VirtualNetworkGatewayArgs{...} }
 type VirtualNetworkGatewayArrayInput interface {
 	pulumi.Input
 
@@ -536,7 +543,7 @@ func (i VirtualNetworkGatewayArray) ToVirtualNetworkGatewayArrayOutputWithContex
 // VirtualNetworkGatewayMapInput is an input type that accepts VirtualNetworkGatewayMap and VirtualNetworkGatewayMapOutput values.
 // You can construct a concrete instance of `VirtualNetworkGatewayMapInput` via:
 //
-//          VirtualNetworkGatewayMap{ "key": VirtualNetworkGatewayArgs{...} }
+//	VirtualNetworkGatewayMap{ "key": VirtualNetworkGatewayArgs{...} }
 type VirtualNetworkGatewayMapInput interface {
 	pulumi.Input
 

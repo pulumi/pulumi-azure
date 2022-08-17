@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/attestation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/attestation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = attestation.NewProvider(ctx, "exampleProvider", &attestation.ProviderArgs{
-// 			ResourceGroupName:            exampleResourceGroup.Name,
-// 			Location:                     exampleResourceGroup.Location,
-// 			PolicySigningCertificateData: readFileOrPanic("./example/cert.pem"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = attestation.NewProvider(ctx, "exampleProvider", &attestation.ProviderArgs{
+//				ResourceGroupName:            exampleResourceGroup.Name,
+//				Location:                     exampleResourceGroup.Location,
+//				PolicySigningCertificateData: readFileOrPanic("./example/cert.pem"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Attestation Providers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+//
+//	$ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+//
 // ```
 type Provider struct {
 	pulumi.CustomResourceState
@@ -203,7 +208,7 @@ func (i *Provider) ToProviderOutputWithContext(ctx context.Context) ProviderOutp
 // ProviderArrayInput is an input type that accepts ProviderArray and ProviderArrayOutput values.
 // You can construct a concrete instance of `ProviderArrayInput` via:
 //
-//          ProviderArray{ ProviderArgs{...} }
+//	ProviderArray{ ProviderArgs{...} }
 type ProviderArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i ProviderArray) ToProviderArrayOutputWithContext(ctx context.Context) Pro
 // ProviderMapInput is an input type that accepts ProviderMap and ProviderMapOutput values.
 // You can construct a concrete instance of `ProviderMapInput` via:
 //
-//          ProviderMap{ "key": ProviderArgs{...} }
+//	ProviderMap{ "key": ProviderArgs{...} }
 type ProviderMapInput interface {
 	pulumi.Input
 

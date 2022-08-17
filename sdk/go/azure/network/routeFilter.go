@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
-// 			Location:          pulumi.String("East US"),
-// 			ResourceGroupName: pulumi.String("example"),
-// 			Rule: &network.RouteFilterRuleArgs{
-// 				Access: pulumi.String("Allow"),
-// 				Communities: pulumi.StringArray{
-// 					pulumi.String("12076:52004"),
-// 				},
-// 				Name:     pulumi.String("rule"),
-// 				RuleType: pulumi.String("Community"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
+//				Location:          pulumi.String("East US"),
+//				ResourceGroupName: pulumi.String("example"),
+//				Rule: &network.RouteFilterRuleArgs{
+//					Access: pulumi.String("Allow"),
+//					Communities: pulumi.StringArray{
+//						pulumi.String("12076:52004"),
+//					},
+//					Name:     pulumi.String("rule"),
+//					RuleType: pulumi.String("Community"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Route Filters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/routeFilter:RouteFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/routeFilters/routeFilter1
+//
+//	$ pulumi import azure:network/routeFilter:RouteFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/routeFilters/routeFilter1
+//
 // ```
 type RouteFilter struct {
 	pulumi.CustomResourceState
@@ -181,7 +186,7 @@ func (i *RouteFilter) ToRouteFilterOutputWithContext(ctx context.Context) RouteF
 // RouteFilterArrayInput is an input type that accepts RouteFilterArray and RouteFilterArrayOutput values.
 // You can construct a concrete instance of `RouteFilterArrayInput` via:
 //
-//          RouteFilterArray{ RouteFilterArgs{...} }
+//	RouteFilterArray{ RouteFilterArgs{...} }
 type RouteFilterArrayInput interface {
 	pulumi.Input
 
@@ -206,7 +211,7 @@ func (i RouteFilterArray) ToRouteFilterArrayOutputWithContext(ctx context.Contex
 // RouteFilterMapInput is an input type that accepts RouteFilterMap and RouteFilterMapOutput values.
 // You can construct a concrete instance of `RouteFilterMapInput` via:
 //
-//          RouteFilterMap{ "key": RouteFilterArgs{...} }
+//	RouteFilterMap{ "key": RouteFilterArgs{...} }
 type RouteFilterMapInput interface {
 	pulumi.Input
 

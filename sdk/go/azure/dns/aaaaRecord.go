@@ -17,39 +17,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: pulumi.StringArray{
-// 				pulumi.String("2001:db8::1:0:0:1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String("2001:db8::1:0:0:1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Alias Record)
 //
@@ -57,47 +60,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Dynamic"),
-// 			IpVersion:         pulumi.String("IPv6"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			TargetResourceId:  examplePublicIp.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Dynamic"),
+//				IpVersion:         pulumi.String("IPv6"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewAaaaRecord(ctx, "exampleAaaaRecord", &dns.AaaaRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				TargetResourceId:  examplePublicIp.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -105,7 +111,9 @@ import (
 // AAAA records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/AAAA/myrecord1
+//
+//	$ pulumi import azure:dns/aaaaRecord:AaaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/AAAA/myrecord1
+//
 // ```
 type AaaaRecord struct {
 	pulumi.CustomResourceState
@@ -263,7 +271,7 @@ func (i *AaaaRecord) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaReco
 // AaaaRecordArrayInput is an input type that accepts AaaaRecordArray and AaaaRecordArrayOutput values.
 // You can construct a concrete instance of `AaaaRecordArrayInput` via:
 //
-//          AaaaRecordArray{ AaaaRecordArgs{...} }
+//	AaaaRecordArray{ AaaaRecordArgs{...} }
 type AaaaRecordArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +296,7 @@ func (i AaaaRecordArray) ToAaaaRecordArrayOutputWithContext(ctx context.Context)
 // AaaaRecordMapInput is an input type that accepts AaaaRecordMap and AaaaRecordMapOutput values.
 // You can construct a concrete instance of `AaaaRecordMapInput` via:
 //
-//          AaaaRecordMap{ "key": AaaaRecordArgs{...} }
+//	AaaaRecordMap{ "key": AaaaRecordArgs{...} }
 type AaaaRecordMapInput interface {
 	pulumi.Input
 

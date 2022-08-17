@@ -17,43 +17,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewNsRecord(ctx, "exampleNsRecord", &dns.NsRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: pulumi.StringArray{
-// 				pulumi.String("ns1.contoso.com"),
-// 				pulumi.String("ns2.contoso.com"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewNsRecord(ctx, "exampleNsRecord", &dns.NsRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String("ns1.contoso.com."),
+//					pulumi.String("ns2.contoso.com."),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // NS records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/NS/myrecord1
+//
+//	$ pulumi import azure:dns/nsRecord:NsRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/NS/myrecord1
+//
 // ```
 type NsRecord struct {
 	pulumi.CustomResourceState
@@ -217,7 +222,7 @@ func (i *NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutp
 // NsRecordArrayInput is an input type that accepts NsRecordArray and NsRecordArrayOutput values.
 // You can construct a concrete instance of `NsRecordArrayInput` via:
 //
-//          NsRecordArray{ NsRecordArgs{...} }
+//	NsRecordArray{ NsRecordArgs{...} }
 type NsRecordArrayInput interface {
 	pulumi.Input
 
@@ -242,7 +247,7 @@ func (i NsRecordArray) ToNsRecordArrayOutputWithContext(ctx context.Context) NsR
 // NsRecordMapInput is an input type that accepts NsRecordMap and NsRecordMapOutput values.
 // You can construct a concrete instance of `NsRecordMapInput` via:
 //
-//          NsRecordMap{ "key": NsRecordArgs{...} }
+//	NsRecordMap{ "key": NsRecordArgs{...} }
 type NsRecordMapInput interface {
 	pulumi.Input
 

@@ -15,55 +15,56 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             SoftDeleteRetentionDays = 7,
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
     ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Create",
-    ///                         "Get",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Set",
-    ///                         "Get",
-    ///                         "Delete",
-    ///                         "Purge",
-    ///                         "Recover",
-    ///                     },
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                     "Get",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                     "Recover",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new Azure.KeyVault.SecretArgs
-    ///         {
-    ///             Value = "szechuan",
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new()
+    ///     {
+    ///         Value = "szechuan",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +76,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/secret:Secret")]
-    public partial class Secret : Pulumi.CustomResource
+    public partial class Secret : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the content type for the Key Vault Secret.
@@ -187,7 +188,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class SecretArgs : Pulumi.ResourceArgs
+    public sealed class SecretArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the content type for the Key Vault Secret.
@@ -240,9 +241,10 @@ namespace Pulumi.Azure.KeyVault
         public SecretArgs()
         {
         }
+        public static new SecretArgs Empty => new SecretArgs();
     }
 
-    public sealed class SecretState : Pulumi.ResourceArgs
+    public sealed class SecretState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the content type for the Key Vault Secret.
@@ -319,5 +321,6 @@ namespace Pulumi.Azure.KeyVault
         public SecretState()
         {
         }
+        public static new SecretState Empty => new SecretState();
     }
 }

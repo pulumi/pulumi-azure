@@ -21,170 +21,173 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("testconfiguration1"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				exampleNetworkInterface.ID(),
-// 			},
-// 			VmSize: pulumi.String("Standard_D2s_v3"),
-// 			StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
-// 				Name:            pulumi.String("osdisk-example01"),
-// 				Caching:         pulumi.String("ReadWrite"),
-// 				CreateOption:    pulumi.String("FromImage"),
-// 				ManagedDiskType: pulumi.String("Standard_LRS"),
-// 			},
-// 			OsProfile: &compute.VirtualMachineOsProfileArgs{
-// 				ComputerName:  pulumi.String("hostnametest01"),
-// 				AdminUsername: pulumi.String("testadmin"),
-// 				AdminPassword: pulumi.String("Password1234!"),
-// 			},
-// 			OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
-// 				DisablePasswordAuthentication: pulumi.Bool(false),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleExtension, err := compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
-// 			VirtualMachineId:        exampleVirtualMachine.ID(),
-// 			Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
-// 			Type:                    pulumi.String("NetworkWatcherAgentLinux"),
-// 			TypeHandlerVersion:      pulumi.String("1.4"),
-// 			AutoUpgradeMinorVersion: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkConnectionMonitor(ctx, "exampleNetworkConnectionMonitor", &network.NetworkConnectionMonitorArgs{
-// 			NetworkWatcherId: exampleNetworkWatcher.ID(),
-// 			Location:         exampleNetworkWatcher.Location,
-// 			Endpoints: network.NetworkConnectionMonitorEndpointArray{
-// 				&network.NetworkConnectionMonitorEndpointArgs{
-// 					Name:             pulumi.String("source"),
-// 					TargetResourceId: exampleVirtualMachine.ID(),
-// 					Filter: &network.NetworkConnectionMonitorEndpointFilterArgs{
-// 						Items: network.NetworkConnectionMonitorEndpointFilterItemArray{
-// 							&network.NetworkConnectionMonitorEndpointFilterItemArgs{
-// 								Address: exampleVirtualMachine.ID(),
-// 								Type:    pulumi.String("AgentAddress"),
-// 							},
-// 						},
-// 						Type: pulumi.String("Include"),
-// 					},
-// 				},
-// 				&network.NetworkConnectionMonitorEndpointArgs{
-// 					Name:    pulumi.String("destination"),
-// 					Address: pulumi.String("mycompany.io"),
-// 				},
-// 			},
-// 			TestConfigurations: network.NetworkConnectionMonitorTestConfigurationArray{
-// 				&network.NetworkConnectionMonitorTestConfigurationArgs{
-// 					Name:                   pulumi.String("tcpName"),
-// 					Protocol:               pulumi.String("Tcp"),
-// 					TestFrequencyInSeconds: pulumi.Int(60),
-// 					TcpConfiguration: &network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{
-// 						Port: pulumi.Int(80),
-// 					},
-// 				},
-// 			},
-// 			TestGroups: network.NetworkConnectionMonitorTestGroupArray{
-// 				&network.NetworkConnectionMonitorTestGroupArgs{
-// 					Name: pulumi.String("exampletg"),
-// 					DestinationEndpoints: pulumi.StringArray{
-// 						pulumi.String("destination"),
-// 					},
-// 					SourceEndpoints: pulumi.StringArray{
-// 						pulumi.String("source"),
-// 					},
-// 					TestConfigurationNames: pulumi.StringArray{
-// 						pulumi.String("tcpName"),
-// 					},
-// 				},
-// 			},
-// 			Notes: pulumi.String("examplenote"),
-// 			OutputWorkspaceResourceIds: pulumi.StringArray{
-// 				exampleAnalyticsWorkspace.ID(),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleExtension,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				VmSize: pulumi.String("Standard_D2s_v3"),
+//				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				StorageOsDisk: &compute.VirtualMachineStorageOsDiskArgs{
+//					Name:            pulumi.String("osdisk-example01"),
+//					Caching:         pulumi.String("ReadWrite"),
+//					CreateOption:    pulumi.String("FromImage"),
+//					ManagedDiskType: pulumi.String("Standard_LRS"),
+//				},
+//				OsProfile: &compute.VirtualMachineOsProfileArgs{
+//					ComputerName:  pulumi.String("hostnametest01"),
+//					AdminUsername: pulumi.String("testadmin"),
+//					AdminPassword: pulumi.String("Password1234!"),
+//				},
+//				OsProfileLinuxConfig: &compute.VirtualMachineOsProfileLinuxConfigArgs{
+//					DisablePasswordAuthentication: pulumi.Bool(false),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExtension, err := compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//				VirtualMachineId:        exampleVirtualMachine.ID(),
+//				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
+//				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
+//				TypeHandlerVersion:      pulumi.String("1.4"),
+//				AutoUpgradeMinorVersion: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkConnectionMonitor(ctx, "exampleNetworkConnectionMonitor", &network.NetworkConnectionMonitorArgs{
+//				NetworkWatcherId: exampleNetworkWatcher.ID(),
+//				Location:         exampleNetworkWatcher.Location,
+//				Endpoints: network.NetworkConnectionMonitorEndpointArray{
+//					&network.NetworkConnectionMonitorEndpointArgs{
+//						Name:             pulumi.String("source"),
+//						TargetResourceId: exampleVirtualMachine.ID(),
+//						Filter: &network.NetworkConnectionMonitorEndpointFilterArgs{
+//							Items: network.NetworkConnectionMonitorEndpointFilterItemArray{
+//								&network.NetworkConnectionMonitorEndpointFilterItemArgs{
+//									Address: exampleVirtualMachine.ID(),
+//									Type:    pulumi.String("AgentAddress"),
+//								},
+//							},
+//							Type: pulumi.String("Include"),
+//						},
+//					},
+//					&network.NetworkConnectionMonitorEndpointArgs{
+//						Name:    pulumi.String("destination"),
+//						Address: pulumi.String("mycompany.io"),
+//					},
+//				},
+//				TestConfigurations: network.NetworkConnectionMonitorTestConfigurationArray{
+//					&network.NetworkConnectionMonitorTestConfigurationArgs{
+//						Name:                   pulumi.String("tcpName"),
+//						Protocol:               pulumi.String("Tcp"),
+//						TestFrequencyInSeconds: pulumi.Int(60),
+//						TcpConfiguration: &network.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs{
+//							Port: pulumi.Int(80),
+//						},
+//					},
+//				},
+//				TestGroups: network.NetworkConnectionMonitorTestGroupArray{
+//					&network.NetworkConnectionMonitorTestGroupArgs{
+//						Name: pulumi.String("exampletg"),
+//						DestinationEndpoints: pulumi.StringArray{
+//							pulumi.String("destination"),
+//						},
+//						SourceEndpoints: pulumi.StringArray{
+//							pulumi.String("source"),
+//						},
+//						TestConfigurationNames: pulumi.StringArray{
+//							pulumi.String("tcpName"),
+//						},
+//					},
+//				},
+//				Notes: pulumi.String("examplenote"),
+//				OutputWorkspaceResourceIds: pulumi.StringArray{
+//					exampleAnalyticsWorkspace.ID(),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleExtension,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -192,7 +195,9 @@ import (
 // Network Connection Monitors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+//
+//	$ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+//
 // ```
 type NetworkConnectionMonitor struct {
 	pulumi.CustomResourceState
@@ -372,7 +377,7 @@ func (i *NetworkConnectionMonitor) ToNetworkConnectionMonitorOutputWithContext(c
 // NetworkConnectionMonitorArrayInput is an input type that accepts NetworkConnectionMonitorArray and NetworkConnectionMonitorArrayOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorArrayInput` via:
 //
-//          NetworkConnectionMonitorArray{ NetworkConnectionMonitorArgs{...} }
+//	NetworkConnectionMonitorArray{ NetworkConnectionMonitorArgs{...} }
 type NetworkConnectionMonitorArrayInput interface {
 	pulumi.Input
 
@@ -397,7 +402,7 @@ func (i NetworkConnectionMonitorArray) ToNetworkConnectionMonitorArrayOutputWith
 // NetworkConnectionMonitorMapInput is an input type that accepts NetworkConnectionMonitorMap and NetworkConnectionMonitorMapOutput values.
 // You can construct a concrete instance of `NetworkConnectionMonitorMapInput` via:
 //
-//          NetworkConnectionMonitorMap{ "key": NetworkConnectionMonitorArgs{...} }
+//	NetworkConnectionMonitorMap{ "key": NetworkConnectionMonitorArgs{...} }
 type NetworkConnectionMonitorMapInput interface {
 	pulumi.Input
 

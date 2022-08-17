@@ -19,24 +19,23 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetRegistry.InvokeAsync(new Azure.ContainerService.GetRegistryArgs
-        ///         {
-        ///             Name = "testacr",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.LoginServer = example.Apply(example =&gt; example.LoginServer);
-        ///     }
+        ///         Name = "testacr",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("loginServer")]
-        ///     public Output&lt;string&gt; LoginServer { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loginServer"] = example.Apply(getRegistryResult =&gt; getRegistryResult.LoginServer),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetRegistry.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetRegistry.InvokeAsync(new Azure.ContainerService.GetRegistryArgs
-        ///         {
-        ///             Name = "testacr",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///         this.LoginServer = example.Apply(example =&gt; example.LoginServer);
-        ///     }
+        ///         Name = "testacr",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        ///     [Output("loginServer")]
-        ///     public Output&lt;string&gt; LoginServer { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loginServer"] = example.Apply(getRegistryResult =&gt; getRegistryResult.LoginServer),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetRegistryArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Container Registry.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.ContainerService
         public GetRegistryArgs()
         {
         }
+        public static new GetRegistryArgs Empty => new GetRegistryArgs();
     }
 
-    public sealed class GetRegistryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRegistryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Container Registry.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.ContainerService
         public GetRegistryInvokeArgs()
         {
         }
+        public static new GetRegistryInvokeArgs Empty => new GetRegistryInvokeArgs();
     }
 
 

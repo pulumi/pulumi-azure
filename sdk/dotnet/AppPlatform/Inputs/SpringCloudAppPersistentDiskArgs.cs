@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudAppPersistentDiskArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppPersistentDiskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the mount path of the persistent disk. Defaults to `/persistent`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudAppPersistentDiskArgs()
         {
         }
+        public static new SpringCloudAppPersistentDiskArgs Empty => new SpringCloudAppPersistentDiskArgs();
     }
 }

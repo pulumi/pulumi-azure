@@ -15,52 +15,52 @@ namespace Pulumi.Azure.DataboxEdge
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new Azure.DataboxEdge.DeviceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "EdgeP_Base-Standard",
-    ///         });
-    ///         var exampleOrder = new Azure.DataboxEdge.Order("exampleOrder", new Azure.DataboxEdge.OrderArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DeviceName = exampleDevice.Name,
-    ///             Contact = new Azure.DataboxEdge.Inputs.OrderContactArgs
-    ///             {
-    ///                 Name = "TerraForm Test",
-    ///                 Emails = 
-    ///                 {
-    ///                     "creator4983@FlynnsArcade.com",
-    ///                 },
-    ///                 CompanyName = "Flynn's Arcade",
-    ///                 PhoneNumber = "(800) 555-1234",
-    ///             },
-    ///             ShipmentAddress = new Azure.DataboxEdge.Inputs.OrderShipmentAddressArgs
-    ///             {
-    ///                 Addresses = 
-    ///                 {
-    ///                     "One Microsoft Way",
-    ///                 },
-    ///                 City = "Redmond",
-    ///                 PostalCode = "98052",
-    ///                 State = "WA",
-    ///                 Country = "United States",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "EdgeP_Base-Standard",
+    ///     });
+    /// 
+    ///     var exampleOrder = new Azure.DataboxEdge.Order("exampleOrder", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DeviceName = exampleDevice.Name,
+    ///         Contact = new Azure.DataboxEdge.Inputs.OrderContactArgs
+    ///         {
+    ///             Name = "TerraForm Test",
+    ///             Emails = new[]
+    ///             {
+    ///                 "creator4983@FlynnsArcade.com",
+    ///             },
+    ///             CompanyName = "Flynn's Arcade",
+    ///             PhoneNumber = "(800) 555-1234",
+    ///         },
+    ///         ShipmentAddress = new Azure.DataboxEdge.Inputs.OrderShipmentAddressArgs
+    ///         {
+    ///             Addresses = new[]
+    ///             {
+    ///                 "One Microsoft Way",
+    ///             },
+    ///             City = "Redmond",
+    ///             PostalCode = "98052",
+    ///             State = "WA",
+    ///             Country = "United States",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.DataboxEdge
     /// ```
     /// </summary>
     [AzureResourceType("azure:databoxedge/order:Order")]
-    public partial class Order : Pulumi.CustomResource
+    public partial class Order : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `contact` block as defined below.
@@ -178,7 +178,7 @@ namespace Pulumi.Azure.DataboxEdge
         }
     }
 
-    public sealed class OrderArgs : Pulumi.ResourceArgs
+    public sealed class OrderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `contact` block as defined below.
@@ -207,9 +207,10 @@ namespace Pulumi.Azure.DataboxEdge
         public OrderArgs()
         {
         }
+        public static new OrderArgs Empty => new OrderArgs();
     }
 
-    public sealed class OrderState : Pulumi.ResourceArgs
+    public sealed class OrderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `contact` block as defined below.
@@ -298,5 +299,6 @@ namespace Pulumi.Azure.DataboxEdge
         public OrderState()
         {
         }
+        public static new OrderState Empty => new OrderState();
     }
 }

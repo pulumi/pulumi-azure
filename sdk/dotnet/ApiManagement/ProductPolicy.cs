@@ -15,34 +15,33 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
     ///     {
-    ///         var exampleProduct = Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
-    ///         {
-    ///             ProductId = "my-product",
-    ///             ApiManagementName = "example-apim",
-    ///             ResourceGroupName = "search-service",
-    ///         }));
-    ///         var exampleProductPolicy = new Azure.ApiManagement.ProductPolicy("exampleProductPolicy", new Azure.ApiManagement.ProductPolicyArgs
-    ///         {
-    ///             ProductId = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ProductId),
-    ///             ApiManagementName = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ApiManagementName),
-    ///             ResourceGroupName = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ResourceGroupName),
-    ///             XmlContent = @"&lt;policies&gt;
+    ///         ProductId = "my-product",
+    ///         ApiManagementName = "example-apim",
+    ///         ResourceGroupName = "search-service",
+    ///     });
+    /// 
+    ///     var exampleProductPolicy = new Azure.ApiManagement.ProductPolicy("exampleProductPolicy", new()
+    ///     {
+    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
+    ///         ApiManagementName = exampleProduct.Apply(getProductResult =&gt; getProductResult.ApiManagementName),
+    ///         ResourceGroupName = exampleProduct.Apply(getProductResult =&gt; getProductResult.ResourceGroupName),
+    ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
     ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/productPolicy:ProductPolicy")]
-    public partial class ProductPolicy : Pulumi.CustomResource
+    public partial class ProductPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -130,7 +129,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ProductPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ProductPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -165,9 +164,10 @@ namespace Pulumi.Azure.ApiManagement
         public ProductPolicyArgs()
         {
         }
+        public static new ProductPolicyArgs Empty => new ProductPolicyArgs();
     }
 
-    public sealed class ProductPolicyState : Pulumi.ResourceArgs
+    public sealed class ProductPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -202,5 +202,6 @@ namespace Pulumi.Azure.ApiManagement
         public ProductPolicyState()
         {
         }
+        public static new ProductPolicyState Empty => new ProductPolicyState();
     }
 }

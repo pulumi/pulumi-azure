@@ -15,34 +15,34 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleARecord = new Azure.PrivateDns.ARecord("exampleARecord", new Azure.PrivateDns.ARecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "10.0.180.17",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleARecord = new Azure.PrivateDns.ARecord("exampleARecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "10.0.180.17",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/aRecord:ARecord")]
-    public partial class ARecord : Pulumi.CustomResource
+    public partial class ARecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS A Record.
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class ARecordArgs : Pulumi.ResourceArgs
+    public sealed class ARecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS A Record.
@@ -189,9 +189,10 @@ namespace Pulumi.Azure.PrivateDns
         public ARecordArgs()
         {
         }
+        public static new ARecordArgs Empty => new ARecordArgs();
     }
 
-    public sealed class ARecordState : Pulumi.ResourceArgs
+    public sealed class ARecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS A Record.
@@ -247,5 +248,6 @@ namespace Pulumi.Azure.PrivateDns
         public ARecordState()
         {
         }
+        public static new ARecordState Empty => new ARecordState();
     }
 }

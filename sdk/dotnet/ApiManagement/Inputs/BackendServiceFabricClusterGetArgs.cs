@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class BackendServiceFabricClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class BackendServiceFabricClusterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client certificate resource id for the management endpoint.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public BackendServiceFabricClusterGetArgs()
         {
         }
+        public static new BackendServiceFabricClusterGetArgs Empty => new BackendServiceFabricClusterGetArgs();
     }
 }

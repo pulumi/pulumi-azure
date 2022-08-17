@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayCustomRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayCustomRouteGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayCustomRouteGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayCustomRouteGetArgs Empty => new VirtualNetworkGatewayCustomRouteGetArgs();
     }
 }

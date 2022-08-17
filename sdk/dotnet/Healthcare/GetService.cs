@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetService.InvokeAsync(new Azure.Healthcare.GetServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_service",
-        ///             ResourceGroupName = "example-resources",
-        ///             Location = "westus2",
-        ///         }));
-        ///         this.HealthcareServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_service",
+        ///         ResourceGroupName = "example-resources",
+        ///         Location = "westus2",
+        ///     });
         /// 
-        ///     [Output("healthcareServiceId")]
-        ///     public Output&lt;string&gt; HealthcareServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["healthcareServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetService.InvokeAsync(new Azure.Healthcare.GetServiceArgs
-        ///         {
-        ///             Name = "example-healthcare_service",
-        ///             ResourceGroupName = "example-resources",
-        ///             Location = "westus2",
-        ///         }));
-        ///         this.HealthcareServiceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_service",
+        ///         ResourceGroupName = "example-resources",
+        ///         Location = "westus2",
+        ///     });
         /// 
-        ///     [Output("healthcareServiceId")]
-        ///     public Output&lt;string&gt; HealthcareServiceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["healthcareServiceId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Healthcare
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Region where the Service is located.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Healthcare
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure Region where the Service is located.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Healthcare
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

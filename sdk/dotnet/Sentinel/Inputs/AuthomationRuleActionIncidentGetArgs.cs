@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AuthomationRuleActionIncidentGetArgs : Pulumi.ResourceArgs
+    public sealed class AuthomationRuleActionIncidentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AuthomationRuleActionIncidentGetArgs()
         {
         }
+        public static new AuthomationRuleActionIncidentGetArgs Empty => new AuthomationRuleActionIncidentGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class ScheduleNotificationSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleNotificationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The status of the notification. Possible values are `Enabled` and `Disabled`. Defaults to `Disabled`
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public ScheduleNotificationSettingsGetArgs()
         {
         }
+        public static new ScheduleNotificationSettingsGetArgs Empty => new ScheduleNotificationSettingsGetArgs();
     }
 }

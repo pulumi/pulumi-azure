@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallVirtualHubArgs : Pulumi.ResourceArgs
+    public sealed class FirewallVirtualHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The private IP address associated with the Firewall.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallVirtualHubArgs()
         {
         }
+        public static new FirewallVirtualHubArgs Empty => new FirewallVirtualHubArgs();
     }
 }

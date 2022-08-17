@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterUpgradePolicyHealthPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradePolicyHealthPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterUpgradePolicyHealthPolicyArgs()
         {
         }
+        public static new ClusterUpgradePolicyHealthPolicyArgs Empty => new ClusterUpgradePolicyHealthPolicyArgs();
     }
 }

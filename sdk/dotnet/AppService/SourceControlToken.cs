@@ -13,21 +13,19 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.AppService.SourceControlToken("example", new()
     ///     {
-    ///         var example = new Azure.AppService.SourceControlToken("example", new Azure.AppService.SourceControlTokenArgs
-    ///         {
-    ///             Token = "ghp_sometokenvaluesecretsauce",
-    ///             Type = "GitHub",
-    ///         });
-    ///     }
+    ///         Token = "ghp_sometokenvaluesecretsauce",
+    ///         Type = "GitHub",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +37,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/sourceControlToken:SourceControlToken")]
-    public partial class SourceControlToken : Pulumi.CustomResource
+    public partial class SourceControlToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Access Token.
@@ -100,7 +98,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SourceControlTokenArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Token.
@@ -120,9 +118,10 @@ namespace Pulumi.Azure.AppService
         public SourceControlTokenArgs()
         {
         }
+        public static new SourceControlTokenArgs Empty => new SourceControlTokenArgs();
     }
 
-    public sealed class SourceControlTokenState : Pulumi.ResourceArgs
+    public sealed class SourceControlTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access Token.
@@ -142,5 +141,6 @@ namespace Pulumi.Azure.AppService
         public SourceControlTokenState()
         {
         }
+        public static new SourceControlTokenState Empty => new SourceControlTokenState();
     }
 }

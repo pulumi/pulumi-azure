@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class TransformOutputBuiltinPresetGetArgs : Pulumi.ResourceArgs
+    public sealed class TransformOutputBuiltinPresetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The built-in preset to be used for encoding videos. The allowed values are `AACGoodQualityAudio`, `AdaptiveStreaming`,`ContentAwareEncoding`, `ContentAwareEncodingExperimental`,`CopyAllBitrateNonInterleaved`, `H264MultipleBitrate1080p`,`H264MultipleBitrate720p`, `H264MultipleBitrateSD`,`H264SingleBitrate1080p`, `H264SingleBitrate720p` and `H264SingleBitrateSD`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Media.Inputs
         public TransformOutputBuiltinPresetGetArgs()
         {
         }
+        public static new TransformOutputBuiltinPresetGetArgs Empty => new TransformOutputBuiltinPresetGetArgs();
     }
 }

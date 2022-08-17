@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination port behavior for the TCP connection. Possible values are `None` and `ListenIfAvailable`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs Empty => new NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs();
     }
 }

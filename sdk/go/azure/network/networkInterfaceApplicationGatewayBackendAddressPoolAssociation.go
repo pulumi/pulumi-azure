@@ -18,7 +18,9 @@ import (
 // Associations between Network Interfaces and Application Gateway Backend Address Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationGateways/gateway1/backendAddressPools/pool1
+//
+//	$ pulumi import azure:network/networkInterfaceApplicationGatewayBackendAddressPoolAssociation:NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationGateways/gateway1/backendAddressPools/pool1
+//
 // ```
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation struct {
 	pulumi.CustomResourceState
@@ -135,7 +137,7 @@ func (i *NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation) ToNetw
 // NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput is an input type that accepts NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray and NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput` via:
 //
-//          NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray{ NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{...} }
+//	NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray{ NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{...} }
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +162,7 @@ func (i NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArray) To
 // NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput is an input type that accepts NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap and NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput` via:
 //
-//          NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap{ "key": NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{...} }
+//	NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMap{ "key": NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{...} }
 type NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationMapInput interface {
 	pulumi.Input
 

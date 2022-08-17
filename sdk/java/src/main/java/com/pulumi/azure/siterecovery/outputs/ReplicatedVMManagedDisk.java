@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery.outputs;
 
+import com.pulumi.azure.siterecovery.outputs.ReplicatedVMManagedDiskTargetDiskEncryption;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -21,6 +22,11 @@ public final class ReplicatedVMManagedDisk {
      * 
      */
     private final String stagingStorageAccountId;
+    /**
+     * @return A `target_disk_encryption` block as defined below.
+     * 
+     */
+    private final @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with.
      * 
@@ -46,12 +52,14 @@ public final class ReplicatedVMManagedDisk {
     private ReplicatedVMManagedDisk(
         @CustomType.Parameter("diskId") String diskId,
         @CustomType.Parameter("stagingStorageAccountId") String stagingStorageAccountId,
+        @CustomType.Parameter("targetDiskEncryption") @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption,
         @CustomType.Parameter("targetDiskEncryptionSetId") @Nullable String targetDiskEncryptionSetId,
         @CustomType.Parameter("targetDiskType") String targetDiskType,
         @CustomType.Parameter("targetReplicaDiskType") String targetReplicaDiskType,
         @CustomType.Parameter("targetResourceGroupId") String targetResourceGroupId) {
         this.diskId = diskId;
         this.stagingStorageAccountId = stagingStorageAccountId;
+        this.targetDiskEncryption = targetDiskEncryption;
         this.targetDiskEncryptionSetId = targetDiskEncryptionSetId;
         this.targetDiskType = targetDiskType;
         this.targetReplicaDiskType = targetReplicaDiskType;
@@ -71,6 +79,13 @@ public final class ReplicatedVMManagedDisk {
      */
     public String stagingStorageAccountId() {
         return this.stagingStorageAccountId;
+    }
+    /**
+     * @return A `target_disk_encryption` block as defined below.
+     * 
+     */
+    public Optional<ReplicatedVMManagedDiskTargetDiskEncryption> targetDiskEncryption() {
+        return Optional.ofNullable(this.targetDiskEncryption);
     }
     /**
      * @return The Disk Encryption Set that the Managed Disk will be associated with.
@@ -112,6 +127,7 @@ public final class ReplicatedVMManagedDisk {
     public static final class Builder {
         private String diskId;
         private String stagingStorageAccountId;
+        private @Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption;
         private @Nullable String targetDiskEncryptionSetId;
         private String targetDiskType;
         private String targetReplicaDiskType;
@@ -125,6 +141,7 @@ public final class ReplicatedVMManagedDisk {
     	      Objects.requireNonNull(defaults);
     	      this.diskId = defaults.diskId;
     	      this.stagingStorageAccountId = defaults.stagingStorageAccountId;
+    	      this.targetDiskEncryption = defaults.targetDiskEncryption;
     	      this.targetDiskEncryptionSetId = defaults.targetDiskEncryptionSetId;
     	      this.targetDiskType = defaults.targetDiskType;
     	      this.targetReplicaDiskType = defaults.targetReplicaDiskType;
@@ -137,6 +154,10 @@ public final class ReplicatedVMManagedDisk {
         }
         public Builder stagingStorageAccountId(String stagingStorageAccountId) {
             this.stagingStorageAccountId = Objects.requireNonNull(stagingStorageAccountId);
+            return this;
+        }
+        public Builder targetDiskEncryption(@Nullable ReplicatedVMManagedDiskTargetDiskEncryption targetDiskEncryption) {
+            this.targetDiskEncryption = targetDiskEncryption;
             return this;
         }
         public Builder targetDiskEncryptionSetId(@Nullable String targetDiskEncryptionSetId) {
@@ -155,7 +176,7 @@ public final class ReplicatedVMManagedDisk {
             this.targetResourceGroupId = Objects.requireNonNull(targetResourceGroupId);
             return this;
         }        public ReplicatedVMManagedDisk build() {
-            return new ReplicatedVMManagedDisk(diskId, stagingStorageAccountId, targetDiskEncryptionSetId, targetDiskType, targetReplicaDiskType, targetResourceGroupId);
+            return new ReplicatedVMManagedDisk(diskId, stagingStorageAccountId, targetDiskEncryption, targetDiskEncryptionSetId, targetDiskType, targetReplicaDiskType, targetResourceGroupId);
         }
     }
 }

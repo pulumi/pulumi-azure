@@ -15,40 +15,40 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Consumption_0",
-    ///         });
-    ///         var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new Azure.ApiManagement.GatewayArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             Description = "Example API Management gateway",
-    ///             LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
-    ///             {
-    ///                 Name = "example name",
-    ///                 City = "example city",
-    ///                 District = "example district",
-    ///                 Region = "example region",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Consumption_0",
+    ///     });
+    /// 
+    ///     var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         Description = "Example API Management gateway",
+    ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
+    ///         {
+    ///             Name = "example name",
+    ///             City = "example city",
+    ///             District = "example district",
+    ///             Region = "example region",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/gateway:Gateway")]
-    public partial class Gateway : Pulumi.CustomResource
+    public partial class Gateway : global::Pulumi.CustomResource
     {
         [Output("apiManagementId")]
         public Output<string> ApiManagementId { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class GatewayArgs : Pulumi.ResourceArgs
+    public sealed class GatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiManagementId", required: true)]
         public Input<string> ApiManagementId { get; set; } = null!;
@@ -153,9 +153,10 @@ namespace Pulumi.Azure.ApiManagement
         public GatewayArgs()
         {
         }
+        public static new GatewayArgs Empty => new GatewayArgs();
     }
 
-    public sealed class GatewayState : Pulumi.ResourceArgs
+    public sealed class GatewayState : global::Pulumi.ResourceArgs
     {
         [Input("apiManagementId")]
         public Input<string>? ApiManagementId { get; set; }
@@ -181,5 +182,6 @@ namespace Pulumi.Azure.ApiManagement
         public GatewayState()
         {
         }
+        public static new GatewayState Empty => new GatewayState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class AccountEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public AccountEncryptionArgs()
         {
         }
+        public static new AccountEncryptionArgs Empty => new AccountEncryptionArgs();
     }
 }

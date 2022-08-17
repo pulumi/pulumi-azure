@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter.Inputs
 {
 
-    public sealed class AutomationSourceRuleSetArgs : Pulumi.ResourceArgs
+    public sealed class AutomationSourceRuleSetArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules", required: true)]
         private InputList<Inputs.AutomationSourceRuleSetRuleArgs>? _rules;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         public AutomationSourceRuleSetArgs()
         {
         }
+        public static new AutomationSourceRuleSetArgs Empty => new AutomationSourceRuleSetArgs();
     }
 }

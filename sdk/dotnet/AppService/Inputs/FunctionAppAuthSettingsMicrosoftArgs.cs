@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppAuthSettingsMicrosoftArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppAuthSettingsMicrosoftArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth 2.0 client ID that was created for the app used for authentication.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppAuthSettingsMicrosoftArgs()
         {
         }
+        public static new FunctionAppAuthSettingsMicrosoftArgs Empty => new FunctionAppAuthSettingsMicrosoftArgs();
     }
 }

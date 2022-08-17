@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class WorkspaceCustomerManagedKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomerManagedKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An identifier for the key. Name needs to match the name of the key used with the `azure.synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public WorkspaceCustomerManagedKeyGetArgs()
         {
         }
+        public static new WorkspaceCustomerManagedKeyGetArgs Empty => new WorkspaceCustomerManagedKeyGetArgs();
     }
 }

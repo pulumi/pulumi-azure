@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class LogzSubAccountUserGetArgs : Pulumi.ResourceArgs
+    public sealed class LogzSubAccountUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public LogzSubAccountUserGetArgs()
         {
         }
+        public static new LogzSubAccountUserGetArgs Empty => new LogzSubAccountUserGetArgs();
     }
 }

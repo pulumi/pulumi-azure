@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination IP address (including CIDR).
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs Empty => new FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs();
     }
 }

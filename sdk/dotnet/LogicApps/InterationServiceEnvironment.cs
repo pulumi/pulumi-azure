@@ -15,94 +15,98 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/22",
+    ///         },
+    ///     });
+    /// 
+    ///     var isesubnet1 = new Azure.Network.Subnet("isesubnet1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/22",
-    ///             },
-    ///         });
-    ///         var isesubnet1 = new Azure.Network.Subnet("isesubnet1", new Azure.Network.SubnetArgs
+    ///             "10.0.1.0/27",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.1.0/26",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "integrationServiceEnvironments",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "integrationServiceEnvironments",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
-    ///                     {
-    ///                         Name = "Microsoft.Logic/integrationServiceEnvironments",
-    ///                     },
+    ///                     Name = "Microsoft.Logic/integrationServiceEnvironments",
     ///                 },
     ///             },
-    ///         });
-    ///         var isesubnet2 = new Azure.Network.Subnet("isesubnet2", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.64/26",
-    ///             },
-    ///         });
-    ///         var isesubnet3 = new Azure.Network.Subnet("isesubnet3", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.128/26",
-    ///             },
-    ///         });
-    ///         var isesubnet4 = new Azure.Network.Subnet("isesubnet4", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.192/26",
-    ///             },
-    ///         });
-    ///         var exampleInterationServiceEnvironment = new Azure.LogicApps.InterationServiceEnvironment("exampleInterationServiceEnvironment", new Azure.LogicApps.InterationServiceEnvironmentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Developer_0",
-    ///             AccessEndpointType = "Internal",
-    ///             VirtualNetworkSubnetIds = 
-    ///             {
-    ///                 isesubnet1.Id,
-    ///                 isesubnet2.Id,
-    ///                 isesubnet3.Id,
-    ///                 isesubnet4.Id,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "development" },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var isesubnet2 = new Azure.Network.Subnet("isesubnet2", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.32/27",
+    ///         },
+    ///     });
+    /// 
+    ///     var isesubnet3 = new Azure.Network.Subnet("isesubnet3", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.64/27",
+    ///         },
+    ///     });
+    /// 
+    ///     var isesubnet4 = new Azure.Network.Subnet("isesubnet4", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.96/27",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInterationServiceEnvironment = new Azure.LogicApps.InterationServiceEnvironment("exampleInterationServiceEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Developer_0",
+    ///         AccessEndpointType = "Internal",
+    ///         VirtualNetworkSubnetIds = new[]
+    ///         {
+    ///             isesubnet1.Id,
+    ///             isesubnet2.Id,
+    ///             isesubnet3.Id,
+    ///             isesubnet4.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "development" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -114,7 +118,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment")]
-    public partial class InterationServiceEnvironment : Pulumi.CustomResource
+    public partial class InterationServiceEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
@@ -165,7 +169,7 @@ namespace Pulumi.Azure.LogicApps
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         /// </summary>
         [Output("virtualNetworkSubnetIds")]
         public Output<ImmutableArray<string>> VirtualNetworkSubnetIds { get; private set; } = null!;
@@ -226,7 +230,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class InterationServiceEnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class InterationServiceEnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
@@ -274,7 +278,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _virtualNetworkSubnetIds;
 
         /// <summary>
-        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
@@ -285,9 +289,10 @@ namespace Pulumi.Azure.LogicApps
         public InterationServiceEnvironmentArgs()
         {
         }
+        public static new InterationServiceEnvironmentArgs Empty => new InterationServiceEnvironmentArgs();
     }
 
-    public sealed class InterationServiceEnvironmentState : Pulumi.ResourceArgs
+    public sealed class InterationServiceEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
@@ -359,7 +364,7 @@ namespace Pulumi.Azure.LogicApps
         private InputList<string>? _virtualNetworkSubnetIds;
 
         /// <summary>
-        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        /// A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         /// </summary>
         public InputList<string> VirtualNetworkSubnetIds
         {
@@ -394,5 +399,6 @@ namespace Pulumi.Azure.LogicApps
         public InterationServiceEnvironmentState()
         {
         }
+        public static new InterationServiceEnvironmentState Empty => new InterationServiceEnvironmentState();
     }
 }

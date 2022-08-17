@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("westus"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
-// 			Min: pulumi.Int(10000),
-// 			Max: pulumi.Int(99999),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
-// 			Location:                pulumi.Any(azurerm_resource_group.Example.Location),
-// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
-// 			OfferType:               pulumi.String("Standard"),
-// 			Kind:                    pulumi.String("MongoDB"),
-// 			EnableAutomaticFailover: pulumi.Bool(true),
-// 			Capabilities: cosmosdb.AccountCapabilityArray{
-// 				&cosmosdb.AccountCapabilityArgs{
-// 					Name: pulumi.String("EnableAggregationPipeline"),
-// 				},
-// 				&cosmosdb.AccountCapabilityArgs{
-// 					Name: pulumi.String("mongoEnableDocLevelTTL"),
-// 				},
-// 				&cosmosdb.AccountCapabilityArgs{
-// 					Name: pulumi.String("MongoDBv3.4"),
-// 				},
-// 				&cosmosdb.AccountCapabilityArgs{
-// 					Name: pulumi.String("EnableMongo"),
-// 				},
-// 			},
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel:     pulumi.String("BoundedStaleness"),
-// 				MaxIntervalInSeconds: pulumi.Int(300),
-// 				MaxStalenessPrefix:   pulumi.Int(100000),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.String("eastus"),
-// 					FailoverPriority: pulumi.Int(1),
-// 				},
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         pulumi.String("eastus"),
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+//				Location: pulumi.String("westus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = random.NewRandomInteger(ctx, "ri", &random.RandomIntegerArgs{
+//				Min: pulumi.Int(10000),
+//				Max: pulumi.Int(99999),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewAccount(ctx, "db", &cosmosdb.AccountArgs{
+//				Location:                pulumi.Any(azurerm_resource_group.Example.Location),
+//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Example.Name),
+//				OfferType:               pulumi.String("Standard"),
+//				Kind:                    pulumi.String("MongoDB"),
+//				EnableAutomaticFailover: pulumi.Bool(true),
+//				Capabilities: cosmosdb.AccountCapabilityArray{
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("EnableAggregationPipeline"),
+//					},
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("mongoEnableDocLevelTTL"),
+//					},
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("MongoDBv3.4"),
+//					},
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("EnableMongo"),
+//					},
+//				},
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel:     pulumi.String("BoundedStaleness"),
+//					MaxIntervalInSeconds: pulumi.Int(300),
+//					MaxStalenessPrefix:   pulumi.Int(100000),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         pulumi.String("eastus"),
+//						FailoverPriority: pulumi.Int(1),
+//					},
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         pulumi.String("eastus"),
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +92,9 @@ import (
 // CosmosDB Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
+//
+//	$ pulumi import azure:cosmosdb/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1
+//
 // ```
 type Account struct {
 	pulumi.CustomResourceState
@@ -537,7 +542,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
-//          AccountArray{ AccountArgs{...} }
+//	AccountArray{ AccountArgs{...} }
 type AccountArrayInput interface {
 	pulumi.Input
 
@@ -562,7 +567,7 @@ func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) Accou
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
 // You can construct a concrete instance of `AccountMapInput` via:
 //
-//          AccountMap{ "key": AccountArgs{...} }
+//	AccountMap{ "key": AccountArgs{...} }
 type AccountMapInput interface {
 	pulumi.Input
 

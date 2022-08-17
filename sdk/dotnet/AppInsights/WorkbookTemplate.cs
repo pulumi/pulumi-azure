@@ -20,109 +20,103 @@ namespace Pulumi.Azure.AppInsights
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkbookTemplate = new Azure.AppInsights.WorkbookTemplate("exampleWorkbookTemplate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "West Europe",
+    ///         Author = "test author",
+    ///         Priority = 1,
+    ///         Galleries = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkbookTemplate = new Azure.AppInsights.WorkbookTemplate("exampleWorkbookTemplate", new Azure.AppInsights.WorkbookTemplateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "West Europe",
-    ///             Author = "test author",
-    ///             Priority = 1,
-    ///             Galleries = 
+    ///             new Azure.AppInsights.Inputs.WorkbookTemplateGalleryArgs
     ///             {
-    ///                 new Azure.AppInsights.Inputs.WorkbookTemplateGalleryArgs
+    ///                 Category = "workbook",
+    ///                 Name = "test",
+    ///                 Order = 100,
+    ///                 ResourceType = "microsoft.insights/components",
+    ///                 Type = "tsg",
+    ///             },
+    ///         },
+    ///         TemplateData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "Notebook/1.0",
+    ///             ["items"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     Category = "workbook",
-    ///                     Name = "test",
-    ///                     Order = 100,
-    ///                     ResourceType = "microsoft.insights/components",
-    ///                     Type = "tsg",
+    ///                     ["type"] = 1,
+    ///                     ["content"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["json"] = @"## New workbook
+    /// ---
+    /// 
+    /// Welcome to your new workbook.",
+    ///                     },
+    ///                     ["name"] = "text - 2",
     ///                 },
     ///             },
-    ///             TemplateData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             ["styleSettings"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 { "version", "Notebook/1.0" },
-    ///                 { "items", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "type", 1 },
-    ///                             { "content", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "json", @"## New workbook
-    /// ---
-    /// 
-    /// Welcome to your new workbook." },
-    ///                             } },
-    ///                             { "name", "text - 2" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "styleSettings", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                 } },
-    ///                 { "$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json" },
-    ///             }),
-    ///             Localized = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "ar", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "galleries", new[]
-    ///                                 {
-    ///                                     new Dictionary&lt;string, object?&gt;
-    ///                                     {
-    ///                                         { "name", "test" },
-    ///                                         { "category", "Failures" },
-    ///                                         { "type", "tsg" },
-    ///                                         { "resourceType", "microsoft.insights/components" },
-    ///                                         { "order", 100 },
-    ///                                     },
-    ///                                 }
-    ///                              },
-    ///                             { "templateData", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "version", "Notebook/1.0" },
-    ///                                 { "items", new[]
-    ///                                     {
-    ///                                         new Dictionary&lt;string, object?&gt;
-    ///                                         {
-    ///                                             { "type", 1 },
-    ///                                             { "content", new Dictionary&lt;string, object?&gt;
-    ///                                             {
-    ///                                                 { "json", @"## New workbook
-    /// ---
-    /// 
-    /// Welcome to your new workbook." },
-    ///                                             } },
-    ///                                             { "name", "text - 2" },
-    ///                                         },
-    ///                                     }
-    ///                                  },
-    ///                                 { "styleSettings", new Dictionary&lt;string, object?&gt;
-    ///                                 {
-    ///                                 } },
-    ///                                 { "$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json" },
-    ///                             } },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "key", "value" },
     ///             },
-    ///         });
-    ///     }
+    ///             ["$schema"] = "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+    ///         }),
+    ///         Localized = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["ar"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["galleries"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["name"] = "test",
+    ///                             ["category"] = "Failures",
+    ///                             ["type"] = "tsg",
+    ///                             ["resourceType"] = "microsoft.insights/components",
+    ///                             ["order"] = 100,
+    ///                         },
+    ///                     },
+    ///                     ["templateData"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["version"] = "Notebook/1.0",
+    ///                         ["items"] = new[]
+    ///                         {
+    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 ["type"] = 1,
+    ///                                 ["content"] = new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     ["json"] = @"## New workbook
+    /// ---
     /// 
-    /// }
+    /// Welcome to your new workbook.",
+    ///                                 },
+    ///                                 ["name"] = "text - 2",
+    ///                             },
+    ///                         },
+    ///                         ["styleSettings"] = new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                         },
+    ///                         ["$schema"] = "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -134,7 +128,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/workbookTemplate:WorkbookTemplate")]
-    public partial class WorkbookTemplate : Pulumi.CustomResource
+    public partial class WorkbookTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Information about the author of the workbook template.
@@ -234,7 +228,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class WorkbookTemplateArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the author of the workbook template.
@@ -305,9 +299,10 @@ namespace Pulumi.Azure.AppInsights
         public WorkbookTemplateArgs()
         {
         }
+        public static new WorkbookTemplateArgs Empty => new WorkbookTemplateArgs();
     }
 
-    public sealed class WorkbookTemplateState : Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Information about the author of the workbook template.
@@ -378,5 +373,6 @@ namespace Pulumi.Azure.AppInsights
         public WorkbookTemplateState()
         {
         }
+        public static new WorkbookTemplateState Empty => new WorkbookTemplateState();
     }
 }

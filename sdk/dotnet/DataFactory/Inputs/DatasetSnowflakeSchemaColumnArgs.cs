@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetSnowflakeSchemaColumnArgs : Pulumi.ResourceArgs
+    public sealed class DatasetSnowflakeSchemaColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetSnowflakeSchemaColumnArgs()
         {
         }
+        public static new DatasetSnowflakeSchemaColumnArgs Empty => new DatasetSnowflakeSchemaColumnArgs();
     }
 }

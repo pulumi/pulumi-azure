@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
-// 			Name:              "example-api",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "search-api",
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleService.ResourceGroupName,
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
-// 			Name:            "example-gateway",
-// 			ApiManagementId: exampleService.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewGatewayApi(ctx, "exampleGatewayApi", &apimanagement.GatewayApiArgs{
-// 			GatewayId: pulumi.String(exampleGateway.Id),
-// 			ApiId:     pulumi.String(exampleApi.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//				Name:              "example-api",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "search-api",
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleService.ResourceGroupName,
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
+//				Name:            "example-gateway",
+//				ApiManagementId: exampleService.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewGatewayApi(ctx, "exampleGatewayApi", &apimanagement.GatewayApiArgs{
+//				GatewayId: pulumi.String(exampleGateway.Id),
+//				ApiId:     pulumi.String(exampleApi.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // API Management Gateway APIs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
+//
+//	$ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
+//
 // ```
 type GatewayApi struct {
 	pulumi.CustomResourceState
@@ -169,7 +174,7 @@ func (i *GatewayApi) ToGatewayApiOutputWithContext(ctx context.Context) GatewayA
 // GatewayApiArrayInput is an input type that accepts GatewayApiArray and GatewayApiArrayOutput values.
 // You can construct a concrete instance of `GatewayApiArrayInput` via:
 //
-//          GatewayApiArray{ GatewayApiArgs{...} }
+//	GatewayApiArray{ GatewayApiArgs{...} }
 type GatewayApiArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +199,7 @@ func (i GatewayApiArray) ToGatewayApiArrayOutputWithContext(ctx context.Context)
 // GatewayApiMapInput is an input type that accepts GatewayApiMap and GatewayApiMapOutput values.
 // You can construct a concrete instance of `GatewayApiMapInput` via:
 //
-//          GatewayApiMap{ "key": GatewayApiArgs{...} }
+//	GatewayApiMap{ "key": GatewayApiArgs{...} }
 type GatewayApiMapInput interface {
 	pulumi.Input
 

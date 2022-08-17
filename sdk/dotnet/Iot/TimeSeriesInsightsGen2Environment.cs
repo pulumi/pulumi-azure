@@ -15,43 +15,43 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var storage = new Azure.Storage.Account("storage", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", new Azure.Iot.TimeSeriesInsightsGen2EnvironmentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "L1",
-    ///             WarmStoreDataRetentionTime = "P30D",
-    ///             IdProperties = 
-    ///             {
-    ///                 "id",
-    ///             },
-    ///             Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
-    ///             {
-    ///                 Name = storage.Name,
-    ///                 Key = storage.PrimaryAccessKey,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var storage = new Azure.Storage.Account("storage", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsGen2Environment = new Azure.Iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "L1",
+    ///         WarmStoreDataRetentionTime = "P30D",
+    ///         IdProperties = new[]
+    ///         {
+    ///             "id",
+    ///         },
+    ///         Storage = new Azure.Iot.Inputs.TimeSeriesInsightsGen2EnvironmentStorageArgs
+    ///         {
+    ///             Name = storage.Name,
+    ///             Key = storage.PrimaryAccessKey,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment")]
-    public partial class TimeSeriesInsightsGen2Environment : Pulumi.CustomResource
+    public partial class TimeSeriesInsightsGen2Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN used to access the environment data.
@@ -163,7 +163,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class TimeSeriesInsightsGen2EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsGen2EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("idProperties", required: true)]
         private InputList<string>? _idProperties;
@@ -228,9 +228,10 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsGen2EnvironmentArgs()
         {
         }
+        public static new TimeSeriesInsightsGen2EnvironmentArgs Empty => new TimeSeriesInsightsGen2EnvironmentArgs();
     }
 
-    public sealed class TimeSeriesInsightsGen2EnvironmentState : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsGen2EnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN used to access the environment data.
@@ -301,5 +302,6 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsGen2EnvironmentState()
         {
         }
+        public static new TimeSeriesInsightsGen2EnvironmentState Empty => new TimeSeriesInsightsGen2EnvironmentState();
     }
 }

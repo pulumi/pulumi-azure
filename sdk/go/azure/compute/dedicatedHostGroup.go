@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			Location:                 exampleResourceGroup.Location,
-// 			PlatformFaultDomainCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				PlatformFaultDomainCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Dedicated Host Group can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/dedicatedHostGroup:DedicatedHostGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/hostGroups/group1
+//
+//	$ pulumi import azure:compute/dedicatedHostGroup:DedicatedHostGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/hostGroups/group1
+//
 // ```
 type DedicatedHostGroup struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *DedicatedHostGroup) ToDedicatedHostGroupOutputWithContext(ctx context.C
 // DedicatedHostGroupArrayInput is an input type that accepts DedicatedHostGroupArray and DedicatedHostGroupArrayOutput values.
 // You can construct a concrete instance of `DedicatedHostGroupArrayInput` via:
 //
-//          DedicatedHostGroupArray{ DedicatedHostGroupArgs{...} }
+//	DedicatedHostGroupArray{ DedicatedHostGroupArgs{...} }
 type DedicatedHostGroupArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i DedicatedHostGroupArray) ToDedicatedHostGroupArrayOutputWithContext(ctx 
 // DedicatedHostGroupMapInput is an input type that accepts DedicatedHostGroupMap and DedicatedHostGroupMapOutput values.
 // You can construct a concrete instance of `DedicatedHostGroupMapInput` via:
 //
-//          DedicatedHostGroupMap{ "key": DedicatedHostGroupArgs{...} }
+//	DedicatedHostGroupMap{ "key": DedicatedHostGroupArgs{...} }
 type DedicatedHostGroupMapInput interface {
 	pulumi.Input
 

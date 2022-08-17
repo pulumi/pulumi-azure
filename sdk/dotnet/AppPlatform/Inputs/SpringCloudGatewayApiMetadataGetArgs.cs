@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudGatewayApiMetadataGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayApiMetadataGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Detailed description of the APIs available on the Gateway instance.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudGatewayApiMetadataGetArgs()
         {
         }
+        public static new SpringCloudGatewayApiMetadataGetArgs Empty => new SpringCloudGatewayApiMetadataGetArgs();
     }
 }

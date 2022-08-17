@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotAuthSettingsGithubArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotAuthSettingsGithubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the GitHub app used for login.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotAuthSettingsGithubArgs()
         {
         }
+        public static new LinuxWebAppSlotAuthSettingsGithubArgs Empty => new LinuxWebAppSlotAuthSettingsGithubArgs();
     }
 }

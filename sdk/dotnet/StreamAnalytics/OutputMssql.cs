@@ -15,53 +15,55 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "dbadmin",
-    ///             AdministratorLoginPassword = "example-password",
-    ///         });
-    ///         var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new Azure.Sql.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServerName = exampleSqlServer.Name,
-    ///             RequestedServiceObjectiveName = "S0",
-    ///             Collation = "SQL_LATIN1_GENERAL_CP1_CI_AS",
-    ///             MaxSizeBytes = "268435456000",
-    ///             CreateMode = "Default",
-    ///         });
-    ///         var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("exampleOutputMssql", new Azure.StreamAnalytics.OutputMssqlArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             Server = exampleSqlServer.FullyQualifiedDomainName,
-    ///             User = exampleSqlServer.AdministratorLogin,
-    ///             Password = exampleSqlServer.AdministratorLoginPassword,
-    ///             Database = exampleDatabase.Name,
-    ///             Table = "ExampleTable",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "dbadmin",
+    ///         AdministratorLoginPassword = "example-password",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServerName = exampleSqlServer.Name,
+    ///         RequestedServiceObjectiveName = "S0",
+    ///         Collation = "SQL_LATIN1_GENERAL_CP1_CI_AS",
+    ///         MaxSizeBytes = "268435456000",
+    ///         CreateMode = "Default",
+    ///     });
+    /// 
+    ///     var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("exampleOutputMssql", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Server = exampleSqlServer.FullyQualifiedDomainName,
+    ///         User = exampleSqlServer.AdministratorLogin,
+    ///         Password = exampleSqlServer.AdministratorLoginPassword,
+    ///         Database = exampleDatabase.Name,
+    ///         Table = "ExampleTable",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputMssql:OutputMssql")]
-    public partial class OutputMssql : Pulumi.CustomResource
+    public partial class OutputMssql : global::Pulumi.CustomResource
     {
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -176,7 +178,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputMssqlArgs : Pulumi.ResourceArgs
+    public sealed class OutputMssqlArgs : global::Pulumi.ResourceArgs
     {
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -238,9 +240,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputMssqlArgs()
         {
         }
+        public static new OutputMssqlArgs Empty => new OutputMssqlArgs();
     }
 
-    public sealed class OutputMssqlState : Pulumi.ResourceArgs
+    public sealed class OutputMssqlState : global::Pulumi.ResourceArgs
     {
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -302,5 +305,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputMssqlState()
         {
         }
+        public static new OutputMssqlState Empty => new OutputMssqlState();
     }
 }

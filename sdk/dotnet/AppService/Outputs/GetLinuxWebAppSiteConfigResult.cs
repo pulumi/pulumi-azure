@@ -101,6 +101,9 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Minimum version of TLS for requests.
         /// </summary>
         public readonly string MinimumTlsVersion;
+        /// <summary>
+        /// Is Remote Debugging enabled.
+        /// </summary>
         public readonly bool RemoteDebuggingEnabled;
         /// <summary>
         /// The Remote Debugging Version.

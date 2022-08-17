@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskSourceTriggerAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskSourceTriggerAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Time in seconds that the token remains valid.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskSourceTriggerAuthenticationArgs()
         {
         }
+        public static new RegistryTaskSourceTriggerAuthenticationArgs Empty => new RegistryTaskSourceTriggerAuthenticationArgs();
     }
 }

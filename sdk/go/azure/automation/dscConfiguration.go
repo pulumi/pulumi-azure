@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			ContentEmbedded:       pulumi.String("configuration test {}"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Location:              exampleResourceGroup.Location,
+//				ContentEmbedded:       pulumi.String("configuration test {}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Automation DSC Configuration's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
+//
+//	$ pulumi import azure:automation/dscConfiguration:DscConfiguration configuration1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/configurations/configuration1
+//
 // ```
 type DscConfiguration struct {
 	pulumi.CustomResourceState
@@ -229,7 +234,7 @@ func (i *DscConfiguration) ToDscConfigurationOutputWithContext(ctx context.Conte
 // DscConfigurationArrayInput is an input type that accepts DscConfigurationArray and DscConfigurationArrayOutput values.
 // You can construct a concrete instance of `DscConfigurationArrayInput` via:
 //
-//          DscConfigurationArray{ DscConfigurationArgs{...} }
+//	DscConfigurationArray{ DscConfigurationArgs{...} }
 type DscConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i DscConfigurationArray) ToDscConfigurationArrayOutputWithContext(ctx cont
 // DscConfigurationMapInput is an input type that accepts DscConfigurationMap and DscConfigurationMapOutput values.
 // You can construct a concrete instance of `DscConfigurationMapInput` via:
 //
-//          DscConfigurationMap{ "key": DscConfigurationArgs{...} }
+//	DscConfigurationMap{ "key": DscConfigurationArgs{...} }
 type DscConfigurationMapInput interface {
 	pulumi.Input
 

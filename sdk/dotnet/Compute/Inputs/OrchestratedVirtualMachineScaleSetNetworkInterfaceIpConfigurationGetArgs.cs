@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationGatewayBackendAddressPoolIds")]
         private InputList<string>? _applicationGatewayBackendAddressPoolIds;
@@ -62,5 +62,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs Empty => new OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs();
     }
 }

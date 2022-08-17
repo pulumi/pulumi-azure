@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
-// 			Name:              pulumi.String("examplestoracc"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleKeyVault := keyvault.LookupKeyVaultOutput(ctx, keyvault.GetKeyVaultOutputArgs{
-// 			Name:              pulumi.String("example-vault"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
-// 			TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.GetKeyVaultResult) (string, error) {
-// 				return exampleKeyVault.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
-// 				return exampleAccount.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Logs: monitoring.DiagnosticSettingLogArray{
-// 				&monitoring.DiagnosticSettingLogArgs{
-// 					Category: pulumi.String("AuditEvent"),
-// 					Enabled:  pulumi.Bool(false),
-// 					RetentionPolicy: &monitoring.DiagnosticSettingLogRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 			Metrics: monitoring.DiagnosticSettingMetricArray{
-// 				&monitoring.DiagnosticSettingMetricArgs{
-// 					Category: pulumi.String("AllMetrics"),
-// 					RetentionPolicy: &monitoring.DiagnosticSettingMetricRetentionPolicyArgs{
-// 						Enabled: pulumi.Bool(false),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+//				Name:              pulumi.String("examplestoracc"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleKeyVault := keyvault.LookupKeyVaultOutput(ctx, keyvault.GetKeyVaultOutputArgs{
+//				Name:              pulumi.String("example-vault"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
+//				TargetResourceId: exampleKeyVault.ApplyT(func(exampleKeyVault keyvault.GetKeyVaultResult) (string, error) {
+//					return exampleKeyVault.Id, nil
+//				}).(pulumi.StringOutput),
+//				StorageAccountId: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (string, error) {
+//					return exampleAccount.Id, nil
+//				}).(pulumi.StringOutput),
+//				Logs: monitoring.DiagnosticSettingLogArray{
+//					&monitoring.DiagnosticSettingLogArgs{
+//						Category: pulumi.String("AuditEvent"),
+//						Enabled:  pulumi.Bool(false),
+//						RetentionPolicy: &monitoring.DiagnosticSettingLogRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				Metrics: monitoring.DiagnosticSettingMetricArray{
+//					&monitoring.DiagnosticSettingMetricArgs{
+//						Category: pulumi.String("AllMetrics"),
+//						RetentionPolicy: &monitoring.DiagnosticSettingMetricRetentionPolicyArgs{
+//							Enabled: pulumi.Bool(false),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Diagnostic Settings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
+//
+//	$ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
+//
 // ```
 type DiagnosticSetting struct {
 	pulumi.CustomResourceState
@@ -251,7 +256,7 @@ func (i *DiagnosticSetting) ToDiagnosticSettingOutputWithContext(ctx context.Con
 // DiagnosticSettingArrayInput is an input type that accepts DiagnosticSettingArray and DiagnosticSettingArrayOutput values.
 // You can construct a concrete instance of `DiagnosticSettingArrayInput` via:
 //
-//          DiagnosticSettingArray{ DiagnosticSettingArgs{...} }
+//	DiagnosticSettingArray{ DiagnosticSettingArgs{...} }
 type DiagnosticSettingArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +281,7 @@ func (i DiagnosticSettingArray) ToDiagnosticSettingArrayOutputWithContext(ctx co
 // DiagnosticSettingMapInput is an input type that accepts DiagnosticSettingMap and DiagnosticSettingMapOutput values.
 // You can construct a concrete instance of `DiagnosticSettingMapInput` via:
 //
-//          DiagnosticSettingMap{ "key": DiagnosticSettingArgs{...} }
+//	DiagnosticSettingMap{ "key": DiagnosticSettingArgs{...} }
 type DiagnosticSettingMapInput interface {
 	pulumi.Input
 

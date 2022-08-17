@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Lb
     }
 
 
-    public sealed class GetLBRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetLBRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Load Balancer Rule.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Lb
         public GetLBRuleArgs()
         {
         }
+        public static new GetLBRuleArgs Empty => new GetLBRuleArgs();
     }
 
-    public sealed class GetLBRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLBRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the Load Balancer Rule.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Lb
         public GetLBRuleInvokeArgs()
         {
         }
+        public static new GetLBRuleInvokeArgs Empty => new GetLBRuleInvokeArgs();
     }
 
 

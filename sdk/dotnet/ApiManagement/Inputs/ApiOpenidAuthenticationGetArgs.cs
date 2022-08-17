@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOpenidAuthenticationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOpenidAuthenticationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("bearerTokenSendingMethods")]
         private InputList<string>? _bearerTokenSendingMethods;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOpenidAuthenticationGetArgs()
         {
         }
+        public static new ApiOpenidAuthenticationGetArgs Empty => new ApiOpenidAuthenticationGetArgs();
     }
 }

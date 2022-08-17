@@ -20,7 +20,7 @@ type ScalingPlanHostPool struct {
 // ScalingPlanHostPoolInput is an input type that accepts ScalingPlanHostPoolArgs and ScalingPlanHostPoolOutput values.
 // You can construct a concrete instance of `ScalingPlanHostPoolInput` via:
 //
-//          ScalingPlanHostPoolArgs{...}
+//	ScalingPlanHostPoolArgs{...}
 type ScalingPlanHostPoolInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ScalingPlanHostPoolArgs) ToScalingPlanHostPoolOutputWithContext(ctx cont
 // ScalingPlanHostPoolArrayInput is an input type that accepts ScalingPlanHostPoolArray and ScalingPlanHostPoolArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanHostPoolArrayInput` via:
 //
-//          ScalingPlanHostPoolArray{ ScalingPlanHostPoolArgs{...} }
+//	ScalingPlanHostPoolArray{ ScalingPlanHostPoolArgs{...} }
 type ScalingPlanHostPoolArrayInput interface {
 	pulumi.Input
 
@@ -158,7 +158,7 @@ type ScalingPlanSchedule struct {
 // ScalingPlanScheduleInput is an input type that accepts ScalingPlanScheduleArgs and ScalingPlanScheduleOutput values.
 // You can construct a concrete instance of `ScalingPlanScheduleInput` via:
 //
-//          ScalingPlanScheduleArgs{...}
+//	ScalingPlanScheduleArgs{...}
 type ScalingPlanScheduleInput interface {
 	pulumi.Input
 
@@ -220,7 +220,7 @@ func (i ScalingPlanScheduleArgs) ToScalingPlanScheduleOutputWithContext(ctx cont
 // ScalingPlanScheduleArrayInput is an input type that accepts ScalingPlanScheduleArray and ScalingPlanScheduleArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanScheduleArrayInput` via:
 //
-//          ScalingPlanScheduleArray{ ScalingPlanScheduleArgs{...} }
+//	ScalingPlanScheduleArray{ ScalingPlanScheduleArgs{...} }
 type ScalingPlanScheduleArrayInput interface {
 	pulumi.Input
 

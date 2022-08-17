@@ -15,30 +15,29 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccount:IntegrationAccount")]
-    public partial class IntegrationAccount : Pulumi.CustomResource
+    public partial class IntegrationAccount : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
@@ -132,7 +131,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
@@ -179,9 +178,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountArgs()
         {
         }
+        public static new IntegrationAccountArgs Empty => new IntegrationAccountArgs();
     }
 
-    public sealed class IntegrationAccountState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Integration Service Environment. Changing this forces a new Logic App Integration Account to be created.
@@ -228,5 +228,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountState()
         {
         }
+        public static new IntegrationAccountState Empty => new IntegrationAccountState();
     }
 }

@@ -37,6 +37,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     * 
+     */
+    @Import(name="customQuestionAnsweringSearchServiceKey")
+    private @Nullable Output<String> customQuestionAnsweringSearchServiceKey;
+
+    /**
+     * @return If `kind` is `TextAnalytics` this specifies the key of the Search service.
+     * 
+     */
+    public Optional<Output<String>> customQuestionAnsweringSearchServiceKey() {
+        return Optional.ofNullable(this.customQuestionAnsweringSearchServiceKey);
+    }
+
+    /**
      * The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
      * 
      */
@@ -325,6 +340,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
 
     private AccountArgs(AccountArgs $) {
         this.customQuestionAnsweringSearchServiceId = $.customQuestionAnsweringSearchServiceId;
+        this.customQuestionAnsweringSearchServiceKey = $.customQuestionAnsweringSearchServiceKey;
         this.customSubdomainName = $.customSubdomainName;
         this.fqdns = $.fqdns;
         this.identity = $.identity;
@@ -383,6 +399,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customQuestionAnsweringSearchServiceId(String customQuestionAnsweringSearchServiceId) {
             return customQuestionAnsweringSearchServiceId(Output.of(customQuestionAnsweringSearchServiceId));
+        }
+
+        /**
+         * @param customQuestionAnsweringSearchServiceKey If `kind` is `TextAnalytics` this specifies the key of the Search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customQuestionAnsweringSearchServiceKey(@Nullable Output<String> customQuestionAnsweringSearchServiceKey) {
+            $.customQuestionAnsweringSearchServiceKey = customQuestionAnsweringSearchServiceKey;
+            return this;
+        }
+
+        /**
+         * @param customQuestionAnsweringSearchServiceKey If `kind` is `TextAnalytics` this specifies the key of the Search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customQuestionAnsweringSearchServiceKey(String customQuestionAnsweringSearchServiceKey) {
+            return customQuestionAnsweringSearchServiceKey(Output.of(customQuestionAnsweringSearchServiceKey));
         }
 
         /**

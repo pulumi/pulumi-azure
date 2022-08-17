@@ -15,72 +15,76 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             ManagedVirtualNetworkEnabled = true,
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "255.255.255.255",
-    ///         });
-    ///         var exampleConnect = new Azure.Storage.Account("exampleConnect", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "BlobStorage",
-    ///         });
-    ///         var exampleManagedPrivateEndpoint = new Azure.Synapse.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new Azure.Synapse.ManagedPrivateEndpointArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             TargetResourceId = exampleConnect.Id,
-    ///             SubresourceName = "blob",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleFirewallRule,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         ManagedVirtualNetworkEnabled = true,
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "255.255.255.255",
+    ///     });
+    /// 
+    ///     var exampleConnect = new Azure.Storage.Account("exampleConnect", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "BlobStorage",
+    ///     });
+    /// 
+    ///     var exampleManagedPrivateEndpoint = new Azure.Synapse.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         TargetResourceId = exampleConnect.Id,
+    ///         SubresourceName = "blob",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleFirewallRule,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -92,7 +96,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint")]
-    public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
+    public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -162,7 +166,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -191,9 +195,10 @@ namespace Pulumi.Azure.Synapse
         public ManagedPrivateEndpointArgs()
         {
         }
+        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 
-    public sealed class ManagedPrivateEndpointState : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -222,5 +227,6 @@ namespace Pulumi.Azure.Synapse
         public ManagedPrivateEndpointState()
         {
         }
+        public static new ManagedPrivateEndpointState Empty => new ManagedPrivateEndpointState();
     }
 }

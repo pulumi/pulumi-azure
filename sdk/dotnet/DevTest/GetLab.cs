@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DevTest
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DevTest.GetLab.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DevTest.GetLab.InvokeAsync(new Azure.DevTest.GetLabArgs
-        ///         {
-        ///             Name = "example-lab",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.UniqueIdentifier = example.Apply(example =&gt; example.UniqueIdentifier);
-        ///     }
+        ///         Name = "example-lab",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("uniqueIdentifier")]
-        ///     public Output&lt;string&gt; UniqueIdentifier { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uniqueIdentifier"] = example.Apply(getLabResult =&gt; getLabResult.UniqueIdentifier),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DevTest
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DevTest.GetLab.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DevTest.GetLab.InvokeAsync(new Azure.DevTest.GetLabArgs
-        ///         {
-        ///             Name = "example-lab",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.UniqueIdentifier = example.Apply(example =&gt; example.UniqueIdentifier);
-        ///     }
+        ///         Name = "example-lab",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("uniqueIdentifier")]
-        ///     public Output&lt;string&gt; UniqueIdentifier { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["uniqueIdentifier"] = example.Apply(getLabResult =&gt; getLabResult.UniqueIdentifier),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DevTest
     }
 
 
-    public sealed class GetLabArgs : Pulumi.InvokeArgs
+    public sealed class GetLabArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Dev Test Lab.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DevTest
         public GetLabArgs()
         {
         }
+        public static new GetLabArgs Empty => new GetLabArgs();
     }
 
-    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLabInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Dev Test Lab.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DevTest
         public GetLabInvokeArgs()
         {
         }
+        public static new GetLabInvokeArgs Empty => new GetLabInvokeArgs();
     }
 
 

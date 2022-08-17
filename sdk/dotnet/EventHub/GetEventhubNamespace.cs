@@ -20,24 +20,23 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetNamespace.InvokeAsync(new Azure.EventHub.GetNamespaceArgs
-        ///         {
-        ///             Name = "search-eventhubns",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.EventhubNamespaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhubns",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("eventhubNamespaceId")]
-        ///     public Output&lt;string&gt; EventhubNamespaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubNamespaceId"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,24 +52,23 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetNamespace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetNamespace.InvokeAsync(new Azure.EventHub.GetNamespaceArgs
-        ///         {
-        ///             Name = "search-eventhubns",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.EventhubNamespaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhubns",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("eventhubNamespaceId")]
-        ///     public Output&lt;string&gt; EventhubNamespaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubNamespaceId"] = example.Apply(getNamespaceResult =&gt; getNamespaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -80,7 +78,7 @@ namespace Pulumi.Azure.EventHub
     }
 
 
-    public sealed class GetEventhubNamespaceArgs : Pulumi.InvokeArgs
+    public sealed class GetEventhubNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventHub Namespace.
@@ -97,9 +95,10 @@ namespace Pulumi.Azure.EventHub
         public GetEventhubNamespaceArgs()
         {
         }
+        public static new GetEventhubNamespaceArgs Empty => new GetEventhubNamespaceArgs();
     }
 
-    public sealed class GetEventhubNamespaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventhubNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventHub Namespace.
@@ -116,6 +115,7 @@ namespace Pulumi.Azure.EventHub
         public GetEventhubNamespaceInvokeArgs()
         {
         }
+        public static new GetEventhubNamespaceInvokeArgs Empty => new GetEventhubNamespaceInvokeArgs();
     }
 
 

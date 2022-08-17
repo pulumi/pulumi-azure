@@ -15,34 +15,34 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePTRRecord = new Azure.PrivateDns.PTRRecord("examplePTRRecord", new Azure.PrivateDns.PTRRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "test.example.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePTRRecord = new Azure.PrivateDns.PTRRecord("examplePTRRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "test.example.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/pTRRecord:PTRRecord")]
-    public partial class PTRRecord : Pulumi.CustomResource
+    public partial class PTRRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS PTR Record.
@@ -139,7 +139,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class PTRRecordArgs : Pulumi.ResourceArgs
+    public sealed class PTRRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS PTR Record. Changing this forces a new resource to be created.
@@ -189,9 +189,10 @@ namespace Pulumi.Azure.PrivateDns
         public PTRRecordArgs()
         {
         }
+        public static new PTRRecordArgs Empty => new PTRRecordArgs();
     }
 
-    public sealed class PTRRecordState : Pulumi.ResourceArgs
+    public sealed class PTRRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS PTR Record.
@@ -247,5 +248,6 @@ namespace Pulumi.Azure.PrivateDns
         public PTRRecordState()
         {
         }
+        public static new PTRRecordState Empty => new PTRRecordState();
     }
 }

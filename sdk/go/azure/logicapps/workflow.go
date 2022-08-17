@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Logic App Workflows can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+//
+//	$ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+//
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState
@@ -290,7 +295,7 @@ func (i *Workflow) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutp
 // WorkflowArrayInput is an input type that accepts WorkflowArray and WorkflowArrayOutput values.
 // You can construct a concrete instance of `WorkflowArrayInput` via:
 //
-//          WorkflowArray{ WorkflowArgs{...} }
+//	WorkflowArray{ WorkflowArgs{...} }
 type WorkflowArrayInput interface {
 	pulumi.Input
 
@@ -315,7 +320,7 @@ func (i WorkflowArray) ToWorkflowArrayOutputWithContext(ctx context.Context) Wor
 // WorkflowMapInput is an input type that accepts WorkflowMap and WorkflowMapOutput values.
 // You can construct a concrete instance of `WorkflowMapInput` via:
 //
-//          WorkflowMap{ "key": WorkflowArgs{...} }
+//	WorkflowMap{ "key": WorkflowArgs{...} }
 type WorkflowMapInput interface {
 	pulumi.Input
 

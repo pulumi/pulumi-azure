@@ -17,49 +17,50 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServerSecurityAlertPolicy = new Azure.MSSql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", new Azure.MSSql.ServerSecurityAlertPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleSqlServer.Name,
-    ///             State = "Enabled",
-    ///             StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             DisabledAlerts = 
-    ///             {
-    ///                 "Sql_Injection",
-    ///                 "Data_Exfiltration",
-    ///             },
-    ///             RetentionDays = 20,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServerSecurityAlertPolicy = new Azure.MSSql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleSqlServer.Name,
+    ///         State = "Enabled",
+    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         DisabledAlerts = new[]
+    ///         {
+    ///             "Sql_Injection",
+    ///             "Data_Exfiltration",
+    ///         },
+    ///         RetentionDays = 20,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +72,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy")]
-    public partial class ServerSecurityAlertPolicy : Pulumi.CustomResource
+    public partial class ServerSecurityAlertPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -171,7 +172,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ServerSecurityAlertPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServerSecurityAlertPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -242,9 +243,10 @@ namespace Pulumi.Azure.MSSql
         public ServerSecurityAlertPolicyArgs()
         {
         }
+        public static new ServerSecurityAlertPolicyArgs Empty => new ServerSecurityAlertPolicyArgs();
     }
 
-    public sealed class ServerSecurityAlertPolicyState : Pulumi.ResourceArgs
+    public sealed class ServerSecurityAlertPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -315,5 +317,6 @@ namespace Pulumi.Azure.MSSql
         public ServerSecurityAlertPolicyState()
         {
         }
+        public static new ServerSecurityAlertPolicyState Empty => new ServerSecurityAlertPolicyState();
     }
 }

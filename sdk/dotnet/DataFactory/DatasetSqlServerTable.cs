@@ -15,35 +15,36 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new Azure.DataFactory.LinkedServiceSqlServerArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
-    ///         });
-    ///         var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", new Azure.DataFactory.DatasetSqlServerTableArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceSqlServer.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
+    ///     });
+    /// 
+    ///     var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceSqlServer.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable")]
-    public partial class DatasetSqlServerTable : Pulumi.CustomResource
+    public partial class DatasetSqlServerTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
@@ -161,7 +162,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetSqlServerTableArgs : Pulumi.ResourceArgs
+    public sealed class DatasetSqlServerTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -250,9 +251,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetSqlServerTableArgs()
         {
         }
+        public static new DatasetSqlServerTableArgs Empty => new DatasetSqlServerTableArgs();
     }
 
-    public sealed class DatasetSqlServerTableState : Pulumi.ResourceArgs
+    public sealed class DatasetSqlServerTableState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -341,5 +343,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetSqlServerTableState()
         {
         }
+        public static new DatasetSqlServerTableState Empty => new DatasetSqlServerTableState();
     }
 }

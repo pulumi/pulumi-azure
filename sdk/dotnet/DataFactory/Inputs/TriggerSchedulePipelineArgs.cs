@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerSchedulePipelineArgs : Pulumi.ResourceArgs
+    public sealed class TriggerSchedulePipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Reference pipeline name.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerSchedulePipelineArgs()
         {
         }
+        public static new TriggerSchedulePipelineArgs Empty => new TriggerSchedulePipelineArgs();
     }
 }

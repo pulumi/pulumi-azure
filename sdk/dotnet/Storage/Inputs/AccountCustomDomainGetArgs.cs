@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountCustomDomainGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountCustomDomainGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountCustomDomainGetArgs()
         {
         }
+        public static new AccountCustomDomainGetArgs Empty => new AccountCustomDomainGetArgs();
     }
 }

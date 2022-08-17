@@ -19,23 +19,22 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetLogProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetLogProfile.InvokeAsync(new Azure.Monitoring.GetLogProfileArgs
-        ///         {
-        ///             Name = "test-logprofile",
-        ///         }));
-        ///         this.LogProfileStorageAccountId = example.Apply(example =&gt; example.StorageAccountId);
-        ///     }
+        ///         Name = "test-logprofile",
+        ///     });
         /// 
-        ///     [Output("logProfileStorageAccountId")]
-        ///     public Output&lt;string&gt; LogProfileStorageAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["logProfileStorageAccountId"] = example.Apply(getLogProfileResult =&gt; getLogProfileResult.StorageAccountId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +50,22 @@ namespace Pulumi.Azure.Monitoring
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Monitoring.GetLogProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Monitoring.GetLogProfile.InvokeAsync(new Azure.Monitoring.GetLogProfileArgs
-        ///         {
-        ///             Name = "test-logprofile",
-        ///         }));
-        ///         this.LogProfileStorageAccountId = example.Apply(example =&gt; example.StorageAccountId);
-        ///     }
+        ///         Name = "test-logprofile",
+        ///     });
         /// 
-        ///     [Output("logProfileStorageAccountId")]
-        ///     public Output&lt;string&gt; LogProfileStorageAccountId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["logProfileStorageAccountId"] = example.Apply(getLogProfileResult =&gt; getLogProfileResult.StorageAccountId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.Monitoring
     }
 
 
-    public sealed class GetLogProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetLogProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Log Profile.
@@ -88,9 +86,10 @@ namespace Pulumi.Azure.Monitoring
         public GetLogProfileArgs()
         {
         }
+        public static new GetLogProfileArgs Empty => new GetLogProfileArgs();
     }
 
-    public sealed class GetLogProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLogProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Log Profile.
@@ -101,6 +100,7 @@ namespace Pulumi.Azure.Monitoring
         public GetLogProfileInvokeArgs()
         {
         }
+        public static new GetLogProfileInvokeArgs Empty => new GetLogProfileInvokeArgs();
     }
 
 

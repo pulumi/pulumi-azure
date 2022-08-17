@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the HTTP header.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs Empty => new NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs();
     }
 }

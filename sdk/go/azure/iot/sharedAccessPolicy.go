@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewSharedAccessPolicy(ctx, "exampleSharedAccessPolicy", &iot.SharedAccessPolicyArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubName:        exampleIoTHub.Name,
-// 			RegistryRead:      pulumi.Bool(true),
-// 			RegistryWrite:     pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewSharedAccessPolicy(ctx, "exampleSharedAccessPolicy", &iot.SharedAccessPolicyArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IothubName:        exampleIoTHub.Name,
+//				RegistryRead:      pulumi.Bool(true),
+//				RegistryWrite:     pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // IoTHub Shared Access Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/sharedAccessPolicy:SharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/IotHubKeys/shared_access_policy1
+//
+//	$ pulumi import azure:iot/sharedAccessPolicy:SharedAccessPolicy shared_access_policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/IotHubKeys/shared_access_policy1
+//
 // ```
 type SharedAccessPolicy struct {
 	pulumi.CustomResourceState
@@ -240,7 +245,7 @@ func (i *SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.C
 // SharedAccessPolicyArrayInput is an input type that accepts SharedAccessPolicyArray and SharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `SharedAccessPolicyArrayInput` via:
 //
-//          SharedAccessPolicyArray{ SharedAccessPolicyArgs{...} }
+//	SharedAccessPolicyArray{ SharedAccessPolicyArgs{...} }
 type SharedAccessPolicyArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +270,7 @@ func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutputWithContext(ctx 
 // SharedAccessPolicyMapInput is an input type that accepts SharedAccessPolicyMap and SharedAccessPolicyMapOutput values.
 // You can construct a concrete instance of `SharedAccessPolicyMapInput` via:
 //
-//          SharedAccessPolicyMap{ "key": SharedAccessPolicyArgs{...} }
+//	SharedAccessPolicyMap{ "key": SharedAccessPolicyArgs{...} }
 type SharedAccessPolicyMapInput interface {
 	pulumi.Input
 

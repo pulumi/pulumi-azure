@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.WebPubSub.Inputs
 {
 
-    public sealed class HubEventHandlerGetArgs : Pulumi.ResourceArgs
+    public sealed class HubEventHandlerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auth` block as defined below.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public HubEventHandlerGetArgs()
         {
         }
+        public static new HubEventHandlerGetArgs Empty => new HubEventHandlerGetArgs();
     }
 }

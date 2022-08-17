@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@terraform.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
-// 			DisplayName: pulumi.String("acctestam-example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "exampleApplicationPassword", &azuread.ApplicationPasswordArgs{
-// 			ApplicationObjectId: exampleApplication.ObjectId,
-// 			EndDateRelative:     pulumi.String("36h"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "exampleIdentityProviderAadb2c", &apimanagement.IdentityProviderAadb2cArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			ClientId:          exampleApplication.ApplicationId,
-// 			ClientSecret:      pulumi.String("P@55w0rD!"),
-// 			AllowedTenant:     pulumi.String("myb2ctenant.onmicrosoft.com"),
-// 			SigninTenant:      pulumi.String("myb2ctenant.onmicrosoft.com"),
-// 			Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
-// 			SigninPolicy:      pulumi.String("B2C_1_Login"),
-// 			SignupPolicy:      pulumi.String("B2C_1_Signup"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleApplicationPassword,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@terraform.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
+//				DisplayName: pulumi.String("acctestam-example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "exampleApplicationPassword", &azuread.ApplicationPasswordArgs{
+//				ApplicationObjectId: exampleApplication.ObjectId,
+//				EndDateRelative:     pulumi.String("36h"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "exampleIdentityProviderAadb2c", &apimanagement.IdentityProviderAadb2cArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				ClientId:          exampleApplication.ApplicationId,
+//				ClientSecret:      pulumi.String("P@55w0rD!"),
+//				AllowedTenant:     pulumi.String("myb2ctenant.onmicrosoft.com"),
+//				SigninTenant:      pulumi.String("myb2ctenant.onmicrosoft.com"),
+//				Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
+//				SigninPolicy:      pulumi.String("B2C_1_Login"),
+//				SignupPolicy:      pulumi.String("B2C_1_Signup"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleApplicationPassword,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // API Management Azure AD B2C Identity Providers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/AadB2C
+//
+//	$ pulumi import azure:apimanagement/identityProviderAadb2c:IdentityProviderAadb2c example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/service1/identityProviders/AadB2C
+//
 // ```
 type IdentityProviderAadb2c struct {
 	pulumi.CustomResourceState
@@ -297,7 +302,7 @@ func (i *IdentityProviderAadb2c) ToIdentityProviderAadb2cOutputWithContext(ctx c
 // IdentityProviderAadb2cArrayInput is an input type that accepts IdentityProviderAadb2cArray and IdentityProviderAadb2cArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderAadb2cArrayInput` via:
 //
-//          IdentityProviderAadb2cArray{ IdentityProviderAadb2cArgs{...} }
+//	IdentityProviderAadb2cArray{ IdentityProviderAadb2cArgs{...} }
 type IdentityProviderAadb2cArrayInput interface {
 	pulumi.Input
 
@@ -322,7 +327,7 @@ func (i IdentityProviderAadb2cArray) ToIdentityProviderAadb2cArrayOutputWithCont
 // IdentityProviderAadb2cMapInput is an input type that accepts IdentityProviderAadb2cMap and IdentityProviderAadb2cMapOutput values.
 // You can construct a concrete instance of `IdentityProviderAadb2cMapInput` via:
 //
-//          IdentityProviderAadb2cMap{ "key": IdentityProviderAadb2cArgs{...} }
+//	IdentityProviderAadb2cMap{ "key": IdentityProviderAadb2cArgs{...} }
 type IdentityProviderAadb2cMapInput interface {
 	pulumi.Input
 

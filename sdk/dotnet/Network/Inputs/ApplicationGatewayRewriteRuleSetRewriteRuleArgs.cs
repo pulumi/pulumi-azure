@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("conditions")]
         private InputList<Inputs.ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs>? _conditions;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRewriteRuleSetRewriteRuleArgs()
         {
         }
+        public static new ApplicationGatewayRewriteRuleSetRewriteRuleArgs Empty => new ApplicationGatewayRewriteRuleSetRewriteRuleArgs();
     }
 }

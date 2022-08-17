@@ -19,29 +19,29 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "examplekv",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         var exampleCertificate = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.KeyVault.GetCertificate.InvokeAsync(new Azure.KeyVault.GetCertificateArgs
-        ///         {
-        ///             Name = "secret-sauce",
-        ///             KeyVaultId = exampleKeyVault.Id,
-        ///         })));
-        ///         this.CertificateThumbprint = exampleCertificate.Apply(exampleCertificate =&gt; exampleCertificate.Thumbprint);
-        ///     }
+        ///         Name = "examplekv",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("certificateThumbprint")]
-        ///     public Output&lt;string&gt; CertificateThumbprint { get; set; }
-        /// }
+        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     {
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +57,29 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "examplekv",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         var exampleCertificate = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.KeyVault.GetCertificate.InvokeAsync(new Azure.KeyVault.GetCertificateArgs
-        ///         {
-        ///             Name = "secret-sauce",
-        ///             KeyVaultId = exampleKeyVault.Id,
-        ///         })));
-        ///         this.CertificateThumbprint = exampleCertificate.Apply(exampleCertificate =&gt; exampleCertificate.Thumbprint);
-        ///     }
+        ///         Name = "examplekv",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("certificateThumbprint")]
-        ///     public Output&lt;string&gt; CertificateThumbprint { get; set; }
-        /// }
+        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     {
+        ///         Name = "secret-sauce",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -112,9 +112,10 @@ namespace Pulumi.Azure.KeyVault
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the ID of the Key Vault instance where the Secret resides, available on the `azure.keyvault.KeyVault` Data Source / Resource.
@@ -137,6 +138,7 @@ namespace Pulumi.Azure.KeyVault
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the administrator password to use for all the instances of virtual machines in a scale set.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileGetArgs()
         {
         }
+        public static new ScaleSetOsProfileGetArgs Empty => new ScaleSetOsProfileGetArgs();
     }
 }

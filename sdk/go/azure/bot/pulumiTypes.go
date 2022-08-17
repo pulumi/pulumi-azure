@@ -34,7 +34,7 @@ type ChannelDirectLineSite struct {
 // ChannelDirectLineSiteInput is an input type that accepts ChannelDirectLineSiteArgs and ChannelDirectLineSiteOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSiteInput` via:
 //
-//          ChannelDirectLineSiteArgs{...}
+//	ChannelDirectLineSiteArgs{...}
 type ChannelDirectLineSiteInput interface {
 	pulumi.Input
 
@@ -78,7 +78,7 @@ func (i ChannelDirectLineSiteArgs) ToChannelDirectLineSiteOutputWithContext(ctx 
 // ChannelDirectLineSiteArrayInput is an input type that accepts ChannelDirectLineSiteArray and ChannelDirectLineSiteArrayOutput values.
 // You can construct a concrete instance of `ChannelDirectLineSiteArrayInput` via:
 //
-//          ChannelDirectLineSiteArray{ ChannelDirectLineSiteArgs{...} }
+//	ChannelDirectLineSiteArray{ ChannelDirectLineSiteArgs{...} }
 type ChannelDirectLineSiteArrayInput interface {
 	pulumi.Input
 
@@ -189,7 +189,7 @@ type ChannelFacebookPage struct {
 // ChannelFacebookPageInput is an input type that accepts ChannelFacebookPageArgs and ChannelFacebookPageOutput values.
 // You can construct a concrete instance of `ChannelFacebookPageInput` via:
 //
-//          ChannelFacebookPageArgs{...}
+//	ChannelFacebookPageArgs{...}
 type ChannelFacebookPageInput interface {
 	pulumi.Input
 
@@ -219,7 +219,7 @@ func (i ChannelFacebookPageArgs) ToChannelFacebookPageOutputWithContext(ctx cont
 // ChannelFacebookPageArrayInput is an input type that accepts ChannelFacebookPageArray and ChannelFacebookPageArrayOutput values.
 // You can construct a concrete instance of `ChannelFacebookPageArrayInput` via:
 //
-//          ChannelFacebookPageArray{ ChannelFacebookPageArgs{...} }
+//	ChannelFacebookPageArray{ ChannelFacebookPageArgs{...} }
 type ChannelFacebookPageArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +295,7 @@ type ChannelLineLineChannel struct {
 // ChannelLineLineChannelInput is an input type that accepts ChannelLineLineChannelArgs and ChannelLineLineChannelOutput values.
 // You can construct a concrete instance of `ChannelLineLineChannelInput` via:
 //
-//          ChannelLineLineChannelArgs{...}
+//	ChannelLineLineChannelArgs{...}
 type ChannelLineLineChannelInput interface {
 	pulumi.Input
 
@@ -325,7 +325,7 @@ func (i ChannelLineLineChannelArgs) ToChannelLineLineChannelOutputWithContext(ct
 // ChannelLineLineChannelArrayInput is an input type that accepts ChannelLineLineChannelArray and ChannelLineLineChannelArrayOutput values.
 // You can construct a concrete instance of `ChannelLineLineChannelArrayInput` via:
 //
-//          ChannelLineLineChannelArray{ ChannelLineLineChannelArgs{...} }
+//	ChannelLineLineChannelArray{ ChannelLineLineChannelArgs{...} }
 type ChannelLineLineChannelArrayInput interface {
 	pulumi.Input
 

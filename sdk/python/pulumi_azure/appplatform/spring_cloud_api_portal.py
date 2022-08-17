@@ -284,6 +284,8 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         """
         Manages a Spring Cloud API Portal.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         ## Example Usage
 
         ```python
@@ -336,6 +338,8 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud API Portal.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         ## Example Usage
 

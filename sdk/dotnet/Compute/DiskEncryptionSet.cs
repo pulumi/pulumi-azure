@@ -17,103 +17,108 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             EnabledForDiskEncryption = true,
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var example_user = new Azure.KeyVault.AccessPolicy("example-user", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "Get",
-    ///                 "Purge",
-    ///                 "Recover",
-    ///                 "Update",
-    ///                 "List",
-    ///                 "Decrypt",
-    ///                 "Sign",
-    ///             },
-    ///         });
-    ///         var exampleKey = new Azure.KeyVault.Key("exampleKey", new Azure.KeyVault.KeyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             KeyType = "RSA",
-    ///             KeySize = 2048,
-    ///             KeyOpts = 
-    ///             {
-    ///                 "decrypt",
-    ///                 "encrypt",
-    ///                 "sign",
-    ///                 "unwrapKey",
-    ///                 "verify",
-    ///                 "wrapKey",
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 example_user,
-    ///             },
-    ///         });
-    ///         var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("exampleDiskEncryptionSet", new Azure.Compute.DiskEncryptionSetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             KeyVaultKeyId = exampleKey.Id,
-    ///             Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var example_diskAccessPolicy = new Azure.KeyVault.AccessPolicy("example-diskAccessPolicy", new Azure.KeyVault.AccessPolicyArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             TenantId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.TenantId),
-    ///             ObjectId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
-    ///             KeyPermissions = 
-    ///             {
-    ///                 "Create",
-    ///                 "Delete",
-    ///                 "Get",
-    ///                 "Purge",
-    ///                 "Recover",
-    ///                 "Update",
-    ///                 "List",
-    ///                 "Decrypt",
-    ///                 "Sign",
-    ///             },
-    ///         });
-    ///         var example_diskAssignment = new Azure.Authorization.Assignment("example-diskAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleKeyVault.Id,
-    ///             RoleDefinitionName = "Key Vault Crypto Service Encryption User",
-    ///             PrincipalId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         EnabledForDiskEncryption = true,
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var example_user = new Azure.KeyVault.AccessPolicy("example-user", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         KeyType = "RSA",
+    ///         KeySize = 2048,
+    ///         KeyOpts = new[]
+    ///         {
+    ///             "decrypt",
+    ///             "encrypt",
+    ///             "sign",
+    ///             "unwrapKey",
+    ///             "verify",
+    ///             "wrapKey",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             example_user,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiskEncryptionSet = new Azure.Compute.DiskEncryptionSet("exampleDiskEncryptionSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         KeyVaultKeyId = exampleKey.Id,
+    ///         Identity = new Azure.Compute.Inputs.DiskEncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_diskAccessPolicy = new Azure.KeyVault.AccessPolicy("example-diskAccessPolicy", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.TenantId),
+    ///         ObjectId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Create",
+    ///             "Delete",
+    ///             "Get",
+    ///             "Purge",
+    ///             "Recover",
+    ///             "Update",
+    ///             "List",
+    ///             "Decrypt",
+    ///             "Sign",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_diskAssignment = new Azure.Authorization.Assignment("example-diskAssignment", new()
+    ///     {
+    ///         Scope = exampleKeyVault.Id,
+    ///         RoleDefinitionName = "Key Vault Crypto Service Encryption User",
+    ///         PrincipalId = exampleDiskEncryptionSet.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +130,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/diskEncryptionSet:DiskEncryptionSet")]
-    public partial class DiskEncryptionSet : Pulumi.CustomResource
+    public partial class DiskEncryptionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
@@ -219,7 +224,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DiskEncryptionSetArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
@@ -278,9 +283,10 @@ namespace Pulumi.Azure.Compute
         public DiskEncryptionSetArgs()
         {
         }
+        public static new DiskEncryptionSetArgs Empty => new DiskEncryptionSetArgs();
     }
 
-    public sealed class DiskEncryptionSetState : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to specify whether Azure Disk Encryption Set automatically rotates encryption Key to latest version. Defaults to `false`.
@@ -339,5 +345,6 @@ namespace Pulumi.Azure.Compute
         public DiskEncryptionSetState()
         {
         }
+        public static new DiskEncryptionSetState Empty => new DiskEncryptionSetState();
     }
 }

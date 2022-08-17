@@ -15,33 +15,33 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///             OutboundNetworkRestrictionEnabled = true,
-    ///         });
-    ///         var exampleOutboundFirewallRule = new Azure.MSSql.OutboundFirewallRule("exampleOutboundFirewallRule", new Azure.MSSql.OutboundFirewallRuleArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///         OutboundNetworkRestrictionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleOutboundFirewallRule = new Azure.MSSql.OutboundFirewallRule("exampleOutboundFirewallRule", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/outboundFirewallRule:OutboundFirewallRule")]
-    public partial class OutboundFirewallRule : Pulumi.CustomResource
+    public partial class OutboundFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the outbound firewall rule. This should be a FQDN.
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class OutboundFirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class OutboundFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the outbound firewall rule. This should be a FQDN.
@@ -128,9 +128,10 @@ namespace Pulumi.Azure.MSSql
         public OutboundFirewallRuleArgs()
         {
         }
+        public static new OutboundFirewallRuleArgs Empty => new OutboundFirewallRuleArgs();
     }
 
-    public sealed class OutboundFirewallRuleState : Pulumi.ResourceArgs
+    public sealed class OutboundFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the outbound firewall rule. This should be a FQDN.
@@ -147,5 +148,6 @@ namespace Pulumi.Azure.MSSql
         public OutboundFirewallRuleState()
         {
         }
+        public static new OutboundFirewallRuleState Empty => new OutboundFirewallRuleState();
     }
 }

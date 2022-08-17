@@ -19,24 +19,23 @@ namespace Pulumi.Azure.MixedReality
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MixedReality.GetSpatialAnchorsAccount.InvokeAsync(new Azure.MixedReality.GetSpatialAnchorsAccountArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.AccountDomain = data.Azurerm_spatial_anchors_account.Account_domain;
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("accountDomain")]
-        ///     public Output&lt;string&gt; AccountDomain { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountDomain"] = data.Azurerm_spatial_anchors_account.Account_domain,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.MixedReality
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MixedReality.GetSpatialAnchorsAccount.InvokeAsync(new Azure.MixedReality.GetSpatialAnchorsAccountArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.AccountDomain = data.Azurerm_spatial_anchors_account.Account_domain;
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("accountDomain")]
-        ///     public Output&lt;string&gt; AccountDomain { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["accountDomain"] = data.Azurerm_spatial_anchors_account.Account_domain,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.MixedReality
     }
 
 
-    public sealed class GetSpatialAnchorsAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetSpatialAnchorsAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.MixedReality
         public GetSpatialAnchorsAccountArgs()
         {
         }
+        public static new GetSpatialAnchorsAccountArgs Empty => new GetSpatialAnchorsAccountArgs();
     }
 
-    public sealed class GetSpatialAnchorsAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpatialAnchorsAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Spatial Anchors Account. Changing this forces a new resource to be created. Must be globally unique.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.MixedReality
         public GetSpatialAnchorsAccountInvokeArgs()
         {
         }
+        public static new GetSpatialAnchorsAccountInvokeArgs Empty => new GetSpatialAnchorsAccountInvokeArgs();
     }
 
 

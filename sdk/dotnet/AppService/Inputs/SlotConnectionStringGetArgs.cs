@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotConnectionStringGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotConnectionStringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Connection String.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotConnectionStringGetArgs()
         {
         }
+        public static new SlotConnectionStringGetArgs Empty => new SlotConnectionStringGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupExposedPortGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupExposedPortGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port number the container will expose. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupExposedPortGetArgs()
         {
         }
+        public static new GroupExposedPortGetArgs Empty => new GroupExposedPortGetArgs();
     }
 }

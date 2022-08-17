@@ -19,56 +19,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/maintenance"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			Location:                 exampleResourceGroup.Location,
-// 			PlatformFaultDomainCount: pulumi.Int(2),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDedicatedHost, err := compute.NewDedicatedHost(ctx, "exampleDedicatedHost", &compute.DedicatedHostArgs{
-// 			Location:             exampleResourceGroup.Location,
-// 			DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
-// 			SkuName:              pulumi.String("DSv3-Type1"),
-// 			PlatformFaultDomain:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleConfiguration, err := maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Scope:             pulumi.String("All"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = maintenance.NewAssignmentDedicatedHost(ctx, "exampleAssignmentDedicatedHost", &maintenance.AssignmentDedicatedHostArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			MaintenanceConfigurationId: exampleConfiguration.ID(),
-// 			DedicatedHostId:            exampleDedicatedHost.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Location:                 exampleResourceGroup.Location,
+//				PlatformFaultDomainCount: pulumi.Int(2),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDedicatedHost, err := compute.NewDedicatedHost(ctx, "exampleDedicatedHost", &compute.DedicatedHostArgs{
+//				Location:             exampleResourceGroup.Location,
+//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
+//				SkuName:              pulumi.String("DSv3-Type1"),
+//				PlatformFaultDomain:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConfiguration, err := maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Scope:             pulumi.String("All"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = maintenance.NewAssignmentDedicatedHost(ctx, "exampleAssignmentDedicatedHost", &maintenance.AssignmentDedicatedHostArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				MaintenanceConfigurationId: exampleConfiguration.ID(),
+//				DedicatedHostId:            exampleDedicatedHost.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +79,9 @@ import (
 // Maintenance Assignment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/hostGroups/group1/hosts/host1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+//
+//	$ pulumi import azure:maintenance/assignmentDedicatedHost:AssignmentDedicatedHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resGroup1/providers/microsoft.compute/hostGroups/group1/hosts/host1/providers/Microsoft.Maintenance/configurationAssignments/assign1
+//
 // ```
 type AssignmentDedicatedHost struct {
 	pulumi.CustomResourceState
@@ -190,7 +195,7 @@ func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx
 // AssignmentDedicatedHostArrayInput is an input type that accepts AssignmentDedicatedHostArray and AssignmentDedicatedHostArrayOutput values.
 // You can construct a concrete instance of `AssignmentDedicatedHostArrayInput` via:
 //
-//          AssignmentDedicatedHostArray{ AssignmentDedicatedHostArgs{...} }
+//	AssignmentDedicatedHostArray{ AssignmentDedicatedHostArgs{...} }
 type AssignmentDedicatedHostArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +220,7 @@ func (i AssignmentDedicatedHostArray) ToAssignmentDedicatedHostArrayOutputWithCo
 // AssignmentDedicatedHostMapInput is an input type that accepts AssignmentDedicatedHostMap and AssignmentDedicatedHostMapOutput values.
 // You can construct a concrete instance of `AssignmentDedicatedHostMapInput` via:
 //
-//          AssignmentDedicatedHostMap{ "key": AssignmentDedicatedHostArgs{...} }
+//	AssignmentDedicatedHostMap{ "key": AssignmentDedicatedHostArgs{...} }
 type AssignmentDedicatedHostMapInput interface {
 	pulumi.Input
 

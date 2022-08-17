@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDataFlowArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataFlowArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinations", required: true)]
         private InputList<string>? _destinations;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDataFlowArgs()
         {
         }
+        public static new DataCollectionRuleDataFlowArgs Empty => new DataCollectionRuleDataFlowArgs();
     }
 }

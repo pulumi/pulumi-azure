@@ -15,47 +15,47 @@ namespace Pulumi.Azure.DevTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSchedule = new Azure.DevTest.Schedule("exampleSchedule", new Azure.DevTest.ScheduleArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LabName = exampleLab.Name,
-    ///             WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
-    ///             {
-    ///                 Time = "1100",
-    ///                 WeekDays = 
-    ///                 {
-    ///                     "Monday",
-    ///                     "Tuesday",
-    ///                 },
-    ///             },
-    ///             TimeZoneId = "Pacific Standard Time",
-    ///             TaskType = "LabVmsStartupTask",
-    ///             NotificationSettings = ,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSchedule = new Azure.DevTest.Schedule("exampleSchedule", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LabName = exampleLab.Name,
+    ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
+    ///         {
+    ///             Time = "1100",
+    ///             WeekDays = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Tuesday",
+    ///             },
+    ///         },
+    ///         TimeZoneId = "Pacific Standard Time",
+    ///         TaskType = "LabVmsStartupTask",
+    ///         NotificationSettings = ,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.DevTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/schedule:Schedule")]
-    public partial class Schedule : Pulumi.CustomResource
+    public partial class Schedule : global::Pulumi.CustomResource
     {
         [Output("dailyRecurrence")]
         public Output<Outputs.ScheduleDailyRecurrence?> DailyRecurrence { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
-    public sealed class ScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("dailyRecurrence")]
         public Input<Inputs.ScheduleDailyRecurrenceArgs>? DailyRecurrence { get; set; }
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.DevTest
         public ScheduleArgs()
         {
         }
+        public static new ScheduleArgs Empty => new ScheduleArgs();
     }
 
-    public sealed class ScheduleState : Pulumi.ResourceArgs
+    public sealed class ScheduleState : global::Pulumi.ResourceArgs
     {
         [Input("dailyRecurrence")]
         public Input<Inputs.ScheduleDailyRecurrenceGetArgs>? DailyRecurrence { get; set; }
@@ -317,5 +318,6 @@ namespace Pulumi.Azure.DevTest
         public ScheduleState()
         {
         }
+        public static new ScheduleState Empty => new ScheduleState();
     }
 }

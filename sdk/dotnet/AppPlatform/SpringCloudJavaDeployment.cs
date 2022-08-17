@@ -12,54 +12,57 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages an Azure Spring Cloud Deployment with a Java runtime.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///             Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", new Azure.AppPlatform.SpringCloudJavaDeploymentArgs
-    ///         {
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             InstanceCount = 2,
-    ///             JvmOptions = "-XX:+PrintGC",
-    ///             Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
-    ///             {
-    ///                 Cpu = "2",
-    ///                 Memory = "4Gi",
-    ///             },
-    ///             RuntimeVersion = "Java_11",
-    ///             EnvironmentVariables = 
-    ///             {
-    ///                 { "Foo", "Bar" },
-    ///                 { "Env", "Staging" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudJavaDeployment = new Azure.AppPlatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", new()
+    ///     {
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         InstanceCount = 2,
+    ///         JvmOptions = "-XX:+PrintGC",
+    ///         Quota = new Azure.AppPlatform.Inputs.SpringCloudJavaDeploymentQuotaArgs
+    ///         {
+    ///             Cpu = "2",
+    ///             Memory = "4Gi",
+    ///         },
+    ///         RuntimeVersion = "Java_11",
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "Foo", "Bar" },
+    ///             { "Env", "Staging" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +74,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment")]
-    public partial class SpringCloudJavaDeployment : Pulumi.CustomResource
+    public partial class SpringCloudJavaDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -159,7 +162,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudJavaDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudJavaDeploymentArgs : global::Pulumi.ResourceArgs
     {
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
@@ -212,9 +215,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudJavaDeploymentArgs()
         {
         }
+        public static new SpringCloudJavaDeploymentArgs Empty => new SpringCloudJavaDeploymentArgs();
     }
 
-    public sealed class SpringCloudJavaDeploymentState : Pulumi.ResourceArgs
+    public sealed class SpringCloudJavaDeploymentState : global::Pulumi.ResourceArgs
     {
         [Input("environmentVariables")]
         private InputMap<string>? _environmentVariables;
@@ -267,5 +271,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudJavaDeploymentState()
         {
         }
+        public static new SpringCloudJavaDeploymentState Empty => new SpringCloudJavaDeploymentState();
     }
 }

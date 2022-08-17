@@ -16,120 +16,122 @@ namespace Pulumi.Azure.Batch
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PoolAllocationMode = "BatchService",
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Tags = 
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///             { "env", "test" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleBatch / accountAccount.Name,
+    ///         BatchCertificate = ReadFileBase64("certificate.cer"),
+    ///         Format = "Cer",
+    ///         Thumbprint = "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
+    ///         ThumbprintAlgorithm = "SHA1",
+    ///     });
+    /// 
+    ///     var examplePool = new Azure.Batch.Pool("examplePool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleBatch / accountAccount.Name,
+    ///         DisplayName = "Test Acc Pool Auto",
+    ///         VmSize = "Standard_A1",
+    ///         NodeAgentSkuId = "batch.node.ubuntu 20.04",
+    ///         AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new Azure.Batch.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PoolAllocationMode = "BatchService",
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "env", "test" },
-    ///             },
-    ///         });
-    ///         var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new Azure.Batch.CertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleBatch / accountAccount.Name,
-    ///             BatchCertificate = ReadFileBase64("certificate.cer"),
-    ///             Format = "Cer",
-    ///             Thumbprint = "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
-    ///             ThumbprintAlgorithm = "SHA1",
-    ///         });
-    ///         var examplePool = new Azure.Batch.Pool("examplePool", new Azure.Batch.PoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleBatch / accountAccount.Name,
-    ///             DisplayName = "Test Acc Pool Auto",
-    ///             VmSize = "Standard_A1",
-    ///             NodeAgentSkuId = "batch.node.ubuntu 20.04",
-    ///             AutoScale = new Azure.Batch.Inputs.PoolAutoScaleArgs
-    ///             {
-    ///                 EvaluationInterval = "PT15M",
-    ///                 Formula = @"      startingNumberOfVMs = 1;
+    ///             EvaluationInterval = "PT15M",
+    ///             Formula = @"      startingNumberOfVMs = 1;
     ///       maxNumberofVMs = 25;
     ///       pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
     ///       pendingTaskSamples = pendingTaskSamplePercent &lt; 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));
     ///       $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
     /// ",
-    ///             },
-    ///             StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///         },
+    ///         StorageImageReference = new Azure.Batch.Inputs.PoolStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "microsoft-azure-batch",
+    ///             Offer = "ubuntu-server-container",
+    ///             Sku = "20-04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         ContainerConfiguration = new Azure.Batch.Inputs.PoolContainerConfigurationArgs
+    ///         {
+    ///             Type = "DockerCompatible",
+    ///             ContainerRegistries = new[]
     ///             {
-    ///                 Publisher = "microsoft-azure-batch",
-    ///                 Offer = "ubuntu-server-container",
-    ///                 Sku = "20-04-lts",
-    ///                 Version = "latest",
-    ///             },
-    ///             ContainerConfiguration = new Azure.Batch.Inputs.PoolContainerConfigurationArgs
-    ///             {
-    ///                 Type = "DockerCompatible",
-    ///                 ContainerRegistries = 
+    ///                 new Azure.Batch.Inputs.PoolContainerConfigurationContainerRegistryArgs
     ///                 {
-    ///                     new Azure.Batch.Inputs.PoolContainerConfigurationContainerRegistryArgs
-    ///                     {
-    ///                         RegistryServer = "docker.io",
-    ///                         UserName = "login",
-    ///                         Password = "apassword",
-    ///                     },
+    ///                     RegistryServer = "docker.io",
+    ///                     UserName = "login",
+    ///                     Password = "apassword",
     ///                 },
     ///             },
-    ///             StartTask = new Azure.Batch.Inputs.PoolStartTaskArgs
+    ///         },
+    ///         StartTask = new Azure.Batch.Inputs.PoolStartTaskArgs
+    ///         {
+    ///             CommandLine = "echo 'Hello World from $env'",
+    ///             TaskRetryMaximum = 1,
+    ///             WaitForSuccess = true,
+    ///             CommonEnvironmentProperties = 
     ///             {
-    ///                 CommandLine = "echo 'Hello World from $env'",
-    ///                 TaskRetryMaximum = 1,
-    ///                 WaitForSuccess = true,
-    ///                 CommonEnvironmentProperties = 
+    ///                 { "env", "TEST" },
+    ///             },
+    ///             UserIdentity = new Azure.Batch.Inputs.PoolStartTaskUserIdentityArgs
+    ///             {
+    ///                 AutoUser = new Azure.Batch.Inputs.PoolStartTaskUserIdentityAutoUserArgs
     ///                 {
-    ///                     { "env", "TEST" },
-    ///                 },
-    ///                 UserIdentity = new Azure.Batch.Inputs.PoolStartTaskUserIdentityArgs
-    ///                 {
-    ///                     AutoUser = new Azure.Batch.Inputs.PoolStartTaskUserIdentityAutoUserArgs
-    ///                     {
-    ///                         ElevationLevel = "NonAdmin",
-    ///                         Scope = "Task",
-    ///                     },
+    ///                     ElevationLevel = "NonAdmin",
+    ///                     Scope = "Task",
     ///                 },
     ///             },
-    ///             Certificates = 
+    ///         },
+    ///         Certificates = new[]
+    ///         {
+    ///             new Azure.Batch.Inputs.PoolCertificateArgs
     ///             {
-    ///                 new Azure.Batch.Inputs.PoolCertificateArgs
+    ///                 Id = exampleCertificate.Id,
+    ///                 StoreLocation = "CurrentUser",
+    ///                 Visibilities = new[]
     ///                 {
-    ///                     Id = exampleCertificate.Id,
-    ///                     StoreLocation = "CurrentUser",
-    ///                     Visibilities = 
-    ///                     {
-    ///                         "StartTask",
-    ///                     },
+    ///                     "StartTask",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -141,7 +143,7 @@ namespace Pulumi.Azure.Batch
     /// ```
     /// </summary>
     [AzureResourceType("azure:batch/pool:Pool")]
-    public partial class Pool : Pulumi.CustomResource
+    public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
@@ -286,7 +288,7 @@ namespace Pulumi.Azure.Batch
         }
     }
 
-    public sealed class PoolArgs : Pulumi.ResourceArgs
+    public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
@@ -402,9 +404,10 @@ namespace Pulumi.Azure.Batch
         public PoolArgs()
         {
         }
+        public static new PoolArgs Empty => new PoolArgs();
     }
 
-    public sealed class PoolState : Pulumi.ResourceArgs
+    public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Batch account in which the pool will be created. Changing this forces a new resource to be created.
@@ -520,5 +523,6 @@ namespace Pulumi.Azure.Batch
         public PoolState()
         {
         }
+        public static new PoolState Empty => new PoolState();
     }
 }

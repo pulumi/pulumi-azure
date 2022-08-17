@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class LogzMonitorUserGetArgs : Pulumi.ResourceArgs
+    public sealed class LogzMonitorUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Email of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public LogzMonitorUserGetArgs()
         {
         }
+        public static new LogzMonitorUserGetArgs Empty => new LogzMonitorUserGetArgs();
     }
 }

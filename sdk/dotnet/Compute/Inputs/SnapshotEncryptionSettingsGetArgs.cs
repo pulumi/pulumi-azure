@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class SnapshotEncryptionSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotEncryptionSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("diskEncryptionKey")]
         public Input<Inputs.SnapshotEncryptionSettingsDiskEncryptionKeyGetArgs>? DiskEncryptionKey { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public SnapshotEncryptionSettingsGetArgs()
         {
         }
+        public static new SnapshotEncryptionSettingsGetArgs Empty => new SnapshotEncryptionSettingsGetArgs();
     }
 }

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/healthcare"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := healthcare.LookupDicomService(ctx, &healthcare.LookupDicomServiceArgs{
-// 			Name:        "example-healthcare_dicom_service",
-// 			WorkspaceId: "example_healthcare_workspace",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("azurermHealthcareDicomService", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := healthcare.LookupDicomService(ctx, &healthcare.LookupDicomServiceArgs{
+//				Name:        "example-healthcare_dicom_service",
+//				WorkspaceId: "example_healthcare_workspace",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("azurermHealthcareDicomService", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts ...pulumi.InvokeOption) (*LookupDicomServiceResult, error) {
 	var rv LookupDicomServiceResult

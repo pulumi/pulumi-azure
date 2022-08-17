@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableGetArgs : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("ids", required: true)]
         private InputList<string>? _ids;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableGetArgs()
         {
         }
+        public static new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableGetArgs Empty => new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableGetArgs();
     }
 }

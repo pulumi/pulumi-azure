@@ -15,75 +15,78 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             AadAdmin = new Azure.Synapse.Inputs.WorkspaceAadAdminArgs
-    ///             {
-    ///                 Login = "AzureAD Admin",
-    ///                 ObjectId = "00000000-0000-0000-0000-000000000000",
-    ///                 TenantId = "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Env", "production" },
-    ///             },
-    ///         });
-    ///         var auditLogs = new Azure.Storage.Account("auditLogs", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleWorkspaceSecurityAlertPolicy = new Azure.Synapse.WorkspaceSecurityAlertPolicy("exampleWorkspaceSecurityAlertPolicy", new Azure.Synapse.WorkspaceSecurityAlertPolicyArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             PolicyState = "Enabled",
-    ///             StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
-    ///             StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
-    ///             DisabledAlerts = 
-    ///             {
-    ///                 "Sql_Injection",
-    ///                 "Data_Exfiltration",
-    ///             },
-    ///             RetentionDays = 20,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         AadAdmin = new Azure.Synapse.Inputs.WorkspaceAadAdminArgs
+    ///         {
+    ///             Login = "AzureAD Admin",
+    ///             ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Env", "production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var auditLogs = new Azure.Storage.Account("auditLogs", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspaceSecurityAlertPolicy = new Azure.Synapse.WorkspaceSecurityAlertPolicy("exampleWorkspaceSecurityAlertPolicy", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         PolicyState = "Enabled",
+    ///         StorageEndpoint = auditLogs.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = auditLogs.PrimaryAccessKey,
+    ///         DisabledAlerts = new[]
+    ///         {
+    ///             "Sql_Injection",
+    ///             "Data_Exfiltration",
+    ///         },
+    ///         RetentionDays = 20,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +98,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy")]
-    public partial class WorkspaceSecurityAlertPolicy : Pulumi.CustomResource
+    public partial class WorkspaceSecurityAlertPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
@@ -189,7 +192,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class WorkspaceSecurityAlertPolicyArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceSecurityAlertPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -254,9 +257,10 @@ namespace Pulumi.Azure.Synapse
         public WorkspaceSecurityAlertPolicyArgs()
         {
         }
+        public static new WorkspaceSecurityAlertPolicyArgs Empty => new WorkspaceSecurityAlertPolicyArgs();
     }
 
-    public sealed class WorkspaceSecurityAlertPolicyState : Pulumi.ResourceArgs
+    public sealed class WorkspaceSecurityAlertPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -321,5 +325,6 @@ namespace Pulumi.Azure.Synapse
         public WorkspaceSecurityAlertPolicyState()
         {
         }
+        public static new WorkspaceSecurityAlertPolicyState Empty => new WorkspaceSecurityAlertPolicyState();
     }
 }

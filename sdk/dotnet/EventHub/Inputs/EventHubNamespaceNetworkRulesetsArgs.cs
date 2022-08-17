@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventHubNamespaceNetworkRulesetsArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceNetworkRulesetsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         /// </summary>
         [Input("defaultAction", required: true)]
         public Input<string> DefaultAction { get; set; } = null!;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventHubNamespaceNetworkRulesetsArgs()
         {
         }
+        public static new EventHubNamespaceNetworkRulesetsArgs Empty => new EventHubNamespaceNetworkRulesetsArgs();
     }
 }

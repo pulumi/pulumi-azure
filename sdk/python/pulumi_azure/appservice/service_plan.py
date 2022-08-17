@@ -29,7 +29,7 @@ class ServicePlanArgs:
         The set of arguments for constructing a ServicePlan resource.
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
-        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         :param pulumi.Input[str] app_service_environment_id: The ID of the App Service Environment to create this Service Plan in.
         :param pulumi.Input[str] location: The Azure Region where the Service Plan should exist. Changing this forces a new AppService to be created.
         :param pulumi.Input[int] maximum_elastic_worker_count: The maximum number of workers to use in an Elastic SKU Plan. Cannot be set unless using an Elastic SKU.
@@ -87,7 +87,7 @@ class ServicePlanArgs:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[str]:
         """
-        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -219,7 +219,7 @@ class _ServicePlanState:
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
-        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
@@ -363,7 +363,7 @@ class _ServicePlanState:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -459,7 +459,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[str] os_type: The O/S type for the App Services to be hosted in this plan. Possible values include `Windows`, `Linux`, and `WindowsContainer`.
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
-        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
@@ -588,7 +588,7 @@ class ServicePlan(pulumi.CustomResource):
         :param pulumi.Input[bool] per_site_scaling_enabled: Should Per Site Scaling be enabled. Defaults to `false`.
         :param pulumi.Input[bool] reserved: Whether this is a reserved Service Plan Type. `true` if `os_type` is `Linux`, otherwise `false`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the AppService should exist. Changing this forces a new AppService to be created.
-        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        :param pulumi.Input[str] sku_name: The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AppService.
         :param pulumi.Input[int] worker_count: The number of Workers (instances) to be allocated.
         :param pulumi.Input[bool] zone_balancing_enabled: Should the Service Plan balance across Availability Zones in the region. Defaults to `false`.
@@ -688,7 +688,7 @@ class ServicePlan(pulumi.CustomResource):
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Output[str]:
         """
-        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `FREE`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
+        The SKU for the plan. Possible values include `B1`, `B2`, `B3`, `D1`, `F1`, `I1`, `I2`, `I3`, `I1v2`, `I2v2`, `I3v2`, `P1v2`, `P2v2`, `P3v2`, `P1v3`, `P2v3`, `P3v3`, `S1`, `S2`, `S3`, `SHARED`, `EP1`, `EP2`, `EP3`, `WS1`, `WS2`, `WS3`, and `Y1`.
         """
         return pulumi.get(self, "sku_name")
 

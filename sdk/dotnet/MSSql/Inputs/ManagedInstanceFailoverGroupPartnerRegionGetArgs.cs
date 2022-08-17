@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class ManagedInstanceFailoverGroupPartnerRegionGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceFailoverGroupPartnerRegionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public ManagedInstanceFailoverGroupPartnerRegionGetArgs()
         {
         }
+        public static new ManagedInstanceFailoverGroupPartnerRegionGetArgs Empty => new ManagedInstanceFailoverGroupPartnerRegionGetArgs();
     }
 }

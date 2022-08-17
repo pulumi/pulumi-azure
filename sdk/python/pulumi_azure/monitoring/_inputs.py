@@ -75,6 +75,7 @@ __all__ = [
     'LogProfileRetentionPolicyArgs',
     'LogzMonitorPlanArgs',
     'LogzMonitorUserArgs',
+    'LogzSubAccountTagRuleTagFilterArgs',
     'LogzSubAccountUserArgs',
     'LogzTagRuleTagFilterArgs',
     'MetricAlertActionArgs',
@@ -3836,6 +3837,59 @@ class LogzMonitorUserArgs:
     @phone_number.setter
     def phone_number(self, value: pulumi.Input[str]):
         pulumi.set(self, "phone_number", value)
+
+
+@pulumi.input_type
+class LogzSubAccountTagRuleTagFilterArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] action: The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+        :param pulumi.Input[str] name: The name of the tag to match.
+        :param pulumi.Input[str] value: The value of the tag to match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        """
+        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the tag to match.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value of the tag to match.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

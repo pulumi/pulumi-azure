@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyIntrusionDetectionGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyIntrusionDetectionGetArgs()
         {
         }
+        public static new FirewallPolicyIntrusionDetectionGetArgs Empty => new FirewallPolicyIntrusionDetectionGetArgs();
     }
 }

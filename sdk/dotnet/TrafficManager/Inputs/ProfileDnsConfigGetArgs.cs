@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.TrafficManager.Inputs
 {
 
-    public sealed class ProfileDnsConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ProfileDnsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.TrafficManager.Inputs
         public ProfileDnsConfigGetArgs()
         {
         }
+        public static new ProfileDnsConfigGetArgs Empty => new ProfileDnsConfigGetArgs();
     }
 }

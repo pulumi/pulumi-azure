@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryGeoreplicationGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryGeoreplicationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A location where the container registry should be geo-replicated.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryGeoreplicationGetArgs()
         {
         }
+        public static new RegistryGeoreplicationGetArgs Empty => new RegistryGeoreplicationGetArgs();
     }
 }

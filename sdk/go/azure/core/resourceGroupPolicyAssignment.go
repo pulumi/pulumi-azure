@@ -19,60 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
-// 			PolicyType:  pulumi.String("Custom"),
-// 			Mode:        pulumi.String("All"),
-// 			DisplayName: pulumi.String("my-policy-definition"),
-// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
-//     "if": {
-//       "not": {
-//         "field": "location",
-//         "equals": "westeurope"
-//       }
-//     },
-//     "then": {
-//       "effect": "Deny"
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType:  pulumi.String("Custom"),
+//				Mode:        pulumi.String("All"),
+//				DisplayName: pulumi.String("my-policy-definition"),
+//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
-// 			ResourceGroupId:    exampleResourceGroup.ID(),
-// 			PolicyDefinitionId: exampleDefinition.ID(),
-// 			Parameters: pulumi.String(fmt.Sprintf(`    {
-//       "tagName": {
-//         "value": "Business Unit"
-//       },
-//       "tagValue": {
-//         "value": "BU"
-//       }
-//     }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
+//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//				Parameters: pulumi.String(fmt.Sprintf(`    {
+//	      "tagName": {
+//	        "value": "Business Unit"
+//	      },
+//	      "tagValue": {
+//	        "value": "BU"
+//	      }
+//	    }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +87,9 @@ import (
 // Resource Group Policy Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
+//	$ pulumi import azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
+//
 // ```
 type ResourceGroupPolicyAssignment struct {
 	pulumi.CustomResourceState
@@ -284,7 +293,7 @@ func (i *ResourceGroupPolicyAssignment) ToResourceGroupPolicyAssignmentOutputWit
 // ResourceGroupPolicyAssignmentArrayInput is an input type that accepts ResourceGroupPolicyAssignmentArray and ResourceGroupPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentArrayInput` via:
 //
-//          ResourceGroupPolicyAssignmentArray{ ResourceGroupPolicyAssignmentArgs{...} }
+//	ResourceGroupPolicyAssignmentArray{ ResourceGroupPolicyAssignmentArgs{...} }
 type ResourceGroupPolicyAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -309,7 +318,7 @@ func (i ResourceGroupPolicyAssignmentArray) ToResourceGroupPolicyAssignmentArray
 // ResourceGroupPolicyAssignmentMapInput is an input type that accepts ResourceGroupPolicyAssignmentMap and ResourceGroupPolicyAssignmentMapOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentMapInput` via:
 //
-//          ResourceGroupPolicyAssignmentMap{ "key": ResourceGroupPolicyAssignmentArgs{...} }
+//	ResourceGroupPolicyAssignmentMap{ "key": ResourceGroupPolicyAssignmentArgs{...} }
 type ResourceGroupPolicyAssignmentMapInput interface {
 	pulumi.Input
 

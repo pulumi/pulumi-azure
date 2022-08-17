@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs()
         {
         }
+        public static new VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs Empty => new VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs();
     }
 }

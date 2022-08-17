@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base64-encoded certificate contents. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificateGetArgs()
         {
         }
+        public static new CertifiateCertificateGetArgs Empty => new CertifiateCertificateGetArgs();
     }
 }

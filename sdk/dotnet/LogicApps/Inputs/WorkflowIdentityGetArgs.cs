@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class WorkflowIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public WorkflowIdentityGetArgs()
         {
         }
+        public static new WorkflowIdentityGetArgs Empty => new WorkflowIdentityGetArgs();
     }
 }

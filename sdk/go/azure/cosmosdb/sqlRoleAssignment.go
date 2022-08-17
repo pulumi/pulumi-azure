@@ -19,82 +19,85 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OfferType:         pulumi.String("Standard"),
-// 			Kind:              pulumi.String("GlobalDocumentDB"),
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel: pulumi.String("Strong"),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         exampleResourceGroup.Location,
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "exampleSqlRoleDefinition", &cosmosdb.SqlRoleDefinitionArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       exampleAccount.Name,
-// 			Type:              pulumi.String("CustomRole"),
-// 			AssignableScopes: pulumi.StringArray{
-// 				pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
-// 					exampleResourceGroupName := _args[0].(string)
-// 					exampleAccountName := _args[1].(string)
-// 					return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
-// 				&cosmosdb.SqlRoleDefinitionPermissionArgs{
-// 					DataActions: pulumi.StringArray{
-// 						pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewSqlRoleAssignment(ctx, "exampleSqlRoleAssignment", &cosmosdb.SqlRoleAssignmentArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       exampleAccount.Name,
-// 			RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
-// 			PrincipalId:       pulumi.String(current.ObjectId),
-// 			Scope: pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
-// 				exampleResourceGroupName := _args[0].(string)
-// 				exampleAccountName := _args[1].(string)
-// 				return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "exampleSqlRoleDefinition", &cosmosdb.SqlRoleDefinitionArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				Type:              pulumi.String("CustomRole"),
+//				AssignableScopes: pulumi.StringArray{
+//					pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
+//						exampleResourceGroupName := _args[0].(string)
+//						exampleAccountName := _args[1].(string)
+//						return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
+//					}).(pulumi.StringOutput),
+//				},
+//				Permissions: cosmosdb.SqlRoleDefinitionPermissionArray{
+//					&cosmosdb.SqlRoleDefinitionPermissionArgs{
+//						DataActions: pulumi.StringArray{
+//							pulumi.String("Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "exampleSqlRoleAssignment", &cosmosdb.SqlRoleAssignmentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleAccount.Name,
+//				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
+//				PrincipalId:       pulumi.String(current.ObjectId),
+//				Scope: pulumi.All(exampleResourceGroup.Name, exampleAccount.Name).ApplyT(func(_args []interface{}) (string, error) {
+//					exampleResourceGroupName := _args[0].(string)
+//					exampleAccountName := _args[1].(string)
+//					return fmt.Sprintf("/subscriptions/%v/resourceGroups/%v/providers/Microsoft.DocumentDB/databaseAccounts/%v", current.SubscriptionId, exampleResourceGroupName, exampleAccountName), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +105,9 @@ import (
 // Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleAssignments/9e007587-dbcd-4190-84cb-fcab5a09ca39
+//
+//	$ pulumi import azure:cosmosdb/sqlRoleAssignment:SqlRoleAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlRoleAssignments/9e007587-dbcd-4190-84cb-fcab5a09ca39
+//
 // ```
 type SqlRoleAssignment struct {
 	pulumi.CustomResourceState
@@ -255,7 +260,7 @@ func (i *SqlRoleAssignment) ToSqlRoleAssignmentOutputWithContext(ctx context.Con
 // SqlRoleAssignmentArrayInput is an input type that accepts SqlRoleAssignmentArray and SqlRoleAssignmentArrayOutput values.
 // You can construct a concrete instance of `SqlRoleAssignmentArrayInput` via:
 //
-//          SqlRoleAssignmentArray{ SqlRoleAssignmentArgs{...} }
+//	SqlRoleAssignmentArray{ SqlRoleAssignmentArgs{...} }
 type SqlRoleAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i SqlRoleAssignmentArray) ToSqlRoleAssignmentArrayOutputWithContext(ctx co
 // SqlRoleAssignmentMapInput is an input type that accepts SqlRoleAssignmentMap and SqlRoleAssignmentMapOutput values.
 // You can construct a concrete instance of `SqlRoleAssignmentMapInput` via:
 //
-//          SqlRoleAssignmentMap{ "key": SqlRoleAssignmentArgs{...} }
+//	SqlRoleAssignmentMap{ "key": SqlRoleAssignmentArgs{...} }
 type SqlRoleAssignmentMapInput interface {
 	pulumi.Input
 

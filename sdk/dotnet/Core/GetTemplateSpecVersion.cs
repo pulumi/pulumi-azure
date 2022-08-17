@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetTemplateSpecVersion.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
-        ///         {
-        ///             Name = "exampleTemplateSpec",
-        ///             ResourceGroupName = "MyResourceGroup",
-        ///             Version = "v1.0.4",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "exampleTemplateSpec",
+        ///         ResourceGroupName = "MyResourceGroup",
+        ///         Version = "v1.0.4",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetTemplateSpecVersion.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
-        ///         {
-        ///             Name = "exampleTemplateSpec",
-        ///             ResourceGroupName = "MyResourceGroup",
-        ///             Version = "v1.0.4",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "exampleTemplateSpec",
+        ///         ResourceGroupName = "MyResourceGroup",
+        ///         Version = "v1.0.4",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetTemplateSpecVersionArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Template Spec.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Core
         public GetTemplateSpecVersionArgs()
         {
         }
+        public static new GetTemplateSpecVersionArgs Empty => new GetTemplateSpecVersionArgs();
     }
 
-    public sealed class GetTemplateSpecVersionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTemplateSpecVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Template Spec.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Core
         public GetTemplateSpecVersionInvokeArgs()
         {
         }
+        public static new GetTemplateSpecVersionInvokeArgs Empty => new GetTemplateSpecVersionInvokeArgs();
     }
 
 

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataBricks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataBricks.GetWorkspacePrivateEndpointConnection.InvokeAsync(new Azure.DataBricks.GetWorkspacePrivateEndpointConnectionArgs
-        ///         {
-        ///             WorkspaceId = azurerm_databricks_workspace.Example.Id,
-        ///             PrivateEndpointId = azurerm_private_endpoint.Example.Id,
-        ///         }));
-        ///         this.DatabricksWorkspacePrivateEndpointConnectionStatus = example.Apply(example =&gt; example.Connections?[0]?.Status);
-        ///     }
+        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
+        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///     });
         /// 
-        ///     [Output("databricksWorkspacePrivateEndpointConnectionStatus")]
-        ///     public Output&lt;string&gt; DatabricksWorkspacePrivateEndpointConnectionStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspacePrivateEndpointConnectionStatus"] = example.Apply(getWorkspacePrivateEndpointConnectionResult =&gt; getWorkspacePrivateEndpointConnectionResult.Connections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataBricks
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataBricks.GetWorkspacePrivateEndpointConnection.InvokeAsync(new Azure.DataBricks.GetWorkspacePrivateEndpointConnectionArgs
-        ///         {
-        ///             WorkspaceId = azurerm_databricks_workspace.Example.Id,
-        ///             PrivateEndpointId = azurerm_private_endpoint.Example.Id,
-        ///         }));
-        ///         this.DatabricksWorkspacePrivateEndpointConnectionStatus = example.Apply(example =&gt; example.Connections?[0]?.Status);
-        ///     }
+        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
+        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///     });
         /// 
-        ///     [Output("databricksWorkspacePrivateEndpointConnectionStatus")]
-        ///     public Output&lt;string&gt; DatabricksWorkspacePrivateEndpointConnectionStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["databricksWorkspacePrivateEndpointConnectionStatus"] = example.Apply(getWorkspacePrivateEndpointConnectionResult =&gt; getWorkspacePrivateEndpointConnectionResult.Connections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataBricks
     }
 
 
-    public sealed class GetWorkspacePrivateEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspacePrivateEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource ID of the Private Endpoint.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataBricks
         public GetWorkspacePrivateEndpointConnectionArgs()
         {
         }
+        public static new GetWorkspacePrivateEndpointConnectionArgs Empty => new GetWorkspacePrivateEndpointConnectionArgs();
     }
 
-    public sealed class GetWorkspacePrivateEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspacePrivateEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The resource ID of the Private Endpoint.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataBricks
         public GetWorkspacePrivateEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetWorkspacePrivateEndpointConnectionInvokeArgs Empty => new GetWorkspacePrivateEndpointConnectionInvokeArgs();
     }
 
 

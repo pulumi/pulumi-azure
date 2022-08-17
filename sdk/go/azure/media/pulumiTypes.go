@@ -30,7 +30,7 @@ type AssetFilterPresentationTimeRange struct {
 // AssetFilterPresentationTimeRangeInput is an input type that accepts AssetFilterPresentationTimeRangeArgs and AssetFilterPresentationTimeRangeOutput values.
 // You can construct a concrete instance of `AssetFilterPresentationTimeRangeInput` via:
 //
-//          AssetFilterPresentationTimeRangeArgs{...}
+//	AssetFilterPresentationTimeRangeArgs{...}
 type AssetFilterPresentationTimeRangeInput interface {
 	pulumi.Input
 
@@ -78,11 +78,11 @@ func (i AssetFilterPresentationTimeRangeArgs) ToAssetFilterPresentationTimeRange
 // AssetFilterPresentationTimeRangePtrInput is an input type that accepts AssetFilterPresentationTimeRangeArgs, AssetFilterPresentationTimeRangePtr and AssetFilterPresentationTimeRangePtrOutput values.
 // You can construct a concrete instance of `AssetFilterPresentationTimeRangePtrInput` via:
 //
-//          AssetFilterPresentationTimeRangeArgs{...}
+//	        AssetFilterPresentationTimeRangeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssetFilterPresentationTimeRangePtrInput interface {
 	pulumi.Input
 
@@ -258,7 +258,7 @@ type AssetFilterTrackSelection struct {
 // AssetFilterTrackSelectionInput is an input type that accepts AssetFilterTrackSelectionArgs and AssetFilterTrackSelectionOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionInput` via:
 //
-//          AssetFilterTrackSelectionArgs{...}
+//	AssetFilterTrackSelectionArgs{...}
 type AssetFilterTrackSelectionInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ func (i AssetFilterTrackSelectionArgs) ToAssetFilterTrackSelectionOutputWithCont
 // AssetFilterTrackSelectionArrayInput is an input type that accepts AssetFilterTrackSelectionArray and AssetFilterTrackSelectionArrayOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionArrayInput` via:
 //
-//          AssetFilterTrackSelectionArray{ AssetFilterTrackSelectionArgs{...} }
+//	AssetFilterTrackSelectionArray{ AssetFilterTrackSelectionArgs{...} }
 type AssetFilterTrackSelectionArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +359,7 @@ type AssetFilterTrackSelectionCondition struct {
 // AssetFilterTrackSelectionConditionInput is an input type that accepts AssetFilterTrackSelectionConditionArgs and AssetFilterTrackSelectionConditionOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionConditionInput` via:
 //
-//          AssetFilterTrackSelectionConditionArgs{...}
+//	AssetFilterTrackSelectionConditionArgs{...}
 type AssetFilterTrackSelectionConditionInput interface {
 	pulumi.Input
 
@@ -391,7 +391,7 @@ func (i AssetFilterTrackSelectionConditionArgs) ToAssetFilterTrackSelectionCondi
 // AssetFilterTrackSelectionConditionArrayInput is an input type that accepts AssetFilterTrackSelectionConditionArray and AssetFilterTrackSelectionConditionArrayOutput values.
 // You can construct a concrete instance of `AssetFilterTrackSelectionConditionArrayInput` via:
 //
-//          AssetFilterTrackSelectionConditionArray{ AssetFilterTrackSelectionConditionArgs{...} }
+//	AssetFilterTrackSelectionConditionArray{ AssetFilterTrackSelectionConditionArgs{...} }
 type AssetFilterTrackSelectionConditionArrayInput interface {
 	pulumi.Input
 
@@ -482,7 +482,7 @@ type ContentKeyPolicyPolicyOption struct {
 // ContentKeyPolicyPolicyOptionInput is an input type that accepts ContentKeyPolicyPolicyOptionArgs and ContentKeyPolicyPolicyOptionOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionInput` via:
 //
-//          ContentKeyPolicyPolicyOptionArgs{...}
+//	ContentKeyPolicyPolicyOptionArgs{...}
 type ContentKeyPolicyPolicyOptionInput interface {
 	pulumi.Input
 
@@ -522,7 +522,7 @@ func (i ContentKeyPolicyPolicyOptionArgs) ToContentKeyPolicyPolicyOptionOutputWi
 // ContentKeyPolicyPolicyOptionArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionArray and ContentKeyPolicyPolicyOptionArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionArrayInput` via:
 //
-//          ContentKeyPolicyPolicyOptionArray{ ContentKeyPolicyPolicyOptionArgs{...} }
+//	ContentKeyPolicyPolicyOptionArray{ ContentKeyPolicyPolicyOptionArgs{...} }
 type ContentKeyPolicyPolicyOptionArrayInput interface {
 	pulumi.Input
 
@@ -637,7 +637,7 @@ type ContentKeyPolicyPolicyOptionFairplayConfiguration struct {
 // ContentKeyPolicyPolicyOptionFairplayConfigurationInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationArgs and ContentKeyPolicyPolicyOptionFairplayConfigurationOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationInput` via:
 //
-//          ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
+//	ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
 type ContentKeyPolicyPolicyOptionFairplayConfigurationInput interface {
 	pulumi.Input
 
@@ -683,11 +683,11 @@ func (i ContentKeyPolicyPolicyOptionFairplayConfigurationArgs) ToContentKeyPolic
 // ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationArgs, ContentKeyPolicyPolicyOptionFairplayConfigurationPtr and ContentKeyPolicyPolicyOptionFairplayConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput` via:
 //
-//          ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
+//	        ContentKeyPolicyPolicyOptionFairplayConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentKeyPolicyPolicyOptionFairplayConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -863,7 +863,7 @@ type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration
 // ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs and ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput` via:
 //
-//          ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
+//	ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
 type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationInput interface {
 	pulumi.Input
 
@@ -901,11 +901,11 @@ func (i ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurat
 // ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs, ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtr and ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput` via:
 //
-//          ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
+//	        ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1041,7 +1041,7 @@ type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicense struct {
 // ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput` via:
 //
-//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...}
+//	ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...}
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseInput interface {
 	pulumi.Input
 
@@ -1089,7 +1089,7 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs) ToContent
 // ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput` via:
 //
-//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray{ ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...} }
+//	ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArray{ ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs{...} }
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArrayInput interface {
 	pulumi.Input
 
@@ -1236,7 +1236,7 @@ type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRight struct {
 // ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput` via:
 //
-//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
+//	ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightInput interface {
 	pulumi.Input
 
@@ -1292,11 +1292,11 @@ func (i ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs) 
 // ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs, ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtr and ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput` via:
 //
-//          ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
+//	        ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightPtrInput interface {
 	pulumi.Input
 
@@ -1581,7 +1581,7 @@ type ContentKeyPolicyPolicyOptionTokenRestriction struct {
 // ContentKeyPolicyPolicyOptionTokenRestrictionInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionArgs and ContentKeyPolicyPolicyOptionTokenRestrictionOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionInput` via:
 //
-//          ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
+//	ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
 type ContentKeyPolicyPolicyOptionTokenRestrictionInput interface {
 	pulumi.Input
 
@@ -1633,11 +1633,11 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionArgs) ToContentKeyPolicyPoli
 // ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionArgs, ContentKeyPolicyPolicyOptionTokenRestrictionPtr and ContentKeyPolicyPolicyOptionTokenRestrictionPtrOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput` via:
 //
-//          ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
+//	        ContentKeyPolicyPolicyOptionTokenRestrictionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ContentKeyPolicyPolicyOptionTokenRestrictionPtrInput interface {
 	pulumi.Input
 
@@ -1858,7 +1858,7 @@ type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim struct {
 // ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs and ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput` via:
 //
-//          ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...}
+//	ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...}
 type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimInput interface {
 	pulumi.Input
 
@@ -1888,7 +1888,7 @@ func (i ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs) ToContent
 // ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput is an input type that accepts ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray and ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayOutput values.
 // You can construct a concrete instance of `ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput` via:
 //
-//          ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray{ ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...} }
+//	ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArray{ ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArgs{...} }
 type ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaimArrayInput interface {
 	pulumi.Input
 
@@ -1964,7 +1964,7 @@ type JobInputAsset struct {
 // JobInputAssetInput is an input type that accepts JobInputAssetArgs and JobInputAssetOutput values.
 // You can construct a concrete instance of `JobInputAssetInput` via:
 //
-//          JobInputAssetArgs{...}
+//	JobInputAssetArgs{...}
 type JobInputAssetInput interface {
 	pulumi.Input
 
@@ -2002,11 +2002,11 @@ func (i JobInputAssetArgs) ToJobInputAssetPtrOutputWithContext(ctx context.Conte
 // JobInputAssetPtrInput is an input type that accepts JobInputAssetArgs, JobInputAssetPtr and JobInputAssetPtrOutput values.
 // You can construct a concrete instance of `JobInputAssetPtrInput` via:
 //
-//          JobInputAssetArgs{...}
+//	        JobInputAssetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type JobInputAssetPtrInput interface {
 	pulumi.Input
 
@@ -2120,7 +2120,7 @@ type JobOutputAsset struct {
 // JobOutputAssetInput is an input type that accepts JobOutputAssetArgs and JobOutputAssetOutput values.
 // You can construct a concrete instance of `JobOutputAssetInput` via:
 //
-//          JobOutputAssetArgs{...}
+//	JobOutputAssetArgs{...}
 type JobOutputAssetInput interface {
 	pulumi.Input
 
@@ -2150,7 +2150,7 @@ func (i JobOutputAssetArgs) ToJobOutputAssetOutputWithContext(ctx context.Contex
 // JobOutputAssetArrayInput is an input type that accepts JobOutputAssetArray and JobOutputAssetArrayOutput values.
 // You can construct a concrete instance of `JobOutputAssetArrayInput` via:
 //
-//          JobOutputAssetArray{ JobOutputAssetArgs{...} }
+//	JobOutputAssetArray{ JobOutputAssetArgs{...} }
 type JobOutputAssetArrayInput interface {
 	pulumi.Input
 
@@ -2226,7 +2226,7 @@ type LiveEventCrossSiteAccessPolicy struct {
 // LiveEventCrossSiteAccessPolicyInput is an input type that accepts LiveEventCrossSiteAccessPolicyArgs and LiveEventCrossSiteAccessPolicyOutput values.
 // You can construct a concrete instance of `LiveEventCrossSiteAccessPolicyInput` via:
 //
-//          LiveEventCrossSiteAccessPolicyArgs{...}
+//	LiveEventCrossSiteAccessPolicyArgs{...}
 type LiveEventCrossSiteAccessPolicyInput interface {
 	pulumi.Input
 
@@ -2264,11 +2264,11 @@ func (i LiveEventCrossSiteAccessPolicyArgs) ToLiveEventCrossSiteAccessPolicyPtrO
 // LiveEventCrossSiteAccessPolicyPtrInput is an input type that accepts LiveEventCrossSiteAccessPolicyArgs, LiveEventCrossSiteAccessPolicyPtr and LiveEventCrossSiteAccessPolicyPtrOutput values.
 // You can construct a concrete instance of `LiveEventCrossSiteAccessPolicyPtrInput` via:
 //
-//          LiveEventCrossSiteAccessPolicyArgs{...}
+//	        LiveEventCrossSiteAccessPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LiveEventCrossSiteAccessPolicyPtrInput interface {
 	pulumi.Input
 
@@ -2386,7 +2386,7 @@ type LiveEventEncoding struct {
 // LiveEventEncodingInput is an input type that accepts LiveEventEncodingArgs and LiveEventEncodingOutput values.
 // You can construct a concrete instance of `LiveEventEncodingInput` via:
 //
-//          LiveEventEncodingArgs{...}
+//	LiveEventEncodingArgs{...}
 type LiveEventEncodingInput interface {
 	pulumi.Input
 
@@ -2428,11 +2428,11 @@ func (i LiveEventEncodingArgs) ToLiveEventEncodingPtrOutputWithContext(ctx conte
 // LiveEventEncodingPtrInput is an input type that accepts LiveEventEncodingArgs, LiveEventEncodingPtr and LiveEventEncodingPtrOutput values.
 // You can construct a concrete instance of `LiveEventEncodingPtrInput` via:
 //
-//          LiveEventEncodingArgs{...}
+//	        LiveEventEncodingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LiveEventEncodingPtrInput interface {
 	pulumi.Input
 
@@ -2581,7 +2581,7 @@ type LiveEventInputType struct {
 // LiveEventInputTypeInput is an input type that accepts LiveEventInputTypeArgs and LiveEventInputTypeOutput values.
 // You can construct a concrete instance of `LiveEventInputTypeInput` via:
 //
-//          LiveEventInputTypeArgs{...}
+//	LiveEventInputTypeArgs{...}
 type LiveEventInputTypeInput interface {
 	pulumi.Input
 
@@ -2624,11 +2624,11 @@ func (i LiveEventInputTypeArgs) ToLiveEventInputTypePtrOutputWithContext(ctx con
 // LiveEventInputTypePtrInput is an input type that accepts LiveEventInputTypeArgs, LiveEventInputTypePtr and LiveEventInputTypePtrOutput values.
 // You can construct a concrete instance of `LiveEventInputTypePtrInput` via:
 //
-//          LiveEventInputTypeArgs{...}
+//	        LiveEventInputTypeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LiveEventInputTypePtrInput interface {
 	pulumi.Input
 
@@ -2783,7 +2783,7 @@ type LiveEventInputEndpoint struct {
 // LiveEventInputEndpointInput is an input type that accepts LiveEventInputEndpointArgs and LiveEventInputEndpointOutput values.
 // You can construct a concrete instance of `LiveEventInputEndpointInput` via:
 //
-//          LiveEventInputEndpointArgs{...}
+//	LiveEventInputEndpointArgs{...}
 type LiveEventInputEndpointInput interface {
 	pulumi.Input
 
@@ -2811,7 +2811,7 @@ func (i LiveEventInputEndpointArgs) ToLiveEventInputEndpointOutputWithContext(ct
 // LiveEventInputEndpointArrayInput is an input type that accepts LiveEventInputEndpointArray and LiveEventInputEndpointArrayOutput values.
 // You can construct a concrete instance of `LiveEventInputEndpointArrayInput` via:
 //
-//          LiveEventInputEndpointArray{ LiveEventInputEndpointArgs{...} }
+//	LiveEventInputEndpointArray{ LiveEventInputEndpointArgs{...} }
 type LiveEventInputEndpointArrayInput interface {
 	pulumi.Input
 
@@ -2887,7 +2887,7 @@ type LiveEventInputIpAccessControlAllow struct {
 // LiveEventInputIpAccessControlAllowInput is an input type that accepts LiveEventInputIpAccessControlAllowArgs and LiveEventInputIpAccessControlAllowOutput values.
 // You can construct a concrete instance of `LiveEventInputIpAccessControlAllowInput` via:
 //
-//          LiveEventInputIpAccessControlAllowArgs{...}
+//	LiveEventInputIpAccessControlAllowArgs{...}
 type LiveEventInputIpAccessControlAllowInput interface {
 	pulumi.Input
 
@@ -2919,7 +2919,7 @@ func (i LiveEventInputIpAccessControlAllowArgs) ToLiveEventInputIpAccessControlA
 // LiveEventInputIpAccessControlAllowArrayInput is an input type that accepts LiveEventInputIpAccessControlAllowArray and LiveEventInputIpAccessControlAllowArrayOutput values.
 // You can construct a concrete instance of `LiveEventInputIpAccessControlAllowArrayInput` via:
 //
-//          LiveEventInputIpAccessControlAllowArray{ LiveEventInputIpAccessControlAllowArgs{...} }
+//	LiveEventInputIpAccessControlAllowArray{ LiveEventInputIpAccessControlAllowArgs{...} }
 type LiveEventInputIpAccessControlAllowArrayInput interface {
 	pulumi.Input
 
@@ -3005,7 +3005,7 @@ type LiveEventPreview struct {
 // LiveEventPreviewInput is an input type that accepts LiveEventPreviewArgs and LiveEventPreviewOutput values.
 // You can construct a concrete instance of `LiveEventPreviewInput` via:
 //
-//          LiveEventPreviewArgs{...}
+//	LiveEventPreviewArgs{...}
 type LiveEventPreviewInput interface {
 	pulumi.Input
 
@@ -3048,11 +3048,11 @@ func (i LiveEventPreviewArgs) ToLiveEventPreviewPtrOutputWithContext(ctx context
 // LiveEventPreviewPtrInput is an input type that accepts LiveEventPreviewArgs, LiveEventPreviewPtr and LiveEventPreviewPtrOutput values.
 // You can construct a concrete instance of `LiveEventPreviewPtrInput` via:
 //
-//          LiveEventPreviewArgs{...}
+//	        LiveEventPreviewArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LiveEventPreviewPtrInput interface {
 	pulumi.Input
 
@@ -3207,7 +3207,7 @@ type LiveEventPreviewEndpoint struct {
 // LiveEventPreviewEndpointInput is an input type that accepts LiveEventPreviewEndpointArgs and LiveEventPreviewEndpointOutput values.
 // You can construct a concrete instance of `LiveEventPreviewEndpointInput` via:
 //
-//          LiveEventPreviewEndpointArgs{...}
+//	LiveEventPreviewEndpointArgs{...}
 type LiveEventPreviewEndpointInput interface {
 	pulumi.Input
 
@@ -3235,7 +3235,7 @@ func (i LiveEventPreviewEndpointArgs) ToLiveEventPreviewEndpointOutputWithContex
 // LiveEventPreviewEndpointArrayInput is an input type that accepts LiveEventPreviewEndpointArray and LiveEventPreviewEndpointArrayOutput values.
 // You can construct a concrete instance of `LiveEventPreviewEndpointArrayInput` via:
 //
-//          LiveEventPreviewEndpointArray{ LiveEventPreviewEndpointArgs{...} }
+//	LiveEventPreviewEndpointArray{ LiveEventPreviewEndpointArgs{...} }
 type LiveEventPreviewEndpointArrayInput interface {
 	pulumi.Input
 
@@ -3311,7 +3311,7 @@ type LiveEventPreviewIpAccessControlAllow struct {
 // LiveEventPreviewIpAccessControlAllowInput is an input type that accepts LiveEventPreviewIpAccessControlAllowArgs and LiveEventPreviewIpAccessControlAllowOutput values.
 // You can construct a concrete instance of `LiveEventPreviewIpAccessControlAllowInput` via:
 //
-//          LiveEventPreviewIpAccessControlAllowArgs{...}
+//	LiveEventPreviewIpAccessControlAllowArgs{...}
 type LiveEventPreviewIpAccessControlAllowInput interface {
 	pulumi.Input
 
@@ -3343,7 +3343,7 @@ func (i LiveEventPreviewIpAccessControlAllowArgs) ToLiveEventPreviewIpAccessCont
 // LiveEventPreviewIpAccessControlAllowArrayInput is an input type that accepts LiveEventPreviewIpAccessControlAllowArray and LiveEventPreviewIpAccessControlAllowArrayOutput values.
 // You can construct a concrete instance of `LiveEventPreviewIpAccessControlAllowArrayInput` via:
 //
-//          LiveEventPreviewIpAccessControlAllowArray{ LiveEventPreviewIpAccessControlAllowArgs{...} }
+//	LiveEventPreviewIpAccessControlAllowArray{ LiveEventPreviewIpAccessControlAllowArgs{...} }
 type LiveEventPreviewIpAccessControlAllowArrayInput interface {
 	pulumi.Input
 
@@ -3426,7 +3426,7 @@ type ServiceAccountIdentity struct {
 // ServiceAccountIdentityInput is an input type that accepts ServiceAccountIdentityArgs and ServiceAccountIdentityOutput values.
 // You can construct a concrete instance of `ServiceAccountIdentityInput` via:
 //
-//          ServiceAccountIdentityArgs{...}
+//	ServiceAccountIdentityArgs{...}
 type ServiceAccountIdentityInput interface {
 	pulumi.Input
 
@@ -3466,11 +3466,11 @@ func (i ServiceAccountIdentityArgs) ToServiceAccountIdentityPtrOutputWithContext
 // ServiceAccountIdentityPtrInput is an input type that accepts ServiceAccountIdentityArgs, ServiceAccountIdentityPtr and ServiceAccountIdentityPtrOutput values.
 // You can construct a concrete instance of `ServiceAccountIdentityPtrInput` via:
 //
-//          ServiceAccountIdentityArgs{...}
+//	        ServiceAccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -3599,7 +3599,7 @@ type ServiceAccountKeyDeliveryAccessControl struct {
 // ServiceAccountKeyDeliveryAccessControlInput is an input type that accepts ServiceAccountKeyDeliveryAccessControlArgs and ServiceAccountKeyDeliveryAccessControlOutput values.
 // You can construct a concrete instance of `ServiceAccountKeyDeliveryAccessControlInput` via:
 //
-//          ServiceAccountKeyDeliveryAccessControlArgs{...}
+//	ServiceAccountKeyDeliveryAccessControlArgs{...}
 type ServiceAccountKeyDeliveryAccessControlInput interface {
 	pulumi.Input
 
@@ -3637,11 +3637,11 @@ func (i ServiceAccountKeyDeliveryAccessControlArgs) ToServiceAccountKeyDeliveryA
 // ServiceAccountKeyDeliveryAccessControlPtrInput is an input type that accepts ServiceAccountKeyDeliveryAccessControlArgs, ServiceAccountKeyDeliveryAccessControlPtr and ServiceAccountKeyDeliveryAccessControlPtrOutput values.
 // You can construct a concrete instance of `ServiceAccountKeyDeliveryAccessControlPtrInput` via:
 //
-//          ServiceAccountKeyDeliveryAccessControlArgs{...}
+//	        ServiceAccountKeyDeliveryAccessControlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAccountKeyDeliveryAccessControlPtrInput interface {
 	pulumi.Input
 
@@ -3755,7 +3755,7 @@ type ServiceAccountStorageAccount struct {
 // ServiceAccountStorageAccountInput is an input type that accepts ServiceAccountStorageAccountArgs and ServiceAccountStorageAccountOutput values.
 // You can construct a concrete instance of `ServiceAccountStorageAccountInput` via:
 //
-//          ServiceAccountStorageAccountArgs{...}
+//	ServiceAccountStorageAccountArgs{...}
 type ServiceAccountStorageAccountInput interface {
 	pulumi.Input
 
@@ -3785,7 +3785,7 @@ func (i ServiceAccountStorageAccountArgs) ToServiceAccountStorageAccountOutputWi
 // ServiceAccountStorageAccountArrayInput is an input type that accepts ServiceAccountStorageAccountArray and ServiceAccountStorageAccountArrayOutput values.
 // You can construct a concrete instance of `ServiceAccountStorageAccountArrayInput` via:
 //
-//          ServiceAccountStorageAccountArray{ ServiceAccountStorageAccountArgs{...} }
+//	ServiceAccountStorageAccountArray{ ServiceAccountStorageAccountArgs{...} }
 type ServiceAccountStorageAccountArrayInput interface {
 	pulumi.Input
 
@@ -3861,7 +3861,7 @@ type StreamingEndpointAccessControl struct {
 // StreamingEndpointAccessControlInput is an input type that accepts StreamingEndpointAccessControlArgs and StreamingEndpointAccessControlOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlInput` via:
 //
-//          StreamingEndpointAccessControlArgs{...}
+//	StreamingEndpointAccessControlArgs{...}
 type StreamingEndpointAccessControlInput interface {
 	pulumi.Input
 
@@ -3899,11 +3899,11 @@ func (i StreamingEndpointAccessControlArgs) ToStreamingEndpointAccessControlPtrO
 // StreamingEndpointAccessControlPtrInput is an input type that accepts StreamingEndpointAccessControlArgs, StreamingEndpointAccessControlPtr and StreamingEndpointAccessControlPtrOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlPtrInput` via:
 //
-//          StreamingEndpointAccessControlArgs{...}
+//	        StreamingEndpointAccessControlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingEndpointAccessControlPtrInput interface {
 	pulumi.Input
 
@@ -4021,7 +4021,7 @@ type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey struct
 // StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput is an input type that accepts StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs and StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput` via:
 //
-//          StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...}
+//	StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...}
 type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyInput interface {
 	pulumi.Input
 
@@ -4053,7 +4053,7 @@ func (i StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs
 // StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput is an input type that accepts StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray and StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput` via:
 //
-//          StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray{ StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...} }
+//	StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArray{ StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArgs{...} }
 type StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKeyArrayInput interface {
 	pulumi.Input
 
@@ -4142,7 +4142,7 @@ type StreamingEndpointAccessControlIpAllow struct {
 // StreamingEndpointAccessControlIpAllowInput is an input type that accepts StreamingEndpointAccessControlIpAllowArgs and StreamingEndpointAccessControlIpAllowOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlIpAllowInput` via:
 //
-//          StreamingEndpointAccessControlIpAllowArgs{...}
+//	StreamingEndpointAccessControlIpAllowArgs{...}
 type StreamingEndpointAccessControlIpAllowInput interface {
 	pulumi.Input
 
@@ -4174,7 +4174,7 @@ func (i StreamingEndpointAccessControlIpAllowArgs) ToStreamingEndpointAccessCont
 // StreamingEndpointAccessControlIpAllowArrayInput is an input type that accepts StreamingEndpointAccessControlIpAllowArray and StreamingEndpointAccessControlIpAllowArrayOutput values.
 // You can construct a concrete instance of `StreamingEndpointAccessControlIpAllowArrayInput` via:
 //
-//          StreamingEndpointAccessControlIpAllowArray{ StreamingEndpointAccessControlIpAllowArgs{...} }
+//	StreamingEndpointAccessControlIpAllowArray{ StreamingEndpointAccessControlIpAllowArgs{...} }
 type StreamingEndpointAccessControlIpAllowArrayInput interface {
 	pulumi.Input
 
@@ -4255,7 +4255,7 @@ type StreamingEndpointCrossSiteAccessPolicy struct {
 // StreamingEndpointCrossSiteAccessPolicyInput is an input type that accepts StreamingEndpointCrossSiteAccessPolicyArgs and StreamingEndpointCrossSiteAccessPolicyOutput values.
 // You can construct a concrete instance of `StreamingEndpointCrossSiteAccessPolicyInput` via:
 //
-//          StreamingEndpointCrossSiteAccessPolicyArgs{...}
+//	StreamingEndpointCrossSiteAccessPolicyArgs{...}
 type StreamingEndpointCrossSiteAccessPolicyInput interface {
 	pulumi.Input
 
@@ -4293,11 +4293,11 @@ func (i StreamingEndpointCrossSiteAccessPolicyArgs) ToStreamingEndpointCrossSite
 // StreamingEndpointCrossSiteAccessPolicyPtrInput is an input type that accepts StreamingEndpointCrossSiteAccessPolicyArgs, StreamingEndpointCrossSiteAccessPolicyPtr and StreamingEndpointCrossSiteAccessPolicyPtrOutput values.
 // You can construct a concrete instance of `StreamingEndpointCrossSiteAccessPolicyPtrInput` via:
 //
-//          StreamingEndpointCrossSiteAccessPolicyArgs{...}
+//	        StreamingEndpointCrossSiteAccessPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingEndpointCrossSiteAccessPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4417,7 +4417,7 @@ type StreamingLocatorContentKey struct {
 // StreamingLocatorContentKeyInput is an input type that accepts StreamingLocatorContentKeyArgs and StreamingLocatorContentKeyOutput values.
 // You can construct a concrete instance of `StreamingLocatorContentKeyInput` via:
 //
-//          StreamingLocatorContentKeyArgs{...}
+//	StreamingLocatorContentKeyArgs{...}
 type StreamingLocatorContentKeyInput interface {
 	pulumi.Input
 
@@ -4453,7 +4453,7 @@ func (i StreamingLocatorContentKeyArgs) ToStreamingLocatorContentKeyOutputWithCo
 // StreamingLocatorContentKeyArrayInput is an input type that accepts StreamingLocatorContentKeyArray and StreamingLocatorContentKeyArrayOutput values.
 // You can construct a concrete instance of `StreamingLocatorContentKeyArrayInput` via:
 //
-//          StreamingLocatorContentKeyArray{ StreamingLocatorContentKeyArgs{...} }
+//	StreamingLocatorContentKeyArray{ StreamingLocatorContentKeyArgs{...} }
 type StreamingLocatorContentKeyArrayInput interface {
 	pulumi.Input
 
@@ -4546,7 +4546,7 @@ type StreamingPolicyCommonEncryptionCbcs struct {
 // StreamingPolicyCommonEncryptionCbcsInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsArgs and StreamingPolicyCommonEncryptionCbcsOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsArgs{...}
+//	StreamingPolicyCommonEncryptionCbcsArgs{...}
 type StreamingPolicyCommonEncryptionCbcsInput interface {
 	pulumi.Input
 
@@ -4586,11 +4586,11 @@ func (i StreamingPolicyCommonEncryptionCbcsArgs) ToStreamingPolicyCommonEncrypti
 // StreamingPolicyCommonEncryptionCbcsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsArgs, StreamingPolicyCommonEncryptionCbcsPtr and StreamingPolicyCommonEncryptionCbcsPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsArgs{...}
+//	        StreamingPolicyCommonEncryptionCbcsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCbcsPtrInput interface {
 	pulumi.Input
 
@@ -4725,7 +4725,7 @@ type StreamingPolicyCommonEncryptionCbcsDefaultContentKey struct {
 // StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs and StreamingPolicyCommonEncryptionCbcsDefaultContentKeyOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
+//	StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
 type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyInput interface {
 	pulumi.Input
 
@@ -4763,11 +4763,11 @@ func (i StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs) ToStreamingPol
 // StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs, StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtr and StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
+//	        StreamingPolicyCommonEncryptionCbcsDefaultContentKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCbcsDefaultContentKeyPtrInput interface {
 	pulumi.Input
 
@@ -4881,7 +4881,7 @@ type StreamingPolicyCommonEncryptionCbcsDrmFairplay struct {
 // StreamingPolicyCommonEncryptionCbcsDrmFairplayInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs and StreamingPolicyCommonEncryptionCbcsDrmFairplayOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDrmFairplayInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
+//	StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
 type StreamingPolicyCommonEncryptionCbcsDrmFairplayInput interface {
 	pulumi.Input
 
@@ -4919,11 +4919,11 @@ func (i StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs) ToStreamingPolicyCom
 // StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs, StreamingPolicyCommonEncryptionCbcsDrmFairplayPtr and StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
+//	        StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCbcsDrmFairplayPtrInput interface {
 	pulumi.Input
 
@@ -5043,7 +5043,7 @@ type StreamingPolicyCommonEncryptionCbcsEnabledProtocols struct {
 // StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs and StreamingPolicyCommonEncryptionCbcsEnabledProtocolsOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
+//	StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
 type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsInput interface {
 	pulumi.Input
 
@@ -5085,11 +5085,11 @@ func (i StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs) ToStreamingPoli
 // StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs, StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtr and StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
+//	        StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCbcsEnabledProtocolsPtrInput interface {
 	pulumi.Input
 
@@ -5237,7 +5237,7 @@ type StreamingPolicyCommonEncryptionCenc struct {
 // StreamingPolicyCommonEncryptionCencInput is an input type that accepts StreamingPolicyCommonEncryptionCencArgs and StreamingPolicyCommonEncryptionCencOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencArgs{...}
+//	StreamingPolicyCommonEncryptionCencArgs{...}
 type StreamingPolicyCommonEncryptionCencInput interface {
 	pulumi.Input
 
@@ -5279,11 +5279,11 @@ func (i StreamingPolicyCommonEncryptionCencArgs) ToStreamingPolicyCommonEncrypti
 // StreamingPolicyCommonEncryptionCencPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencArgs, StreamingPolicyCommonEncryptionCencPtr and StreamingPolicyCommonEncryptionCencPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencArgs{...}
+//	        StreamingPolicyCommonEncryptionCencArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCencPtrInput interface {
 	pulumi.Input
 
@@ -5435,7 +5435,7 @@ type StreamingPolicyCommonEncryptionCencDefaultContentKey struct {
 // StreamingPolicyCommonEncryptionCencDefaultContentKeyInput is an input type that accepts StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs and StreamingPolicyCommonEncryptionCencDefaultContentKeyOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDefaultContentKeyInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
+//	StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
 type StreamingPolicyCommonEncryptionCencDefaultContentKeyInput interface {
 	pulumi.Input
 
@@ -5473,11 +5473,11 @@ func (i StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs) ToStreamingPol
 // StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs, StreamingPolicyCommonEncryptionCencDefaultContentKeyPtr and StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
+//	        StreamingPolicyCommonEncryptionCencDefaultContentKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCencDefaultContentKeyPtrInput interface {
 	pulumi.Input
 
@@ -5591,7 +5591,7 @@ type StreamingPolicyCommonEncryptionCencDrmPlayready struct {
 // StreamingPolicyCommonEncryptionCencDrmPlayreadyInput is an input type that accepts StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs and StreamingPolicyCommonEncryptionCencDrmPlayreadyOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDrmPlayreadyInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
+//	StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
 type StreamingPolicyCommonEncryptionCencDrmPlayreadyInput interface {
 	pulumi.Input
 
@@ -5629,11 +5629,11 @@ func (i StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs) ToStreamingPolicyCo
 // StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs, StreamingPolicyCommonEncryptionCencDrmPlayreadyPtr and StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
+//	        StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCencDrmPlayreadyPtrInput interface {
 	pulumi.Input
 
@@ -5753,7 +5753,7 @@ type StreamingPolicyCommonEncryptionCencEnabledProtocols struct {
 // StreamingPolicyCommonEncryptionCencEnabledProtocolsInput is an input type that accepts StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs and StreamingPolicyCommonEncryptionCencEnabledProtocolsOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencEnabledProtocolsInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
+//	StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
 type StreamingPolicyCommonEncryptionCencEnabledProtocolsInput interface {
 	pulumi.Input
 
@@ -5795,11 +5795,11 @@ func (i StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs) ToStreamingPoli
 // StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs, StreamingPolicyCommonEncryptionCencEnabledProtocolsPtr and StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput` via:
 //
-//          StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
+//	        StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyCommonEncryptionCencEnabledProtocolsPtrInput interface {
 	pulumi.Input
 
@@ -5947,7 +5947,7 @@ type StreamingPolicyNoEncryptionEnabledProtocols struct {
 // StreamingPolicyNoEncryptionEnabledProtocolsInput is an input type that accepts StreamingPolicyNoEncryptionEnabledProtocolsArgs and StreamingPolicyNoEncryptionEnabledProtocolsOutput values.
 // You can construct a concrete instance of `StreamingPolicyNoEncryptionEnabledProtocolsInput` via:
 //
-//          StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
+//	StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
 type StreamingPolicyNoEncryptionEnabledProtocolsInput interface {
 	pulumi.Input
 
@@ -5989,11 +5989,11 @@ func (i StreamingPolicyNoEncryptionEnabledProtocolsArgs) ToStreamingPolicyNoEncr
 // StreamingPolicyNoEncryptionEnabledProtocolsPtrInput is an input type that accepts StreamingPolicyNoEncryptionEnabledProtocolsArgs, StreamingPolicyNoEncryptionEnabledProtocolsPtr and StreamingPolicyNoEncryptionEnabledProtocolsPtrOutput values.
 // You can construct a concrete instance of `StreamingPolicyNoEncryptionEnabledProtocolsPtrInput` via:
 //
-//          StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
+//	        StreamingPolicyNoEncryptionEnabledProtocolsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StreamingPolicyNoEncryptionEnabledProtocolsPtrInput interface {
 	pulumi.Input
 
@@ -6145,7 +6145,7 @@ type TransformOutputType struct {
 // TransformOutputTypeInput is an input type that accepts TransformOutputTypeArgs and TransformOutputTypeOutput values.
 // You can construct a concrete instance of `TransformOutputTypeInput` via:
 //
-//          TransformOutputTypeArgs{...}
+//	TransformOutputTypeArgs{...}
 type TransformOutputTypeInput interface {
 	pulumi.Input
 
@@ -6183,7 +6183,7 @@ func (i TransformOutputTypeArgs) ToTransformOutputTypeOutputWithContext(ctx cont
 // TransformOutputTypeArrayInput is an input type that accepts TransformOutputTypeArray and TransformOutputTypeArrayOutput values.
 // You can construct a concrete instance of `TransformOutputTypeArrayInput` via:
 //
-//          TransformOutputTypeArray{ TransformOutputTypeArgs{...} }
+//	TransformOutputTypeArray{ TransformOutputTypeArgs{...} }
 type TransformOutputTypeArrayInput interface {
 	pulumi.Input
 
@@ -6279,7 +6279,7 @@ type TransformOutputAudioAnalyzerPreset struct {
 // TransformOutputAudioAnalyzerPresetInput is an input type that accepts TransformOutputAudioAnalyzerPresetArgs and TransformOutputAudioAnalyzerPresetOutput values.
 // You can construct a concrete instance of `TransformOutputAudioAnalyzerPresetInput` via:
 //
-//          TransformOutputAudioAnalyzerPresetArgs{...}
+//	TransformOutputAudioAnalyzerPresetArgs{...}
 type TransformOutputAudioAnalyzerPresetInput interface {
 	pulumi.Input
 
@@ -6317,11 +6317,11 @@ func (i TransformOutputAudioAnalyzerPresetArgs) ToTransformOutputAudioAnalyzerPr
 // TransformOutputAudioAnalyzerPresetPtrInput is an input type that accepts TransformOutputAudioAnalyzerPresetArgs, TransformOutputAudioAnalyzerPresetPtr and TransformOutputAudioAnalyzerPresetPtrOutput values.
 // You can construct a concrete instance of `TransformOutputAudioAnalyzerPresetPtrInput` via:
 //
-//          TransformOutputAudioAnalyzerPresetArgs{...}
+//	        TransformOutputAudioAnalyzerPresetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformOutputAudioAnalyzerPresetPtrInput interface {
 	pulumi.Input
 
@@ -6433,7 +6433,7 @@ type TransformOutputBuiltinPreset struct {
 // TransformOutputBuiltinPresetInput is an input type that accepts TransformOutputBuiltinPresetArgs and TransformOutputBuiltinPresetOutput values.
 // You can construct a concrete instance of `TransformOutputBuiltinPresetInput` via:
 //
-//          TransformOutputBuiltinPresetArgs{...}
+//	TransformOutputBuiltinPresetArgs{...}
 type TransformOutputBuiltinPresetInput interface {
 	pulumi.Input
 
@@ -6469,11 +6469,11 @@ func (i TransformOutputBuiltinPresetArgs) ToTransformOutputBuiltinPresetPtrOutpu
 // TransformOutputBuiltinPresetPtrInput is an input type that accepts TransformOutputBuiltinPresetArgs, TransformOutputBuiltinPresetPtr and TransformOutputBuiltinPresetPtrOutput values.
 // You can construct a concrete instance of `TransformOutputBuiltinPresetPtrInput` via:
 //
-//          TransformOutputBuiltinPresetArgs{...}
+//	        TransformOutputBuiltinPresetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformOutputBuiltinPresetPtrInput interface {
 	pulumi.Input
 
@@ -6570,7 +6570,7 @@ type TransformOutputFaceDetectorPreset struct {
 // TransformOutputFaceDetectorPresetInput is an input type that accepts TransformOutputFaceDetectorPresetArgs and TransformOutputFaceDetectorPresetOutput values.
 // You can construct a concrete instance of `TransformOutputFaceDetectorPresetInput` via:
 //
-//          TransformOutputFaceDetectorPresetArgs{...}
+//	TransformOutputFaceDetectorPresetArgs{...}
 type TransformOutputFaceDetectorPresetInput interface {
 	pulumi.Input
 
@@ -6606,11 +6606,11 @@ func (i TransformOutputFaceDetectorPresetArgs) ToTransformOutputFaceDetectorPres
 // TransformOutputFaceDetectorPresetPtrInput is an input type that accepts TransformOutputFaceDetectorPresetArgs, TransformOutputFaceDetectorPresetPtr and TransformOutputFaceDetectorPresetPtrOutput values.
 // You can construct a concrete instance of `TransformOutputFaceDetectorPresetPtrInput` via:
 //
-//          TransformOutputFaceDetectorPresetArgs{...}
+//	        TransformOutputFaceDetectorPresetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformOutputFaceDetectorPresetPtrInput interface {
 	pulumi.Input
 
@@ -6711,7 +6711,7 @@ type TransformOutputVideoAnalyzerPreset struct {
 // TransformOutputVideoAnalyzerPresetInput is an input type that accepts TransformOutputVideoAnalyzerPresetArgs and TransformOutputVideoAnalyzerPresetOutput values.
 // You can construct a concrete instance of `TransformOutputVideoAnalyzerPresetInput` via:
 //
-//          TransformOutputVideoAnalyzerPresetArgs{...}
+//	TransformOutputVideoAnalyzerPresetArgs{...}
 type TransformOutputVideoAnalyzerPresetInput interface {
 	pulumi.Input
 
@@ -6751,11 +6751,11 @@ func (i TransformOutputVideoAnalyzerPresetArgs) ToTransformOutputVideoAnalyzerPr
 // TransformOutputVideoAnalyzerPresetPtrInput is an input type that accepts TransformOutputVideoAnalyzerPresetArgs, TransformOutputVideoAnalyzerPresetPtr and TransformOutputVideoAnalyzerPresetPtrOutput values.
 // You can construct a concrete instance of `TransformOutputVideoAnalyzerPresetPtrInput` via:
 //
-//          TransformOutputVideoAnalyzerPresetArgs{...}
+//	        TransformOutputVideoAnalyzerPresetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TransformOutputVideoAnalyzerPresetPtrInput interface {
 	pulumi.Input
 

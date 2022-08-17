@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/powerbi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/powerbi"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = powerbi.NewEmbedded(ctx, "exampleEmbedded", &powerbi.EmbeddedArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("A1"),
-// 			Administrators: pulumi.StringArray{
-// 				pulumi.String("azsdktest@microsoft.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = powerbi.NewEmbedded(ctx, "exampleEmbedded", &powerbi.EmbeddedArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("A1"),
+//				Administrators: pulumi.StringArray{
+//					pulumi.String("azsdktest@microsoft.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -53,7 +56,9 @@ import (
 // PowerBI Embedded can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
+//
+//	$ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
+//
 // ```
 type Embedded struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutp
 // EmbeddedArrayInput is an input type that accepts EmbeddedArray and EmbeddedArrayOutput values.
 // You can construct a concrete instance of `EmbeddedArrayInput` via:
 //
-//          EmbeddedArray{ EmbeddedArgs{...} }
+//	EmbeddedArray{ EmbeddedArgs{...} }
 type EmbeddedArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i EmbeddedArray) ToEmbeddedArrayOutputWithContext(ctx context.Context) Emb
 // EmbeddedMapInput is an input type that accepts EmbeddedMap and EmbeddedMapOutput values.
 // You can construct a concrete instance of `EmbeddedMapInput` via:
 //
-//          EmbeddedMap{ "key": EmbeddedArgs{...} }
+//	EmbeddedMap{ "key": EmbeddedArgs{...} }
 type EmbeddedMapInput interface {
 	pulumi.Input
 

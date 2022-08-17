@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			Version:               pulumi.String("12"),
-// 			AdministratorLogin:    pulumi.String("psqladmin"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			StorageMb:             pulumi.Int(32768),
-// 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewFlexibleServerDatabase(ctx, "exampleFlexibleServerDatabase", &postgresql.FlexibleServerDatabaseArgs{
-// 			ServerId:  exampleFlexibleServer.ID(),
-// 			Collation: pulumi.String("en_US.utf8"),
-// 			Charset:   pulumi.String("utf8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServerDatabase(ctx, "exampleFlexibleServerDatabase", &postgresql.FlexibleServerDatabaseArgs{
+//				ServerId:  exampleFlexibleServer.ID(),
+//				Collation: pulumi.String("en_US.utf8"),
+//				Charset:   pulumi.String("utf8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Azure PostgreSQL Flexible Server Database can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/databases/database1
+//
+//	$ pulumi import azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/databases/database1
+//
 // ```
 type FlexibleServerDatabase struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *FlexibleServerDatabase) ToFlexibleServerDatabaseOutputWithContext(ctx c
 // FlexibleServerDatabaseArrayInput is an input type that accepts FlexibleServerDatabaseArray and FlexibleServerDatabaseArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerDatabaseArrayInput` via:
 //
-//          FlexibleServerDatabaseArray{ FlexibleServerDatabaseArgs{...} }
+//	FlexibleServerDatabaseArray{ FlexibleServerDatabaseArgs{...} }
 type FlexibleServerDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i FlexibleServerDatabaseArray) ToFlexibleServerDatabaseArrayOutputWithCont
 // FlexibleServerDatabaseMapInput is an input type that accepts FlexibleServerDatabaseMap and FlexibleServerDatabaseMapOutput values.
 // You can construct a concrete instance of `FlexibleServerDatabaseMapInput` via:
 //
-//          FlexibleServerDatabaseMap{ "key": FlexibleServerDatabaseArgs{...} }
+//	FlexibleServerDatabaseMap{ "key": FlexibleServerDatabaseArgs{...} }
 type FlexibleServerDatabaseMapInput interface {
 	pulumi.Input
 

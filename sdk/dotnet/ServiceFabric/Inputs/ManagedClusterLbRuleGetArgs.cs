@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterLbRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterLbRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// LB Backend port.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterLbRuleGetArgs()
         {
         }
+        public static new ManagedClusterLbRuleGetArgs Empty => new ManagedClusterLbRuleGetArgs();
     }
 }

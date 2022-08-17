@@ -21,129 +21,132 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("internal"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &compute.WindowsVirtualMachineArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Size:              pulumi.String("Standard_F2"),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
-// 			NetworkInterfaceIds: pulumi.StringArray{
-// 				exampleNetworkInterface.ID(),
-// 			},
-// 			Identity: &compute.WindowsVirtualMachineIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
-// 				Caching:            pulumi.String("ReadWrite"),
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 			},
-// 			SourceImageReference: &compute.WindowsVirtualMachineSourceImageReferenceArgs{
-// 				Publisher: pulumi.String("MicrosoftWindowsServer"),
-// 				Offer:     pulumi.String("WindowsServer"),
-// 				Sku:       pulumi.String("2019-Datacenter"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
-// 			VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
-// 			Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
-// 			Type:                    pulumi.String("ConfigurationforWindows"),
-// 			TypeHandlerVersion:      pulumi.String("1.0"),
-// 			AutoUpgradeMinorVersion: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "exampleVirtualMachineConfigurationAssignment", &policy.VirtualMachineConfigurationAssignmentArgs{
-// 			Location:         exampleWindowsVirtualMachine.Location,
-// 			VirtualMachineId: exampleWindowsVirtualMachine.ID(),
-// 			Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
-// 				AssignmentType: pulumi.String("ApplyAndMonitor"),
-// 				Version:        pulumi.String("1.*"),
-// 				Parameters: policy.VirtualMachineConfigurationAssignmentConfigurationParameterArray{
-// 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-// 						Name:  pulumi.String("Minimum Password Length;ExpectedValue"),
-// 						Value: pulumi.String("16"),
-// 					},
-// 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-// 						Name:  pulumi.String("Minimum Password Age;ExpectedValue"),
-// 						Value: pulumi.String("0"),
-// 					},
-// 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-// 						Name:  pulumi.String("Maximum Password Age;ExpectedValue"),
-// 						Value: pulumi.String("30,45"),
-// 					},
-// 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-// 						Name:  pulumi.String("Enforce Password History;ExpectedValue"),
-// 						Value: pulumi.String("10"),
-// 					},
-// 					&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
-// 						Name:  pulumi.String("Password Must Meet Complexity Requirements;ExpectedValue"),
-// 						Value: pulumi.String("1"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("internal"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &compute.WindowsVirtualMachineArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Size:              pulumi.String("Standard_F2"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				AdminPassword:     pulumi.String(fmt.Sprintf("P@$$w0rd1234!")),
+//				NetworkInterfaceIds: pulumi.StringArray{
+//					exampleNetworkInterface.ID(),
+//				},
+//				Identity: &compute.WindowsVirtualMachineIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//				},
+//				SourceImageReference: &compute.WindowsVirtualMachineSourceImageReferenceArgs{
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Offer:     pulumi.String("WindowsServer"),
+//					Sku:       pulumi.String("2019-Datacenter"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//				VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
+//				Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
+//				Type:                    pulumi.String("ConfigurationforWindows"),
+//				TypeHandlerVersion:      pulumi.String("1.0"),
+//				AutoUpgradeMinorVersion: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "exampleVirtualMachineConfigurationAssignment", &policy.VirtualMachineConfigurationAssignmentArgs{
+//				Location:         exampleWindowsVirtualMachine.Location,
+//				VirtualMachineId: exampleWindowsVirtualMachine.ID(),
+//				Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
+//					AssignmentType: pulumi.String("ApplyAndMonitor"),
+//					Version:        pulumi.String("1.*"),
+//					Parameters: policy.VirtualMachineConfigurationAssignmentConfigurationParameterArray{
+//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
+//							Name:  pulumi.String("Minimum Password Length;ExpectedValue"),
+//							Value: pulumi.String("16"),
+//						},
+//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
+//							Name:  pulumi.String("Minimum Password Age;ExpectedValue"),
+//							Value: pulumi.String("0"),
+//						},
+//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
+//							Name:  pulumi.String("Maximum Password Age;ExpectedValue"),
+//							Value: pulumi.String("30,45"),
+//						},
+//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
+//							Name:  pulumi.String("Enforce Password History;ExpectedValue"),
+//							Value: pulumi.String("10"),
+//						},
+//						&policy.VirtualMachineConfigurationAssignmentConfigurationParameterArgs{
+//							Name:  pulumi.String("Password Must Meet Complexity Requirements;ExpectedValue"),
+//							Value: pulumi.String("1"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -151,7 +154,9 @@ import (
 // Policy Virtual Machine Configuration Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/assignment1
+//
+//	$ pulumi import azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/assignment1
+//
 // ```
 type VirtualMachineConfigurationAssignment struct {
 	pulumi.CustomResourceState
@@ -275,7 +280,7 @@ func (i *VirtualMachineConfigurationAssignment) ToVirtualMachineConfigurationAss
 // VirtualMachineConfigurationAssignmentArrayInput is an input type that accepts VirtualMachineConfigurationAssignmentArray and VirtualMachineConfigurationAssignmentArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentArrayInput` via:
 //
-//          VirtualMachineConfigurationAssignmentArray{ VirtualMachineConfigurationAssignmentArgs{...} }
+//	VirtualMachineConfigurationAssignmentArray{ VirtualMachineConfigurationAssignmentArgs{...} }
 type VirtualMachineConfigurationAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -300,7 +305,7 @@ func (i VirtualMachineConfigurationAssignmentArray) ToVirtualMachineConfiguratio
 // VirtualMachineConfigurationAssignmentMapInput is an input type that accepts VirtualMachineConfigurationAssignmentMap and VirtualMachineConfigurationAssignmentMapOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentMapInput` via:
 //
-//          VirtualMachineConfigurationAssignmentMap{ "key": VirtualMachineConfigurationAssignmentArgs{...} }
+//	VirtualMachineConfigurationAssignmentMap{ "key": VirtualMachineConfigurationAssignmentArgs{...} }
 type VirtualMachineConfigurationAssignmentMapInput interface {
 	pulumi.Input
 

@@ -180,6 +180,10 @@ export interface GetWindowsFunctionAppResult {
      * A mapping of tags assigned to the Windows Function App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The subnet id which the Windows Function App is vNet Integrated with.
+     */
+    readonly virtualNetworkSubnetId: string;
 }
 
 export function getWindowsFunctionAppOutput(args: GetWindowsFunctionAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsFunctionAppResult> {

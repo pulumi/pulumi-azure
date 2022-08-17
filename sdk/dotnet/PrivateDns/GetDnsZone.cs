@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateDns.GetDnsZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateDns.GetDnsZone.InvokeAsync(new Azure.PrivateDns.GetDnsZoneArgs
-        ///         {
-        ///             Name = "contoso.internal",
-        ///             ResourceGroupName = "contoso-dns",
-        ///         }));
-        ///         this.PrivateDnsZoneId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "contoso.internal",
+        ///         ResourceGroupName = "contoso-dns",
+        ///     });
         /// 
-        ///     [Output("privateDnsZoneId")]
-        ///     public Output&lt;string&gt; PrivateDnsZoneId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsZoneId"] = example.Apply(getDnsZoneResult =&gt; getDnsZoneResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PrivateDns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateDns.GetDnsZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateDns.GetDnsZone.InvokeAsync(new Azure.PrivateDns.GetDnsZoneArgs
-        ///         {
-        ///             Name = "contoso.internal",
-        ///             ResourceGroupName = "contoso-dns",
-        ///         }));
-        ///         this.PrivateDnsZoneId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "contoso.internal",
+        ///         ResourceGroupName = "contoso-dns",
+        ///     });
         /// 
-        ///     [Output("privateDnsZoneId")]
-        ///     public Output&lt;string&gt; PrivateDnsZoneId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsZoneId"] = example.Apply(getDnsZoneResult =&gt; getDnsZoneResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PrivateDns
     }
 
 
-    public sealed class GetDnsZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS Zone.
@@ -110,9 +108,10 @@ namespace Pulumi.Azure.PrivateDns
         public GetDnsZoneArgs()
         {
         }
+        public static new GetDnsZoneArgs Empty => new GetDnsZoneArgs();
     }
 
-    public sealed class GetDnsZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDnsZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Private DNS Zone.
@@ -143,6 +142,7 @@ namespace Pulumi.Azure.PrivateDns
         public GetDnsZoneInvokeArgs()
         {
         }
+        public static new GetDnsZoneInvokeArgs Empty => new GetDnsZoneInvokeArgs();
     }
 
 

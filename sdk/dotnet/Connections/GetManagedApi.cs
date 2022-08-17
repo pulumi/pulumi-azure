@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Connections
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Connections.GetManagedApi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Connections.GetManagedApi.InvokeAsync(new Azure.Connections.GetManagedApiArgs
-        ///         {
-        ///             Name = "servicebus",
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "servicebus",
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getManagedApiResult =&gt; getManagedApiResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Connections
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Connections.GetManagedApi.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Connections.GetManagedApi.InvokeAsync(new Azure.Connections.GetManagedApiArgs
-        ///         {
-        ///             Name = "servicebus",
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "servicebus",
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getManagedApiResult =&gt; getManagedApiResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Connections
     }
 
 
-    public sealed class GetManagedApiArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location for this Managed API.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Connections
         public GetManagedApiArgs()
         {
         }
+        public static new GetManagedApiArgs Empty => new GetManagedApiArgs();
     }
 
-    public sealed class GetManagedApiInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location for this Managed API.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Connections
         public GetManagedApiInvokeArgs()
         {
         }
+        public static new GetManagedApiInvokeArgs Empty => new GetManagedApiInvokeArgs();
     }
 
 

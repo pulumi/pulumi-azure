@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs Empty => new WindowsVirtualMachineScaleSetAdditionalUnattendContentGetArgs();
     }
 }

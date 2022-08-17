@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDirectoryActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class CacheDirectoryActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDirectoryActiveDirectoryArgs()
         {
         }
+        public static new CacheDirectoryActiveDirectoryArgs Empty => new CacheDirectoryActiveDirectoryArgs();
     }
 }

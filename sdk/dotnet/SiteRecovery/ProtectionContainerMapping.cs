@@ -15,70 +15,76 @@ namespace Pulumi.Azure.SiteRecovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
     ///     {
-    ///         var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = secondaryResourceGroup.Location,
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = primaryResourceGroup.Location,
-    ///         });
-    ///         var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = secondaryResourceGroup.Location,
-    ///         });
-    ///         var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primaryProtectionContainer", new Azure.SiteRecovery.ProtectionContainerArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryFabricName = primaryFabric.Name,
-    ///         });
-    ///         var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondaryProtectionContainer", new Azure.SiteRecovery.ProtectionContainerArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryFabricName = secondaryFabric.Name,
-    ///         });
-    ///         var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new Azure.SiteRecovery.ReplicationPolicyArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryPointRetentionInMinutes = 24 * 60,
-    ///             ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
-    ///         });
-    ///         var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new Azure.SiteRecovery.ProtectionContainerMappingArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             RecoveryFabricName = primaryFabric.Name,
-    ///             RecoverySourceProtectionContainerName = primaryProtectionContainer.Name,
-    ///             RecoveryTargetProtectionContainerId = secondaryProtectionContainer.Id,
-    ///             RecoveryReplicationPolicyId = policy.Id,
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondaryResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = secondaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primaryProtectionContainer", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = primaryFabric.Name,
+    ///     });
+    /// 
+    ///     var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondaryProtectionContainer", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = secondaryFabric.Name,
+    ///     });
+    /// 
+    ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryPointRetentionInMinutes = 24 * 60,
+    ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
+    ///     });
+    /// 
+    ///     var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         RecoveryFabricName = primaryFabric.Name,
+    ///         RecoverySourceProtectionContainerName = primaryProtectionContainer.Name,
+    ///         RecoveryTargetProtectionContainerId = secondaryProtectionContainer.Id,
+    ///         RecoveryReplicationPolicyId = policy.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +96,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// ```
     /// </summary>
     [AzureResourceType("azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")]
-    public partial class ProtectionContainerMapping : Pulumi.CustomResource
+    public partial class ProtectionContainerMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the protection container mapping.
@@ -178,7 +184,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
     }
 
-    public sealed class ProtectionContainerMappingArgs : Pulumi.ResourceArgs
+    public sealed class ProtectionContainerMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the protection container mapping.
@@ -225,9 +231,10 @@ namespace Pulumi.Azure.SiteRecovery
         public ProtectionContainerMappingArgs()
         {
         }
+        public static new ProtectionContainerMappingArgs Empty => new ProtectionContainerMappingArgs();
     }
 
-    public sealed class ProtectionContainerMappingState : Pulumi.ResourceArgs
+    public sealed class ProtectionContainerMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the protection container mapping.
@@ -274,5 +281,6 @@ namespace Pulumi.Azure.SiteRecovery
         public ProtectionContainerMappingState()
         {
         }
+        public static new ProtectionContainerMappingState Empty => new ProtectionContainerMappingState();
     }
 }

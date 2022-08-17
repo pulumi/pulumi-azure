@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterMaintenanceWindowNotAllowedGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterMaintenanceWindowNotAllowedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end of a time span, formatted as an RFC3339 string.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterMaintenanceWindowNotAllowedGetArgs()
         {
         }
+        public static new KubernetesClusterMaintenanceWindowNotAllowedGetArgs Empty => new KubernetesClusterMaintenanceWindowNotAllowedGetArgs();
     }
 }

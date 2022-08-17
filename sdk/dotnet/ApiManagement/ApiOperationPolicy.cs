@@ -15,57 +15,59 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             Revision = "1",
-    ///         });
-    ///         var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new Azure.ApiManagement.ApiOperationArgs
-    ///         {
-    ///             OperationId = "acctest-operation",
-    ///             ApiName = exampleApi.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DisplayName = "DELETE Resource",
-    ///             Method = "DELETE",
-    ///             UrlTemplate = "/resource",
-    ///         });
-    ///         var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new Azure.ApiManagement.ApiOperationPolicyArgs
-    ///         {
-    ///             ApiName = exampleApiOperation.ApiName,
-    ///             ApiManagementName = exampleApiOperation.ApiManagementName,
-    ///             ResourceGroupName = exampleApiOperation.ResourceGroupName,
-    ///             OperationId = exampleApiOperation.OperationId,
-    ///             XmlContent = @"&lt;policies&gt;
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Revision = "1",
+    ///     });
+    /// 
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     {
+    ///         OperationId = "acctest-operation",
+    ///         ApiName = exampleApi.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DisplayName = "DELETE Resource",
+    ///         Method = "DELETE",
+    ///         UrlTemplate = "/resource",
+    ///     });
+    /// 
+    ///     var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new()
+    ///     {
+    ///         ApiName = exampleApiOperation.ApiName,
+    ///         ApiManagementName = exampleApiOperation.ApiManagementName,
+    ///         ResourceGroupName = exampleApiOperation.ResourceGroupName,
+    ///         OperationId = exampleApiOperation.OperationId,
+    ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
     ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;
     ///   &lt;/inbound&gt;
     /// &lt;/policies&gt;
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -77,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiOperationPolicy:ApiOperationPolicy")]
-    public partial class ApiOperationPolicy : Pulumi.CustomResource
+    public partial class ApiOperationPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -86,7 +88,7 @@ namespace Pulumi.Azure.ApiManagement
         public Output<string> ApiManagementName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("apiName")]
         public Output<string> ApiName { get; private set; } = null!;
@@ -159,7 +161,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiOperationPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -168,7 +170,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string> ApiManagementName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiName", required: true)]
         public Input<string> ApiName { get; set; } = null!;
@@ -200,9 +202,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationPolicyArgs()
         {
         }
+        public static new ApiOperationPolicyArgs Empty => new ApiOperationPolicyArgs();
     }
 
-    public sealed class ApiOperationPolicyState : Pulumi.ResourceArgs
+    public sealed class ApiOperationPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -211,7 +214,7 @@ namespace Pulumi.Azure.ApiManagement
         public Input<string>? ApiManagementName { get; set; }
 
         /// <summary>
-        /// The ID of the API Management API Operation within the API Management Service. Changing this forces a new resource to be created.
+        /// The name of the API within the API Management Service where the Operation exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("apiName")]
         public Input<string>? ApiName { get; set; }
@@ -243,5 +246,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiOperationPolicyState()
         {
         }
+        public static new ApiOperationPolicyState Empty => new ApiOperationPolicyState();
     }
 }

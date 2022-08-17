@@ -15,45 +15,45 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             Revision = "1",
-    ///             DisplayName = "Example API",
-    ///             Path = "example",
-    ///             Protocols = 
-    ///             {
-    ///                 "https",
-    ///             },
-    ///             Import = new Azure.ApiManagement.Inputs.ApiImportArgs
-    ///             {
-    ///                 ContentFormat = "swagger-link-json",
-    ///                 ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Revision = "1",
+    ///         DisplayName = "Example API",
+    ///         Path = "example",
+    ///         Protocols = new[]
+    ///         {
+    ///             "https",
+    ///         },
+    ///         Import = new Azure.ApiManagement.Inputs.ApiImportArgs
+    ///         {
+    ///             ContentFormat = "swagger-link-json",
+    ///             ContentValue = "http://conferenceapi.azurewebsites.net/?format=json",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/api:Api")]
-    public partial class Api : Pulumi.CustomResource
+    public partial class Api : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
@@ -243,7 +243,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiArgs : Pulumi.ResourceArgs
+    public sealed class ApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
@@ -374,9 +374,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiArgs()
         {
         }
+        public static new ApiArgs Empty => new ApiArgs();
     }
 
-    public sealed class ApiState : Pulumi.ResourceArgs
+    public sealed class ApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this API should be created. Changing this forces a new resource to be created.
@@ -519,5 +520,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiState()
         {
         }
+        public static new ApiState Empty => new ApiState();
     }
 }

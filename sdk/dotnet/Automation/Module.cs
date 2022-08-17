@@ -15,35 +15,35 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleModule = new Azure.Automation.Module("exampleModule", new Azure.Automation.ModuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             ModuleLink = new Azure.Automation.Inputs.ModuleModuleLinkArgs
-    ///             {
-    ///                 Uri = "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleModule = new Azure.Automation.Module("exampleModule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ModuleLink = new Azure.Automation.Inputs.ModuleModuleLinkArgs
+    ///         {
+    ///             Uri = "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/module:Module")]
-    public partial class Module : Pulumi.CustomResource
+    public partial class Module : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class ModuleArgs : Pulumi.ResourceArgs
+    public sealed class ModuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.Automation
         public ModuleArgs()
         {
         }
+        public static new ModuleArgs Empty => new ModuleArgs();
     }
 
-    public sealed class ModuleState : Pulumi.ResourceArgs
+    public sealed class ModuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Module is created. Changing this forces a new resource to be created.
@@ -185,5 +186,6 @@ namespace Pulumi.Azure.Automation
         public ModuleState()
         {
         }
+        public static new ModuleState Empty => new ModuleState();
     }
 }

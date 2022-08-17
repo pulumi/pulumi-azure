@@ -337,18 +337,18 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     }
 
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
-    @Import(name="instances", required=true)
-    private Output<Integer> instances;
+    @Import(name="instances")
+    private @Nullable Output<Integer> instances;
 
     /**
-     * @return The number of Virtual Machines in the Scale Set.
+     * @return The number of Virtual Machines in the Scale Set. Defaults to `0`.
      * 
      */
-    public Output<Integer> instances() {
-        return this.instances;
+    public Optional<Output<Integer>> instances() {
+        return Optional.ofNullable(this.instances);
     }
 
     /**
@@ -1302,18 +1302,18 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Scale Set.
+         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
          * 
          * @return builder
          * 
          */
-        public Builder instances(Output<Integer> instances) {
+        public Builder instances(@Nullable Output<Integer> instances) {
             $.instances = instances;
             return this;
         }
 
         /**
-         * @param instances The number of Virtual Machines in the Scale Set.
+         * @param instances The number of Virtual Machines in the Scale Set. Defaults to `0`.
          * 
          * @return builder
          * 
@@ -1950,7 +1950,6 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
 
         public LinuxVirtualMachineScaleSetArgs build() {
             $.adminUsername = Objects.requireNonNull($.adminUsername, "expected parameter 'adminUsername' to be non-null");
-            $.instances = Objects.requireNonNull($.instances, "expected parameter 'instances' to be non-null");
             $.networkInterfaces = Objects.requireNonNull($.networkInterfaces, "expected parameter 'networkInterfaces' to be non-null");
             $.osDisk = Objects.requireNonNull($.osDisk, "expected parameter 'osDisk' to be non-null");
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");

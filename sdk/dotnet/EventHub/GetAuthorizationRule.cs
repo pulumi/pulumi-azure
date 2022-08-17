@@ -19,23 +19,21 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.EventHub.GetAuthorizationRule.InvokeAsync(new Azure.EventHub.GetAuthorizationRuleArgs
-        ///         {
-        ///             Name = "test",
-        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///             EventhubName = azurerm_eventhub.Test.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///         }));
-        ///     }
+        ///         Name = "test",
+        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///         EventhubName = azurerm_eventhub.Test.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +49,21 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.EventHub.GetAuthorizationRule.InvokeAsync(new Azure.EventHub.GetAuthorizationRuleArgs
-        ///         {
-        ///             Name = "test",
-        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///             EventhubName = azurerm_eventhub.Test.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///         }));
-        ///     }
+        ///         Name = "test",
+        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///         EventhubName = azurerm_eventhub.Test.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Azure.EventHub
     }
 
 
-    public sealed class GetAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub.
@@ -115,9 +111,10 @@ namespace Pulumi.Azure.EventHub
         public GetAuthorizationRuleArgs()
         {
         }
+        public static new GetAuthorizationRuleArgs Empty => new GetAuthorizationRuleArgs();
     }
 
-    public sealed class GetAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub.
@@ -155,6 +152,7 @@ namespace Pulumi.Azure.EventHub
         public GetAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetAuthorizationRuleInvokeArgs Empty => new GetAuthorizationRuleInvokeArgs();
     }
 
 

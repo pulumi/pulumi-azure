@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DigitalTwins
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DigitalTwins.GetInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DigitalTwins.GetInstance.InvokeAsync(new Azure.DigitalTwins.GetInstanceArgs
-        ///         {
-        ///             Name = "existing-digital-twins",
-        ///             ResourceGroupName = "existing-resgroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-digital-twins",
+        ///         ResourceGroupName = "existing-resgroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getInstanceResult =&gt; getInstanceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DigitalTwins
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DigitalTwins.GetInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DigitalTwins.GetInstance.InvokeAsync(new Azure.DigitalTwins.GetInstanceArgs
-        ///         {
-        ///             Name = "existing-digital-twins",
-        ///             ResourceGroupName = "existing-resgroup",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-digital-twins",
+        ///         ResourceGroupName = "existing-resgroup",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getInstanceResult =&gt; getInstanceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DigitalTwins
     }
 
 
-    public sealed class GetInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Digital Twins instance.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DigitalTwins
         public GetInstanceArgs()
         {
         }
+        public static new GetInstanceArgs Empty => new GetInstanceArgs();
     }
 
-    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Digital Twins instance.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DigitalTwins
         public GetInstanceInvokeArgs()
         {
         }
+        public static new GetInstanceInvokeArgs Empty => new GetInstanceInvokeArgs();
     }
 
 

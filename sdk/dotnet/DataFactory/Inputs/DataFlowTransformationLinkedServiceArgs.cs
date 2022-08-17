@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DataFlowTransformationLinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class DataFlowTransformationLinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name for the Data Factory Linked Service.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DataFlowTransformationLinkedServiceArgs()
         {
         }
+        public static new DataFlowTransformationLinkedServiceArgs Empty => new DataFlowTransformationLinkedServiceArgs();
     }
 }

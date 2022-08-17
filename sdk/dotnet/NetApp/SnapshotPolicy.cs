@@ -15,67 +15,67 @@ namespace Pulumi.Azure.NetApp
     /// ## NetApp Snapshot Policy Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var exampleAccount = new Azure.NetApp.Account("exampleAccount", new Azure.NetApp.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("exampleSnapshotPolicy", new Azure.NetApp.SnapshotPolicyArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountName = exampleAccount.Name,
-    ///             Enabled = true,
-    ///             HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs
-    ///             {
-    ///                 SnapshotsToKeep = 4,
-    ///                 Minute = 15,
-    ///             },
-    ///             DailySchedule = new Azure.NetApp.Inputs.SnapshotPolicyDailyScheduleArgs
-    ///             {
-    ///                 SnapshotsToKeep = 2,
-    ///                 Hour = 20,
-    ///                 Minute = 15,
-    ///             },
-    ///             WeeklySchedule = new Azure.NetApp.Inputs.SnapshotPolicyWeeklyScheduleArgs
-    ///             {
-    ///                 SnapshotsToKeep = 1,
-    ///                 DaysOfWeeks = 
-    ///                 {
-    ///                     "Monday",
-    ///                     "Friday",
-    ///                 },
-    ///                 Hour = 23,
-    ///                 Minute = 0,
-    ///             },
-    ///             MonthlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyMonthlyScheduleArgs
-    ///             {
-    ///                 SnapshotsToKeep = 1,
-    ///                 DaysOfMonths = 
-    ///                 {
-    ///                     1,
-    ///                     15,
-    ///                     20,
-    ///                     30,
-    ///                 },
-    ///                 Hour = 5,
-    ///                 Minute = 45,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "East US",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("exampleSnapshotPolicy", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountName = exampleAccount.Name,
+    ///         Enabled = true,
+    ///         HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 4,
+    ///             Minute = 15,
+    ///         },
+    ///         DailySchedule = new Azure.NetApp.Inputs.SnapshotPolicyDailyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 2,
+    ///             Hour = 20,
+    ///             Minute = 15,
+    ///         },
+    ///         WeeklySchedule = new Azure.NetApp.Inputs.SnapshotPolicyWeeklyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 1,
+    ///             DaysOfWeeks = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Friday",
+    ///             },
+    ///             Hour = 23,
+    ///             Minute = 0,
+    ///         },
+    ///         MonthlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyMonthlyScheduleArgs
+    ///         {
+    ///             SnapshotsToKeep = 1,
+    ///             DaysOfMonths = new[]
+    ///             {
+    ///                 1,
+    ///                 15,
+    ///                 20,
+    ///                 30,
+    ///             },
+    ///             Hour = 5,
+    ///             Minute = 45,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.NetApp
     /// ```
     /// </summary>
     [AzureResourceType("azure:netapp/snapshotPolicy:SnapshotPolicy")]
-    public partial class SnapshotPolicy : Pulumi.CustomResource
+    public partial class SnapshotPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.NetApp
         }
     }
 
-    public sealed class SnapshotPolicyArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -257,9 +257,10 @@ namespace Pulumi.Azure.NetApp
         public SnapshotPolicyArgs()
         {
         }
+        public static new SnapshotPolicyArgs Empty => new SnapshotPolicyArgs();
     }
 
-    public sealed class SnapshotPolicyState : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the NetApp Account in which the NetApp Snapshot Policy should be created. Changing this forces a new resource to be created.
@@ -326,5 +327,6 @@ namespace Pulumi.Azure.NetApp
         public SnapshotPolicyState()
         {
         }
+        public static new SnapshotPolicyState Empty => new SnapshotPolicyState();
     }
 }

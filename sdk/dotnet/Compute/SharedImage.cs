@@ -15,44 +15,44 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new Azure.Compute.SharedImageGalleryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Description = "Shared images and things.",
-    ///             Tags = 
-    ///             {
-    ///                 { "Hello", "There" },
-    ///                 { "World", "Example" },
-    ///             },
-    ///         });
-    ///         var exampleSharedImage = new Azure.Compute.SharedImage("exampleSharedImage", new Azure.Compute.SharedImageArgs
-    ///         {
-    ///             GalleryName = exampleSharedImageGallery.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Linux",
-    ///             Identifier = new Azure.Compute.Inputs.SharedImageIdentifierArgs
-    ///             {
-    ///                 Publisher = "PublisherName",
-    ///                 Offer = "OfferName",
-    ///                 Sku = "ExampleSku",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Description = "Shared images and things.",
+    ///         Tags = 
+    ///         {
+    ///             { "Hello", "There" },
+    ///             { "World", "Example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSharedImage = new Azure.Compute.SharedImage("exampleSharedImage", new()
+    ///     {
+    ///         GalleryName = exampleSharedImageGallery.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         Identifier = new Azure.Compute.Inputs.SharedImageIdentifierArgs
+    ///         {
+    ///             Publisher = "PublisherName",
+    ///             Offer = "OfferName",
+    ///             Sku = "ExampleSku",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/sharedImage:SharedImage")]
-    public partial class SharedImage : Pulumi.CustomResource
+    public partial class SharedImage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
@@ -242,7 +242,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class SharedImageArgs : Pulumi.ResourceArgs
+    public sealed class SharedImageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
@@ -391,9 +391,10 @@ namespace Pulumi.Azure.Compute
         public SharedImageArgs()
         {
         }
+        public static new SharedImageArgs Empty => new SharedImageArgs();
     }
 
-    public sealed class SharedImageState : Pulumi.ResourceArgs
+    public sealed class SharedImageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
@@ -542,5 +543,6 @@ namespace Pulumi.Azure.Compute
         public SharedImageState()
         {
         }
+        public static new SharedImageState Empty => new SharedImageState();
     }
 }

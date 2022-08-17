@@ -20,14 +20,14 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
     public static final EventHubNamespaceNetworkRulesetsArgs Empty = new EventHubNamespaceNetworkRulesetsArgs();
 
     /**
-     * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
      */
     @Import(name="defaultAction", required=true)
     private Output<String> defaultAction;
 
     /**
-     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+     * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
      */
     public Output<String> defaultAction() {
@@ -107,7 +107,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class EventHubNamespaceNetworkRulesetsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+         * @param defaultAction The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
          * 
          * @return builder
          * 

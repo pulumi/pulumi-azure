@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appservice.NewSourceControlToken(ctx, "example", &appservice.SourceControlTokenArgs{
-// 			Token: pulumi.String("ghp_sometokenvaluesecretsauce"),
-// 			Type:  pulumi.String("GitHub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appservice.NewSourceControlToken(ctx, "example", &appservice.SourceControlTokenArgs{
+//				Token: pulumi.String("ghp_sometokenvaluesecretsauce"),
+//				Type:  pulumi.String("GitHub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // App Service Source GitHub Tokens can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
+//
+//	$ pulumi import azure:appservice/sourceControlToken:SourceControlToken example /providers/Microsoft.Web/sourceControls/GitHub
+//
 // ```
 type SourceControlToken struct {
 	pulumi.CustomResourceState
@@ -149,7 +154,7 @@ func (i *SourceControlToken) ToSourceControlTokenOutputWithContext(ctx context.C
 // SourceControlTokenArrayInput is an input type that accepts SourceControlTokenArray and SourceControlTokenArrayOutput values.
 // You can construct a concrete instance of `SourceControlTokenArrayInput` via:
 //
-//          SourceControlTokenArray{ SourceControlTokenArgs{...} }
+//	SourceControlTokenArray{ SourceControlTokenArgs{...} }
 type SourceControlTokenArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +179,7 @@ func (i SourceControlTokenArray) ToSourceControlTokenArrayOutputWithContext(ctx 
 // SourceControlTokenMapInput is an input type that accepts SourceControlTokenMap and SourceControlTokenMapOutput values.
 // You can construct a concrete instance of `SourceControlTokenMapInput` via:
 //
-//          SourceControlTokenMap{ "key": SourceControlTokenArgs{...} }
+//	SourceControlTokenMap{ "key": SourceControlTokenArgs{...} }
 type SourceControlTokenMapInput interface {
 	pulumi.Input
 

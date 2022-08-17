@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := automation.LookupStringVariable(ctx, &automation.LookupStringVariableArgs{
-// 			Name:                  "tfex-example-var",
-// 			ResourceGroupName:     "tfex-example-rg",
-// 			AutomationAccountName: "tfex-example-account",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("variableId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := automation.LookupStringVariable(ctx, &automation.LookupStringVariableArgs{
+//				Name:                  "tfex-example-var",
+//				ResourceGroupName:     "tfex-example-rg",
+//				AutomationAccountName: "tfex-example-account",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("variableId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupStringVariable(ctx *pulumi.Context, args *LookupStringVariableArgs, opts ...pulumi.InvokeOption) (*LookupStringVariableResult, error) {
 	var rv LookupStringVariableResult

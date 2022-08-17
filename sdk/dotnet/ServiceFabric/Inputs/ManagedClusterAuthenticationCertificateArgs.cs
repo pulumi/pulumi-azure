@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterAuthenticationCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAuthenticationCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The certificate's CN.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterAuthenticationCertificateArgs()
         {
         }
+        public static new ManagedClusterAuthenticationCertificateArgs Empty => new ManagedClusterAuthenticationCertificateArgs();
     }
 }

@@ -19,44 +19,47 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Basic"),
-// 			Capacity:          pulumi.Int(2),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventhub.NewEventHubNamespaceAuthorizationRule(ctx, "exampleEventHubNamespaceAuthorizationRule", &eventhub.EventHubNamespaceAuthorizationRuleArgs{
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Listen:            pulumi.Bool(true),
-// 			Send:              pulumi.Bool(false),
-// 			Manage:            pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Basic"),
+//				Capacity:          pulumi.Int(2),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventhub.NewEventHubNamespaceAuthorizationRule(ctx, "exampleEventHubNamespaceAuthorizationRule", &eventhub.EventHubNamespaceAuthorizationRuleArgs{
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(false),
+//				Manage:            pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // EventHub Namespace Authorization Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/authorizationRules/rule1
+//
+//	$ pulumi import azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1/authorizationRules/rule1
+//
 // ```
 type EventHubNamespaceAuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -244,7 +249,7 @@ func (i *EventHubNamespaceAuthorizationRule) ToEventHubNamespaceAuthorizationRul
 // EventHubNamespaceAuthorizationRuleArrayInput is an input type that accepts EventHubNamespaceAuthorizationRuleArray and EventHubNamespaceAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceAuthorizationRuleArrayInput` via:
 //
-//          EventHubNamespaceAuthorizationRuleArray{ EventHubNamespaceAuthorizationRuleArgs{...} }
+//	EventHubNamespaceAuthorizationRuleArray{ EventHubNamespaceAuthorizationRuleArgs{...} }
 type EventHubNamespaceAuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +274,7 @@ func (i EventHubNamespaceAuthorizationRuleArray) ToEventHubNamespaceAuthorizatio
 // EventHubNamespaceAuthorizationRuleMapInput is an input type that accepts EventHubNamespaceAuthorizationRuleMap and EventHubNamespaceAuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `EventHubNamespaceAuthorizationRuleMapInput` via:
 //
-//          EventHubNamespaceAuthorizationRuleMap{ "key": EventHubNamespaceAuthorizationRuleArgs{...} }
+//	EventHubNamespaceAuthorizationRuleMap{ "key": EventHubNamespaceAuthorizationRuleArgs{...} }
 type EventHubNamespaceAuthorizationRuleMapInput interface {
 	pulumi.Input
 

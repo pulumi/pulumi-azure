@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataBricks
     /// ```
     /// </summary>
     [AzureResourceType("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")]
-    public partial class WorkspaceCustomerManagedKey : Pulumi.CustomResource
+    public partial class WorkspaceCustomerManagedKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Key Vault.
@@ -77,7 +77,7 @@ namespace Pulumi.Azure.DataBricks
         }
     }
 
-    public sealed class WorkspaceCustomerManagedKeyArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomerManagedKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault.
@@ -94,9 +94,10 @@ namespace Pulumi.Azure.DataBricks
         public WorkspaceCustomerManagedKeyArgs()
         {
         }
+        public static new WorkspaceCustomerManagedKeyArgs Empty => new WorkspaceCustomerManagedKeyArgs();
     }
 
-    public sealed class WorkspaceCustomerManagedKeyState : Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomerManagedKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault.
@@ -113,5 +114,6 @@ namespace Pulumi.Azure.DataBricks
         public WorkspaceCustomerManagedKeyState()
         {
         }
+        public static new WorkspaceCustomerManagedKeyState Empty => new WorkspaceCustomerManagedKeyState();
     }
 }

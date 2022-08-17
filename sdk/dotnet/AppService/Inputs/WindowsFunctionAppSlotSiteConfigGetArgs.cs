@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSlotSiteConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSlotSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If this Windows Web App is Always On enabled. Defaults to `false`.
@@ -243,5 +243,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSlotSiteConfigGetArgs()
         {
         }
+        public static new WindowsFunctionAppSlotSiteConfigGetArgs Empty => new WindowsFunctionAppSlotSiteConfigGetArgs();
     }
 }

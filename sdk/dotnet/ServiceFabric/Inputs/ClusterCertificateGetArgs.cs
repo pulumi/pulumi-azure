@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Thumbprint of the Certificate.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterCertificateGetArgs()
         {
         }
+        public static new ClusterCertificateGetArgs Empty => new ClusterCertificateGetArgs();
     }
 }

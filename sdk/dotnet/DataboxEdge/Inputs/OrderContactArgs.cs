@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
 
-    public sealed class OrderContactArgs : Pulumi.ResourceArgs
+    public sealed class OrderContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the company. Changing this forces a new Databox Edge Order to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public OrderContactArgs()
         {
         }
+        public static new OrderContactArgs Empty => new OrderContactArgs();
     }
 }

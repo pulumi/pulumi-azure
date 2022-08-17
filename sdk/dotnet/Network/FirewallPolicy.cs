@@ -15,25 +15,24 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFirewallPolicy = new Azure.Network.FirewallPolicy("exampleFirewallPolicy", new Azure.Network.FirewallPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFirewallPolicy = new Azure.Network.FirewallPolicy("exampleFirewallPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/firewallPolicy:FirewallPolicy")]
-    public partial class FirewallPolicy : Pulumi.CustomResource
+    public partial class FirewallPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the base Firewall Policy.
@@ -193,7 +192,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class FirewallPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the base Firewall Policy.
@@ -294,9 +293,10 @@ namespace Pulumi.Azure.Network
         public FirewallPolicyArgs()
         {
         }
+        public static new FirewallPolicyArgs Empty => new FirewallPolicyArgs();
     }
 
-    public sealed class FirewallPolicyState : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the base Firewall Policy.
@@ -433,5 +433,6 @@ namespace Pulumi.Azure.Network
         public FirewallPolicyState()
         {
         }
+        public static new FirewallPolicyState Empty => new FirewallPolicyState();
     }
 }

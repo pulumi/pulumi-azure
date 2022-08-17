@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `delta_health_policy` block as defined below
@@ -66,5 +66,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterUpgradePolicyArgs()
         {
         }
+        public static new ClusterUpgradePolicyArgs Empty => new ClusterUpgradePolicyArgs();
     }
 }

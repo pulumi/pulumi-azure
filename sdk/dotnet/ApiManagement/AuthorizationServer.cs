@@ -15,38 +15,37 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
-    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-    ///         {
-    ///             Name = "search-api",
-    ///             ResourceGroupName = "search-service",
-    ///         }));
-    ///         var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("exampleAuthorizationServer", new Azure.ApiManagement.AuthorizationServerArgs
-    ///         {
-    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
-    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
-    ///             DisplayName = "Test Server",
-    ///             AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
-    ///             ClientId = "42424242-4242-4242-4242-424242424242",
-    ///             ClientRegistrationEndpoint = "https://example.mydomain.com/client/register",
-    ///             GrantTypes = 
-    ///             {
-    ///                 "authorizationCode",
-    ///             },
-    ///             AuthorizationMethods = 
-    ///             {
-    ///                 "GET",
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "search-api",
+    ///         ResourceGroupName = "search-service",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("exampleAuthorizationServer", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         DisplayName = "Test Server",
+    ///         AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
+    ///         ClientId = "42424242-4242-4242-4242-424242424242",
+    ///         ClientRegistrationEndpoint = "https://example.mydomain.com/client/register",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "authorizationCode",
+    ///         },
+    ///         AuthorizationMethods = new[]
+    ///         {
+    ///             "GET",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/authorizationServer:AuthorizationServer")]
-    public partial class AuthorizationServer : Pulumi.CustomResource
+    public partial class AuthorizationServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -218,7 +217,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class AuthorizationServerArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -367,9 +366,10 @@ namespace Pulumi.Azure.ApiManagement
         public AuthorizationServerArgs()
         {
         }
+        public static new AuthorizationServerArgs Empty => new AuthorizationServerArgs();
     }
 
-    public sealed class AuthorizationServerState : Pulumi.ResourceArgs
+    public sealed class AuthorizationServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -518,5 +518,6 @@ namespace Pulumi.Azure.ApiManagement
         public AuthorizationServerState()
         {
         }
+        public static new AuthorizationServerState Empty => new AuthorizationServerState();
     }
 }

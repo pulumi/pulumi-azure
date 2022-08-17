@@ -20,62 +20,65 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
-// 			ResourceGroupName:      rg.Name,
-// 			Location:               rg.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		container, err := storage.NewContainer(ctx, "container", &storage.ContainerArgs{
-// 			StorageAccountName:  storage.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
-// 			ConnectionString: storage.PrimaryConnectionString,
-// 			ContainerName:    container.Name,
-// 			HttpsOnly:        pulumi.Bool(true),
-// 			IpAddress:        pulumi.String("168.1.5.65"),
-// 			Start:            pulumi.String("2018-03-21"),
-// 			Expiry:           pulumi.String("2018-03-21"),
-// 			Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
-// 				Read:   pulumi.Bool(true),
-// 				Add:    pulumi.Bool(true),
-// 				Create: pulumi.Bool(false),
-// 				Write:  pulumi.Bool(false),
-// 				Delete: pulumi.Bool(true),
-// 				List:   pulumi.Bool(true),
-// 			},
-// 			CacheControl:       pulumi.String("max-age=5"),
-// 			ContentDisposition: pulumi.String("inline"),
-// 			ContentEncoding:    pulumi.String("deflate"),
-// 			ContentLanguage:    pulumi.String("en-US"),
-// 			ContentType:        pulumi.String("application/json"),
-// 		}, nil)
-// 		ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (string, error) {
-// 			return example.Sas, nil
-// 		}).(pulumi.StringOutput))
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//				ResourceGroupName:      rg.Name,
+//				Location:               rg.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			container, err := storage.NewContainer(ctx, "container", &storage.ContainerArgs{
+//				StorageAccountName:  storage.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
+//				ConnectionString: storage.PrimaryConnectionString,
+//				ContainerName:    container.Name,
+//				HttpsOnly:        pulumi.Bool(true),
+//				IpAddress:        pulumi.String("168.1.5.65"),
+//				Start:            pulumi.String("2018-03-21"),
+//				Expiry:           pulumi.String("2018-03-21"),
+//				Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
+//					Read:   pulumi.Bool(true),
+//					Add:    pulumi.Bool(true),
+//					Create: pulumi.Bool(false),
+//					Write:  pulumi.Bool(false),
+//					Delete: pulumi.Bool(true),
+//					List:   pulumi.Bool(true),
+//				},
+//				CacheControl:       pulumi.String("max-age=5"),
+//				ContentDisposition: pulumi.String("inline"),
+//				ContentEncoding:    pulumi.String("deflate"),
+//				ContentLanguage:    pulumi.String("en-US"),
+//				ContentType:        pulumi.String("application/json"),
+//			}, nil)
+//			ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (string, error) {
+//				return example.Sas, nil
+//			}).(pulumi.StringOutput))
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetAccountBlobContainerSAS(ctx *pulumi.Context, args *GetAccountBlobContainerSASArgs, opts ...pulumi.InvokeOption) (*GetAccountBlobContainerSASResult, error) {
 	var rv GetAccountBlobContainerSASResult

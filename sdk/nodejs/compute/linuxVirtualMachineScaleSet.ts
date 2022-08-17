@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
  *
  * ## Disclaimers
  *
- * > **NOTE:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
- *
  * > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
  *
  * ## Example Usage
@@ -183,9 +181,9 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.compute.LinuxVirtualMachineScaleSetIdentity | undefined>;
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      */
-    public readonly instances!: pulumi.Output<number>;
+    public readonly instances!: pulumi.Output<number | undefined>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */
@@ -373,9 +371,6 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
             if ((!args || args.adminUsername === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminUsername'");
             }
-            if ((!args || args.instances === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'instances'");
-            }
             if ((!args || args.networkInterfaces === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaces'");
             }
@@ -529,7 +524,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      */
     instances?: pulumi.Input<number>;
     /**
@@ -737,9 +732,9 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     identity?: pulumi.Input<inputs.compute.LinuxVirtualMachineScaleSetIdentity>;
     /**
-     * The number of Virtual Machines in the Scale Set.
+     * The number of Virtual Machines in the Scale Set. Defaults to `0`.
      */
-    instances: pulumi.Input<number>;
+    instances?: pulumi.Input<number>;
     /**
      * The Azure location where the Linux Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
      */

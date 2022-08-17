@@ -15,35 +15,36 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = Azure.Storage.GetAccount.Invoke(new Azure.Storage.GetAccountInvokeArgs
-    ///         {
-    ///             Name = "storageaccountname",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceAzureTableStorage = new Azure.DataFactory.LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage", new Azure.DataFactory.LinkedServiceAzureTableStorageArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.PrimaryConnectionString),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     {
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceAzureTableStorage = new Azure.DataFactory.LinkedServiceAzureTableStorage("exampleLinkedServiceAzureTableStorage", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +56,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceAzureTableStorage:LinkedServiceAzureTableStorage")]
-    public partial class LinkedServiceAzureTableStorage : Pulumi.CustomResource
+    public partial class LinkedServiceAzureTableStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -150,7 +151,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceAzureTableStorageArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureTableStorageArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -222,9 +223,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureTableStorageArgs()
         {
         }
+        public static new LinkedServiceAzureTableStorageArgs Empty => new LinkedServiceAzureTableStorageArgs();
     }
 
-    public sealed class LinkedServiceAzureTableStorageState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureTableStorageState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -296,5 +298,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureTableStorageState()
         {
         }
+        public static new LinkedServiceAzureTableStorageState Empty => new LinkedServiceAzureTableStorageState();
     }
 }

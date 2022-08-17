@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionStorageQueueEndpointArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionStorageQueueEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Storage queue message time to live in seconds.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionStorageQueueEndpointArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionStorageQueueEndpointArgs Empty => new SystemTopicEventSubscriptionStorageQueueEndpointArgs();
     }
 }

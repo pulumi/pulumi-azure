@@ -15,71 +15,75 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var srcResourceGroup = new Azure.Core.ResourceGroup("srcResourceGroup", new()
     ///     {
-    ///         var srcResourceGroup = new Azure.Core.ResourceGroup("srcResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var srcAccount = new Azure.Storage.Account("srcAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = srcResourceGroup.Name,
-    ///             Location = srcResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
-    ///             {
-    ///                 VersioningEnabled = true,
-    ///                 ChangeFeedEnabled = true,
-    ///             },
-    ///         });
-    ///         var srcContainer = new Azure.Storage.Container("srcContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = srcAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var dstResourceGroup = new Azure.Core.ResourceGroup("dstResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var dstAccount = new Azure.Storage.Account("dstAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = dstResourceGroup.Name,
-    ///             Location = dstResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
-    ///             {
-    ///                 VersioningEnabled = true,
-    ///                 ChangeFeedEnabled = true,
-    ///             },
-    ///         });
-    ///         var dstContainer = new Azure.Storage.Container("dstContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = dstAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var example = new Azure.Storage.ObjectReplication("example", new Azure.Storage.ObjectReplicationArgs
-    ///         {
-    ///             SourceStorageAccountId = srcAccount.Id,
-    ///             DestinationStorageAccountId = dstAccount.Id,
-    ///             Rules = 
-    ///             {
-    ///                 new Azure.Storage.Inputs.ObjectReplicationRuleArgs
-    ///                 {
-    ///                     SourceContainerName = srcContainer.Name,
-    ///                     DestinationContainerName = dstContainer.Name,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var srcAccount = new Azure.Storage.Account("srcAccount", new()
+    ///     {
+    ///         ResourceGroupName = srcResourceGroup.Name,
+    ///         Location = srcResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         {
+    ///             VersioningEnabled = true,
+    ///             ChangeFeedEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var srcContainer = new Azure.Storage.Container("srcContainer", new()
+    ///     {
+    ///         StorageAccountName = srcAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var dstResourceGroup = new Azure.Core.ResourceGroup("dstResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var dstAccount = new Azure.Storage.Account("dstAccount", new()
+    ///     {
+    ///         ResourceGroupName = dstResourceGroup.Name,
+    ///         Location = dstResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
+    ///         {
+    ///             VersioningEnabled = true,
+    ///             ChangeFeedEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var dstContainer = new Azure.Storage.Container("dstContainer", new()
+    ///     {
+    ///         StorageAccountName = dstAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var example = new Azure.Storage.ObjectReplication("example", new()
+    ///     {
+    ///         SourceStorageAccountId = srcAccount.Id,
+    ///         DestinationStorageAccountId = dstAccount.Id,
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.Storage.Inputs.ObjectReplicationRuleArgs
+    ///             {
+    ///                 SourceContainerName = srcContainer.Name,
+    ///                 DestinationContainerName = dstContainer.Name,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +95,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/objectReplication:ObjectReplication")]
-    public partial class ObjectReplication : Pulumi.CustomResource
+    public partial class ObjectReplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Object Replication in the destination storage account.
@@ -167,7 +171,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ObjectReplicationArgs : Pulumi.ResourceArgs
+    public sealed class ObjectReplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
@@ -196,9 +200,10 @@ namespace Pulumi.Azure.Storage
         public ObjectReplicationArgs()
         {
         }
+        public static new ObjectReplicationArgs Empty => new ObjectReplicationArgs();
     }
 
-    public sealed class ObjectReplicationState : Pulumi.ResourceArgs
+    public sealed class ObjectReplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Object Replication in the destination storage account.
@@ -239,5 +244,6 @@ namespace Pulumi.Azure.Storage
         public ObjectReplicationState()
         {
         }
+        public static new ObjectReplicationState Empty => new ObjectReplicationState();
     }
 }

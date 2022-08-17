@@ -24,6 +24,65 @@ import javax.annotation.Nullable;
  * Manages a Healthcare Service.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.healthcare.Service;
+ * import com.pulumi.azure.healthcare.ServiceArgs;
+ * import com.pulumi.azure.healthcare.inputs.ServiceAuthenticationConfigurationArgs;
+ * import com.pulumi.azure.healthcare.inputs.ServiceCorsConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .resourceGroupName(&#34;sample-resource-group&#34;)
+ *             .location(&#34;westus2&#34;)
+ *             .kind(&#34;fhir-R4&#34;)
+ *             .cosmosdbThroughput(&#34;2000&#34;)
+ *             .accessPolicyObjectIds(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;environment&#34;, &#34;testenv&#34;),
+ *                 Map.entry(&#34;purpose&#34;, &#34;AcceptanceTests&#34;)
+ *             ))
+ *             .authenticationConfiguration(ServiceAuthenticationConfigurationArgs.builder()
+ *                 .authority(&#34;https://login.microsoftonline.com/$%7Bdata.azurerm_client_config.current.tenant_id%7D&#34;)
+ *                 .audience(&#34;https://azurehealthcareapis.com/&#34;)
+ *                 .smartProxyEnabled(&#34;true&#34;)
+ *                 .build())
+ *             .corsConfiguration(ServiceCorsConfigurationArgs.builder()
+ *                 .allowedOrigins(                
+ *                     &#34;http://www.example.com&#34;,
+ *                     &#34;http://www.example2.com&#34;)
+ *                 .allowedHeaders(                
+ *                     &#34;x-tempo-*&#34;,
+ *                     &#34;x-tempo2-*&#34;)
+ *                 .allowedMethods(                
+ *                     &#34;GET&#34;,
+ *                     &#34;PUT&#34;)
+ *                 .maxAgeInSeconds(&#34;500&#34;)
+ *                 .allowCredentials(&#34;true&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

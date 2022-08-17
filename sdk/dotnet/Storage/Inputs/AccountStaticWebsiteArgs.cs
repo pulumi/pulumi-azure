@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountStaticWebsiteArgs : Pulumi.ResourceArgs
+    public sealed class AccountStaticWebsiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountStaticWebsiteArgs()
         {
         }
+        public static new AccountStaticWebsiteArgs Empty => new AccountStaticWebsiteArgs();
     }
 }

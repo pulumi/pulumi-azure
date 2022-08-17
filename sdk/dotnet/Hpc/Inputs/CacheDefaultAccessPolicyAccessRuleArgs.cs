@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDefaultAccessPolicyAccessRuleArgs : Pulumi.ResourceArgs
+    public sealed class CacheDefaultAccessPolicyAccessRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access level for this rule. Possible values are: `rw`, `ro`, `no`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDefaultAccessPolicyAccessRuleArgs()
         {
         }
+        public static new CacheDefaultAccessPolicyAccessRuleArgs Empty => new CacheDefaultAccessPolicyAccessRuleArgs();
     }
 }

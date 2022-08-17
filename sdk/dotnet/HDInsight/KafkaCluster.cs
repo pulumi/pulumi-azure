@@ -15,80 +15,81 @@ namespace Pulumi.Azure.HDInsight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleKafkaCluster = new Azure.HDInsight.KafkaCluster("exampleKafkaCluster", new Azure.HDInsight.KafkaClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterVersion = "4.0",
-    ///             Tier = "Standard",
-    ///             ComponentVersion = new Azure.HDInsight.Inputs.KafkaClusterComponentVersionArgs
-    ///             {
-    ///                 Kafka = "2.1",
-    ///             },
-    ///             Gateway = new Azure.HDInsight.Inputs.KafkaClusterGatewayArgs
-    ///             {
-    ///                 Username = "acctestusrgw",
-    ///                 Password = "Password123!",
-    ///             },
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
-    ///                 {
-    ///                     StorageContainerId = exampleContainer.Id,
-    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                     IsDefault = true,
-    ///                 },
-    ///             },
-    ///             Roles = new Azure.HDInsight.Inputs.KafkaClusterRolesArgs
-    ///             {
-    ///                 HeadNode = new Azure.HDInsight.Inputs.KafkaClusterRolesHeadNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///                 WorkerNode = new Azure.HDInsight.Inputs.KafkaClusterRolesWorkerNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                     NumberOfDisksPerNode = 3,
-    ///                     TargetInstanceCount = 3,
-    ///                 },
-    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.KafkaClusterRolesZookeeperNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleKafkaCluster = new Azure.HDInsight.KafkaCluster("exampleKafkaCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "4.0",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.KafkaClusterComponentVersionArgs
+    ///         {
+    ///             Kafka = "2.1",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.KafkaClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password123!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.KafkaClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.KafkaClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.KafkaClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.KafkaClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 NumberOfDisksPerNode = 3,
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.KafkaClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +101,7 @@ namespace Pulumi.Azure.HDInsight
     /// ```
     /// </summary>
     [AzureResourceType("azure:hdinsight/kafkaCluster:KafkaCluster")]
-    public partial class KafkaCluster : Pulumi.CustomResource
+    public partial class KafkaCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -272,7 +273,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
-    public sealed class KafkaClusterArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -397,9 +398,10 @@ namespace Pulumi.Azure.HDInsight
         public KafkaClusterArgs()
         {
         }
+        public static new KafkaClusterArgs Empty => new KafkaClusterArgs();
     }
 
-    public sealed class KafkaClusterState : Pulumi.ResourceArgs
+    public sealed class KafkaClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -542,5 +544,6 @@ namespace Pulumi.Azure.HDInsight
         public KafkaClusterState()
         {
         }
+        public static new KafkaClusterState Empty => new KafkaClusterState();
     }
 }

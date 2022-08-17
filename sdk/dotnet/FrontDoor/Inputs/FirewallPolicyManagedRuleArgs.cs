@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FirewallPolicyManagedRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyManagedRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusions")]
         private InputList<Inputs.FirewallPolicyManagedRuleExclusionArgs>? _exclusions;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FirewallPolicyManagedRuleArgs()
         {
         }
+        public static new FirewallPolicyManagedRuleArgs Empty => new FirewallPolicyManagedRuleArgs();
     }
 }

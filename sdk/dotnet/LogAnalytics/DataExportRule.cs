@@ -15,45 +15,46 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleDataExportRule = new Azure.LogAnalytics.DataExportRule("exampleDataExportRule", new Azure.LogAnalytics.DataExportRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             DestinationResourceId = exampleAccount.Id,
-    ///             TableNames = 
-    ///             {
-    ///                 "Heartbeat",
-    ///             },
-    ///             Enabled = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleDataExportRule = new Azure.LogAnalytics.DataExportRule("exampleDataExportRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         DestinationResourceId = exampleAccount.Id,
+    ///         TableNames = new[]
+    ///         {
+    ///             "Heartbeat",
+    ///         },
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +66,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/dataExportRule:DataExportRule")]
-    public partial class DataExportRule : Pulumi.CustomResource
+    public partial class DataExportRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
@@ -153,7 +154,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class DataExportRuleArgs : Pulumi.ResourceArgs
+    public sealed class DataExportRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
@@ -200,9 +201,10 @@ namespace Pulumi.Azure.LogAnalytics
         public DataExportRuleArgs()
         {
         }
+        public static new DataExportRuleArgs Empty => new DataExportRuleArgs();
     }
 
-    public sealed class DataExportRuleState : Pulumi.ResourceArgs
+    public sealed class DataExportRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
@@ -255,5 +257,6 @@ namespace Pulumi.Azure.LogAnalytics
         public DataExportRuleState()
         {
         }
+        public static new DataExportRuleState Empty => new DataExportRuleState();
     }
 }

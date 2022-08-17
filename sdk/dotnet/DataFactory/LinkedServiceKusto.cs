@@ -15,62 +15,65 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///         });
-    ///         var exampleLinkedServiceKusto = new Azure.DataFactory.LinkedServiceKusto("exampleLinkedServiceKusto", new Azure.DataFactory.LinkedServiceKustoArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             KustoEndpoint = exampleCluster.Uri,
-    ///             KustoDatabaseName = exampleDatabase.Name,
-    ///             UseManagedIdentity = true,
-    ///         });
-    ///         var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new Azure.Kusto.DatabasePrincipalAssignmentArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClusterName = exampleCluster.Name,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             TenantId = exampleFactory.Identity.Apply(identity =&gt; identity?.TenantId),
-    ///             PrincipalId = exampleFactory.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///             PrincipalType = "App",
-    ///             Role = "Viewer",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceKusto = new Azure.DataFactory.LinkedServiceKusto("exampleLinkedServiceKusto", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         KustoEndpoint = exampleCluster.Uri,
+    ///         KustoDatabaseName = exampleDatabase.Name,
+    ///         UseManagedIdentity = true,
+    ///     });
+    /// 
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClusterName = exampleCluster.Name,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         TenantId = exampleFactory.Identity.Apply(identity =&gt; identity?.TenantId),
+    ///         PrincipalId = exampleFactory.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///         PrincipalType = "App",
+    ///         Role = "Viewer",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -82,7 +85,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceKusto:LinkedServiceKusto")]
-    public partial class LinkedServiceKusto : Pulumi.CustomResource
+    public partial class LinkedServiceKusto : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -207,7 +210,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceKustoArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceKustoArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -309,9 +312,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceKustoArgs()
         {
         }
+        public static new LinkedServiceKustoArgs Empty => new LinkedServiceKustoArgs();
     }
 
-    public sealed class LinkedServiceKustoState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceKustoState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -413,5 +417,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceKustoState()
         {
         }
+        public static new LinkedServiceKustoState Empty => new LinkedServiceKustoState();
     }
 }

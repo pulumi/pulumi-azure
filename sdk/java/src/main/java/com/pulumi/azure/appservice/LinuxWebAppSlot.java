@@ -461,14 +461,14 @@ public class LinuxWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
     @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
     private Output</* @Nullable */ String> virtualNetworkSubnetId;
 
     /**
-     * @return The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
      * 
      */
     public Output<Optional<String>> virtualNetworkSubnetId() {

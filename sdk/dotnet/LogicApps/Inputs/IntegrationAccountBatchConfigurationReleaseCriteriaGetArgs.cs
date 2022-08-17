@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The batch size in bytes for the Logic App Integration Batch Configuration.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs()
         {
         }
+        public static new IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs Empty => new IntegrationAccountBatchConfigurationReleaseCriteriaGetArgs();
     }
 }

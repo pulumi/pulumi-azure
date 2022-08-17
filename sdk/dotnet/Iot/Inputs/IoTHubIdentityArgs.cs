@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubIdentityArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubIdentityArgs()
         {
         }
+        public static new IoTHubIdentityArgs Empty => new IoTHubIdentityArgs();
     }
 }

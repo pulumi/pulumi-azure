@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetApplicationGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetApplicationGateway.InvokeAsync(new Azure.Network.GetApplicationGatewayArgs
-        ///         {
-        ///             Name = "existing-app-gateway",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-app-gateway",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getApplicationGatewayResult =&gt; getApplicationGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetApplicationGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetApplicationGateway.InvokeAsync(new Azure.Network.GetApplicationGatewayArgs
-        ///         {
-        ///             Name = "existing-app-gateway",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-app-gateway",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getApplicationGatewayResult =&gt; getApplicationGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetApplicationGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Application Gateway.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetApplicationGatewayArgs()
         {
         }
+        public static new GetApplicationGatewayArgs Empty => new GetApplicationGatewayArgs();
     }
 
-    public sealed class GetApplicationGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Application Gateway.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetApplicationGatewayInvokeArgs()
         {
         }
+        public static new GetApplicationGatewayInvokeArgs Empty => new GetApplicationGatewayInvokeArgs();
     }
 
 

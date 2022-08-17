@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataShare.Inputs
 {
 
-    public sealed class DatasetBlobStorageStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class DatasetBlobStorageStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataShare.Inputs
         public DatasetBlobStorageStorageAccountArgs()
         {
         }
+        public static new DatasetBlobStorageStorageAccountArgs Empty => new DatasetBlobStorageStorageAccountArgs();
     }
 }

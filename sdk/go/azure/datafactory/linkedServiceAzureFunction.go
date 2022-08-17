@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFunctionApp := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
-// 			Name:              pulumi.String("test-azure-functions"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "exampleLinkedServiceAzureFunction", &datafactory.LinkedServiceAzureFunctionArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Url: exampleFunctionApp.ApplyT(func(exampleFunctionApp appservice.GetFunctionAppResult) (string, error) {
-// 				return fmt.Sprintf("https://%v", exampleFunctionApp.DefaultHostname), nil
-// 			}).(pulumi.StringOutput),
-// 			Key: pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFunctionApp := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
+//				Name:              pulumi.String("test-azure-functions"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "exampleLinkedServiceAzureFunction", &datafactory.LinkedServiceAzureFunctionArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Url: exampleFunctionApp.ApplyT(func(exampleFunctionApp appservice.GetFunctionAppResult) (string, error) {
+//					return fmt.Sprintf("https://%v", exampleFunctionApp.DefaultHostname), nil
+//				}).(pulumi.StringOutput),
+//				Key: pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceAzureFunction:LinkedServiceAzureFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceAzureFunction struct {
 	pulumi.CustomResourceState
@@ -255,7 +260,7 @@ func (i *LinkedServiceAzureFunction) ToLinkedServiceAzureFunctionOutputWithConte
 // LinkedServiceAzureFunctionArrayInput is an input type that accepts LinkedServiceAzureFunctionArray and LinkedServiceAzureFunctionArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFunctionArrayInput` via:
 //
-//          LinkedServiceAzureFunctionArray{ LinkedServiceAzureFunctionArgs{...} }
+//	LinkedServiceAzureFunctionArray{ LinkedServiceAzureFunctionArgs{...} }
 type LinkedServiceAzureFunctionArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i LinkedServiceAzureFunctionArray) ToLinkedServiceAzureFunctionArrayOutput
 // LinkedServiceAzureFunctionMapInput is an input type that accepts LinkedServiceAzureFunctionMap and LinkedServiceAzureFunctionMapOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFunctionMapInput` via:
 //
-//          LinkedServiceAzureFunctionMap{ "key": LinkedServiceAzureFunctionArgs{...} }
+//	LinkedServiceAzureFunctionMap{ "key": LinkedServiceAzureFunctionArgs{...} }
 type LinkedServiceAzureFunctionMapInput interface {
 	pulumi.Input
 

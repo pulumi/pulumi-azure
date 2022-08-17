@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			AuthenticationType: pulumi.String("Anonymous"),
-// 			Url:                pulumi.String("https://www.bing.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetParquet(ctx, "exampleDatasetParquet", &datafactory.DatasetParquetArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceWeb.Name,
-// 			HttpServerLocation: &datafactory.DatasetParquetHttpServerLocationArgs{
-// 				RelativeUrl: pulumi.String("http://www.bing.com"),
-// 				Path:        pulumi.String("foo/bar/"),
-// 				Filename:    pulumi.String("fizz.txt"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				AuthenticationType: pulumi.String("Anonymous"),
+//				Url:                pulumi.String("https://www.bing.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetParquet(ctx, "exampleDatasetParquet", &datafactory.DatasetParquetArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
+//				HttpServerLocation: &datafactory.DatasetParquetHttpServerLocationArgs{
+//					RelativeUrl: pulumi.String("http://www.bing.com"),
+//					Path:        pulumi.String("foo/bar/"),
+//					Filename:    pulumi.String("fizz.txt"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Data Factory Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetParquet:DatasetParquet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetParquet:DatasetParquet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetParquet struct {
 	pulumi.CustomResourceState
@@ -278,7 +283,7 @@ func (i *DatasetParquet) ToDatasetParquetOutputWithContext(ctx context.Context) 
 // DatasetParquetArrayInput is an input type that accepts DatasetParquetArray and DatasetParquetArrayOutput values.
 // You can construct a concrete instance of `DatasetParquetArrayInput` via:
 //
-//          DatasetParquetArray{ DatasetParquetArgs{...} }
+//	DatasetParquetArray{ DatasetParquetArgs{...} }
 type DatasetParquetArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +308,7 @@ func (i DatasetParquetArray) ToDatasetParquetArrayOutputWithContext(ctx context.
 // DatasetParquetMapInput is an input type that accepts DatasetParquetMap and DatasetParquetMapOutput values.
 // You can construct a concrete instance of `DatasetParquetMapInput` via:
 //
-//          DatasetParquetMap{ "key": DatasetParquetArgs{...} }
+//	DatasetParquetMap{ "key": DatasetParquetArgs{...} }
 type DatasetParquetMapInput interface {
 	pulumi.Input
 

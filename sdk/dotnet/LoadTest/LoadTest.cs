@@ -15,25 +15,24 @@ namespace Pulumi.Azure.LoadTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLoadTest = new Azure.LoadTest.LoadTest("exampleLoadTest", new Azure.LoadTest.LoadTestArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLoadTest = new Azure.LoadTest.LoadTest("exampleLoadTest", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.LoadTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:loadtest/loadTest:LoadTest")]
-    public partial class LoadTest : Pulumi.CustomResource
+    public partial class LoadTest : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Public URI of the Data Plane.
@@ -121,7 +120,7 @@ namespace Pulumi.Azure.LoadTest
         }
     }
 
-    public sealed class LoadTestArgs : Pulumi.ResourceArgs
+    public sealed class LoadTestArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Load Test should exist. Changing this forces a new Load Test to be created.
@@ -156,9 +155,10 @@ namespace Pulumi.Azure.LoadTest
         public LoadTestArgs()
         {
         }
+        public static new LoadTestArgs Empty => new LoadTestArgs();
     }
 
-    public sealed class LoadTestState : Pulumi.ResourceArgs
+    public sealed class LoadTestState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Public URI of the Data Plane.
@@ -199,5 +199,6 @@ namespace Pulumi.Azure.LoadTest
         public LoadTestState()
         {
         }
+        public static new LoadTestState Empty => new LoadTestState();
     }
 }

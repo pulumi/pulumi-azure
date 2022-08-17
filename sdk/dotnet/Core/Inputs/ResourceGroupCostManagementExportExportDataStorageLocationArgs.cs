@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class ResourceGroupCostManagementExportExportDataStorageLocationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupCostManagementExportExportDataStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Resource Manager ID of the container where exports will be uploaded.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Core.Inputs
         public ResourceGroupCostManagementExportExportDataStorageLocationArgs()
         {
         }
+        public static new ResourceGroupCostManagementExportExportDataStorageLocationArgs Empty => new ResourceGroupCostManagementExportExportDataStorageLocationArgs();
     }
 }

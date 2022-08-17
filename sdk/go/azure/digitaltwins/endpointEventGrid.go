@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/digitaltwins"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = digitaltwins.NewEndpointEventGrid(ctx, "exampleEndpointEventGrid", &digitaltwins.EndpointEventGridArgs{
-// 			DigitalTwinsId:                   exampleInstance.ID(),
-// 			EventgridTopicEndpoint:           exampleTopic.Endpoint,
-// 			EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,
-// 			EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = digitaltwins.NewEndpointEventGrid(ctx, "exampleEndpointEventGrid", &digitaltwins.EndpointEventGridArgs{
+//				DigitalTwinsId:                   exampleInstance.ID(),
+//				EventgridTopicEndpoint:           exampleTopic.Endpoint,
+//				EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,
+//				EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Digital Twins Eventgrid Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:digitaltwins/endpointEventGrid:EndpointEventGrid example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
+//
+//	$ pulumi import azure:digitaltwins/endpointEventGrid:EndpointEventGrid example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1/endpoints/ep1
+//
 // ```
 type EndpointEventGrid struct {
 	pulumi.CustomResourceState
@@ -216,7 +221,7 @@ func (i *EndpointEventGrid) ToEndpointEventGridOutputWithContext(ctx context.Con
 // EndpointEventGridArrayInput is an input type that accepts EndpointEventGridArray and EndpointEventGridArrayOutput values.
 // You can construct a concrete instance of `EndpointEventGridArrayInput` via:
 //
-//          EndpointEventGridArray{ EndpointEventGridArgs{...} }
+//	EndpointEventGridArray{ EndpointEventGridArgs{...} }
 type EndpointEventGridArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i EndpointEventGridArray) ToEndpointEventGridArrayOutputWithContext(ctx co
 // EndpointEventGridMapInput is an input type that accepts EndpointEventGridMap and EndpointEventGridMapOutput values.
 // You can construct a concrete instance of `EndpointEventGridMapInput` via:
 //
-//          EndpointEventGridMap{ "key": EndpointEventGridArgs{...} }
+//	EndpointEventGridMap{ "key": EndpointEventGridArgs{...} }
 type EndpointEventGridMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphIndexPolicyCompositeIndexIndexArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphIndexPolicyCompositeIndexIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Order of the index. Possible values are `Ascending` or `Descending`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphIndexPolicyCompositeIndexIndexArgs()
         {
         }
+        public static new GremlinGraphIndexPolicyCompositeIndexIndexArgs Empty => new GremlinGraphIndexPolicyCompositeIndexIndexArgs();
     }
 }

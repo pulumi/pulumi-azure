@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterMonitorArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Operations Management Suite (OMS) workspace ID.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterMonitorArgs()
         {
         }
+        public static new InteractiveQueryClusterMonitorArgs Empty => new InteractiveQueryClusterMonitorArgs();
     }
 }

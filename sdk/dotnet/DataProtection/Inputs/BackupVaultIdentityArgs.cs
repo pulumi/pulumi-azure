@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataProtection.Inputs
 {
 
-    public sealed class BackupVaultIdentityArgs : Pulumi.ResourceArgs
+    public sealed class BackupVaultIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public BackupVaultIdentityArgs()
         {
         }
+        public static new BackupVaultIdentityArgs Empty => new BackupVaultIdentityArgs();
     }
 }

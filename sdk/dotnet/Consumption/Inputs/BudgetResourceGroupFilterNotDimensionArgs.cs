@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetResourceGroupFilterNotDimensionArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceGroupFilterNotDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the column to use for the filter. The allowed values are `ChargeType`, `Frequency`, `InvoiceId`, `Meter`, `MeterCategory`, `MeterSubCategory`, `PartNumber`, `PricingModel`, `Product`, `ProductOrderId`, `ProductOrderName`, `PublisherType`, `ReservationId`, `ReservationName`, `ResourceGroupName`, `ResourceGuid`, `ResourceId`, `ResourceLocation`, `ResourceType`, `ServiceFamily`, `ServiceName`, `SubscriptionID`, `SubscriptionName`, `UnitOfMeasure`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetResourceGroupFilterNotDimensionArgs()
         {
         }
+        public static new BudgetResourceGroupFilterNotDimensionArgs Empty => new BudgetResourceGroupFilterNotDimensionArgs();
     }
 }

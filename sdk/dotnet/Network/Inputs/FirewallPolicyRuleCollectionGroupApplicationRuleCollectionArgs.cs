@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take for the application rules in this collection. Possible values are `Allow` and `Deny`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs Empty => new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs();
     }
 }

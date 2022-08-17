@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
-// 			Name:              pulumi.String("example-apim"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
-// 				return exampleService.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			Revision: pulumi.String("1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
-// 			ApiManagementId: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
-// 				return exampleService.Id, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiTag(ctx, "exampleApiTag", &apimanagement.ApiTagArgs{
-// 			ApiId: exampleApi.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
+//				Name:              pulumi.String("example-apim"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
+//					return exampleService.Name, nil
+//				}).(pulumi.StringOutput),
+//				Revision: pulumi.String("1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
+//				ApiManagementId: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (string, error) {
+//					return exampleService.Id, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiTag(ctx, "exampleApiTag", &apimanagement.ApiTagArgs{
+//				ApiId: exampleApi.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // API Management API Tags can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
+//
+//	$ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
+//
 // ```
 type ApiTag struct {
 	pulumi.CustomResourceState
@@ -171,7 +176,7 @@ func (i *ApiTag) ToApiTagOutputWithContext(ctx context.Context) ApiTagOutput {
 // ApiTagArrayInput is an input type that accepts ApiTagArray and ApiTagArrayOutput values.
 // You can construct a concrete instance of `ApiTagArrayInput` via:
 //
-//          ApiTagArray{ ApiTagArgs{...} }
+//	ApiTagArray{ ApiTagArgs{...} }
 type ApiTagArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +201,7 @@ func (i ApiTagArray) ToApiTagArrayOutputWithContext(ctx context.Context) ApiTagA
 // ApiTagMapInput is an input type that accepts ApiTagMap and ApiTagMapOutput values.
 // You can construct a concrete instance of `ApiTagMapInput` via:
 //
-//          ApiTagMap{ "key": ApiTagArgs{...} }
+//	ApiTagMap{ "key": ApiTagArgs{...} }
 type ApiTagMapInput interface {
 	pulumi.Input
 

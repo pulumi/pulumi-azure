@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Standard_D13_v2"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterName:       exampleCluster.Name,
-// 			HotCachePeriod:    pulumi.String("P7D"),
-// 			SoftDeletePeriod:  pulumi.String("P31D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ClusterName:       exampleCluster.Name,
-// 			DatabaseName:      exampleDatabase.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			PrincipalId:       pulumi.String(current.ClientId),
-// 			PrincipalType:     pulumi.String("App"),
-// 			Role:              pulumi.String("Viewer"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Standard_D13_v2"),
+//					Capacity: pulumi.Int(2),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//				HotCachePeriod:    pulumi.String("P7D"),
+//				SoftDeletePeriod:  pulumi.String("P31D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClusterName:       exampleCluster.Name,
+//				DatabaseName:      exampleDatabase.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				PrincipalId:       pulumi.String(current.ClientId),
+//				PrincipalType:     pulumi.String("App"),
+//				Role:              pulumi.String("Viewer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // Kusto Database Principal Assignment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/PrincipalAssignments/assignment1
+//
+//	$ pulumi import azure:kusto/databasePrincipalAssignment:DatabasePrincipalAssignment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/PrincipalAssignments/assignment1
+//
 // ```
 type DatabasePrincipalAssignment struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *DatabasePrincipalAssignment) ToDatabasePrincipalAssignmentOutputWithCon
 // DatabasePrincipalAssignmentArrayInput is an input type that accepts DatabasePrincipalAssignmentArray and DatabasePrincipalAssignmentArrayOutput values.
 // You can construct a concrete instance of `DatabasePrincipalAssignmentArrayInput` via:
 //
-//          DatabasePrincipalAssignmentArray{ DatabasePrincipalAssignmentArgs{...} }
+//	DatabasePrincipalAssignmentArray{ DatabasePrincipalAssignmentArgs{...} }
 type DatabasePrincipalAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i DatabasePrincipalAssignmentArray) ToDatabasePrincipalAssignmentArrayOutp
 // DatabasePrincipalAssignmentMapInput is an input type that accepts DatabasePrincipalAssignmentMap and DatabasePrincipalAssignmentMapOutput values.
 // You can construct a concrete instance of `DatabasePrincipalAssignmentMapInput` via:
 //
-//          DatabasePrincipalAssignmentMap{ "key": DatabasePrincipalAssignmentArgs{...} }
+//	DatabasePrincipalAssignmentMap{ "key": DatabasePrincipalAssignmentArgs{...} }
 type DatabasePrincipalAssignmentMapInput interface {
 	pulumi.Input
 

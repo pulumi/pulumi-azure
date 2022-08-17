@@ -17,46 +17,44 @@ namespace Pulumi.Azure.ContainerService
     /// This example provisions a basic Managed Kubernetes Cluster.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DnsPrefix = "exampleaks1",
-    ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///             {
-    ///                 Name = "default",
-    ///                 NodeCount = 1,
-    ///                 VmSize = "Standard_D2_v2",
-    ///             },
-    ///             Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///         this.ClientCertificate = exampleKubernetesCluster.KubeConfigs.Apply(kubeConfigs =&gt; kubeConfigs[0].ClientCertificate);
-    ///         this.KubeConfig = exampleKubernetesCluster.KubeConfigRaw;
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    ///     [Output("clientCertificate")]
-    ///     public Output&lt;string&gt; ClientCertificate { get; set; }
-    ///     [Output("kubeConfig")]
-    ///     public Output&lt;string&gt; KubeConfig { get; set; }
-    /// }
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DnsPrefix = "exampleaks1",
+    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         {
+    ///             Name = "default",
+    ///             NodeCount = 1,
+    ///             VmSize = "Standard_D2_v2",
+    ///         },
+    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["clientCertificate"] = exampleKubernetesCluster.KubeConfigs.Apply(kubeConfigs =&gt; kubeConfigs[0].ClientCertificate),
+    ///         ["kubeConfig"] = exampleKubernetesCluster.KubeConfigRaw,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +66,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/kubernetesCluster:KubernetesCluster")]
-    public partial class KubernetesCluster : Pulumi.CustomResource
+    public partial class KubernetesCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -402,7 +400,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class KubernetesClusterArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -653,9 +651,10 @@ namespace Pulumi.Azure.ContainerService
         public KubernetesClusterArgs()
         {
         }
+        public static new KubernetesClusterArgs Empty => new KubernetesClusterArgs();
     }
 
-    public sealed class KubernetesClusterState : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `aci_connector_linux` block as defined below. For more details, please visit [Create and configure an AKS cluster to use virtual nodes](https://docs.microsoft.com/azure/aks/virtual-nodes-portal).
@@ -972,5 +971,6 @@ namespace Pulumi.Azure.ContainerService
         public KubernetesClusterState()
         {
         }
+        public static new KubernetesClusterState Empty => new KubernetesClusterState();
     }
 }

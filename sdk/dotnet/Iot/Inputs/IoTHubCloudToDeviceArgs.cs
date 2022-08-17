@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubCloudToDeviceArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubCloudToDeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubCloudToDeviceArgs()
         {
         }
+        public static new IoTHubCloudToDeviceArgs Empty => new IoTHubCloudToDeviceArgs();
     }
 }

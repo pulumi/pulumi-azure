@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayConnectionRoutingPropagatedRouteTableArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayConnectionRoutingPropagatedRouteTableArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputList<string>? _labels;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayConnectionRoutingPropagatedRouteTableArgs()
         {
         }
+        public static new VpnGatewayConnectionRoutingPropagatedRouteTableArgs Empty => new VpnGatewayConnectionRoutingPropagatedRouteTableArgs();
     }
 }

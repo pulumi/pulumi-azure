@@ -13,44 +13,44 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSrvRecord = new Azure.Dns.SrvRecord("exampleSrvRecord", new Azure.Dns.SrvRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.Dns.Inputs.SrvRecordRecordArgs
-    ///                 {
-    ///                     Priority = 1,
-    ///                     Weight = 5,
-    ///                     Port = 8080,
-    ///                     Target = "target1.contoso.com",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("exampleSrvRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.SrvRecordRecordArgs
+    ///             {
+    ///                 Priority = 1,
+    ///                 Weight = 5,
+    ///                 Port = 8080,
+    ///                 Target = "target1.contoso.com",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/srvRecord:SrvRecord")]
-    public partial class SrvRecord : Pulumi.CustomResource
+    public partial class SrvRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS SRV Record.
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class SrvRecordArgs : Pulumi.ResourceArgs
+    public sealed class SrvRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS SRV Record.
@@ -203,9 +203,10 @@ namespace Pulumi.Azure.Dns
         public SrvRecordArgs()
         {
         }
+        public static new SrvRecordArgs Empty => new SrvRecordArgs();
     }
 
-    public sealed class SrvRecordState : Pulumi.ResourceArgs
+    public sealed class SrvRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS SRV Record.
@@ -264,5 +265,6 @@ namespace Pulumi.Azure.Dns
         public SrvRecordState()
         {
         }
+        public static new SrvRecordState Empty => new SrvRecordState();
     }
 }

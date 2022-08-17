@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/domainservices"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/domainservices"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleService, err := domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
-// 			Name:              "example-ds",
-// 			ResourceGroupName: "example-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = domainservices.NewServiceTrust(ctx, "exampleServiceTrust", &domainservices.ServiceTrustArgs{
-// 			DomainServiceId:   pulumi.String(exampleService.Id),
-// 			TrustedDomainFqdn: pulumi.String("example.com"),
-// 			TrustedDomainDnsIps: pulumi.StringArray{
-// 				pulumi.String("10.1.0.3"),
-// 				pulumi.String("10.1.0.4"),
-// 			},
-// 			Password: pulumi.String("Password123"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleService, err := domainservices.LookupService(ctx, &domainservices.LookupServiceArgs{
+//				Name:              "example-ds",
+//				ResourceGroupName: "example-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = domainservices.NewServiceTrust(ctx, "exampleServiceTrust", &domainservices.ServiceTrustArgs{
+//				DomainServiceId:   pulumi.String(exampleService.Id),
+//				TrustedDomainFqdn: pulumi.String("example.com"),
+//				TrustedDomainDnsIps: pulumi.StringArray{
+//					pulumi.String("10.1.0.3"),
+//					pulumi.String("10.1.0.4"),
+//				},
+//				Password: pulumi.String("Password123"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
+//
+//	$ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
+//
 // ```
 type ServiceTrust struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *ServiceTrust) ToServiceTrustOutputWithContext(ctx context.Context) Serv
 // ServiceTrustArrayInput is an input type that accepts ServiceTrustArray and ServiceTrustArrayOutput values.
 // You can construct a concrete instance of `ServiceTrustArrayInput` via:
 //
-//          ServiceTrustArray{ ServiceTrustArgs{...} }
+//	ServiceTrustArray{ ServiceTrustArgs{...} }
 type ServiceTrustArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i ServiceTrustArray) ToServiceTrustArrayOutputWithContext(ctx context.Cont
 // ServiceTrustMapInput is an input type that accepts ServiceTrustMap and ServiceTrustMapOutput values.
 // You can construct a concrete instance of `ServiceTrustMapInput` via:
 //
-//          ServiceTrustMap{ "key": ServiceTrustArgs{...} }
+//	ServiceTrustMap{ "key": ServiceTrustArgs{...} }
 type ServiceTrustMapInput interface {
 	pulumi.Input
 

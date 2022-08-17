@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class GetStandardSiteConfigCorsArgs : Pulumi.InvokeArgs
+    public sealed class GetStandardSiteConfigCorsArgs : global::Pulumi.InvokeArgs
     {
         [Input("allowedOrigins", required: true)]
         private List<string>? _allowedOrigins;
@@ -26,5 +26,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public GetStandardSiteConfigCorsArgs()
         {
         }
+        public static new GetStandardSiteConfigCorsArgs Empty => new GetStandardSiteConfigCorsArgs();
     }
 }

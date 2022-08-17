@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class RouteFilterRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class RouteFilterRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access type of the rule. The only possible value is `Allow`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public RouteFilterRuleGetArgs()
         {
         }
+        public static new RouteFilterRuleGetArgs Empty => new RouteFilterRuleGetArgs();
     }
 }

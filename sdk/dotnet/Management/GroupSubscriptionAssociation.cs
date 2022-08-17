@@ -17,29 +17,29 @@ namespace Pulumi.Azure.Management
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
-    ///         var exampleGroup = Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-    ///         {
-    ///             Name = "exampleManagementGroup",
-    ///         }));
-    ///         var exampleSubscription = Output.Create(Azure.Core.GetSubscription.InvokeAsync(new Azure.Core.GetSubscriptionArgs
-    ///         {
-    ///             SubscriptionId = "12345678-1234-1234-1234-123456789012",
-    ///         }));
-    ///         var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", new Azure.Management.GroupSubscriptionAssociationArgs
-    ///         {
-    ///             ManagementGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id),
-    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///         });
-    ///     }
+    ///         Name = "exampleManagementGroup",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke(new()
+    ///     {
+    ///         SubscriptionId = "12345678-1234-1234-1234-123456789012",
+    ///     });
+    /// 
+    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", new()
+    ///     {
+    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation")]
-    public partial class GroupSubscriptionAssociation : Pulumi.CustomResource
+    public partial class GroupSubscriptionAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class GroupSubscriptionAssociationArgs : Pulumi.ResourceArgs
+    public sealed class GroupSubscriptionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
@@ -126,9 +126,10 @@ namespace Pulumi.Azure.Management
         public GroupSubscriptionAssociationArgs()
         {
         }
+        public static new GroupSubscriptionAssociationArgs Empty => new GroupSubscriptionAssociationArgs();
     }
 
-    public sealed class GroupSubscriptionAssociationState : Pulumi.ResourceArgs
+    public sealed class GroupSubscriptionAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
@@ -145,5 +146,6 @@ namespace Pulumi.Azure.Management
         public GroupSubscriptionAssociationState()
         {
         }
+        public static new GroupSubscriptionAssociationState Empty => new GroupSubscriptionAssociationState();
     }
 }

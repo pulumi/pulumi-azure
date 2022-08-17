@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new Azure.Automation.RunBookArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             LogVerbose = true,
-    ///             LogProgress = true,
-    ///             Description = "This is an example runbook",
-    ///             RunbookType = "PowerShellWorkflow",
-    ///             PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
-    ///             {
-    ///                 Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         LogVerbose = true,
+    ///         LogProgress = true,
+    ///         Description = "This is an example runbook",
+    ///         RunbookType = "PowerShellWorkflow",
+    ///         PublishContentLink = new Azure.Automation.Inputs.RunBookPublishContentLinkArgs
+    ///         {
+    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/runBook:RunBook")]
-    public partial class RunBook : Pulumi.CustomResource
+    public partial class RunBook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class RunBookArgs : Pulumi.ResourceArgs
+    public sealed class RunBookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
@@ -260,9 +260,10 @@ namespace Pulumi.Azure.Automation
         public RunBookArgs()
         {
         }
+        public static new RunBookArgs Empty => new RunBookArgs();
     }
 
-    public sealed class RunBookState : Pulumi.ResourceArgs
+    public sealed class RunBookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Runbook is created. Changing this forces a new resource to be created.
@@ -347,5 +348,6 @@ namespace Pulumi.Azure.Automation
         public RunBookState()
         {
         }
+        public static new RunBookState Empty => new RunBookState();
     }
 }

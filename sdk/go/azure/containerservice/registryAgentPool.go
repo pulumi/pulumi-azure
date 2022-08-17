@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europ"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Premium"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistryAgentPool(ctx, "exampleRegistryAgentPool", &containerservice.RegistryAgentPoolArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			ContainerRegistryName: exampleRegistry.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistryAgentPool(ctx, "exampleRegistryAgentPool", &containerservice.RegistryAgentPoolArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				ContainerRegistryName: exampleRegistry.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
+//
+//	$ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
+//
 // ```
 type RegistryAgentPool struct {
 	pulumi.CustomResourceState
@@ -222,7 +227,7 @@ func (i *RegistryAgentPool) ToRegistryAgentPoolOutputWithContext(ctx context.Con
 // RegistryAgentPoolArrayInput is an input type that accepts RegistryAgentPoolArray and RegistryAgentPoolArrayOutput values.
 // You can construct a concrete instance of `RegistryAgentPoolArrayInput` via:
 //
-//          RegistryAgentPoolArray{ RegistryAgentPoolArgs{...} }
+//	RegistryAgentPoolArray{ RegistryAgentPoolArgs{...} }
 type RegistryAgentPoolArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +252,7 @@ func (i RegistryAgentPoolArray) ToRegistryAgentPoolArrayOutputWithContext(ctx co
 // RegistryAgentPoolMapInput is an input type that accepts RegistryAgentPoolMap and RegistryAgentPoolMapOutput values.
 // You can construct a concrete instance of `RegistryAgentPoolMapInput` via:
 //
-//          RegistryAgentPoolMap{ "key": RegistryAgentPoolArgs{...} }
+//	RegistryAgentPoolMap{ "key": RegistryAgentPoolArgs{...} }
 type RegistryAgentPoolMapInput interface {
 	pulumi.Input
 

@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetNamespaceAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetNamespaceAuthorizationRuleArgs
-        ///         {
-        ///             Name = "examplerule",
-        ///             NamespaceName = "examplenamespace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.RuleId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplerule",
+        ///         NamespaceName = "examplenamespace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("ruleId")]
-        ///     public Output&lt;string&gt; RuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ruleId"] = example.Apply(getNamespaceAuthorizationRuleResult =&gt; getNamespaceAuthorizationRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetNamespaceAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetNamespaceAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetNamespaceAuthorizationRuleArgs
-        ///         {
-        ///             Name = "examplerule",
-        ///             NamespaceName = "examplenamespace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.RuleId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "examplerule",
+        ///         NamespaceName = "examplenamespace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("ruleId")]
-        ///     public Output&lt;string&gt; RuleId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ruleId"] = example.Apply(getNamespaceAuthorizationRuleResult =&gt; getNamespaceAuthorizationRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetNamespaceAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace Authorization Rule.
@@ -107,9 +105,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceAuthorizationRuleArgs()
         {
         }
+        public static new GetNamespaceAuthorizationRuleArgs Empty => new GetNamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNamespaceAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the ServiceBus Namespace Authorization Rule.
@@ -135,6 +134,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetNamespaceAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetNamespaceAuthorizationRuleInvokeArgs Empty => new GetNamespaceAuthorizationRuleInvokeArgs();
     }
 
 

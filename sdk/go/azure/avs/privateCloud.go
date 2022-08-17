@@ -16,7 +16,9 @@ import (
 // VMware Private Clouds can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1
+//
+//	$ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/PrivateClouds/privateCloud1
+//
 // ```
 type PrivateCloud struct {
 	pulumi.CustomResourceState
@@ -270,7 +272,7 @@ func (i *PrivateCloud) ToPrivateCloudOutputWithContext(ctx context.Context) Priv
 // PrivateCloudArrayInput is an input type that accepts PrivateCloudArray and PrivateCloudArrayOutput values.
 // You can construct a concrete instance of `PrivateCloudArrayInput` via:
 //
-//          PrivateCloudArray{ PrivateCloudArgs{...} }
+//	PrivateCloudArray{ PrivateCloudArgs{...} }
 type PrivateCloudArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +297,7 @@ func (i PrivateCloudArray) ToPrivateCloudArrayOutputWithContext(ctx context.Cont
 // PrivateCloudMapInput is an input type that accepts PrivateCloudMap and PrivateCloudMapOutput values.
 // You can construct a concrete instance of `PrivateCloudMapInput` via:
 //
-//          PrivateCloudMap{ "key": PrivateCloudArgs{...} }
+//	PrivateCloudMap{ "key": PrivateCloudArgs{...} }
 type PrivateCloudMapInput interface {
 	pulumi.Input
 

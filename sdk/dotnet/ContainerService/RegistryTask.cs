@@ -15,44 +15,44 @@ namespace Pulumi.Azure.ContainerService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Basic",
-    ///         });
-    ///         var exampleRegistryTask = new Azure.ContainerService.RegistryTask("exampleRegistryTask", new Azure.ContainerService.RegistryTaskArgs
-    ///         {
-    ///             ContainerRegistryId = exampleRegistry.Id,
-    ///             Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
-    ///             {
-    ///                 Os = "Linux",
-    ///             },
-    ///             DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
-    ///             {
-    ///                 DockerfilePath = "Dockerfile",
-    ///                 ContextPath = "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main",
-    ///                 ContextAccessToken = "&lt;github personal access token&gt;",
-    ///                 ImageNames = 
-    ///                 {
-    ///                     "helloworld:{{.Run.ID}}",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Basic",
+    ///     });
+    /// 
+    ///     var exampleRegistryTask = new Azure.ContainerService.RegistryTask("exampleRegistryTask", new()
+    ///     {
+    ///         ContainerRegistryId = exampleRegistry.Id,
+    ///         Platform = new Azure.ContainerService.Inputs.RegistryTaskPlatformArgs
+    ///         {
+    ///             Os = "Linux",
+    ///         },
+    ///         DockerStep = new Azure.ContainerService.Inputs.RegistryTaskDockerStepArgs
+    ///         {
+    ///             DockerfilePath = "Dockerfile",
+    ///             ContextPath = "https://github.com/&lt;user name&gt;/acr-build-helloworld-node#main",
+    ///             ContextAccessToken = "&lt;github personal access token&gt;",
+    ///             ImageNames = new[]
+    ///             {
+    ///                 "helloworld:{{.Run.ID}}",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryTask:RegistryTask")]
-    public partial class RegistryTask : Pulumi.CustomResource
+    public partial class RegistryTask : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
@@ -218,7 +218,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class RegistryTaskArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
@@ -349,9 +349,10 @@ namespace Pulumi.Azure.ContainerService
         public RegistryTaskArgs()
         {
         }
+        public static new RegistryTaskArgs Empty => new RegistryTaskArgs();
     }
 
-    public sealed class RegistryTaskState : Pulumi.ResourceArgs
+    public sealed class RegistryTaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
@@ -482,5 +483,6 @@ namespace Pulumi.Azure.ContainerService
         public RegistryTaskState()
         {
         }
+        public static new RegistryTaskState Empty => new RegistryTaskState();
     }
 }

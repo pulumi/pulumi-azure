@@ -15,89 +15,94 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new Azure.Network.ExpressRoutePortArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PeeringLocation = "Equinix-Seattle-SE2",
-    ///             BandwidthInGbps = 10,
-    ///             Encapsulation = "Dot1Q",
-    ///         });
-    ///         var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ExpressRoutePortId = exampleExpressRoutePort.Id,
-    ///             BandwidthInGbps = 5,
-    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Family = "MeteredData",
-    ///             },
-    ///         });
-    ///         var example2ExpressRoutePort = new Azure.Network.ExpressRoutePort("example2ExpressRoutePort", new Azure.Network.ExpressRoutePortArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PeeringLocation = "Allied-Toronto-King-West",
-    ///             BandwidthInGbps = 10,
-    ///             Encapsulation = "Dot1Q",
-    ///         });
-    ///         var example2ExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example2ExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ExpressRoutePortId = example2ExpressRoutePort.Id,
-    ///             BandwidthInGbps = 5,
-    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Family = "MeteredData",
-    ///             },
-    ///         });
-    ///         var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new Azure.Network.ExpressRouteCircuitPeeringArgs
-    ///         {
-    ///             PeeringType = "AzurePrivatePeering",
-    ///             ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SharedKey = "ItsASecret",
-    ///             PeerAsn = 100,
-    ///             PrimaryPeerAddressPrefix = "192.168.1.0/30",
-    ///             SecondaryPeerAddressPrefix = "192.168.1.0/30",
-    ///             VlanId = 100,
-    ///         });
-    ///         var example2ExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", new Azure.Network.ExpressRouteCircuitPeeringArgs
-    ///         {
-    ///             PeeringType = "AzurePrivatePeering",
-    ///             ExpressRouteCircuitName = example2ExpressRouteCircuit.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SharedKey = "ItsASecret",
-    ///             PeerAsn = 100,
-    ///             PrimaryPeerAddressPrefix = "192.168.1.0/30",
-    ///             SecondaryPeerAddressPrefix = "192.168.1.0/30",
-    ///             VlanId = 100,
-    ///         });
-    ///         var exampleExpressRouteCircuitConnection = new Azure.Network.ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", new Azure.Network.ExpressRouteCircuitConnectionArgs
-    ///         {
-    ///             PeeringId = exampleExpressRouteCircuitPeering.Id,
-    ///             PeerPeeringId = example2ExpressRouteCircuitPeering.Id,
-    ///             AddressPrefixIpv4 = "192.169.9.0/29",
-    ///             AuthorizationKey = "846a1918-b7a2-4917-b43c-8c4cdaee006a",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Equinix-Seattle-SE2",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var example2ExpressRoutePort = new Azure.Network.ExpressRoutePort("example2ExpressRoutePort", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PeeringLocation = "Allied-Toronto-King-West",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var example2ExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example2ExpressRouteCircuit", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ExpressRoutePortId = example2ExpressRoutePort.Id,
+    ///         BandwidthInGbps = 5,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SharedKey = "ItsASecret",
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         VlanId = 100,
+    ///     });
+    /// 
+    ///     var example2ExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", new()
+    ///     {
+    ///         PeeringType = "AzurePrivatePeering",
+    ///         ExpressRouteCircuitName = example2ExpressRouteCircuit.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SharedKey = "ItsASecret",
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.1.0/30",
+    ///         VlanId = 100,
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitConnection = new Azure.Network.ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", new()
+    ///     {
+    ///         PeeringId = exampleExpressRouteCircuitPeering.Id,
+    ///         PeerPeeringId = example2ExpressRouteCircuitPeering.Id,
+    ///         AddressPrefixIpv4 = "192.169.9.0/29",
+    ///         AuthorizationKey = "846a1918-b7a2-4917-b43c-8c4cdaee006a",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -109,7 +114,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection")]
-    public partial class ExpressRouteCircuitConnection : Pulumi.CustomResource
+    public partial class ExpressRouteCircuitConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
@@ -191,7 +196,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRouteCircuitConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
@@ -232,9 +237,10 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitConnectionArgs()
         {
         }
+        public static new ExpressRouteCircuitConnectionArgs Empty => new ExpressRouteCircuitConnectionArgs();
     }
 
-    public sealed class ExpressRouteCircuitConnectionState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IPv4 address space from which to allocate customer address for global reach. Changing this forces a new Express Route Circuit Connection to be created.
@@ -275,5 +281,6 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitConnectionState()
         {
         }
+        public static new ExpressRouteCircuitConnectionState Empty => new ExpressRouteCircuitConnectionState();
     }
 }

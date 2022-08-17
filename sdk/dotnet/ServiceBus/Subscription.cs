@@ -15,40 +15,41 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new Azure.ServiceBus.SubscriptionArgs
-    ///         {
-    ///             TopicId = exampleTopic.Id,
-    ///             MaxDeliveryCount = 1,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         MaxDeliveryCount = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,13 +61,25 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/subscription:Subscription")]
-    public partial class Subscription : Pulumi.CustomResource
+    public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Output("autoDeleteOnIdle")]
         public Output<string> AutoDeleteOnIdle { get; private set; } = null!;
+
+        /// <summary>
+        /// A `client_scoped_subscription` block as defined below.
+        /// </summary>
+        [Output("clientScopedSubscription")]
+        public Output<Outputs.SubscriptionClientScopedSubscription?> ClientScopedSubscription { get; private set; } = null!;
+
+        /// <summary>
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// </summary>
+        [Output("clientScopedSubscriptionEnabled")]
+        public Output<bool?> ClientScopedSubscriptionEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -165,7 +178,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/subscription:Subscription"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/subscription:Subscription"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -188,13 +201,25 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// A `client_scoped_subscription` block as defined below.
+        /// </summary>
+        [Input("clientScopedSubscription")]
+        public Input<Inputs.SubscriptionClientScopedSubscriptionArgs>? ClientScopedSubscription { get; set; }
+
+        /// <summary>
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// </summary>
+        [Input("clientScopedSubscriptionEnabled")]
+        public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -271,15 +296,28 @@ namespace Pulumi.Azure.ServiceBus
         public SubscriptionArgs()
         {
         }
+        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 
-    public sealed class SubscriptionState : Pulumi.ResourceArgs
+    public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The idle interval after which the topic is automatically deleted as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). The minimum duration is `5` minutes or `PT5M`.
         /// </summary>
         [Input("autoDeleteOnIdle")]
         public Input<string>? AutoDeleteOnIdle { get; set; }
+
+        /// <summary>
+        /// A `client_scoped_subscription` block as defined below.
+        /// </summary>
+        [Input("clientScopedSubscription")]
+        public Input<Inputs.SubscriptionClientScopedSubscriptionGetArgs>? ClientScopedSubscription { get; set; }
+
+        /// <summary>
+        /// whether the subscription is scoped to a client id. Defaults to `False`.
+        /// </summary>
+        [Input("clientScopedSubscriptionEnabled")]
+        public Input<bool>? ClientScopedSubscriptionEnabled { get; set; }
 
         /// <summary>
         /// Boolean flag which controls whether the Subscription has dead letter support on filter evaluation exceptions. Defaults to `true`.
@@ -356,5 +394,6 @@ namespace Pulumi.Azure.ServiceBus
         public SubscriptionState()
         {
         }
+        public static new SubscriptionState Empty => new SubscriptionState();
     }
 }

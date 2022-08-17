@@ -15,43 +15,44 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "development" },
-    ///             },
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleLinkedService = new Azure.LogAnalytics.LinkedService("exampleLinkedService", new Azure.LogAnalytics.LinkedServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///             ReadAccessId = exampleAccount.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "development" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleLinkedService = new Azure.LogAnalytics.LinkedService("exampleLinkedService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         ReadAccessId = exampleAccount.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/linkedService:LinkedService")]
-    public partial class LinkedService : Pulumi.CustomResource
+    public partial class LinkedService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The generated name of the Linked Service. The format for this attribute is always `&lt;workspace name&gt;/&lt;linked service type&gt;`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
@@ -139,7 +140,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class LinkedServiceArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource.
@@ -168,9 +169,10 @@ namespace Pulumi.Azure.LogAnalytics
         public LinkedServiceArgs()
         {
         }
+        public static new LinkedServiceArgs Empty => new LinkedServiceArgs();
     }
 
-    public sealed class LinkedServiceState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The generated name of the Linked Service. The format for this attribute is always `&lt;workspace name&gt;/&lt;linked service type&gt;`(e.g. `workspace1/Automation` or `workspace1/Cluster`)
@@ -205,5 +207,6 @@ namespace Pulumi.Azure.LogAnalytics
         public LinkedServiceState()
         {
         }
+        public static new LinkedServiceState Empty => new LinkedServiceState();
     }
 }

@@ -14,54 +14,56 @@ namespace Pulumi.Azure.AppService
     /// ### With App Service Plan)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///         var exampleFunctionAppSlot = new Azure.AppService.FunctionAppSlot("exampleFunctionAppSlot", new Azure.AppService.FunctionAppSlotArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             FunctionAppName = exampleFunctionApp.Name,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    ///     var exampleFunctionAppSlot = new Azure.AppService.FunctionAppSlot("exampleFunctionAppSlot", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         FunctionAppName = exampleFunctionApp.Name,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/functionAppSlot:FunctionAppSlot")]
-    public partial class FunctionAppSlot : Pulumi.CustomResource
+    public partial class FunctionAppSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App Slot.
@@ -263,7 +265,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppSlotArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App Slot.
@@ -400,9 +402,10 @@ namespace Pulumi.Azure.AppService
         public FunctionAppSlotArgs()
         {
         }
+        public static new FunctionAppSlotArgs Empty => new FunctionAppSlotArgs();
     }
 
-    public sealed class FunctionAppSlotState : Pulumi.ResourceArgs
+    public sealed class FunctionAppSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Function App Slot.
@@ -575,5 +578,6 @@ namespace Pulumi.Azure.AppService
         public FunctionAppSlotState()
         {
         }
+        public static new FunctionAppSlotState Empty => new FunctionAppSlotState();
     }
 }

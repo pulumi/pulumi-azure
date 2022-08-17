@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lighthouse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		contributor, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-// 			RoleDefinitionId: pulumi.StringRef("b24988ac-6180-42a0-ab88-20f7382dd24c"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
-// 			Description:      pulumi.String("This is a lighthouse definition created IaC"),
-// 			ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
-// 			Authorizations: lighthouse.DefinitionAuthorizationArray{
-// 				&lighthouse.DefinitionAuthorizationArgs{
-// 					PrincipalId:          pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 					RoleDefinitionId:     pulumi.String(contributor.RoleDefinitionId),
-// 					PrincipalDisplayName: pulumi.String("Tier 1 Support"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			contributor, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.StringRef("b24988ac-6180-42a0-ab88-20f7382dd24c"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
+//				Description:      pulumi.String("This is a lighthouse definition created IaC"),
+//				ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
+//				Authorizations: lighthouse.DefinitionAuthorizationArray{
+//					&lighthouse.DefinitionAuthorizationArgs{
+//						PrincipalId:          pulumi.String("00000000-0000-0000-0000-000000000000"),
+//						RoleDefinitionId:     pulumi.String(contributor.RoleDefinitionId),
+//						PrincipalDisplayName: pulumi.String("Tier 1 Support"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Lighthouse Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
+//
 // ```
 type Definition struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) Definiti
 // DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
 // You can construct a concrete instance of `DefinitionArrayInput` via:
 //
-//          DefinitionArray{ DefinitionArgs{...} }
+//	DefinitionArray{ DefinitionArgs{...} }
 type DefinitionArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i DefinitionArray) ToDefinitionArrayOutputWithContext(ctx context.Context)
 // DefinitionMapInput is an input type that accepts DefinitionMap and DefinitionMapOutput values.
 // You can construct a concrete instance of `DefinitionMapInput` via:
 //
-//          DefinitionMap{ "key": DefinitionArgs{...} }
+//	DefinitionMap{ "key": DefinitionArgs{...} }
 type DefinitionMapInput interface {
 	pulumi.Input
 

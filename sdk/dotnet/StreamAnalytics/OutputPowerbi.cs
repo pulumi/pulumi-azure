@@ -15,33 +15,33 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
     ///     {
-    ///         var exampleResourceGroup = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
-    ///         {
-    ///             Name = "example-resources",
-    ///         }));
-    ///         var exampleJob = exampleResourceGroup.Apply(exampleResourceGroup =&gt; Output.Create(Azure.StreamAnalytics.GetJob.InvokeAsync(new Azure.StreamAnalytics.GetJobArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         })));
-    ///         var exampleOutputPowerbi = new Azure.StreamAnalytics.OutputPowerbi("exampleOutputPowerbi", new Azure.StreamAnalytics.OutputPowerbiArgs
-    ///         {
-    ///             StreamAnalyticsJobId = exampleJob.Apply(exampleJob =&gt; exampleJob.Id),
-    ///             Dataset = "example-dataset",
-    ///             Table = "example-table",
-    ///             GroupId = "00000000-0000-0000-0000-000000000000",
-    ///             GroupName = "some-group-name",
-    ///         });
-    ///     }
+    ///         Name = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Name),
+    ///     });
+    /// 
+    ///     var exampleOutputPowerbi = new Azure.StreamAnalytics.OutputPowerbi("exampleOutputPowerbi", new()
+    ///     {
+    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         Dataset = "example-dataset",
+    ///         Table = "example-table",
+    ///         GroupId = "00000000-0000-0000-0000-000000000000",
+    ///         GroupName = "some-group-name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputPowerbi:OutputPowerbi")]
-    public partial class OutputPowerbi : Pulumi.CustomResource
+    public partial class OutputPowerbi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Power BI dataset.
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputPowerbiArgs : Pulumi.ResourceArgs
+    public sealed class OutputPowerbiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Power BI dataset.
@@ -176,9 +176,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputPowerbiArgs()
         {
         }
+        public static new OutputPowerbiArgs Empty => new OutputPowerbiArgs();
     }
 
-    public sealed class OutputPowerbiState : Pulumi.ResourceArgs
+    public sealed class OutputPowerbiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Power BI dataset.
@@ -219,5 +220,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputPowerbiState()
         {
         }
+        public static new OutputPowerbiState Empty => new OutputPowerbiState();
     }
 }

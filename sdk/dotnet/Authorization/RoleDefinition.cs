@@ -15,37 +15,36 @@ namespace Pulumi.Azure.Authorization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var example = new Azure.Authorization.RoleDefinition("example", new Azure.Authorization.RoleDefinitionArgs
-    ///         {
-    ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             Description = "This is a custom role created",
-    ///             Permissions = 
-    ///             {
-    ///                 new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     NotActions = {},
-    ///                 },
-    ///             },
-    ///             AssignableScopes = 
-    ///             {
-    ///                 primary.Apply(primary =&gt; primary.Id),
-    ///             },
-    ///         });
-    ///     }
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var example = new Azure.Authorization.RoleDefinition("example", new()
+    ///     {
+    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Description = "This is a custom role created",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 NotActions = new[] {},
+    ///             },
+    ///         },
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +56,7 @@ namespace Pulumi.Azure.Authorization
     /// ```
     /// </summary>
     [AzureResourceType("azure:authorization/roleDefinition:RoleDefinition")]
-    public partial class RoleDefinition : Pulumi.CustomResource
+    public partial class RoleDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
@@ -126,7 +125,7 @@ namespace Pulumi.Azure.Authorization
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:role/definition:Definition"},
+                    new global::Pulumi.Alias { Type = "azure:role/definition:Definition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +148,7 @@ namespace Pulumi.Azure.Authorization
         }
     }
 
-    public sealed class RoleDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class RoleDefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
@@ -202,9 +201,10 @@ namespace Pulumi.Azure.Authorization
         public RoleDefinitionArgs()
         {
         }
+        public static new RoleDefinitionArgs Empty => new RoleDefinitionArgs();
     }
 
-    public sealed class RoleDefinitionState : Pulumi.ResourceArgs
+    public sealed class RoleDefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
@@ -263,5 +263,6 @@ namespace Pulumi.Azure.Authorization
         public RoleDefinitionState()
         {
         }
+        public static new RoleDefinitionState Empty => new RoleDefinitionState();
     }
 }

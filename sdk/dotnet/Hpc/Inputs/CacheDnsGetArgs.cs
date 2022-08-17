@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDnsGetArgs : Pulumi.ResourceArgs
+    public sealed class CacheDnsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DNS search domain for the HPC Cache.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDnsGetArgs()
         {
         }
+        public static new CacheDnsGetArgs Empty => new CacheDnsGetArgs();
     }
 }

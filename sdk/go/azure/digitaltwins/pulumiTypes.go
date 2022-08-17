@@ -20,7 +20,7 @@ type InstanceIdentity struct {
 // InstanceIdentityInput is an input type that accepts InstanceIdentityArgs and InstanceIdentityOutput values.
 // You can construct a concrete instance of `InstanceIdentityInput` via:
 //
-//          InstanceIdentityArgs{...}
+//	InstanceIdentityArgs{...}
 type InstanceIdentityInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i InstanceIdentityArgs) ToInstanceIdentityPtrOutputWithContext(ctx context
 // InstanceIdentityPtrInput is an input type that accepts InstanceIdentityArgs, InstanceIdentityPtr and InstanceIdentityPtrOutput values.
 // You can construct a concrete instance of `InstanceIdentityPtrInput` via:
 //
-//          InstanceIdentityArgs{...}
+//	        InstanceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InstanceIdentityPtrInput interface {
 	pulumi.Input
 

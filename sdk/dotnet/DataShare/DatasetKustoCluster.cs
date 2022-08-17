@@ -15,61 +15,64 @@ namespace Pulumi.Azure.DataShare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
-    ///         {
-    ///             AccountId = exampleAccount.Id,
-    ///             Kind = "InPlace",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleCluster.Id,
-    ///             RoleDefinitionName = "Contributor",
-    ///             PrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
-    ///         });
-    ///         var exampleDatasetKustoCluster = new Azure.DataShare.DatasetKustoCluster("exampleDatasetKustoCluster", new Azure.DataShare.DatasetKustoClusterArgs
-    ///         {
-    ///             ShareId = exampleShare.Id,
-    ///             KustoClusterId = exampleCluster.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     {
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "InPlace",
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Dev(No SLA)_Standard_D11_v2",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = exampleCluster.Id,
+    ///         RoleDefinitionName = "Contributor",
+    ///         PrincipalId = exampleAccount.Identity.Apply(identity =&gt; identity.PrincipalId),
+    ///     });
+    /// 
+    ///     var exampleDatasetKustoCluster = new Azure.DataShare.DatasetKustoCluster("exampleDatasetKustoCluster", new()
+    ///     {
+    ///         ShareId = exampleShare.Id,
+    ///         KustoClusterId = exampleCluster.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +84,7 @@ namespace Pulumi.Azure.DataShare
     /// ```
     /// </summary>
     [AzureResourceType("azure:datashare/datasetKustoCluster:DatasetKustoCluster")]
-    public partial class DatasetKustoCluster : Pulumi.CustomResource
+    public partial class DatasetKustoCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Data Share Dataset.
@@ -157,7 +160,7 @@ namespace Pulumi.Azure.DataShare
         }
     }
 
-    public sealed class DatasetKustoClusterArgs : Pulumi.ResourceArgs
+    public sealed class DatasetKustoClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Kusto Cluster to be shared with the receiver. Changing this forces a new Data Share Kusto Cluster Dataset to be created.
@@ -180,9 +183,10 @@ namespace Pulumi.Azure.DataShare
         public DatasetKustoClusterArgs()
         {
         }
+        public static new DatasetKustoClusterArgs Empty => new DatasetKustoClusterArgs();
     }
 
-    public sealed class DatasetKustoClusterState : Pulumi.ResourceArgs
+    public sealed class DatasetKustoClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Share Dataset.
@@ -217,5 +221,6 @@ namespace Pulumi.Azure.DataShare
         public DatasetKustoClusterState()
         {
         }
+        public static new DatasetKustoClusterState Empty => new DatasetKustoClusterState();
     }
 }

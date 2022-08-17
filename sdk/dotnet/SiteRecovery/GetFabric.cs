@@ -19,22 +19,20 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var fabric = Azure.SiteRecovery.GetFabric.Invoke(new()
         ///     {
-        ///         var fabric = Output.Create(Azure.SiteRecovery.GetFabric.InvokeAsync(new Azure.SiteRecovery.GetFabricArgs
-        ///         {
-        ///             Name = "primary-fabric",
-        ///             RecoveryVaultName = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "primary-fabric",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var fabric = Azure.SiteRecovery.GetFabric.Invoke(new()
         ///     {
-        ///         var fabric = Output.Create(Azure.SiteRecovery.GetFabric.InvokeAsync(new Azure.SiteRecovery.GetFabricArgs
-        ///         {
-        ///             Name = "primary-fabric",
-        ///             RecoveryVaultName = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "primary-fabric",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.SiteRecovery
     }
 
 
-    public sealed class GetFabricArgs : Pulumi.InvokeArgs
+    public sealed class GetFabricArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Site Recovery Replication Fabric.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.SiteRecovery
         public GetFabricArgs()
         {
         }
+        public static new GetFabricArgs Empty => new GetFabricArgs();
     }
 
-    public sealed class GetFabricInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFabricInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Site Recovery Replication Fabric.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.SiteRecovery
         public GetFabricInvokeArgs()
         {
         }
+        public static new GetFabricInvokeArgs Empty => new GetFabricInvokeArgs();
     }
 
 

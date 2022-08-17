@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DomainServices.Inputs
 {
 
-    public sealed class ServiceSecureLdapGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSecureLdapGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateExpiry")]
         public Input<string>? CertificateExpiry { get; set; }
@@ -48,5 +48,6 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public ServiceSecureLdapGetArgs()
         {
         }
+        public static new ServiceSecureLdapGetArgs Empty => new ServiceSecureLdapGetArgs();
     }
 }

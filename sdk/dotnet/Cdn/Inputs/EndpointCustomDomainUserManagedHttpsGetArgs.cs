@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointCustomDomainUserManagedHttpsGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointCustomDomainUserManagedHttpsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Key Vault Certificate that contains the HTTPS certificate.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointCustomDomainUserManagedHttpsGetArgs()
         {
         }
+        public static new EndpointCustomDomainUserManagedHttpsGetArgs Empty => new EndpointCustomDomainUserManagedHttpsGetArgs();
     }
 }

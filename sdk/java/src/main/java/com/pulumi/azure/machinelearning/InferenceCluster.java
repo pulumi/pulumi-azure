@@ -23,6 +23,125 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The Machine Learning Inference Cluster resource is used to attach an existing AKS cluster to the Machine Learning Workspace, it doesn&#39;t create the AKS cluster itself. Therefore it can only be created and deleted, not updated. Any change to the configuration will recreate the resource.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.machinelearning.Workspace;
+ * import com.pulumi.azure.machinelearning.WorkspaceArgs;
+ * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.containerservice.KubernetesCluster;
+ * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
+ * import com.pulumi.azure.machinelearning.InferenceCluster;
+ * import com.pulumi.azure.machinelearning.InferenceClusterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;west europe&#34;)
+ *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationType(&#34;web&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationInsightsId(exampleInsights.id())
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .addressSpaces(&#34;10.1.0.0/16&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.1.0.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .dnsPrefixPrivateCluster(&#34;prefix&#34;)
+ *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
+ *                 .name(&#34;default&#34;)
+ *                 .nodeCount(3)
+ *                 .vmSize(&#34;Standard_D3_v2&#34;)
+ *                 .vnetSubnetId(exampleSubnet.id())
+ *                 .build())
+ *             .identity(KubernetesClusterIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleInferenceCluster = new InferenceCluster(&#34;exampleInferenceCluster&#34;, InferenceClusterArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .clusterPurpose(&#34;FastProd&#34;)
+ *             .kubernetesClusterId(exampleKubernetesCluster.id())
+ *             .description(&#34;This is an example cluster used with Terraform&#34;)
+ *             .machineLearningWorkspaceId(exampleWorkspace.id())
+ *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

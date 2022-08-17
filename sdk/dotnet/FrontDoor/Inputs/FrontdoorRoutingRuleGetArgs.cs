@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorRoutingRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorRoutingRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("acceptedProtocols", required: true)]
         private InputList<string>? _acceptedProtocols;
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorRoutingRuleGetArgs()
         {
         }
+        public static new FrontdoorRoutingRuleGetArgs Empty => new FrontdoorRoutingRuleGetArgs();
     }
 }

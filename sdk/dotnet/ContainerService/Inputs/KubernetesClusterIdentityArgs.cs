@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterIdentityArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterIdentityArgs()
         {
         }
+        public static new KubernetesClusterIdentityArgs Empty => new KubernetesClusterIdentityArgs();
     }
 }

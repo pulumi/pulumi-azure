@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetBinarySftpServerLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetBinarySftpServerLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetBinarySftpServerLocationGetArgs()
         {
         }
+        public static new DatasetBinarySftpServerLocationGetArgs Empty => new DatasetBinarySftpServerLocationGetArgs();
     }
 }

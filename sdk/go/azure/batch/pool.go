@@ -19,120 +19,123 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			Location:           exampleResourceGroup.Location,
-// 			PoolAllocationMode: pulumi.String("BatchService"),
-// 			StorageAccountId:   exampleAccount.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"env": pulumi.String("test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificate, err := batch.NewCertificate(ctx, "exampleCertificate", &batch.CertificateArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			AccountName:         exampleBatch / accountAccount.Name,
-// 			Certificate:         filebase64OrPanic("certificate.cer"),
-// 			Format:              pulumi.String("Cer"),
-// 			Thumbprint:          pulumi.String("312d31a79fa0cef49c00f769afc2b73e9f4edf34"),
-// 			ThumbprintAlgorithm: pulumi.String("SHA1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AccountName:       exampleBatch / accountAccount.Name,
-// 			DisplayName:       pulumi.String("Test Acc Pool Auto"),
-// 			VmSize:            pulumi.String("Standard_A1"),
-// 			NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
-// 			AutoScale: &batch.PoolAutoScaleArgs{
-// 				EvaluationInterval: pulumi.String("PT15M"),
-// 				Formula:            pulumi.String(fmt.Sprintf("      startingNumberOfVMs = 1;\n      maxNumberofVMs = 25;\n      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));\n      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n")),
-// 			},
-// 			StorageImageReference: &batch.PoolStorageImageReferenceArgs{
-// 				Publisher: pulumi.String("microsoft-azure-batch"),
-// 				Offer:     pulumi.String("ubuntu-server-container"),
-// 				Sku:       pulumi.String("20-04-lts"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			ContainerConfiguration: &batch.PoolContainerConfigurationArgs{
-// 				Type: pulumi.String("DockerCompatible"),
-// 				ContainerRegistries: batch.PoolContainerConfigurationContainerRegistryArray{
-// 					&batch.PoolContainerConfigurationContainerRegistryArgs{
-// 						RegistryServer: pulumi.String("docker.io"),
-// 						UserName:       pulumi.String("login"),
-// 						Password:       pulumi.String("apassword"),
-// 					},
-// 				},
-// 			},
-// 			StartTask: &batch.PoolStartTaskArgs{
-// 				CommandLine:      pulumi.String(fmt.Sprintf("echo 'Hello World from $env'")),
-// 				TaskRetryMaximum: pulumi.Int(1),
-// 				WaitForSuccess:   pulumi.Bool(true),
-// 				CommonEnvironmentProperties: pulumi.StringMap{
-// 					"env": pulumi.String("TEST"),
-// 				},
-// 				UserIdentity: &batch.PoolStartTaskUserIdentityArgs{
-// 					AutoUser: &batch.PoolStartTaskUserIdentityAutoUserArgs{
-// 						ElevationLevel: pulumi.String("NonAdmin"),
-// 						Scope:          pulumi.String("Task"),
-// 					},
-// 				},
-// 			},
-// 			Certificates: batch.PoolCertificateArray{
-// 				&batch.PoolCertificateArgs{
-// 					Id:            exampleCertificate.ID(),
-// 					StoreLocation: pulumi.String("CurrentUser"),
-// 					Visibilities: pulumi.StringArray{
-// 						pulumi.String("StartTask"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Location:           exampleResourceGroup.Location,
+//				PoolAllocationMode: pulumi.String("BatchService"),
+//				StorageAccountId:   exampleAccount.ID(),
+//				Tags: pulumi.StringMap{
+//					"env": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := batch.NewCertificate(ctx, "exampleCertificate", &batch.CertificateArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				AccountName:         exampleBatch / accountAccount.Name,
+//				Certificate:         filebase64OrPanic("certificate.cer"),
+//				Format:              pulumi.String("Cer"),
+//				Thumbprint:          pulumi.String("312d31a79fa0cef49c00f769afc2b73e9f4edf34"),
+//				ThumbprintAlgorithm: pulumi.String("SHA1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AccountName:       exampleBatch / accountAccount.Name,
+//				DisplayName:       pulumi.String("Test Acc Pool Auto"),
+//				VmSize:            pulumi.String("Standard_A1"),
+//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 20.04"),
+//				AutoScale: &batch.PoolAutoScaleArgs{
+//					EvaluationInterval: pulumi.String("PT15M"),
+//					Formula:            pulumi.String(fmt.Sprintf("      startingNumberOfVMs = 1;\n      maxNumberofVMs = 25;\n      pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);\n      pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 *   TimeInterval_Second));\n      $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);\n")),
+//				},
+//				StorageImageReference: &batch.PoolStorageImageReferenceArgs{
+//					Publisher: pulumi.String("microsoft-azure-batch"),
+//					Offer:     pulumi.String("ubuntu-server-container"),
+//					Sku:       pulumi.String("20-04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				ContainerConfiguration: &batch.PoolContainerConfigurationArgs{
+//					Type: pulumi.String("DockerCompatible"),
+//					ContainerRegistries: batch.PoolContainerConfigurationContainerRegistryArray{
+//						&batch.PoolContainerConfigurationContainerRegistryArgs{
+//							RegistryServer: pulumi.String("docker.io"),
+//							UserName:       pulumi.String("login"),
+//							Password:       pulumi.String("apassword"),
+//						},
+//					},
+//				},
+//				StartTask: &batch.PoolStartTaskArgs{
+//					CommandLine:      pulumi.String(fmt.Sprintf("echo 'Hello World from $env'")),
+//					TaskRetryMaximum: pulumi.Int(1),
+//					WaitForSuccess:   pulumi.Bool(true),
+//					CommonEnvironmentProperties: pulumi.StringMap{
+//						"env": pulumi.String("TEST"),
+//					},
+//					UserIdentity: &batch.PoolStartTaskUserIdentityArgs{
+//						AutoUser: &batch.PoolStartTaskUserIdentityAutoUserArgs{
+//							ElevationLevel: pulumi.String("NonAdmin"),
+//							Scope:          pulumi.String("Task"),
+//						},
+//					},
+//				},
+//				Certificates: batch.PoolCertificateArray{
+//					&batch.PoolCertificateArgs{
+//						Id:            exampleCertificate.ID(),
+//						StoreLocation: pulumi.String("CurrentUser"),
+//						Visibilities: pulumi.StringArray{
+//							pulumi.String("StartTask"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -140,7 +143,9 @@ import (
 // Batch Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
+//
+//	$ pulumi import azure:batch/pool:Pool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Batch/batchAccounts/myBatchAccount1/pools/myBatchPool1
+//
 // ```
 type Pool struct {
 	pulumi.CustomResourceState
@@ -398,7 +403,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 // PoolArrayInput is an input type that accepts PoolArray and PoolArrayOutput values.
 // You can construct a concrete instance of `PoolArrayInput` via:
 //
-//          PoolArray{ PoolArgs{...} }
+//	PoolArray{ PoolArgs{...} }
 type PoolArrayInput interface {
 	pulumi.Input
 
@@ -423,7 +428,7 @@ func (i PoolArray) ToPoolArrayOutputWithContext(ctx context.Context) PoolArrayOu
 // PoolMapInput is an input type that accepts PoolMap and PoolMapOutput values.
 // You can construct a concrete instance of `PoolMapInput` via:
 //
-//          PoolMap{ "key": PoolArgs{...} }
+//	PoolMap{ "key": PoolArgs{...} }
 type PoolMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerConflictResolutionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerConflictResolutionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conflict resolution path in the case of `LastWriterWins` mode.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerConflictResolutionPolicyGetArgs()
         {
         }
+        public static new SqlContainerConflictResolutionPolicyGetArgs Empty => new SqlContainerConflictResolutionPolicyGetArgs();
     }
 }

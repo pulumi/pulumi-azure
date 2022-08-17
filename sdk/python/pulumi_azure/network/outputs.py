@@ -3533,12 +3533,12 @@ class ExpressRouteCircuitPeeringIpv6(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "microsoftPeering":
-            suggest = "microsoft_peering"
-        elif key == "primaryPeerAddressPrefix":
+        if key == "primaryPeerAddressPrefix":
             suggest = "primary_peer_address_prefix"
         elif key == "secondaryPeerAddressPrefix":
             suggest = "secondary_peer_address_prefix"
+        elif key == "microsoftPeering":
+            suggest = "microsoft_peering"
         elif key == "routeFilterId":
             suggest = "route_filter_id"
 
@@ -3554,29 +3554,26 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 microsoft_peering: 'outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering',
                  primary_peer_address_prefix: str,
                  secondary_peer_address_prefix: str,
+                 enabled: Optional[bool] = None,
+                 microsoft_peering: Optional['outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering'] = None,
                  route_filter_id: Optional[str] = None):
         """
-        :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param str primary_peer_address_prefix: A subnet for the primary link.
         :param str secondary_peer_address_prefix: A subnet for the secondary link.
+        :param bool enabled: A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+        :param 'ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs' microsoft_peering: A `microsoft_peering` block as defined below.
         :param str route_filter_id: The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`.
         """
-        pulumi.set(__self__, "microsoft_peering", microsoft_peering)
         pulumi.set(__self__, "primary_peer_address_prefix", primary_peer_address_prefix)
         pulumi.set(__self__, "secondary_peer_address_prefix", secondary_peer_address_prefix)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if microsoft_peering is not None:
+            pulumi.set(__self__, "microsoft_peering", microsoft_peering)
         if route_filter_id is not None:
             pulumi.set(__self__, "route_filter_id", route_filter_id)
-
-    @property
-    @pulumi.getter(name="microsoftPeering")
-    def microsoft_peering(self) -> 'outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering':
-        """
-        A `microsoft_peering` block as defined below.
-        """
-        return pulumi.get(self, "microsoft_peering")
 
     @property
     @pulumi.getter(name="primaryPeerAddressPrefix")
@@ -3593,6 +3590,22 @@ class ExpressRouteCircuitPeeringIpv6(dict):
         A subnet for the secondary link.
         """
         return pulumi.get(self, "secondary_peer_address_prefix")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="microsoftPeering")
+    def microsoft_peering(self) -> Optional['outputs.ExpressRouteCircuitPeeringIpv6MicrosoftPeering']:
+        """
+        A `microsoft_peering` block as defined below.
+        """
+        return pulumi.get(self, "microsoft_peering")
 
     @property
     @pulumi.getter(name="routeFilterId")
@@ -7847,7 +7860,7 @@ class SubnetDelegationServiceDelegation(dict):
                  name: str,
                  actions: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        :param str name: The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
         :param Sequence[str] actions: A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
         """
         pulumi.set(__self__, "name", name)
@@ -7858,7 +7871,7 @@ class SubnetDelegationServiceDelegation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, and `Microsoft.Web/serverFarms`.
+        The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
         """
         return pulumi.get(self, "name")
 

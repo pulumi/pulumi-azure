@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			Sku:               pulumi.String("Standard"),
-// 			AdminEnabled:      pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistryWebhook(ctx, "webhook", &containerservice.RegistryWebhookArgs{
-// 			ResourceGroupName: example.Name,
-// 			RegistryName:      acr.Name,
-// 			Location:          example.Location,
-// 			ServiceUri:        pulumi.String("https://mywebhookreceiver.example/mytag"),
-// 			Status:            pulumi.String("enabled"),
-// 			Scope:             pulumi.String("mytag:*"),
-// 			Actions: pulumi.StringArray{
-// 				pulumi.String("push"),
-// 			},
-// 			CustomHeaders: pulumi.StringMap{
-// 				"Content-Type": pulumi.String("application/json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Standard"),
+//				AdminEnabled:      pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistryWebhook(ctx, "webhook", &containerservice.RegistryWebhookArgs{
+//				ResourceGroupName: example.Name,
+//				RegistryName:      acr.Name,
+//				Location:          example.Location,
+//				ServiceUri:        pulumi.String("https://mywebhookreceiver.example/mytag"),
+//				Status:            pulumi.String("enabled"),
+//				Scope:             pulumi.String("mytag:*"),
+//				Actions: pulumi.StringArray{
+//					pulumi.String("push"),
+//				},
+//				CustomHeaders: pulumi.StringMap{
+//					"Content-Type": pulumi.String("application/json"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Container Registry Webhooks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
+//
+//	$ pulumi import azure:containerservice/registryWebook:RegistryWebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/webhooks/mywebhook1
+//
 // ```
 //
 // Deprecated: azure.containerservice.RegistryWebook has been deprecated in favor of azure.containerservice.RegistryWebhook
@@ -255,7 +260,7 @@ func (i *RegistryWebook) ToRegistryWebookOutputWithContext(ctx context.Context) 
 // RegistryWebookArrayInput is an input type that accepts RegistryWebookArray and RegistryWebookArrayOutput values.
 // You can construct a concrete instance of `RegistryWebookArrayInput` via:
 //
-//          RegistryWebookArray{ RegistryWebookArgs{...} }
+//	RegistryWebookArray{ RegistryWebookArgs{...} }
 type RegistryWebookArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i RegistryWebookArray) ToRegistryWebookArrayOutputWithContext(ctx context.
 // RegistryWebookMapInput is an input type that accepts RegistryWebookMap and RegistryWebookMapOutput values.
 // You can construct a concrete instance of `RegistryWebookMapInput` via:
 //
-//          RegistryWebookMap{ "key": RegistryWebookArgs{...} }
+//	RegistryWebookMap{ "key": RegistryWebookArgs{...} }
 type RegistryWebookMapInput interface {
 	pulumi.Input
 

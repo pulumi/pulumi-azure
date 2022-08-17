@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := monitoring.LookupLogProfile(ctx, &monitoring.LookupLogProfileArgs{
-// 			Name: "test-logprofile",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("logProfileStorageAccountId", example.StorageAccountId)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := monitoring.LookupLogProfile(ctx, &monitoring.LookupLogProfileArgs{
+//				Name: "test-logprofile",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("logProfileStorageAccountId", example.StorageAccountId)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupLogProfile(ctx *pulumi.Context, args *LookupLogProfileArgs, opts ...pulumi.InvokeOption) (*LookupLogProfileResult, error) {
 	var rv LookupLogProfileResult

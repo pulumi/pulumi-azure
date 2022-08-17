@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetSecretArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetSecretArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificates", required: true)]
         private InputList<Inputs.WindowsVirtualMachineScaleSetSecretCertificateArgs>? _certificates;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetSecretArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetSecretArgs Empty => new WindowsVirtualMachineScaleSetSecretArgs();
     }
 }

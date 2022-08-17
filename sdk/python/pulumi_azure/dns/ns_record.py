@@ -257,8 +257,8 @@ class NsRecord(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ttl=300,
             records=[
-                "ns1.contoso.com",
-                "ns2.contoso.com",
+                "ns1.contoso.com.",
+                "ns2.contoso.com.",
             ],
             tags={
                 "Environment": "Production",
@@ -302,8 +302,8 @@ class NsRecord(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             ttl=300,
             records=[
-                "ns1.contoso.com",
-                "ns2.contoso.com",
+                "ns1.contoso.com.",
+                "ns2.contoso.com.",
             ],
             tags={
                 "Environment": "Production",

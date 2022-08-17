@@ -15,36 +15,37 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///         var exampleTriggerSchedule = new Azure.DataFactory.TriggerSchedule("exampleTriggerSchedule", new Azure.DataFactory.TriggerScheduleArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             PipelineName = examplePipeline.Name,
-    ///             Interval = 5,
-    ///             Frequency = "Day",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleTriggerSchedule = new Azure.DataFactory.TriggerSchedule("exampleTriggerSchedule", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         PipelineName = examplePipeline.Name,
+    ///         Interval = 5,
+    ///         Frequency = "Day",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/triggerSchedule:TriggerSchedule")]
-    public partial class TriggerSchedule : Pulumi.CustomResource
+    public partial class TriggerSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
@@ -186,7 +187,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class TriggerScheduleArgs : Pulumi.ResourceArgs
+    public sealed class TriggerScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
@@ -293,9 +294,10 @@ namespace Pulumi.Azure.DataFactory
         public TriggerScheduleArgs()
         {
         }
+        public static new TriggerScheduleArgs Empty => new TriggerScheduleArgs();
     }
 
-    public sealed class TriggerScheduleState : Pulumi.ResourceArgs
+    public sealed class TriggerScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Schedule Trigger is activated. Defaults to `true`.
@@ -402,5 +404,6 @@ namespace Pulumi.Azure.DataFactory
         public TriggerScheduleState()
         {
         }
+        public static new TriggerScheduleState Empty => new TriggerScheduleState();
     }
 }

@@ -15,76 +15,79 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleAsset = new Azure.Media.Asset("exampleAsset", new Azure.Media.AssetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///         });
-    ///         var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new Azure.Media.LiveEventArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "My Event Description",
-    ///             Input = new Azure.Media.Inputs.LiveEventInputArgs
-    ///             {
-    ///                 StreamingProtocol = "RTMP",
-    ///                 KeyFrameIntervalDuration = "PT6S",
-    ///                 IpAccessControlAllows = 
-    ///                 {
-    ///                     new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
-    ///                     {
-    ///                         Name = "AllowAll",
-    ///                         Address = "0.0.0.0",
-    ///                         SubnetPrefixLength = 0,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("exampleLiveEventOutput", new Azure.Media.LiveEventOutputArgs
-    ///         {
-    ///             LiveEventId = exampleLiveEvent.Id,
-    ///             ArchiveWindowDuration = "PT5M",
-    ///             AssetName = exampleAsset.Name,
-    ///             Description = "Test live output 1",
-    ///             ManifestName = "testmanifest",
-    ///             OutputSnapTimeInSeconds = 0,
-    ///             HlsFragmentsPerTsSegment = 5,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "My Event Description",
+    ///         Input = new Azure.Media.Inputs.LiveEventInputArgs
+    ///         {
+    ///             StreamingProtocol = "RTMP",
+    ///             KeyFrameIntervalDuration = "PT6S",
+    ///             IpAccessControlAllows = new[]
+    ///             {
+    ///                 new Azure.Media.Inputs.LiveEventInputIpAccessControlAllowArgs
+    ///                 {
+    ///                     Name = "AllowAll",
+    ///                     Address = "0.0.0.0",
+    ///                     SubnetPrefixLength = 0,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("exampleLiveEventOutput", new()
+    ///     {
+    ///         LiveEventId = exampleLiveEvent.Id,
+    ///         ArchiveWindowDuration = "PT5M",
+    ///         AssetName = exampleAsset.Name,
+    ///         Description = "Test live output 1",
+    ///         ManifestName = "testmanifest",
+    ///         OutputSnapTimeInSeconds = 0,
+    ///         HlsFragmentsPerTsSegment = 5,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +99,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/liveEventOutput:LiveEventOutput")]
-    public partial class LiveEventOutput : Pulumi.CustomResource
+    public partial class LiveEventOutput : global::Pulumi.CustomResource
     {
         /// <summary>
         /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -187,7 +190,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class LiveEventOutputArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -237,9 +240,10 @@ namespace Pulumi.Azure.Media
         public LiveEventOutputArgs()
         {
         }
+        public static new LiveEventOutputArgs Empty => new LiveEventOutputArgs();
     }
 
-    public sealed class LiveEventOutputState : Pulumi.ResourceArgs
+    public sealed class LiveEventOutputState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// `ISO 8601` time between 1 minute to 25 hours to indicate the maximum content length that can be archived in the asset for this live output. This also sets the maximum content length for the rewind window. For example, use `PT1H30M` to indicate 1 hour and 30 minutes of archive window. Changing this forces a new Live Output to be created.
@@ -289,5 +293,6 @@ namespace Pulumi.Azure.Media
         public LiveEventOutputState()
         {
         }
+        public static new LiveEventOutputState Empty => new LiveEventOutputState();
     }
 }

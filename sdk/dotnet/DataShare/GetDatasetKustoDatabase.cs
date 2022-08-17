@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetKustoDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetKustoDatabase.InvokeAsync(new Azure.DataShare.GetDatasetKustoDatabaseArgs
-        ///         {
-        ///             Name = "example-dskdds",
-        ///             ShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dskdds",
+        ///         ShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetKustoDatabaseResult =&gt; getDatasetKustoDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetKustoDatabase.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetKustoDatabase.InvokeAsync(new Azure.DataShare.GetDatasetKustoDatabaseArgs
-        ///         {
-        ///             Name = "example-dskdds",
-        ///             ShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dskdds",
+        ///         ShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetKustoDatabaseResult =&gt; getDatasetKustoDatabaseResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataShare
     }
 
 
-    public sealed class GetDatasetKustoDatabaseArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetKustoDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Kusto Database Dataset.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetKustoDatabaseArgs()
         {
         }
+        public static new GetDatasetKustoDatabaseArgs Empty => new GetDatasetKustoDatabaseArgs();
     }
 
-    public sealed class GetDatasetKustoDatabaseInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetKustoDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Kusto Database Dataset.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetKustoDatabaseInvokeArgs()
         {
         }
+        public static new GetDatasetKustoDatabaseInvokeArgs Empty => new GetDatasetKustoDatabaseInvokeArgs();
     }
 
 

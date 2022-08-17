@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewConnection(ctx, "exampleConnection", &bot.ConnectionArgs{
-// 			BotName:             exampleChannelsRegistration.Name,
-// 			Location:            exampleChannelsRegistration.Location,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			ServiceProviderName: pulumi.String("box"),
-// 			ClientId:            pulumi.String("exampleId"),
-// 			ClientSecret:        pulumi.String("exampleSecret"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewConnection(ctx, "exampleConnection", &bot.ConnectionArgs{
+//				BotName:             exampleChannelsRegistration.Name,
+//				Location:            exampleChannelsRegistration.Location,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				ServiceProviderName: pulumi.String("box"),
+//				ClientId:            pulumi.String("exampleId"),
+//				ClientSecret:        pulumi.String("exampleSecret"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Bot Connection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/connections/example
+//
+//	$ pulumi import azure:bot/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/connections/example
+//
 // ```
 type Connection struct {
 	pulumi.CustomResourceState
@@ -269,7 +274,7 @@ func (i *Connection) ToConnectionOutputWithContext(ctx context.Context) Connecti
 // ConnectionArrayInput is an input type that accepts ConnectionArray and ConnectionArrayOutput values.
 // You can construct a concrete instance of `ConnectionArrayInput` via:
 //
-//          ConnectionArray{ ConnectionArgs{...} }
+//	ConnectionArray{ ConnectionArgs{...} }
 type ConnectionArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i ConnectionArray) ToConnectionArrayOutputWithContext(ctx context.Context)
 // ConnectionMapInput is an input type that accepts ConnectionMap and ConnectionMapOutput values.
 // You can construct a concrete instance of `ConnectionMapInput` via:
 //
-//          ConnectionMap{ "key": ConnectionArgs{...} }
+//	ConnectionMap{ "key": ConnectionArgs{...} }
 type ConnectionMapInput interface {
 	pulumi.Input
 

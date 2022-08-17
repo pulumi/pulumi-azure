@@ -19,52 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
-// 			Name:              "production",
-// 			ResourceGroupName: "networking",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
-// 			PolicyType: pulumi.String("Custom"),
-// 			Mode:       pulumi.String("All"),
-// 			PolicyRule: pulumi.String(fmt.Sprintf(`	{
-//     "if": {
-//       "not": {
-//         "field": "location",
-//         "equals": "westeurope"
-//       }
-//     },
-//     "then": {
-//       "effect": "Deny"
-//     }
-//   }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//				Name:              "production",
+//				ResourceGroupName: "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//				PolicyType: pulumi.String("Custom"),
+//				Mode:       pulumi.String("All"),
+//				PolicyRule: pulumi.String(fmt.Sprintf(`	{
+//	    "if": {
+//	      "not": {
+//	        "field": "location",
+//	        "equals": "westeurope"
+//	      }
+//	    },
+//	    "then": {
+//	      "effect": "Deny"
+//	    }
+//	  }
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
-// 			ResourceId:         pulumi.String(exampleVirtualNetwork.Id),
-// 			PolicyDefinitionId: exampleDefinition.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
+//				ResourceId:         pulumi.String(exampleVirtualNetwork.Id),
+//				PolicyDefinitionId: exampleDefinition.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,10 +77,12 @@ import (
 // Resource Policy Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example "{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1"
+//
+//	$ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example "{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1"
+//
 // ```
 //
-//  where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
+//	where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.
 type ResourcePolicyAssignment struct {
 	pulumi.CustomResourceState
 
@@ -278,7 +285,7 @@ func (i *ResourcePolicyAssignment) ToResourcePolicyAssignmentOutputWithContext(c
 // ResourcePolicyAssignmentArrayInput is an input type that accepts ResourcePolicyAssignmentArray and ResourcePolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentArrayInput` via:
 //
-//          ResourcePolicyAssignmentArray{ ResourcePolicyAssignmentArgs{...} }
+//	ResourcePolicyAssignmentArray{ ResourcePolicyAssignmentArgs{...} }
 type ResourcePolicyAssignmentArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +310,7 @@ func (i ResourcePolicyAssignmentArray) ToResourcePolicyAssignmentArrayOutputWith
 // ResourcePolicyAssignmentMapInput is an input type that accepts ResourcePolicyAssignmentMap and ResourcePolicyAssignmentMapOutput values.
 // You can construct a concrete instance of `ResourcePolicyAssignmentMapInput` via:
 //
-//          ResourcePolicyAssignmentMap{ "key": ResourcePolicyAssignmentArgs{...} }
+//	ResourcePolicyAssignmentMap{ "key": ResourcePolicyAssignmentArgs{...} }
 type ResourcePolicyAssignmentMapInput interface {
 	pulumi.Input
 

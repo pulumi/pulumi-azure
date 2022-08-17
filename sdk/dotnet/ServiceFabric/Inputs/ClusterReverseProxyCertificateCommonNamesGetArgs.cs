@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterReverseProxyCertificateCommonNamesGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterReverseProxyCertificateCommonNamesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("commonNames", required: true)]
         private InputList<Inputs.ClusterReverseProxyCertificateCommonNamesCommonNameGetArgs>? _commonNames;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterReverseProxyCertificateCommonNamesGetArgs()
         {
         }
+        public static new ClusterReverseProxyCertificateCommonNamesGetArgs Empty => new ClusterReverseProxyCertificateCommonNamesGetArgs();
     }
 }

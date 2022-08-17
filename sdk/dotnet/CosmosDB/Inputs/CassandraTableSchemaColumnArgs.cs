@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class CassandraTableSchemaColumnArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableSchemaColumnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the column to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public CassandraTableSchemaColumnArgs()
         {
         }
+        public static new CassandraTableSchemaColumnArgs Empty => new CassandraTableSchemaColumnArgs();
     }
 }

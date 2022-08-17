@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class HadoopClusterRolesEdgeNodeInstallScriptActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,6 +31,21 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptActionArgs extends com
     }
 
     /**
+     * The parameters for the script.
+     * 
+     */
+    @Import(name="parameters")
+    private @Nullable Output<String> parameters;
+
+    /**
+     * @return The parameters for the script.
+     * 
+     */
+    public Optional<Output<String>> parameters() {
+        return Optional.ofNullable(this.parameters);
+    }
+
+    /**
      * The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
      * 
      */
@@ -47,6 +64,7 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptActionArgs extends com
 
     private HadoopClusterRolesEdgeNodeInstallScriptActionArgs(HadoopClusterRolesEdgeNodeInstallScriptActionArgs $) {
         this.name = $.name;
+        this.parameters = $.parameters;
         this.uri = $.uri;
     }
 
@@ -87,6 +105,27 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptActionArgs extends com
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param parameters The parameters for the script.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(@Nullable Output<String> parameters) {
+            $.parameters = parameters;
+            return this;
+        }
+
+        /**
+         * @param parameters The parameters for the script.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parameters(String parameters) {
+            return parameters(Output.of(parameters));
         }
 
         /**

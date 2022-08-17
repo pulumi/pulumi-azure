@@ -20,55 +20,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceId:        exampleNamespace.ID(),
-// 			EnablePartitioning: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
-// 			TopicId:          exampleTopic.ID(),
-// 			MaxDeliveryCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
-// 			SubscriptionId: exampleSubscription.ID(),
-// 			FilterType:     pulumi.String("SqlFilter"),
-// 			SqlFilter:      pulumi.String("colour = 'red'"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+//				TopicId:          exampleTopic.ID(),
+//				MaxDeliveryCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
+//				SubscriptionId: exampleSubscription.ID(),
+//				FilterType:     pulumi.String("SqlFilter"),
+//				SqlFilter:      pulumi.String("colour = 'red'"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Correlation Filter)
 //
@@ -76,61 +79,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceId:        exampleNamespace.ID(),
-// 			EnablePartitioning: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
-// 			TopicId:          exampleTopic.ID(),
-// 			MaxDeliveryCount: pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
-// 			SubscriptionId: exampleSubscription.ID(),
-// 			FilterType:     pulumi.String("CorrelationFilter"),
-// 			CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
-// 				CorrelationId: pulumi.String("high"),
-// 				Label:         pulumi.String("red"),
-// 				Properties: pulumi.StringMap{
-// 					"customProperty": pulumi.String("value"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId:        exampleNamespace.ID(),
+//				EnablePartitioning: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+//				TopicId:          exampleTopic.ID(),
+//				MaxDeliveryCount: pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
+//				SubscriptionId: exampleSubscription.ID(),
+//				FilterType:     pulumi.String("CorrelationFilter"),
+//				CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{
+//					CorrelationId: pulumi.String("high"),
+//					Label:         pulumi.String("red"),
+//					Properties: pulumi.StringMap{
+//						"customProperty": pulumi.String("value"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -138,7 +144,9 @@ import (
 // Service Bus Subscription Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
+//
+//	$ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
+//
 // ```
 type SubscriptionRule struct {
 	pulumi.CustomResourceState
@@ -152,7 +160,8 @@ type SubscriptionRule struct {
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-	SqlFilter pulumi.StringPtrOutput `pulumi:"sqlFilter"`
+	SqlFilter                   pulumi.StringPtrOutput `pulumi:"sqlFilter"`
+	SqlFilterCompatibilityLevel pulumi.IntOutput       `pulumi:"sqlFilterCompatibilityLevel"`
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
@@ -207,7 +216,8 @@ type subscriptionRuleState struct {
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-	SqlFilter *string `pulumi:"sqlFilter"`
+	SqlFilter                   *string `pulumi:"sqlFilter"`
+	SqlFilterCompatibilityLevel *int    `pulumi:"sqlFilterCompatibilityLevel"`
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId *string `pulumi:"subscriptionId"`
 }
@@ -222,7 +232,8 @@ type SubscriptionRuleState struct {
 	// Specifies the name of the ServiceBus Subscription Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
-	SqlFilter pulumi.StringPtrInput
+	SqlFilter                   pulumi.StringPtrInput
+	SqlFilterCompatibilityLevel pulumi.IntPtrInput
 	// The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
 	SubscriptionId pulumi.StringPtrInput
 }
@@ -288,7 +299,7 @@ func (i *SubscriptionRule) ToSubscriptionRuleOutputWithContext(ctx context.Conte
 // SubscriptionRuleArrayInput is an input type that accepts SubscriptionRuleArray and SubscriptionRuleArrayOutput values.
 // You can construct a concrete instance of `SubscriptionRuleArrayInput` via:
 //
-//          SubscriptionRuleArray{ SubscriptionRuleArgs{...} }
+//	SubscriptionRuleArray{ SubscriptionRuleArgs{...} }
 type SubscriptionRuleArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +324,7 @@ func (i SubscriptionRuleArray) ToSubscriptionRuleArrayOutputWithContext(ctx cont
 // SubscriptionRuleMapInput is an input type that accepts SubscriptionRuleMap and SubscriptionRuleMapOutput values.
 // You can construct a concrete instance of `SubscriptionRuleMapInput` via:
 //
-//          SubscriptionRuleMap{ "key": SubscriptionRuleArgs{...} }
+//	SubscriptionRuleMap{ "key": SubscriptionRuleArgs{...} }
 type SubscriptionRuleMapInput interface {
 	pulumi.Input
 
@@ -372,6 +383,10 @@ func (o SubscriptionRuleOutput) Name() pulumi.StringOutput {
 // Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filterType` is set to `SqlFilter`.
 func (o SubscriptionRuleOutput) SqlFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriptionRule) pulumi.StringPtrOutput { return v.SqlFilter }).(pulumi.StringPtrOutput)
+}
+
+func (o SubscriptionRuleOutput) SqlFilterCompatibilityLevel() pulumi.IntOutput {
+	return o.ApplyT(func(v *SubscriptionRule) pulumi.IntOutput { return v.SqlFilterCompatibilityLevel }).(pulumi.IntOutput)
 }
 
 // The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.

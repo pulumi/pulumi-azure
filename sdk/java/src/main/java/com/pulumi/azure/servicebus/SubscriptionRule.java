@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -227,6 +228,12 @@ public class SubscriptionRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sqlFilter() {
         return Codegen.optional(this.sqlFilter);
+    }
+    @Export(name="sqlFilterCompatibilityLevel", type=Integer.class, parameters={})
+    private Output<Integer> sqlFilterCompatibilityLevel;
+
+    public Output<Integer> sqlFilterCompatibilityLevel() {
+        return this.sqlFilterCompatibilityLevel;
     }
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.

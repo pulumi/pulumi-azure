@@ -15,34 +15,33 @@ namespace Pulumi.Azure.Healthcare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testWorkspace = new Azure.Healthcare.Workspace("testWorkspace", new()
     ///     {
-    ///         var testWorkspace = new Azure.Healthcare.Workspace("testWorkspace", new Azure.Healthcare.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = "tfex-resource_group",
-    ///             Location = "east us",
-    ///         });
-    ///         var testDicomService = new Azure.Healthcare.DicomService("testDicomService", new Azure.Healthcare.DicomServiceArgs
-    ///         {
-    ///             WorkspaceId = testWorkspace.Id,
-    ///             Location = "east us",
-    ///             Identity = new Azure.Healthcare.Inputs.DicomServiceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "None" },
-    ///             },
-    ///         });
-    ///     }
+    ///         ResourceGroupName = "tfex-resource_group",
+    ///         Location = "east us",
+    ///     });
     /// 
-    /// }
+    ///     var testDicomService = new Azure.Healthcare.DicomService("testDicomService", new()
+    ///     {
+    ///         WorkspaceId = testWorkspace.Id,
+    ///         Location = "east us",
+    ///         Identity = new Azure.Healthcare.Inputs.DicomServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "None" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +53,7 @@ namespace Pulumi.Azure.Healthcare
     /// ```
     /// </summary>
     [AzureResourceType("azure:healthcare/dicomService:DicomService")]
-    public partial class DicomService : Pulumi.CustomResource
+    public partial class DicomService : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The `authentication` block as defined below.
@@ -148,7 +147,7 @@ namespace Pulumi.Azure.Healthcare
         }
     }
 
-    public sealed class DicomServiceArgs : Pulumi.ResourceArgs
+    public sealed class DicomServiceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -191,9 +190,10 @@ namespace Pulumi.Azure.Healthcare
         public DicomServiceArgs()
         {
         }
+        public static new DicomServiceArgs Empty => new DicomServiceArgs();
     }
 
-    public sealed class DicomServiceState : Pulumi.ResourceArgs
+    public sealed class DicomServiceState : global::Pulumi.ResourceArgs
     {
         [Input("authentications")]
         private InputList<Inputs.DicomServiceAuthenticationGetArgs>? _authentications;
@@ -262,5 +262,6 @@ namespace Pulumi.Azure.Healthcare
         public DicomServiceState()
         {
         }
+        public static new DicomServiceState Empty => new DicomServiceState();
     }
 }

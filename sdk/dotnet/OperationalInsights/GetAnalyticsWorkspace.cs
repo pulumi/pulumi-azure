@@ -19,24 +19,23 @@ namespace Pulumi.Azure.OperationalInsights
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.OperationalInsights.GetAnalyticsWorkspace.InvokeAsync(new Azure.OperationalInsights.GetAnalyticsWorkspaceArgs
-        ///         {
-        ///             Name = "acctest-01",
-        ///             ResourceGroupName = "acctest",
-        ///         }));
-        ///         this.LogAnalyticsWorkspaceId = example.Apply(example =&gt; example.WorkspaceId);
-        ///     }
+        ///         Name = "acctest-01",
+        ///         ResourceGroupName = "acctest",
+        ///     });
         /// 
-        ///     [Output("logAnalyticsWorkspaceId")]
-        ///     public Output&lt;string&gt; LogAnalyticsWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["logAnalyticsWorkspaceId"] = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.WorkspaceId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.OperationalInsights
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.OperationalInsights.GetAnalyticsWorkspace.InvokeAsync(new Azure.OperationalInsights.GetAnalyticsWorkspaceArgs
-        ///         {
-        ///             Name = "acctest-01",
-        ///             ResourceGroupName = "acctest",
-        ///         }));
-        ///         this.LogAnalyticsWorkspaceId = example.Apply(example =&gt; example.WorkspaceId);
-        ///     }
+        ///         Name = "acctest-01",
+        ///         ResourceGroupName = "acctest",
+        ///     });
         /// 
-        ///     [Output("logAnalyticsWorkspaceId")]
-        ///     public Output&lt;string&gt; LogAnalyticsWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["logAnalyticsWorkspaceId"] = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.WorkspaceId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.OperationalInsights
     }
 
 
-    public sealed class GetAnalyticsWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalyticsWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Log Analytics Workspace.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.OperationalInsights
         public GetAnalyticsWorkspaceArgs()
         {
         }
+        public static new GetAnalyticsWorkspaceArgs Empty => new GetAnalyticsWorkspaceArgs();
     }
 
-    public sealed class GetAnalyticsWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAnalyticsWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Log Analytics Workspace.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.OperationalInsights
         public GetAnalyticsWorkspaceInvokeArgs()
         {
         }
+        public static new GetAnalyticsWorkspaceInvokeArgs Empty => new GetAnalyticsWorkspaceInvokeArgs();
     }
 
 

@@ -13,6 +13,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
     [OutputType]
     public sealed class HadoopClusterRolesEdgeNode
     {
+        public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint> HttpsEndpoints;
         /// <summary>
         /// A `install_script_action` block as defined below.
         /// </summary>
@@ -21,6 +22,7 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// The number of instances which should be run for the Worker Nodes.
         /// </summary>
         public readonly int TargetInstanceCount;
+        public readonly ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction> UninstallScriptActions;
         /// <summary>
         /// The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
         /// </summary>
@@ -28,14 +30,20 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
         [OutputConstructor]
         private HadoopClusterRolesEdgeNode(
+            ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints,
+
             ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions,
 
             int targetInstanceCount,
 
+            ImmutableArray<Outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions,
+
             string vmSize)
         {
+            HttpsEndpoints = httpsEndpoints;
             InstallScriptActions = installScriptActions;
             TargetInstanceCount = targetInstanceCount;
+            UninstallScriptActions = uninstallScriptActions;
             VmSize = vmSize;
         }
     }

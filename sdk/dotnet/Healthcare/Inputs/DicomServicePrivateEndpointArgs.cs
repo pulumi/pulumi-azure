@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class DicomServicePrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class DicomServicePrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Healthcare DICOM Service.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public DicomServicePrivateEndpointArgs()
         {
         }
+        public static new DicomServicePrivateEndpointArgs Empty => new DicomServicePrivateEndpointArgs();
     }
 }

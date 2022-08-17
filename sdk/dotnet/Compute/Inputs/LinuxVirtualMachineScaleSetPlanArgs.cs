@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetPlanArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the image from the marketplace. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetPlanArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetPlanArgs Empty => new LinuxVirtualMachineScaleSetPlanArgs();
     }
 }

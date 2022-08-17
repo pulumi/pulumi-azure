@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetWindowsFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetWindowsFunctionApp.InvokeAsync(new Azure.AppService.GetWindowsFunctionAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWindowsFunctionAppResult =&gt; getWindowsFunctionAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetWindowsFunctionApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetWindowsFunctionApp.InvokeAsync(new Azure.AppService.GetWindowsFunctionAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWindowsFunctionAppResult =&gt; getWindowsFunctionAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetWindowsFunctionAppArgs : Pulumi.InvokeArgs
+    public sealed class GetWindowsFunctionAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Windows Function App.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetWindowsFunctionAppArgs()
         {
         }
+        public static new GetWindowsFunctionAppArgs Empty => new GetWindowsFunctionAppArgs();
     }
 
-    public sealed class GetWindowsFunctionAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWindowsFunctionAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Windows Function App.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetWindowsFunctionAppInvokeArgs()
         {
         }
+        public static new GetWindowsFunctionAppInvokeArgs Empty => new GetWindowsFunctionAppInvokeArgs();
     }
 
 
@@ -250,6 +250,10 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the Windows Function App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The subnet id which the Windows Function App is vNet Integrated with.
+        /// </summary>
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetWindowsFunctionAppResult(
@@ -317,7 +321,9 @@ namespace Pulumi.Azure.AppService
 
             bool storageUsesManagedIdentity,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string virtualNetworkSubnetId)
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
@@ -352,6 +358,7 @@ namespace Pulumi.Azure.AppService
             StorageKeyVaultSecretId = storageKeyVaultSecretId;
             StorageUsesManagedIdentity = storageUsesManagedIdentity;
             Tags = tags;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerIndexingPolicyExcludedPathGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerIndexingPolicyExcludedPathGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path that is excluded from indexing.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerIndexingPolicyExcludedPathGetArgs()
         {
         }
+        public static new SqlContainerIndexingPolicyExcludedPathGetArgs Empty => new SqlContainerIndexingPolicyExcludedPathGetArgs();
     }
 }

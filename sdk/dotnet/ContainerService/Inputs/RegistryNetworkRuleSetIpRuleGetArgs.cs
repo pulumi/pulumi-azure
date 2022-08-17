@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryNetworkRuleSetIpRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryNetworkRuleSetIpRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The behaviour for requests matching this rule. At this time the only supported value is `Allow`
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryNetworkRuleSetIpRuleGetArgs()
         {
         }
+        public static new RegistryNetworkRuleSetIpRuleGetArgs Empty => new RegistryNetworkRuleSetIpRuleGetArgs();
     }
 }

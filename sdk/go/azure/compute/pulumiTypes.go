@@ -22,7 +22,7 @@ type BastionHostIpConfiguration struct {
 // BastionHostIpConfigurationInput is an input type that accepts BastionHostIpConfigurationArgs and BastionHostIpConfigurationOutput values.
 // You can construct a concrete instance of `BastionHostIpConfigurationInput` via:
 //
-//          BastionHostIpConfigurationArgs{...}
+//	BastionHostIpConfigurationArgs{...}
 type BastionHostIpConfigurationInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i BastionHostIpConfigurationArgs) ToBastionHostIpConfigurationPtrOutputWit
 // BastionHostIpConfigurationPtrInput is an input type that accepts BastionHostIpConfigurationArgs, BastionHostIpConfigurationPtr and BastionHostIpConfigurationPtrOutput values.
 // You can construct a concrete instance of `BastionHostIpConfigurationPtrInput` via:
 //
-//          BastionHostIpConfigurationArgs{...}
+//	        BastionHostIpConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BastionHostIpConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type CapacityReservationSku struct {
 // CapacityReservationSkuInput is an input type that accepts CapacityReservationSkuArgs and CapacityReservationSkuOutput values.
 // You can construct a concrete instance of `CapacityReservationSkuInput` via:
 //
-//          CapacityReservationSkuArgs{...}
+//	CapacityReservationSkuArgs{...}
 type CapacityReservationSkuInput interface {
 	pulumi.Input
 
@@ -233,11 +233,11 @@ func (i CapacityReservationSkuArgs) ToCapacityReservationSkuPtrOutputWithContext
 // CapacityReservationSkuPtrInput is an input type that accepts CapacityReservationSkuArgs, CapacityReservationSkuPtr and CapacityReservationSkuPtrOutput values.
 // You can construct a concrete instance of `CapacityReservationSkuPtrInput` via:
 //
-//          CapacityReservationSkuArgs{...}
+//	        CapacityReservationSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CapacityReservationSkuPtrInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ type DiskEncryptionSetIdentity struct {
 // DiskEncryptionSetIdentityInput is an input type that accepts DiskEncryptionSetIdentityArgs and DiskEncryptionSetIdentityOutput values.
 // You can construct a concrete instance of `DiskEncryptionSetIdentityInput` via:
 //
-//          DiskEncryptionSetIdentityArgs{...}
+//	DiskEncryptionSetIdentityArgs{...}
 type DiskEncryptionSetIdentityInput interface {
 	pulumi.Input
 
@@ -393,11 +393,11 @@ func (i DiskEncryptionSetIdentityArgs) ToDiskEncryptionSetIdentityPtrOutputWithC
 // DiskEncryptionSetIdentityPtrInput is an input type that accepts DiskEncryptionSetIdentityArgs, DiskEncryptionSetIdentityPtr and DiskEncryptionSetIdentityPtrOutput values.
 // You can construct a concrete instance of `DiskEncryptionSetIdentityPtrInput` via:
 //
-//          DiskEncryptionSetIdentityArgs{...}
+//	        DiskEncryptionSetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DiskEncryptionSetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -528,7 +528,7 @@ type GalleryApplicationVersionManageAction struct {
 // GalleryApplicationVersionManageActionInput is an input type that accepts GalleryApplicationVersionManageActionArgs and GalleryApplicationVersionManageActionOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionManageActionInput` via:
 //
-//          GalleryApplicationVersionManageActionArgs{...}
+//	GalleryApplicationVersionManageActionArgs{...}
 type GalleryApplicationVersionManageActionInput interface {
 	pulumi.Input
 
@@ -568,11 +568,11 @@ func (i GalleryApplicationVersionManageActionArgs) ToGalleryApplicationVersionMa
 // GalleryApplicationVersionManageActionPtrInput is an input type that accepts GalleryApplicationVersionManageActionArgs, GalleryApplicationVersionManageActionPtr and GalleryApplicationVersionManageActionPtrOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionManageActionPtrInput` via:
 //
-//          GalleryApplicationVersionManageActionArgs{...}
+//	        GalleryApplicationVersionManageActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryApplicationVersionManageActionPtrInput interface {
 	pulumi.Input
 
@@ -701,7 +701,7 @@ type GalleryApplicationVersionSource struct {
 // GalleryApplicationVersionSourceInput is an input type that accepts GalleryApplicationVersionSourceArgs and GalleryApplicationVersionSourceOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionSourceInput` via:
 //
-//          GalleryApplicationVersionSourceArgs{...}
+//	GalleryApplicationVersionSourceArgs{...}
 type GalleryApplicationVersionSourceInput interface {
 	pulumi.Input
 
@@ -739,11 +739,11 @@ func (i GalleryApplicationVersionSourceArgs) ToGalleryApplicationVersionSourcePt
 // GalleryApplicationVersionSourcePtrInput is an input type that accepts GalleryApplicationVersionSourceArgs, GalleryApplicationVersionSourcePtr and GalleryApplicationVersionSourcePtrOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionSourcePtrInput` via:
 //
-//          GalleryApplicationVersionSourceArgs{...}
+//	        GalleryApplicationVersionSourceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GalleryApplicationVersionSourcePtrInput interface {
 	pulumi.Input
 
@@ -859,7 +859,7 @@ type GalleryApplicationVersionTargetRegion struct {
 // GalleryApplicationVersionTargetRegionInput is an input type that accepts GalleryApplicationVersionTargetRegionArgs and GalleryApplicationVersionTargetRegionOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionTargetRegionInput` via:
 //
-//          GalleryApplicationVersionTargetRegionArgs{...}
+//	GalleryApplicationVersionTargetRegionArgs{...}
 type GalleryApplicationVersionTargetRegionInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ func (i GalleryApplicationVersionTargetRegionArgs) ToGalleryApplicationVersionTa
 // GalleryApplicationVersionTargetRegionArrayInput is an input type that accepts GalleryApplicationVersionTargetRegionArray and GalleryApplicationVersionTargetRegionArrayOutput values.
 // You can construct a concrete instance of `GalleryApplicationVersionTargetRegionArrayInput` via:
 //
-//          GalleryApplicationVersionTargetRegionArray{ GalleryApplicationVersionTargetRegionArgs{...} }
+//	GalleryApplicationVersionTargetRegionArray{ GalleryApplicationVersionTargetRegionArgs{...} }
 type GalleryApplicationVersionTargetRegionArrayInput interface {
 	pulumi.Input
 
@@ -978,7 +978,7 @@ type ImageDataDisk struct {
 // ImageDataDiskInput is an input type that accepts ImageDataDiskArgs and ImageDataDiskOutput values.
 // You can construct a concrete instance of `ImageDataDiskInput` via:
 //
-//          ImageDataDiskArgs{...}
+//	ImageDataDiskArgs{...}
 type ImageDataDiskInput interface {
 	pulumi.Input
 
@@ -1014,7 +1014,7 @@ func (i ImageDataDiskArgs) ToImageDataDiskOutputWithContext(ctx context.Context)
 // ImageDataDiskArrayInput is an input type that accepts ImageDataDiskArray and ImageDataDiskArrayOutput values.
 // You can construct a concrete instance of `ImageDataDiskArrayInput` via:
 //
-//          ImageDataDiskArray{ ImageDataDiskArgs{...} }
+//	ImageDataDiskArray{ ImageDataDiskArgs{...} }
 type ImageDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -1113,7 +1113,7 @@ type ImageOsDisk struct {
 // ImageOsDiskInput is an input type that accepts ImageOsDiskArgs and ImageOsDiskOutput values.
 // You can construct a concrete instance of `ImageOsDiskInput` via:
 //
-//          ImageOsDiskArgs{...}
+//	ImageOsDiskArgs{...}
 type ImageOsDiskInput interface {
 	pulumi.Input
 
@@ -1159,11 +1159,11 @@ func (i ImageOsDiskArgs) ToImageOsDiskPtrOutputWithContext(ctx context.Context) 
 // ImageOsDiskPtrInput is an input type that accepts ImageOsDiskArgs, ImageOsDiskPtr and ImageOsDiskPtrOutput values.
 // You can construct a concrete instance of `ImageOsDiskPtrInput` via:
 //
-//          ImageOsDiskArgs{...}
+//	        ImageOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ImageOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -1335,7 +1335,7 @@ type LinuxVirtualMachineAdditionalCapabilities struct {
 // LinuxVirtualMachineAdditionalCapabilitiesInput is an input type that accepts LinuxVirtualMachineAdditionalCapabilitiesArgs and LinuxVirtualMachineAdditionalCapabilitiesOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineAdditionalCapabilitiesInput` via:
 //
-//          LinuxVirtualMachineAdditionalCapabilitiesArgs{...}
+//	LinuxVirtualMachineAdditionalCapabilitiesArgs{...}
 type LinuxVirtualMachineAdditionalCapabilitiesInput interface {
 	pulumi.Input
 
@@ -1371,11 +1371,11 @@ func (i LinuxVirtualMachineAdditionalCapabilitiesArgs) ToLinuxVirtualMachineAddi
 // LinuxVirtualMachineAdditionalCapabilitiesPtrInput is an input type that accepts LinuxVirtualMachineAdditionalCapabilitiesArgs, LinuxVirtualMachineAdditionalCapabilitiesPtr and LinuxVirtualMachineAdditionalCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineAdditionalCapabilitiesPtrInput` via:
 //
-//          LinuxVirtualMachineAdditionalCapabilitiesArgs{...}
+//	        LinuxVirtualMachineAdditionalCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineAdditionalCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -1474,7 +1474,7 @@ type LinuxVirtualMachineAdminSshKey struct {
 // LinuxVirtualMachineAdminSshKeyInput is an input type that accepts LinuxVirtualMachineAdminSshKeyArgs and LinuxVirtualMachineAdminSshKeyOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineAdminSshKeyInput` via:
 //
-//          LinuxVirtualMachineAdminSshKeyArgs{...}
+//	LinuxVirtualMachineAdminSshKeyArgs{...}
 type LinuxVirtualMachineAdminSshKeyInput interface {
 	pulumi.Input
 
@@ -1504,7 +1504,7 @@ func (i LinuxVirtualMachineAdminSshKeyArgs) ToLinuxVirtualMachineAdminSshKeyOutp
 // LinuxVirtualMachineAdminSshKeyArrayInput is an input type that accepts LinuxVirtualMachineAdminSshKeyArray and LinuxVirtualMachineAdminSshKeyArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineAdminSshKeyArrayInput` via:
 //
-//          LinuxVirtualMachineAdminSshKeyArray{ LinuxVirtualMachineAdminSshKeyArgs{...} }
+//	LinuxVirtualMachineAdminSshKeyArray{ LinuxVirtualMachineAdminSshKeyArgs{...} }
 type LinuxVirtualMachineAdminSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -1578,7 +1578,7 @@ type LinuxVirtualMachineBootDiagnostics struct {
 // LinuxVirtualMachineBootDiagnosticsInput is an input type that accepts LinuxVirtualMachineBootDiagnosticsArgs and LinuxVirtualMachineBootDiagnosticsOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineBootDiagnosticsInput` via:
 //
-//          LinuxVirtualMachineBootDiagnosticsArgs{...}
+//	LinuxVirtualMachineBootDiagnosticsArgs{...}
 type LinuxVirtualMachineBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -1614,11 +1614,11 @@ func (i LinuxVirtualMachineBootDiagnosticsArgs) ToLinuxVirtualMachineBootDiagnos
 // LinuxVirtualMachineBootDiagnosticsPtrInput is an input type that accepts LinuxVirtualMachineBootDiagnosticsArgs, LinuxVirtualMachineBootDiagnosticsPtr and LinuxVirtualMachineBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineBootDiagnosticsPtrInput` via:
 //
-//          LinuxVirtualMachineBootDiagnosticsArgs{...}
+//	        LinuxVirtualMachineBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -1721,7 +1721,7 @@ type LinuxVirtualMachineIdentity struct {
 // LinuxVirtualMachineIdentityInput is an input type that accepts LinuxVirtualMachineIdentityArgs and LinuxVirtualMachineIdentityOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineIdentityInput` via:
 //
-//          LinuxVirtualMachineIdentityArgs{...}
+//	LinuxVirtualMachineIdentityArgs{...}
 type LinuxVirtualMachineIdentityInput interface {
 	pulumi.Input
 
@@ -1763,11 +1763,11 @@ func (i LinuxVirtualMachineIdentityArgs) ToLinuxVirtualMachineIdentityPtrOutputW
 // LinuxVirtualMachineIdentityPtrInput is an input type that accepts LinuxVirtualMachineIdentityArgs, LinuxVirtualMachineIdentityPtr and LinuxVirtualMachineIdentityPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineIdentityPtrInput` via:
 //
-//          LinuxVirtualMachineIdentityArgs{...}
+//	        LinuxVirtualMachineIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1925,7 +1925,7 @@ type LinuxVirtualMachineOsDisk struct {
 // LinuxVirtualMachineOsDiskInput is an input type that accepts LinuxVirtualMachineOsDiskArgs and LinuxVirtualMachineOsDiskOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineOsDiskInput` via:
 //
-//          LinuxVirtualMachineOsDiskArgs{...}
+//	LinuxVirtualMachineOsDiskArgs{...}
 type LinuxVirtualMachineOsDiskInput interface {
 	pulumi.Input
 
@@ -1977,11 +1977,11 @@ func (i LinuxVirtualMachineOsDiskArgs) ToLinuxVirtualMachineOsDiskPtrOutputWithC
 // LinuxVirtualMachineOsDiskPtrInput is an input type that accepts LinuxVirtualMachineOsDiskArgs, LinuxVirtualMachineOsDiskPtr and LinuxVirtualMachineOsDiskPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineOsDiskPtrInput` via:
 //
-//          LinuxVirtualMachineOsDiskArgs{...}
+//	        LinuxVirtualMachineOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -2202,7 +2202,7 @@ type LinuxVirtualMachineOsDiskDiffDiskSettings struct {
 // LinuxVirtualMachineOsDiskDiffDiskSettingsInput is an input type that accepts LinuxVirtualMachineOsDiskDiffDiskSettingsArgs and LinuxVirtualMachineOsDiskDiffDiskSettingsOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineOsDiskDiffDiskSettingsInput` via:
 //
-//          LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{...}
+//	LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{...}
 type LinuxVirtualMachineOsDiskDiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -2240,11 +2240,11 @@ func (i LinuxVirtualMachineOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMachineOsDi
 // LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput is an input type that accepts LinuxVirtualMachineOsDiskDiffDiskSettingsArgs, LinuxVirtualMachineOsDiskDiffDiskSettingsPtr and LinuxVirtualMachineOsDiskDiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput` via:
 //
-//          LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{...}
+//	        LinuxVirtualMachineOsDiskDiffDiskSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2360,7 +2360,7 @@ type LinuxVirtualMachinePlan struct {
 // LinuxVirtualMachinePlanInput is an input type that accepts LinuxVirtualMachinePlanArgs and LinuxVirtualMachinePlanOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachinePlanInput` via:
 //
-//          LinuxVirtualMachinePlanArgs{...}
+//	LinuxVirtualMachinePlanArgs{...}
 type LinuxVirtualMachinePlanInput interface {
 	pulumi.Input
 
@@ -2400,11 +2400,11 @@ func (i LinuxVirtualMachinePlanArgs) ToLinuxVirtualMachinePlanPtrOutputWithConte
 // LinuxVirtualMachinePlanPtrInput is an input type that accepts LinuxVirtualMachinePlanArgs, LinuxVirtualMachinePlanPtr and LinuxVirtualMachinePlanPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachinePlanPtrInput` via:
 //
-//          LinuxVirtualMachinePlanArgs{...}
+//	        LinuxVirtualMachinePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachinePlanPtrInput interface {
 	pulumi.Input
 
@@ -2531,7 +2531,7 @@ type LinuxVirtualMachineScaleSetAdditionalCapabilities struct {
 // LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput is an input type that accepts LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs and LinuxVirtualMachineScaleSetAdditionalCapabilitiesOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput` via:
 //
-//          LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+//	LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
 type LinuxVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 	pulumi.Input
 
@@ -2567,11 +2567,11 @@ func (i LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToLinuxVirtualMac
 // LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput is an input type that accepts LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs, LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtr and LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+//	        LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -2670,7 +2670,7 @@ type LinuxVirtualMachineScaleSetAdminSshKey struct {
 // LinuxVirtualMachineScaleSetAdminSshKeyInput is an input type that accepts LinuxVirtualMachineScaleSetAdminSshKeyArgs and LinuxVirtualMachineScaleSetAdminSshKeyOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAdminSshKeyInput` via:
 //
-//          LinuxVirtualMachineScaleSetAdminSshKeyArgs{...}
+//	LinuxVirtualMachineScaleSetAdminSshKeyArgs{...}
 type LinuxVirtualMachineScaleSetAdminSshKeyInput interface {
 	pulumi.Input
 
@@ -2700,7 +2700,7 @@ func (i LinuxVirtualMachineScaleSetAdminSshKeyArgs) ToLinuxVirtualMachineScaleSe
 // LinuxVirtualMachineScaleSetAdminSshKeyArrayInput is an input type that accepts LinuxVirtualMachineScaleSetAdminSshKeyArray and LinuxVirtualMachineScaleSetAdminSshKeyArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAdminSshKeyArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetAdminSshKeyArray{ LinuxVirtualMachineScaleSetAdminSshKeyArgs{...} }
+//	LinuxVirtualMachineScaleSetAdminSshKeyArray{ LinuxVirtualMachineScaleSetAdminSshKeyArgs{...} }
 type LinuxVirtualMachineScaleSetAdminSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -2776,7 +2776,7 @@ type LinuxVirtualMachineScaleSetAutomaticInstanceRepair struct {
 // LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs and LinuxVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
 //
-//          LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 	pulumi.Input
 
@@ -2814,11 +2814,11 @@ func (i LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToLinuxVirtualMa
 // LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs, LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtr and LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	        LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
 	pulumi.Input
 
@@ -2932,7 +2932,7 @@ type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
 // LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs and LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput` via:
 //
-//          LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
+//	LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -2970,11 +2970,11 @@ func (i LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToLinuxVirtualM
 // LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput is an input type that accepts LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs, LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr and LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
+//	        LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -3086,7 +3086,7 @@ type LinuxVirtualMachineScaleSetBootDiagnostics struct {
 // LinuxVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts LinuxVirtualMachineScaleSetBootDiagnosticsArgs and LinuxVirtualMachineScaleSetBootDiagnosticsOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetBootDiagnosticsInput` via:
 //
-//          LinuxVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	LinuxVirtualMachineScaleSetBootDiagnosticsArgs{...}
 type LinuxVirtualMachineScaleSetBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -3122,11 +3122,11 @@ func (i LinuxVirtualMachineScaleSetBootDiagnosticsArgs) ToLinuxVirtualMachineSca
 // LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput is an input type that accepts LinuxVirtualMachineScaleSetBootDiagnosticsArgs, LinuxVirtualMachineScaleSetBootDiagnosticsPtr and LinuxVirtualMachineScaleSetBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	        LinuxVirtualMachineScaleSetBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -3237,7 +3237,7 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 // LinuxVirtualMachineScaleSetDataDiskInput is an input type that accepts LinuxVirtualMachineScaleSetDataDiskArgs and LinuxVirtualMachineScaleSetDataDiskOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetDataDiskInput` via:
 //
-//          LinuxVirtualMachineScaleSetDataDiskArgs{...}
+//	LinuxVirtualMachineScaleSetDataDiskArgs{...}
 type LinuxVirtualMachineScaleSetDataDiskInput interface {
 	pulumi.Input
 
@@ -3279,7 +3279,7 @@ func (i LinuxVirtualMachineScaleSetDataDiskArgs) ToLinuxVirtualMachineScaleSetDa
 // LinuxVirtualMachineScaleSetDataDiskArrayInput is an input type that accepts LinuxVirtualMachineScaleSetDataDiskArray and LinuxVirtualMachineScaleSetDataDiskArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetDataDiskArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetDataDiskArray{ LinuxVirtualMachineScaleSetDataDiskArgs{...} }
+//	LinuxVirtualMachineScaleSetDataDiskArray{ LinuxVirtualMachineScaleSetDataDiskArgs{...} }
 type LinuxVirtualMachineScaleSetDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -3404,7 +3404,7 @@ type LinuxVirtualMachineScaleSetExtension struct {
 // LinuxVirtualMachineScaleSetExtensionInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionArgs and LinuxVirtualMachineScaleSetExtensionOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionInput` via:
 //
-//          LinuxVirtualMachineScaleSetExtensionArgs{...}
+//	LinuxVirtualMachineScaleSetExtensionArgs{...}
 type LinuxVirtualMachineScaleSetExtensionInput interface {
 	pulumi.Input
 
@@ -3450,7 +3450,7 @@ func (i LinuxVirtualMachineScaleSetExtensionArgs) ToLinuxVirtualMachineScaleSetE
 // LinuxVirtualMachineScaleSetExtensionArrayInput is an input type that accepts LinuxVirtualMachineScaleSetExtensionArray and LinuxVirtualMachineScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetExtensionArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetExtensionArray{ LinuxVirtualMachineScaleSetExtensionArgs{...} }
+//	LinuxVirtualMachineScaleSetExtensionArray{ LinuxVirtualMachineScaleSetExtensionArgs{...} }
 type LinuxVirtualMachineScaleSetExtensionArrayInput interface {
 	pulumi.Input
 
@@ -3570,7 +3570,7 @@ type LinuxVirtualMachineScaleSetIdentity struct {
 // LinuxVirtualMachineScaleSetIdentityInput is an input type that accepts LinuxVirtualMachineScaleSetIdentityArgs and LinuxVirtualMachineScaleSetIdentityOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetIdentityInput` via:
 //
-//          LinuxVirtualMachineScaleSetIdentityArgs{...}
+//	LinuxVirtualMachineScaleSetIdentityArgs{...}
 type LinuxVirtualMachineScaleSetIdentityInput interface {
 	pulumi.Input
 
@@ -3612,11 +3612,11 @@ func (i LinuxVirtualMachineScaleSetIdentityArgs) ToLinuxVirtualMachineScaleSetId
 // LinuxVirtualMachineScaleSetIdentityPtrInput is an input type that accepts LinuxVirtualMachineScaleSetIdentityArgs, LinuxVirtualMachineScaleSetIdentityPtr and LinuxVirtualMachineScaleSetIdentityPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetIdentityPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetIdentityArgs{...}
+//	        LinuxVirtualMachineScaleSetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -3770,7 +3770,7 @@ type LinuxVirtualMachineScaleSetNetworkInterface struct {
 // LinuxVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceArgs and LinuxVirtualMachineScaleSetNetworkInterfaceOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceArgs{...}
+//	LinuxVirtualMachineScaleSetNetworkInterfaceArgs{...}
 type LinuxVirtualMachineScaleSetNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -3810,7 +3810,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceArgs) ToLinuxVirtualMachineSc
 // LinuxVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceArray and LinuxVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceArray{ LinuxVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+//	LinuxVirtualMachineScaleSetNetworkInterfaceArray{ LinuxVirtualMachineScaleSetNetworkInterfaceArgs{...} }
 type LinuxVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -3927,7 +3927,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -3971,7 +3971,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToLinuxV
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -4098,7 +4098,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress s
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
 	pulumi.Input
 
@@ -4134,7 +4134,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -4235,7 +4235,7 @@ type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIp
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
 	pulumi.Input
 
@@ -4265,7 +4265,7 @@ func (i LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 // LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+//	LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
 type LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
 	pulumi.Input
 
@@ -4357,7 +4357,7 @@ type LinuxVirtualMachineScaleSetOsDisk struct {
 // LinuxVirtualMachineScaleSetOsDiskInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskArgs and LinuxVirtualMachineScaleSetOsDiskOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetOsDiskInput` via:
 //
-//          LinuxVirtualMachineScaleSetOsDiskArgs{...}
+//	LinuxVirtualMachineScaleSetOsDiskArgs{...}
 type LinuxVirtualMachineScaleSetOsDiskInput interface {
 	pulumi.Input
 
@@ -4407,11 +4407,11 @@ func (i LinuxVirtualMachineScaleSetOsDiskArgs) ToLinuxVirtualMachineScaleSetOsDi
 // LinuxVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskArgs, LinuxVirtualMachineScaleSetOsDiskPtr and LinuxVirtualMachineScaleSetOsDiskPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetOsDiskPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetOsDiskArgs{...}
+//	        LinuxVirtualMachineScaleSetOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -4617,7 +4617,7 @@ type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 // LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput` via:
 //
-//          LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -4655,11 +4655,11 @@ func (i LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToLinuxVirtualMac
 // LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput is an input type that accepts LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs, LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr and LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	        LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4775,7 +4775,7 @@ type LinuxVirtualMachineScaleSetPlan struct {
 // LinuxVirtualMachineScaleSetPlanInput is an input type that accepts LinuxVirtualMachineScaleSetPlanArgs and LinuxVirtualMachineScaleSetPlanOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetPlanInput` via:
 //
-//          LinuxVirtualMachineScaleSetPlanArgs{...}
+//	LinuxVirtualMachineScaleSetPlanArgs{...}
 type LinuxVirtualMachineScaleSetPlanInput interface {
 	pulumi.Input
 
@@ -4815,11 +4815,11 @@ func (i LinuxVirtualMachineScaleSetPlanArgs) ToLinuxVirtualMachineScaleSetPlanPt
 // LinuxVirtualMachineScaleSetPlanPtrInput is an input type that accepts LinuxVirtualMachineScaleSetPlanArgs, LinuxVirtualMachineScaleSetPlanPtr and LinuxVirtualMachineScaleSetPlanPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetPlanPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetPlanArgs{...}
+//	        LinuxVirtualMachineScaleSetPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetPlanPtrInput interface {
 	pulumi.Input
 
@@ -4952,7 +4952,7 @@ type LinuxVirtualMachineScaleSetRollingUpgradePolicy struct {
 // LinuxVirtualMachineScaleSetRollingUpgradePolicyInput is an input type that accepts LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs and LinuxVirtualMachineScaleSetRollingUpgradePolicyOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetRollingUpgradePolicyInput` via:
 //
-//          LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+//	LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -4994,11 +4994,11 @@ func (i LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs) ToLinuxVirtualMachi
 // LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput is an input type that accepts LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs, LinuxVirtualMachineScaleSetRollingUpgradePolicyPtr and LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+//	        LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -5144,7 +5144,7 @@ type LinuxVirtualMachineScaleSetSecret struct {
 // LinuxVirtualMachineScaleSetSecretInput is an input type that accepts LinuxVirtualMachineScaleSetSecretArgs and LinuxVirtualMachineScaleSetSecretOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSecretInput` via:
 //
-//          LinuxVirtualMachineScaleSetSecretArgs{...}
+//	LinuxVirtualMachineScaleSetSecretArgs{...}
 type LinuxVirtualMachineScaleSetSecretInput interface {
 	pulumi.Input
 
@@ -5174,7 +5174,7 @@ func (i LinuxVirtualMachineScaleSetSecretArgs) ToLinuxVirtualMachineScaleSetSecr
 // LinuxVirtualMachineScaleSetSecretArrayInput is an input type that accepts LinuxVirtualMachineScaleSetSecretArray and LinuxVirtualMachineScaleSetSecretArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSecretArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetSecretArray{ LinuxVirtualMachineScaleSetSecretArgs{...} }
+//	LinuxVirtualMachineScaleSetSecretArray{ LinuxVirtualMachineScaleSetSecretArgs{...} }
 type LinuxVirtualMachineScaleSetSecretArrayInput interface {
 	pulumi.Input
 
@@ -5250,7 +5250,7 @@ type LinuxVirtualMachineScaleSetSecretCertificate struct {
 // LinuxVirtualMachineScaleSetSecretCertificateInput is an input type that accepts LinuxVirtualMachineScaleSetSecretCertificateArgs and LinuxVirtualMachineScaleSetSecretCertificateOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSecretCertificateInput` via:
 //
-//          LinuxVirtualMachineScaleSetSecretCertificateArgs{...}
+//	LinuxVirtualMachineScaleSetSecretCertificateArgs{...}
 type LinuxVirtualMachineScaleSetSecretCertificateInput interface {
 	pulumi.Input
 
@@ -5278,7 +5278,7 @@ func (i LinuxVirtualMachineScaleSetSecretCertificateArgs) ToLinuxVirtualMachineS
 // LinuxVirtualMachineScaleSetSecretCertificateArrayInput is an input type that accepts LinuxVirtualMachineScaleSetSecretCertificateArray and LinuxVirtualMachineScaleSetSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSecretCertificateArrayInput` via:
 //
-//          LinuxVirtualMachineScaleSetSecretCertificateArray{ LinuxVirtualMachineScaleSetSecretCertificateArgs{...} }
+//	LinuxVirtualMachineScaleSetSecretCertificateArray{ LinuxVirtualMachineScaleSetSecretCertificateArgs{...} }
 type LinuxVirtualMachineScaleSetSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -5353,7 +5353,7 @@ type LinuxVirtualMachineScaleSetSourceImageReference struct {
 // LinuxVirtualMachineScaleSetSourceImageReferenceInput is an input type that accepts LinuxVirtualMachineScaleSetSourceImageReferenceArgs and LinuxVirtualMachineScaleSetSourceImageReferenceOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSourceImageReferenceInput` via:
 //
-//          LinuxVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	LinuxVirtualMachineScaleSetSourceImageReferenceArgs{...}
 type LinuxVirtualMachineScaleSetSourceImageReferenceInput interface {
 	pulumi.Input
 
@@ -5395,11 +5395,11 @@ func (i LinuxVirtualMachineScaleSetSourceImageReferenceArgs) ToLinuxVirtualMachi
 // LinuxVirtualMachineScaleSetSourceImageReferencePtrInput is an input type that accepts LinuxVirtualMachineScaleSetSourceImageReferenceArgs, LinuxVirtualMachineScaleSetSourceImageReferencePtr and LinuxVirtualMachineScaleSetSourceImageReferencePtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetSourceImageReferencePtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	        LinuxVirtualMachineScaleSetSourceImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetSourceImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -5543,7 +5543,7 @@ type LinuxVirtualMachineScaleSetTerminateNotification struct {
 // LinuxVirtualMachineScaleSetTerminateNotificationInput is an input type that accepts LinuxVirtualMachineScaleSetTerminateNotificationArgs and LinuxVirtualMachineScaleSetTerminateNotificationOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminateNotificationInput` via:
 //
-//          LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
+//	LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
 type LinuxVirtualMachineScaleSetTerminateNotificationInput interface {
 	pulumi.Input
 
@@ -5581,11 +5581,11 @@ func (i LinuxVirtualMachineScaleSetTerminateNotificationArgs) ToLinuxVirtualMach
 // LinuxVirtualMachineScaleSetTerminateNotificationPtrInput is an input type that accepts LinuxVirtualMachineScaleSetTerminateNotificationArgs, LinuxVirtualMachineScaleSetTerminateNotificationPtr and LinuxVirtualMachineScaleSetTerminateNotificationPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminateNotificationPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
+//	        LinuxVirtualMachineScaleSetTerminateNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetTerminateNotificationPtrInput interface {
 	pulumi.Input
 
@@ -5699,7 +5699,7 @@ type LinuxVirtualMachineScaleSetTerminationNotification struct {
 // LinuxVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts LinuxVirtualMachineScaleSetTerminationNotificationArgs and LinuxVirtualMachineScaleSetTerminationNotificationOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminationNotificationInput` via:
 //
-//          LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
 type LinuxVirtualMachineScaleSetTerminationNotificationInput interface {
 	pulumi.Input
 
@@ -5737,11 +5737,11 @@ func (i LinuxVirtualMachineScaleSetTerminationNotificationArgs) ToLinuxVirtualMa
 // LinuxVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts LinuxVirtualMachineScaleSetTerminationNotificationArgs, LinuxVirtualMachineScaleSetTerminationNotificationPtr and LinuxVirtualMachineScaleSetTerminationNotificationPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineScaleSetTerminationNotificationPtrInput` via:
 //
-//          LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	        LinuxVirtualMachineScaleSetTerminationNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineScaleSetTerminationNotificationPtrInput interface {
 	pulumi.Input
 
@@ -5855,7 +5855,7 @@ type LinuxVirtualMachineSecret struct {
 // LinuxVirtualMachineSecretInput is an input type that accepts LinuxVirtualMachineSecretArgs and LinuxVirtualMachineSecretOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSecretInput` via:
 //
-//          LinuxVirtualMachineSecretArgs{...}
+//	LinuxVirtualMachineSecretArgs{...}
 type LinuxVirtualMachineSecretInput interface {
 	pulumi.Input
 
@@ -5885,7 +5885,7 @@ func (i LinuxVirtualMachineSecretArgs) ToLinuxVirtualMachineSecretOutputWithCont
 // LinuxVirtualMachineSecretArrayInput is an input type that accepts LinuxVirtualMachineSecretArray and LinuxVirtualMachineSecretArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSecretArrayInput` via:
 //
-//          LinuxVirtualMachineSecretArray{ LinuxVirtualMachineSecretArgs{...} }
+//	LinuxVirtualMachineSecretArray{ LinuxVirtualMachineSecretArgs{...} }
 type LinuxVirtualMachineSecretArrayInput interface {
 	pulumi.Input
 
@@ -5959,7 +5959,7 @@ type LinuxVirtualMachineSecretCertificate struct {
 // LinuxVirtualMachineSecretCertificateInput is an input type that accepts LinuxVirtualMachineSecretCertificateArgs and LinuxVirtualMachineSecretCertificateOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSecretCertificateInput` via:
 //
-//          LinuxVirtualMachineSecretCertificateArgs{...}
+//	LinuxVirtualMachineSecretCertificateArgs{...}
 type LinuxVirtualMachineSecretCertificateInput interface {
 	pulumi.Input
 
@@ -5987,7 +5987,7 @@ func (i LinuxVirtualMachineSecretCertificateArgs) ToLinuxVirtualMachineSecretCer
 // LinuxVirtualMachineSecretCertificateArrayInput is an input type that accepts LinuxVirtualMachineSecretCertificateArray and LinuxVirtualMachineSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSecretCertificateArrayInput` via:
 //
-//          LinuxVirtualMachineSecretCertificateArray{ LinuxVirtualMachineSecretCertificateArgs{...} }
+//	LinuxVirtualMachineSecretCertificateArray{ LinuxVirtualMachineSecretCertificateArgs{...} }
 type LinuxVirtualMachineSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -6062,7 +6062,7 @@ type LinuxVirtualMachineSourceImageReference struct {
 // LinuxVirtualMachineSourceImageReferenceInput is an input type that accepts LinuxVirtualMachineSourceImageReferenceArgs and LinuxVirtualMachineSourceImageReferenceOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSourceImageReferenceInput` via:
 //
-//          LinuxVirtualMachineSourceImageReferenceArgs{...}
+//	LinuxVirtualMachineSourceImageReferenceArgs{...}
 type LinuxVirtualMachineSourceImageReferenceInput interface {
 	pulumi.Input
 
@@ -6104,11 +6104,11 @@ func (i LinuxVirtualMachineSourceImageReferenceArgs) ToLinuxVirtualMachineSource
 // LinuxVirtualMachineSourceImageReferencePtrInput is an input type that accepts LinuxVirtualMachineSourceImageReferenceArgs, LinuxVirtualMachineSourceImageReferencePtr and LinuxVirtualMachineSourceImageReferencePtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineSourceImageReferencePtrInput` via:
 //
-//          LinuxVirtualMachineSourceImageReferenceArgs{...}
+//	        LinuxVirtualMachineSourceImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineSourceImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -6252,7 +6252,7 @@ type LinuxVirtualMachineTerminationNotification struct {
 // LinuxVirtualMachineTerminationNotificationInput is an input type that accepts LinuxVirtualMachineTerminationNotificationArgs and LinuxVirtualMachineTerminationNotificationOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineTerminationNotificationInput` via:
 //
-//          LinuxVirtualMachineTerminationNotificationArgs{...}
+//	LinuxVirtualMachineTerminationNotificationArgs{...}
 type LinuxVirtualMachineTerminationNotificationInput interface {
 	pulumi.Input
 
@@ -6290,11 +6290,11 @@ func (i LinuxVirtualMachineTerminationNotificationArgs) ToLinuxVirtualMachineTer
 // LinuxVirtualMachineTerminationNotificationPtrInput is an input type that accepts LinuxVirtualMachineTerminationNotificationArgs, LinuxVirtualMachineTerminationNotificationPtr and LinuxVirtualMachineTerminationNotificationPtrOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineTerminationNotificationPtrInput` via:
 //
-//          LinuxVirtualMachineTerminationNotificationArgs{...}
+//	        LinuxVirtualMachineTerminationNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type LinuxVirtualMachineTerminationNotificationPtrInput interface {
 	pulumi.Input
 
@@ -6410,7 +6410,7 @@ type ManagedDiskEncryptionSettings struct {
 // ManagedDiskEncryptionSettingsInput is an input type that accepts ManagedDiskEncryptionSettingsArgs and ManagedDiskEncryptionSettingsOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsInput` via:
 //
-//          ManagedDiskEncryptionSettingsArgs{...}
+//	ManagedDiskEncryptionSettingsArgs{...}
 type ManagedDiskEncryptionSettingsInput interface {
 	pulumi.Input
 
@@ -6450,11 +6450,11 @@ func (i ManagedDiskEncryptionSettingsArgs) ToManagedDiskEncryptionSettingsPtrOut
 // ManagedDiskEncryptionSettingsPtrInput is an input type that accepts ManagedDiskEncryptionSettingsArgs, ManagedDiskEncryptionSettingsPtr and ManagedDiskEncryptionSettingsPtrOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsPtrInput` via:
 //
-//          ManagedDiskEncryptionSettingsArgs{...}
+//	        ManagedDiskEncryptionSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedDiskEncryptionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -6587,7 +6587,7 @@ type ManagedDiskEncryptionSettingsDiskEncryptionKey struct {
 // ManagedDiskEncryptionSettingsDiskEncryptionKeyInput is an input type that accepts ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs and ManagedDiskEncryptionSettingsDiskEncryptionKeyOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsDiskEncryptionKeyInput` via:
 //
-//          ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{...}
+//	ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{...}
 type ManagedDiskEncryptionSettingsDiskEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -6625,11 +6625,11 @@ func (i ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs) ToManagedDiskEncrypt
 // ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput is an input type that accepts ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs, ManagedDiskEncryptionSettingsDiskEncryptionKeyPtr and ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput` via:
 //
-//          ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{...}
+//	        ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedDiskEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -6743,7 +6743,7 @@ type ManagedDiskEncryptionSettingsKeyEncryptionKey struct {
 // ManagedDiskEncryptionSettingsKeyEncryptionKeyInput is an input type that accepts ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs and ManagedDiskEncryptionSettingsKeyEncryptionKeyOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsKeyEncryptionKeyInput` via:
 //
-//          ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{...}
+//	ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{...}
 type ManagedDiskEncryptionSettingsKeyEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -6781,11 +6781,11 @@ func (i ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs) ToManagedDiskEncrypti
 // ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput is an input type that accepts ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs, ManagedDiskEncryptionSettingsKeyEncryptionKeyPtr and ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrOutput values.
 // You can construct a concrete instance of `ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput` via:
 //
-//          ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{...}
+//	        ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ManagedDiskEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -6897,7 +6897,7 @@ type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
 // OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs and OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 	pulumi.Input
 
@@ -6933,11 +6933,11 @@ func (i OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToOrchest
 // OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs, OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtr and OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	        OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
 	pulumi.Input
 
@@ -7044,7 +7044,7 @@ type OrchestratedVirtualMachineScaleSetBootDiagnostics struct {
 // OrchestratedVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs and OrchestratedVirtualMachineScaleSetBootDiagnosticsOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetBootDiagnosticsInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
 type OrchestratedVirtualMachineScaleSetBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -7079,11 +7079,11 @@ func (i OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs) ToOrchestratedVir
 // OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs, OrchestratedVirtualMachineScaleSetBootDiagnosticsPtr and OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	        OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -7185,7 +7185,7 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 // OrchestratedVirtualMachineScaleSetDataDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArgs and OrchestratedVirtualMachineScaleSetDataDiskOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetDataDiskInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetDataDiskArgs{...}
+//	OrchestratedVirtualMachineScaleSetDataDiskArgs{...}
 type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
 	pulumi.Input
 
@@ -7220,7 +7220,7 @@ func (i OrchestratedVirtualMachineScaleSetDataDiskArgs) ToOrchestratedVirtualMac
 // OrchestratedVirtualMachineScaleSetDataDiskArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetDataDiskArray and OrchestratedVirtualMachineScaleSetDataDiskArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetDataDiskArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetDataDiskArray{ OrchestratedVirtualMachineScaleSetDataDiskArgs{...} }
+//	OrchestratedVirtualMachineScaleSetDataDiskArray{ OrchestratedVirtualMachineScaleSetDataDiskArgs{...} }
 type OrchestratedVirtualMachineScaleSetDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -7329,7 +7329,7 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 // OrchestratedVirtualMachineScaleSetExtensionInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionArgs and OrchestratedVirtualMachineScaleSetExtensionOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetExtensionArgs{...}
+//	OrchestratedVirtualMachineScaleSetExtensionArgs{...}
 type OrchestratedVirtualMachineScaleSetExtensionInput interface {
 	pulumi.Input
 
@@ -7366,7 +7366,7 @@ func (i OrchestratedVirtualMachineScaleSetExtensionArgs) ToOrchestratedVirtualMa
 // OrchestratedVirtualMachineScaleSetExtensionArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetExtensionArray and OrchestratedVirtualMachineScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetExtensionArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetExtensionArray{ OrchestratedVirtualMachineScaleSetExtensionArgs{...} }
+//	OrchestratedVirtualMachineScaleSetExtensionArray{ OrchestratedVirtualMachineScaleSetExtensionArgs{...} }
 type OrchestratedVirtualMachineScaleSetExtensionArrayInput interface {
 	pulumi.Input
 
@@ -7470,7 +7470,7 @@ type OrchestratedVirtualMachineScaleSetIdentity struct {
 // OrchestratedVirtualMachineScaleSetIdentityInput is an input type that accepts OrchestratedVirtualMachineScaleSetIdentityArgs and OrchestratedVirtualMachineScaleSetIdentityOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetIdentityInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetIdentityArgs{...}
+//	OrchestratedVirtualMachineScaleSetIdentityArgs{...}
 type OrchestratedVirtualMachineScaleSetIdentityInput interface {
 	pulumi.Input
 
@@ -7506,11 +7506,11 @@ func (i OrchestratedVirtualMachineScaleSetIdentityArgs) ToOrchestratedVirtualMac
 // OrchestratedVirtualMachineScaleSetIdentityPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetIdentityArgs, OrchestratedVirtualMachineScaleSetIdentityPtr and OrchestratedVirtualMachineScaleSetIdentityPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetIdentityPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetIdentityArgs{...}
+//	        OrchestratedVirtualMachineScaleSetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -7624,7 +7624,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...}
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...}
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -7658,7 +7658,7 @@ func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ToOrchestratedVi
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs{...} }
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -7760,7 +7760,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -7795,7 +7795,7 @@ func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) T
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -7904,7 +7904,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
 	pulumi.Input
 
@@ -7936,7 +7936,7 @@ func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -8031,7 +8031,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
 	pulumi.Input
 
@@ -8059,7 +8059,7 @@ func (i OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+//	OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
 	pulumi.Input
 
@@ -8139,7 +8139,7 @@ type OrchestratedVirtualMachineScaleSetOsDisk struct {
 // OrchestratedVirtualMachineScaleSetOsDiskInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskArgs and OrchestratedVirtualMachineScaleSetOsDiskOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
 type OrchestratedVirtualMachineScaleSetOsDiskInput interface {
 	pulumi.Input
 
@@ -8179,11 +8179,11 @@ func (i OrchestratedVirtualMachineScaleSetOsDiskArgs) ToOrchestratedVirtualMachi
 // OrchestratedVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskArgs, OrchestratedVirtualMachineScaleSetOsDiskPtr and OrchestratedVirtualMachineScaleSetOsDiskPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
+//	        OrchestratedVirtualMachineScaleSetOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -8347,7 +8347,7 @@ type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 // OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -8385,11 +8385,11 @@ func (i OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToOrchestr
 // OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs, OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr and OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	        OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -8502,7 +8502,7 @@ type OrchestratedVirtualMachineScaleSetOsProfile struct {
 // OrchestratedVirtualMachineScaleSetOsProfileInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileArgs and OrchestratedVirtualMachineScaleSetOsProfileOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileInput interface {
 	pulumi.Input
 
@@ -8539,11 +8539,11 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileArgs) ToOrchestratedVirtualMa
 // OrchestratedVirtualMachineScaleSetOsProfilePtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileArgs, OrchestratedVirtualMachineScaleSetOsProfilePtr and OrchestratedVirtualMachineScaleSetOsProfilePtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfilePtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
+//	        OrchestratedVirtualMachineScaleSetOsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetOsProfilePtrInput interface {
 	pulumi.Input
 
@@ -8676,7 +8676,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput interface {
 	pulumi.Input
 
@@ -8720,11 +8720,11 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs) ToOrc
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs, OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtr and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
+//	        OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -8924,7 +8924,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey st
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyInput interface {
 	pulumi.Input
 
@@ -8954,7 +8954,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -9032,7 +9032,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret struct 
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput interface {
 	pulumi.Input
 
@@ -9060,7 +9060,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs)
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput interface {
 	pulumi.Input
 
@@ -9136,7 +9136,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertific
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateInput interface {
 	pulumi.Input
 
@@ -9164,7 +9164,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 // OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray and OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -9245,7 +9245,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interface {
 	pulumi.Input
 
@@ -9291,11 +9291,11 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs) ToO
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs, OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtr and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
+//	        OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -9523,7 +9523,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret struc
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput interface {
 	pulumi.Input
 
@@ -9551,7 +9551,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArg
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput interface {
 	pulumi.Input
 
@@ -9628,7 +9628,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertif
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput interface {
 	pulumi.Input
 
@@ -9657,7 +9657,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCer
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -9734,7 +9734,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListene
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...}
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...}
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerInput interface {
 	pulumi.Input
 
@@ -9762,7 +9762,7 @@ func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmList
 // OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...} }
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs{...} }
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayInput interface {
 	pulumi.Input
 
@@ -9840,7 +9840,7 @@ type OrchestratedVirtualMachineScaleSetPlan struct {
 // OrchestratedVirtualMachineScaleSetPlanInput is an input type that accepts OrchestratedVirtualMachineScaleSetPlanArgs and OrchestratedVirtualMachineScaleSetPlanOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPlanInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetPlanArgs{...}
+//	OrchestratedVirtualMachineScaleSetPlanArgs{...}
 type OrchestratedVirtualMachineScaleSetPlanInput interface {
 	pulumi.Input
 
@@ -9878,11 +9878,11 @@ func (i OrchestratedVirtualMachineScaleSetPlanArgs) ToOrchestratedVirtualMachine
 // OrchestratedVirtualMachineScaleSetPlanPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetPlanArgs, OrchestratedVirtualMachineScaleSetPlanPtr and OrchestratedVirtualMachineScaleSetPlanPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetPlanPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetPlanArgs{...}
+//	        OrchestratedVirtualMachineScaleSetPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetPlanPtrInput interface {
 	pulumi.Input
 
@@ -10007,7 +10007,7 @@ type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
 // OrchestratedVirtualMachineScaleSetSourceImageReferenceInput is an input type that accepts OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs and OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSourceImageReferenceInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
 type OrchestratedVirtualMachineScaleSetSourceImageReferenceInput interface {
 	pulumi.Input
 
@@ -10045,11 +10045,11 @@ func (i OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs) ToOrchestrat
 // OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs, OrchestratedVirtualMachineScaleSetSourceImageReferencePtr and OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	        OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -10183,7 +10183,7 @@ type OrchestratedVirtualMachineScaleSetTerminationNotification struct {
 // OrchestratedVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts OrchestratedVirtualMachineScaleSetTerminationNotificationArgs and OrchestratedVirtualMachineScaleSetTerminationNotificationOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetTerminationNotificationInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
 type OrchestratedVirtualMachineScaleSetTerminationNotificationInput interface {
 	pulumi.Input
 
@@ -10219,11 +10219,11 @@ func (i OrchestratedVirtualMachineScaleSetTerminationNotificationArgs) ToOrchest
 // OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts OrchestratedVirtualMachineScaleSetTerminationNotificationArgs, OrchestratedVirtualMachineScaleSetTerminationNotificationPtr and OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	        OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput interface {
 	pulumi.Input
 
@@ -10331,7 +10331,7 @@ type ScaleSetBootDiagnostics struct {
 // ScaleSetBootDiagnosticsInput is an input type that accepts ScaleSetBootDiagnosticsArgs and ScaleSetBootDiagnosticsOutput values.
 // You can construct a concrete instance of `ScaleSetBootDiagnosticsInput` via:
 //
-//          ScaleSetBootDiagnosticsArgs{...}
+//	ScaleSetBootDiagnosticsArgs{...}
 type ScaleSetBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -10367,11 +10367,11 @@ func (i ScaleSetBootDiagnosticsArgs) ToScaleSetBootDiagnosticsPtrOutputWithConte
 // ScaleSetBootDiagnosticsPtrInput is an input type that accepts ScaleSetBootDiagnosticsArgs, ScaleSetBootDiagnosticsPtr and ScaleSetBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `ScaleSetBootDiagnosticsPtrInput` via:
 //
-//          ScaleSetBootDiagnosticsArgs{...}
+//	        ScaleSetBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -10493,7 +10493,7 @@ type ScaleSetExtension struct {
 // ScaleSetExtensionInput is an input type that accepts ScaleSetExtensionArgs and ScaleSetExtensionOutput values.
 // You can construct a concrete instance of `ScaleSetExtensionInput` via:
 //
-//          ScaleSetExtensionArgs{...}
+//	ScaleSetExtensionArgs{...}
 type ScaleSetExtensionInput interface {
 	pulumi.Input
 
@@ -10535,7 +10535,7 @@ func (i ScaleSetExtensionArgs) ToScaleSetExtensionOutputWithContext(ctx context.
 // ScaleSetExtensionArrayInput is an input type that accepts ScaleSetExtensionArray and ScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `ScaleSetExtensionArrayInput` via:
 //
-//          ScaleSetExtensionArray{ ScaleSetExtensionArgs{...} }
+//	ScaleSetExtensionArray{ ScaleSetExtensionArgs{...} }
 type ScaleSetExtensionArrayInput interface {
 	pulumi.Input
 
@@ -10642,7 +10642,7 @@ type ScaleSetIdentity struct {
 // ScaleSetIdentityInput is an input type that accepts ScaleSetIdentityArgs and ScaleSetIdentityOutput values.
 // You can construct a concrete instance of `ScaleSetIdentityInput` via:
 //
-//          ScaleSetIdentityArgs{...}
+//	ScaleSetIdentityArgs{...}
 type ScaleSetIdentityInput interface {
 	pulumi.Input
 
@@ -10681,11 +10681,11 @@ func (i ScaleSetIdentityArgs) ToScaleSetIdentityPtrOutputWithContext(ctx context
 // ScaleSetIdentityPtrInput is an input type that accepts ScaleSetIdentityArgs, ScaleSetIdentityPtr and ScaleSetIdentityPtrOutput values.
 // You can construct a concrete instance of `ScaleSetIdentityPtrInput` via:
 //
-//          ScaleSetIdentityArgs{...}
+//	        ScaleSetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -10822,7 +10822,7 @@ type ScaleSetNetworkProfile struct {
 // ScaleSetNetworkProfileInput is an input type that accepts ScaleSetNetworkProfileArgs and ScaleSetNetworkProfileOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileInput` via:
 //
-//          ScaleSetNetworkProfileArgs{...}
+//	ScaleSetNetworkProfileArgs{...}
 type ScaleSetNetworkProfileInput interface {
 	pulumi.Input
 
@@ -10862,7 +10862,7 @@ func (i ScaleSetNetworkProfileArgs) ToScaleSetNetworkProfileOutputWithContext(ct
 // ScaleSetNetworkProfileArrayInput is an input type that accepts ScaleSetNetworkProfileArray and ScaleSetNetworkProfileArrayOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileArrayInput` via:
 //
-//          ScaleSetNetworkProfileArray{ ScaleSetNetworkProfileArgs{...} }
+//	ScaleSetNetworkProfileArray{ ScaleSetNetworkProfileArgs{...} }
 type ScaleSetNetworkProfileArrayInput interface {
 	pulumi.Input
 
@@ -10961,7 +10961,7 @@ type ScaleSetNetworkProfileDnsSettings struct {
 // ScaleSetNetworkProfileDnsSettingsInput is an input type that accepts ScaleSetNetworkProfileDnsSettingsArgs and ScaleSetNetworkProfileDnsSettingsOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileDnsSettingsInput` via:
 //
-//          ScaleSetNetworkProfileDnsSettingsArgs{...}
+//	ScaleSetNetworkProfileDnsSettingsArgs{...}
 type ScaleSetNetworkProfileDnsSettingsInput interface {
 	pulumi.Input
 
@@ -10997,11 +10997,11 @@ func (i ScaleSetNetworkProfileDnsSettingsArgs) ToScaleSetNetworkProfileDnsSettin
 // ScaleSetNetworkProfileDnsSettingsPtrInput is an input type that accepts ScaleSetNetworkProfileDnsSettingsArgs, ScaleSetNetworkProfileDnsSettingsPtr and ScaleSetNetworkProfileDnsSettingsPtrOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileDnsSettingsPtrInput` via:
 //
-//          ScaleSetNetworkProfileDnsSettingsArgs{...}
+//	        ScaleSetNetworkProfileDnsSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetNetworkProfileDnsSettingsPtrInput interface {
 	pulumi.Input
 
@@ -11112,7 +11112,7 @@ type ScaleSetNetworkProfileIpConfiguration struct {
 // ScaleSetNetworkProfileIpConfigurationInput is an input type that accepts ScaleSetNetworkProfileIpConfigurationArgs and ScaleSetNetworkProfileIpConfigurationOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileIpConfigurationInput` via:
 //
-//          ScaleSetNetworkProfileIpConfigurationArgs{...}
+//	ScaleSetNetworkProfileIpConfigurationArgs{...}
 type ScaleSetNetworkProfileIpConfigurationInput interface {
 	pulumi.Input
 
@@ -11154,7 +11154,7 @@ func (i ScaleSetNetworkProfileIpConfigurationArgs) ToScaleSetNetworkProfileIpCon
 // ScaleSetNetworkProfileIpConfigurationArrayInput is an input type that accepts ScaleSetNetworkProfileIpConfigurationArray and ScaleSetNetworkProfileIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileIpConfigurationArrayInput` via:
 //
-//          ScaleSetNetworkProfileIpConfigurationArray{ ScaleSetNetworkProfileIpConfigurationArgs{...} }
+//	ScaleSetNetworkProfileIpConfigurationArray{ ScaleSetNetworkProfileIpConfigurationArgs{...} }
 type ScaleSetNetworkProfileIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -11266,7 +11266,7 @@ type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration struct {
 // ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationInput is an input type that accepts ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs and ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationInput` via:
 //
-//          ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{...}
+//	ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{...}
 type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationInput interface {
 	pulumi.Input
 
@@ -11306,11 +11306,11 @@ func (i ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs) T
 // ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput is an input type that accepts ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs, ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtr and ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrOutput values.
 // You can construct a concrete instance of `ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput` via:
 //
-//          ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{...}
+//	        ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -11445,7 +11445,7 @@ type ScaleSetOsProfile struct {
 // ScaleSetOsProfileInput is an input type that accepts ScaleSetOsProfileArgs and ScaleSetOsProfileOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileInput` via:
 //
-//          ScaleSetOsProfileArgs{...}
+//	ScaleSetOsProfileArgs{...}
 type ScaleSetOsProfileInput interface {
 	pulumi.Input
 
@@ -11487,11 +11487,11 @@ func (i ScaleSetOsProfileArgs) ToScaleSetOsProfilePtrOutputWithContext(ctx conte
 // ScaleSetOsProfilePtrInput is an input type that accepts ScaleSetOsProfileArgs, ScaleSetOsProfilePtr and ScaleSetOsProfilePtrOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfilePtrInput` via:
 //
-//          ScaleSetOsProfileArgs{...}
+//	        ScaleSetOsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetOsProfilePtrInput interface {
 	pulumi.Input
 
@@ -11635,7 +11635,7 @@ type ScaleSetOsProfileLinuxConfig struct {
 // ScaleSetOsProfileLinuxConfigInput is an input type that accepts ScaleSetOsProfileLinuxConfigArgs and ScaleSetOsProfileLinuxConfigOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileLinuxConfigInput` via:
 //
-//          ScaleSetOsProfileLinuxConfigArgs{...}
+//	ScaleSetOsProfileLinuxConfigArgs{...}
 type ScaleSetOsProfileLinuxConfigInput interface {
 	pulumi.Input
 
@@ -11673,11 +11673,11 @@ func (i ScaleSetOsProfileLinuxConfigArgs) ToScaleSetOsProfileLinuxConfigPtrOutpu
 // ScaleSetOsProfileLinuxConfigPtrInput is an input type that accepts ScaleSetOsProfileLinuxConfigArgs, ScaleSetOsProfileLinuxConfigPtr and ScaleSetOsProfileLinuxConfigPtrOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileLinuxConfigPtrInput` via:
 //
-//          ScaleSetOsProfileLinuxConfigArgs{...}
+//	        ScaleSetOsProfileLinuxConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetOsProfileLinuxConfigPtrInput interface {
 	pulumi.Input
 
@@ -11789,7 +11789,7 @@ type ScaleSetOsProfileLinuxConfigSshKey struct {
 // ScaleSetOsProfileLinuxConfigSshKeyInput is an input type that accepts ScaleSetOsProfileLinuxConfigSshKeyArgs and ScaleSetOsProfileLinuxConfigSshKeyOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileLinuxConfigSshKeyInput` via:
 //
-//          ScaleSetOsProfileLinuxConfigSshKeyArgs{...}
+//	ScaleSetOsProfileLinuxConfigSshKeyArgs{...}
 type ScaleSetOsProfileLinuxConfigSshKeyInput interface {
 	pulumi.Input
 
@@ -11817,7 +11817,7 @@ func (i ScaleSetOsProfileLinuxConfigSshKeyArgs) ToScaleSetOsProfileLinuxConfigSs
 // ScaleSetOsProfileLinuxConfigSshKeyArrayInput is an input type that accepts ScaleSetOsProfileLinuxConfigSshKeyArray and ScaleSetOsProfileLinuxConfigSshKeyArrayOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileLinuxConfigSshKeyArrayInput` via:
 //
-//          ScaleSetOsProfileLinuxConfigSshKeyArray{ ScaleSetOsProfileLinuxConfigSshKeyArgs{...} }
+//	ScaleSetOsProfileLinuxConfigSshKeyArray{ ScaleSetOsProfileLinuxConfigSshKeyArgs{...} }
 type ScaleSetOsProfileLinuxConfigSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -11891,7 +11891,7 @@ type ScaleSetOsProfileSecret struct {
 // ScaleSetOsProfileSecretInput is an input type that accepts ScaleSetOsProfileSecretArgs and ScaleSetOsProfileSecretOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileSecretInput` via:
 //
-//          ScaleSetOsProfileSecretArgs{...}
+//	ScaleSetOsProfileSecretArgs{...}
 type ScaleSetOsProfileSecretInput interface {
 	pulumi.Input
 
@@ -11921,7 +11921,7 @@ func (i ScaleSetOsProfileSecretArgs) ToScaleSetOsProfileSecretOutputWithContext(
 // ScaleSetOsProfileSecretArrayInput is an input type that accepts ScaleSetOsProfileSecretArray and ScaleSetOsProfileSecretArrayOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileSecretArrayInput` via:
 //
-//          ScaleSetOsProfileSecretArray{ ScaleSetOsProfileSecretArgs{...} }
+//	ScaleSetOsProfileSecretArray{ ScaleSetOsProfileSecretArgs{...} }
 type ScaleSetOsProfileSecretArrayInput interface {
 	pulumi.Input
 
@@ -11997,7 +11997,7 @@ type ScaleSetOsProfileSecretVaultCertificate struct {
 // ScaleSetOsProfileSecretVaultCertificateInput is an input type that accepts ScaleSetOsProfileSecretVaultCertificateArgs and ScaleSetOsProfileSecretVaultCertificateOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileSecretVaultCertificateInput` via:
 //
-//          ScaleSetOsProfileSecretVaultCertificateArgs{...}
+//	ScaleSetOsProfileSecretVaultCertificateArgs{...}
 type ScaleSetOsProfileSecretVaultCertificateInput interface {
 	pulumi.Input
 
@@ -12027,7 +12027,7 @@ func (i ScaleSetOsProfileSecretVaultCertificateArgs) ToScaleSetOsProfileSecretVa
 // ScaleSetOsProfileSecretVaultCertificateArrayInput is an input type that accepts ScaleSetOsProfileSecretVaultCertificateArray and ScaleSetOsProfileSecretVaultCertificateArrayOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileSecretVaultCertificateArrayInput` via:
 //
-//          ScaleSetOsProfileSecretVaultCertificateArray{ ScaleSetOsProfileSecretVaultCertificateArgs{...} }
+//	ScaleSetOsProfileSecretVaultCertificateArray{ ScaleSetOsProfileSecretVaultCertificateArgs{...} }
 type ScaleSetOsProfileSecretVaultCertificateArrayInput interface {
 	pulumi.Input
 
@@ -12107,7 +12107,7 @@ type ScaleSetOsProfileWindowsConfig struct {
 // ScaleSetOsProfileWindowsConfigInput is an input type that accepts ScaleSetOsProfileWindowsConfigArgs and ScaleSetOsProfileWindowsConfigOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigArgs{...}
+//	ScaleSetOsProfileWindowsConfigArgs{...}
 type ScaleSetOsProfileWindowsConfigInput interface {
 	pulumi.Input
 
@@ -12149,11 +12149,11 @@ func (i ScaleSetOsProfileWindowsConfigArgs) ToScaleSetOsProfileWindowsConfigPtrO
 // ScaleSetOsProfileWindowsConfigPtrInput is an input type that accepts ScaleSetOsProfileWindowsConfigArgs, ScaleSetOsProfileWindowsConfigPtr and ScaleSetOsProfileWindowsConfigPtrOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigPtrInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigArgs{...}
+//	        ScaleSetOsProfileWindowsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetOsProfileWindowsConfigPtrInput interface {
 	pulumi.Input
 
@@ -12303,7 +12303,7 @@ type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig struct {
 // ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigInput is an input type that accepts ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs and ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs{...}
+//	ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs{...}
 type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigInput interface {
 	pulumi.Input
 
@@ -12337,7 +12337,7 @@ func (i ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs) ToScaleSetOs
 // ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayInput is an input type that accepts ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArray and ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArray{ ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs{...} }
+//	ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArray{ ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs{...} }
 type ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrayInput interface {
 	pulumi.Input
 
@@ -12423,7 +12423,7 @@ type ScaleSetOsProfileWindowsConfigWinrm struct {
 // ScaleSetOsProfileWindowsConfigWinrmInput is an input type that accepts ScaleSetOsProfileWindowsConfigWinrmArgs and ScaleSetOsProfileWindowsConfigWinrmOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigWinrmInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigWinrmArgs{...}
+//	ScaleSetOsProfileWindowsConfigWinrmArgs{...}
 type ScaleSetOsProfileWindowsConfigWinrmInput interface {
 	pulumi.Input
 
@@ -12453,7 +12453,7 @@ func (i ScaleSetOsProfileWindowsConfigWinrmArgs) ToScaleSetOsProfileWindowsConfi
 // ScaleSetOsProfileWindowsConfigWinrmArrayInput is an input type that accepts ScaleSetOsProfileWindowsConfigWinrmArray and ScaleSetOsProfileWindowsConfigWinrmArrayOutput values.
 // You can construct a concrete instance of `ScaleSetOsProfileWindowsConfigWinrmArrayInput` via:
 //
-//          ScaleSetOsProfileWindowsConfigWinrmArray{ ScaleSetOsProfileWindowsConfigWinrmArgs{...} }
+//	ScaleSetOsProfileWindowsConfigWinrmArray{ ScaleSetOsProfileWindowsConfigWinrmArgs{...} }
 type ScaleSetOsProfileWindowsConfigWinrmArrayInput interface {
 	pulumi.Input
 
@@ -12531,7 +12531,7 @@ type ScaleSetPlan struct {
 // ScaleSetPlanInput is an input type that accepts ScaleSetPlanArgs and ScaleSetPlanOutput values.
 // You can construct a concrete instance of `ScaleSetPlanInput` via:
 //
-//          ScaleSetPlanArgs{...}
+//	ScaleSetPlanArgs{...}
 type ScaleSetPlanInput interface {
 	pulumi.Input
 
@@ -12571,11 +12571,11 @@ func (i ScaleSetPlanArgs) ToScaleSetPlanPtrOutputWithContext(ctx context.Context
 // ScaleSetPlanPtrInput is an input type that accepts ScaleSetPlanArgs, ScaleSetPlanPtr and ScaleSetPlanPtrOutput values.
 // You can construct a concrete instance of `ScaleSetPlanPtrInput` via:
 //
-//          ScaleSetPlanArgs{...}
+//	        ScaleSetPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetPlanPtrInput interface {
 	pulumi.Input
 
@@ -12708,7 +12708,7 @@ type ScaleSetRollingUpgradePolicy struct {
 // ScaleSetRollingUpgradePolicyInput is an input type that accepts ScaleSetRollingUpgradePolicyArgs and ScaleSetRollingUpgradePolicyOutput values.
 // You can construct a concrete instance of `ScaleSetRollingUpgradePolicyInput` via:
 //
-//          ScaleSetRollingUpgradePolicyArgs{...}
+//	ScaleSetRollingUpgradePolicyArgs{...}
 type ScaleSetRollingUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -12750,11 +12750,11 @@ func (i ScaleSetRollingUpgradePolicyArgs) ToScaleSetRollingUpgradePolicyPtrOutpu
 // ScaleSetRollingUpgradePolicyPtrInput is an input type that accepts ScaleSetRollingUpgradePolicyArgs, ScaleSetRollingUpgradePolicyPtr and ScaleSetRollingUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `ScaleSetRollingUpgradePolicyPtrInput` via:
 //
-//          ScaleSetRollingUpgradePolicyArgs{...}
+//	        ScaleSetRollingUpgradePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetRollingUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -12900,7 +12900,7 @@ type ScaleSetSku struct {
 // ScaleSetSkuInput is an input type that accepts ScaleSetSkuArgs and ScaleSetSkuOutput values.
 // You can construct a concrete instance of `ScaleSetSkuInput` via:
 //
-//          ScaleSetSkuArgs{...}
+//	ScaleSetSkuArgs{...}
 type ScaleSetSkuInput interface {
 	pulumi.Input
 
@@ -12940,11 +12940,11 @@ func (i ScaleSetSkuArgs) ToScaleSetSkuPtrOutputWithContext(ctx context.Context) 
 // ScaleSetSkuPtrInput is an input type that accepts ScaleSetSkuArgs, ScaleSetSkuPtr and ScaleSetSkuPtrOutput values.
 // You can construct a concrete instance of `ScaleSetSkuPtrInput` via:
 //
-//          ScaleSetSkuArgs{...}
+//	        ScaleSetSkuArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetSkuPtrInput interface {
 	pulumi.Input
 
@@ -13079,7 +13079,7 @@ type ScaleSetStorageProfileDataDisk struct {
 // ScaleSetStorageProfileDataDiskInput is an input type that accepts ScaleSetStorageProfileDataDiskArgs and ScaleSetStorageProfileDataDiskOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileDataDiskInput` via:
 //
-//          ScaleSetStorageProfileDataDiskArgs{...}
+//	ScaleSetStorageProfileDataDiskArgs{...}
 type ScaleSetStorageProfileDataDiskInput interface {
 	pulumi.Input
 
@@ -13115,7 +13115,7 @@ func (i ScaleSetStorageProfileDataDiskArgs) ToScaleSetStorageProfileDataDiskOutp
 // ScaleSetStorageProfileDataDiskArrayInput is an input type that accepts ScaleSetStorageProfileDataDiskArray and ScaleSetStorageProfileDataDiskArrayOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileDataDiskArrayInput` via:
 //
-//          ScaleSetStorageProfileDataDiskArray{ ScaleSetStorageProfileDataDiskArgs{...} }
+//	ScaleSetStorageProfileDataDiskArray{ ScaleSetStorageProfileDataDiskArgs{...} }
 type ScaleSetStorageProfileDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -13213,7 +13213,7 @@ type ScaleSetStorageProfileImageReference struct {
 // ScaleSetStorageProfileImageReferenceInput is an input type that accepts ScaleSetStorageProfileImageReferenceArgs and ScaleSetStorageProfileImageReferenceOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileImageReferenceInput` via:
 //
-//          ScaleSetStorageProfileImageReferenceArgs{...}
+//	ScaleSetStorageProfileImageReferenceArgs{...}
 type ScaleSetStorageProfileImageReferenceInput interface {
 	pulumi.Input
 
@@ -13258,11 +13258,11 @@ func (i ScaleSetStorageProfileImageReferenceArgs) ToScaleSetStorageProfileImageR
 // ScaleSetStorageProfileImageReferencePtrInput is an input type that accepts ScaleSetStorageProfileImageReferenceArgs, ScaleSetStorageProfileImageReferencePtr and ScaleSetStorageProfileImageReferencePtrOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileImageReferencePtrInput` via:
 //
-//          ScaleSetStorageProfileImageReferenceArgs{...}
+//	        ScaleSetStorageProfileImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetStorageProfileImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -13435,7 +13435,7 @@ type ScaleSetStorageProfileOsDisk struct {
 // ScaleSetStorageProfileOsDiskInput is an input type that accepts ScaleSetStorageProfileOsDiskArgs and ScaleSetStorageProfileOsDiskOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileOsDiskInput` via:
 //
-//          ScaleSetStorageProfileOsDiskArgs{...}
+//	ScaleSetStorageProfileOsDiskArgs{...}
 type ScaleSetStorageProfileOsDiskInput interface {
 	pulumi.Input
 
@@ -13485,11 +13485,11 @@ func (i ScaleSetStorageProfileOsDiskArgs) ToScaleSetStorageProfileOsDiskPtrOutpu
 // ScaleSetStorageProfileOsDiskPtrInput is an input type that accepts ScaleSetStorageProfileOsDiskArgs, ScaleSetStorageProfileOsDiskPtr and ScaleSetStorageProfileOsDiskPtrOutput values.
 // You can construct a concrete instance of `ScaleSetStorageProfileOsDiskPtrInput` via:
 //
-//          ScaleSetStorageProfileOsDiskArgs{...}
+//	        ScaleSetStorageProfileOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ScaleSetStorageProfileOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -13684,7 +13684,7 @@ type SharedImageIdentifier struct {
 // SharedImageIdentifierInput is an input type that accepts SharedImageIdentifierArgs and SharedImageIdentifierOutput values.
 // You can construct a concrete instance of `SharedImageIdentifierInput` via:
 //
-//          SharedImageIdentifierArgs{...}
+//	SharedImageIdentifierArgs{...}
 type SharedImageIdentifierInput interface {
 	pulumi.Input
 
@@ -13724,11 +13724,11 @@ func (i SharedImageIdentifierArgs) ToSharedImageIdentifierPtrOutputWithContext(c
 // SharedImageIdentifierPtrInput is an input type that accepts SharedImageIdentifierArgs, SharedImageIdentifierPtr and SharedImageIdentifierPtrOutput values.
 // You can construct a concrete instance of `SharedImageIdentifierPtrInput` via:
 //
-//          SharedImageIdentifierArgs{...}
+//	        SharedImageIdentifierArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SharedImageIdentifierPtrInput interface {
 	pulumi.Input
 
@@ -13859,7 +13859,7 @@ type SharedImagePurchasePlan struct {
 // SharedImagePurchasePlanInput is an input type that accepts SharedImagePurchasePlanArgs and SharedImagePurchasePlanOutput values.
 // You can construct a concrete instance of `SharedImagePurchasePlanInput` via:
 //
-//          SharedImagePurchasePlanArgs{...}
+//	SharedImagePurchasePlanArgs{...}
 type SharedImagePurchasePlanInput interface {
 	pulumi.Input
 
@@ -13899,11 +13899,11 @@ func (i SharedImagePurchasePlanArgs) ToSharedImagePurchasePlanPtrOutputWithConte
 // SharedImagePurchasePlanPtrInput is an input type that accepts SharedImagePurchasePlanArgs, SharedImagePurchasePlanPtr and SharedImagePurchasePlanPtrOutput values.
 // You can construct a concrete instance of `SharedImagePurchasePlanPtrInput` via:
 //
-//          SharedImagePurchasePlanArgs{...}
+//	        SharedImagePurchasePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SharedImagePurchasePlanPtrInput interface {
 	pulumi.Input
 
@@ -14036,7 +14036,7 @@ type SharedImageVersionTargetRegion struct {
 // SharedImageVersionTargetRegionInput is an input type that accepts SharedImageVersionTargetRegionArgs and SharedImageVersionTargetRegionOutput values.
 // You can construct a concrete instance of `SharedImageVersionTargetRegionInput` via:
 //
-//          SharedImageVersionTargetRegionArgs{...}
+//	SharedImageVersionTargetRegionArgs{...}
 type SharedImageVersionTargetRegionInput interface {
 	pulumi.Input
 
@@ -14070,7 +14070,7 @@ func (i SharedImageVersionTargetRegionArgs) ToSharedImageVersionTargetRegionOutp
 // SharedImageVersionTargetRegionArrayInput is an input type that accepts SharedImageVersionTargetRegionArray and SharedImageVersionTargetRegionArrayOutput values.
 // You can construct a concrete instance of `SharedImageVersionTargetRegionArrayInput` via:
 //
-//          SharedImageVersionTargetRegionArray{ SharedImageVersionTargetRegionArgs{...} }
+//	SharedImageVersionTargetRegionArray{ SharedImageVersionTargetRegionArgs{...} }
 type SharedImageVersionTargetRegionArrayInput interface {
 	pulumi.Input
 
@@ -14155,7 +14155,7 @@ type SnapshotEncryptionSettings struct {
 // SnapshotEncryptionSettingsInput is an input type that accepts SnapshotEncryptionSettingsArgs and SnapshotEncryptionSettingsOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsInput` via:
 //
-//          SnapshotEncryptionSettingsArgs{...}
+//	SnapshotEncryptionSettingsArgs{...}
 type SnapshotEncryptionSettingsInput interface {
 	pulumi.Input
 
@@ -14192,11 +14192,11 @@ func (i SnapshotEncryptionSettingsArgs) ToSnapshotEncryptionSettingsPtrOutputWit
 // SnapshotEncryptionSettingsPtrInput is an input type that accepts SnapshotEncryptionSettingsArgs, SnapshotEncryptionSettingsPtr and SnapshotEncryptionSettingsPtrOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsPtrInput` via:
 //
-//          SnapshotEncryptionSettingsArgs{...}
+//	        SnapshotEncryptionSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotEncryptionSettingsPtrInput interface {
 	pulumi.Input
 
@@ -14321,7 +14321,7 @@ type SnapshotEncryptionSettingsDiskEncryptionKey struct {
 // SnapshotEncryptionSettingsDiskEncryptionKeyInput is an input type that accepts SnapshotEncryptionSettingsDiskEncryptionKeyArgs and SnapshotEncryptionSettingsDiskEncryptionKeyOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsDiskEncryptionKeyInput` via:
 //
-//          SnapshotEncryptionSettingsDiskEncryptionKeyArgs{...}
+//	SnapshotEncryptionSettingsDiskEncryptionKeyArgs{...}
 type SnapshotEncryptionSettingsDiskEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -14357,11 +14357,11 @@ func (i SnapshotEncryptionSettingsDiskEncryptionKeyArgs) ToSnapshotEncryptionSet
 // SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput is an input type that accepts SnapshotEncryptionSettingsDiskEncryptionKeyArgs, SnapshotEncryptionSettingsDiskEncryptionKeyPtr and SnapshotEncryptionSettingsDiskEncryptionKeyPtrOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput` via:
 //
-//          SnapshotEncryptionSettingsDiskEncryptionKeyArgs{...}
+//	        SnapshotEncryptionSettingsDiskEncryptionKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotEncryptionSettingsDiskEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -14469,7 +14469,7 @@ type SnapshotEncryptionSettingsKeyEncryptionKey struct {
 // SnapshotEncryptionSettingsKeyEncryptionKeyInput is an input type that accepts SnapshotEncryptionSettingsKeyEncryptionKeyArgs and SnapshotEncryptionSettingsKeyEncryptionKeyOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsKeyEncryptionKeyInput` via:
 //
-//          SnapshotEncryptionSettingsKeyEncryptionKeyArgs{...}
+//	SnapshotEncryptionSettingsKeyEncryptionKeyArgs{...}
 type SnapshotEncryptionSettingsKeyEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -14505,11 +14505,11 @@ func (i SnapshotEncryptionSettingsKeyEncryptionKeyArgs) ToSnapshotEncryptionSett
 // SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput is an input type that accepts SnapshotEncryptionSettingsKeyEncryptionKeyArgs, SnapshotEncryptionSettingsKeyEncryptionKeyPtr and SnapshotEncryptionSettingsKeyEncryptionKeyPtrOutput values.
 // You can construct a concrete instance of `SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput` via:
 //
-//          SnapshotEncryptionSettingsKeyEncryptionKeyArgs{...}
+//	        SnapshotEncryptionSettingsKeyEncryptionKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SnapshotEncryptionSettingsKeyEncryptionKeyPtrInput interface {
 	pulumi.Input
 
@@ -14617,7 +14617,7 @@ type VirtualMachineAdditionalCapabilities struct {
 // VirtualMachineAdditionalCapabilitiesInput is an input type that accepts VirtualMachineAdditionalCapabilitiesArgs and VirtualMachineAdditionalCapabilitiesOutput values.
 // You can construct a concrete instance of `VirtualMachineAdditionalCapabilitiesInput` via:
 //
-//          VirtualMachineAdditionalCapabilitiesArgs{...}
+//	VirtualMachineAdditionalCapabilitiesArgs{...}
 type VirtualMachineAdditionalCapabilitiesInput interface {
 	pulumi.Input
 
@@ -14653,11 +14653,11 @@ func (i VirtualMachineAdditionalCapabilitiesArgs) ToVirtualMachineAdditionalCapa
 // VirtualMachineAdditionalCapabilitiesPtrInput is an input type that accepts VirtualMachineAdditionalCapabilitiesArgs, VirtualMachineAdditionalCapabilitiesPtr and VirtualMachineAdditionalCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineAdditionalCapabilitiesPtrInput` via:
 //
-//          VirtualMachineAdditionalCapabilitiesArgs{...}
+//	        VirtualMachineAdditionalCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineAdditionalCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -14756,7 +14756,7 @@ type VirtualMachineBootDiagnostics struct {
 // VirtualMachineBootDiagnosticsInput is an input type that accepts VirtualMachineBootDiagnosticsArgs and VirtualMachineBootDiagnosticsOutput values.
 // You can construct a concrete instance of `VirtualMachineBootDiagnosticsInput` via:
 //
-//          VirtualMachineBootDiagnosticsArgs{...}
+//	VirtualMachineBootDiagnosticsArgs{...}
 type VirtualMachineBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -14794,11 +14794,11 @@ func (i VirtualMachineBootDiagnosticsArgs) ToVirtualMachineBootDiagnosticsPtrOut
 // VirtualMachineBootDiagnosticsPtrInput is an input type that accepts VirtualMachineBootDiagnosticsArgs, VirtualMachineBootDiagnosticsPtr and VirtualMachineBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineBootDiagnosticsPtrInput` via:
 //
-//          VirtualMachineBootDiagnosticsArgs{...}
+//	        VirtualMachineBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -14914,7 +14914,7 @@ type VirtualMachineIdentity struct {
 // VirtualMachineIdentityInput is an input type that accepts VirtualMachineIdentityArgs and VirtualMachineIdentityOutput values.
 // You can construct a concrete instance of `VirtualMachineIdentityInput` via:
 //
-//          VirtualMachineIdentityArgs{...}
+//	VirtualMachineIdentityArgs{...}
 type VirtualMachineIdentityInput interface {
 	pulumi.Input
 
@@ -14954,11 +14954,11 @@ func (i VirtualMachineIdentityArgs) ToVirtualMachineIdentityPtrOutputWithContext
 // VirtualMachineIdentityPtrInput is an input type that accepts VirtualMachineIdentityArgs, VirtualMachineIdentityPtr and VirtualMachineIdentityPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineIdentityPtrInput` via:
 //
-//          VirtualMachineIdentityArgs{...}
+//	        VirtualMachineIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineIdentityPtrInput interface {
 	pulumi.Input
 
@@ -15091,7 +15091,7 @@ type VirtualMachineOsProfile struct {
 // VirtualMachineOsProfileInput is an input type that accepts VirtualMachineOsProfileArgs and VirtualMachineOsProfileOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileInput` via:
 //
-//          VirtualMachineOsProfileArgs{...}
+//	VirtualMachineOsProfileArgs{...}
 type VirtualMachineOsProfileInput interface {
 	pulumi.Input
 
@@ -15133,11 +15133,11 @@ func (i VirtualMachineOsProfileArgs) ToVirtualMachineOsProfilePtrOutputWithConte
 // VirtualMachineOsProfilePtrInput is an input type that accepts VirtualMachineOsProfileArgs, VirtualMachineOsProfilePtr and VirtualMachineOsProfilePtrOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfilePtrInput` via:
 //
-//          VirtualMachineOsProfileArgs{...}
+//	        VirtualMachineOsProfileArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineOsProfilePtrInput interface {
 	pulumi.Input
 
@@ -15281,7 +15281,7 @@ type VirtualMachineOsProfileLinuxConfig struct {
 // VirtualMachineOsProfileLinuxConfigInput is an input type that accepts VirtualMachineOsProfileLinuxConfigArgs and VirtualMachineOsProfileLinuxConfigOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileLinuxConfigInput` via:
 //
-//          VirtualMachineOsProfileLinuxConfigArgs{...}
+//	VirtualMachineOsProfileLinuxConfigArgs{...}
 type VirtualMachineOsProfileLinuxConfigInput interface {
 	pulumi.Input
 
@@ -15319,11 +15319,11 @@ func (i VirtualMachineOsProfileLinuxConfigArgs) ToVirtualMachineOsProfileLinuxCo
 // VirtualMachineOsProfileLinuxConfigPtrInput is an input type that accepts VirtualMachineOsProfileLinuxConfigArgs, VirtualMachineOsProfileLinuxConfigPtr and VirtualMachineOsProfileLinuxConfigPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileLinuxConfigPtrInput` via:
 //
-//          VirtualMachineOsProfileLinuxConfigArgs{...}
+//	        VirtualMachineOsProfileLinuxConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineOsProfileLinuxConfigPtrInput interface {
 	pulumi.Input
 
@@ -15439,7 +15439,7 @@ type VirtualMachineOsProfileLinuxConfigSshKey struct {
 // VirtualMachineOsProfileLinuxConfigSshKeyInput is an input type that accepts VirtualMachineOsProfileLinuxConfigSshKeyArgs and VirtualMachineOsProfileLinuxConfigSshKeyOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileLinuxConfigSshKeyInput` via:
 //
-//          VirtualMachineOsProfileLinuxConfigSshKeyArgs{...}
+//	VirtualMachineOsProfileLinuxConfigSshKeyArgs{...}
 type VirtualMachineOsProfileLinuxConfigSshKeyInput interface {
 	pulumi.Input
 
@@ -15469,7 +15469,7 @@ func (i VirtualMachineOsProfileLinuxConfigSshKeyArgs) ToVirtualMachineOsProfileL
 // VirtualMachineOsProfileLinuxConfigSshKeyArrayInput is an input type that accepts VirtualMachineOsProfileLinuxConfigSshKeyArray and VirtualMachineOsProfileLinuxConfigSshKeyArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileLinuxConfigSshKeyArrayInput` via:
 //
-//          VirtualMachineOsProfileLinuxConfigSshKeyArray{ VirtualMachineOsProfileLinuxConfigSshKeyArgs{...} }
+//	VirtualMachineOsProfileLinuxConfigSshKeyArray{ VirtualMachineOsProfileLinuxConfigSshKeyArgs{...} }
 type VirtualMachineOsProfileLinuxConfigSshKeyArrayInput interface {
 	pulumi.Input
 
@@ -15545,7 +15545,7 @@ type VirtualMachineOsProfileSecret struct {
 // VirtualMachineOsProfileSecretInput is an input type that accepts VirtualMachineOsProfileSecretArgs and VirtualMachineOsProfileSecretOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileSecretInput` via:
 //
-//          VirtualMachineOsProfileSecretArgs{...}
+//	VirtualMachineOsProfileSecretArgs{...}
 type VirtualMachineOsProfileSecretInput interface {
 	pulumi.Input
 
@@ -15575,7 +15575,7 @@ func (i VirtualMachineOsProfileSecretArgs) ToVirtualMachineOsProfileSecretOutput
 // VirtualMachineOsProfileSecretArrayInput is an input type that accepts VirtualMachineOsProfileSecretArray and VirtualMachineOsProfileSecretArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileSecretArrayInput` via:
 //
-//          VirtualMachineOsProfileSecretArray{ VirtualMachineOsProfileSecretArgs{...} }
+//	VirtualMachineOsProfileSecretArray{ VirtualMachineOsProfileSecretArgs{...} }
 type VirtualMachineOsProfileSecretArrayInput interface {
 	pulumi.Input
 
@@ -15653,7 +15653,7 @@ type VirtualMachineOsProfileSecretVaultCertificate struct {
 // VirtualMachineOsProfileSecretVaultCertificateInput is an input type that accepts VirtualMachineOsProfileSecretVaultCertificateArgs and VirtualMachineOsProfileSecretVaultCertificateOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileSecretVaultCertificateInput` via:
 //
-//          VirtualMachineOsProfileSecretVaultCertificateArgs{...}
+//	VirtualMachineOsProfileSecretVaultCertificateArgs{...}
 type VirtualMachineOsProfileSecretVaultCertificateInput interface {
 	pulumi.Input
 
@@ -15683,7 +15683,7 @@ func (i VirtualMachineOsProfileSecretVaultCertificateArgs) ToVirtualMachineOsPro
 // VirtualMachineOsProfileSecretVaultCertificateArrayInput is an input type that accepts VirtualMachineOsProfileSecretVaultCertificateArray and VirtualMachineOsProfileSecretVaultCertificateArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileSecretVaultCertificateArrayInput` via:
 //
-//          VirtualMachineOsProfileSecretVaultCertificateArray{ VirtualMachineOsProfileSecretVaultCertificateArgs{...} }
+//	VirtualMachineOsProfileSecretVaultCertificateArray{ VirtualMachineOsProfileSecretVaultCertificateArgs{...} }
 type VirtualMachineOsProfileSecretVaultCertificateArrayInput interface {
 	pulumi.Input
 
@@ -15765,7 +15765,7 @@ type VirtualMachineOsProfileWindowsConfig struct {
 // VirtualMachineOsProfileWindowsConfigInput is an input type that accepts VirtualMachineOsProfileWindowsConfigArgs and VirtualMachineOsProfileWindowsConfigOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigArgs{...}
+//	VirtualMachineOsProfileWindowsConfigArgs{...}
 type VirtualMachineOsProfileWindowsConfigInput interface {
 	pulumi.Input
 
@@ -15809,11 +15809,11 @@ func (i VirtualMachineOsProfileWindowsConfigArgs) ToVirtualMachineOsProfileWindo
 // VirtualMachineOsProfileWindowsConfigPtrInput is an input type that accepts VirtualMachineOsProfileWindowsConfigArgs, VirtualMachineOsProfileWindowsConfigPtr and VirtualMachineOsProfileWindowsConfigPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigPtrInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigArgs{...}
+//	        VirtualMachineOsProfileWindowsConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineOsProfileWindowsConfigPtrInput interface {
 	pulumi.Input
 
@@ -15980,7 +15980,7 @@ type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig struct {
 // VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigInput is an input type that accepts VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs and VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs{...}
+//	VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs{...}
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigInput interface {
 	pulumi.Input
 
@@ -16014,7 +16014,7 @@ func (i VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs) ToVirt
 // VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput is an input type that accepts VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArray and VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArray{ VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs{...} }
+//	VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArray{ VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs{...} }
 type VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrayInput interface {
 	pulumi.Input
 
@@ -16100,7 +16100,7 @@ type VirtualMachineOsProfileWindowsConfigWinrm struct {
 // VirtualMachineOsProfileWindowsConfigWinrmInput is an input type that accepts VirtualMachineOsProfileWindowsConfigWinrmArgs and VirtualMachineOsProfileWindowsConfigWinrmOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigWinrmInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigWinrmArgs{...}
+//	VirtualMachineOsProfileWindowsConfigWinrmArgs{...}
 type VirtualMachineOsProfileWindowsConfigWinrmInput interface {
 	pulumi.Input
 
@@ -16130,7 +16130,7 @@ func (i VirtualMachineOsProfileWindowsConfigWinrmArgs) ToVirtualMachineOsProfile
 // VirtualMachineOsProfileWindowsConfigWinrmArrayInput is an input type that accepts VirtualMachineOsProfileWindowsConfigWinrmArray and VirtualMachineOsProfileWindowsConfigWinrmArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineOsProfileWindowsConfigWinrmArrayInput` via:
 //
-//          VirtualMachineOsProfileWindowsConfigWinrmArray{ VirtualMachineOsProfileWindowsConfigWinrmArgs{...} }
+//	VirtualMachineOsProfileWindowsConfigWinrmArray{ VirtualMachineOsProfileWindowsConfigWinrmArgs{...} }
 type VirtualMachineOsProfileWindowsConfigWinrmArrayInput interface {
 	pulumi.Input
 
@@ -16208,7 +16208,7 @@ type VirtualMachinePlan struct {
 // VirtualMachinePlanInput is an input type that accepts VirtualMachinePlanArgs and VirtualMachinePlanOutput values.
 // You can construct a concrete instance of `VirtualMachinePlanInput` via:
 //
-//          VirtualMachinePlanArgs{...}
+//	VirtualMachinePlanArgs{...}
 type VirtualMachinePlanInput interface {
 	pulumi.Input
 
@@ -16248,11 +16248,11 @@ func (i VirtualMachinePlanArgs) ToVirtualMachinePlanPtrOutputWithContext(ctx con
 // VirtualMachinePlanPtrInput is an input type that accepts VirtualMachinePlanArgs, VirtualMachinePlanPtr and VirtualMachinePlanPtrOutput values.
 // You can construct a concrete instance of `VirtualMachinePlanPtrInput` via:
 //
-//          VirtualMachinePlanArgs{...}
+//	        VirtualMachinePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachinePlanPtrInput interface {
 	pulumi.Input
 
@@ -16395,7 +16395,7 @@ type VirtualMachineStorageDataDisk struct {
 // VirtualMachineStorageDataDiskInput is an input type that accepts VirtualMachineStorageDataDiskArgs and VirtualMachineStorageDataDiskOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageDataDiskInput` via:
 //
-//          VirtualMachineStorageDataDiskArgs{...}
+//	VirtualMachineStorageDataDiskArgs{...}
 type VirtualMachineStorageDataDiskInput interface {
 	pulumi.Input
 
@@ -16439,7 +16439,7 @@ func (i VirtualMachineStorageDataDiskArgs) ToVirtualMachineStorageDataDiskOutput
 // VirtualMachineStorageDataDiskArrayInput is an input type that accepts VirtualMachineStorageDataDiskArray and VirtualMachineStorageDataDiskArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageDataDiskArrayInput` via:
 //
-//          VirtualMachineStorageDataDiskArray{ VirtualMachineStorageDataDiskArgs{...} }
+//	VirtualMachineStorageDataDiskArray{ VirtualMachineStorageDataDiskArgs{...} }
 type VirtualMachineStorageDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -16556,7 +16556,7 @@ type VirtualMachineStorageImageReference struct {
 // VirtualMachineStorageImageReferenceInput is an input type that accepts VirtualMachineStorageImageReferenceArgs and VirtualMachineStorageImageReferenceOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageImageReferenceInput` via:
 //
-//          VirtualMachineStorageImageReferenceArgs{...}
+//	VirtualMachineStorageImageReferenceArgs{...}
 type VirtualMachineStorageImageReferenceInput interface {
 	pulumi.Input
 
@@ -16600,11 +16600,11 @@ func (i VirtualMachineStorageImageReferenceArgs) ToVirtualMachineStorageImageRef
 // VirtualMachineStorageImageReferencePtrInput is an input type that accepts VirtualMachineStorageImageReferenceArgs, VirtualMachineStorageImageReferencePtr and VirtualMachineStorageImageReferencePtrOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageImageReferencePtrInput` via:
 //
-//          VirtualMachineStorageImageReferenceArgs{...}
+//	        VirtualMachineStorageImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineStorageImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -16779,7 +16779,7 @@ type VirtualMachineStorageOsDisk struct {
 // VirtualMachineStorageOsDiskInput is an input type that accepts VirtualMachineStorageOsDiskArgs and VirtualMachineStorageOsDiskOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageOsDiskInput` via:
 //
-//          VirtualMachineStorageOsDiskArgs{...}
+//	VirtualMachineStorageOsDiskArgs{...}
 type VirtualMachineStorageOsDiskInput interface {
 	pulumi.Input
 
@@ -16833,11 +16833,11 @@ func (i VirtualMachineStorageOsDiskArgs) ToVirtualMachineStorageOsDiskPtrOutputW
 // VirtualMachineStorageOsDiskPtrInput is an input type that accepts VirtualMachineStorageOsDiskArgs, VirtualMachineStorageOsDiskPtr and VirtualMachineStorageOsDiskPtrOutput values.
 // You can construct a concrete instance of `VirtualMachineStorageOsDiskPtrInput` via:
 //
-//          VirtualMachineStorageOsDiskArgs{...}
+//	        VirtualMachineStorageOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VirtualMachineStorageOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -17069,7 +17069,7 @@ type WindowsVirtualMachineAdditionalCapabilities struct {
 // WindowsVirtualMachineAdditionalCapabilitiesInput is an input type that accepts WindowsVirtualMachineAdditionalCapabilitiesArgs and WindowsVirtualMachineAdditionalCapabilitiesOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineAdditionalCapabilitiesInput` via:
 //
-//          WindowsVirtualMachineAdditionalCapabilitiesArgs{...}
+//	WindowsVirtualMachineAdditionalCapabilitiesArgs{...}
 type WindowsVirtualMachineAdditionalCapabilitiesInput interface {
 	pulumi.Input
 
@@ -17105,11 +17105,11 @@ func (i WindowsVirtualMachineAdditionalCapabilitiesArgs) ToWindowsVirtualMachine
 // WindowsVirtualMachineAdditionalCapabilitiesPtrInput is an input type that accepts WindowsVirtualMachineAdditionalCapabilitiesArgs, WindowsVirtualMachineAdditionalCapabilitiesPtr and WindowsVirtualMachineAdditionalCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineAdditionalCapabilitiesPtrInput` via:
 //
-//          WindowsVirtualMachineAdditionalCapabilitiesArgs{...}
+//	        WindowsVirtualMachineAdditionalCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineAdditionalCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -17208,7 +17208,7 @@ type WindowsVirtualMachineAdditionalUnattendContent struct {
 // WindowsVirtualMachineAdditionalUnattendContentInput is an input type that accepts WindowsVirtualMachineAdditionalUnattendContentArgs and WindowsVirtualMachineAdditionalUnattendContentOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineAdditionalUnattendContentInput` via:
 //
-//          WindowsVirtualMachineAdditionalUnattendContentArgs{...}
+//	WindowsVirtualMachineAdditionalUnattendContentArgs{...}
 type WindowsVirtualMachineAdditionalUnattendContentInput interface {
 	pulumi.Input
 
@@ -17238,7 +17238,7 @@ func (i WindowsVirtualMachineAdditionalUnattendContentArgs) ToWindowsVirtualMach
 // WindowsVirtualMachineAdditionalUnattendContentArrayInput is an input type that accepts WindowsVirtualMachineAdditionalUnattendContentArray and WindowsVirtualMachineAdditionalUnattendContentArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineAdditionalUnattendContentArrayInput` via:
 //
-//          WindowsVirtualMachineAdditionalUnattendContentArray{ WindowsVirtualMachineAdditionalUnattendContentArgs{...} }
+//	WindowsVirtualMachineAdditionalUnattendContentArray{ WindowsVirtualMachineAdditionalUnattendContentArgs{...} }
 type WindowsVirtualMachineAdditionalUnattendContentArrayInput interface {
 	pulumi.Input
 
@@ -17312,7 +17312,7 @@ type WindowsVirtualMachineBootDiagnostics struct {
 // WindowsVirtualMachineBootDiagnosticsInput is an input type that accepts WindowsVirtualMachineBootDiagnosticsArgs and WindowsVirtualMachineBootDiagnosticsOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineBootDiagnosticsInput` via:
 //
-//          WindowsVirtualMachineBootDiagnosticsArgs{...}
+//	WindowsVirtualMachineBootDiagnosticsArgs{...}
 type WindowsVirtualMachineBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -17348,11 +17348,11 @@ func (i WindowsVirtualMachineBootDiagnosticsArgs) ToWindowsVirtualMachineBootDia
 // WindowsVirtualMachineBootDiagnosticsPtrInput is an input type that accepts WindowsVirtualMachineBootDiagnosticsArgs, WindowsVirtualMachineBootDiagnosticsPtr and WindowsVirtualMachineBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineBootDiagnosticsPtrInput` via:
 //
-//          WindowsVirtualMachineBootDiagnosticsArgs{...}
+//	        WindowsVirtualMachineBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -17455,7 +17455,7 @@ type WindowsVirtualMachineIdentity struct {
 // WindowsVirtualMachineIdentityInput is an input type that accepts WindowsVirtualMachineIdentityArgs and WindowsVirtualMachineIdentityOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineIdentityInput` via:
 //
-//          WindowsVirtualMachineIdentityArgs{...}
+//	WindowsVirtualMachineIdentityArgs{...}
 type WindowsVirtualMachineIdentityInput interface {
 	pulumi.Input
 
@@ -17497,11 +17497,11 @@ func (i WindowsVirtualMachineIdentityArgs) ToWindowsVirtualMachineIdentityPtrOut
 // WindowsVirtualMachineIdentityPtrInput is an input type that accepts WindowsVirtualMachineIdentityArgs, WindowsVirtualMachineIdentityPtr and WindowsVirtualMachineIdentityPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineIdentityPtrInput` via:
 //
-//          WindowsVirtualMachineIdentityArgs{...}
+//	        WindowsVirtualMachineIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineIdentityPtrInput interface {
 	pulumi.Input
 
@@ -17659,7 +17659,7 @@ type WindowsVirtualMachineOsDisk struct {
 // WindowsVirtualMachineOsDiskInput is an input type that accepts WindowsVirtualMachineOsDiskArgs and WindowsVirtualMachineOsDiskOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineOsDiskInput` via:
 //
-//          WindowsVirtualMachineOsDiskArgs{...}
+//	WindowsVirtualMachineOsDiskArgs{...}
 type WindowsVirtualMachineOsDiskInput interface {
 	pulumi.Input
 
@@ -17711,11 +17711,11 @@ func (i WindowsVirtualMachineOsDiskArgs) ToWindowsVirtualMachineOsDiskPtrOutputW
 // WindowsVirtualMachineOsDiskPtrInput is an input type that accepts WindowsVirtualMachineOsDiskArgs, WindowsVirtualMachineOsDiskPtr and WindowsVirtualMachineOsDiskPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineOsDiskPtrInput` via:
 //
-//          WindowsVirtualMachineOsDiskArgs{...}
+//	        WindowsVirtualMachineOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -17936,7 +17936,7 @@ type WindowsVirtualMachineOsDiskDiffDiskSettings struct {
 // WindowsVirtualMachineOsDiskDiffDiskSettingsInput is an input type that accepts WindowsVirtualMachineOsDiskDiffDiskSettingsArgs and WindowsVirtualMachineOsDiskDiffDiskSettingsOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineOsDiskDiffDiskSettingsInput` via:
 //
-//          WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{...}
+//	WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{...}
 type WindowsVirtualMachineOsDiskDiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -17974,11 +17974,11 @@ func (i WindowsVirtualMachineOsDiskDiffDiskSettingsArgs) ToWindowsVirtualMachine
 // WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput is an input type that accepts WindowsVirtualMachineOsDiskDiffDiskSettingsArgs, WindowsVirtualMachineOsDiskDiffDiskSettingsPtr and WindowsVirtualMachineOsDiskDiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput` via:
 //
-//          WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{...}
+//	        WindowsVirtualMachineOsDiskDiffDiskSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineOsDiskDiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -18094,7 +18094,7 @@ type WindowsVirtualMachinePlan struct {
 // WindowsVirtualMachinePlanInput is an input type that accepts WindowsVirtualMachinePlanArgs and WindowsVirtualMachinePlanOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachinePlanInput` via:
 //
-//          WindowsVirtualMachinePlanArgs{...}
+//	WindowsVirtualMachinePlanArgs{...}
 type WindowsVirtualMachinePlanInput interface {
 	pulumi.Input
 
@@ -18134,11 +18134,11 @@ func (i WindowsVirtualMachinePlanArgs) ToWindowsVirtualMachinePlanPtrOutputWithC
 // WindowsVirtualMachinePlanPtrInput is an input type that accepts WindowsVirtualMachinePlanArgs, WindowsVirtualMachinePlanPtr and WindowsVirtualMachinePlanPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachinePlanPtrInput` via:
 //
-//          WindowsVirtualMachinePlanArgs{...}
+//	        WindowsVirtualMachinePlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachinePlanPtrInput interface {
 	pulumi.Input
 
@@ -18265,7 +18265,7 @@ type WindowsVirtualMachineScaleSetAdditionalCapabilities struct {
 // WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput is an input type that accepts WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs and WindowsVirtualMachineScaleSetAdditionalCapabilitiesOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput` via:
 //
-//          WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+//	WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
 type WindowsVirtualMachineScaleSetAdditionalCapabilitiesInput interface {
 	pulumi.Input
 
@@ -18301,11 +18301,11 @@ func (i WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs) ToWindowsVirtua
 // WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput is an input type that accepts WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs, WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtr and WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
+//	        WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetAdditionalCapabilitiesPtrInput interface {
 	pulumi.Input
 
@@ -18404,7 +18404,7 @@ type WindowsVirtualMachineScaleSetAdditionalUnattendContent struct {
 // WindowsVirtualMachineScaleSetAdditionalUnattendContentInput is an input type that accepts WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs and WindowsVirtualMachineScaleSetAdditionalUnattendContentOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAdditionalUnattendContentInput` via:
 //
-//          WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs{...}
+//	WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs{...}
 type WindowsVirtualMachineScaleSetAdditionalUnattendContentInput interface {
 	pulumi.Input
 
@@ -18434,7 +18434,7 @@ func (i WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs) ToWindowsVir
 // WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput is an input type that accepts WindowsVirtualMachineScaleSetAdditionalUnattendContentArray and WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetAdditionalUnattendContentArray{ WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs{...} }
+//	WindowsVirtualMachineScaleSetAdditionalUnattendContentArray{ WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs{...} }
 type WindowsVirtualMachineScaleSetAdditionalUnattendContentArrayInput interface {
 	pulumi.Input
 
@@ -18510,7 +18510,7 @@ type WindowsVirtualMachineScaleSetAutomaticInstanceRepair struct {
 // WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs and WindowsVirtualMachineScaleSetAutomaticInstanceRepairOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput` via:
 //
-//          WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 	pulumi.Input
 
@@ -18548,11 +18548,11 @@ func (i WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs) ToWindowsVirtu
 // WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs, WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtr and WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
+//	        WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetAutomaticInstanceRepairPtrInput interface {
 	pulumi.Input
 
@@ -18666,7 +18666,7 @@ type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy struct {
 // WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs and WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput` via:
 //
-//          WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
+//	WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -18704,11 +18704,11 @@ func (i WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs) ToWindowsVirt
 // WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput is an input type that accepts WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs, WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtr and WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
+//	        WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -18820,7 +18820,7 @@ type WindowsVirtualMachineScaleSetBootDiagnostics struct {
 // WindowsVirtualMachineScaleSetBootDiagnosticsInput is an input type that accepts WindowsVirtualMachineScaleSetBootDiagnosticsArgs and WindowsVirtualMachineScaleSetBootDiagnosticsOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetBootDiagnosticsInput` via:
 //
-//          WindowsVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	WindowsVirtualMachineScaleSetBootDiagnosticsArgs{...}
 type WindowsVirtualMachineScaleSetBootDiagnosticsInput interface {
 	pulumi.Input
 
@@ -18856,11 +18856,11 @@ func (i WindowsVirtualMachineScaleSetBootDiagnosticsArgs) ToWindowsVirtualMachin
 // WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput is an input type that accepts WindowsVirtualMachineScaleSetBootDiagnosticsArgs, WindowsVirtualMachineScaleSetBootDiagnosticsPtr and WindowsVirtualMachineScaleSetBootDiagnosticsPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetBootDiagnosticsArgs{...}
+//	        WindowsVirtualMachineScaleSetBootDiagnosticsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetBootDiagnosticsPtrInput interface {
 	pulumi.Input
 
@@ -18971,7 +18971,7 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 // WindowsVirtualMachineScaleSetDataDiskInput is an input type that accepts WindowsVirtualMachineScaleSetDataDiskArgs and WindowsVirtualMachineScaleSetDataDiskOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetDataDiskInput` via:
 //
-//          WindowsVirtualMachineScaleSetDataDiskArgs{...}
+//	WindowsVirtualMachineScaleSetDataDiskArgs{...}
 type WindowsVirtualMachineScaleSetDataDiskInput interface {
 	pulumi.Input
 
@@ -19013,7 +19013,7 @@ func (i WindowsVirtualMachineScaleSetDataDiskArgs) ToWindowsVirtualMachineScaleS
 // WindowsVirtualMachineScaleSetDataDiskArrayInput is an input type that accepts WindowsVirtualMachineScaleSetDataDiskArray and WindowsVirtualMachineScaleSetDataDiskArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetDataDiskArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetDataDiskArray{ WindowsVirtualMachineScaleSetDataDiskArgs{...} }
+//	WindowsVirtualMachineScaleSetDataDiskArray{ WindowsVirtualMachineScaleSetDataDiskArgs{...} }
 type WindowsVirtualMachineScaleSetDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -19138,7 +19138,7 @@ type WindowsVirtualMachineScaleSetExtension struct {
 // WindowsVirtualMachineScaleSetExtensionInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionArgs and WindowsVirtualMachineScaleSetExtensionOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionInput` via:
 //
-//          WindowsVirtualMachineScaleSetExtensionArgs{...}
+//	WindowsVirtualMachineScaleSetExtensionArgs{...}
 type WindowsVirtualMachineScaleSetExtensionInput interface {
 	pulumi.Input
 
@@ -19184,7 +19184,7 @@ func (i WindowsVirtualMachineScaleSetExtensionArgs) ToWindowsVirtualMachineScale
 // WindowsVirtualMachineScaleSetExtensionArrayInput is an input type that accepts WindowsVirtualMachineScaleSetExtensionArray and WindowsVirtualMachineScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetExtensionArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetExtensionArray{ WindowsVirtualMachineScaleSetExtensionArgs{...} }
+//	WindowsVirtualMachineScaleSetExtensionArray{ WindowsVirtualMachineScaleSetExtensionArgs{...} }
 type WindowsVirtualMachineScaleSetExtensionArrayInput interface {
 	pulumi.Input
 
@@ -19304,7 +19304,7 @@ type WindowsVirtualMachineScaleSetIdentity struct {
 // WindowsVirtualMachineScaleSetIdentityInput is an input type that accepts WindowsVirtualMachineScaleSetIdentityArgs and WindowsVirtualMachineScaleSetIdentityOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetIdentityInput` via:
 //
-//          WindowsVirtualMachineScaleSetIdentityArgs{...}
+//	WindowsVirtualMachineScaleSetIdentityArgs{...}
 type WindowsVirtualMachineScaleSetIdentityInput interface {
 	pulumi.Input
 
@@ -19346,11 +19346,11 @@ func (i WindowsVirtualMachineScaleSetIdentityArgs) ToWindowsVirtualMachineScaleS
 // WindowsVirtualMachineScaleSetIdentityPtrInput is an input type that accepts WindowsVirtualMachineScaleSetIdentityArgs, WindowsVirtualMachineScaleSetIdentityPtr and WindowsVirtualMachineScaleSetIdentityPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetIdentityPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetIdentityArgs{...}
+//	        WindowsVirtualMachineScaleSetIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetIdentityPtrInput interface {
 	pulumi.Input
 
@@ -19504,7 +19504,7 @@ type WindowsVirtualMachineScaleSetNetworkInterface struct {
 // WindowsVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceArgs and WindowsVirtualMachineScaleSetNetworkInterfaceOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceArgs{...}
+//	WindowsVirtualMachineScaleSetNetworkInterfaceArgs{...}
 type WindowsVirtualMachineScaleSetNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -19544,7 +19544,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceArgs) ToWindowsVirtualMachi
 // WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceArray and WindowsVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceArray{ WindowsVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+//	WindowsVirtualMachineScaleSetNetworkInterfaceArray{ WindowsVirtualMachineScaleSetNetworkInterfaceArgs{...} }
 type WindowsVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -19661,7 +19661,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -19705,7 +19705,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToWind
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -19832,7 +19832,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
 	pulumi.Input
 
@@ -19868,7 +19868,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -19969,7 +19969,7 @@ type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
 	pulumi.Input
 
@@ -19999,7 +19999,7 @@ func (i WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddr
 // WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+//	WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
 type WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
 	pulumi.Input
 
@@ -20091,7 +20091,7 @@ type WindowsVirtualMachineScaleSetOsDisk struct {
 // WindowsVirtualMachineScaleSetOsDiskInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskArgs and WindowsVirtualMachineScaleSetOsDiskOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetOsDiskInput` via:
 //
-//          WindowsVirtualMachineScaleSetOsDiskArgs{...}
+//	WindowsVirtualMachineScaleSetOsDiskArgs{...}
 type WindowsVirtualMachineScaleSetOsDiskInput interface {
 	pulumi.Input
 
@@ -20141,11 +20141,11 @@ func (i WindowsVirtualMachineScaleSetOsDiskArgs) ToWindowsVirtualMachineScaleSet
 // WindowsVirtualMachineScaleSetOsDiskPtrInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskArgs, WindowsVirtualMachineScaleSetOsDiskPtr and WindowsVirtualMachineScaleSetOsDiskPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetOsDiskPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetOsDiskArgs{...}
+//	        WindowsVirtualMachineScaleSetOsDiskArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetOsDiskPtrInput interface {
 	pulumi.Input
 
@@ -20351,7 +20351,7 @@ type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings struct {
 // WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs and WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput` via:
 //
-//          WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsInput interface {
 	pulumi.Input
 
@@ -20389,11 +20389,11 @@ func (i WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs) ToWindowsVirtua
 // WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput is an input type that accepts WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs, WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtr and WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
+//	        WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput interface {
 	pulumi.Input
 
@@ -20509,7 +20509,7 @@ type WindowsVirtualMachineScaleSetPlan struct {
 // WindowsVirtualMachineScaleSetPlanInput is an input type that accepts WindowsVirtualMachineScaleSetPlanArgs and WindowsVirtualMachineScaleSetPlanOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetPlanInput` via:
 //
-//          WindowsVirtualMachineScaleSetPlanArgs{...}
+//	WindowsVirtualMachineScaleSetPlanArgs{...}
 type WindowsVirtualMachineScaleSetPlanInput interface {
 	pulumi.Input
 
@@ -20549,11 +20549,11 @@ func (i WindowsVirtualMachineScaleSetPlanArgs) ToWindowsVirtualMachineScaleSetPl
 // WindowsVirtualMachineScaleSetPlanPtrInput is an input type that accepts WindowsVirtualMachineScaleSetPlanArgs, WindowsVirtualMachineScaleSetPlanPtr and WindowsVirtualMachineScaleSetPlanPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetPlanPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetPlanArgs{...}
+//	        WindowsVirtualMachineScaleSetPlanArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetPlanPtrInput interface {
 	pulumi.Input
 
@@ -20686,7 +20686,7 @@ type WindowsVirtualMachineScaleSetRollingUpgradePolicy struct {
 // WindowsVirtualMachineScaleSetRollingUpgradePolicyInput is an input type that accepts WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs and WindowsVirtualMachineScaleSetRollingUpgradePolicyOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetRollingUpgradePolicyInput` via:
 //
-//          WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+//	WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 	pulumi.Input
 
@@ -20728,11 +20728,11 @@ func (i WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs) ToWindowsVirtualM
 // WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput is an input type that accepts WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs, WindowsVirtualMachineScaleSetRollingUpgradePolicyPtr and WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
+//	        WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetRollingUpgradePolicyPtrInput interface {
 	pulumi.Input
 
@@ -20878,7 +20878,7 @@ type WindowsVirtualMachineScaleSetSecret struct {
 // WindowsVirtualMachineScaleSetSecretInput is an input type that accepts WindowsVirtualMachineScaleSetSecretArgs and WindowsVirtualMachineScaleSetSecretOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSecretInput` via:
 //
-//          WindowsVirtualMachineScaleSetSecretArgs{...}
+//	WindowsVirtualMachineScaleSetSecretArgs{...}
 type WindowsVirtualMachineScaleSetSecretInput interface {
 	pulumi.Input
 
@@ -20908,7 +20908,7 @@ func (i WindowsVirtualMachineScaleSetSecretArgs) ToWindowsVirtualMachineScaleSet
 // WindowsVirtualMachineScaleSetSecretArrayInput is an input type that accepts WindowsVirtualMachineScaleSetSecretArray and WindowsVirtualMachineScaleSetSecretArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSecretArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetSecretArray{ WindowsVirtualMachineScaleSetSecretArgs{...} }
+//	WindowsVirtualMachineScaleSetSecretArray{ WindowsVirtualMachineScaleSetSecretArgs{...} }
 type WindowsVirtualMachineScaleSetSecretArrayInput interface {
 	pulumi.Input
 
@@ -20986,7 +20986,7 @@ type WindowsVirtualMachineScaleSetSecretCertificate struct {
 // WindowsVirtualMachineScaleSetSecretCertificateInput is an input type that accepts WindowsVirtualMachineScaleSetSecretCertificateArgs and WindowsVirtualMachineScaleSetSecretCertificateOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSecretCertificateInput` via:
 //
-//          WindowsVirtualMachineScaleSetSecretCertificateArgs{...}
+//	WindowsVirtualMachineScaleSetSecretCertificateArgs{...}
 type WindowsVirtualMachineScaleSetSecretCertificateInput interface {
 	pulumi.Input
 
@@ -21016,7 +21016,7 @@ func (i WindowsVirtualMachineScaleSetSecretCertificateArgs) ToWindowsVirtualMach
 // WindowsVirtualMachineScaleSetSecretCertificateArrayInput is an input type that accepts WindowsVirtualMachineScaleSetSecretCertificateArray and WindowsVirtualMachineScaleSetSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSecretCertificateArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetSecretCertificateArray{ WindowsVirtualMachineScaleSetSecretCertificateArgs{...} }
+//	WindowsVirtualMachineScaleSetSecretCertificateArray{ WindowsVirtualMachineScaleSetSecretCertificateArgs{...} }
 type WindowsVirtualMachineScaleSetSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -21096,7 +21096,7 @@ type WindowsVirtualMachineScaleSetSourceImageReference struct {
 // WindowsVirtualMachineScaleSetSourceImageReferenceInput is an input type that accepts WindowsVirtualMachineScaleSetSourceImageReferenceArgs and WindowsVirtualMachineScaleSetSourceImageReferenceOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSourceImageReferenceInput` via:
 //
-//          WindowsVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	WindowsVirtualMachineScaleSetSourceImageReferenceArgs{...}
 type WindowsVirtualMachineScaleSetSourceImageReferenceInput interface {
 	pulumi.Input
 
@@ -21138,11 +21138,11 @@ func (i WindowsVirtualMachineScaleSetSourceImageReferenceArgs) ToWindowsVirtualM
 // WindowsVirtualMachineScaleSetSourceImageReferencePtrInput is an input type that accepts WindowsVirtualMachineScaleSetSourceImageReferenceArgs, WindowsVirtualMachineScaleSetSourceImageReferencePtr and WindowsVirtualMachineScaleSetSourceImageReferencePtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetSourceImageReferencePtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetSourceImageReferenceArgs{...}
+//	        WindowsVirtualMachineScaleSetSourceImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetSourceImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -21286,7 +21286,7 @@ type WindowsVirtualMachineScaleSetTerminateNotification struct {
 // WindowsVirtualMachineScaleSetTerminateNotificationInput is an input type that accepts WindowsVirtualMachineScaleSetTerminateNotificationArgs and WindowsVirtualMachineScaleSetTerminateNotificationOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminateNotificationInput` via:
 //
-//          WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
+//	WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
 type WindowsVirtualMachineScaleSetTerminateNotificationInput interface {
 	pulumi.Input
 
@@ -21324,11 +21324,11 @@ func (i WindowsVirtualMachineScaleSetTerminateNotificationArgs) ToWindowsVirtual
 // WindowsVirtualMachineScaleSetTerminateNotificationPtrInput is an input type that accepts WindowsVirtualMachineScaleSetTerminateNotificationArgs, WindowsVirtualMachineScaleSetTerminateNotificationPtr and WindowsVirtualMachineScaleSetTerminateNotificationPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminateNotificationPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
+//	        WindowsVirtualMachineScaleSetTerminateNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetTerminateNotificationPtrInput interface {
 	pulumi.Input
 
@@ -21442,7 +21442,7 @@ type WindowsVirtualMachineScaleSetTerminationNotification struct {
 // WindowsVirtualMachineScaleSetTerminationNotificationInput is an input type that accepts WindowsVirtualMachineScaleSetTerminationNotificationArgs and WindowsVirtualMachineScaleSetTerminationNotificationOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminationNotificationInput` via:
 //
-//          WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
 type WindowsVirtualMachineScaleSetTerminationNotificationInput interface {
 	pulumi.Input
 
@@ -21480,11 +21480,11 @@ func (i WindowsVirtualMachineScaleSetTerminationNotificationArgs) ToWindowsVirtu
 // WindowsVirtualMachineScaleSetTerminationNotificationPtrInput is an input type that accepts WindowsVirtualMachineScaleSetTerminationNotificationArgs, WindowsVirtualMachineScaleSetTerminationNotificationPtr and WindowsVirtualMachineScaleSetTerminationNotificationPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetTerminationNotificationPtrInput` via:
 //
-//          WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
+//	        WindowsVirtualMachineScaleSetTerminationNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineScaleSetTerminationNotificationPtrInput interface {
 	pulumi.Input
 
@@ -21598,7 +21598,7 @@ type WindowsVirtualMachineScaleSetWinrmListener struct {
 // WindowsVirtualMachineScaleSetWinrmListenerInput is an input type that accepts WindowsVirtualMachineScaleSetWinrmListenerArgs and WindowsVirtualMachineScaleSetWinrmListenerOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetWinrmListenerInput` via:
 //
-//          WindowsVirtualMachineScaleSetWinrmListenerArgs{...}
+//	WindowsVirtualMachineScaleSetWinrmListenerArgs{...}
 type WindowsVirtualMachineScaleSetWinrmListenerInput interface {
 	pulumi.Input
 
@@ -21628,7 +21628,7 @@ func (i WindowsVirtualMachineScaleSetWinrmListenerArgs) ToWindowsVirtualMachineS
 // WindowsVirtualMachineScaleSetWinrmListenerArrayInput is an input type that accepts WindowsVirtualMachineScaleSetWinrmListenerArray and WindowsVirtualMachineScaleSetWinrmListenerArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetWinrmListenerArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetWinrmListenerArray{ WindowsVirtualMachineScaleSetWinrmListenerArgs{...} }
+//	WindowsVirtualMachineScaleSetWinrmListenerArray{ WindowsVirtualMachineScaleSetWinrmListenerArgs{...} }
 type WindowsVirtualMachineScaleSetWinrmListenerArrayInput interface {
 	pulumi.Input
 
@@ -21704,7 +21704,7 @@ type WindowsVirtualMachineSecret struct {
 // WindowsVirtualMachineSecretInput is an input type that accepts WindowsVirtualMachineSecretArgs and WindowsVirtualMachineSecretOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSecretInput` via:
 //
-//          WindowsVirtualMachineSecretArgs{...}
+//	WindowsVirtualMachineSecretArgs{...}
 type WindowsVirtualMachineSecretInput interface {
 	pulumi.Input
 
@@ -21734,7 +21734,7 @@ func (i WindowsVirtualMachineSecretArgs) ToWindowsVirtualMachineSecretOutputWith
 // WindowsVirtualMachineSecretArrayInput is an input type that accepts WindowsVirtualMachineSecretArray and WindowsVirtualMachineSecretArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSecretArrayInput` via:
 //
-//          WindowsVirtualMachineSecretArray{ WindowsVirtualMachineSecretArgs{...} }
+//	WindowsVirtualMachineSecretArray{ WindowsVirtualMachineSecretArgs{...} }
 type WindowsVirtualMachineSecretArrayInput interface {
 	pulumi.Input
 
@@ -21810,7 +21810,7 @@ type WindowsVirtualMachineSecretCertificate struct {
 // WindowsVirtualMachineSecretCertificateInput is an input type that accepts WindowsVirtualMachineSecretCertificateArgs and WindowsVirtualMachineSecretCertificateOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSecretCertificateInput` via:
 //
-//          WindowsVirtualMachineSecretCertificateArgs{...}
+//	WindowsVirtualMachineSecretCertificateArgs{...}
 type WindowsVirtualMachineSecretCertificateInput interface {
 	pulumi.Input
 
@@ -21840,7 +21840,7 @@ func (i WindowsVirtualMachineSecretCertificateArgs) ToWindowsVirtualMachineSecre
 // WindowsVirtualMachineSecretCertificateArrayInput is an input type that accepts WindowsVirtualMachineSecretCertificateArray and WindowsVirtualMachineSecretCertificateArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSecretCertificateArrayInput` via:
 //
-//          WindowsVirtualMachineSecretCertificateArray{ WindowsVirtualMachineSecretCertificateArgs{...} }
+//	WindowsVirtualMachineSecretCertificateArray{ WindowsVirtualMachineSecretCertificateArgs{...} }
 type WindowsVirtualMachineSecretCertificateArrayInput interface {
 	pulumi.Input
 
@@ -21920,7 +21920,7 @@ type WindowsVirtualMachineSourceImageReference struct {
 // WindowsVirtualMachineSourceImageReferenceInput is an input type that accepts WindowsVirtualMachineSourceImageReferenceArgs and WindowsVirtualMachineSourceImageReferenceOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSourceImageReferenceInput` via:
 //
-//          WindowsVirtualMachineSourceImageReferenceArgs{...}
+//	WindowsVirtualMachineSourceImageReferenceArgs{...}
 type WindowsVirtualMachineSourceImageReferenceInput interface {
 	pulumi.Input
 
@@ -21962,11 +21962,11 @@ func (i WindowsVirtualMachineSourceImageReferenceArgs) ToWindowsVirtualMachineSo
 // WindowsVirtualMachineSourceImageReferencePtrInput is an input type that accepts WindowsVirtualMachineSourceImageReferenceArgs, WindowsVirtualMachineSourceImageReferencePtr and WindowsVirtualMachineSourceImageReferencePtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineSourceImageReferencePtrInput` via:
 //
-//          WindowsVirtualMachineSourceImageReferenceArgs{...}
+//	        WindowsVirtualMachineSourceImageReferenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineSourceImageReferencePtrInput interface {
 	pulumi.Input
 
@@ -22110,7 +22110,7 @@ type WindowsVirtualMachineTerminationNotification struct {
 // WindowsVirtualMachineTerminationNotificationInput is an input type that accepts WindowsVirtualMachineTerminationNotificationArgs and WindowsVirtualMachineTerminationNotificationOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineTerminationNotificationInput` via:
 //
-//          WindowsVirtualMachineTerminationNotificationArgs{...}
+//	WindowsVirtualMachineTerminationNotificationArgs{...}
 type WindowsVirtualMachineTerminationNotificationInput interface {
 	pulumi.Input
 
@@ -22148,11 +22148,11 @@ func (i WindowsVirtualMachineTerminationNotificationArgs) ToWindowsVirtualMachin
 // WindowsVirtualMachineTerminationNotificationPtrInput is an input type that accepts WindowsVirtualMachineTerminationNotificationArgs, WindowsVirtualMachineTerminationNotificationPtr and WindowsVirtualMachineTerminationNotificationPtrOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineTerminationNotificationPtrInput` via:
 //
-//          WindowsVirtualMachineTerminationNotificationArgs{...}
+//	        WindowsVirtualMachineTerminationNotificationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WindowsVirtualMachineTerminationNotificationPtrInput interface {
 	pulumi.Input
 
@@ -22265,7 +22265,7 @@ type WindowsVirtualMachineWinrmListener struct {
 // WindowsVirtualMachineWinrmListenerInput is an input type that accepts WindowsVirtualMachineWinrmListenerArgs and WindowsVirtualMachineWinrmListenerOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineWinrmListenerInput` via:
 //
-//          WindowsVirtualMachineWinrmListenerArgs{...}
+//	WindowsVirtualMachineWinrmListenerArgs{...}
 type WindowsVirtualMachineWinrmListenerInput interface {
 	pulumi.Input
 
@@ -22294,7 +22294,7 @@ func (i WindowsVirtualMachineWinrmListenerArgs) ToWindowsVirtualMachineWinrmList
 // WindowsVirtualMachineWinrmListenerArrayInput is an input type that accepts WindowsVirtualMachineWinrmListenerArray and WindowsVirtualMachineWinrmListenerArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineWinrmListenerArrayInput` via:
 //
-//          WindowsVirtualMachineWinrmListenerArray{ WindowsVirtualMachineWinrmListenerArgs{...} }
+//	WindowsVirtualMachineWinrmListenerArray{ WindowsVirtualMachineWinrmListenerArgs{...} }
 type WindowsVirtualMachineWinrmListenerArrayInput interface {
 	pulumi.Input
 
@@ -22371,7 +22371,7 @@ type GetConfidentialLedgerAzureadBasedServicePrincipal struct {
 // GetConfidentialLedgerAzureadBasedServicePrincipalInput is an input type that accepts GetConfidentialLedgerAzureadBasedServicePrincipalArgs and GetConfidentialLedgerAzureadBasedServicePrincipalOutput values.
 // You can construct a concrete instance of `GetConfidentialLedgerAzureadBasedServicePrincipalInput` via:
 //
-//          GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...}
+//	GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...}
 type GetConfidentialLedgerAzureadBasedServicePrincipalInput interface {
 	pulumi.Input
 
@@ -22403,7 +22403,7 @@ func (i GetConfidentialLedgerAzureadBasedServicePrincipalArgs) ToGetConfidential
 // GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput is an input type that accepts GetConfidentialLedgerAzureadBasedServicePrincipalArray and GetConfidentialLedgerAzureadBasedServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput` via:
 //
-//          GetConfidentialLedgerAzureadBasedServicePrincipalArray{ GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...} }
+//	GetConfidentialLedgerAzureadBasedServicePrincipalArray{ GetConfidentialLedgerAzureadBasedServicePrincipalArgs{...} }
 type GetConfidentialLedgerAzureadBasedServicePrincipalArrayInput interface {
 	pulumi.Input
 
@@ -22484,7 +22484,7 @@ type GetConfidentialLedgerCertificateBasedSecurityPrincipal struct {
 // GetConfidentialLedgerCertificateBasedSecurityPrincipalInput is an input type that accepts GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs and GetConfidentialLedgerCertificateBasedSecurityPrincipalOutput values.
 // You can construct a concrete instance of `GetConfidentialLedgerCertificateBasedSecurityPrincipalInput` via:
 //
-//          GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...}
+//	GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...}
 type GetConfidentialLedgerCertificateBasedSecurityPrincipalInput interface {
 	pulumi.Input
 
@@ -22514,7 +22514,7 @@ func (i GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs) ToGetConfide
 // GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput is an input type that accepts GetConfidentialLedgerCertificateBasedSecurityPrincipalArray and GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayOutput values.
 // You can construct a concrete instance of `GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput` via:
 //
-//          GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{ GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...} }
+//	GetConfidentialLedgerCertificateBasedSecurityPrincipalArray{ GetConfidentialLedgerCertificateBasedSecurityPrincipalArgs{...} }
 type GetConfidentialLedgerCertificateBasedSecurityPrincipalArrayInput interface {
 	pulumi.Input
 
@@ -22596,7 +22596,7 @@ type GetImageDataDisk struct {
 // GetImageDataDiskInput is an input type that accepts GetImageDataDiskArgs and GetImageDataDiskOutput values.
 // You can construct a concrete instance of `GetImageDataDiskInput` via:
 //
-//          GetImageDataDiskArgs{...}
+//	GetImageDataDiskArgs{...}
 type GetImageDataDiskInput interface {
 	pulumi.Input
 
@@ -22632,7 +22632,7 @@ func (i GetImageDataDiskArgs) ToGetImageDataDiskOutputWithContext(ctx context.Co
 // GetImageDataDiskArrayInput is an input type that accepts GetImageDataDiskArray and GetImageDataDiskArrayOutput values.
 // You can construct a concrete instance of `GetImageDataDiskArrayInput` via:
 //
-//          GetImageDataDiskArray{ GetImageDataDiskArgs{...} }
+//	GetImageDataDiskArray{ GetImageDataDiskArgs{...} }
 type GetImageDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -22731,7 +22731,7 @@ type GetImageOsDisk struct {
 // GetImageOsDiskInput is an input type that accepts GetImageOsDiskArgs and GetImageOsDiskOutput values.
 // You can construct a concrete instance of `GetImageOsDiskInput` via:
 //
-//          GetImageOsDiskArgs{...}
+//	GetImageOsDiskArgs{...}
 type GetImageOsDiskInput interface {
 	pulumi.Input
 
@@ -22769,7 +22769,7 @@ func (i GetImageOsDiskArgs) ToGetImageOsDiskOutputWithContext(ctx context.Contex
 // GetImageOsDiskArrayInput is an input type that accepts GetImageOsDiskArray and GetImageOsDiskArrayOutput values.
 // You can construct a concrete instance of `GetImageOsDiskArrayInput` via:
 //
-//          GetImageOsDiskArray{ GetImageOsDiskArgs{...} }
+//	GetImageOsDiskArray{ GetImageOsDiskArgs{...} }
 type GetImageOsDiskArrayInput interface {
 	pulumi.Input
 
@@ -22873,7 +22873,7 @@ type GetImagesImage struct {
 // GetImagesImageInput is an input type that accepts GetImagesImageArgs and GetImagesImageOutput values.
 // You can construct a concrete instance of `GetImagesImageInput` via:
 //
-//          GetImagesImageArgs{...}
+//	GetImagesImageArgs{...}
 type GetImagesImageInput interface {
 	pulumi.Input
 
@@ -22911,7 +22911,7 @@ func (i GetImagesImageArgs) ToGetImagesImageOutputWithContext(ctx context.Contex
 // GetImagesImageArrayInput is an input type that accepts GetImagesImageArray and GetImagesImageArrayOutput values.
 // You can construct a concrete instance of `GetImagesImageArrayInput` via:
 //
-//          GetImagesImageArray{ GetImagesImageArgs{...} }
+//	GetImagesImageArray{ GetImagesImageArgs{...} }
 type GetImagesImageArrayInput interface {
 	pulumi.Input
 
@@ -23013,7 +23013,7 @@ type GetImagesImageDataDisk struct {
 // GetImagesImageDataDiskInput is an input type that accepts GetImagesImageDataDiskArgs and GetImagesImageDataDiskOutput values.
 // You can construct a concrete instance of `GetImagesImageDataDiskInput` via:
 //
-//          GetImagesImageDataDiskArgs{...}
+//	GetImagesImageDataDiskArgs{...}
 type GetImagesImageDataDiskInput interface {
 	pulumi.Input
 
@@ -23049,7 +23049,7 @@ func (i GetImagesImageDataDiskArgs) ToGetImagesImageDataDiskOutputWithContext(ct
 // GetImagesImageDataDiskArrayInput is an input type that accepts GetImagesImageDataDiskArray and GetImagesImageDataDiskArrayOutput values.
 // You can construct a concrete instance of `GetImagesImageDataDiskArrayInput` via:
 //
-//          GetImagesImageDataDiskArray{ GetImagesImageDataDiskArgs{...} }
+//	GetImagesImageDataDiskArray{ GetImagesImageDataDiskArgs{...} }
 type GetImagesImageDataDiskArrayInput interface {
 	pulumi.Input
 
@@ -23148,7 +23148,7 @@ type GetImagesImageOsDisk struct {
 // GetImagesImageOsDiskInput is an input type that accepts GetImagesImageOsDiskArgs and GetImagesImageOsDiskOutput values.
 // You can construct a concrete instance of `GetImagesImageOsDiskInput` via:
 //
-//          GetImagesImageOsDiskArgs{...}
+//	GetImagesImageOsDiskArgs{...}
 type GetImagesImageOsDiskInput interface {
 	pulumi.Input
 
@@ -23186,7 +23186,7 @@ func (i GetImagesImageOsDiskArgs) ToGetImagesImageOsDiskOutputWithContext(ctx co
 // GetImagesImageOsDiskArrayInput is an input type that accepts GetImagesImageOsDiskArray and GetImagesImageOsDiskArrayOutput values.
 // You can construct a concrete instance of `GetImagesImageOsDiskArrayInput` via:
 //
-//          GetImagesImageOsDiskArray{ GetImagesImageOsDiskArgs{...} }
+//	GetImagesImageOsDiskArray{ GetImagesImageOsDiskArgs{...} }
 type GetImagesImageOsDiskArrayInput interface {
 	pulumi.Input
 
@@ -23272,6 +23272,334 @@ func (o GetImagesImageOsDiskArrayOutput) Index(i pulumi.IntInput) GetImagesImage
 	}).(GetImagesImageOsDiskOutput)
 }
 
+type GetManagedDiskEncryptionSetting struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys []GetManagedDiskEncryptionSettingDiskEncryptionKey `pulumi:"diskEncryptionKeys"`
+	Enabled            bool                                               `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys []GetManagedDiskEncryptionSettingKeyEncryptionKey `pulumi:"keyEncryptionKeys"`
+}
+
+// GetManagedDiskEncryptionSettingInput is an input type that accepts GetManagedDiskEncryptionSettingArgs and GetManagedDiskEncryptionSettingOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingInput` via:
+//
+//	GetManagedDiskEncryptionSettingArgs{...}
+type GetManagedDiskEncryptionSettingInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingOutput() GetManagedDiskEncryptionSettingOutput
+	ToGetManagedDiskEncryptionSettingOutputWithContext(context.Context) GetManagedDiskEncryptionSettingOutput
+}
+
+type GetManagedDiskEncryptionSettingArgs struct {
+	// A `diskEncryptionKey` block as defined above.
+	DiskEncryptionKeys GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput `pulumi:"diskEncryptionKeys"`
+	Enabled            pulumi.BoolInput                                           `pulumi:"enabled"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKeys GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput `pulumi:"keyEncryptionKeys"`
+}
+
+func (GetManagedDiskEncryptionSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingArgs) ToGetManagedDiskEncryptionSettingOutput() GetManagedDiskEncryptionSettingOutput {
+	return i.ToGetManagedDiskEncryptionSettingOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingArgs) ToGetManagedDiskEncryptionSettingOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingOutput)
+}
+
+// GetManagedDiskEncryptionSettingArrayInput is an input type that accepts GetManagedDiskEncryptionSettingArray and GetManagedDiskEncryptionSettingArrayOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingArrayInput` via:
+//
+//	GetManagedDiskEncryptionSettingArray{ GetManagedDiskEncryptionSettingArgs{...} }
+type GetManagedDiskEncryptionSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingArrayOutput() GetManagedDiskEncryptionSettingArrayOutput
+	ToGetManagedDiskEncryptionSettingArrayOutputWithContext(context.Context) GetManagedDiskEncryptionSettingArrayOutput
+}
+
+type GetManagedDiskEncryptionSettingArray []GetManagedDiskEncryptionSettingInput
+
+func (GetManagedDiskEncryptionSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingArray) ToGetManagedDiskEncryptionSettingArrayOutput() GetManagedDiskEncryptionSettingArrayOutput {
+	return i.ToGetManagedDiskEncryptionSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingArray) ToGetManagedDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingArrayOutput)
+}
+
+type GetManagedDiskEncryptionSettingOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingOutput) ToGetManagedDiskEncryptionSettingOutput() GetManagedDiskEncryptionSettingOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingOutput) ToGetManagedDiskEncryptionSettingOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingOutput {
+	return o
+}
+
+// A `diskEncryptionKey` block as defined above.
+func (o GetManagedDiskEncryptionSettingOutput) DiskEncryptionKeys() GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSetting) []GetManagedDiskEncryptionSettingDiskEncryptionKey {
+		return v.DiskEncryptionKeys
+	}).(GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+func (o GetManagedDiskEncryptionSettingOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSetting) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o GetManagedDiskEncryptionSettingOutput) KeyEncryptionKeys() GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSetting) []GetManagedDiskEncryptionSettingKeyEncryptionKey {
+		return v.KeyEncryptionKeys
+	}).(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetManagedDiskEncryptionSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSetting)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingArrayOutput) ToGetManagedDiskEncryptionSettingArrayOutput() GetManagedDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingArrayOutput) ToGetManagedDiskEncryptionSettingArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingArrayOutput) Index(i pulumi.IntInput) GetManagedDiskEncryptionSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDiskEncryptionSetting {
+		return vs[0].([]GetManagedDiskEncryptionSetting)[vs[1].(int)]
+	}).(GetManagedDiskEncryptionSettingOutput)
+}
+
+type GetManagedDiskEncryptionSettingDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetManagedDiskEncryptionSettingDiskEncryptionKeyInput is an input type that accepts GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs and GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingDiskEncryptionKeyInput` via:
+//
+//	GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs{...}
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput
+	ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput
+}
+
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return i.ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+// GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput is an input type that accepts GetManagedDiskEncryptionSettingDiskEncryptionKeyArray and GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput` via:
+//
+//	GetManagedDiskEncryptionSettingDiskEncryptionKeyArray{ GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs{...} }
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+	ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput
+}
+
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyArray []GetManagedDiskEncryptionSettingDiskEncryptionKeyInput
+
+func (GetManagedDiskEncryptionSettingDiskEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingDiskEncryptionKeyArray) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return i.ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingDiskEncryptionKeyArray) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput)
+}
+
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key.
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSettingDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSettingDiskEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSettingDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput) ToGetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDiskEncryptionSettingDiskEncryptionKey {
+		return vs[0].([]GetManagedDiskEncryptionSettingDiskEncryptionKey)[vs[1].(int)]
+	}).(GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput)
+}
+
+type GetManagedDiskEncryptionSettingKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId string `pulumi:"sourceVaultId"`
+}
+
+// GetManagedDiskEncryptionSettingKeyEncryptionKeyInput is an input type that accepts GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs and GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingKeyEncryptionKeyInput` via:
+//
+//	GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs{...}
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput
+	ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput
+}
+
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the source Key Vault.
+	SourceVaultId pulumi.StringInput `pulumi:"sourceVaultId"`
+}
+
+func (GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return i.ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput)
+}
+
+// GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput is an input type that accepts GetManagedDiskEncryptionSettingKeyEncryptionKeyArray and GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput values.
+// You can construct a concrete instance of `GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput` via:
+//
+//	GetManagedDiskEncryptionSettingKeyEncryptionKeyArray{ GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs{...} }
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+	ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput
+}
+
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyArray []GetManagedDiskEncryptionSettingKeyEncryptionKeyInput
+
+func (GetManagedDiskEncryptionSettingKeyEncryptionKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i GetManagedDiskEncryptionSettingKeyEncryptionKeyArray) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return i.ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetManagedDiskEncryptionSettingKeyEncryptionKeyArray) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput)
+}
+
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return o
+}
+
+// The URL to the Key Vault Key used as the Key Encryption Key.
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSettingKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the source Key Vault.
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput) SourceVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetManagedDiskEncryptionSettingKeyEncryptionKey) string { return v.SourceVaultId }).(pulumi.StringOutput)
+}
+
+type GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetManagedDiskEncryptionSettingKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput() GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) ToGetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutputWithContext(ctx context.Context) GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput {
+	return o
+}
+
+func (o GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput) Index(i pulumi.IntInput) GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetManagedDiskEncryptionSettingKeyEncryptionKey {
+		return vs[0].([]GetManagedDiskEncryptionSettingKeyEncryptionKey)[vs[1].(int)]
+	}).(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput)
+}
+
 type GetSharedImageIdentifier struct {
 	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
@@ -23284,7 +23612,7 @@ type GetSharedImageIdentifier struct {
 // GetSharedImageIdentifierInput is an input type that accepts GetSharedImageIdentifierArgs and GetSharedImageIdentifierOutput values.
 // You can construct a concrete instance of `GetSharedImageIdentifierInput` via:
 //
-//          GetSharedImageIdentifierArgs{...}
+//	GetSharedImageIdentifierArgs{...}
 type GetSharedImageIdentifierInput interface {
 	pulumi.Input
 
@@ -23316,7 +23644,7 @@ func (i GetSharedImageIdentifierArgs) ToGetSharedImageIdentifierOutputWithContex
 // GetSharedImageIdentifierArrayInput is an input type that accepts GetSharedImageIdentifierArray and GetSharedImageIdentifierArrayOutput values.
 // You can construct a concrete instance of `GetSharedImageIdentifierArrayInput` via:
 //
-//          GetSharedImageIdentifierArray{ GetSharedImageIdentifierArgs{...} }
+//	GetSharedImageIdentifierArray{ GetSharedImageIdentifierArgs{...} }
 type GetSharedImageIdentifierArrayInput interface {
 	pulumi.Input
 
@@ -23399,7 +23727,7 @@ type GetSharedImageVersionTargetRegion struct {
 // GetSharedImageVersionTargetRegionInput is an input type that accepts GetSharedImageVersionTargetRegionArgs and GetSharedImageVersionTargetRegionOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionTargetRegionInput` via:
 //
-//          GetSharedImageVersionTargetRegionArgs{...}
+//	GetSharedImageVersionTargetRegionArgs{...}
 type GetSharedImageVersionTargetRegionInput interface {
 	pulumi.Input
 
@@ -23431,7 +23759,7 @@ func (i GetSharedImageVersionTargetRegionArgs) ToGetSharedImageVersionTargetRegi
 // GetSharedImageVersionTargetRegionArrayInput is an input type that accepts GetSharedImageVersionTargetRegionArray and GetSharedImageVersionTargetRegionArrayOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionTargetRegionArrayInput` via:
 //
-//          GetSharedImageVersionTargetRegionArray{ GetSharedImageVersionTargetRegionArgs{...} }
+//	GetSharedImageVersionTargetRegionArray{ GetSharedImageVersionTargetRegionArgs{...} }
 type GetSharedImageVersionTargetRegionArrayInput interface {
 	pulumi.Input
 
@@ -23520,7 +23848,7 @@ type GetSharedImageVersionsImage struct {
 // GetSharedImageVersionsImageInput is an input type that accepts GetSharedImageVersionsImageArgs and GetSharedImageVersionsImageOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionsImageInput` via:
 //
-//          GetSharedImageVersionsImageArgs{...}
+//	GetSharedImageVersionsImageArgs{...}
 type GetSharedImageVersionsImageInput interface {
 	pulumi.Input
 
@@ -23558,7 +23886,7 @@ func (i GetSharedImageVersionsImageArgs) ToGetSharedImageVersionsImageOutputWith
 // GetSharedImageVersionsImageArrayInput is an input type that accepts GetSharedImageVersionsImageArray and GetSharedImageVersionsImageArrayOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionsImageArrayInput` via:
 //
-//          GetSharedImageVersionsImageArray{ GetSharedImageVersionsImageArgs{...} }
+//	GetSharedImageVersionsImageArray{ GetSharedImageVersionsImageArgs{...} }
 type GetSharedImageVersionsImageArrayInput interface {
 	pulumi.Input
 
@@ -23656,7 +23984,7 @@ type GetSharedImageVersionsImageTargetRegion struct {
 // GetSharedImageVersionsImageTargetRegionInput is an input type that accepts GetSharedImageVersionsImageTargetRegionArgs and GetSharedImageVersionsImageTargetRegionOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionsImageTargetRegionInput` via:
 //
-//          GetSharedImageVersionsImageTargetRegionArgs{...}
+//	GetSharedImageVersionsImageTargetRegionArgs{...}
 type GetSharedImageVersionsImageTargetRegionInput interface {
 	pulumi.Input
 
@@ -23688,7 +24016,7 @@ func (i GetSharedImageVersionsImageTargetRegionArgs) ToGetSharedImageVersionsIma
 // GetSharedImageVersionsImageTargetRegionArrayInput is an input type that accepts GetSharedImageVersionsImageTargetRegionArray and GetSharedImageVersionsImageTargetRegionArrayOutput values.
 // You can construct a concrete instance of `GetSharedImageVersionsImageTargetRegionArrayInput` via:
 //
-//          GetSharedImageVersionsImageTargetRegionArray{ GetSharedImageVersionsImageTargetRegionArgs{...} }
+//	GetSharedImageVersionsImageTargetRegionArray{ GetSharedImageVersionsImageTargetRegionArgs{...} }
 type GetSharedImageVersionsImageTargetRegionArrayInput interface {
 	pulumi.Input
 
@@ -23768,7 +24096,7 @@ type GetSnapshotEncryptionSetting struct {
 // GetSnapshotEncryptionSettingInput is an input type that accepts GetSnapshotEncryptionSettingArgs and GetSnapshotEncryptionSettingOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingInput` via:
 //
-//          GetSnapshotEncryptionSettingArgs{...}
+//	GetSnapshotEncryptionSettingArgs{...}
 type GetSnapshotEncryptionSettingInput interface {
 	pulumi.Input
 
@@ -23797,7 +24125,7 @@ func (i GetSnapshotEncryptionSettingArgs) ToGetSnapshotEncryptionSettingOutputWi
 // GetSnapshotEncryptionSettingArrayInput is an input type that accepts GetSnapshotEncryptionSettingArray and GetSnapshotEncryptionSettingArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingArrayInput` via:
 //
-//          GetSnapshotEncryptionSettingArray{ GetSnapshotEncryptionSettingArgs{...} }
+//	GetSnapshotEncryptionSettingArray{ GetSnapshotEncryptionSettingArgs{...} }
 type GetSnapshotEncryptionSettingArrayInput interface {
 	pulumi.Input
 
@@ -23877,7 +24205,7 @@ type GetSnapshotEncryptionSettingDiskEncryptionKey struct {
 // GetSnapshotEncryptionSettingDiskEncryptionKeyInput is an input type that accepts GetSnapshotEncryptionSettingDiskEncryptionKeyArgs and GetSnapshotEncryptionSettingDiskEncryptionKeyOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingDiskEncryptionKeyInput` via:
 //
-//          GetSnapshotEncryptionSettingDiskEncryptionKeyArgs{...}
+//	GetSnapshotEncryptionSettingDiskEncryptionKeyArgs{...}
 type GetSnapshotEncryptionSettingDiskEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -23905,7 +24233,7 @@ func (i GetSnapshotEncryptionSettingDiskEncryptionKeyArgs) ToGetSnapshotEncrypti
 // GetSnapshotEncryptionSettingDiskEncryptionKeyArrayInput is an input type that accepts GetSnapshotEncryptionSettingDiskEncryptionKeyArray and GetSnapshotEncryptionSettingDiskEncryptionKeyArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingDiskEncryptionKeyArrayInput` via:
 //
-//          GetSnapshotEncryptionSettingDiskEncryptionKeyArray{ GetSnapshotEncryptionSettingDiskEncryptionKeyArgs{...} }
+//	GetSnapshotEncryptionSettingDiskEncryptionKeyArray{ GetSnapshotEncryptionSettingDiskEncryptionKeyArgs{...} }
 type GetSnapshotEncryptionSettingDiskEncryptionKeyArrayInput interface {
 	pulumi.Input
 
@@ -23977,7 +24305,7 @@ type GetSnapshotEncryptionSettingKeyEncryptionKey struct {
 // GetSnapshotEncryptionSettingKeyEncryptionKeyInput is an input type that accepts GetSnapshotEncryptionSettingKeyEncryptionKeyArgs and GetSnapshotEncryptionSettingKeyEncryptionKeyOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingKeyEncryptionKeyInput` via:
 //
-//          GetSnapshotEncryptionSettingKeyEncryptionKeyArgs{...}
+//	GetSnapshotEncryptionSettingKeyEncryptionKeyArgs{...}
 type GetSnapshotEncryptionSettingKeyEncryptionKeyInput interface {
 	pulumi.Input
 
@@ -24005,7 +24333,7 @@ func (i GetSnapshotEncryptionSettingKeyEncryptionKeyArgs) ToGetSnapshotEncryptio
 // GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput is an input type that accepts GetSnapshotEncryptionSettingKeyEncryptionKeyArray and GetSnapshotEncryptionSettingKeyEncryptionKeyArrayOutput values.
 // You can construct a concrete instance of `GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput` via:
 //
-//          GetSnapshotEncryptionSettingKeyEncryptionKeyArray{ GetSnapshotEncryptionSettingKeyEncryptionKeyArgs{...} }
+//	GetSnapshotEncryptionSettingKeyEncryptionKeyArray{ GetSnapshotEncryptionSettingKeyEncryptionKeyArgs{...} }
 type GetSnapshotEncryptionSettingKeyEncryptionKeyArrayInput interface {
 	pulumi.Input
 
@@ -24083,7 +24411,7 @@ type GetVirtualMachineIdentity struct {
 // GetVirtualMachineIdentityInput is an input type that accepts GetVirtualMachineIdentityArgs and GetVirtualMachineIdentityOutput values.
 // You can construct a concrete instance of `GetVirtualMachineIdentityInput` via:
 //
-//          GetVirtualMachineIdentityArgs{...}
+//	GetVirtualMachineIdentityArgs{...}
 type GetVirtualMachineIdentityInput interface {
 	pulumi.Input
 
@@ -24117,7 +24445,7 @@ func (i GetVirtualMachineIdentityArgs) ToGetVirtualMachineIdentityOutputWithCont
 // GetVirtualMachineIdentityArrayInput is an input type that accepts GetVirtualMachineIdentityArray and GetVirtualMachineIdentityArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineIdentityArrayInput` via:
 //
-//          GetVirtualMachineIdentityArray{ GetVirtualMachineIdentityArgs{...} }
+//	GetVirtualMachineIdentityArray{ GetVirtualMachineIdentityArgs{...} }
 type GetVirtualMachineIdentityArrayInput interface {
 	pulumi.Input
 
@@ -24207,7 +24535,7 @@ type GetVirtualMachineScaleSetIdentity struct {
 // GetVirtualMachineScaleSetIdentityInput is an input type that accepts GetVirtualMachineScaleSetIdentityArgs and GetVirtualMachineScaleSetIdentityOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetIdentityInput` via:
 //
-//          GetVirtualMachineScaleSetIdentityArgs{...}
+//	GetVirtualMachineScaleSetIdentityArgs{...}
 type GetVirtualMachineScaleSetIdentityInput interface {
 	pulumi.Input
 
@@ -24241,7 +24569,7 @@ func (i GetVirtualMachineScaleSetIdentityArgs) ToGetVirtualMachineScaleSetIdenti
 // GetVirtualMachineScaleSetIdentityArrayInput is an input type that accepts GetVirtualMachineScaleSetIdentityArray and GetVirtualMachineScaleSetIdentityArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetIdentityArrayInput` via:
 //
-//          GetVirtualMachineScaleSetIdentityArray{ GetVirtualMachineScaleSetIdentityArgs{...} }
+//	GetVirtualMachineScaleSetIdentityArray{ GetVirtualMachineScaleSetIdentityArgs{...} }
 type GetVirtualMachineScaleSetIdentityArrayInput interface {
 	pulumi.Input
 
@@ -24337,7 +24665,7 @@ type GetVirtualMachineScaleSetNetworkInterface struct {
 // GetVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceArgs and GetVirtualMachineScaleSetNetworkInterfaceOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceArgs{...}
+//	GetVirtualMachineScaleSetNetworkInterfaceArgs{...}
 type GetVirtualMachineScaleSetNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -24377,7 +24705,7 @@ func (i GetVirtualMachineScaleSetNetworkInterfaceArgs) ToGetVirtualMachineScaleS
 // GetVirtualMachineScaleSetNetworkInterfaceArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceArray and GetVirtualMachineScaleSetNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceArrayInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceArray{ GetVirtualMachineScaleSetNetworkInterfaceArgs{...} }
+//	GetVirtualMachineScaleSetNetworkInterfaceArray{ GetVirtualMachineScaleSetNetworkInterfaceArgs{...} }
 type GetVirtualMachineScaleSetNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -24493,7 +24821,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...}
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput interface {
 	pulumi.Input
 
@@ -24536,7 +24864,7 @@ func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs) ToGetVirtu
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{...} }
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -24662,7 +24990,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress str
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...}
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressInput interface {
 	pulumi.Input
 
@@ -24698,7 +25026,7 @@ func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs{...} }
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput interface {
 	pulumi.Input
 
@@ -24797,7 +25125,7 @@ type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTa
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...}
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput interface {
 	pulumi.Input
 
@@ -24827,7 +25155,7 @@ func (i GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 // GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput is an input type that accepts GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray and GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput values.
 // You can construct a concrete instance of `GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput` via:
 //
-//          GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
+//	GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{ GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{...} }
 type GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput interface {
 	pulumi.Input
 
@@ -25196,6 +25524,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageDataDiskArrayInput)(nil)).Elem(), GetImagesImageDataDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageOsDiskInput)(nil)).Elem(), GetImagesImageOsDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagesImageOsDiskArrayInput)(nil)).Elem(), GetImagesImageOsDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingInput)(nil)).Elem(), GetManagedDiskEncryptionSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKeyInput)(nil)).Elem(), GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingDiskEncryptionKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayInput)(nil)).Elem(), GetManagedDiskEncryptionSettingKeyEncryptionKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierInput)(nil)).Elem(), GetSharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierArrayInput)(nil)).Elem(), GetSharedImageIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageVersionTargetRegionInput)(nil)).Elem(), GetSharedImageVersionTargetRegionArgs{})
@@ -25520,6 +25854,12 @@ func init() {
 	pulumi.RegisterOutputType(GetImagesImageDataDiskArrayOutput{})
 	pulumi.RegisterOutputType(GetImagesImageOsDiskOutput{})
 	pulumi.RegisterOutputType(GetImagesImageOsDiskArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingDiskEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingDiskEncryptionKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(GetManagedDiskEncryptionSettingKeyEncryptionKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageVersionTargetRegionOutput{})

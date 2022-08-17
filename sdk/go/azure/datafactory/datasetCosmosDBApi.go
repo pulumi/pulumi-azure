@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceCosmosDb, err := datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
-// 			DataFactoryId:   exampleFactory.ID(),
-// 			AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
-// 			Database:        pulumi.String("foo"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetCosmosDBApi(ctx, "exampleDatasetCosmosDBApi", &datafactory.DatasetCosmosDBApiArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceCosmosDb.Name,
-// 			CollectionName:    pulumi.String("bar"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceCosmosDb, err := datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
+//				DataFactoryId:   exampleFactory.ID(),
+//				AccountEndpoint: pulumi.String(exampleAccount.Endpoint),
+//				Database:        pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetCosmosDBApi(ctx, "exampleDatasetCosmosDBApi", &datafactory.DatasetCosmosDBApiArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceCosmosDb.Name,
+//				CollectionName:    pulumi.String("bar"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Data Factory Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetCosmosDBApi:DatasetCosmosDBApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetCosmosDBApi struct {
 	pulumi.CustomResourceState
@@ -257,7 +262,7 @@ func (i *DatasetCosmosDBApi) ToDatasetCosmosDBApiOutputWithContext(ctx context.C
 // DatasetCosmosDBApiArrayInput is an input type that accepts DatasetCosmosDBApiArray and DatasetCosmosDBApiArrayOutput values.
 // You can construct a concrete instance of `DatasetCosmosDBApiArrayInput` via:
 //
-//          DatasetCosmosDBApiArray{ DatasetCosmosDBApiArgs{...} }
+//	DatasetCosmosDBApiArray{ DatasetCosmosDBApiArgs{...} }
 type DatasetCosmosDBApiArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +287,7 @@ func (i DatasetCosmosDBApiArray) ToDatasetCosmosDBApiArrayOutputWithContext(ctx 
 // DatasetCosmosDBApiMapInput is an input type that accepts DatasetCosmosDBApiMap and DatasetCosmosDBApiMapOutput values.
 // You can construct a concrete instance of `DatasetCosmosDBApiMapInput` via:
 //
-//          DatasetCosmosDBApiMap{ "key": DatasetCosmosDBApiArgs{...} }
+//	DatasetCosmosDBApiMap{ "key": DatasetCosmosDBApiArgs{...} }
 type DatasetCosmosDBApiMapInput interface {
 	pulumi.Input
 

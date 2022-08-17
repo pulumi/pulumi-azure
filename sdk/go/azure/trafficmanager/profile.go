@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-// 			Keepers: pulumi.AnyMap{
-// 				"azi_id": pulumi.Any(1),
-// 			},
-// 			ByteLength: pulumi.Int(8),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			TrafficRoutingMethod: pulumi.String("Weighted"),
-// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-// 				RelativeName: server.Hex,
-// 				Ttl:          pulumi.Int(100),
-// 			},
-// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("HTTP"),
-// 				Port:                      pulumi.Int(80),
-// 				Path:                      pulumi.String("/"),
-// 				IntervalInSeconds:         pulumi.Int(30),
-// 				TimeoutInSeconds:          pulumi.Int(9),
-// 				ToleratedNumberOfFailures: pulumi.Int(3),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.AnyMap{
+//					"azi_id": pulumi.Any(1),
+//				},
+//				ByteLength: pulumi.Int(8),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: server.Hex,
+//					Ttl:          pulumi.Int(100),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol:                  pulumi.String("HTTP"),
+//					Port:                      pulumi.Int(80),
+//					Path:                      pulumi.String("/"),
+//					IntervalInSeconds:         pulumi.Int(30),
+//					TimeoutInSeconds:          pulumi.Int(9),
+//					ToleratedNumberOfFailures: pulumi.Int(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Traffic Manager Profiles can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
+//
+//	$ pulumi import azure:trafficmanager/profile:Profile exampleProfile /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/trafficManagerProfiles/mytrafficmanagerprofile1
+//
 // ```
 //
 // Deprecated: azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile
@@ -262,7 +267,7 @@ func (i *Profile) ToProfileOutputWithContext(ctx context.Context) ProfileOutput 
 // ProfileArrayInput is an input type that accepts ProfileArray and ProfileArrayOutput values.
 // You can construct a concrete instance of `ProfileArrayInput` via:
 //
-//          ProfileArray{ ProfileArgs{...} }
+//	ProfileArray{ ProfileArgs{...} }
 type ProfileArrayInput interface {
 	pulumi.Input
 
@@ -287,7 +292,7 @@ func (i ProfileArray) ToProfileArrayOutputWithContext(ctx context.Context) Profi
 // ProfileMapInput is an input type that accepts ProfileMap and ProfileMapOutput values.
 // You can construct a concrete instance of `ProfileMapInput` via:
 //
-//          ProfileMap{ "key": ProfileArgs{...} }
+//	ProfileMap{ "key": ProfileArgs{...} }
 type ProfileMapInput interface {
 	pulumi.Input
 

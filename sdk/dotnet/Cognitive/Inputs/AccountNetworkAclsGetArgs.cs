@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive.Inputs
 {
 
-    public sealed class AccountNetworkAclsGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountNetworkAclsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public AccountNetworkAclsGetArgs()
         {
         }
+        public static new AccountNetworkAclsGetArgs Empty => new AccountNetworkAclsGetArgs();
     }
 }

@@ -10,13 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterRolesEdgeNodeInstallScriptActionArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterRolesEdgeNodeInstallScriptActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the install script action. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The parameters for the script.
+        /// </summary>
+        [Input("parameters")]
+        public Input<string>? Parameters { get; set; }
 
         /// <summary>
         /// The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
@@ -27,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterRolesEdgeNodeInstallScriptActionArgs()
         {
         }
+        public static new HadoopClusterRolesEdgeNodeInstallScriptActionArgs Empty => new HadoopClusterRolesEdgeNodeInstallScriptActionArgs();
     }
 }

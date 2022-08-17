@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			AppId:             pulumi.String("00000000000000000000000000000000"),
-// 			AppSecret:         pulumi.String("00000000000000000000000000000000"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@mycompany.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				AppId:             pulumi.String("00000000000000000000000000000000"),
+//				AppSecret:         pulumi.String("00000000000000000000000000000000"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Management Facebook Identity Provider can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
+//
+//	$ pulumi import azure:apimanagement/identityProviderFacebook:IdentityProviderFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/facebook
+//
 // ```
 type IdentityProviderFacebook struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *IdentityProviderFacebook) ToIdentityProviderFacebookOutputWithContext(c
 // IdentityProviderFacebookArrayInput is an input type that accepts IdentityProviderFacebookArray and IdentityProviderFacebookArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderFacebookArrayInput` via:
 //
-//          IdentityProviderFacebookArray{ IdentityProviderFacebookArgs{...} }
+//	IdentityProviderFacebookArray{ IdentityProviderFacebookArgs{...} }
 type IdentityProviderFacebookArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i IdentityProviderFacebookArray) ToIdentityProviderFacebookArrayOutputWith
 // IdentityProviderFacebookMapInput is an input type that accepts IdentityProviderFacebookMap and IdentityProviderFacebookMapOutput values.
 // You can construct a concrete instance of `IdentityProviderFacebookMapInput` via:
 //
-//          IdentityProviderFacebookMap{ "key": IdentityProviderFacebookArgs{...} }
+//	IdentityProviderFacebookMap{ "key": IdentityProviderFacebookArgs{...} }
 type IdentityProviderFacebookMapInput interface {
 	pulumi.Input
 

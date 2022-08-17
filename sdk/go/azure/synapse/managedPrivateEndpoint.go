@@ -19,82 +19,85 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			IsHnsEnabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			Location:                        exampleResourceGroup.Location,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
-// 			Identity: &synapse.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			StartIpAddress:     pulumi.String("0.0.0.0"),
-// 			EndIpAddress:       pulumi.String("255.255.255.255"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleConnect, err := storage.NewAccount(ctx, "exampleConnect", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("BlobStorage"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewManagedPrivateEndpoint(ctx, "exampleManagedPrivateEndpoint", &synapse.ManagedPrivateEndpointArgs{
-// 			SynapseWorkspaceId: exampleWorkspace.ID(),
-// 			TargetResourceId:   exampleConnect.ID(),
-// 			SubresourceName:    pulumi.String("blob"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleFirewallRule,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Location:                        exampleResourceGroup.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				ManagedVirtualNetworkEnabled:    pulumi.Bool(true),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFirewallRule, err := synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				StartIpAddress:     pulumi.String("0.0.0.0"),
+//				EndIpAddress:       pulumi.String("255.255.255.255"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleConnect, err := storage.NewAccount(ctx, "exampleConnect", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("BlobStorage"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewManagedPrivateEndpoint(ctx, "exampleManagedPrivateEndpoint", &synapse.ManagedPrivateEndpointArgs{
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				TargetResourceId:   exampleConnect.ID(),
+//				SubresourceName:    pulumi.String("blob"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleFirewallRule,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +105,9 @@ import (
 // Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
+//
+//	$ pulumi import azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
+//
 // ```
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
@@ -229,7 +234,7 @@ func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx c
 // ManagedPrivateEndpointArrayInput is an input type that accepts ManagedPrivateEndpointArray and ManagedPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `ManagedPrivateEndpointArrayInput` via:
 //
-//          ManagedPrivateEndpointArray{ ManagedPrivateEndpointArgs{...} }
+//	ManagedPrivateEndpointArray{ ManagedPrivateEndpointArgs{...} }
 type ManagedPrivateEndpointArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i ManagedPrivateEndpointArray) ToManagedPrivateEndpointArrayOutputWithCont
 // ManagedPrivateEndpointMapInput is an input type that accepts ManagedPrivateEndpointMap and ManagedPrivateEndpointMapOutput values.
 // You can construct a concrete instance of `ManagedPrivateEndpointMapInput` via:
 //
-//          ManagedPrivateEndpointMap{ "key": ManagedPrivateEndpointArgs{...} }
+//	ManagedPrivateEndpointMap{ "key": ManagedPrivateEndpointArgs{...} }
 type ManagedPrivateEndpointMapInput interface {
 	pulumi.Input
 

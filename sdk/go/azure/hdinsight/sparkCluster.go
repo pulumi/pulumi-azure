@@ -19,80 +19,83 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hdinsight.NewSparkCluster(ctx, "exampleSparkCluster", &hdinsight.SparkClusterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterVersion:    pulumi.String("3.6"),
-// 			Tier:              pulumi.String("Standard"),
-// 			ComponentVersion: &hdinsight.SparkClusterComponentVersionArgs{
-// 				Spark: pulumi.String("2.3"),
-// 			},
-// 			Gateway: &hdinsight.SparkClusterGatewayArgs{
-// 				Username: pulumi.String("acctestusrgw"),
-// 				Password: pulumi.String("Password123!"),
-// 			},
-// 			StorageAccounts: hdinsight.SparkClusterStorageAccountArray{
-// 				&hdinsight.SparkClusterStorageAccountArgs{
-// 					StorageContainerId: exampleContainer.ID(),
-// 					StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-// 					IsDefault:          pulumi.Bool(true),
-// 				},
-// 			},
-// 			Roles: &hdinsight.SparkClusterRolesArgs{
-// 				HeadNode: &hdinsight.SparkClusterRolesHeadNodeArgs{
-// 					VmSize:   pulumi.String("Standard_A3"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 				WorkerNode: &hdinsight.SparkClusterRolesWorkerNodeArgs{
-// 					VmSize:              pulumi.String("Standard_A3"),
-// 					Username:            pulumi.String("acctestusrvm"),
-// 					Password:            pulumi.String("AccTestvdSC4daf986!"),
-// 					TargetInstanceCount: pulumi.Int(3),
-// 				},
-// 				ZookeeperNode: &hdinsight.SparkClusterRolesZookeeperNodeArgs{
-// 					VmSize:   pulumi.String("Medium"),
-// 					Username: pulumi.String("acctestusrvm"),
-// 					Password: pulumi.String("AccTestvdSC4daf986!"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hdinsight.NewSparkCluster(ctx, "exampleSparkCluster", &hdinsight.SparkClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterVersion:    pulumi.String("3.6"),
+//				Tier:              pulumi.String("Standard"),
+//				ComponentVersion: &hdinsight.SparkClusterComponentVersionArgs{
+//					Spark: pulumi.String("2.3"),
+//				},
+//				Gateway: &hdinsight.SparkClusterGatewayArgs{
+//					Username: pulumi.String("acctestusrgw"),
+//					Password: pulumi.String("Password123!"),
+//				},
+//				StorageAccounts: hdinsight.SparkClusterStorageAccountArray{
+//					&hdinsight.SparkClusterStorageAccountArgs{
+//						StorageContainerId: exampleContainer.ID(),
+//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
+//						IsDefault:          pulumi.Bool(true),
+//					},
+//				},
+//				Roles: &hdinsight.SparkClusterRolesArgs{
+//					HeadNode: &hdinsight.SparkClusterRolesHeadNodeArgs{
+//						VmSize:   pulumi.String("Standard_A3"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//					WorkerNode: &hdinsight.SparkClusterRolesWorkerNodeArgs{
+//						VmSize:              pulumi.String("Standard_A3"),
+//						Username:            pulumi.String("acctestusrvm"),
+//						Password:            pulumi.String("AccTestvdSC4daf986!"),
+//						TargetInstanceCount: pulumi.Int(3),
+//					},
+//					ZookeeperNode: &hdinsight.SparkClusterRolesZookeeperNodeArgs{
+//						VmSize:   pulumi.String("Medium"),
+//						Username: pulumi.String("acctestusrvm"),
+//						Password: pulumi.String("AccTestvdSC4daf986!"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -100,7 +103,9 @@ import (
 // HDInsight Spark Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
+//	$ pulumi import azure:hdinsight/sparkCluster:SparkCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+//
 // ```
 type SparkCluster struct {
 	pulumi.CustomResourceState
@@ -373,7 +378,7 @@ func (i *SparkCluster) ToSparkClusterOutputWithContext(ctx context.Context) Spar
 // SparkClusterArrayInput is an input type that accepts SparkClusterArray and SparkClusterArrayOutput values.
 // You can construct a concrete instance of `SparkClusterArrayInput` via:
 //
-//          SparkClusterArray{ SparkClusterArgs{...} }
+//	SparkClusterArray{ SparkClusterArgs{...} }
 type SparkClusterArrayInput interface {
 	pulumi.Input
 
@@ -398,7 +403,7 @@ func (i SparkClusterArray) ToSparkClusterArrayOutputWithContext(ctx context.Cont
 // SparkClusterMapInput is an input type that accepts SparkClusterMap and SparkClusterMapOutput values.
 // You can construct a concrete instance of `SparkClusterMapInput` via:
 //
-//          SparkClusterMap{ "key": SparkClusterArgs{...} }
+//	SparkClusterMap{ "key": SparkClusterArgs{...} }
 type SparkClusterMapInput interface {
 	pulumi.Input
 

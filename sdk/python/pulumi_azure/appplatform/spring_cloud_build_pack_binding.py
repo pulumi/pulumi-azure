@@ -169,6 +169,8 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         """
         Manages a Spring Cloud Buildpack Binding.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+
         ## Example Usage
 
         ```python
@@ -228,6 +230,8 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Buildpack Binding.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
 
         ## Example Usage
 

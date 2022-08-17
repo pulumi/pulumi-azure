@@ -6,6 +6,8 @@ package com.pulumi.azure.hdinsight.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
@@ -15,6 +17,11 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
      */
     private final String name;
     /**
+     * @return The parameters for the script.
+     * 
+     */
+    private final @Nullable String parameters;
+    /**
      * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
      * 
      */
@@ -23,8 +30,10 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
     @CustomType.Constructor
     private HadoopClusterRolesEdgeNodeInstallScriptAction(
         @CustomType.Parameter("name") String name,
+        @CustomType.Parameter("parameters") @Nullable String parameters,
         @CustomType.Parameter("uri") String uri) {
         this.name = name;
+        this.parameters = parameters;
         this.uri = uri;
     }
 
@@ -34,6 +43,13 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return The parameters for the script.
+     * 
+     */
+    public Optional<String> parameters() {
+        return Optional.ofNullable(this.parameters);
     }
     /**
      * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
@@ -53,6 +69,7 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
 
     public static final class Builder {
         private String name;
+        private @Nullable String parameters;
         private String uri;
 
         public Builder() {
@@ -62,6 +79,7 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
         public Builder(HadoopClusterRolesEdgeNodeInstallScriptAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
+    	      this.parameters = defaults.parameters;
     	      this.uri = defaults.uri;
         }
 
@@ -69,11 +87,15 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        public Builder parameters(@Nullable String parameters) {
+            this.parameters = parameters;
+            return this;
+        }
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
         }        public HadoopClusterRolesEdgeNodeInstallScriptAction build() {
-            return new HadoopClusterRolesEdgeNodeInstallScriptAction(name, uri);
+            return new HadoopClusterRolesEdgeNodeInstallScriptAction(name, parameters, uri);
         }
     }
 }

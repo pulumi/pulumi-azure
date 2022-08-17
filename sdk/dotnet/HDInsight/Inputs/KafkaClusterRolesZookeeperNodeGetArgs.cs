@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterRolesZookeeperNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterRolesZookeeperNodeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterRolesZookeeperNodeGetArgs()
         {
         }
+        public static new KafkaClusterRolesZookeeperNodeGetArgs Empty => new KafkaClusterRolesZookeeperNodeGetArgs();
     }
 }

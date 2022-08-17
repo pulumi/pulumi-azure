@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Perform a case in-sensitive comparison. Defaults to `false`
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRewriteRuleSetRewriteRuleConditionGetArgs()
         {
         }
+        public static new ApplicationGatewayRewriteRuleSetRewriteRuleConditionGetArgs Empty => new ApplicationGatewayRewriteRuleSetRewriteRuleConditionGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AnalysisServices.Inputs
 {
 
-    public sealed class ServerIpv4FirewallRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class ServerIpv4FirewallRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the firewall rule.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AnalysisServices.Inputs
         public ServerIpv4FirewallRuleGetArgs()
         {
         }
+        public static new ServerIpv4FirewallRuleGetArgs Empty => new ServerIpv4FirewallRuleGetArgs();
     }
 }

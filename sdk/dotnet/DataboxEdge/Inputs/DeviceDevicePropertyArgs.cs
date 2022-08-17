@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
 
-    public sealed class DeviceDevicePropertyArgs : Pulumi.ResourceArgs
+    public sealed class DeviceDevicePropertyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Data Box Edge/Gateway device local capacity in MB.
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public DeviceDevicePropertyArgs()
         {
         }
+        public static new DeviceDevicePropertyArgs Empty => new DeviceDevicePropertyArgs();
     }
 }

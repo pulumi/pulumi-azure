@@ -76,6 +76,7 @@ __all__ = [
     'LogProfileRetentionPolicy',
     'LogzMonitorPlan',
     'LogzMonitorUser',
+    'LogzSubAccountTagRuleTagFilter',
     'LogzSubAccountUser',
     'LogzTagRuleTagFilter',
     'MetricAlertAction',
@@ -3751,6 +3752,47 @@ class LogzMonitorUser(dict):
         Phone number of the user used by Logz for contacting them if needed. Changing this forces a new logz Monitor to be created.
         """
         return pulumi.get(self, "phone_number")
+
+
+@pulumi.output_type
+class LogzSubAccountTagRuleTagFilter(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 value: Optional[str] = None):
+        """
+        :param str action: The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+        :param str name: The name of the tag to match.
+        :param str value: The value of the tag to match.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action is used to limit logs collection to include or exclude Azure resources with specific tags. Possible values are `Include` and `Exclude`. Note that the `Exclude` takes priority over the `Include`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the tag to match.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        The value of the tag to match.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

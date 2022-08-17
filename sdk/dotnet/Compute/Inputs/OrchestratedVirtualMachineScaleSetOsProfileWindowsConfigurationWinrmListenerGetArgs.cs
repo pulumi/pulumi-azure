@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("certificateUrl")]
         public Input<string>? CertificateUrl { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerGetArgs();
     }
 }

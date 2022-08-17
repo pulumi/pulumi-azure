@@ -23,120 +23,123 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hsm"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/hsm"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.2.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.2.0.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example2, err := network.NewSubnet(ctx, "example2", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.2.1.0/24"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("first"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.HardwareSecurityModules/dedicatedHSMs"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/networkinterfaces/*"),
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example3, err := network.NewSubnet(ctx, "example3", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.2.255.0/26"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Dynamic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "exampleVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Type:              pulumi.String("ExpressRoute"),
-// 			VpnType:           pulumi.String("PolicyBased"),
-// 			Sku:               pulumi.String("Standard"),
-// 			IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
-// 				&network.VirtualNetworkGatewayIpConfigurationArgs{
-// 					PublicIpAddressId:          examplePublicIp.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 					SubnetId:                   example3.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = hsm.NewModule(ctx, "exampleModule", &hsm.ModuleArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("SafeNet Luna Network HSM A790"),
-// 			NetworkProfile: &hsm.ModuleNetworkProfileArgs{
-// 				NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
-// 					pulumi.String("10.2.1.8"),
-// 				},
-// 				SubnetId: example2.ID(),
-// 			},
-// 			StampId: pulumi.String("stamp2"),
-// 			Tags: pulumi.StringMap{
-// 				"env": pulumi.String("Test"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleVirtualNetworkGateway,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.2.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.2.0.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example2, err := network.NewSubnet(ctx, "example2", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.2.1.0/24"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("first"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.HardwareSecurityModules/dedicatedHSMs"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/networkinterfaces/*"),
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example3, err := network.NewSubnet(ctx, "example3", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.2.255.0/26"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Dynamic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "exampleVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Type:              pulumi.String("ExpressRoute"),
+//				VpnType:           pulumi.String("PolicyBased"),
+//				Sku:               pulumi.String("Standard"),
+//				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
+//					&network.VirtualNetworkGatewayIpConfigurationArgs{
+//						PublicIpAddressId:          examplePublicIp.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//						SubnetId:                   example3.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = hsm.NewModule(ctx, "exampleModule", &hsm.ModuleArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("SafeNet Luna Network HSM A790"),
+//				NetworkProfile: &hsm.ModuleNetworkProfileArgs{
+//					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
+//						pulumi.String("10.2.1.8"),
+//					},
+//					SubnetId: example2.ID(),
+//				},
+//				StampId: pulumi.String("stamp2"),
+//				Tags: pulumi.StringMap{
+//					"env": pulumi.String("Test"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleVirtualNetworkGateway,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -144,7 +147,9 @@ import (
 // Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
+//
+//	$ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
+//
 // ```
 type Module struct {
 	pulumi.CustomResourceState
@@ -311,7 +316,7 @@ func (i *Module) ToModuleOutputWithContext(ctx context.Context) ModuleOutput {
 // ModuleArrayInput is an input type that accepts ModuleArray and ModuleArrayOutput values.
 // You can construct a concrete instance of `ModuleArrayInput` via:
 //
-//          ModuleArray{ ModuleArgs{...} }
+//	ModuleArray{ ModuleArgs{...} }
 type ModuleArrayInput interface {
 	pulumi.Input
 
@@ -336,7 +341,7 @@ func (i ModuleArray) ToModuleArrayOutputWithContext(ctx context.Context) ModuleA
 // ModuleMapInput is an input type that accepts ModuleMap and ModuleMapOutput values.
 // You can construct a concrete instance of `ModuleMapInput` via:
 //
-//          ModuleMap{ "key": ModuleArgs{...} }
+//	ModuleMap{ "key": ModuleArgs{...} }
 type ModuleMapInput interface {
 	pulumi.Input
 

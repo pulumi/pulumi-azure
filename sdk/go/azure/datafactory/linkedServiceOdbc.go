@@ -21,47 +21,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceOdbc(ctx, "anonymous", &datafactory.LinkedServiceOdbcArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceOdbc(ctx, "basicAuth", &datafactory.LinkedServiceOdbcArgs{
-// 			DataFactoryId:    exampleFactory.ID(),
-// 			ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
-// 			BasicAuthentication: &datafactory.LinkedServiceOdbcBasicAuthenticationArgs{
-// 				Username: pulumi.String("onrylmz"),
-// 				Password: pulumi.String("Ch4ngeM3!"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdbc(ctx, "anonymous", &datafactory.LinkedServiceOdbcArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdbc(ctx, "basicAuth", &datafactory.LinkedServiceOdbcArgs{
+//				DataFactoryId:    exampleFactory.ID(),
+//				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
+//				BasicAuthentication: &datafactory.LinkedServiceOdbcBasicAuthenticationArgs{
+//					Username: pulumi.String("onrylmz"),
+//					Password: pulumi.String("Ch4ngeM3!"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Data Factory ODBC Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceOdbc:LinkedServiceOdbc example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceOdbc struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *LinkedServiceOdbc) ToLinkedServiceOdbcOutputWithContext(ctx context.Con
 // LinkedServiceOdbcArrayInput is an input type that accepts LinkedServiceOdbcArray and LinkedServiceOdbcArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceOdbcArrayInput` via:
 //
-//          LinkedServiceOdbcArray{ LinkedServiceOdbcArgs{...} }
+//	LinkedServiceOdbcArray{ LinkedServiceOdbcArgs{...} }
 type LinkedServiceOdbcArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i LinkedServiceOdbcArray) ToLinkedServiceOdbcArrayOutputWithContext(ctx co
 // LinkedServiceOdbcMapInput is an input type that accepts LinkedServiceOdbcMap and LinkedServiceOdbcMapOutput values.
 // You can construct a concrete instance of `LinkedServiceOdbcMapInput` via:
 //
-//          LinkedServiceOdbcMap{ "key": LinkedServiceOdbcArgs{...} }
+//	LinkedServiceOdbcMap{ "key": LinkedServiceOdbcArgs{...} }
 type LinkedServiceOdbcMapInput interface {
 	pulumi.Input
 

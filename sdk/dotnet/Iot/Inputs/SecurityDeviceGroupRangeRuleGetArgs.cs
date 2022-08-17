@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class SecurityDeviceGroupRangeRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class SecurityDeviceGroupRangeRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the time range. represented in ISO 8601 duration format.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public SecurityDeviceGroupRangeRuleGetArgs()
         {
         }
+        public static new SecurityDeviceGroupRangeRuleGetArgs Empty => new SecurityDeviceGroupRangeRuleGetArgs();
     }
 }

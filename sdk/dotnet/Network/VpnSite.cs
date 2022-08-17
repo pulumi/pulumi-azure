@@ -15,43 +15,43 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleVpnSite = new Azure.Network.VpnSite("exampleVpnSite", new Azure.Network.VpnSiteArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressCidrs = 
-    ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///             Links = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VpnSiteLinkArgs
-    ///                 {
-    ///                     Name = "link1",
-    ///                     IpAddress = "10.0.0.1",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVpnSite = new Azure.Network.VpnSite("exampleVpnSite", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressCidrs = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Links = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnSiteLinkArgs
+    ///             {
+    ///                 Name = "link1",
+    ///                 IpAddress = "10.0.0.1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/vpnSite:VpnSite")]
-    public partial class VpnSite : Pulumi.CustomResource
+    public partial class VpnSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VpnSiteArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressCidrs")]
         private InputList<string>? _addressCidrs;
@@ -252,9 +252,10 @@ namespace Pulumi.Azure.Network
         public VpnSiteArgs()
         {
         }
+        public static new VpnSiteArgs Empty => new VpnSiteArgs();
     }
 
-    public sealed class VpnSiteState : Pulumi.ResourceArgs
+    public sealed class VpnSiteState : global::Pulumi.ResourceArgs
     {
         [Input("addressCidrs")]
         private InputList<string>? _addressCidrs;
@@ -337,5 +338,6 @@ namespace Pulumi.Azure.Network
         public VpnSiteState()
         {
         }
+        public static new VpnSiteState Empty => new VpnSiteState();
     }
 }

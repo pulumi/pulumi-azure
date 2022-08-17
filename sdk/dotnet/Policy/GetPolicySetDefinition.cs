@@ -19,23 +19,22 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicySetDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
-        ///         {
-        ///             DisplayName = "Policy Set Definition Example",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         DisplayName = "Policy Set Definition Example",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +50,22 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicySetDefinition.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
-        ///         {
-        ///             DisplayName = "Policy Set Definition Example",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         DisplayName = "Policy Set Definition Example",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.Policy
     }
 
 
-    public sealed class GetPolicySetDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicySetDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
@@ -100,9 +98,10 @@ namespace Pulumi.Azure.Policy
         public GetPolicySetDefinitionArgs()
         {
         }
+        public static new GetPolicySetDefinitionArgs Empty => new GetPolicySetDefinitionArgs();
     }
 
-    public sealed class GetPolicySetDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicySetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of the Policy Set Definition. Conflicts with `name`.
@@ -125,6 +124,7 @@ namespace Pulumi.Azure.Policy
         public GetPolicySetDefinitionInvokeArgs()
         {
         }
+        public static new GetPolicySetDefinitionInvokeArgs Empty => new GetPolicySetDefinitionInvokeArgs();
     }
 
 

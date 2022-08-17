@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Type:              pulumi.String("Pooled"),
-// 			LoadBalancerType:  pulumi.String("BreadthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		remoteapp, err := desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Type:              pulumi.String("RemoteApp"),
-// 			HostPoolId:        pooledbreadthfirst.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		workspace, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization.WorkspaceApplicationGroupAssociationArgs{
-// 			WorkspaceId:        workspace.ID(),
-// 			ApplicationGroupId: remoteapp.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("Pooled"),
+//				LoadBalancerType:  pulumi.String("BreadthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			remoteapp, err := desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Type:              pulumi.String("RemoteApp"),
+//				HostPoolId:        pooledbreadthfirst.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			workspace, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization.WorkspaceApplicationGroupAssociationArgs{
+//				WorkspaceId:        workspace.ID(),
+//				ApplicationGroupId: remoteapp.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,7 +77,9 @@ import (
 // Associations between Virtual Desktop Workspaces and Virtual Desktop Application Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
+//
+//	$ pulumi import azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup"
+//
 // ```
 type WorkspaceApplicationGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -178,7 +183,7 @@ func (i *WorkspaceApplicationGroupAssociation) ToWorkspaceApplicationGroupAssoci
 // WorkspaceApplicationGroupAssociationArrayInput is an input type that accepts WorkspaceApplicationGroupAssociationArray and WorkspaceApplicationGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `WorkspaceApplicationGroupAssociationArrayInput` via:
 //
-//          WorkspaceApplicationGroupAssociationArray{ WorkspaceApplicationGroupAssociationArgs{...} }
+//	WorkspaceApplicationGroupAssociationArray{ WorkspaceApplicationGroupAssociationArgs{...} }
 type WorkspaceApplicationGroupAssociationArrayInput interface {
 	pulumi.Input
 
@@ -203,7 +208,7 @@ func (i WorkspaceApplicationGroupAssociationArray) ToWorkspaceApplicationGroupAs
 // WorkspaceApplicationGroupAssociationMapInput is an input type that accepts WorkspaceApplicationGroupAssociationMap and WorkspaceApplicationGroupAssociationMapOutput values.
 // You can construct a concrete instance of `WorkspaceApplicationGroupAssociationMapInput` via:
 //
-//          WorkspaceApplicationGroupAssociationMap{ "key": WorkspaceApplicationGroupAssociationArgs{...} }
+//	WorkspaceApplicationGroupAssociationMap{ "key": WorkspaceApplicationGroupAssociationArgs{...} }
 type WorkspaceApplicationGroupAssociationMapInput interface {
 	pulumi.Input
 

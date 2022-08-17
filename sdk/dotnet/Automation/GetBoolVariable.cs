@@ -20,25 +20,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetBoolVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetBoolVariable.InvokeAsync(new Azure.Automation.GetBoolVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getBoolVariableResult =&gt; getBoolVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,25 +54,24 @@ namespace Pulumi.Azure.Automation
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Automation.GetBoolVariable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Automation.GetBoolVariable.InvokeAsync(new Azure.Automation.GetBoolVariableArgs
-        ///         {
-        ///             Name = "tfex-example-var",
-        ///             ResourceGroupName = "tfex-example-rg",
-        ///             AutomationAccountName = "tfex-example-account",
-        ///         }));
-        ///         this.VariableId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "tfex-example-var",
+        ///         ResourceGroupName = "tfex-example-rg",
+        ///         AutomationAccountName = "tfex-example-account",
+        ///     });
         /// 
-        ///     [Output("variableId")]
-        ///     public Output&lt;string&gt; VariableId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["variableId"] = example.Apply(getBoolVariableResult =&gt; getBoolVariableResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.Automation
     }
 
 
-    public sealed class GetBoolVariableArgs : Pulumi.InvokeArgs
+    public sealed class GetBoolVariableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -106,9 +104,10 @@ namespace Pulumi.Azure.Automation
         public GetBoolVariableArgs()
         {
         }
+        public static new GetBoolVariableArgs Empty => new GetBoolVariableArgs();
     }
 
-    public sealed class GetBoolVariableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBoolVariableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the automation account in which the Automation Variable exists.
@@ -131,6 +130,7 @@ namespace Pulumi.Azure.Automation
         public GetBoolVariableInvokeArgs()
         {
         }
+        public static new GetBoolVariableInvokeArgs Empty => new GetBoolVariableInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class GalleryApplicationVersionTargetRegionArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionTargetRegionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region in which the Gallery Application Version exists.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public GalleryApplicationVersionTargetRegionArgs()
         {
         }
+        public static new GalleryApplicationVersionTargetRegionArgs Empty => new GalleryApplicationVersionTargetRegionArgs();
     }
 }

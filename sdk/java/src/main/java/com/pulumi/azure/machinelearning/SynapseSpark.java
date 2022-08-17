@@ -21,6 +21,120 @@ import javax.annotation.Nullable;
  * Manages the linked service to link an Azure Machine learning workspace to an Azure Synapse workspace.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.machinelearning.Workspace;
+ * import com.pulumi.azure.machinelearning.WorkspaceArgs;
+ * import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
+ * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
+ * import com.pulumi.azure.synapse.Workspace;
+ * import com.pulumi.azure.synapse.WorkspaceArgs;
+ * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.synapse.SparkPool;
+ * import com.pulumi.azure.synapse.SparkPoolArgs;
+ * import com.pulumi.azure.machinelearning.SynapseSpark;
+ * import com.pulumi.azure.machinelearning.SynapseSparkArgs;
+ * import com.pulumi.azure.machinelearning.inputs.SynapseSparkIdentityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;west europe&#34;)
+ *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationType(&#34;web&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .applicationInsightsId(exampleInsights.id())
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .storageAccountId(exampleAccount.id())
+ *             .build());
+ * 
+ *         var exampleSynapse_workspaceWorkspace = new Workspace(&#34;exampleSynapse/workspaceWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
+ *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
+ *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSparkPool = new SparkPool(&#34;exampleSparkPool&#34;, SparkPoolArgs.builder()        
+ *             .synapseWorkspaceId(exampleSynapse / workspaceWorkspace.id())
+ *             .nodeSizeFamily(&#34;MemoryOptimized&#34;)
+ *             .nodeSize(&#34;Small&#34;)
+ *             .nodeCount(3)
+ *             .build());
+ * 
+ *         var exampleSynapseSpark = new SynapseSpark(&#34;exampleSynapseSpark&#34;, SynapseSparkArgs.builder()        
+ *             .machineLearningWorkspaceId(exampleWorkspace.id())
+ *             .location(exampleResourceGroup.location())
+ *             .synapseSparkPoolId(exampleSparkPool.id())
+ *             .identity(SynapseSparkIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

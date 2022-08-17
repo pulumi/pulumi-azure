@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewTriggerRecurrence(ctx, "exampleTriggerRecurrence", &logicapps.TriggerRecurrenceArgs{
-// 			LogicAppId: exampleWorkflow.ID(),
-// 			Frequency:  pulumi.String("Day"),
-// 			Interval:   pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewTriggerRecurrence(ctx, "exampleTriggerRecurrence", &logicapps.TriggerRecurrenceArgs{
+//				LogicAppId: exampleWorkflow.ID(),
+//				Frequency:  pulumi.String("Day"),
+//				Interval:   pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Logic App Recurrence Triggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
+//
+//	$ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
+//
 // ```
 type TriggerRecurrence struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *TriggerRecurrence) ToTriggerRecurrenceOutputWithContext(ctx context.Con
 // TriggerRecurrenceArrayInput is an input type that accepts TriggerRecurrenceArray and TriggerRecurrenceArrayOutput values.
 // You can construct a concrete instance of `TriggerRecurrenceArrayInput` via:
 //
-//          TriggerRecurrenceArray{ TriggerRecurrenceArgs{...} }
+//	TriggerRecurrenceArray{ TriggerRecurrenceArgs{...} }
 type TriggerRecurrenceArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i TriggerRecurrenceArray) ToTriggerRecurrenceArrayOutputWithContext(ctx co
 // TriggerRecurrenceMapInput is an input type that accepts TriggerRecurrenceMap and TriggerRecurrenceMapOutput values.
 // You can construct a concrete instance of `TriggerRecurrenceMapInput` via:
 //
-//          TriggerRecurrenceMap{ "key": TriggerRecurrenceArgs{...} }
+//	TriggerRecurrenceMap{ "key": TriggerRecurrenceArgs{...} }
 type TriggerRecurrenceMapInput interface {
 	pulumi.Input
 

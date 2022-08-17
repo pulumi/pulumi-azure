@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingNotificationWebhookArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingNotificationWebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("properties")]
         private InputMap<string>? _properties;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingNotificationWebhookArgs()
         {
         }
+        public static new AutoscaleSettingNotificationWebhookArgs Empty => new AutoscaleSettingNotificationWebhookArgs();
     }
 }

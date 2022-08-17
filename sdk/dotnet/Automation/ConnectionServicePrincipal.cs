@@ -15,37 +15,38 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleConnectionServicePrincipal = new Azure.Automation.ConnectionServicePrincipal("exampleConnectionServicePrincipal", new Azure.Automation.ConnectionServicePrincipalArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             ApplicationId = "00000000-0000-0000-0000-000000000000",
-    ///             TenantId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.TenantId),
-    ///             SubscriptionId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.SubscriptionId),
-    ///             CertificateThumbprint = File.ReadAllText("automation_certificate_test.thumb"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleConnectionServicePrincipal = new Azure.Automation.ConnectionServicePrincipal("exampleConnectionServicePrincipal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         ApplicationId = "00000000-0000-0000-0000-000000000000",
+    ///         TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
+    ///         CertificateThumbprint = File.ReadAllText("automation_certificate_test.thumb"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +58,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/connectionServicePrincipal:ConnectionServicePrincipal")]
-    public partial class ConnectionServicePrincipal : Pulumi.CustomResource
+    public partial class ConnectionServicePrincipal : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The (Client) ID of the Service Principal.
@@ -151,7 +152,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class ConnectionServicePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionServicePrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Client) ID of the Service Principal.
@@ -204,9 +205,10 @@ namespace Pulumi.Azure.Automation
         public ConnectionServicePrincipalArgs()
         {
         }
+        public static new ConnectionServicePrincipalArgs Empty => new ConnectionServicePrincipalArgs();
     }
 
-    public sealed class ConnectionServicePrincipalState : Pulumi.ResourceArgs
+    public sealed class ConnectionServicePrincipalState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Client) ID of the Service Principal.
@@ -259,5 +261,6 @@ namespace Pulumi.Azure.Automation
         public ConnectionServicePrincipalState()
         {
         }
+        public static new ConnectionServicePrincipalState Empty => new ConnectionServicePrincipalState();
     }
 }

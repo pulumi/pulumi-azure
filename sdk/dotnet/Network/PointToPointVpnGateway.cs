@@ -15,43 +15,45 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.0.0/23",
+    ///     });
+    /// 
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VpnAuthenticationTypes = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
+    ///             "Certificate",
+    ///         },
+    ///         ClientRootCertificates = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressPrefix = "10.0.0.0/23",
-    ///         });
-    ///         var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new Azure.Network.VpnServerConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VpnAuthenticationTypes = 
+    ///             new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
     ///             {
-    ///                 "Certificate",
-    ///             },
-    ///             ClientRootCertificates = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VpnServerConfigurationClientRootCertificateArgs
-    ///                 {
-    ///                     Name = "DigiCert-Federated-ID-Root-CA",
-    ///                     PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+    ///                 Name = "DigiCert-Federated-ID-Root-CA",
+    ///                 PublicCertData = @"MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
     /// MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
     /// d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
     /// Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -72,31 +74,31 @@ namespace Pulumi.Azure.Network
     /// WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
     /// M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
     /// ",
-    ///                 },
     ///             },
-    ///         });
-    ///         var examplePointToPointVpnGateway = new Azure.Network.PointToPointVpnGateway("examplePointToPointVpnGateway", new Azure.Network.PointToPointVpnGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
-    ///             ScaleUnit = 1,
-    ///             ConnectionConfiguration = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
-    ///             {
-    ///                 Name = "example-gateway-config",
-    ///                 VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
-    ///                 {
-    ///                     AddressPrefixes = 
-    ///                     {
-    ///                         "10.0.2.0/24",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var examplePointToPointVpnGateway = new Azure.Network.PointToPointVpnGateway("examplePointToPointVpnGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
+    ///         ScaleUnit = 1,
+    ///         ConnectionConfiguration = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationArgs
+    ///         {
+    ///             Name = "example-gateway-config",
+    ///             VpnClientAddressPool = new Azure.Network.Inputs.PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs
+    ///             {
+    ///                 AddressPrefixes = new[]
+    ///                 {
+    ///                     "10.0.2.0/24",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -108,7 +110,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/pointToPointVpnGateway:PointToPointVpnGateway")]
-    public partial class PointToPointVpnGateway : Pulumi.CustomResource
+    public partial class PointToPointVpnGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `connection_configuration` block as defined below.
@@ -208,7 +210,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class PointToPointVpnGatewayArgs : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `connection_configuration` block as defined below.
@@ -279,9 +281,10 @@ namespace Pulumi.Azure.Network
         public PointToPointVpnGatewayArgs()
         {
         }
+        public static new PointToPointVpnGatewayArgs Empty => new PointToPointVpnGatewayArgs();
     }
 
-    public sealed class PointToPointVpnGatewayState : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `connection_configuration` block as defined below.
@@ -352,5 +355,6 @@ namespace Pulumi.Azure.Network
         public PointToPointVpnGatewayState()
         {
         }
+        public static new PointToPointVpnGatewayState Empty => new PointToPointVpnGatewayState();
     }
 }

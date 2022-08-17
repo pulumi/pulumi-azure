@@ -17,34 +17,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Kind:              pulumi.String("Face"),
-// 			SkuName:           pulumi.String("S0"),
-// 			Tags: pulumi.StringMap{
-// 				"Acceptance": pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.String("Face"),
+//				SkuName:           pulumi.String("S0"),
+//				Tags: pulumi.StringMap{
+//					"Acceptance": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,13 +55,17 @@ import (
 // Cognitive Service Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cognitive/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
+//
+//	$ pulumi import azure:cognitive/account:Account account1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.CognitiveServices/accounts/account1
+//
 // ```
 type Account struct {
 	pulumi.CustomResourceState
 
 	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceId"`
+	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrOutput `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrOutput `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -145,6 +152,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
+	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -194,6 +203,8 @@ type accountState struct {
 type AccountState struct {
 	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
+	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// The endpoint used to connect to the Cognitive Service Account.
@@ -247,6 +258,8 @@ func (AccountState) ElementType() reflect.Type {
 type accountArgs struct {
 	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 	CustomQuestionAnsweringSearchServiceId *string `pulumi:"customQuestionAnsweringSearchServiceId"`
+	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+	CustomQuestionAnsweringSearchServiceKey *string `pulumi:"customQuestionAnsweringSearchServiceKey"`
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName *string `pulumi:"customSubdomainName"`
 	// List of FQDNs allowed for the Cognitive Account.
@@ -291,6 +304,8 @@ type accountArgs struct {
 type AccountArgs struct {
 	// If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 	CustomQuestionAnsweringSearchServiceId pulumi.StringPtrInput
+	// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+	CustomQuestionAnsweringSearchServiceKey pulumi.StringPtrInput
 	// The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
 	CustomSubdomainName pulumi.StringPtrInput
 	// List of FQDNs allowed for the Cognitive Account.
@@ -357,7 +372,7 @@ func (i *Account) ToAccountOutputWithContext(ctx context.Context) AccountOutput 
 // AccountArrayInput is an input type that accepts AccountArray and AccountArrayOutput values.
 // You can construct a concrete instance of `AccountArrayInput` via:
 //
-//          AccountArray{ AccountArgs{...} }
+//	AccountArray{ AccountArgs{...} }
 type AccountArrayInput interface {
 	pulumi.Input
 
@@ -382,7 +397,7 @@ func (i AccountArray) ToAccountArrayOutputWithContext(ctx context.Context) Accou
 // AccountMapInput is an input type that accepts AccountMap and AccountMapOutput values.
 // You can construct a concrete instance of `AccountMapInput` via:
 //
-//          AccountMap{ "key": AccountArgs{...} }
+//	AccountMap{ "key": AccountArgs{...} }
 type AccountMapInput interface {
 	pulumi.Input
 
@@ -421,6 +436,11 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 // If `kind` is `TextAnalytics` this specifies the ID of the Search service.
 func (o AccountOutput) CustomQuestionAnsweringSearchServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceId }).(pulumi.StringPtrOutput)
+}
+
+// If `kind` is `TextAnalytics` this specifies the key of the Search service.
+func (o AccountOutput) CustomQuestionAnsweringSearchServiceKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.CustomQuestionAnsweringSearchServiceKey }).(pulumi.StringPtrOutput)
 }
 
 // The subdomain name used for token-based authentication. Changing this forces a new resource to be created.

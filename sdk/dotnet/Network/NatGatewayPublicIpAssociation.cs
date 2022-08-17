@@ -15,38 +15,39 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new Azure.Network.NatGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///         });
-    ///         var exampleNatGatewayPublicIpAssociation = new Azure.Network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation", new Azure.Network.NatGatewayPublicIpAssociationArgs
-    ///         {
-    ///             NatGatewayId = exampleNatGateway.Id,
-    ///             PublicIpAddressId = examplePublicIp.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///     });
+    /// 
+    ///     var exampleNatGatewayPublicIpAssociation = new Azure.Network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation", new()
+    ///     {
+    ///         NatGatewayId = exampleNatGateway.Id,
+    ///         PublicIpAddressId = examplePublicIp.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +59,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation")]
-    public partial class NatGatewayPublicIpAssociation : Pulumi.CustomResource
+    public partial class NatGatewayPublicIpAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -116,7 +117,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NatGatewayPublicIpAssociationArgs : Pulumi.ResourceArgs
+    public sealed class NatGatewayPublicIpAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -133,9 +134,10 @@ namespace Pulumi.Azure.Network
         public NatGatewayPublicIpAssociationArgs()
         {
         }
+        public static new NatGatewayPublicIpAssociationArgs Empty => new NatGatewayPublicIpAssociationArgs();
     }
 
-    public sealed class NatGatewayPublicIpAssociationState : Pulumi.ResourceArgs
+    public sealed class NatGatewayPublicIpAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -152,5 +154,6 @@ namespace Pulumi.Azure.Network
         public NatGatewayPublicIpAssociationState()
         {
         }
+        public static new NatGatewayPublicIpAssociationState Empty => new NatGatewayPublicIpAssociationState();
     }
 }

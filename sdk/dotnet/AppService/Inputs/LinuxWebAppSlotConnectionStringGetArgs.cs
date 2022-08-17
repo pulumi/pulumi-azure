@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSlotConnectionStringGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotConnectionStringGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Linux Web App. Changing this forces a new Linux Web App to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSlotConnectionStringGetArgs()
         {
         }
+        public static new LinuxWebAppSlotConnectionStringGetArgs Empty => new LinuxWebAppSlotConnectionStringGetArgs();
     }
 }

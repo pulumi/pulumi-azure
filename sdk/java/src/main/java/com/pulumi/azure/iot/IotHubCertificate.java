@@ -10,7 +10,9 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -104,6 +106,20 @@ public class IotHubCertificate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> iotDpsName() {
         return this.iotDpsName;
+    }
+    /**
+     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * 
+     */
+    @Export(name="isVerified", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> isVerified;
+
+    /**
+     * @return Specifies if the certificate is created in verified state. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> isVerified() {
+        return Codegen.optional(this.isVerified);
     }
     /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.

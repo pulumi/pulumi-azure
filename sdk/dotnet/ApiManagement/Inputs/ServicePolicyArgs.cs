@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServicePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServicePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The XML Content for this Policy.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServicePolicyArgs()
         {
         }
+        public static new ServicePolicyArgs Empty => new ServicePolicyArgs();
     }
 }

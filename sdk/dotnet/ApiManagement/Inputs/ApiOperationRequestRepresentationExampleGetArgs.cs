@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationRequestRepresentationExampleGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationRequestRepresentationExampleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A long description for this example.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationRequestRepresentationExampleGetArgs()
         {
         }
+        public static new ApiOperationRequestRepresentationExampleGetArgs Empty => new ApiOperationRequestRepresentationExampleGetArgs();
     }
 }

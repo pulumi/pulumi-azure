@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs.Inputs
 {
 
-    public sealed class PrivateCloudManagementClusterGetArgs : Pulumi.ResourceArgs
+    public sealed class PrivateCloudManagementClusterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("hosts")]
         private InputList<string>? _hosts;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Avs.Inputs
         public PrivateCloudManagementClusterGetArgs()
         {
         }
+        public static new PrivateCloudManagementClusterGetArgs Empty => new PrivateCloudManagementClusterGetArgs();
     }
 }

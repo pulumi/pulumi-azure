@@ -38,7 +38,7 @@ type DeviceDeviceProperty struct {
 // DeviceDevicePropertyInput is an input type that accepts DeviceDevicePropertyArgs and DeviceDevicePropertyOutput values.
 // You can construct a concrete instance of `DeviceDevicePropertyInput` via:
 //
-//          DeviceDevicePropertyArgs{...}
+//	DeviceDevicePropertyArgs{...}
 type DeviceDevicePropertyInput interface {
 	pulumi.Input
 
@@ -86,7 +86,7 @@ func (i DeviceDevicePropertyArgs) ToDeviceDevicePropertyOutputWithContext(ctx co
 // DeviceDevicePropertyArrayInput is an input type that accepts DeviceDevicePropertyArray and DeviceDevicePropertyArrayOutput values.
 // You can construct a concrete instance of `DeviceDevicePropertyArrayInput` via:
 //
-//          DeviceDevicePropertyArray{ DeviceDevicePropertyArgs{...} }
+//	DeviceDevicePropertyArray{ DeviceDevicePropertyArgs{...} }
 type DeviceDevicePropertyArrayInput interface {
 	pulumi.Input
 
@@ -211,7 +211,7 @@ type OrderContact struct {
 // OrderContactInput is an input type that accepts OrderContactArgs and OrderContactOutput values.
 // You can construct a concrete instance of `OrderContactInput` via:
 //
-//          OrderContactArgs{...}
+//	OrderContactArgs{...}
 type OrderContactInput interface {
 	pulumi.Input
 
@@ -253,11 +253,11 @@ func (i OrderContactArgs) ToOrderContactPtrOutputWithContext(ctx context.Context
 // OrderContactPtrInput is an input type that accepts OrderContactArgs, OrderContactPtr and OrderContactPtrOutput values.
 // You can construct a concrete instance of `OrderContactPtrInput` via:
 //
-//          OrderContactArgs{...}
+//	        OrderContactArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrderContactPtrInput interface {
 	pulumi.Input
 
@@ -405,7 +405,7 @@ type OrderReturnTracking struct {
 // OrderReturnTrackingInput is an input type that accepts OrderReturnTrackingArgs and OrderReturnTrackingOutput values.
 // You can construct a concrete instance of `OrderReturnTrackingInput` via:
 //
-//          OrderReturnTrackingArgs{...}
+//	OrderReturnTrackingArgs{...}
 type OrderReturnTrackingInput interface {
 	pulumi.Input
 
@@ -439,7 +439,7 @@ func (i OrderReturnTrackingArgs) ToOrderReturnTrackingOutputWithContext(ctx cont
 // OrderReturnTrackingArrayInput is an input type that accepts OrderReturnTrackingArray and OrderReturnTrackingArrayOutput values.
 // You can construct a concrete instance of `OrderReturnTrackingArrayInput` via:
 //
-//          OrderReturnTrackingArray{ OrderReturnTrackingArgs{...} }
+//	OrderReturnTrackingArray{ OrderReturnTrackingArgs{...} }
 type OrderReturnTrackingArrayInput interface {
 	pulumi.Input
 
@@ -531,7 +531,7 @@ type OrderShipmentAddress struct {
 // OrderShipmentAddressInput is an input type that accepts OrderShipmentAddressArgs and OrderShipmentAddressOutput values.
 // You can construct a concrete instance of `OrderShipmentAddressInput` via:
 //
-//          OrderShipmentAddressArgs{...}
+//	OrderShipmentAddressArgs{...}
 type OrderShipmentAddressInput interface {
 	pulumi.Input
 
@@ -575,11 +575,11 @@ func (i OrderShipmentAddressArgs) ToOrderShipmentAddressPtrOutputWithContext(ctx
 // OrderShipmentAddressPtrInput is an input type that accepts OrderShipmentAddressArgs, OrderShipmentAddressPtr and OrderShipmentAddressPtrOutput values.
 // You can construct a concrete instance of `OrderShipmentAddressPtrInput` via:
 //
-//          OrderShipmentAddressArgs{...}
+//	        OrderShipmentAddressArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type OrderShipmentAddressPtrInput interface {
 	pulumi.Input
 
@@ -740,7 +740,7 @@ type OrderShipmentHistory struct {
 // OrderShipmentHistoryInput is an input type that accepts OrderShipmentHistoryArgs and OrderShipmentHistoryOutput values.
 // You can construct a concrete instance of `OrderShipmentHistoryInput` via:
 //
-//          OrderShipmentHistoryArgs{...}
+//	OrderShipmentHistoryArgs{...}
 type OrderShipmentHistoryInput interface {
 	pulumi.Input
 
@@ -772,7 +772,7 @@ func (i OrderShipmentHistoryArgs) ToOrderShipmentHistoryOutputWithContext(ctx co
 // OrderShipmentHistoryArrayInput is an input type that accepts OrderShipmentHistoryArray and OrderShipmentHistoryArrayOutput values.
 // You can construct a concrete instance of `OrderShipmentHistoryArrayInput` via:
 //
-//          OrderShipmentHistoryArray{ OrderShipmentHistoryArgs{...} }
+//	OrderShipmentHistoryArray{ OrderShipmentHistoryArgs{...} }
 type OrderShipmentHistoryArrayInput interface {
 	pulumi.Input
 
@@ -857,7 +857,7 @@ type OrderShipmentTracking struct {
 // OrderShipmentTrackingInput is an input type that accepts OrderShipmentTrackingArgs and OrderShipmentTrackingOutput values.
 // You can construct a concrete instance of `OrderShipmentTrackingInput` via:
 //
-//          OrderShipmentTrackingArgs{...}
+//	OrderShipmentTrackingArgs{...}
 type OrderShipmentTrackingInput interface {
 	pulumi.Input
 
@@ -891,7 +891,7 @@ func (i OrderShipmentTrackingArgs) ToOrderShipmentTrackingOutputWithContext(ctx 
 // OrderShipmentTrackingArrayInput is an input type that accepts OrderShipmentTrackingArray and OrderShipmentTrackingArrayOutput values.
 // You can construct a concrete instance of `OrderShipmentTrackingArrayInput` via:
 //
-//          OrderShipmentTrackingArray{ OrderShipmentTrackingArgs{...} }
+//	OrderShipmentTrackingArray{ OrderShipmentTrackingArgs{...} }
 type OrderShipmentTrackingArrayInput interface {
 	pulumi.Input
 
@@ -981,7 +981,7 @@ type OrderStatus struct {
 // OrderStatusInput is an input type that accepts OrderStatusArgs and OrderStatusOutput values.
 // You can construct a concrete instance of `OrderStatusInput` via:
 //
-//          OrderStatusArgs{...}
+//	OrderStatusArgs{...}
 type OrderStatusInput interface {
 	pulumi.Input
 
@@ -1015,7 +1015,7 @@ func (i OrderStatusArgs) ToOrderStatusOutputWithContext(ctx context.Context) Ord
 // OrderStatusArrayInput is an input type that accepts OrderStatusArray and OrderStatusArrayOutput values.
 // You can construct a concrete instance of `OrderStatusArrayInput` via:
 //
-//          OrderStatusArray{ OrderStatusArgs{...} }
+//	OrderStatusArray{ OrderStatusArgs{...} }
 type OrderStatusArrayInput interface {
 	pulumi.Input
 

@@ -15,40 +15,41 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleConnection = new Azure.Automation.Connection("exampleConnection", new Azure.Automation.ConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Type = "AzureServicePrincipal",
-    ///             Values = 
-    ///             {
-    ///                 { "ApplicationId", "00000000-0000-0000-0000-000000000000" },
-    ///                 { "TenantId", exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.TenantId) },
-    ///                 { "SubscriptionId", exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.SubscriptionId) },
-    ///                 { "CertificateThumbprint", "sample-certificate-thumbprint" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleConnection = new Azure.Automation.Connection("exampleConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Type = "AzureServicePrincipal",
+    ///         Values = 
+    ///         {
+    ///             { "ApplicationId", "00000000-0000-0000-0000-000000000000" },
+    ///             { "TenantId", exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId) },
+    ///             { "SubscriptionId", exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId) },
+    ///             { "CertificateThumbprint", "sample-certificate-thumbprint" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +61,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/connection:Connection")]
-    public partial class Connection : Pulumi.CustomResource
+    public partial class Connection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -142,7 +143,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class ConnectionArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -189,9 +190,10 @@ namespace Pulumi.Azure.Automation
         public ConnectionArgs()
         {
         }
+        public static new ConnectionArgs Empty => new ConnectionArgs();
     }
 
-    public sealed class ConnectionState : Pulumi.ResourceArgs
+    public sealed class ConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -238,5 +240,6 @@ namespace Pulumi.Azure.Automation
         public ConnectionState()
         {
         }
+        public static new ConnectionState Empty => new ConnectionState();
     }
 }

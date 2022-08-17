@@ -15,58 +15,60 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Routes = 
-    ///             {
-    ///                 new Azure.Network.Inputs.RouteTableRouteArgs
-    ///                 {
-    ///                     Name = "example",
-    ///                     AddressPrefix = "10.100.0.0/14",
-    ///                     NextHopType = "VirtualAppliance",
-    ///                     NextHopInIpAddress = "10.10.1.1",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new Azure.Network.SubnetRouteTableAssociationArgs
-    ///         {
-    ///             SubnetId = exampleSubnet.Id,
-    ///             RouteTableId = exampleRouteTable.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Routes = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.RouteTableRouteArgs
+    ///             {
+    ///                 Name = "example",
+    ///                 AddressPrefix = "10.100.0.0/14",
+    ///                 NextHopType = "VirtualAppliance",
+    ///                 NextHopInIpAddress = "10.10.1.1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         RouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +80,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation")]
-    public partial class SubnetRouteTableAssociation : Pulumi.CustomResource
+    public partial class SubnetRouteTableAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -136,7 +138,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class SubnetRouteTableAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetRouteTableAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -153,9 +155,10 @@ namespace Pulumi.Azure.Network
         public SubnetRouteTableAssociationArgs()
         {
         }
+        public static new SubnetRouteTableAssociationArgs Empty => new SubnetRouteTableAssociationArgs();
     }
 
-    public sealed class SubnetRouteTableAssociationState : Pulumi.ResourceArgs
+    public sealed class SubnetRouteTableAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Route Table which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -172,5 +175,6 @@ namespace Pulumi.Azure.Network
         public SubnetRouteTableAssociationState()
         {
         }
+        public static new SubnetRouteTableAssociationState Empty => new SubnetRouteTableAssociationState();
     }
 }

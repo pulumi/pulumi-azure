@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SignalR.Inputs
 {
 
-    public sealed class ServiceSkuArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.SignalR.Inputs
         public ServiceSkuArgs()
         {
         }
+        public static new ServiceSkuArgs Empty => new ServiceSkuArgs();
     }
 }

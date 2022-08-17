@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppAuthSettingsGithubGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppAuthSettingsGithubGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the GitHub app used for login.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppAuthSettingsGithubGetArgs()
         {
         }
+        public static new WindowsFunctionAppAuthSettingsGithubGetArgs Empty => new WindowsFunctionAppAuthSettingsGithubGetArgs();
     }
 }

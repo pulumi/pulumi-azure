@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountNetworkRulesPrivateLinkAccessRuleArgs : Pulumi.ResourceArgs
+    public sealed class AccountNetworkRulesPrivateLinkAccessRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource id of the resource access rule to be granted access.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountNetworkRulesPrivateLinkAccessRuleArgs()
         {
         }
+        public static new AccountNetworkRulesPrivateLinkAccessRuleArgs Empty => new AccountNetworkRulesPrivateLinkAccessRuleArgs();
     }
 }

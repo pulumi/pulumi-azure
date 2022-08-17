@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetPool.InvokeAsync(new Azure.Batch.GetPoolArgs
-        ///         {
-        ///             AccountName = "testbatchaccount",
-        ///             Name = "testbatchpool",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///     }
+        ///         AccountName = "testbatchaccount",
+        ///         Name = "testbatchpool",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetPool.InvokeAsync(new Azure.Batch.GetPoolArgs
-        ///         {
-        ///             AccountName = "testbatchaccount",
-        ///             Name = "testbatchpool",
-        ///             ResourceGroupName = "test",
-        ///         }));
-        ///     }
+        ///         AccountName = "testbatchaccount",
+        ///         Name = "testbatchpool",
+        ///         ResourceGroupName = "test",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Batch
     }
 
 
-    public sealed class GetPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -95,9 +91,10 @@ namespace Pulumi.Azure.Batch
         public GetPoolArgs()
         {
         }
+        public static new GetPoolArgs Empty => new GetPoolArgs();
     }
 
-    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -117,6 +114,7 @@ namespace Pulumi.Azure.Batch
         public GetPoolInvokeArgs()
         {
         }
+        public static new GetPoolInvokeArgs Empty => new GetPoolInvokeArgs();
     }
 
 

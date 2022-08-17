@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetVirtualMachine.InvokeAsync(new Azure.Compute.GetVirtualMachineArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualMachineId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualMachineId")]
-        ///     public Output&lt;string&gt; VirtualMachineId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualMachineId"] = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetVirtualMachine.InvokeAsync(new Azure.Compute.GetVirtualMachineArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualMachineId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualMachineId")]
-        ///     public Output&lt;string&gt; VirtualMachineId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualMachineId"] = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetVirtualMachineArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Machine.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetVirtualMachineArgs()
         {
         }
+        public static new GetVirtualMachineArgs Empty => new GetVirtualMachineArgs();
     }
 
-    public sealed class GetVirtualMachineInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualMachineInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Machine.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetVirtualMachineInvokeArgs()
         {
         }
+        public static new GetVirtualMachineInvokeArgs Empty => new GetVirtualMachineInvokeArgs();
     }
 
 

@@ -21,21 +21,21 @@ namespace Pulumi.Azure.Core
     /// &gt; **Note:** This example uses Storage Accounts and Public IP's which are natively supported by this provider - we'd highly recommend using the Native Resources where possible instead rather than an ARM Template, for the reasons outlined above.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("exampleTemplateDeployment", new Azure.Core.TemplateDeploymentArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TemplateBody = @"{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("exampleTemplateDeployment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TemplateBody = @"{
     ///   ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
     ///   ""contentVersion"": ""1.0.0.0"",
     ///   ""parameters"": {
@@ -91,25 +91,25 @@ namespace Pulumi.Azure.Core
     ///   }
     /// }
     /// ",
-    ///             Parameters = 
-    ///             {
-    ///                 { "storageAccountType", "Standard_GRS" },
-    ///             },
-    ///             DeploymentMode = "Incremental",
-    ///         });
-    ///         this.StorageAccountName = exampleTemplateDeployment.Outputs.Apply(outputs =&gt; outputs.StorageAccountName);
-    ///     }
+    ///         Parameters = 
+    ///         {
+    ///             { "storageAccountType", "Standard_GRS" },
+    ///         },
+    ///         DeploymentMode = "Incremental",
+    ///     });
     /// 
-    ///     [Output("storageAccountName")]
-    ///     public Output&lt;string&gt; StorageAccountName { get; set; }
-    /// }
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["storageAccountName"] = exampleTemplateDeployment.Outputs.Apply(outputs =&gt; outputs.StorageAccountName),
+    ///     };
+    /// });
     /// ```
     /// ## Note
     /// 
     /// This provider does not know about the individual resources created by Azure using a deployment template and therefore cannot delete these resources during a destroy. Destroying a template deployment removes the associated deployment operations, but will not delete the Azure resources created by the deployment. In order to delete these resources, the containing resource group must also be destroyed. [More information](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Delete).
     /// </summary>
     [AzureResourceType("azure:core/templateDeployment:TemplateDeployment")]
-    public partial class TemplateDeployment : Pulumi.CustomResource
+    public partial class TemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
@@ -201,7 +201,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class TemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class TemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
@@ -252,9 +252,10 @@ namespace Pulumi.Azure.Core
         public TemplateDeploymentArgs()
         {
         }
+        public static new TemplateDeploymentArgs Empty => new TemplateDeploymentArgs();
     }
 
-    public sealed class TemplateDeploymentState : Pulumi.ResourceArgs
+    public sealed class TemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
@@ -317,5 +318,6 @@ namespace Pulumi.Azure.Core
         public TemplateDeploymentState()
         {
         }
+        public static new TemplateDeploymentState Empty => new TemplateDeploymentState();
     }
 }

@@ -15,32 +15,32 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleBoolVariable = new Azure.Automation.BoolVariable("exampleBoolVariable", new Azure.Automation.BoolVariableArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Value = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleBoolVariable = new Azure.Automation.BoolVariable("exampleBoolVariable", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Value = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/boolVariable:BoolVariable")]
-    public partial class BoolVariable : Pulumi.CustomResource
+    public partial class BoolVariable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class BoolVariableArgs : Pulumi.ResourceArgs
+    public sealed class BoolVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.Automation
         public BoolVariableArgs()
         {
         }
+        public static new BoolVariableArgs Empty => new BoolVariableArgs();
     }
 
-    public sealed class BoolVariableState : Pulumi.ResourceArgs
+    public sealed class BoolVariableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -218,5 +219,6 @@ namespace Pulumi.Azure.Automation
         public BoolVariableState()
         {
         }
+        public static new BoolVariableState Empty => new BoolVariableState();
     }
 }

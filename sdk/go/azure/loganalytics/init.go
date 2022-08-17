@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LinkedService{}
 	case "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount":
 		r = &LinkedStorageAccount{}
+	case "azure:loganalytics/queryPack:QueryPack":
+		r = &QueryPack{}
 	case "azure:loganalytics/savedSearch:SavedSearch":
 		r = &SavedSearch{}
 	case "azure:loganalytics/storageInsights:StorageInsights":
@@ -85,6 +87,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"loganalytics/linkedStorageAccount",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"loganalytics/queryPack",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

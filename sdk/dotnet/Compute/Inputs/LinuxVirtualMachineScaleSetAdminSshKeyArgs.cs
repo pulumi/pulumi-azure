@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetAdminSshKeyArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetAdminSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetAdminSshKeyArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetAdminSshKeyArgs Empty => new LinuxVirtualMachineScaleSetAdminSshKeyArgs();
     }
 }

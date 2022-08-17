@@ -17,41 +17,42 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleNamedValue = new Azure.ApiManagement.NamedValue("exampleNamedValue", new Azure.ApiManagement.NamedValueArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             DisplayName = "ExampleProperty",
-    ///             Value = "Example Value",
-    ///         });
-    ///         var examplePolicy = new Azure.ApiManagement.Policy("examplePolicy", new Azure.ApiManagement.PolicyArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             XmlContent = File.ReadAllText("example.xml"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleNamedValue = new Azure.ApiManagement.NamedValue("exampleNamedValue", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         DisplayName = "ExampleProperty",
+    ///         Value = "Example Value",
+    ///     });
+    /// 
+    ///     var examplePolicy = new Azure.ApiManagement.Policy("examplePolicy", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         XmlContent = File.ReadAllText("example.xml"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
@@ -127,7 +128,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
@@ -150,9 +151,10 @@ namespace Pulumi.Azure.ApiManagement
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management service. Changing this forces a new API Management service Policy to be created.
@@ -175,5 +177,6 @@ namespace Pulumi.Azure.ApiManagement
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

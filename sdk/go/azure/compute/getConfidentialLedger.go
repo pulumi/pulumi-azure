@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := compute.GetConfidentialLedger(ctx, &compute.GetConfidentialLedgerArgs{
-// 			Name:              "example-ledger",
-// 			ResourceGroupName: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("ledgerEndpoint", current.LedgerEndpoint)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := compute.GetConfidentialLedger(ctx, &compute.GetConfidentialLedgerArgs{
+//				Name:              "example-ledger",
+//				ResourceGroupName: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("ledgerEndpoint", current.LedgerEndpoint)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetConfidentialLedger(ctx *pulumi.Context, args *GetConfidentialLedgerArgs, opts ...pulumi.InvokeOption) (*GetConfidentialLedgerResult, error) {
 	var rv GetConfidentialLedgerResult

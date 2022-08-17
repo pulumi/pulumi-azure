@@ -20,34 +20,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/blueprint"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/blueprint"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		root, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: pulumi.StringRef(current.TenantId),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
-// 			Name:    "exampleManagementGroupBP",
-// 			ScopeId: root.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			root, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//				Name: pulumi.StringRef(current.TenantId),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
+//				Name:    "exampleManagementGroupBP",
+//				ScopeId: root.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetDefinition(ctx *pulumi.Context, args *GetDefinitionArgs, opts ...pulumi.InvokeOption) (*GetDefinitionResult, error) {
 	var rv GetDefinitionResult

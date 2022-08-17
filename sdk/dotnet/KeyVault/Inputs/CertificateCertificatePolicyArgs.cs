@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertificateCertificatePolicyArgs : Pulumi.ResourceArgs
+    public sealed class CertificateCertificatePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `issuer_parameters` block as defined below.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertificateCertificatePolicyArgs()
         {
         }
+        public static new CertificateCertificatePolicyArgs Empty => new CertificateCertificatePolicyArgs();
     }
 }

@@ -6,6 +6,7 @@ package com.pulumi.azure.servicebus.inputs;
 import com.pulumi.azure.servicebus.inputs.SubscriptionRuleCorrelationFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -91,6 +92,13 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.sqlFilter);
     }
 
+    @Import(name="sqlFilterCompatibilityLevel")
+    private @Nullable Output<Integer> sqlFilterCompatibilityLevel;
+
+    public Optional<Output<Integer>> sqlFilterCompatibilityLevel() {
+        return Optional.ofNullable(this.sqlFilterCompatibilityLevel);
+    }
+
     /**
      * The ID of the ServiceBus Subscription in which this Rule should be created. Changing this forces a new resource to be created.
      * 
@@ -114,6 +122,7 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
         this.filterType = $.filterType;
         this.name = $.name;
         this.sqlFilter = $.sqlFilter;
+        this.sqlFilterCompatibilityLevel = $.sqlFilterCompatibilityLevel;
         this.subscriptionId = $.subscriptionId;
     }
 
@@ -238,6 +247,15 @@ public final class SubscriptionRuleState extends com.pulumi.resources.ResourceAr
          */
         public Builder sqlFilter(String sqlFilter) {
             return sqlFilter(Output.of(sqlFilter));
+        }
+
+        public Builder sqlFilterCompatibilityLevel(@Nullable Output<Integer> sqlFilterCompatibilityLevel) {
+            $.sqlFilterCompatibilityLevel = sqlFilterCompatibilityLevel;
+            return this;
+        }
+
+        public Builder sqlFilterCompatibilityLevel(Integer sqlFilterCompatibilityLevel) {
+            return sqlFilterCompatibilityLevel(Output.of(sqlFilterCompatibilityLevel));
         }
 
         /**

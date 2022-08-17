@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class SharedImageVersionTargetRegionArgs : Pulumi.ResourceArgs
+    public sealed class SharedImageVersionTargetRegionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Disk Encryption Set to encrypt the Image Version in the target region. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public SharedImageVersionTargetRegionArgs()
         {
         }
+        public static new SharedImageVersionTargetRegionArgs Empty => new SharedImageVersionTargetRegionArgs();
     }
 }

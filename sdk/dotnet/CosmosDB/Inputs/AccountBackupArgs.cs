@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountBackupArgs : Pulumi.ResourceArgs
+    public sealed class AccountBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountBackupArgs()
         {
         }
+        public static new AccountBackupArgs Empty => new AccountBackupArgs();
     }
 }

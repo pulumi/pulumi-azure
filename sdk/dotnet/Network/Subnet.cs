@@ -19,54 +19,54 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "delegation",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.ContainerInstance/containerGroups",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.ContainerInstance/containerGroups",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                             "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-    ///                         },
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -78,7 +78,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/subnet:Subnet")]
-    public partial class Subnet : Pulumi.CustomResource
+    public partial class Subnet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The address prefixes to use for the subnet.
@@ -92,23 +92,29 @@ namespace Pulumi.Azure.Network
         [Output("delegations")]
         public Output<ImmutableArray<Outputs.SubnetDelegation>> Delegations { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Output("enforcePrivateLinkEndpointNetworkPolicies")]
-        public Output<bool?> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
+        public Output<bool> EnforcePrivateLinkEndpointNetworkPolicies { get; private set; } = null!;
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Output("enforcePrivateLinkServiceNetworkPolicies")]
-        public Output<bool?> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
+        public Output<bool> EnforcePrivateLinkServiceNetworkPolicies { get; private set; } = null!;
 
         /// <summary>
         /// The name of the subnet. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Output("privateEndpointNetworkPoliciesEnabled")]
+        public Output<bool> PrivateEndpointNetworkPoliciesEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Output("privateLinkServiceNetworkPoliciesEnabled")]
+        public Output<bool> PrivateLinkServiceNetworkPoliciesEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
@@ -178,7 +184,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class SubnetArgs : Pulumi.ResourceArgs
+    public sealed class SubnetArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
@@ -204,15 +210,9 @@ namespace Pulumi.Azure.Network
             set => _delegations = value;
         }
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Input("enforcePrivateLinkEndpointNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
 
@@ -221,6 +221,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Input("privateEndpointNetworkPoliciesEnabled")]
+        public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
+
+        /// <summary>
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Input("privateLinkServiceNetworkPoliciesEnabled")]
+        public Input<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
@@ -261,9 +273,10 @@ namespace Pulumi.Azure.Network
         public SubnetArgs()
         {
         }
+        public static new SubnetArgs Empty => new SubnetArgs();
     }
 
-    public sealed class SubnetState : Pulumi.ResourceArgs
+    public sealed class SubnetState : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;
@@ -289,15 +302,9 @@ namespace Pulumi.Azure.Network
             set => _delegations = value;
         }
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link endpoint on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Input("enforcePrivateLinkEndpointNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkEndpointNetworkPolicies { get; set; }
 
-        /// <summary>
-        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Disable** the policy and setting this to `false` will **Enable** the policy. Default value is `false`.
-        /// </summary>
         [Input("enforcePrivateLinkServiceNetworkPolicies")]
         public Input<bool>? EnforcePrivateLinkServiceNetworkPolicies { get; set; }
 
@@ -306,6 +313,18 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Input("privateEndpointNetworkPoliciesEnabled")]
+        public Input<bool>? PrivateEndpointNetworkPoliciesEnabled { get; set; }
+
+        /// <summary>
+        /// Enable or Disable network policies for the private link service on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
+        /// </summary>
+        [Input("privateLinkServiceNetworkPoliciesEnabled")]
+        public Input<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
@@ -346,5 +365,6 @@ namespace Pulumi.Azure.Network
         public SubnetState()
         {
         }
+        public static new SubnetState Empty => new SubnetState();
     }
 }

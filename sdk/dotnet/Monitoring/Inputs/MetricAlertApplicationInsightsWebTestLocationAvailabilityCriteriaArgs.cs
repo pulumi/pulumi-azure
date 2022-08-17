@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights Resource.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs()
         {
         }
+        public static new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs Empty => new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs();
     }
 }

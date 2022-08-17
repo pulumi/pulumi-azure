@@ -15,34 +15,34 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("exampleCapacityReservationGroup", new Azure.Compute.CapacityReservationGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleCapacityReservation = new Azure.Compute.CapacityReservation("exampleCapacityReservation", new Azure.Compute.CapacityReservationArgs
-    ///         {
-    ///             CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
-    ///             Sku = new Azure.Compute.Inputs.CapacityReservationSkuArgs
-    ///             {
-    ///                 Name = "Standard_D2s_v3",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCapacityReservationGroup = new Azure.Compute.CapacityReservationGroup("exampleCapacityReservationGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleCapacityReservation = new Azure.Compute.CapacityReservation("exampleCapacityReservation", new()
+    ///     {
+    ///         CapacityReservationGroupId = exampleCapacityReservationGroup.Id,
+    ///         Sku = new Azure.Compute.Inputs.CapacityReservationSkuArgs
+    ///         {
+    ///             Name = "Standard_D2s_v3",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/capacityReservation:CapacityReservation")]
-    public partial class CapacityReservation : Pulumi.CustomResource
+    public partial class CapacityReservation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class CapacityReservationArgs : Pulumi.ResourceArgs
+    public sealed class CapacityReservationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
@@ -171,9 +171,10 @@ namespace Pulumi.Azure.Compute
         public CapacityReservationArgs()
         {
         }
+        public static new CapacityReservationArgs Empty => new CapacityReservationArgs();
     }
 
-    public sealed class CapacityReservationState : Pulumi.ResourceArgs
+    public sealed class CapacityReservationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Capacity Reservation Group where the Capacity Reservation exists. Changing this forces a new resource to be created.
@@ -214,5 +215,6 @@ namespace Pulumi.Azure.Compute
         public CapacityReservationState()
         {
         }
+        public static new CapacityReservationState Empty => new CapacityReservationState();
     }
 }

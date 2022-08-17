@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewIntegrationAccountBatchConfiguration(ctx, "exampleIntegrationAccountBatchConfiguration", &logicapps.IntegrationAccountBatchConfigurationArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			IntegrationAccountName: exampleIntegrationAccount.Name,
-// 			BatchGroupName:         pulumi.String("TestBatchGroup"),
-// 			ReleaseCriteria: &logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs{
-// 				MessageCount: pulumi.Int(80),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountBatchConfiguration(ctx, "exampleIntegrationAccountBatchConfiguration", &logicapps.IntegrationAccountBatchConfigurationArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
+//				BatchGroupName:         pulumi.String("TestBatchGroup"),
+//				ReleaseCriteria: &logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs{
+//					MessageCount: pulumi.Int(80),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
+//
+//	$ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
+//
 // ```
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState
@@ -211,7 +216,7 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 // IntegrationAccountBatchConfigurationArrayInput is an input type that accepts IntegrationAccountBatchConfigurationArray and IntegrationAccountBatchConfigurationArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationArrayInput` via:
 //
-//          IntegrationAccountBatchConfigurationArray{ IntegrationAccountBatchConfigurationArgs{...} }
+//	IntegrationAccountBatchConfigurationArray{ IntegrationAccountBatchConfigurationArgs{...} }
 type IntegrationAccountBatchConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +241,7 @@ func (i IntegrationAccountBatchConfigurationArray) ToIntegrationAccountBatchConf
 // IntegrationAccountBatchConfigurationMapInput is an input type that accepts IntegrationAccountBatchConfigurationMap and IntegrationAccountBatchConfigurationMapOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationMapInput` via:
 //
-//          IntegrationAccountBatchConfigurationMap{ "key": IntegrationAccountBatchConfigurationArgs{...} }
+//	IntegrationAccountBatchConfigurationMap{ "key": IntegrationAccountBatchConfigurationArgs{...} }
 type IntegrationAccountBatchConfigurationMapInput interface {
 	pulumi.Input
 

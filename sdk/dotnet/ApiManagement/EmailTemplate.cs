@@ -15,32 +15,33 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleEmailTemplate = new Azure.ApiManagement.EmailTemplate("exampleEmailTemplate", new Azure.ApiManagement.EmailTemplateArgs
-    ///         {
-    ///             TemplateName = "ConfirmSignUpIdentityDefault",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             Subject = "Customized confirmation email for your new $OrganizationName API account",
-    ///             Body = @"&lt;!DOCTYPE html &gt;
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleEmailTemplate = new Azure.ApiManagement.EmailTemplate("exampleEmailTemplate", new()
+    ///     {
+    ///         TemplateName = "ConfirmSignUpIdentityDefault",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Subject = "Customized confirmation email for your new $OrganizationName API account",
+    ///         Body = @"&lt;!DOCTYPE html &gt;
     /// &lt;html&gt;
     /// &lt;head&gt;
     ///   &lt;meta charset=""UTF-8"" /&gt;
@@ -51,10 +52,9 @@ namespace Pulumi.Azure.ApiManagement
     /// &lt;/body&gt;
     /// &lt;/html&gt;
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/emailTemplate:EmailTemplate")]
-    public partial class EmailTemplate : Pulumi.CustomResource
+    public partial class EmailTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
@@ -154,7 +154,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class EmailTemplateArgs : Pulumi.ResourceArgs
+    public sealed class EmailTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
@@ -189,9 +189,10 @@ namespace Pulumi.Azure.ApiManagement
         public EmailTemplateArgs()
         {
         }
+        public static new EmailTemplateArgs Empty => new EmailTemplateArgs();
     }
 
-    public sealed class EmailTemplateState : Pulumi.ResourceArgs
+    public sealed class EmailTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the Email Template should exist. Changing this forces a new API Management Email Template to be created.
@@ -238,5 +239,6 @@ namespace Pulumi.Azure.ApiManagement
         public EmailTemplateState()
         {
         }
+        public static new EmailTemplateState Empty => new EmailTemplateState();
     }
 }

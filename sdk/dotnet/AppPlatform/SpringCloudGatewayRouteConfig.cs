@@ -12,69 +12,73 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud Gateway Route Config.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGatewayRouteConfig = new Azure.AppPlatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", new()
+    ///     {
+    ///         SpringCloudGatewayId = exampleSpringCloudGateway.Id,
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///         Routes = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///         });
-    ///         var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new Azure.AppPlatform.SpringCloudGatewayArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         });
-    ///         var exampleSpringCloudGatewayRouteConfig = new Azure.AppPlatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", new Azure.AppPlatform.SpringCloudGatewayRouteConfigArgs
-    ///         {
-    ///             SpringCloudGatewayId = exampleSpringCloudGateway.Id,
-    ///             SpringCloudAppId = exampleSpringCloudApp.Id,
-    ///             Routes = 
+    ///             new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
     ///             {
-    ///                 new Azure.AppPlatform.Inputs.SpringCloudGatewayRouteConfigRouteArgs
+    ///                 Description = "example description",
+    ///                 Filters = new[]
     ///                 {
-    ///                     Description = "example description",
-    ///                     Filters = 
-    ///                     {
-    ///                         "StripPrefix=2",
-    ///                         "RateLimit=1,1s",
-    ///                     },
-    ///                     Order = 1,
-    ///                     Predicates = 
-    ///                     {
-    ///                         "Path=/api5/customer/**",
-    ///                     },
-    ///                     SsoValidationEnabled = true,
-    ///                     Title = "myApp route config",
-    ///                     TokenRelay = true,
-    ///                     Uri = "https://www.example.com",
-    ///                     ClassificationTags = 
-    ///                     {
-    ///                         "tag1",
-    ///                         "tag2",
-    ///                     },
+    ///                     "StripPrefix=2",
+    ///                     "RateLimit=1,1s",
+    ///                 },
+    ///                 Order = 1,
+    ///                 Predicates = new[]
+    ///                 {
+    ///                     "Path=/api5/customer/**",
+    ///                 },
+    ///                 SsoValidationEnabled = true,
+    ///                 Title = "myApp route config",
+    ///                 TokenRelay = true,
+    ///                 Uri = "https://www.example.com",
+    ///                 ClassificationTags = new[]
+    ///                 {
+    ///                     "tag1",
+    ///                     "tag2",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -86,7 +90,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig")]
-    public partial class SpringCloudGatewayRouteConfig : Pulumi.CustomResource
+    public partial class SpringCloudGatewayRouteConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -156,7 +160,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudGatewayRouteConfigArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayRouteConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -191,9 +195,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayRouteConfigArgs()
         {
         }
+        public static new SpringCloudGatewayRouteConfigArgs Empty => new SpringCloudGatewayRouteConfigArgs();
     }
 
-    public sealed class SpringCloudGatewayRouteConfigState : Pulumi.ResourceArgs
+    public sealed class SpringCloudGatewayRouteConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -228,5 +233,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudGatewayRouteConfigState()
         {
         }
+        public static new SpringCloudGatewayRouteConfigState Empty => new SpringCloudGatewayRouteConfigState();
     }
 }

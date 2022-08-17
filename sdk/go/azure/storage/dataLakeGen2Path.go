@@ -21,48 +21,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			IsHnsEnabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewDataLakeGen2Path(ctx, "exampleDataLakeGen2Path", &storage.DataLakeGen2PathArgs{
-// 			Path:             pulumi.String("example"),
-// 			FilesystemName:   exampleDataLakeGen2Filesystem.Name,
-// 			StorageAccountId: exampleAccount.ID(),
-// 			Resource:         pulumi.String("directory"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewDataLakeGen2Path(ctx, "exampleDataLakeGen2Path", &storage.DataLakeGen2PathArgs{
+//				Path:             pulumi.String("example"),
+//				FilesystemName:   exampleDataLakeGen2Filesystem.Name,
+//				StorageAccountId: exampleAccount.ID(),
+//				Resource:         pulumi.String("directory"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Data Lake Gen2 Paths can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
+//
+//	$ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
+//
 // ```
 type DataLakeGen2Path struct {
 	pulumi.CustomResourceState
@@ -230,7 +235,7 @@ func (i *DataLakeGen2Path) ToDataLakeGen2PathOutputWithContext(ctx context.Conte
 // DataLakeGen2PathArrayInput is an input type that accepts DataLakeGen2PathArray and DataLakeGen2PathArrayOutput values.
 // You can construct a concrete instance of `DataLakeGen2PathArrayInput` via:
 //
-//          DataLakeGen2PathArray{ DataLakeGen2PathArgs{...} }
+//	DataLakeGen2PathArray{ DataLakeGen2PathArgs{...} }
 type DataLakeGen2PathArrayInput interface {
 	pulumi.Input
 
@@ -255,7 +260,7 @@ func (i DataLakeGen2PathArray) ToDataLakeGen2PathArrayOutputWithContext(ctx cont
 // DataLakeGen2PathMapInput is an input type that accepts DataLakeGen2PathMap and DataLakeGen2PathMapOutput values.
 // You can construct a concrete instance of `DataLakeGen2PathMapInput` via:
 //
-//          DataLakeGen2PathMap{ "key": DataLakeGen2PathArgs{...} }
+//	DataLakeGen2PathMap{ "key": DataLakeGen2PathArgs{...} }
 type DataLakeGen2PathMapInput interface {
 	pulumi.Input
 

@@ -12,6 +12,174 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages a Data Collection Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "WindowsEventForwarding",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/WindowsEventForwarding",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("exampleDataCollectionRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
+    ///         {
+    ///             LogAnalytics = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsLogAnalyticArgs
+    ///                 {
+    ///                     WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///                     Name = "test-destination-log",
+    ///                 },
+    ///             },
+    ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
+    ///             {
+    ///                 Name = "test-destination-metrics",
+    ///             },
+    ///         },
+    ///         DataFlows = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             {
+    ///                 Streams = new[]
+    ///                 {
+    ///                     "Microsoft-InsightsMetrics",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "test-destination-metrics",
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.DataCollectionRuleDataFlowArgs
+    ///             {
+    ///                 Streams = new[]
+    ///                 {
+    ///                     "Microsoft-InsightsMetrics",
+    ///                     "Microsoft-Syslog",
+    ///                     "Microsoft-Perf",
+    ///                 },
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "test-destination-log",
+    ///                 },
+    ///             },
+    ///         },
+    ///         DataSources = new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesArgs
+    ///         {
+    ///             Syslogs = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesSyslogArgs
+    ///                 {
+    ///                     FacilityNames = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     LogLevels = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     Name = "test-datasource-syslog",
+    ///                 },
+    ///             },
+    ///             PerformanceCounters = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesPerformanceCounterArgs
+    ///                 {
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-Perf",
+    ///                         "Microsoft-InsightsMetrics",
+    ///                     },
+    ///                     SamplingFrequencyInSeconds = 10,
+    ///                     CounterSpecifiers = new[]
+    ///                     {
+    ///                         "Processor(*)\\% Processor Time",
+    ///                     },
+    ///                     Name = "test-datasource-perfcounter",
+    ///                 },
+    ///             },
+    ///             WindowsEventLogs = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesWindowsEventLogArgs
+    ///                 {
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-WindowsEvent",
+    ///                     },
+    ///                     XPathQueries = new[]
+    ///                     {
+    ///                         "*[System/Level=1]",
+    ///                     },
+    ///                     Name = "test-datasource-wineventlog",
+    ///                 },
+    ///             },
+    ///             Extensions = new[]
+    ///             {
+    ///                 new Azure.Monitoring.Inputs.DataCollectionRuleDataSourcesExtensionArgs
+    ///                 {
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-WindowsEvent",
+    ///                     },
+    ///                     InputDataSources = new[]
+    ///                     {
+    ///                         "test-datasource-wineventlog",
+    ///                     },
+    ///                     ExtensionName = "test-extension-name",
+    ///                     ExtensionJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["a"] = 1,
+    ///                         ["b"] = "hello",
+    ///                     }),
+    ///                     Name = "test-datasource-extension",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "data collection rule example",
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAnalyticsSolution,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Data Collection Rules can be imported using the `resource id`, e.g.
@@ -21,7 +189,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/dataCollectionRule:DataCollectionRule")]
-    public partial class DataCollectionRule : Pulumi.CustomResource
+    public partial class DataCollectionRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `data_flow` blocks as defined below.
@@ -121,7 +289,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class DataCollectionRuleArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataFlows", required: true)]
         private InputList<Inputs.DataCollectionRuleDataFlowArgs>? _dataFlows;
@@ -192,9 +360,10 @@ namespace Pulumi.Azure.Monitoring
         public DataCollectionRuleArgs()
         {
         }
+        public static new DataCollectionRuleArgs Empty => new DataCollectionRuleArgs();
     }
 
-    public sealed class DataCollectionRuleState : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleState : global::Pulumi.ResourceArgs
     {
         [Input("dataFlows")]
         private InputList<Inputs.DataCollectionRuleDataFlowGetArgs>? _dataFlows;
@@ -265,5 +434,6 @@ namespace Pulumi.Azure.Monitoring
         public DataCollectionRuleState()
         {
         }
+        public static new DataCollectionRuleState Empty => new DataCollectionRuleState();
     }
 }

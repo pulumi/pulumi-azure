@@ -15,23 +15,23 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new Azure.Policy.DefinitionArgs
-    ///         {
-    ///             PolicyType = "Custom",
-    ///             Mode = "All",
-    ///             DisplayName = "my-policy-definition",
-    ///             PolicyRule = @"	{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     {
+    ///         PolicyType = "Custom",
+    ///         Mode = "All",
+    ///         DisplayName = "my-policy-definition",
+    ///         PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",
@@ -43,12 +43,13 @@ namespace Pulumi.Azure.Core
     ///     }
     ///   }
     /// ",
-    ///         });
-    ///         var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new Azure.Core.ResourceGroupPolicyAssignmentArgs
-    ///         {
-    ///             ResourceGroupId = exampleResourceGroup.Id,
-    ///             PolicyDefinitionId = exampleDefinition.Id,
-    ///             Parameters = @"    {
+    ///     });
+    /// 
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         Parameters = @"    {
     ///       ""tagName"": {
     ///         ""value"": ""Business Unit""
     ///       },
@@ -57,10 +58,9 @@ namespace Pulumi.Azure.Core
     ///       }
     ///     }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroupPolicyAssignment:ResourceGroupPolicyAssignment")]
-    public partial class ResourceGroupPolicyAssignment : Pulumi.CustomResource
+    public partial class ResourceGroupPolicyAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -190,7 +190,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupPolicyAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -279,9 +279,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyAssignmentArgs()
         {
         }
+        public static new ResourceGroupPolicyAssignmentArgs Empty => new ResourceGroupPolicyAssignmentArgs();
     }
 
-    public sealed class ResourceGroupPolicyAssignmentState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description which should be used for this Policy Assignment.
@@ -370,5 +371,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyAssignmentState()
         {
         }
+        public static new ResourceGroupPolicyAssignmentState Empty => new ResourceGroupPolicyAssignmentState();
     }
 }

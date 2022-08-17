@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterSecurityProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterSecurityProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterSecurityProfileGetArgs()
         {
         }
+        public static new KafkaClusterSecurityProfileGetArgs Empty => new KafkaClusterSecurityProfileGetArgs();
     }
 }

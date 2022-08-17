@@ -15,74 +15,76 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             DomainNameLabel = "example-pip",
-    ///         });
-    ///         var parent = new Azure.Network.TrafficManagerProfile("parent", new Azure.Network.TrafficManagerProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TrafficRoutingMethod = "Weighted",
-    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///             {
-    ///                 RelativeName = "parent-profile",
-    ///                 Ttl = 100,
-    ///             },
-    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///             {
-    ///                 Protocol = "HTTP",
-    ///                 Port = 80,
-    ///                 Path = "/",
-    ///                 IntervalInSeconds = 30,
-    ///                 TimeoutInSeconds = 9,
-    ///                 ToleratedNumberOfFailures = 3,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var nested = new Azure.Network.TrafficManagerProfile("nested", new Azure.Network.TrafficManagerProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TrafficRoutingMethod = "Priority",
-    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///             {
-    ///                 RelativeName = "nested-profile",
-    ///                 Ttl = 30,
-    ///             },
-    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///             {
-    ///                 Protocol = "HTTP",
-    ///                 Port = 443,
-    ///                 Path = "/",
-    ///             },
-    ///         });
-    ///         var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", new Azure.Network.TrafficManagerNestedEndpointArgs
-    ///         {
-    ///             TargetResourceId = nested.Id,
-    ///             Priority = 1,
-    ///             ProfileId = parent.Id,
-    ///             MinimumChildEndpoints = 9,
-    ///             Weight = 5,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         DomainNameLabel = "example-pip",
+    ///     });
+    /// 
+    ///     var parent = new Azure.Network.TrafficManagerProfile("parent", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Weighted",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = "parent-profile",
+    ///             Ttl = 100,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 80,
+    ///             Path = "/",
+    ///             IntervalInSeconds = 30,
+    ///             TimeoutInSeconds = 9,
+    ///             ToleratedNumberOfFailures = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var nested = new Azure.Network.TrafficManagerProfile("nested", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Priority",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = "nested-profile",
+    ///             Ttl = 30,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 443,
+    ///             Path = "/",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", new()
+    ///     {
+    ///         TargetResourceId = nested.Id,
+    ///         Priority = 1,
+    ///         ProfileId = parent.Id,
+    ///         MinimumChildEndpoints = 9,
+    ///         Weight = 5,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -94,7 +96,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/trafficManagerNestedEndpoint:TrafficManagerNestedEndpoint")]
-    public partial class TrafficManagerNestedEndpoint : Pulumi.CustomResource
+    public partial class TrafficManagerNestedEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `custom_header` blocks as defined below.
@@ -226,7 +228,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class TrafficManagerNestedEndpointArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerNestedEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderArgs>? _customHeaders;
@@ -335,9 +337,10 @@ namespace Pulumi.Azure.Network
         public TrafficManagerNestedEndpointArgs()
         {
         }
+        public static new TrafficManagerNestedEndpointArgs Empty => new TrafficManagerNestedEndpointArgs();
     }
 
-    public sealed class TrafficManagerNestedEndpointState : Pulumi.ResourceArgs
+    public sealed class TrafficManagerNestedEndpointState : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerNestedEndpointCustomHeaderGetArgs>? _customHeaders;
@@ -446,5 +449,6 @@ namespace Pulumi.Azure.Network
         public TrafficManagerNestedEndpointState()
         {
         }
+        public static new TrafficManagerNestedEndpointState Empty => new TrafficManagerNestedEndpointState();
     }
 }

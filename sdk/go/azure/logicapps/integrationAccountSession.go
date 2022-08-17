@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewIntegrationAccountSession(ctx, "exampleIntegrationAccountSession", &logicapps.IntegrationAccountSessionArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			IntegrationAccountName: exampleIntegrationAccount.Name,
-// 			Content: pulumi.String(fmt.Sprintf("	{\n       \"controlNumber\": \"1234\"\n    }\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountSession(ctx, "exampleIntegrationAccountSession", &logicapps.IntegrationAccountSessionArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
+//				Content:                pulumi.String(fmt.Sprintf("	{\n       \"controlNumber\": \"1234\"\n    }\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Logic App Integration Account Sessions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
+//
+//	$ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
+//
 // ```
 type IntegrationAccountSession struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *IntegrationAccountSession) ToIntegrationAccountSessionOutputWithContext
 // IntegrationAccountSessionArrayInput is an input type that accepts IntegrationAccountSessionArray and IntegrationAccountSessionArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountSessionArrayInput` via:
 //
-//          IntegrationAccountSessionArray{ IntegrationAccountSessionArgs{...} }
+//	IntegrationAccountSessionArray{ IntegrationAccountSessionArgs{...} }
 type IntegrationAccountSessionArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i IntegrationAccountSessionArray) ToIntegrationAccountSessionArrayOutputWi
 // IntegrationAccountSessionMapInput is an input type that accepts IntegrationAccountSessionMap and IntegrationAccountSessionMapOutput values.
 // You can construct a concrete instance of `IntegrationAccountSessionMapInput` via:
 //
-//          IntegrationAccountSessionMap{ "key": IntegrationAccountSessionArgs{...} }
+//	IntegrationAccountSessionMap{ "key": IntegrationAccountSessionArgs{...} }
 type IntegrationAccountSessionMapInput interface {
 	pulumi.Input
 

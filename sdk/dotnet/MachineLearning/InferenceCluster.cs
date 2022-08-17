@@ -17,105 +17,112 @@ namespace Pulumi.Azure.MachineLearning
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///             Tags = 
-    ///             {
-    ///                 { "stage", "example" },
-    ///             },
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.1.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.1.0.0/24",
-    ///             },
-    ///         });
-    ///         var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new Azure.ContainerService.KubernetesClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DnsPrefixPrivateCluster = "prefix",
-    ///             DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
-    ///             {
-    ///                 Name = "default",
-    ///                 NodeCount = 3,
-    ///                 VmSize = "Standard_D3_v2",
-    ///                 VnetSubnetId = exampleSubnet.Id,
-    ///             },
-    ///             Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleInferenceCluster = new Azure.MachineLearning.InferenceCluster("exampleInferenceCluster", new Azure.MachineLearning.InferenceClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterPurpose = "FastProd",
-    ///             KubernetesClusterId = exampleKubernetesCluster.Id,
-    ///             Description = "This is an example cluster used with Terraform",
-    ///             MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///             Tags = 
-    ///             {
-    ///                 { "stage", "example" },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.1.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.1.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DnsPrefixPrivateCluster = "prefix",
+    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         {
+    ///             Name = "default",
+    ///             NodeCount = 3,
+    ///             VmSize = "Standard_D3_v2",
+    ///             VnetSubnetId = exampleSubnet.Id,
+    ///         },
+    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInferenceCluster = new Azure.MachineLearning.InferenceCluster("exampleInferenceCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterPurpose = "FastProd",
+    ///         KubernetesClusterId = exampleKubernetesCluster.Id,
+    ///         Description = "This is an example cluster used with Terraform",
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -127,7 +134,7 @@ namespace Pulumi.Azure.MachineLearning
     /// ```
     /// </summary>
     [AzureResourceType("azure:machinelearning/inferenceCluster:InferenceCluster")]
-    public partial class InferenceCluster : Pulumi.CustomResource
+    public partial class InferenceCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -227,7 +234,7 @@ namespace Pulumi.Azure.MachineLearning
         }
     }
 
-    public sealed class InferenceClusterArgs : Pulumi.ResourceArgs
+    public sealed class InferenceClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -292,9 +299,10 @@ namespace Pulumi.Azure.MachineLearning
         public InferenceClusterArgs()
         {
         }
+        public static new InferenceClusterArgs Empty => new InferenceClusterArgs();
     }
 
-    public sealed class InferenceClusterState : Pulumi.ResourceArgs
+    public sealed class InferenceClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -359,5 +367,6 @@ namespace Pulumi.Azure.MachineLearning
         public InferenceClusterState()
         {
         }
+        public static new InferenceClusterState Empty => new InferenceClusterState();
     }
 }

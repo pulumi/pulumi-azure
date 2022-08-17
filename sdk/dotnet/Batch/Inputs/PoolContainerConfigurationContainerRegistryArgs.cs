@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolContainerConfigurationContainerRegistryArgs : Pulumi.ResourceArgs
+    public sealed class PoolContainerConfigurationContainerRegistryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password to log into the registry server. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolContainerConfigurationContainerRegistryArgs()
         {
         }
+        public static new PoolContainerConfigurationContainerRegistryArgs Empty => new PoolContainerConfigurationContainerRegistryArgs();
     }
 }

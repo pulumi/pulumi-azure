@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Avs.Inputs
 {
 
-    public sealed class PrivateCloudCircuitGetArgs : Pulumi.ResourceArgs
+    public sealed class PrivateCloudCircuitGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the ExpressRoute Circuit.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Avs.Inputs
         public PrivateCloudCircuitGetArgs()
         {
         }
+        public static new PrivateCloudCircuitGetArgs Empty => new PrivateCloudCircuitGetArgs();
     }
 }

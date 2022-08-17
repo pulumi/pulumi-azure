@@ -19,56 +19,59 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnetNatGatewayAssociation(ctx, "exampleSubnetNatGatewayAssociation", &network.SubnetNatGatewayAssociationArgs{
-// 			SubnetId:     exampleSubnet.ID(),
-// 			NatGatewayId: exampleNatGateway.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetNatGatewayAssociation(ctx, "exampleSubnetNatGatewayAssociation", &network.SubnetNatGatewayAssociationArgs{
+//				SubnetId:     exampleSubnet.ID(),
+//				NatGatewayId: exampleNatGateway.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +79,9 @@ import (
 // Subnet NAT Gateway Associations can be imported using the `resource id` of the Subnet, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
+//	$ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
 // ```
 type SubnetNatGatewayAssociation struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutputWithCon
 // SubnetNatGatewayAssociationArrayInput is an input type that accepts SubnetNatGatewayAssociationArray and SubnetNatGatewayAssociationArrayOutput values.
 // You can construct a concrete instance of `SubnetNatGatewayAssociationArrayInput` via:
 //
-//          SubnetNatGatewayAssociationArray{ SubnetNatGatewayAssociationArgs{...} }
+//	SubnetNatGatewayAssociationArray{ SubnetNatGatewayAssociationArgs{...} }
 type SubnetNatGatewayAssociationArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i SubnetNatGatewayAssociationArray) ToSubnetNatGatewayAssociationArrayOutp
 // SubnetNatGatewayAssociationMapInput is an input type that accepts SubnetNatGatewayAssociationMap and SubnetNatGatewayAssociationMapOutput values.
 // You can construct a concrete instance of `SubnetNatGatewayAssociationMapInput` via:
 //
-//          SubnetNatGatewayAssociationMap{ "key": SubnetNatGatewayAssociationArgs{...} }
+//	SubnetNatGatewayAssociationMap{ "key": SubnetNatGatewayAssociationArgs{...} }
 type SubnetNatGatewayAssociationMapInput interface {
 	pulumi.Input
 

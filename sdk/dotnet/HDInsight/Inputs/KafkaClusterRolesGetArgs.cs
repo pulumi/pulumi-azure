@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterRolesGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterRolesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `head_node` block as defined above.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterRolesGetArgs()
         {
         }
+        public static new KafkaClusterRolesGetArgs Empty => new KafkaClusterRolesGetArgs();
     }
 }

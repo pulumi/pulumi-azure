@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubFileUploadGetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubFileUploadGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type used to authenticate against the storage account. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubFileUploadGetArgs()
         {
         }
+        public static new IoTHubFileUploadGetArgs Empty => new IoTHubFileUploadGetArgs();
     }
 }

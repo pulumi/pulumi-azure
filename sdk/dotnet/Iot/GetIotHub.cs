@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetIotHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetIotHub.InvokeAsync(new Azure.Iot.GetIotHubArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getIotHubResult =&gt; getIotHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetIotHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetIotHub.InvokeAsync(new Azure.Iot.GetIotHubArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getIotHubResult =&gt; getIotHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Iot
     }
 
 
-    public sealed class GetIotHubArgs : Pulumi.InvokeArgs
+    public sealed class GetIotHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this IoTHub.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Iot
         public GetIotHubArgs()
         {
         }
+        public static new GetIotHubArgs Empty => new GetIotHubArgs();
     }
 
-    public sealed class GetIotHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIotHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this IoTHub.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Iot
         public GetIotHubInvokeArgs()
         {
         }
+        public static new GetIotHubInvokeArgs Empty => new GetIotHubInvokeArgs();
     }
 
 

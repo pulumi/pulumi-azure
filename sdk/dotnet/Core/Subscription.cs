@@ -22,95 +22,90 @@ namespace Pulumi.Azure.Core
     /// ### Creating A New Alias And Subscription For An Enrollment Account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleEnrollmentAccountScope = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
     ///     {
-    ///         var exampleEnrollmentAccountScope = Output.Create(Azure.Billing.GetEnrollmentAccountScope.InvokeAsync(new Azure.Billing.GetEnrollmentAccountScopeArgs
-    ///         {
-    ///             BillingAccountName = "1234567890",
-    ///             EnrollmentAccountName = "0123456",
-    ///         }));
-    ///         var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new Azure.Core.SubscriptionArgs
-    ///         {
-    ///             SubscriptionName = "My Example EA Subscription",
-    ///             BillingScopeId = exampleEnrollmentAccountScope.Apply(exampleEnrollmentAccountScope =&gt; exampleEnrollmentAccountScope.Id),
-    ///         });
-    ///     }
+    ///         BillingAccountName = "1234567890",
+    ///         EnrollmentAccountName = "0123456",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     {
+    ///         SubscriptionName = "My Example EA Subscription",
+    ///         BillingScopeId = exampleEnrollmentAccountScope.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Creating A New Alias And Subscription For A Microsoft Customer Account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleMcaAccountScope = Azure.Billing.GetMcaAccountScope.Invoke(new()
     ///     {
-    ///         var exampleMcaAccountScope = Output.Create(Azure.Billing.GetMcaAccountScope.InvokeAsync(new Azure.Billing.GetMcaAccountScopeArgs
-    ///         {
-    ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-    ///             BillingProfileName = "PE2Q-NOIT-BG7-TGB",
-    ///             InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
-    ///         }));
-    ///         var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new Azure.Core.SubscriptionArgs
-    ///         {
-    ///             SubscriptionName = "My Example MCA Subscription",
-    ///             BillingScopeId = exampleMcaAccountScope.Apply(exampleMcaAccountScope =&gt; exampleMcaAccountScope.Id),
-    ///         });
-    ///     }
+    ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+    ///         BillingProfileName = "PE2Q-NOIT-BG7-TGB",
+    ///         InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     {
+    ///         SubscriptionName = "My Example MCA Subscription",
+    ///         BillingScopeId = exampleMcaAccountScope.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Creating A New Alias And Subscription For A Microsoft Partner Account
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleMpaAccountScope = Azure.Billing.GetMpaAccountScope.Invoke(new()
     ///     {
-    ///         var exampleMpaAccountScope = Output.Create(Azure.Billing.GetMpaAccountScope.InvokeAsync(new Azure.Billing.GetMpaAccountScopeArgs
-    ///         {
-    ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-    ///             CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-    ///         }));
-    ///         var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new Azure.Core.SubscriptionArgs
-    ///         {
-    ///             SubscriptionName = "My Example MPA Subscription",
-    ///             BillingScopeId = exampleMpaAccountScope.Apply(exampleMpaAccountScope =&gt; exampleMpaAccountScope.Id),
-    ///         });
-    ///     }
+    ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+    ///         CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     {
+    ///         SubscriptionName = "My Example MPA Subscription",
+    ///         BillingScopeId = exampleMpaAccountScope.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Adding An Alias To An Existing Subscription
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.Subscription("example", new()
     ///     {
-    ///         var example = new Azure.Core.Subscription("example", new Azure.Core.SubscriptionArgs
-    ///         {
-    ///             Alias = "examplesub",
-    ///             SubscriptionId = "12345678-12234-5678-9012-123456789012",
-    ///             SubscriptionName = "My Example Subscription",
-    ///         });
-    ///     }
+    ///         Alias = "examplesub",
+    ///         SubscriptionId = "12345678-12234-5678-9012-123456789012",
+    ///         SubscriptionName = "My Example Subscription",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -124,7 +119,7 @@ namespace Pulumi.Azure.Core
     ///  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
-    public partial class Subscription : Pulumi.CustomResource
+    public partial class Subscription : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -212,7 +207,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class SubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -259,9 +254,10 @@ namespace Pulumi.Azure.Core
         public SubscriptionArgs()
         {
         }
+        public static new SubscriptionArgs Empty => new SubscriptionArgs();
     }
 
-    public sealed class SubscriptionState : Pulumi.ResourceArgs
+    public sealed class SubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -314,5 +310,6 @@ namespace Pulumi.Azure.Core
         public SubscriptionState()
         {
         }
+        public static new SubscriptionState Empty => new SubscriptionState();
     }
 }

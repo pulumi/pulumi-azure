@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/enrichment:Enrichment")]
-    public partial class Enrichment : Pulumi.CustomResource
+    public partial class Enrichment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The list of endpoints which will be enriched.
@@ -93,7 +93,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class EnrichmentArgs : Pulumi.ResourceArgs
+    public sealed class EnrichmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointNames", required: true)]
         private InputList<string>? _endpointNames;
@@ -128,9 +128,10 @@ namespace Pulumi.Azure.Iot
         public EnrichmentArgs()
         {
         }
+        public static new EnrichmentArgs Empty => new EnrichmentArgs();
     }
 
-    public sealed class EnrichmentState : Pulumi.ResourceArgs
+    public sealed class EnrichmentState : global::Pulumi.ResourceArgs
     {
         [Input("endpointNames")]
         private InputList<string>? _endpointNames;
@@ -165,5 +166,6 @@ namespace Pulumi.Azure.Iot
         public EnrichmentState()
         {
         }
+        public static new EnrichmentState Empty => new EnrichmentState();
     }
 }

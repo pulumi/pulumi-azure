@@ -19,87 +19,90 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			ServiceEndpoints: pulumi.StringArray{
-// 				pulumi.String("Microsoft.Storage"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("fs"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.DBforMySQL/flexibleServers"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
-// 			PrivateDnsZoneName: exampleZone.Name,
-// 			VirtualNetworkId:   exampleVirtualNetwork.ID(),
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			AdministratorLogin:    pulumi.String("psqladmin"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			BackupRetentionDays:   pulumi.Int(7),
-// 			DelegatedSubnetId:     exampleSubnet.ID(),
-// 			PrivateDnsZoneId:      exampleZone.ID(),
-// 			SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleZoneVirtualNetworkLink,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("fs"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.DBforMySQL/flexibleServers"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				PrivateDnsZoneName: exampleZone.Name,
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				BackupRetentionDays:   pulumi.Int(7),
+//				DelegatedSubnetId:     exampleSubnet.ID(),
+//				PrivateDnsZoneId:      exampleZone.ID(),
+//				SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleZoneVirtualNetworkLink,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -107,7 +110,9 @@ import (
 // MySQL Flexible Servers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
+//
+//	$ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
+//
 // ```
 type FlexibleServer struct {
 	pulumi.CustomResourceState
@@ -406,7 +411,7 @@ func (i *FlexibleServer) ToFlexibleServerOutputWithContext(ctx context.Context) 
 // FlexibleServerArrayInput is an input type that accepts FlexibleServerArray and FlexibleServerArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerArrayInput` via:
 //
-//          FlexibleServerArray{ FlexibleServerArgs{...} }
+//	FlexibleServerArray{ FlexibleServerArgs{...} }
 type FlexibleServerArrayInput interface {
 	pulumi.Input
 
@@ -431,7 +436,7 @@ func (i FlexibleServerArray) ToFlexibleServerArrayOutputWithContext(ctx context.
 // FlexibleServerMapInput is an input type that accepts FlexibleServerMap and FlexibleServerMapOutput values.
 // You can construct a concrete instance of `FlexibleServerMapInput` via:
 //
-//          FlexibleServerMap{ "key": FlexibleServerArgs{...} }
+//	FlexibleServerMap{ "key": FlexibleServerArgs{...} }
 type FlexibleServerMapInput interface {
 	pulumi.Input
 

@@ -20,7 +20,9 @@ import (
 // App Service Managed Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
+//
+//	$ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
+//
 // ```
 type ManagedCertificate struct {
 	pulumi.CustomResourceState
@@ -169,7 +171,7 @@ func (i *ManagedCertificate) ToManagedCertificateOutputWithContext(ctx context.C
 // ManagedCertificateArrayInput is an input type that accepts ManagedCertificateArray and ManagedCertificateArrayOutput values.
 // You can construct a concrete instance of `ManagedCertificateArrayInput` via:
 //
-//          ManagedCertificateArray{ ManagedCertificateArgs{...} }
+//	ManagedCertificateArray{ ManagedCertificateArgs{...} }
 type ManagedCertificateArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +196,7 @@ func (i ManagedCertificateArray) ToManagedCertificateArrayOutputWithContext(ctx 
 // ManagedCertificateMapInput is an input type that accepts ManagedCertificateMap and ManagedCertificateMapOutput values.
 // You can construct a concrete instance of `ManagedCertificateMapInput` via:
 //
-//          ManagedCertificateMap{ "key": ManagedCertificateArgs{...} }
+//	ManagedCertificateMap{ "key": ManagedCertificateArgs{...} }
 type ManagedCertificateMapInput interface {
 	pulumi.Input
 

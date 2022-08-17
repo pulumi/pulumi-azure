@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleBackend = new Azure.ApiManagement.Backend("exampleBackend", new Azure.ApiManagement.BackendArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             Protocol = "http",
-    ///             Url = "https://backend",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleBackend = new Azure.ApiManagement.Backend("exampleBackend", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         Protocol = "http",
+    ///         Url = "https://backend",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/backend:Backend")]
-    public partial class Backend : Pulumi.CustomResource
+    public partial class Backend : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
@@ -173,7 +173,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class BackendArgs : Pulumi.ResourceArgs
+    public sealed class BackendArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
@@ -250,9 +250,10 @@ namespace Pulumi.Azure.ApiManagement
         public BackendArgs()
         {
         }
+        public static new BackendArgs Empty => new BackendArgs();
     }
 
-    public sealed class BackendState : Pulumi.ResourceArgs
+    public sealed class BackendState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Name of the API Management Service where this backend should be created. Changing this forces a new resource to be created.
@@ -329,5 +330,6 @@ namespace Pulumi.Azure.ApiManagement
         public BackendState()
         {
         }
+        public static new BackendState Empty => new BackendState();
     }
 }

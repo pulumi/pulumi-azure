@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataShare.Inputs
 {
 
-    public sealed class ShareSnapshotScheduleArgs : Pulumi.ResourceArgs
+    public sealed class ShareSnapshotScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the snapshot schedule.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataShare.Inputs
         public ShareSnapshotScheduleArgs()
         {
         }
+        public static new ShareSnapshotScheduleArgs Empty => new ShareSnapshotScheduleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetRollingUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetRollingUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetRollingUpgradePolicyArgs()
         {
         }
+        public static new ScaleSetRollingUpgradePolicyArgs Empty => new ScaleSetRollingUpgradePolicyArgs();
     }
 }

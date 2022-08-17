@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class GetStandardSiteConfigIpRestrictionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetStandardSiteConfigIpRestrictionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("action")]
         public Input<string>? Action { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public GetStandardSiteConfigIpRestrictionInputArgs()
         {
         }
+        public static new GetStandardSiteConfigIpRestrictionInputArgs Empty => new GetStandardSiteConfigIpRestrictionInputArgs();
     }
 }

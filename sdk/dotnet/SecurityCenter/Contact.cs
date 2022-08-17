@@ -17,23 +17,21 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.SecurityCenter.Contact("example", new()
     ///     {
-    ///         var example = new Azure.SecurityCenter.Contact("example", new Azure.SecurityCenter.ContactArgs
-    ///         {
-    ///             AlertNotifications = true,
-    ///             AlertsToAdmins = true,
-    ///             Email = "contact@example.com",
-    ///             Phone = "+1-555-555-5555",
-    ///         });
-    ///     }
+    ///         AlertNotifications = true,
+    ///         AlertsToAdmins = true,
+    ///         Email = "contact@example.com",
+    ///         Phone = "+1-555-555-5555",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/contact:Contact")]
-    public partial class Contact : Pulumi.CustomResource
+    public partial class Contact : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to send security alerts notifications to the security contact.
@@ -115,7 +113,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class ContactArgs : Pulumi.ResourceArgs
+    public sealed class ContactArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to send security alerts notifications to the security contact.
@@ -144,9 +142,10 @@ namespace Pulumi.Azure.SecurityCenter
         public ContactArgs()
         {
         }
+        public static new ContactArgs Empty => new ContactArgs();
     }
 
-    public sealed class ContactState : Pulumi.ResourceArgs
+    public sealed class ContactState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to send security alerts notifications to the security contact.
@@ -175,5 +174,6 @@ namespace Pulumi.Azure.SecurityCenter
         public ContactState()
         {
         }
+        public static new ContactState Empty => new ContactState();
     }
 }

@@ -15,53 +15,55 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleAsset = new Azure.Media.Asset("exampleAsset", new Azure.Media.AssetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             Description = "Asset description",
-    ///         });
-    ///         var exampleStreamingLocator = new Azure.Media.StreamingLocator("exampleStreamingLocator", new Azure.Media.StreamingLocatorArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             AssetName = exampleAsset.Name,
-    ///             StreamingPolicyName = "Predefined_ClearStreamingOnly",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         Description = "Asset description",
+    ///     });
+    /// 
+    ///     var exampleStreamingLocator = new Azure.Media.StreamingLocator("exampleStreamingLocator", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         AssetName = exampleAsset.Name,
+    ///         StreamingPolicyName = "Predefined_ClearStreamingOnly",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/streamingLocator:StreamingLocator")]
-    public partial class StreamingLocator : Pulumi.CustomResource
+    public partial class StreamingLocator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -185,7 +187,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class StreamingLocatorArgs : Pulumi.ResourceArgs
+    public sealed class StreamingLocatorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -262,9 +264,10 @@ namespace Pulumi.Azure.Media
         public StreamingLocatorArgs()
         {
         }
+        public static new StreamingLocatorArgs Empty => new StreamingLocatorArgs();
     }
 
-    public sealed class StreamingLocatorState : Pulumi.ResourceArgs
+    public sealed class StreamingLocatorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alternative Media ID of this Streaming Locator. Changing this forces a new Streaming Locator to be created.
@@ -341,5 +344,6 @@ namespace Pulumi.Azure.Media
         public StreamingLocatorState()
         {
         }
+        public static new StreamingLocatorState Empty => new StreamingLocatorState();
     }
 }

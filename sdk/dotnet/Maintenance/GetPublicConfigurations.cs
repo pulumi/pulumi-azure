@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Maintenance
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Maintenance.GetPublicConfigurations.InvokeAsync(new Azure.Maintenance.GetPublicConfigurationsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///             Scope = "SQLManagedInstance",
-        ///             RecurEvery = "Monday-Thursday",
-        ///         }));
-        ///         this.Name = existing.Apply(existing =&gt; existing.Configs?[0]?.Name);
-        ///     }
+        ///         Location = "West Europe",
+        ///         Scope = "SQLManagedInstance",
+        ///         RecurEvery = "Monday-Thursday",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Maintenance
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.Maintenance.GetPublicConfigurations.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.Maintenance.GetPublicConfigurations.InvokeAsync(new Azure.Maintenance.GetPublicConfigurationsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///             Scope = "SQLManagedInstance",
-        ///             RecurEvery = "Monday-Thursday",
-        ///         }));
-        ///         this.Name = existing.Apply(existing =&gt; existing.Configs?[0]?.Name);
-        ///     }
+        ///         Location = "West Europe",
+        ///         Scope = "SQLManagedInstance",
+        ///         RecurEvery = "Monday-Thursday",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = existing.Apply(getPublicConfigurationsResult =&gt; getPublicConfigurationsResult.Configs[0]?.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Maintenance
     }
 
 
-    public sealed class GetPublicConfigurationsArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicConfigurationsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location to filter the list of Public Maintenance Configurations against.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Maintenance
         public GetPublicConfigurationsArgs()
         {
         }
+        public static new GetPublicConfigurationsArgs Empty => new GetPublicConfigurationsArgs();
     }
 
-    public sealed class GetPublicConfigurationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPublicConfigurationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Azure location to filter the list of Public Maintenance Configurations against.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Maintenance
         public GetPublicConfigurationsInvokeArgs()
         {
         }
+        public static new GetPublicConfigurationsInvokeArgs Empty => new GetPublicConfigurationsInvokeArgs();
     }
 
 

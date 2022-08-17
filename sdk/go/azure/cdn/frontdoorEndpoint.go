@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewFrontdoorEndpoint(ctx, "exampleFrontdoorEndpoint", &cdn.FrontdoorEndpointArgs{
-// 			CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-// 			Tags: pulumi.StringMap{
-// 				"ENV": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorEndpoint(ctx, "exampleFrontdoorEndpoint", &cdn.FrontdoorEndpointArgs{
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				Tags: pulumi.StringMap{
+//					"ENV": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // CDN FrontDoor Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
+//
+//	$ pulumi import azure:cdn/frontdoorEndpoint:FrontdoorEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1
+//
 // ```
 type FrontdoorEndpoint struct {
 	pulumi.CustomResourceState
@@ -185,7 +190,7 @@ func (i *FrontdoorEndpoint) ToFrontdoorEndpointOutputWithContext(ctx context.Con
 // FrontdoorEndpointArrayInput is an input type that accepts FrontdoorEndpointArray and FrontdoorEndpointArrayOutput values.
 // You can construct a concrete instance of `FrontdoorEndpointArrayInput` via:
 //
-//          FrontdoorEndpointArray{ FrontdoorEndpointArgs{...} }
+//	FrontdoorEndpointArray{ FrontdoorEndpointArgs{...} }
 type FrontdoorEndpointArrayInput interface {
 	pulumi.Input
 
@@ -210,7 +215,7 @@ func (i FrontdoorEndpointArray) ToFrontdoorEndpointArrayOutputWithContext(ctx co
 // FrontdoorEndpointMapInput is an input type that accepts FrontdoorEndpointMap and FrontdoorEndpointMapOutput values.
 // You can construct a concrete instance of `FrontdoorEndpointMapInput` via:
 //
-//          FrontdoorEndpointMap{ "key": FrontdoorEndpointArgs{...} }
+//	FrontdoorEndpointMap{ "key": FrontdoorEndpointArgs{...} }
 type FrontdoorEndpointMapInput interface {
 	pulumi.Input
 

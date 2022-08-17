@@ -22,6 +22,9 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string Name;
         public readonly int Priority;
         public readonly string ServiceTag;
+        /// <summary>
+        /// The subnet id which the Windows Function App is vNet Integrated with.
+        /// </summary>
         public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]

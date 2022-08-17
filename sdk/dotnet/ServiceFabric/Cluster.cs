@@ -15,41 +15,40 @@ namespace Pulumi.Azure.ServiceFabric
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.ServiceFabric.Cluster("exampleCluster", new Azure.ServiceFabric.ClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ReliabilityLevel = "Bronze",
-    ///             UpgradeMode = "Manual",
-    ///             ClusterCodeVersion = "7.1.456.959",
-    ///             VmImage = "Windows",
-    ///             ManagementEndpoint = "https://example:80",
-    ///             NodeTypes = 
-    ///             {
-    ///                 new Azure.ServiceFabric.Inputs.ClusterNodeTypeArgs
-    ///                 {
-    ///                     Name = "first",
-    ///                     InstanceCount = 3,
-    ///                     IsPrimary = true,
-    ///                     ClientEndpointPort = 2020,
-    ///                     HttpEndpointPort = 80,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.ServiceFabric.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ReliabilityLevel = "Bronze",
+    ///         UpgradeMode = "Manual",
+    ///         ClusterCodeVersion = "7.1.456.959",
+    ///         VmImage = "Windows",
+    ///         ManagementEndpoint = "https://example:80",
+    ///         NodeTypes = new[]
+    ///         {
+    ///             new Azure.ServiceFabric.Inputs.ClusterNodeTypeArgs
+    ///             {
+    ///                 Name = "first",
+    ///                 InstanceCount = 3,
+    ///                 IsPrimary = true,
+    ///                 ClientEndpointPort = 2020,
+    ///                 HttpEndpointPort = 80,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +60,7 @@ namespace Pulumi.Azure.ServiceFabric
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicefabric/cluster:Cluster")]
-    public partial class Cluster : Pulumi.CustomResource
+    public partial class Cluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A List of one or more features which should be enabled, such as `DnsService`.
@@ -251,7 +250,7 @@ namespace Pulumi.Azure.ServiceFabric
         }
     }
 
-    public sealed class ClusterArgs : Pulumi.ResourceArgs
+    public sealed class ClusterArgs : global::Pulumi.ResourceArgs
     {
         [Input("addOnFeatures")]
         private InputList<string>? _addOnFeatures;
@@ -430,9 +429,10 @@ namespace Pulumi.Azure.ServiceFabric
         public ClusterArgs()
         {
         }
+        public static new ClusterArgs Empty => new ClusterArgs();
     }
 
-    public sealed class ClusterState : Pulumi.ResourceArgs
+    public sealed class ClusterState : global::Pulumi.ResourceArgs
     {
         [Input("addOnFeatures")]
         private InputList<string>? _addOnFeatures;
@@ -617,5 +617,6 @@ namespace Pulumi.Azure.ServiceFabric
         public ClusterState()
         {
         }
+        public static new ClusterState Empty => new ClusterState();
     }
 }

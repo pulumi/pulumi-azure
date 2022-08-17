@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class MetricAlertDynamicCriteriaDimensionArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlertDynamicCriteriaDimensionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One of the dimension names.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public MetricAlertDynamicCriteriaDimensionArgs()
         {
         }
+        public static new MetricAlertDynamicCriteriaDimensionArgs Empty => new MetricAlertDynamicCriteriaDimensionArgs();
     }
 }

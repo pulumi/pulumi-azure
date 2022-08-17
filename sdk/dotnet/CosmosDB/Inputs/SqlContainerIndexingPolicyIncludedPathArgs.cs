@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerIndexingPolicyIncludedPathArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerIndexingPolicyIncludedPathArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path for which the indexing behaviour applies to.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerIndexingPolicyIncludedPathArgs()
         {
         }
+        public static new SqlContainerIndexingPolicyIncludedPathArgs Empty => new SqlContainerIndexingPolicyIncludedPathArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class SparkPoolSparkConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class SparkPoolSparkConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of a spark configuration.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public SparkPoolSparkConfigGetArgs()
         {
         }
+        public static new SparkPoolSparkConfigGetArgs Empty => new SparkPoolSparkConfigGetArgs();
     }
 }

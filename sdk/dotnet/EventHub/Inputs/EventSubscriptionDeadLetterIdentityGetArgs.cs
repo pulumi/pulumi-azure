@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionDeadLetterIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionDeadLetterIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionDeadLetterIdentityGetArgs()
         {
         }
+        public static new EventSubscriptionDeadLetterIdentityGetArgs Empty => new EventSubscriptionDeadLetterIdentityGetArgs();
     }
 }

@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetApiVersionSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetApiVersionSet.InvokeAsync(new Azure.ApiManagement.GetApiVersionSetArgs
-        ///         {
-        ///             ResourceGroupName = "example-resources",
-        ///             ApiManagementName = "example-api",
-        ///             Name = "example-api-version-set",
-        ///         }));
-        ///         this.ApiManagementApiVersionSetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-resources",
+        ///         ApiManagementName = "example-api",
+        ///         Name = "example-api-version-set",
+        ///     });
         /// 
-        ///     [Output("apiManagementApiVersionSetId")]
-        ///     public Output&lt;string&gt; ApiManagementApiVersionSetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementApiVersionSetId"] = example.Apply(getApiVersionSetResult =&gt; getApiVersionSetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetApiVersionSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetApiVersionSet.InvokeAsync(new Azure.ApiManagement.GetApiVersionSetArgs
-        ///         {
-        ///             ResourceGroupName = "example-resources",
-        ///             ApiManagementName = "example-api",
-        ///             Name = "example-api-version-set",
-        ///         }));
-        ///         this.ApiManagementApiVersionSetId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         ResourceGroupName = "example-resources",
+        ///         ApiManagementName = "example-api",
+        ///         Name = "example-api-version-set",
+        ///     });
         /// 
-        ///     [Output("apiManagementApiVersionSetId")]
-        ///     public Output&lt;string&gt; ApiManagementApiVersionSetId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementApiVersionSetId"] = example.Apply(getApiVersionSetResult =&gt; getApiVersionSetResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetApiVersionSetArgs : Pulumi.InvokeArgs
+    public sealed class GetApiVersionSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management Service where the API Version Set exists.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetApiVersionSetArgs()
         {
         }
+        public static new GetApiVersionSetArgs Empty => new GetApiVersionSetArgs();
     }
 
-    public sealed class GetApiVersionSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApiVersionSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management Service where the API Version Set exists.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetApiVersionSetInvokeArgs()
         {
         }
+        public static new GetApiVersionSetInvokeArgs Empty => new GetApiVersionSetInvokeArgs();
     }
 
 

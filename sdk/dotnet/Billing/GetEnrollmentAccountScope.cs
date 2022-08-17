@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetEnrollmentAccountScope.InvokeAsync(new Azure.Billing.GetEnrollmentAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "existing",
-        ///             EnrollmentAccountName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "existing",
+        ///         EnrollmentAccountName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetEnrollmentAccountScope.InvokeAsync(new Azure.Billing.GetEnrollmentAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "existing",
-        ///             EnrollmentAccountName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "existing",
+        ///         EnrollmentAccountName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Billing
     }
 
 
-    public sealed class GetEnrollmentAccountScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnrollmentAccountScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the Enterprise Account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Billing
         public GetEnrollmentAccountScopeArgs()
         {
         }
+        public static new GetEnrollmentAccountScopeArgs Empty => new GetEnrollmentAccountScopeArgs();
     }
 
-    public sealed class GetEnrollmentAccountScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEnrollmentAccountScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the Enterprise Account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Billing
         public GetEnrollmentAccountScopeInvokeArgs()
         {
         }
+        public static new GetEnrollmentAccountScopeInvokeArgs Empty => new GetEnrollmentAccountScopeInvokeArgs();
     }
 
 

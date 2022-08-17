@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterServicePrincipalArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterServicePrincipalArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID for the Service Principal.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterServicePrincipalArgs()
         {
         }
+        public static new KubernetesClusterServicePrincipalArgs Empty => new KubernetesClusterServicePrincipalArgs();
     }
 }

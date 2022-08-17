@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleSuppressionScopeArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionScopeArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceIds", required: true)]
         private InputList<string>? _resourceIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleSuppressionScopeArgs()
         {
         }
+        public static new ActionRuleSuppressionScopeArgs Empty => new ActionRuleSuppressionScopeArgs();
     }
 }

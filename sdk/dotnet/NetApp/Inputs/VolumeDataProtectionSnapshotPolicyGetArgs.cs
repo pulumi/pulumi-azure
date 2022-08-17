@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class VolumeDataProtectionSnapshotPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class VolumeDataProtectionSnapshotPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Resource ID of the snapshot policy to apply to the volume.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public VolumeDataProtectionSnapshotPolicyGetArgs()
         {
         }
+        public static new VolumeDataProtectionSnapshotPolicyGetArgs Empty => new VolumeDataProtectionSnapshotPolicyGetArgs();
     }
 }

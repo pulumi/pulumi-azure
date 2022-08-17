@@ -21,41 +21,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Identity: &storage.AccountIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewEncryptionScope(ctx, "exampleEncryptionScope", &storage.EncryptionScopeArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 			Source:           pulumi.String("Microsoft.Storage"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Identity: &storage.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewEncryptionScope(ctx, "exampleEncryptionScope", &storage.EncryptionScopeArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				Source:           pulumi.String("Microsoft.Storage"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Storage Encryption Scopes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
+//
+//	$ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
+//
 // ```
 type EncryptionScope struct {
 	pulumi.CustomResourceState
@@ -197,7 +202,7 @@ func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context
 // EncryptionScopeArrayInput is an input type that accepts EncryptionScopeArray and EncryptionScopeArrayOutput values.
 // You can construct a concrete instance of `EncryptionScopeArrayInput` via:
 //
-//          EncryptionScopeArray{ EncryptionScopeArgs{...} }
+//	EncryptionScopeArray{ EncryptionScopeArgs{...} }
 type EncryptionScopeArrayInput interface {
 	pulumi.Input
 
@@ -222,7 +227,7 @@ func (i EncryptionScopeArray) ToEncryptionScopeArrayOutputWithContext(ctx contex
 // EncryptionScopeMapInput is an input type that accepts EncryptionScopeMap and EncryptionScopeMapOutput values.
 // You can construct a concrete instance of `EncryptionScopeMapInput` via:
 //
-//          EncryptionScopeMap{ "key": EncryptionScopeArgs{...} }
+//	EncryptionScopeMap{ "key": EncryptionScopeArgs{...} }
 type EncryptionScopeMapInput interface {
 	pulumi.Input
 

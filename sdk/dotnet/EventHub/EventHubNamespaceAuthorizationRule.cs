@@ -15,39 +15,39 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Basic",
-    ///             Capacity = 2,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleEventHubNamespaceAuthorizationRule = new Azure.EventHub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", new Azure.EventHub.EventHubNamespaceAuthorizationRuleArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Listen = true,
-    ///             Send = false,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///         Capacity = 2,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespaceAuthorizationRule = new Azure.EventHub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/eventHubNamespaceAuthorizationRule:EventHubNamespaceAuthorizationRule")]
-    public partial class EventHubNamespaceAuthorizationRule : Pulumi.CustomResource
+    public partial class EventHubNamespaceAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -177,7 +177,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventHubNamespaceAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -218,9 +218,10 @@ namespace Pulumi.Azure.EventHub
         public EventHubNamespaceAuthorizationRuleArgs()
         {
         }
+        public static new EventHubNamespaceAuthorizationRuleArgs Empty => new EventHubNamespaceAuthorizationRuleArgs();
     }
 
-    public sealed class EventHubNamespaceAuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -297,5 +298,6 @@ namespace Pulumi.Azure.EventHub
         public EventHubNamespaceAuthorizationRuleState()
         {
         }
+        public static new EventHubNamespaceAuthorizationRuleState Empty => new EventHubNamespaceAuthorizationRuleState();
     }
 }

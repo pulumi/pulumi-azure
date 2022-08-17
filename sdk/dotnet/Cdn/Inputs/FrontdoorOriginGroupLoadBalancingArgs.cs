@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class FrontdoorOriginGroupLoadBalancingArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginGroupLoadBalancingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public FrontdoorOriginGroupLoadBalancingArgs()
         {
         }
+        public static new FrontdoorOriginGroupLoadBalancingArgs Empty => new FrontdoorOriginGroupLoadBalancingArgs();
     }
 }

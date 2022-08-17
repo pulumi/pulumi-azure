@@ -15,42 +15,43 @@ namespace Pulumi.Azure.ServiceBus
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new Azure.ServiceBus.QueueArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///             EnablePartitioning = true,
-    ///         });
-    ///         var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new Azure.ServiceBus.QueueAuthorizationRuleArgs
-    ///         {
-    ///             QueueId = exampleQueue.Id,
-    ///             Listen = true,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///         EnablePartitioning = true,
+    ///     });
+    /// 
+    ///     var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new()
+    ///     {
+    ///         QueueId = exampleQueue.Id,
+    ///         Listen = true,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.ServiceBus
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule")]
-    public partial class QueueAuthorizationRule : Pulumi.CustomResource
+    public partial class QueueAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
@@ -155,7 +156,7 @@ namespace Pulumi.Azure.ServiceBus
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +179,7 @@ namespace Pulumi.Azure.ServiceBus
         }
     }
 
-    public sealed class QueueAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class QueueAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
@@ -213,9 +214,10 @@ namespace Pulumi.Azure.ServiceBus
         public QueueAuthorizationRuleArgs()
         {
         }
+        public static new QueueAuthorizationRuleArgs Empty => new QueueAuthorizationRuleArgs();
     }
 
-    public sealed class QueueAuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class QueueAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does this Authorization Rule have Listen permissions to the ServiceBus Queue? Defaults to `false`.
@@ -286,5 +288,6 @@ namespace Pulumi.Azure.ServiceBus
         public QueueAuthorizationRuleState()
         {
         }
+        public static new QueueAuthorizationRuleState Empty => new QueueAuthorizationRuleState();
     }
 }

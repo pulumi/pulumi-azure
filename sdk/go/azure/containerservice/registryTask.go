@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistryTask(ctx, "exampleRegistryTask", &containerservice.RegistryTaskArgs{
-// 			ContainerRegistryId: exampleRegistry.ID(),
-// 			Platform: &containerservice.RegistryTaskPlatformArgs{
-// 				Os: pulumi.String("Linux"),
-// 			},
-// 			DockerStep: &containerservice.RegistryTaskDockerStepArgs{
-// 				DockerfilePath:     pulumi.String("Dockerfile"),
-// 				ContextPath:        pulumi.String("https://github.com/<user name>/acr-build-helloworld-node#main"),
-// 				ContextAccessToken: pulumi.String("<github personal access token>"),
-// 				ImageNames: pulumi.StringArray{
-// 					pulumi.String("helloworld:{{.Run.ID}}"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistryTask(ctx, "exampleRegistryTask", &containerservice.RegistryTaskArgs{
+//				ContainerRegistryId: exampleRegistry.ID(),
+//				Platform: &containerservice.RegistryTaskPlatformArgs{
+//					Os: pulumi.String("Linux"),
+//				},
+//				DockerStep: &containerservice.RegistryTaskDockerStepArgs{
+//					DockerfilePath:     pulumi.String("Dockerfile"),
+//					ContextPath:        pulumi.String("https://github.com/<user name>/acr-build-helloworld-node#main"),
+//					ContextAccessToken: pulumi.String("<github personal access token>"),
+//					ImageNames: pulumi.StringArray{
+//						pulumi.String("helloworld:{{.Run.ID}}"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Container Registry Tasks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/registryTask:RegistryTask example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tasks/task1
+//
+//	$ pulumi import azure:containerservice/registryTask:RegistryTask example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.ContainerRegistry/registries/registry1/tasks/task1
+//
 // ```
 type RegistryTask struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *RegistryTask) ToRegistryTaskOutputWithContext(ctx context.Context) Regi
 // RegistryTaskArrayInput is an input type that accepts RegistryTaskArray and RegistryTaskArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskArrayInput` via:
 //
-//          RegistryTaskArray{ RegistryTaskArgs{...} }
+//	RegistryTaskArray{ RegistryTaskArgs{...} }
 type RegistryTaskArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i RegistryTaskArray) ToRegistryTaskArrayOutputWithContext(ctx context.Cont
 // RegistryTaskMapInput is an input type that accepts RegistryTaskMap and RegistryTaskMapOutput values.
 // You can construct a concrete instance of `RegistryTaskMapInput` via:
 //
-//          RegistryTaskMap{ "key": RegistryTaskArgs{...} }
+//	RegistryTaskMap{ "key": RegistryTaskArgs{...} }
 type RegistryTaskMapInput interface {
 	pulumi.Input
 

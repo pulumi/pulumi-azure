@@ -447,6 +447,20 @@ public class WindowsWebAppSlot extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    @Export(name="virtualNetworkSubnetId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    public Output<Optional<String>> virtualNetworkSubnetId() {
+        return Codegen.optional(this.virtualNetworkSubnetId);
+    }
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
      */

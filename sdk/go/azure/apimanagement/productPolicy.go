@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
-// 			ProductId:         "my-product",
-// 			ApiManagementName: "example-apim",
-// 			ResourceGroupName: "search-service",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewProductPolicy(ctx, "exampleProductPolicy", &apimanagement.ProductPolicyArgs{
-// 			ProductId:         pulumi.String(exampleProduct.ProductId),
-// 			ApiManagementName: pulumi.String(exampleProduct.ApiManagementName),
-// 			ResourceGroupName: pulumi.String(exampleProduct.ResourceGroupName),
-// 			XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//				ProductId:         "my-product",
+//				ApiManagementName: "example-apim",
+//				ResourceGroupName: "search-service",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewProductPolicy(ctx, "exampleProductPolicy", &apimanagement.ProductPolicyArgs{
+//				ProductId:         pulumi.String(exampleProduct.ProductId),
+//				ApiManagementName: pulumi.String(exampleProduct.ApiManagementName),
+//				ResourceGroupName: pulumi.String(exampleProduct.ResourceGroupName),
+//				XmlContent:        pulumi.String(fmt.Sprintf("<policies>\n  <inbound>\n    <find-and-replace from=\"xyz\" to=\"abc\" />\n  </inbound>\n</policies>\n")),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // API Management Product Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/productPolicy:ProductPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/policies/policy
+//
+//	$ pulumi import azure:apimanagement/productPolicy:ProductPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/policies/policy
+//
 // ```
 type ProductPolicy struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *ProductPolicy) ToProductPolicyOutputWithContext(ctx context.Context) Pr
 // ProductPolicyArrayInput is an input type that accepts ProductPolicyArray and ProductPolicyArrayOutput values.
 // You can construct a concrete instance of `ProductPolicyArrayInput` via:
 //
-//          ProductPolicyArray{ ProductPolicyArgs{...} }
+//	ProductPolicyArray{ ProductPolicyArgs{...} }
 type ProductPolicyArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i ProductPolicyArray) ToProductPolicyArrayOutputWithContext(ctx context.Co
 // ProductPolicyMapInput is an input type that accepts ProductPolicyMap and ProductPolicyMapOutput values.
 // You can construct a concrete instance of `ProductPolicyMapInput` via:
 //
-//          ProductPolicyMap{ "key": ProductPolicyArgs{...} }
+//	ProductPolicyMap{ "key": ProductPolicyArgs{...} }
 type ProductPolicyMapInput interface {
 	pulumi.Input
 

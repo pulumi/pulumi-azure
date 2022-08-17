@@ -19,89 +19,92 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			ServiceEndpoints: pulumi.StringArray{
-// 				pulumi.String("Microsoft.Storage"),
-// 			},
-// 			Delegations: network.SubnetDelegationArray{
-// 				&network.SubnetDelegationArgs{
-// 					Name: pulumi.String("fs"),
-// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
-// 						Name: pulumi.String("Microsoft.DBforPostgreSQL/flexibleServers"),
-// 						Actions: pulumi.StringArray{
-// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
-// 			PrivateDnsZoneName: exampleZone.Name,
-// 			VirtualNetworkId:   exampleVirtualNetwork.ID(),
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			Version:               pulumi.String("12"),
-// 			DelegatedSubnetId:     exampleSubnet.ID(),
-// 			PrivateDnsZoneId:      exampleZone.ID(),
-// 			AdministratorLogin:    pulumi.String("psqladmin"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			Zone:                  pulumi.String("1"),
-// 			StorageMb:             pulumi.Int(32768),
-// 			SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleZoneVirtualNetworkLink,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//				Delegations: network.SubnetDelegationArray{
+//					&network.SubnetDelegationArgs{
+//						Name: pulumi.String("fs"),
+//						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.DBforPostgreSQL/flexibleServers"),
+//							Actions: pulumi.StringArray{
+//								pulumi.String("Microsoft.Network/virtualNetworks/subnets/join/action"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				PrivateDnsZoneName: exampleZone.Name,
+//				VirtualNetworkId:   exampleVirtualNetwork.ID(),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				Version:               pulumi.String("12"),
+//				DelegatedSubnetId:     exampleSubnet.ID(),
+//				PrivateDnsZoneId:      exampleZone.ID(),
+//				AdministratorLogin:    pulumi.String("psqladmin"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				Zone:                  pulumi.String("1"),
+//				StorageMb:             pulumi.Int(32768),
+//				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleZoneVirtualNetworkLink,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -109,7 +112,9 @@ import (
 // PostgreSQL Flexible Servers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1
+//
+//	$ pulumi import azure:postgresql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1
+//
 // ```
 type FlexibleServer struct {
 	pulumi.CustomResourceState
@@ -153,7 +158,7 @@ type FlexibleServer struct {
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	// *
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	Zone pulumi.StringPtrOutput `pulumi:"zone"`
@@ -230,7 +235,7 @@ type flexibleServerState struct {
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	// *
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	Zone *string `pulumi:"zone"`
@@ -276,7 +281,7 @@ type FlexibleServerState struct {
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	// *
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	Zone pulumi.StringPtrInput
@@ -322,7 +327,7 @@ type flexibleServerArgs struct {
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	// *
 	Tags map[string]string `pulumi:"tags"`
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	Zone *string `pulumi:"zone"`
@@ -365,7 +370,7 @@ type FlexibleServerArgs struct {
 	// A mapping of tags which should be assigned to the PostgreSQL Flexible Server.
 	// *
 	Tags pulumi.StringMapInput
-	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+	// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	Zone pulumi.StringPtrInput
@@ -397,7 +402,7 @@ func (i *FlexibleServer) ToFlexibleServerOutputWithContext(ctx context.Context) 
 // FlexibleServerArrayInput is an input type that accepts FlexibleServerArray and FlexibleServerArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerArrayInput` via:
 //
-//          FlexibleServerArray{ FlexibleServerArgs{...} }
+//	FlexibleServerArray{ FlexibleServerArgs{...} }
 type FlexibleServerArrayInput interface {
 	pulumi.Input
 
@@ -422,7 +427,7 @@ func (i FlexibleServerArray) ToFlexibleServerArrayOutputWithContext(ctx context.
 // FlexibleServerMapInput is an input type that accepts FlexibleServerMap and FlexibleServerMapOutput values.
 // You can construct a concrete instance of `FlexibleServerMapInput` via:
 //
-//          FlexibleServerMap{ "key": FlexibleServerArgs{...} }
+//	FlexibleServerMap{ "key": FlexibleServerArgs{...} }
 type FlexibleServerMapInput interface {
 	pulumi.Input
 
@@ -554,7 +559,7 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12` and `13`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
+// The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13` and `14`. Required when `createMode` is `Default`. Changing this forces a new PostgreSQL Flexible Server to be created.
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

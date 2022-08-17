@@ -17,61 +17,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewCaaRecord(ctx, "exampleCaaRecord", &dns.CaaRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: dns.CaaRecordRecordArray{
-// 				&dns.CaaRecordRecordArgs{
-// 					Flags: pulumi.Int(0),
-// 					Tag:   pulumi.String("issue"),
-// 					Value: pulumi.String("example.com"),
-// 				},
-// 				&dns.CaaRecordRecordArgs{
-// 					Flags: pulumi.Int(0),
-// 					Tag:   pulumi.String("issue"),
-// 					Value: pulumi.String("example.net"),
-// 				},
-// 				&dns.CaaRecordRecordArgs{
-// 					Flags: pulumi.Int(0),
-// 					Tag:   pulumi.String("issuewild"),
-// 					Value: pulumi.String(";"),
-// 				},
-// 				&dns.CaaRecordRecordArgs{
-// 					Flags: pulumi.Int(0),
-// 					Tag:   pulumi.String("iodef"),
-// 					Value: pulumi.String("mailto:user@nonexisting.tld"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewCaaRecord(ctx, "exampleCaaRecord", &dns.CaaRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: dns.CaaRecordRecordArray{
+//					&dns.CaaRecordRecordArgs{
+//						Flags: pulumi.Int(0),
+//						Tag:   pulumi.String("issue"),
+//						Value: pulumi.String("example.com"),
+//					},
+//					&dns.CaaRecordRecordArgs{
+//						Flags: pulumi.Int(0),
+//						Tag:   pulumi.String("issue"),
+//						Value: pulumi.String("example.net"),
+//					},
+//					&dns.CaaRecordRecordArgs{
+//						Flags: pulumi.Int(0),
+//						Tag:   pulumi.String("issuewild"),
+//						Value: pulumi.String(";"),
+//					},
+//					&dns.CaaRecordRecordArgs{
+//						Flags: pulumi.Int(0),
+//						Tag:   pulumi.String("iodef"),
+//						Value: pulumi.String("mailto:user@nonexisting.tld"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // CAA records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/caaRecord:CaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CAA/myrecord1
+//
+//	$ pulumi import azure:dns/caaRecord:CaaRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/CAA/myrecord1
+//
 // ```
 type CaaRecord struct {
 	pulumi.CustomResourceState
@@ -235,7 +240,7 @@ func (i *CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordO
 // CaaRecordArrayInput is an input type that accepts CaaRecordArray and CaaRecordArrayOutput values.
 // You can construct a concrete instance of `CaaRecordArrayInput` via:
 //
-//          CaaRecordArray{ CaaRecordArgs{...} }
+//	CaaRecordArray{ CaaRecordArgs{...} }
 type CaaRecordArrayInput interface {
 	pulumi.Input
 
@@ -260,7 +265,7 @@ func (i CaaRecordArray) ToCaaRecordArrayOutputWithContext(ctx context.Context) C
 // CaaRecordMapInput is an input type that accepts CaaRecordMap and CaaRecordMapOutput values.
 // You can construct a concrete instance of `CaaRecordMapInput` via:
 //
-//          CaaRecordMap{ "key": CaaRecordArgs{...} }
+//	CaaRecordMap{ "key": CaaRecordArgs{...} }
 type CaaRecordMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlSlotGithubActionConfigurationContainerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The image name for the build. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SourceControlSlotGithubActionConfigurationContainerConfigurationArgs()
         {
         }
+        public static new SourceControlSlotGithubActionConfigurationContainerConfigurationArgs Empty => new SourceControlSlotGithubActionConfigurationContainerConfigurationArgs();
     }
 }

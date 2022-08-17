@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			AdministratorLogin:    pulumi.String("mysqladminun"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			SkuName:               pulumi.String("B_Standard_B1s"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mysql.NewFlexibleDatabase(ctx, "exampleFlexibleDatabase", &mysql.FlexibleDatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleFlexibleServer.Name,
-// 			Charset:           pulumi.String("utf8"),
-// 			Collation:         pulumi.String("utf8_unicode_ci"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				AdministratorLogin:    pulumi.String("mysqladminun"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				SkuName:               pulumi.String("B_Standard_B1s"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewFlexibleDatabase(ctx, "exampleFlexibleDatabase", &mysql.FlexibleDatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleFlexibleServer.Name,
+//				Charset:           pulumi.String("utf8"),
+//				Collation:         pulumi.String("utf8_unicode_ci"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // MySQL Database's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mysql/flexibleDatabase:FlexibleDatabase database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleserver1/databases/database1
+//
+//	$ pulumi import azure:mysql/flexibleDatabase:FlexibleDatabase database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleserver1/databases/database1
+//
 // ```
 type FlexibleDatabase struct {
 	pulumi.CustomResourceState
@@ -201,7 +206,7 @@ func (i *FlexibleDatabase) ToFlexibleDatabaseOutputWithContext(ctx context.Conte
 // FlexibleDatabaseArrayInput is an input type that accepts FlexibleDatabaseArray and FlexibleDatabaseArrayOutput values.
 // You can construct a concrete instance of `FlexibleDatabaseArrayInput` via:
 //
-//          FlexibleDatabaseArray{ FlexibleDatabaseArgs{...} }
+//	FlexibleDatabaseArray{ FlexibleDatabaseArgs{...} }
 type FlexibleDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +231,7 @@ func (i FlexibleDatabaseArray) ToFlexibleDatabaseArrayOutputWithContext(ctx cont
 // FlexibleDatabaseMapInput is an input type that accepts FlexibleDatabaseMap and FlexibleDatabaseMapOutput values.
 // You can construct a concrete instance of `FlexibleDatabaseMapInput` via:
 //
-//          FlexibleDatabaseMap{ "key": FlexibleDatabaseArgs{...} }
+//	FlexibleDatabaseMap{ "key": FlexibleDatabaseArgs{...} }
 type FlexibleDatabaseMapInput interface {
 	pulumi.Input
 

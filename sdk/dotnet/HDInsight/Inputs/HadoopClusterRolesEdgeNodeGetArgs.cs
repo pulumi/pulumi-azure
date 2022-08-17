@@ -10,8 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterRolesEdgeNodeGetArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterRolesEdgeNodeGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("httpsEndpoints")]
+        private InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs>? _httpsEndpoints;
+        public InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs> HttpsEndpoints
+        {
+            get => _httpsEndpoints ?? (_httpsEndpoints = new InputList<Inputs.HadoopClusterRolesEdgeNodeHttpsEndpointGetArgs>());
+            set => _httpsEndpoints = value;
+        }
+
         [Input("installScriptActions", required: true)]
         private InputList<Inputs.HadoopClusterRolesEdgeNodeInstallScriptActionGetArgs>? _installScriptActions;
 
@@ -30,6 +38,14 @@ namespace Pulumi.Azure.HDInsight.Inputs
         [Input("targetInstanceCount", required: true)]
         public Input<int> TargetInstanceCount { get; set; } = null!;
 
+        [Input("uninstallScriptActions")]
+        private InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs>? _uninstallScriptActions;
+        public InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs> UninstallScriptActions
+        {
+            get => _uninstallScriptActions ?? (_uninstallScriptActions = new InputList<Inputs.HadoopClusterRolesEdgeNodeUninstallScriptActionGetArgs>());
+            set => _uninstallScriptActions = value;
+        }
+
         /// <summary>
         /// The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
         /// </summary>
@@ -39,5 +55,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterRolesEdgeNodeGetArgs()
         {
         }
+        public static new HadoopClusterRolesEdgeNodeGetArgs Empty => new HadoopClusterRolesEdgeNodeGetArgs();
     }
 }

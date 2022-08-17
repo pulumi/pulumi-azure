@@ -5,6 +5,7 @@ package com.pulumi.azure.iot;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -46,6 +47,21 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies if the certificate is created in verified state. Defaults to `false`.
+     * 
+     */
+    @Import(name="isVerified")
+    private @Nullable Output<Boolean> isVerified;
+
+    /**
+     * @return Specifies if the certificate is created in verified state. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> isVerified() {
+        return Optional.ofNullable(this.isVerified);
+    }
+
+    /**
      * Specifies the name of the Iot Device Provisioning Service Certificate resource. Changing this forces a new resource to be created.
      * 
      */
@@ -80,6 +96,7 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
     private IotHubCertificateArgs(IotHubCertificateArgs $) {
         this.certificateContent = $.certificateContent;
         this.iotDpsName = $.iotDpsName;
+        this.isVerified = $.isVerified;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
     }
@@ -142,6 +159,27 @@ public final class IotHubCertificateArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder iotDpsName(String iotDpsName) {
             return iotDpsName(Output.of(iotDpsName));
+        }
+
+        /**
+         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isVerified(@Nullable Output<Boolean> isVerified) {
+            $.isVerified = isVerified;
+            return this;
+        }
+
+        /**
+         * @param isVerified Specifies if the certificate is created in verified state. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder isVerified(Boolean isVerified) {
+            return isVerified(Output.of(isVerified));
         }
 
         /**

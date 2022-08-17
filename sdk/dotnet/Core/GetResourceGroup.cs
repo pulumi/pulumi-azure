@@ -19,23 +19,22 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +50,22 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Core.GetResourceGroup.InvokeAsync(new Azure.Core.GetResourceGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getBudgetResourceGroupResult =&gt; getBudgetResourceGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetResourceGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this Resource Group.
@@ -88,9 +86,10 @@ namespace Pulumi.Azure.Core
         public GetResourceGroupArgs()
         {
         }
+        public static new GetResourceGroupArgs Empty => new GetResourceGroupArgs();
     }
 
-    public sealed class GetResourceGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourceGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of this Resource Group.
@@ -101,6 +100,7 @@ namespace Pulumi.Azure.Core
         public GetResourceGroupInvokeArgs()
         {
         }
+        public static new GetResourceGroupInvokeArgs Empty => new GetResourceGroupInvokeArgs();
     }
 
 

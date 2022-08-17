@@ -17,24 +17,23 @@ namespace Pulumi.Azure.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var policy = new Azure.Policy.Definition("policy", new()
     ///     {
-    ///         var policy = new Azure.Policy.Definition("policy", new Azure.Policy.DefinitionArgs
-    ///         {
-    ///             DisplayName = "acceptance test policy definition",
-    ///             Metadata = @"    {
+    ///         DisplayName = "acceptance test policy definition",
+    ///         Metadata = @"    {
     ///     ""category"": ""General""
     ///     }
     /// 
     /// 
     /// ",
-    ///             Mode = "Indexed",
-    ///             Parameters = @"	{
+    ///         Mode = "Indexed",
+    ///         Parameters = @"	{
     ///     ""allowedLocations"": {
     ///       ""type"": ""Array"",
     ///       ""metadata"": {
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.Policy
     ///   }
     /// 
     /// ",
-    ///             PolicyRule = @"	{
+    ///         PolicyRule = @"	{
     ///     ""if"": {
     ///       ""not"": {
     ///         ""field"": ""location"",
@@ -59,11 +58,10 @@ namespace Pulumi.Azure.Policy
     ///   }
     /// 
     /// ",
-    ///             PolicyType = "Custom",
-    ///         });
-    ///     }
+    ///         PolicyType = "Custom",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Policy
     /// ```
     /// </summary>
     [AzureResourceType("azure:policy/definition:Definition")]
-    public partial class Definition : Pulumi.CustomResource
+    public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the policy definition.
@@ -188,7 +186,7 @@ namespace Pulumi.Azure.Policy
         }
     }
 
-    public sealed class DefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy definition.
@@ -254,9 +252,10 @@ namespace Pulumi.Azure.Policy
         public DefinitionArgs()
         {
         }
+        public static new DefinitionArgs Empty => new DefinitionArgs();
     }
 
-    public sealed class DefinitionState : Pulumi.ResourceArgs
+    public sealed class DefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy definition.
@@ -322,5 +321,6 @@ namespace Pulumi.Azure.Policy
         public DefinitionState()
         {
         }
+        public static new DefinitionState Empty => new DefinitionState();
     }
 }

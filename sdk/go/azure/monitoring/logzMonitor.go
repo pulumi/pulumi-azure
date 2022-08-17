@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Plan: &monitoring.LogzMonitorPlanArgs{
-// 				BillingCycle:  pulumi.String("MONTHLY"),
-// 				EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
-// 				PlanId:        pulumi.String("100gb14days"),
-// 				UsageType:     pulumi.String("COMMITTED"),
-// 			},
-// 			User: &monitoring.LogzMonitorUserArgs{
-// 				Email:       pulumi.String("user@example.com"),
-// 				FirstName:   pulumi.String("Example"),
-// 				LastName:    pulumi.String("User"),
-// 				PhoneNumber: pulumi.String("+12313803556"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Plan: &monitoring.LogzMonitorPlanArgs{
+//					BillingCycle:  pulumi.String("MONTHLY"),
+//					EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
+//					PlanId:        pulumi.String("100gb14days"),
+//					UsageType:     pulumi.String("COMMITTED"),
+//				},
+//				User: &monitoring.LogzMonitorUserArgs{
+//					Email:       pulumi.String("user@example.com"),
+//					FirstName:   pulumi.String("Example"),
+//					LastName:    pulumi.String("User"),
+//					PhoneNumber: pulumi.String("+12313803556"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // logz Monitors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
+//
+//	$ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
+//
 // ```
 type LogzMonitor struct {
 	pulumi.CustomResourceState
@@ -250,7 +255,7 @@ func (i *LogzMonitor) ToLogzMonitorOutputWithContext(ctx context.Context) LogzMo
 // LogzMonitorArrayInput is an input type that accepts LogzMonitorArray and LogzMonitorArrayOutput values.
 // You can construct a concrete instance of `LogzMonitorArrayInput` via:
 //
-//          LogzMonitorArray{ LogzMonitorArgs{...} }
+//	LogzMonitorArray{ LogzMonitorArgs{...} }
 type LogzMonitorArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +280,7 @@ func (i LogzMonitorArray) ToLogzMonitorArrayOutputWithContext(ctx context.Contex
 // LogzMonitorMapInput is an input type that accepts LogzMonitorMap and LogzMonitorMapOutput values.
 // You can construct a concrete instance of `LogzMonitorMapInput` via:
 //
-//          LogzMonitorMap{ "key": LogzMonitorArgs{...} }
+//	LogzMonitorMap{ "key": LogzMonitorArgs{...} }
 type LogzMonitorMapInput interface {
 	pulumi.Input
 

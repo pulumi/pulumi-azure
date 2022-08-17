@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class LiveEventInputArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A UUID in string form to uniquely identify the stream. If omitted, the service will generate a unique value. Changing this forces a new value to be created.
@@ -53,5 +53,6 @@ namespace Pulumi.Azure.Media.Inputs
         public LiveEventInputArgs()
         {
         }
+        public static new LiveEventInputArgs Empty => new LiveEventInputArgs();
     }
 }

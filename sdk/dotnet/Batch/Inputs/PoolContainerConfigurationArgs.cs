@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolContainerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PoolContainerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerImageNames")]
         private InputList<string>? _containerImageNames;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolContainerConfigurationArgs()
         {
         }
+        public static new PoolContainerConfigurationArgs Empty => new PoolContainerConfigurationArgs();
     }
 }

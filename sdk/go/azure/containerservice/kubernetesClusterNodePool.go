@@ -11,6 +11,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages a Node Pool within a Kubernetes Cluster
+//
+// > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+//
 // ## Example Usage
 //
 // This example provisions a basic Kubernetes Node Pool.
@@ -19,50 +23,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DnsPrefix:         pulumi.String("exampleaks1"),
-// 			DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-// 				Name:      pulumi.String("default"),
-// 				NodeCount: pulumi.Int(1),
-// 				VmSize:    pulumi.String("Standard_D2_v2"),
-// 			},
-// 			ServicePrincipal: &containerservice.KubernetesClusterServicePrincipalArgs{
-// 				ClientId:     pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				ClientSecret: pulumi.String("00000000000000000000000000000000"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewKubernetesClusterNodePool(ctx, "exampleKubernetesClusterNodePool", &containerservice.KubernetesClusterNodePoolArgs{
-// 			KubernetesClusterId: exampleKubernetesCluster.ID(),
-// 			VmSize:              pulumi.String("Standard_DS2_v2"),
-// 			NodeCount:           pulumi.Int(1),
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DnsPrefix:         pulumi.String("exampleaks1"),
+//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
+//					Name:      pulumi.String("default"),
+//					NodeCount: pulumi.Int(1),
+//					VmSize:    pulumi.String("Standard_D2_v2"),
+//				},
+//				ServicePrincipal: &containerservice.KubernetesClusterServicePrincipalArgs{
+//					ClientId:     pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					ClientSecret: pulumi.String("00000000000000000000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewKubernetesClusterNodePool(ctx, "exampleKubernetesClusterNodePool", &containerservice.KubernetesClusterNodePoolArgs{
+//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//				VmSize:              pulumi.String("Standard_DS2_v2"),
+//				NodeCount:           pulumi.Int(1),
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +77,9 @@ import (
 // Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+//
+//	$ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+//
 // ```
 type KubernetesClusterNodePool struct {
 	pulumi.CustomResourceState
@@ -519,7 +528,7 @@ func (i *KubernetesClusterNodePool) ToKubernetesClusterNodePoolOutputWithContext
 // KubernetesClusterNodePoolArrayInput is an input type that accepts KubernetesClusterNodePoolArray and KubernetesClusterNodePoolArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterNodePoolArrayInput` via:
 //
-//          KubernetesClusterNodePoolArray{ KubernetesClusterNodePoolArgs{...} }
+//	KubernetesClusterNodePoolArray{ KubernetesClusterNodePoolArgs{...} }
 type KubernetesClusterNodePoolArrayInput interface {
 	pulumi.Input
 
@@ -544,7 +553,7 @@ func (i KubernetesClusterNodePoolArray) ToKubernetesClusterNodePoolArrayOutputWi
 // KubernetesClusterNodePoolMapInput is an input type that accepts KubernetesClusterNodePoolMap and KubernetesClusterNodePoolMapOutput values.
 // You can construct a concrete instance of `KubernetesClusterNodePoolMapInput` via:
 //
-//          KubernetesClusterNodePoolMap{ "key": KubernetesClusterNodePoolArgs{...} }
+//	KubernetesClusterNodePoolMap{ "key": KubernetesClusterNodePoolArgs{...} }
 type KubernetesClusterNodePoolMapInput interface {
 	pulumi.Input
 

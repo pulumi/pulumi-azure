@@ -21,46 +21,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelSms(ctx, "exampleChannelSms", &bot.ChannelSmsArgs{
-// 			BotName:                     exampleChannelsRegistration.Name,
-// 			Location:                    exampleChannelsRegistration.Location,
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			SmsChannelAccountSecurityId: pulumi.String("BG61f7cf5157f439b084e98256409c2815"),
-// 			SmsChannelAuthToken:         pulumi.String("jh8980432610052ed4e29565c5e232f"),
-// 			PhoneNumber:                 pulumi.String("+12313803556"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelSms(ctx, "exampleChannelSms", &bot.ChannelSmsArgs{
+//				BotName:                     exampleChannelsRegistration.Name,
+//				Location:                    exampleChannelsRegistration.Location,
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				SmsChannelAccountSecurityId: pulumi.String("BG61f7cf5157f439b084e98256409c2815"),
+//				SmsChannelAuthToken:         pulumi.String("jh8980432610052ed4e29565c5e232f"),
+//				PhoneNumber:                 pulumi.String("+12313803556"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
+//
+//	$ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
+//
 // ```
 type ChannelSms struct {
 	pulumi.CustomResourceState
@@ -221,7 +226,7 @@ func (i *ChannelSms) ToChannelSmsOutputWithContext(ctx context.Context) ChannelS
 // ChannelSmsArrayInput is an input type that accepts ChannelSmsArray and ChannelSmsArrayOutput values.
 // You can construct a concrete instance of `ChannelSmsArrayInput` via:
 //
-//          ChannelSmsArray{ ChannelSmsArgs{...} }
+//	ChannelSmsArray{ ChannelSmsArgs{...} }
 type ChannelSmsArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (i ChannelSmsArray) ToChannelSmsArrayOutputWithContext(ctx context.Context)
 // ChannelSmsMapInput is an input type that accepts ChannelSmsMap and ChannelSmsMapOutput values.
 // You can construct a concrete instance of `ChannelSmsMapInput` via:
 //
-//          ChannelSmsMap{ "key": ChannelSmsArgs{...} }
+//	ChannelSmsMap{ "key": ChannelSmsArgs{...} }
 type ChannelSmsMapInput interface {
 	pulumi.Input
 

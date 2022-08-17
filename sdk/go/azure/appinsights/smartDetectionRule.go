@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appinsights.NewSmartDetectionRule(ctx, "exampleSmartDetectionRule", &appinsights.SmartDetectionRuleArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			Enabled:               pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appinsights.NewSmartDetectionRule(ctx, "exampleSmartDetectionRule", &appinsights.SmartDetectionRuleArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				Enabled:               pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Application Insights Smart Detection Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/smartDetectionRule/myrule1
+//
+//	$ pulumi import azure:appinsights/smartDetectionRule:SmartDetectionRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/smartDetectionRule/myrule1
+//
 // ```
 type SmartDetectionRule struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *SmartDetectionRule) ToSmartDetectionRuleOutputWithContext(ctx context.C
 // SmartDetectionRuleArrayInput is an input type that accepts SmartDetectionRuleArray and SmartDetectionRuleArrayOutput values.
 // You can construct a concrete instance of `SmartDetectionRuleArrayInput` via:
 //
-//          SmartDetectionRuleArray{ SmartDetectionRuleArgs{...} }
+//	SmartDetectionRuleArray{ SmartDetectionRuleArgs{...} }
 type SmartDetectionRuleArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i SmartDetectionRuleArray) ToSmartDetectionRuleArrayOutputWithContext(ctx 
 // SmartDetectionRuleMapInput is an input type that accepts SmartDetectionRuleMap and SmartDetectionRuleMapOutput values.
 // You can construct a concrete instance of `SmartDetectionRuleMapInput` via:
 //
-//          SmartDetectionRuleMap{ "key": SmartDetectionRuleArgs{...} }
+//	SmartDetectionRuleMap{ "key": SmartDetectionRuleArgs{...} }
 type SmartDetectionRuleMapInput interface {
 	pulumi.Input
 

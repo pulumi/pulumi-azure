@@ -20,131 +20,134 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			UpgradePolicyMode: pulumi.String("Manual"),
-// 			Sku: &compute.ScaleSetSkuArgs{
-// 				Name:     pulumi.String("Standard_F2"),
-// 				Tier:     pulumi.String("Standard"),
-// 				Capacity: pulumi.Int(2),
-// 			},
-// 			OsProfile: &compute.ScaleSetOsProfileArgs{
-// 				ComputerNamePrefix: pulumi.String("testvm"),
-// 				AdminUsername:      pulumi.String("myadmin"),
-// 			},
-// 			OsProfileLinuxConfig: &compute.ScaleSetOsProfileLinuxConfigArgs{
-// 				DisablePasswordAuthentication: pulumi.Bool(true),
-// 				SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
-// 					&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
-// 						Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-// 						KeyData: readFileOrPanic("~/.ssh/demo_key.pub"),
-// 					},
-// 				},
-// 			},
-// 			NetworkProfiles: compute.ScaleSetNetworkProfileArray{
-// 				&compute.ScaleSetNetworkProfileArgs{
-// 					Name:    pulumi.String("TestNetworkProfile"),
-// 					Primary: pulumi.Bool(true),
-// 					IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
-// 						&compute.ScaleSetNetworkProfileIpConfigurationArgs{
-// 							Name:     pulumi.String("TestIPConfiguration"),
-// 							Primary:  pulumi.Bool(true),
-// 							SubnetId: exampleSubnet.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
-// 				Name:         pulumi.String("osDiskProfile"),
-// 				Caching:      pulumi.String("ReadWrite"),
-// 				CreateOption: pulumi.String("FromImage"),
-// 				VhdContainers: pulumi.StringArray{
-// 					pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
-// 						primaryBlobEndpoint := _args[0].(string)
-// 						name := _args[1].(string)
-// 						return fmt.Sprintf("%v%v", primaryBlobEndpoint, name), nil
-// 					}).(pulumi.StringOutput),
-// 				},
-// 			},
-// 			StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
-// 				Publisher: pulumi.String("Canonical"),
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Sku:       pulumi.String("16.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				UpgradePolicyMode: pulumi.String("Manual"),
+//				Sku: &compute.ScaleSetSkuArgs{
+//					Name:     pulumi.String("Standard_F2"),
+//					Tier:     pulumi.String("Standard"),
+//					Capacity: pulumi.Int(2),
+//				},
+//				OsProfile: &compute.ScaleSetOsProfileArgs{
+//					ComputerNamePrefix: pulumi.String("testvm"),
+//					AdminUsername:      pulumi.String("myadmin"),
+//				},
+//				OsProfileLinuxConfig: &compute.ScaleSetOsProfileLinuxConfigArgs{
+//					DisablePasswordAuthentication: pulumi.Bool(true),
+//					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
+//						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
+//							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
+//							KeyData: readFileOrPanic("~/.ssh/demo_key.pub"),
+//						},
+//					},
+//				},
+//				NetworkProfiles: compute.ScaleSetNetworkProfileArray{
+//					&compute.ScaleSetNetworkProfileArgs{
+//						Name:    pulumi.String("TestNetworkProfile"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.ScaleSetNetworkProfileIpConfigurationArray{
+//							&compute.ScaleSetNetworkProfileIpConfigurationArgs{
+//								Name:     pulumi.String("TestIPConfiguration"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID(),
+//							},
+//						},
+//					},
+//				},
+//				StorageProfileOsDisk: &compute.ScaleSetStorageProfileOsDiskArgs{
+//					Name:         pulumi.String("osDiskProfile"),
+//					Caching:      pulumi.String("ReadWrite"),
+//					CreateOption: pulumi.String("FromImage"),
+//					VhdContainers: pulumi.StringArray{
+//						pulumi.All(exampleAccount.PrimaryBlobEndpoint, exampleContainer.Name).ApplyT(func(_args []interface{}) (string, error) {
+//							primaryBlobEndpoint := _args[0].(string)
+//							name := _args[1].(string)
+//							return fmt.Sprintf("%v%v", primaryBlobEndpoint, name), nil
+//						}).(pulumi.StringOutput),
+//					},
+//				},
+//				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Sku:       pulumi.String("16.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Example of storageProfileImageReference with id
 //
@@ -152,27 +155,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleImage, err := compute.NewImage(ctx, "exampleImage", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-// 			StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
-// 				Id: exampleImage.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleImage, err := compute.NewImage(ctx, "exampleImage", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
+//					Id: exampleImage.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -180,7 +186,9 @@ import (
 // Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
+//	$ pulumi import azure:compute/scaleSet:ScaleSet scaleset1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
 // ```
 type ScaleSet struct {
 	pulumi.CustomResourceState
@@ -551,7 +559,7 @@ func (i *ScaleSet) ToScaleSetOutputWithContext(ctx context.Context) ScaleSetOutp
 // ScaleSetArrayInput is an input type that accepts ScaleSetArray and ScaleSetArrayOutput values.
 // You can construct a concrete instance of `ScaleSetArrayInput` via:
 //
-//          ScaleSetArray{ ScaleSetArgs{...} }
+//	ScaleSetArray{ ScaleSetArgs{...} }
 type ScaleSetArrayInput interface {
 	pulumi.Input
 
@@ -576,7 +584,7 @@ func (i ScaleSetArray) ToScaleSetArrayOutputWithContext(ctx context.Context) Sca
 // ScaleSetMapInput is an input type that accepts ScaleSetMap and ScaleSetMapOutput values.
 // You can construct a concrete instance of `ScaleSetMapInput` via:
 //
-//          ScaleSetMap{ "key": ScaleSetArgs{...} }
+//	ScaleSetMap{ "key": ScaleSetArgs{...} }
 type ScaleSetMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation.Inputs
 {
 
-    public sealed class RunBookJobScheduleArgs : Pulumi.ResourceArgs
+    public sealed class RunBookJobScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("jobScheduleId")]
         public Input<string>? JobScheduleId { get; set; }
@@ -32,5 +32,6 @@ namespace Pulumi.Azure.Automation.Inputs
         public RunBookJobScheduleArgs()
         {
         }
+        public static new RunBookJobScheduleArgs Empty => new RunBookJobScheduleArgs();
     }
 }

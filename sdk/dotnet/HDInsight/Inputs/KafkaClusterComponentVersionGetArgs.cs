@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterComponentVersionGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterComponentVersionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterComponentVersionGetArgs()
         {
         }
+        public static new KafkaClusterComponentVersionGetArgs Empty => new KafkaClusterComponentVersionGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class SubnetServiceEndpointStoragePolicyDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class SubnetServiceEndpointStoragePolicyDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of this Subnet Service Endpoint Storage Policy Definition.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public SubnetServiceEndpointStoragePolicyDefinitionArgs()
         {
         }
+        public static new SubnetServiceEndpointStoragePolicyDefinitionArgs Empty => new SubnetServiceEndpointStoragePolicyDefinitionArgs();
     }
 }

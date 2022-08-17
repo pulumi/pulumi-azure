@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppConfiguration.Inputs
 {
 
-    public sealed class ConfigurationStorePrimaryWriteKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationStorePrimaryWriteKeyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Connection String for this Access Key - comprising of the Endpoint, ID and Secret.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         public ConfigurationStorePrimaryWriteKeyGetArgs()
         {
         }
+        public static new ConfigurationStorePrimaryWriteKeyGetArgs Empty => new ConfigurationStorePrimaryWriteKeyGetArgs();
     }
 }

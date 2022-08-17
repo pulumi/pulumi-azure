@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "search-api",
-// 			ApiManagementName: "search-api-management",
-// 			ResourceGroupName: "search-service",
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
-// 			OperationId:       pulumi.String("user-delete"),
-// 			ApiName:           pulumi.String(exampleApi.Name),
-// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
-// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			DisplayName:       pulumi.String("Delete User Operation"),
-// 			Method:            pulumi.String("DELETE"),
-// 			UrlTemplate:       pulumi.String("/users/{id}/delete"),
-// 			Description:       pulumi.String("This can only be done by the logged in user."),
-// 			Responses: apimanagement.ApiOperationResponseArray{
-// 				&apimanagement.ApiOperationResponseArgs{
-// 					StatusCode: pulumi.Int(200),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "search-api",
+//				ApiManagementName: "search-api-management",
+//				ResourceGroupName: "search-service",
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+//				OperationId:       pulumi.String("user-delete"),
+//				ApiName:           pulumi.String(exampleApi.Name),
+//				ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+//				ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+//				DisplayName:       pulumi.String("Delete User Operation"),
+//				Method:            pulumi.String("DELETE"),
+//				UrlTemplate:       pulumi.String("/users/{id}/delete"),
+//				Description:       pulumi.String("This can only be done by the logged in user."),
+//				Responses: apimanagement.ApiOperationResponseArray{
+//					&apimanagement.ApiOperationResponseArgs{
+//						StatusCode: pulumi.Int(200),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // API Management API Operation's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
+//
+//	$ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
+//
 // ```
 type ApiOperation struct {
 	pulumi.CustomResourceState
@@ -271,7 +276,7 @@ func (i *ApiOperation) ToApiOperationOutputWithContext(ctx context.Context) ApiO
 // ApiOperationArrayInput is an input type that accepts ApiOperationArray and ApiOperationArrayOutput values.
 // You can construct a concrete instance of `ApiOperationArrayInput` via:
 //
-//          ApiOperationArray{ ApiOperationArgs{...} }
+//	ApiOperationArray{ ApiOperationArgs{...} }
 type ApiOperationArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (i ApiOperationArray) ToApiOperationArrayOutputWithContext(ctx context.Cont
 // ApiOperationMapInput is an input type that accepts ApiOperationMap and ApiOperationMapOutput values.
 // You can construct a concrete instance of `ApiOperationMapInput` via:
 //
-//          ApiOperationMap{ "key": ApiOperationArgs{...} }
+//	ApiOperationMap{ "key": ApiOperationArgs{...} }
 type ApiOperationMapInput interface {
 	pulumi.Input
 

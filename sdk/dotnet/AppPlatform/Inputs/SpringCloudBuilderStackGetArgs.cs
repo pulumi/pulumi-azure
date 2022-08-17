@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudBuilderStackGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudBuilderStackGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the ClusterStack.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudBuilderStackGetArgs()
         {
         }
+        public static new SpringCloudBuilderStackGetArgs Empty => new SpringCloudBuilderStackGetArgs();
     }
 }

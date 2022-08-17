@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountPartnerBusinessIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountPartnerBusinessIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authenticating body that provides unique business identities to organizations.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountPartnerBusinessIdentityGetArgs()
         {
         }
+        public static new IntegrationAccountPartnerBusinessIdentityGetArgs Empty => new IntegrationAccountPartnerBusinessIdentityGetArgs();
     }
 }

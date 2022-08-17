@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetLinuxWebApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetLinuxWebApp.InvokeAsync(new Azure.AppService.GetLinuxWebAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getLinuxWebAppResult =&gt; getLinuxWebAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetLinuxWebApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetLinuxWebApp.InvokeAsync(new Azure.AppService.GetLinuxWebAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getLinuxWebAppResult =&gt; getLinuxWebAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetLinuxWebAppArgs : Pulumi.InvokeArgs
+    public sealed class GetLinuxWebAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Linux Web App.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetLinuxWebAppArgs()
         {
         }
+        public static new GetLinuxWebAppArgs Empty => new GetLinuxWebAppArgs();
     }
 
-    public sealed class GetLinuxWebAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLinuxWebAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Linux Web App.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetLinuxWebAppInvokeArgs()
         {
         }
+        public static new GetLinuxWebAppInvokeArgs Empty => new GetLinuxWebAppInvokeArgs();
     }
 
 

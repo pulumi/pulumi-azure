@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterGatewayArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password used for the Ambari Portal.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterGatewayArgs()
         {
         }
+        public static new SparkClusterGatewayArgs Empty => new SparkClusterGatewayArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterMonitorArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Operations Management Suite (OMS) workspace ID.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterMonitorArgs()
         {
         }
+        public static new SparkClusterMonitorArgs Empty => new SparkClusterMonitorArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppStorageAccountArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppStorageAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Access key for the storage account.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppStorageAccountArgs()
         {
         }
+        public static new WindowsWebAppStorageAccountArgs Empty => new WindowsWebAppStorageAccountArgs();
     }
 }

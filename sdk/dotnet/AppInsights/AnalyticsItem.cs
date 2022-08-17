@@ -15,33 +15,33 @@ namespace Pulumi.Azure.AppInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleAnalyticsItem = new Azure.AppInsights.AnalyticsItem("exampleAnalyticsItem", new Azure.AppInsights.AnalyticsItemArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             Content = "requests //simple example query",
-    ///             Scope = "shared",
-    ///             Type = "query",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsItem = new Azure.AppInsights.AnalyticsItem("exampleAnalyticsItem", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         Content = "requests //simple example query",
+    ///         Scope = "shared",
+    ///         Type = "query",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.AppInsights
     ///  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
     /// </summary>
     [AzureResourceType("azure:appinsights/analyticsItem:AnalyticsItem")]
-    public partial class AnalyticsItem : Pulumi.CustomResource
+    public partial class AnalyticsItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class AnalyticsItemArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -196,9 +196,10 @@ namespace Pulumi.Azure.AppInsights
         public AnalyticsItemArgs()
         {
         }
+        public static new AnalyticsItemArgs Empty => new AnalyticsItemArgs();
     }
 
-    public sealed class AnalyticsItemState : Pulumi.ResourceArgs
+    public sealed class AnalyticsItemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -257,5 +258,6 @@ namespace Pulumi.Azure.AppInsights
         public AnalyticsItemState()
         {
         }
+        public static new AnalyticsItemState Empty => new AnalyticsItemState();
     }
 }

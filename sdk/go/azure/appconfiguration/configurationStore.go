@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // App Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
+//
+//	$ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
+//
 // ```
 type ConfigurationStore struct {
 	pulumi.CustomResourceState
@@ -220,7 +225,7 @@ func (i *ConfigurationStore) ToConfigurationStoreOutputWithContext(ctx context.C
 // ConfigurationStoreArrayInput is an input type that accepts ConfigurationStoreArray and ConfigurationStoreArrayOutput values.
 // You can construct a concrete instance of `ConfigurationStoreArrayInput` via:
 //
-//          ConfigurationStoreArray{ ConfigurationStoreArgs{...} }
+//	ConfigurationStoreArray{ ConfigurationStoreArgs{...} }
 type ConfigurationStoreArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (i ConfigurationStoreArray) ToConfigurationStoreArrayOutputWithContext(ctx 
 // ConfigurationStoreMapInput is an input type that accepts ConfigurationStoreMap and ConfigurationStoreMapOutput values.
 // You can construct a concrete instance of `ConfigurationStoreMapInput` via:
 //
-//          ConfigurationStoreMap{ "key": ConfigurationStoreArgs{...} }
+//	ConfigurationStoreMap{ "key": ConfigurationStoreArgs{...} }
 type ConfigurationStoreMapInput interface {
 	pulumi.Input
 

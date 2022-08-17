@@ -21,55 +21,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewGroup(ctx, "exampleGroup", &containerservice.GroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpAddressType:     pulumi.String("Public"),
-// 			DnsNameLabel:      pulumi.String("aci-label"),
-// 			OsType:            pulumi.String("Linux"),
-// 			Containers: containerservice.GroupContainerArray{
-// 				&containerservice.GroupContainerArgs{
-// 					Name:   pulumi.String("hello-world"),
-// 					Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
-// 					Cpu:    pulumi.Float64(0.5),
-// 					Memory: pulumi.Float64(1.5),
-// 					Ports: containerservice.GroupContainerPortArray{
-// 						&containerservice.GroupContainerPortArgs{
-// 							Port:     pulumi.Int(443),
-// 							Protocol: pulumi.String("TCP"),
-// 						},
-// 					},
-// 				},
-// 				&containerservice.GroupContainerArgs{
-// 					Name:   pulumi.String("sidecar"),
-// 					Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"),
-// 					Cpu:    pulumi.Float64(0.5),
-// 					Memory: pulumi.Float64(1.5),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("testing"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewGroup(ctx, "exampleGroup", &containerservice.GroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpAddressType:     pulumi.String("Public"),
+//				DnsNameLabel:      pulumi.String("aci-label"),
+//				OsType:            pulumi.String("Linux"),
+//				Containers: containerservice.GroupContainerArray{
+//					&containerservice.GroupContainerArgs{
+//						Name:   pulumi.String("hello-world"),
+//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-helloworld:latest"),
+//						Cpu:    pulumi.Float64(0.5),
+//						Memory: pulumi.Float64(1.5),
+//						Ports: containerservice.GroupContainerPortArray{
+//							&containerservice.GroupContainerPortArgs{
+//								Port:     pulumi.Int(443),
+//								Protocol: pulumi.String("TCP"),
+//							},
+//						},
+//					},
+//					&containerservice.GroupContainerArgs{
+//						Name:   pulumi.String("sidecar"),
+//						Image:  pulumi.String("mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"),
+//						Cpu:    pulumi.Float64(0.5),
+//						Memory: pulumi.Float64(1.5),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("testing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -77,7 +80,9 @@ import (
 // Container Group's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/group:Group containerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerInstance/containerGroups/myContainerGroup1
+//
+//	$ pulumi import azure:containerservice/group:Group containerGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerInstance/containerGroups/myContainerGroup1
+//
 // ```
 type Group struct {
 	pulumi.CustomResourceState
@@ -88,7 +93,7 @@ type Group struct {
 	Diagnostics GroupDiagnosticsPtrOutput `pulumi:"diagnostics"`
 	// A `dnsConfig` block as documented below.
 	DnsConfig GroupDnsConfigPtrOutput `pulumi:"dnsConfig"`
-	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrOutput `pulumi:"dnsNameLabel"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayOutput `pulumi:"exposedPorts"`
@@ -96,7 +101,7 @@ type Group struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrOutput `pulumi:"identity"`
-	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayOutput `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayOutput `pulumi:"initContainers"`
@@ -110,7 +115,7 @@ type Group struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Network profile ID for deploying to virtual network.
+	// Network profile ID for deploying to a virtual network.
 	NetworkProfileId pulumi.StringPtrOutput `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringOutput `pulumi:"osType"`
@@ -166,7 +171,7 @@ type groupState struct {
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
 	// A `dnsConfig` block as documented below.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
-	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
@@ -174,7 +179,7 @@ type groupState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
-	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
@@ -188,7 +193,7 @@ type groupState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Network profile ID for deploying to virtual network.
+	// Network profile ID for deploying to a virtual network.
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType *string `pulumi:"osType"`
@@ -207,7 +212,7 @@ type GroupState struct {
 	Diagnostics GroupDiagnosticsPtrInput
 	// A `dnsConfig` block as documented below.
 	DnsConfig GroupDnsConfigPtrInput
-	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
@@ -215,7 +220,7 @@ type GroupState struct {
 	Fqdn pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
-	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
@@ -229,7 +234,7 @@ type GroupState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Network profile ID for deploying to virtual network.
+	// Network profile ID for deploying to a virtual network.
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringPtrInput
@@ -252,13 +257,13 @@ type groupArgs struct {
 	Diagnostics *GroupDiagnostics `pulumi:"diagnostics"`
 	// A `dnsConfig` block as documented below.
 	DnsConfig *GroupDnsConfig `pulumi:"dnsConfig"`
-	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel *string `pulumi:"dnsNameLabel"`
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts []GroupExposedPort `pulumi:"exposedPorts"`
 	// An `identity` block as defined below.
 	Identity *GroupIdentity `pulumi:"identity"`
-	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials []GroupImageRegistryCredential `pulumi:"imageRegistryCredentials"`
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers []GroupInitContainer `pulumi:"initContainers"`
@@ -270,7 +275,7 @@ type groupArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Network profile ID for deploying to virtual network.
+	// Network profile ID for deploying to a virtual network.
 	NetworkProfileId *string `pulumi:"networkProfileId"`
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType string `pulumi:"osType"`
@@ -290,13 +295,13 @@ type GroupArgs struct {
 	Diagnostics GroupDiagnosticsPtrInput
 	// A `dnsConfig` block as documented below.
 	DnsConfig GroupDnsConfigPtrInput
-	// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+	// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 	DnsNameLabel pulumi.StringPtrInput
 	// Zero or more `exposedPort` blocks as defined below. Changing this forces a new resource to be created.
 	ExposedPorts GroupExposedPortArrayInput
 	// An `identity` block as defined below.
 	Identity GroupIdentityPtrInput
-	// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+	// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 	ImageRegistryCredentials GroupImageRegistryCredentialArrayInput
 	// The definition of an init container that is part of the group as documented in the `initContainer` block below. Changing this forces a new resource to be created.
 	InitContainers GroupInitContainerArrayInput
@@ -308,7 +313,7 @@ type GroupArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Container Group. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Network profile ID for deploying to virtual network.
+	// Network profile ID for deploying to a virtual network.
 	NetworkProfileId pulumi.StringPtrInput
 	// The OS for the container group. Allowed values are `Linux` and `Windows`. Changing this forces a new resource to be created.
 	OsType pulumi.StringInput
@@ -346,7 +351,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
-//          GroupArray{ GroupArgs{...} }
+//	GroupArray{ GroupArgs{...} }
 type GroupArrayInput interface {
 	pulumi.Input
 
@@ -371,7 +376,7 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
-//          GroupMap{ "key": GroupArgs{...} }
+//	GroupMap{ "key": GroupArgs{...} }
 type GroupMapInput interface {
 	pulumi.Input
 
@@ -422,7 +427,7 @@ func (o GroupOutput) DnsConfig() GroupDnsConfigPtrOutput {
 	return o.ApplyT(func(v *Group) GroupDnsConfigPtrOutput { return v.DnsConfig }).(GroupDnsConfigPtrOutput)
 }
 
-// The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+// The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
 func (o GroupOutput) DnsNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.DnsNameLabel }).(pulumi.StringPtrOutput)
 }
@@ -442,7 +447,7 @@ func (o GroupOutput) Identity() GroupIdentityPtrOutput {
 	return o.ApplyT(func(v *Group) GroupIdentityPtrOutput { return v.Identity }).(GroupIdentityPtrOutput)
 }
 
-// A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+// An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
 func (o GroupOutput) ImageRegistryCredentials() GroupImageRegistryCredentialArrayOutput {
 	return o.ApplyT(func(v *Group) GroupImageRegistryCredentialArrayOutput { return v.ImageRegistryCredentials }).(GroupImageRegistryCredentialArrayOutput)
 }
@@ -477,7 +482,7 @@ func (o GroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Network profile ID for deploying to virtual network.
+// Network profile ID for deploying to a virtual network.
 func (o GroupOutput) NetworkProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.NetworkProfileId }).(pulumi.StringPtrOutput)
 }

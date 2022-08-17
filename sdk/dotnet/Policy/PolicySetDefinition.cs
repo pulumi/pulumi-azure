@@ -17,17 +17,16 @@ namespace Pulumi.Azure.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Policy.PolicySetDefinition("example", new()
     ///     {
-    ///         var example = new Azure.Policy.PolicySetDefinition("example", new Azure.Policy.PolicySetDefinitionArgs
-    ///         {
-    ///             DisplayName = "Test Policy Set",
-    ///             Parameters = @"    {
+    ///         DisplayName = "Test Policy Set",
+    ///         Parameters = @"    {
     ///         ""allowedLocations"": {
     ///             ""type"": ""Array"",
     ///             ""metadata"": {
@@ -39,23 +38,22 @@ namespace Pulumi.Azure.Policy
     ///     }
     /// 
     /// ",
-    ///             PolicyDefinitionReferences = 
+    ///         PolicyDefinitionReferences = new[]
+    ///         {
+    ///             new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
     ///             {
-    ///                 new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
-    ///                 {
-    ///                     ParameterValues = @"    {
+    ///                 ParameterValues = @"    {
     ///       ""listOfAllowedLocations"": {""value"": ""[parameters('allowedLocations')]""}
     ///     }
     ///     
     /// ",
-    ///                     PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-    ///                 },
+    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     ///             },
-    ///             PolicyType = "Custom",
-    ///         });
-    ///     }
+    ///         },
+    ///         PolicyType = "Custom",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +71,7 @@ namespace Pulumi.Azure.Policy
     /// ```
     /// </summary>
     [AzureResourceType("azure:policy/policySetDefinition:PolicySetDefinition")]
-    public partial class PolicySetDefinition : Pulumi.CustomResource
+    public partial class PolicySetDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the policy set definition.
@@ -173,7 +171,7 @@ namespace Pulumi.Azure.Policy
         }
     }
 
-    public sealed class PolicySetDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class PolicySetDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy set definition.
@@ -244,9 +242,10 @@ namespace Pulumi.Azure.Policy
         public PolicySetDefinitionArgs()
         {
         }
+        public static new PolicySetDefinitionArgs Empty => new PolicySetDefinitionArgs();
     }
 
-    public sealed class PolicySetDefinitionState : Pulumi.ResourceArgs
+    public sealed class PolicySetDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the policy set definition.
@@ -317,5 +316,6 @@ namespace Pulumi.Azure.Policy
         public PolicySetDefinitionState()
         {
         }
+        public static new PolicySetDefinitionState Empty => new PolicySetDefinitionState();
     }
 }

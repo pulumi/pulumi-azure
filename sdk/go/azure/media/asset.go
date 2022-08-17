@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewAsset(ctx, "exampleAsset", &media.AssetArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("Asset description"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewAsset(ctx, "exampleAsset", &media.AssetArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("Asset description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -73,7 +76,9 @@ import (
 // Media Assets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:media/asset:Asset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/assets/asset1
+//
+//	$ pulumi import azure:media/asset:Asset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaservices/account1/assets/asset1
+//
 // ```
 type Asset struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *Asset) ToAssetOutputWithContext(ctx context.Context) AssetOutput {
 // AssetArrayInput is an input type that accepts AssetArray and AssetArrayOutput values.
 // You can construct a concrete instance of `AssetArrayInput` via:
 //
-//          AssetArray{ AssetArgs{...} }
+//	AssetArray{ AssetArgs{...} }
 type AssetArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i AssetArray) ToAssetArrayOutputWithContext(ctx context.Context) AssetArra
 // AssetMapInput is an input type that accepts AssetMap and AssetMapOutput values.
 // You can construct a concrete instance of `AssetMapInput` via:
 //
-//          AssetMap{ "key": AssetArgs{...} }
+//	AssetMap{ "key": AssetArgs{...} }
 type AssetMapInput interface {
 	pulumi.Input
 

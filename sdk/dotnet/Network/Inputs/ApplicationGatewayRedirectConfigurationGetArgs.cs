@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRedirectConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRedirectConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -60,5 +60,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRedirectConfigurationGetArgs()
         {
         }
+        public static new ApplicationGatewayRedirectConfigurationGetArgs Empty => new ApplicationGatewayRedirectConfigurationGetArgs();
     }
 }

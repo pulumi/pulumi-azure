@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class GalleryApplicationVersionManageActionArgs : Pulumi.ResourceArgs
+    public sealed class GalleryApplicationVersionManageActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command to install the Gallery Application. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public GalleryApplicationVersionManageActionArgs()
         {
         }
+        public static new GalleryApplicationVersionManageActionArgs Empty => new GalleryApplicationVersionManageActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyIdentityArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyIdentityArgs()
         {
         }
+        public static new FirewallPolicyIdentityArgs Empty => new FirewallPolicyIdentityArgs();
     }
 }

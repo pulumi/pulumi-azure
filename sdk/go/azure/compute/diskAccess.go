@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := compute.NewDiskAccess(ctx, "example", &compute.DiskAccessArgs{
-// 			Location:          pulumi.String("West Europe"),
-// 			ResourceGroupName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := compute.NewDiskAccess(ctx, "example", &compute.DiskAccessArgs{
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Disk Access resource can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/diskAccess:DiskAccess example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/diskAccesses/diskAccess1
+//
+//	$ pulumi import azure:compute/diskAccess:DiskAccess example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/diskAccesses/diskAccess1
+//
 // ```
 type DiskAccess struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *DiskAccess) ToDiskAccessOutputWithContext(ctx context.Context) DiskAcce
 // DiskAccessArrayInput is an input type that accepts DiskAccessArray and DiskAccessArrayOutput values.
 // You can construct a concrete instance of `DiskAccessArrayInput` via:
 //
-//          DiskAccessArray{ DiskAccessArgs{...} }
+//	DiskAccessArray{ DiskAccessArgs{...} }
 type DiskAccessArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i DiskAccessArray) ToDiskAccessArrayOutputWithContext(ctx context.Context)
 // DiskAccessMapInput is an input type that accepts DiskAccessMap and DiskAccessMapOutput values.
 // You can construct a concrete instance of `DiskAccessMapInput` via:
 //
-//          DiskAccessMap{ "key": DiskAccessArgs{...} }
+//	DiskAccessMap{ "key": DiskAccessArgs{...} }
 type DiskAccessMapInput interface {
 	pulumi.Input
 

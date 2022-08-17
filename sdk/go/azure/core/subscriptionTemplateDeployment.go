@@ -18,40 +18,44 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewSubscriptionTemplateDeployment(ctx, "example", &core.SubscriptionTemplateDeploymentArgs{
-// 			Location: pulumi.String("West Europe"),
-// 			TemplateContent: pulumi.String(fmt.Sprintf(` {
-//    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-//    "contentVersion": "1.0.0.0",
-//    "parameters": {},
-//    "variables": {},
-//    "resources": [
-//      {
-//        "type": "Microsoft.Resources/resourceGroups",
-//        "apiVersion": "2018-05-01",
-//        "location": "West Europe",
-//        "name": "some-resource-group",
-//        "properties": {}
-//      }
-//    ]
-//  }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewSubscriptionTemplateDeployment(ctx, "example", &core.SubscriptionTemplateDeploymentArgs{
+//				Location: pulumi.String("West Europe"),
+//				TemplateContent: pulumi.String(fmt.Sprintf(` {
+//	   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+//	   "contentVersion": "1.0.0.0",
+//	   "parameters": {},
+//	   "variables": {},
+//	   "resources": [
+//	     {
+//	       "type": "Microsoft.Resources/resourceGroups",
+//	       "apiVersion": "2018-05-01",
+//	       "location": "West Europe",
+//	       "name": "some-resource-group",
+//	       "properties": {}
+//	     }
+//	   ]
+//	 }
 //
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +63,9 @@ import (
 // Subscription Template Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
+//
+//	$ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
+//
 // ```
 type SubscriptionTemplateDeployment struct {
 	pulumi.CustomResourceState
@@ -213,7 +219,7 @@ func (i *SubscriptionTemplateDeployment) ToSubscriptionTemplateDeploymentOutputW
 // SubscriptionTemplateDeploymentArrayInput is an input type that accepts SubscriptionTemplateDeploymentArray and SubscriptionTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `SubscriptionTemplateDeploymentArrayInput` via:
 //
-//          SubscriptionTemplateDeploymentArray{ SubscriptionTemplateDeploymentArgs{...} }
+//	SubscriptionTemplateDeploymentArray{ SubscriptionTemplateDeploymentArgs{...} }
 type SubscriptionTemplateDeploymentArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +244,7 @@ func (i SubscriptionTemplateDeploymentArray) ToSubscriptionTemplateDeploymentArr
 // SubscriptionTemplateDeploymentMapInput is an input type that accepts SubscriptionTemplateDeploymentMap and SubscriptionTemplateDeploymentMapOutput values.
 // You can construct a concrete instance of `SubscriptionTemplateDeploymentMapInput` via:
 //
-//          SubscriptionTemplateDeploymentMap{ "key": SubscriptionTemplateDeploymentArgs{...} }
+//	SubscriptionTemplateDeploymentMap{ "key": SubscriptionTemplateDeploymentArgs{...} }
 type SubscriptionTemplateDeploymentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppAuthSettingsTwitterGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppAuthSettingsTwitterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth 1.0a consumer key of the Twitter application used for sign-in.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppAuthSettingsTwitterGetArgs()
         {
         }
+        public static new FunctionAppAuthSettingsTwitterGetArgs Empty => new FunctionAppAuthSettingsTwitterGetArgs();
     }
 }

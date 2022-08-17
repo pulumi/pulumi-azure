@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class TransformOutputVideoAnalyzerPresetGetArgs : Pulumi.ResourceArgs
+    public sealed class TransformOutputVideoAnalyzerPresetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Media.Inputs
         public TransformOutputVideoAnalyzerPresetGetArgs()
         {
         }
+        public static new TransformOutputVideoAnalyzerPresetGetArgs Empty => new TransformOutputVideoAnalyzerPresetGetArgs();
     }
 }

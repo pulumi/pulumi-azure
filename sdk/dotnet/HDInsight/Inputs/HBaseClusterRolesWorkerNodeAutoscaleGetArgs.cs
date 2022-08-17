@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterRolesWorkerNodeAutoscaleGetArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterRolesWorkerNodeAutoscaleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `recurrence` block as defined below.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterRolesWorkerNodeAutoscaleGetArgs()
         {
         }
+        public static new HBaseClusterRolesWorkerNodeAutoscaleGetArgs Empty => new HBaseClusterRolesWorkerNodeAutoscaleGetArgs();
     }
 }

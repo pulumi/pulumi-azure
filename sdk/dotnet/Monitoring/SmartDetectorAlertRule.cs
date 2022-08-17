@@ -15,49 +15,50 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "example",
-    ///         });
-    ///         var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", new Azure.Monitoring.SmartDetectorAlertRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Severity = "Sev0",
-    ///             ScopeResourceIds = 
-    ///             {
-    ///                 exampleInsights.Id,
-    ///             },
-    ///             Frequency = "PT1M",
-    ///             DetectorType = "FailureAnomaliesDetector",
-    ///             ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
-    ///             {
-    ///                 Ids = 
-    ///                 {
-    ///                     exampleActionGroup.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "example",
+    ///     });
+    /// 
+    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Severity = "Sev0",
+    ///         ScopeResourceIds = new[]
+    ///         {
+    ///             exampleInsights.Id,
+    ///         },
+    ///         Frequency = "PT1M",
+    ///         DetectorType = "FailureAnomaliesDetector",
+    ///         ActionGroup = new Azure.Monitoring.Inputs.SmartDetectorAlertRuleActionGroupArgs
+    ///         {
+    ///             Ids = new[]
+    ///             {
+    ///                 exampleActionGroup.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -69,7 +70,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule")]
-    public partial class SmartDetectorAlertRule : Pulumi.CustomResource
+    public partial class SmartDetectorAlertRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `action_group` block as defined below.
@@ -181,7 +182,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class SmartDetectorAlertRuleArgs : Pulumi.ResourceArgs
+    public sealed class SmartDetectorAlertRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `action_group` block as defined below.
@@ -264,9 +265,10 @@ namespace Pulumi.Azure.Monitoring
         public SmartDetectorAlertRuleArgs()
         {
         }
+        public static new SmartDetectorAlertRuleArgs Empty => new SmartDetectorAlertRuleArgs();
     }
 
-    public sealed class SmartDetectorAlertRuleState : Pulumi.ResourceArgs
+    public sealed class SmartDetectorAlertRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `action_group` block as defined below.
@@ -349,5 +351,6 @@ namespace Pulumi.Azure.Monitoring
         public SmartDetectorAlertRuleState()
         {
         }
+        public static new SmartDetectorAlertRuleState Empty => new SmartDetectorAlertRuleState();
     }
 }

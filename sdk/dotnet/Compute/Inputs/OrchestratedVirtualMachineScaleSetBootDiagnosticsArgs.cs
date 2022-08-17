@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs : global::Pulumi.ResourceArgs
     {
         [Input("storageAccountUri")]
         public Input<string>? StorageAccountUri { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs Empty => new OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs();
     }
 }

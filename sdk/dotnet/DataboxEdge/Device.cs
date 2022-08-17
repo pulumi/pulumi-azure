@@ -15,26 +15,25 @@ namespace Pulumi.Azure.DataboxEdge
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new Azure.DataboxEdge.DeviceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "EdgeP_Base-Standard",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "EdgeP_Base-Standard",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.DataboxEdge
     /// ```
     /// </summary>
     [AzureResourceType("azure:databoxedge/device:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `device_properties` block as defined below.
@@ -128,7 +127,7 @@ namespace Pulumi.Azure.DataboxEdge
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Databox Edge Device should exist. Changing this forces a new Databox Edge Device to be created.
@@ -169,9 +168,10 @@ namespace Pulumi.Azure.DataboxEdge
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 
-    public sealed class DeviceState : Pulumi.ResourceArgs
+    public sealed class DeviceState : global::Pulumi.ResourceArgs
     {
         [Input("deviceProperties")]
         private InputList<Inputs.DeviceDevicePropertyGetArgs>? _deviceProperties;
@@ -224,5 +224,6 @@ namespace Pulumi.Azure.DataboxEdge
         public DeviceState()
         {
         }
+        public static new DeviceState Empty => new DeviceState();
     }
 }

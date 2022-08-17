@@ -15,59 +15,63 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             ManagedVirtualNetworkEnabled = true,
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new Azure.Synapse.FirewallRuleArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "255.255.255.255",
-    ///         });
-    ///         var exampleIntegrationRuntimeSelfHosted = new Azure.Synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new Azure.Synapse.IntegrationRuntimeSelfHostedArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         ManagedVirtualNetworkEnabled = true,
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "255.255.255.255",
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeSelfHosted = new Azure.Synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +83,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted")]
-    public partial class IntegrationRuntimeSelfHosted : Pulumi.CustomResource
+    public partial class IntegrationRuntimeSelfHosted : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The primary integration runtime authentication key.
@@ -155,7 +159,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class IntegrationRuntimeSelfHostedArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSelfHostedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Integration runtime description.
@@ -178,9 +182,10 @@ namespace Pulumi.Azure.Synapse
         public IntegrationRuntimeSelfHostedArgs()
         {
         }
+        public static new IntegrationRuntimeSelfHostedArgs Empty => new IntegrationRuntimeSelfHostedArgs();
     }
 
-    public sealed class IntegrationRuntimeSelfHostedState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSelfHostedState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The primary integration runtime authentication key.
@@ -215,5 +220,6 @@ namespace Pulumi.Azure.Synapse
         public IntegrationRuntimeSelfHostedState()
         {
         }
+        public static new IntegrationRuntimeSelfHostedState Empty => new IntegrationRuntimeSelfHostedState();
     }
 }

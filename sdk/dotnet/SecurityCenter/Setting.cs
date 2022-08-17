@@ -19,21 +19,19 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.SecurityCenter.Setting("example", new()
     ///     {
-    ///         var example = new Azure.SecurityCenter.Setting("example", new Azure.SecurityCenter.SettingArgs
-    ///         {
-    ///             Enabled = true,
-    ///             SettingName = "MCAS",
-    ///         });
-    ///     }
+    ///         Enabled = true,
+    ///         SettingName = "MCAS",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +43,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/setting:Setting")]
-    public partial class Setting : Pulumi.CustomResource
+    public partial class Setting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean flag to enable/disable data access.
@@ -103,7 +101,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class SettingArgs : Pulumi.ResourceArgs
+    public sealed class SettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to enable/disable data access.
@@ -120,9 +118,10 @@ namespace Pulumi.Azure.SecurityCenter
         public SettingArgs()
         {
         }
+        public static new SettingArgs Empty => new SettingArgs();
     }
 
-    public sealed class SettingState : Pulumi.ResourceArgs
+    public sealed class SettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean flag to enable/disable data access.
@@ -139,5 +138,6 @@ namespace Pulumi.Azure.SecurityCenter
         public SettingState()
         {
         }
+        public static new SettingState Empty => new SettingState();
     }
 }

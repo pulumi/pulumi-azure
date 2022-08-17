@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core
 {
     [AzureResourceType("azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation")]
-    public partial class ResourceGroupPolicyRemediation : Pulumi.CustomResource
+    public partial class ResourceGroupPolicyRemediation : global::Pulumi.CustomResource
     {
         [Output("locationFilters")]
         public Output<ImmutableArray<string>> LocationFilters { get; private set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupPolicyRemediationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyRemediationArgs : global::Pulumi.ResourceArgs
     {
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
@@ -102,9 +102,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyRemediationArgs()
         {
         }
+        public static new ResourceGroupPolicyRemediationArgs Empty => new ResourceGroupPolicyRemediationArgs();
     }
 
-    public sealed class ResourceGroupPolicyRemediationState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyRemediationState : global::Pulumi.ResourceArgs
     {
         [Input("locationFilters")]
         private InputList<string>? _locationFilters;
@@ -132,5 +133,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyRemediationState()
         {
         }
+        public static new ResourceGroupPolicyRemediationState Empty => new ResourceGroupPolicyRemediationState();
     }
 }

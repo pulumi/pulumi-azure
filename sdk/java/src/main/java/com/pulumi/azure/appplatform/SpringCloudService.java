@@ -96,28 +96,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:appplatform/springCloudService:SpringCloudService")
 public class SpringCloudService extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Export(name="buildAgentPoolSize", type=String.class, parameters={})
     private Output</* @Nullable */ String> buildAgentPoolSize;
 
     /**
-     * @return Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+     * @return Specifies the size for this Spring Cloud Service&#39;s default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Output<Optional<String>> buildAgentPoolSize() {
         return Codegen.optional(this.buildAgentPoolSize);
     }
     /**
-     * A `config_server_git_setting` block as defined below.
+     * A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     @Export(name="configServerGitSetting", type=SpringCloudServiceConfigServerGitSetting.class, parameters={})
     private Output</* @Nullable */ SpringCloudServiceConfigServerGitSetting> configServerGitSetting;
 
     /**
-     * @return A `config_server_git_setting` block as defined below.
+     * @return A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
      * 
      */
     public Output<Optional<SpringCloudServiceConfigServerGitSetting>> configServerGitSetting() {
@@ -208,14 +208,14 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Whether enable the default Service Registry.
+     * Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     @Export(name="serviceRegistryEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> serviceRegistryEnabled;
 
     /**
-     * @return Whether enable the default Service Registry.
+     * @return Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
      * 
      */
     public Output<Optional<Boolean>> serviceRegistryEnabled() {

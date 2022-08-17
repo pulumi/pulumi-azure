@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("westus"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
-// 			DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
-// 			ResourceId:         exampleVirtualNetwork.ID(),
-// 			PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
-// 			Location:           exampleResourceGroup.Location,
-// 			Identity: &core.ResourcePolicyAssignmentIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewResourcePolicyExemption(ctx, "exampleResourcePolicyExemption", &core.ResourcePolicyExemptionArgs{
-// 			ResourceId:         exampleResourcePolicyAssignment.ResourceId,
-// 			PolicyAssignmentId: exampleResourcePolicyAssignment.ID(),
-// 			ExemptionCategory:  pulumi.String("Mitigated"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("westus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
+//				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
+//				ResourceId:         exampleVirtualNetwork.ID(),
+//				PolicyDefinitionId: pulumi.String(examplePolicySetDefinition.Id),
+//				Location:           exampleResourceGroup.Location,
+//				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourcePolicyExemption(ctx, "exampleResourcePolicyExemption", &core.ResourcePolicyExemptionArgs{
+//				ResourceId:         exampleResourcePolicyAssignment.ResourceId,
+//				PolicyAssignmentId: exampleResourcePolicyAssignment.ID(),
+//				ExemptionCategory:  pulumi.String("Mitigated"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // Policy Exemptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourcePolicyExemption:ResourcePolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
+//	$ pulumi import azure:core/resourcePolicyExemption:ResourcePolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Authorization/policyExemptions/exemption1
+//
 // ```
 type ResourcePolicyExemption struct {
 	pulumi.CustomResourceState
@@ -255,7 +260,7 @@ func (i *ResourcePolicyExemption) ToResourcePolicyExemptionOutputWithContext(ctx
 // ResourcePolicyExemptionArrayInput is an input type that accepts ResourcePolicyExemptionArray and ResourcePolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `ResourcePolicyExemptionArrayInput` via:
 //
-//          ResourcePolicyExemptionArray{ ResourcePolicyExemptionArgs{...} }
+//	ResourcePolicyExemptionArray{ ResourcePolicyExemptionArgs{...} }
 type ResourcePolicyExemptionArrayInput interface {
 	pulumi.Input
 
@@ -280,7 +285,7 @@ func (i ResourcePolicyExemptionArray) ToResourcePolicyExemptionArrayOutputWithCo
 // ResourcePolicyExemptionMapInput is an input type that accepts ResourcePolicyExemptionMap and ResourcePolicyExemptionMapOutput values.
 // You can construct a concrete instance of `ResourcePolicyExemptionMapInput` via:
 //
-//          ResourcePolicyExemptionMap{ "key": ResourcePolicyExemptionArgs{...} }
+//	ResourcePolicyExemptionMap{ "key": ResourcePolicyExemptionArgs{...} }
 type ResourcePolicyExemptionMapInput interface {
 	pulumi.Input
 

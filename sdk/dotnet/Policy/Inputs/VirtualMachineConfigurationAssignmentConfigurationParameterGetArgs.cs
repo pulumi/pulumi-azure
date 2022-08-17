@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy.Inputs
 {
 
-    public sealed class VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the configuration parameter to check.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Policy.Inputs
         public VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs()
         {
         }
+        public static new VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs Empty => new VirtualMachineConfigurationAssignmentConfigurationParameterGetArgs();
     }
 }

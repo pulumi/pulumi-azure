@@ -21,26 +21,26 @@ namespace Pulumi.Azure.Blueprint
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-        ///         var root = current.Apply(current =&gt; Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-        ///         {
-        ///             Name = current.TenantId,
-        ///         })));
-        ///         var example = root.Apply(root =&gt; Output.Create(Azure.Blueprint.GetDefinition.InvokeAsync(new Azure.Blueprint.GetDefinitionArgs
-        ///         {
-        ///             Name = "exampleManagementGroupBP",
-        ///             ScopeId = root.Id,
-        ///         })));
-        ///     }
+        ///     var current = Azure.Core.GetClientConfig.Invoke();
         /// 
-        /// }
+        ///     var root = Azure.Management.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+        ///     });
+        /// 
+        ///     var example = Azure.Blueprint.GetDefinition.Invoke(new()
+        ///     {
+        ///         Name = "exampleManagementGroupBP",
+        ///         ScopeId = root.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,26 +58,26 @@ namespace Pulumi.Azure.Blueprint
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-        ///         var root = current.Apply(current =&gt; Output.Create(Azure.Management.GetGroup.InvokeAsync(new Azure.Management.GetGroupArgs
-        ///         {
-        ///             Name = current.TenantId,
-        ///         })));
-        ///         var example = root.Apply(root =&gt; Output.Create(Azure.Blueprint.GetDefinition.InvokeAsync(new Azure.Blueprint.GetDefinitionArgs
-        ///         {
-        ///             Name = "exampleManagementGroupBP",
-        ///             ScopeId = root.Id,
-        ///         })));
-        ///     }
+        ///     var current = Azure.Core.GetClientConfig.Invoke();
         /// 
-        /// }
+        ///     var root = Azure.Management.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+        ///     });
+        /// 
+        ///     var example = Azure.Blueprint.GetDefinition.Invoke(new()
+        ///     {
+        ///         Name = "exampleManagementGroupBP",
+        ///         ScopeId = root.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -87,7 +87,7 @@ namespace Pulumi.Azure.Blueprint
     }
 
 
-    public sealed class GetDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Blueprint.
@@ -104,9 +104,10 @@ namespace Pulumi.Azure.Blueprint
         public GetDefinitionArgs()
         {
         }
+        public static new GetDefinitionArgs Empty => new GetDefinitionArgs();
     }
 
-    public sealed class GetDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Blueprint.
@@ -123,6 +124,7 @@ namespace Pulumi.Azure.Blueprint
         public GetDefinitionInvokeArgs()
         {
         }
+        public static new GetDefinitionInvokeArgs Empty => new GetDefinitionInvokeArgs();
     }
 
 

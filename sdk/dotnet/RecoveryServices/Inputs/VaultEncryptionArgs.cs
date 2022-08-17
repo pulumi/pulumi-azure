@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.RecoveryServices.Inputs
 {
 
-    public sealed class VaultEncryptionArgs : Pulumi.ResourceArgs
+    public sealed class VaultEncryptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabling/Disabling the Double Encryption state.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         public VaultEncryptionArgs()
         {
         }
+        public static new VaultEncryptionArgs Empty => new VaultEncryptionArgs();
     }
 }

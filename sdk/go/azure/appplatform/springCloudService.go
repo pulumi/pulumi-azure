@@ -19,54 +19,57 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			SkuName:           pulumi.String("S0"),
-// 			ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
-// 				Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
-// 				Label: pulumi.String("config"),
-// 				SearchPaths: pulumi.StringArray{
-// 					pulumi.String("dir1"),
-// 					pulumi.String("dir2"),
-// 				},
-// 			},
-// 			Trace: &appplatform.SpringCloudServiceTraceArgs{
-// 				ConnectionString: exampleInsights.ConnectionString,
-// 				SampleRate:       pulumi.Float64(10),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("S0"),
+//				ConfigServerGitSetting: &appplatform.SpringCloudServiceConfigServerGitSettingArgs{
+//					Uri:   pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
+//					Label: pulumi.String("config"),
+//					SearchPaths: pulumi.StringArray{
+//						pulumi.String("dir1"),
+//						pulumi.String("dir2"),
+//					},
+//				},
+//				Trace: &appplatform.SpringCloudServiceTraceArgs{
+//					ConnectionString: exampleInsights.ConnectionString,
+//					SampleRate:       pulumi.Float64(10),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -74,14 +77,16 @@ import (
 // Spring Cloud services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+//
+//	$ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/Spring/spring1
+//
 // ```
 type SpringCloudService struct {
 	pulumi.CustomResourceState
 
-	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize pulumi.StringPtrOutput `pulumi:"buildAgentPoolSize"`
-	// A `configServerGitSetting` block as defined below.
+	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrOutput `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -95,7 +100,7 @@ type SpringCloudService struct {
 	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayOutput `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// Whether enable the default Service Registry.
+	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled pulumi.BoolPtrOutput `pulumi:"serviceRegistryEnabled"`
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId pulumi.StringOutput `pulumi:"serviceRegistryId"`
@@ -141,9 +146,9 @@ func GetSpringCloudService(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SpringCloudService resources.
 type springCloudServiceState struct {
-	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
-	// A `configServerGitSetting` block as defined below.
+	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -157,7 +162,7 @@ type springCloudServiceState struct {
 	RequiredNetworkTrafficRules []SpringCloudServiceRequiredNetworkTrafficRule `pulumi:"requiredNetworkTrafficRules"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// Whether enable the default Service Registry.
+	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId *string `pulumi:"serviceRegistryId"`
@@ -172,9 +177,9 @@ type springCloudServiceState struct {
 }
 
 type SpringCloudServiceState struct {
-	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize pulumi.StringPtrInput
-	// A `configServerGitSetting` block as defined below.
+	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -188,7 +193,7 @@ type SpringCloudServiceState struct {
 	RequiredNetworkTrafficRules SpringCloudServiceRequiredNetworkTrafficRuleArrayInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// Whether enable the default Service Registry.
+	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// The ID of the Spring Cloud Service Registry.
 	ServiceRegistryId pulumi.StringPtrInput
@@ -207,9 +212,9 @@ func (SpringCloudServiceState) ElementType() reflect.Type {
 }
 
 type springCloudServiceArgs struct {
-	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize *string `pulumi:"buildAgentPoolSize"`
-	// A `configServerGitSetting` block as defined below.
+	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -219,7 +224,7 @@ type springCloudServiceArgs struct {
 	Network *SpringCloudServiceNetwork `pulumi:"network"`
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Whether enable the default Service Registry.
+	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled *bool `pulumi:"serviceRegistryEnabled"`
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName *string `pulumi:"skuName"`
@@ -233,9 +238,9 @@ type springCloudServiceArgs struct {
 
 // The set of arguments for constructing a SpringCloudService resource.
 type SpringCloudServiceArgs struct {
-	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+	// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 	BuildAgentPoolSize pulumi.StringPtrInput
-	// A `configServerGitSetting` block as defined below.
+	// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -245,7 +250,7 @@ type SpringCloudServiceArgs struct {
 	Network SpringCloudServiceNetworkPtrInput
 	// Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// Whether enable the default Service Registry.
+	// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 	ServiceRegistryEnabled pulumi.BoolPtrInput
 	// Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`.
 	SkuName pulumi.StringPtrInput
@@ -283,7 +288,7 @@ func (i *SpringCloudService) ToSpringCloudServiceOutputWithContext(ctx context.C
 // SpringCloudServiceArrayInput is an input type that accepts SpringCloudServiceArray and SpringCloudServiceArrayOutput values.
 // You can construct a concrete instance of `SpringCloudServiceArrayInput` via:
 //
-//          SpringCloudServiceArray{ SpringCloudServiceArgs{...} }
+//	SpringCloudServiceArray{ SpringCloudServiceArgs{...} }
 type SpringCloudServiceArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +313,7 @@ func (i SpringCloudServiceArray) ToSpringCloudServiceArrayOutputWithContext(ctx 
 // SpringCloudServiceMapInput is an input type that accepts SpringCloudServiceMap and SpringCloudServiceMapOutput values.
 // You can construct a concrete instance of `SpringCloudServiceMapInput` via:
 //
-//          SpringCloudServiceMap{ "key": SpringCloudServiceArgs{...} }
+//	SpringCloudServiceMap{ "key": SpringCloudServiceArgs{...} }
 type SpringCloudServiceMapInput interface {
 	pulumi.Input
 
@@ -344,12 +349,12 @@ func (o SpringCloudServiceOutput) ToSpringCloudServiceOutputWithContext(ctx cont
 	return o
 }
 
-// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`.
+// Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
 func (o SpringCloudServiceOutput) BuildAgentPoolSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringPtrOutput { return v.BuildAgentPoolSize }).(pulumi.StringPtrOutput)
 }
 
-// A `configServerGitSetting` block as defined below.
+// A `configServerGitSetting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
 func (o SpringCloudServiceOutput) ConfigServerGitSetting() SpringCloudServiceConfigServerGitSettingPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) SpringCloudServiceConfigServerGitSettingPtrOutput {
 		return v.ConfigServerGitSetting
@@ -388,7 +393,7 @@ func (o SpringCloudServiceOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// Whether enable the default Service Registry.
+// Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
 func (o SpringCloudServiceOutput) ServiceRegistryEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.ServiceRegistryEnabled }).(pulumi.BoolPtrOutput)
 }

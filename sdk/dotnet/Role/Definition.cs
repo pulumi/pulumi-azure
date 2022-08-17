@@ -15,37 +15,36 @@ namespace Pulumi.Azure.Role
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var example = new Azure.Authorization.RoleDefinition("example", new Azure.Authorization.RoleDefinitionArgs
-    ///         {
-    ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             Description = "This is a custom role created",
-    ///             Permissions = 
-    ///             {
-    ///                 new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "*",
-    ///                     },
-    ///                     NotActions = {},
-    ///                 },
-    ///             },
-    ///             AssignableScopes = 
-    ///             {
-    ///                 primary.Apply(primary =&gt; primary.Id),
-    ///             },
-    ///         });
-    ///     }
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var example = new Azure.Authorization.RoleDefinition("example", new()
+    ///     {
+    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         Description = "This is a custom role created",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 NotActions = new[] {},
+    ///             },
+    ///         },
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +57,7 @@ namespace Pulumi.Azure.Role
     /// </summary>
     [Obsolete(@"azure.role.Definition has been deprecated in favor of azure.authorization.RoleDefinition")]
     [AzureResourceType("azure:role/definition:Definition")]
-    public partial class Definition : Pulumi.CustomResource
+    public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
@@ -146,7 +145,7 @@ namespace Pulumi.Azure.Role
         }
     }
 
-    public sealed class DefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
@@ -199,9 +198,10 @@ namespace Pulumi.Azure.Role
         public DefinitionArgs()
         {
         }
+        public static new DefinitionArgs Empty => new DefinitionArgs();
     }
 
-    public sealed class DefinitionState : Pulumi.ResourceArgs
+    public sealed class DefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("assignableScopes")]
         private InputList<string>? _assignableScopes;
@@ -260,5 +260,6 @@ namespace Pulumi.Azure.Role
         public DefinitionState()
         {
         }
+        public static new DefinitionState Empty => new DefinitionState();
     }
 }

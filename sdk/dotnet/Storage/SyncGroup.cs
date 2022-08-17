@@ -15,29 +15,29 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSync = new Azure.Storage.Sync("exampleSync", new Azure.Storage.SyncArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new Azure.Storage.SyncGroupArgs
-    ///         {
-    ///             StorageSyncId = exampleSync.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSync = new Azure.Storage.Sync("exampleSync", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new()
+    ///     {
+    ///         StorageSyncId = exampleSync.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/syncGroup:SyncGroup")]
-    public partial class SyncGroup : Pulumi.CustomResource
+    public partial class SyncGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
@@ -107,7 +107,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class SyncGroupArgs : Pulumi.ResourceArgs
+    public sealed class SyncGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
@@ -124,9 +124,10 @@ namespace Pulumi.Azure.Storage
         public SyncGroupArgs()
         {
         }
+        public static new SyncGroupArgs Empty => new SyncGroupArgs();
     }
 
-    public sealed class SyncGroupState : Pulumi.ResourceArgs
+    public sealed class SyncGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Storage Sync Group. Changing this forces a new Storage Sync Group to be created.
@@ -143,5 +144,6 @@ namespace Pulumi.Azure.Storage
         public SyncGroupState()
         {
         }
+        public static new SyncGroupState Empty => new SyncGroupState();
     }
 }

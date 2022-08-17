@@ -15,51 +15,49 @@ namespace Pulumi.Azure.ServiceFabric
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.ServiceFabric.ManagedCluster("example", new()
     ///     {
-    ///         var example = new Azure.ServiceFabric.ManagedCluster("example", new Azure.ServiceFabric.ManagedClusterArgs
+    ///         ClientConnectionPort = 12345,
+    ///         HttpGatewayPort = 4567,
+    ///         LbRules = new[]
     ///         {
-    ///             ClientConnectionPort = 12345,
-    ///             HttpGatewayPort = 4567,
-    ///             LbRules = 
+    ///             new Azure.ServiceFabric.Inputs.ManagedClusterLbRuleArgs
     ///             {
-    ///                 new Azure.ServiceFabric.Inputs.ManagedClusterLbRuleArgs
-    ///                 {
-    ///                     BackendPort = 38080,
-    ///                     FrontendPort = 80,
-    ///                     ProbeProtocol = "http",
-    ///                     ProbeRequestPath = "/test",
-    ///                     Protocol = "tcp",
-    ///                 },
+    ///                 BackendPort = 38080,
+    ///                 FrontendPort = 80,
+    ///                 ProbeProtocol = "http",
+    ///                 ProbeRequestPath = "/test",
+    ///                 Protocol = "tcp",
     ///             },
-    ///             Location = "West Europe",
-    ///             NodeTypes = 
+    ///         },
+    ///         Location = "West Europe",
+    ///         NodeTypes = new[]
+    ///         {
+    ///             new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
     ///             {
-    ///                 new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
-    ///                 {
-    ///                     ApplicationPortRange = "30000-49000",
-    ///                     DataDiskSizeGb = 130,
-    ///                     EphemeralPortRange = "10000-20000",
-    ///                     Name = "test1",
-    ///                     Primary = true,
-    ///                     VmImageOffer = "WindowsServer",
-    ///                     VmImagePublisher = "MicrosoftWindowsServer",
-    ///                     VmImageSku = "2019-Datacenter-with-Containers",
-    ///                     VmImageVersion = "latest",
-    ///                     VmInstanceCount = 5,
-    ///                     VmSize = "Standard_DS1_v2",
-    ///                 },
+    ///                 ApplicationPortRange = "30000-49000",
+    ///                 DataDiskSizeGb = 130,
+    ///                 EphemeralPortRange = "10000-20000",
+    ///                 Name = "test1",
+    ///                 Primary = true,
+    ///                 VmImageOffer = "WindowsServer",
+    ///                 VmImagePublisher = "MicrosoftWindowsServer",
+    ///                 VmImageSku = "2019-Datacenter-with-Containers",
+    ///                 VmImageVersion = "latest",
+    ///                 VmInstanceCount = 5,
+    ///                 VmSize = "Standard_DS1_v2",
     ///             },
-    ///             ResourceGroupName = "example",
-    ///         });
-    ///     }
+    ///         },
+    ///         ResourceGroupName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +69,7 @@ namespace Pulumi.Azure.ServiceFabric
     /// ```
     /// </summary>
     [AzureResourceType("azure:servicefabric/managedCluster:ManagedCluster")]
-    public partial class ManagedCluster : Pulumi.CustomResource
+    public partial class ManagedCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
@@ -219,7 +217,7 @@ namespace Pulumi.Azure.ServiceFabric
         }
     }
 
-    public sealed class ManagedClusterArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
@@ -350,9 +348,10 @@ namespace Pulumi.Azure.ServiceFabric
         public ManagedClusterArgs()
         {
         }
+        public static new ManagedClusterArgs Empty => new ManagedClusterArgs();
     }
 
-    public sealed class ManagedClusterState : Pulumi.ResourceArgs
+    public sealed class ManagedClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Controls how connections to the cluster are authenticated. A `authentication` block as defined below.
@@ -483,5 +482,6 @@ namespace Pulumi.Azure.ServiceFabric
         public ManagedClusterState()
         {
         }
+        public static new ManagedClusterState Empty => new ManagedClusterState();
     }
 }

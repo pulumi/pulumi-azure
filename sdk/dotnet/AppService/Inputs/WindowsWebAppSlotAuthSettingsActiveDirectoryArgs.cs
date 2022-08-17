@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotAuthSettingsActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotAuthSettingsActiveDirectoryArgs()
         {
         }
+        public static new WindowsWebAppSlotAuthSettingsActiveDirectoryArgs Empty => new WindowsWebAppSlotAuthSettingsActiveDirectoryArgs();
     }
 }

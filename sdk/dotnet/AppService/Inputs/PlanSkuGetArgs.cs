@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class PlanSkuGetArgs : Pulumi.ResourceArgs
+    public sealed class PlanSkuGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of workers associated with this App Service Plan.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public PlanSkuGetArgs()
         {
         }
+        public static new PlanSkuGetArgs Empty => new PlanSkuGetArgs();
     }
 }

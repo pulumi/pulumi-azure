@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `capacity` block as defined below.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileGetArgs()
         {
         }
+        public static new AutoscaleSettingProfileGetArgs Empty => new AutoscaleSettingProfileGetArgs();
     }
 }

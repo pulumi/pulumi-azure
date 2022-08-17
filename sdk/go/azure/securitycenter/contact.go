@@ -21,24 +21,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securitycenter.NewContact(ctx, "example", &securitycenter.ContactArgs{
-// 			AlertNotifications: pulumi.Bool(true),
-// 			AlertsToAdmins:     pulumi.Bool(true),
-// 			Email:              pulumi.String("contact@example.com"),
-// 			Phone:              pulumi.String("+1-555-555-5555"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewContact(ctx, "example", &securitycenter.ContactArgs{
+//				AlertNotifications: pulumi.Bool(true),
+//				AlertsToAdmins:     pulumi.Bool(true),
+//				Email:              pulumi.String("contact@example.com"),
+//				Phone:              pulumi.String("+1-555-555-5555"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // The contact can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+//
+//	$ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+//
 // ```
 type Contact struct {
 	pulumi.CustomResourceState
@@ -173,7 +178,7 @@ func (i *Contact) ToContactOutputWithContext(ctx context.Context) ContactOutput 
 // ContactArrayInput is an input type that accepts ContactArray and ContactArrayOutput values.
 // You can construct a concrete instance of `ContactArrayInput` via:
 //
-//          ContactArray{ ContactArgs{...} }
+//	ContactArray{ ContactArgs{...} }
 type ContactArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +203,7 @@ func (i ContactArray) ToContactArrayOutputWithContext(ctx context.Context) Conta
 // ContactMapInput is an input type that accepts ContactMap and ContactMapOutput values.
 // You can construct a concrete instance of `ContactMapInput` via:
 //
-//          ContactMap{ "key": ContactArgs{...} }
+//	ContactMap{ "key": ContactArgs{...} }
 type ContactMapInput interface {
 	pulumi.Input
 

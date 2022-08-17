@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachinePlanArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachinePlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachinePlanArgs()
         {
         }
+        public static new LinuxVirtualMachinePlanArgs Empty => new LinuxVirtualMachinePlanArgs();
     }
 }

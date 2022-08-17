@@ -19,25 +19,24 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetClusterNodePool.InvokeAsync(new Azure.ContainerService.GetClusterNodePoolArgs
-        ///         {
-        ///             Name = "existing",
-        ///             KubernetesClusterName = "existing-cluster",
-        ///             ResourceGroupName = "existing-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         KubernetesClusterName = "existing-cluster",
+        ///         ResourceGroupName = "existing-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getClusterNodePoolResult =&gt; getClusterNodePoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetClusterNodePool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetClusterNodePool.InvokeAsync(new Azure.ContainerService.GetClusterNodePoolArgs
-        ///         {
-        ///             Name = "existing",
-        ///             KubernetesClusterName = "existing-cluster",
-        ///             ResourceGroupName = "existing-resource-group",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         KubernetesClusterName = "existing-cluster",
+        ///         ResourceGroupName = "existing-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getClusterNodePoolResult =&gt; getClusterNodePoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetClusterNodePoolArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterNodePoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Kubernetes Cluster where this Node Pool is located.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.ContainerService
         public GetClusterNodePoolArgs()
         {
         }
+        public static new GetClusterNodePoolArgs Empty => new GetClusterNodePoolArgs();
     }
 
-    public sealed class GetClusterNodePoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetClusterNodePoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the Kubernetes Cluster where this Node Pool is located.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.ContainerService
         public GetClusterNodePoolInvokeArgs()
         {
         }
+        public static new GetClusterNodePoolInvokeArgs Empty => new GetClusterNodePoolInvokeArgs();
     }
 
 

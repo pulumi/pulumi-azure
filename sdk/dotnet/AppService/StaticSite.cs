@@ -17,21 +17,19 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.AppService.StaticSite("example", new()
     ///     {
-    ///         var example = new Azure.AppService.StaticSite("example", new Azure.AppService.StaticSiteArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ResourceGroupName = "example",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = "example",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/staticSite:StaticSite")]
-    public partial class StaticSite : Pulumi.CustomResource
+    public partial class StaticSite : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
@@ -140,7 +138,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class StaticSiteArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteArgs : global::Pulumi.ResourceArgs
     {
         [Input("identity")]
         public Input<Inputs.StaticSiteIdentityArgs>? Identity { get; set; }
@@ -190,9 +188,10 @@ namespace Pulumi.Azure.AppService
         public StaticSiteArgs()
         {
         }
+        public static new StaticSiteArgs Empty => new StaticSiteArgs();
     }
 
-    public sealed class StaticSiteState : Pulumi.ResourceArgs
+    public sealed class StaticSiteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
@@ -254,5 +253,6 @@ namespace Pulumi.Azure.AppService
         public StaticSiteState()
         {
         }
+        public static new StaticSiteState Empty => new StaticSiteState();
     }
 }

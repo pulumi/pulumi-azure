@@ -19,23 +19,21 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.EventHub.GetConsumeGroup.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.EventHub.GetConsumeGroup.InvokeAsync(new Azure.EventHub.GetConsumeGroupArgs
-        ///         {
-        ///             Name = azurerm_eventhub_consumer_group.Test.Name,
-        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///             EventhubName = azurerm_eventhub.Test.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///         }));
-        ///     }
+        ///         Name = azurerm_eventhub_consumer_group.Test.Name,
+        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///         EventhubName = azurerm_eventhub.Test.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +49,21 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = Azure.EventHub.GetConsumeGroup.Invoke(new()
         ///     {
-        ///         var test = Output.Create(Azure.EventHub.GetConsumeGroup.InvokeAsync(new Azure.EventHub.GetConsumeGroupArgs
-        ///         {
-        ///             Name = azurerm_eventhub_consumer_group.Test.Name,
-        ///             NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///             EventhubName = azurerm_eventhub.Test.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-        ///         }));
-        ///     }
+        ///         Name = azurerm_eventhub_consumer_group.Test.Name,
+        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
+        ///         EventhubName = azurerm_eventhub.Test.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Azure.EventHub
     }
 
 
-    public sealed class GetConsumeGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetConsumeGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub.
@@ -106,9 +102,10 @@ namespace Pulumi.Azure.EventHub
         public GetConsumeGroupArgs()
         {
         }
+        public static new GetConsumeGroupArgs Empty => new GetConsumeGroupArgs();
     }
 
-    public sealed class GetConsumeGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConsumeGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub.
@@ -137,6 +134,7 @@ namespace Pulumi.Azure.EventHub
         public GetConsumeGroupInvokeArgs()
         {
         }
+        public static new GetConsumeGroupInvokeArgs Empty => new GetConsumeGroupInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineStorageConfigurationTempDbSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineStorageConfigurationTempDbSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The SQL Server default path
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineStorageConfigurationTempDbSettingsGetArgs()
         {
         }
+        public static new VirtualMachineStorageConfigurationTempDbSettingsGetArgs Empty => new VirtualMachineStorageConfigurationTempDbSettingsGetArgs();
     }
 }

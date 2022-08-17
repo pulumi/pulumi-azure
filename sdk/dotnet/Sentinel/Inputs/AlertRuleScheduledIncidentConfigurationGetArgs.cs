@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledIncidentConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledIncidentConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to create an incident from alerts triggered by this Sentinel Scheduled Alert Rule?
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledIncidentConfigurationGetArgs()
         {
         }
+        public static new AlertRuleScheduledIncidentConfigurationGetArgs Empty => new AlertRuleScheduledIncidentConfigurationGetArgs();
     }
 }

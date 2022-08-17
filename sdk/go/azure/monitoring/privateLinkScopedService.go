@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewPrivateLinkScopedService(ctx, "examplePrivateLinkScopedService", &monitoring.PrivateLinkScopedServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ScopeName:         examplePrivateLinkScope.Name,
-// 			LinkedResourceId:  exampleInsights.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewPrivateLinkScopedService(ctx, "examplePrivateLinkScopedService", &monitoring.PrivateLinkScopedServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ScopeName:         examplePrivateLinkScope.Name,
+//				LinkedResourceId:  exampleInsights.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
+//
+//	$ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
+//
 // ```
 type PrivateLinkScopedService struct {
 	pulumi.CustomResourceState
@@ -192,7 +197,7 @@ func (i *PrivateLinkScopedService) ToPrivateLinkScopedServiceOutputWithContext(c
 // PrivateLinkScopedServiceArrayInput is an input type that accepts PrivateLinkScopedServiceArray and PrivateLinkScopedServiceArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkScopedServiceArrayInput` via:
 //
-//          PrivateLinkScopedServiceArray{ PrivateLinkScopedServiceArgs{...} }
+//	PrivateLinkScopedServiceArray{ PrivateLinkScopedServiceArgs{...} }
 type PrivateLinkScopedServiceArrayInput interface {
 	pulumi.Input
 
@@ -217,7 +222,7 @@ func (i PrivateLinkScopedServiceArray) ToPrivateLinkScopedServiceArrayOutputWith
 // PrivateLinkScopedServiceMapInput is an input type that accepts PrivateLinkScopedServiceMap and PrivateLinkScopedServiceMapOutput values.
 // You can construct a concrete instance of `PrivateLinkScopedServiceMapInput` via:
 //
-//          PrivateLinkScopedServiceMap{ "key": PrivateLinkScopedServiceArgs{...} }
+//	PrivateLinkScopedServiceMap{ "key": PrivateLinkScopedServiceArgs{...} }
 type PrivateLinkScopedServiceMapInput interface {
 	pulumi.Input
 

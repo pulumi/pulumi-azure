@@ -15,135 +15,145 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.254.0.0/16",
-    ///             },
-    ///         });
-    ///         var frontend = new Azure.Network.Subnet("frontend", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.254.0.0/24",
-    ///             },
-    ///         });
-    ///         var backend = new Azure.Network.Subnet("backend", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.254.2.0/24",
-    ///             },
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AllocationMethod = "Dynamic",
-    ///         });
-    ///         var backendAddressPoolName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-beap");
-    ///         var frontendPortName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feport");
-    ///         var frontendIpConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feip");
-    ///         var httpSettingName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-be-htst");
-    ///         var listenerName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-httplstn");
-    ///         var requestRoutingRuleName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rqrt");
-    ///         var redirectConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rdrcfg");
-    ///         var network = new Azure.Network.ApplicationGateway("network", new Azure.Network.ApplicationGatewayArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
-    ///             {
-    ///                 Name = "Standard_Small",
-    ///                 Tier = "Standard",
-    ///                 Capacity = 2,
-    ///             },
-    ///             GatewayIpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
-    ///                 {
-    ///                     Name = "my-gateway-ip-configuration",
-    ///                     SubnetId = frontend.Id,
-    ///                 },
-    ///             },
-    ///             FrontendPorts = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
-    ///                 {
-    ///                     Name = frontendPortName,
-    ///                     Port = 80,
-    ///                 },
-    ///             },
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = frontendIpConfigurationName,
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///             BackendAddressPools = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
-    ///                 {
-    ///                     Name = backendAddressPoolName,
-    ///                 },
-    ///             },
-    ///             BackendHttpSettings = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayBackendHttpSettingArgs
-    ///                 {
-    ///                     Name = httpSettingName,
-    ///                     CookieBasedAffinity = "Disabled",
-    ///                     Path = "/path1/",
-    ///                     Port = 80,
-    ///                     Protocol = "Http",
-    ///                     RequestTimeout = 60,
-    ///                 },
-    ///             },
-    ///             HttpListeners = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayHttpListenerArgs
-    ///                 {
-    ///                     Name = listenerName,
-    ///                     FrontendIpConfigurationName = frontendIpConfigurationName,
-    ///                     FrontendPortName = frontendPortName,
-    ///                     Protocol = "Http",
-    ///                 },
-    ///             },
-    ///             RequestRoutingRules = 
-    ///             {
-    ///                 new Azure.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
-    ///                 {
-    ///                     Name = requestRoutingRuleName,
-    ///                     RuleType = "Basic",
-    ///                     HttpListenerName = listenerName,
-    ///                     BackendAddressPoolName = backendAddressPoolName,
-    ///                     BackendHttpSettingsName = httpSettingName,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.254.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var frontend = new Azure.Network.Subnet("frontend", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.254.0.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var backend = new Azure.Network.Subnet("backend", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.254.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var backendAddressPoolName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-beap");
+    /// 
+    ///     var frontendPortName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feport");
+    /// 
+    ///     var frontendIpConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-feip");
+    /// 
+    ///     var httpSettingName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-be-htst");
+    /// 
+    ///     var listenerName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-httplstn");
+    /// 
+    ///     var requestRoutingRuleName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rqrt");
+    /// 
+    ///     var redirectConfigurationName = exampleVirtualNetwork.Name.Apply(name =&gt; $"{name}-rdrcfg");
+    /// 
+    ///     var network = new Azure.Network.ApplicationGateway("network", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
+    ///         {
+    ///             Name = "Standard_Small",
+    ///             Tier = "Standard",
+    ///             Capacity = 2,
+    ///         },
+    ///         GatewayIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayGatewayIpConfigurationArgs
+    ///             {
+    ///                 Name = "my-gateway-ip-configuration",
+    ///                 SubnetId = frontend.Id,
+    ///             },
+    ///         },
+    ///         FrontendPorts = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///             {
+    ///                 Name = frontendPortName,
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = frontendIpConfigurationName,
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
+    ///             {
+    ///                 Name = backendAddressPoolName,
+    ///             },
+    ///         },
+    ///         BackendHttpSettings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayBackendHttpSettingArgs
+    ///             {
+    ///                 Name = httpSettingName,
+    ///                 CookieBasedAffinity = "Disabled",
+    ///                 Path = "/path1/",
+    ///                 Port = 80,
+    ///                 Protocol = "Http",
+    ///                 RequestTimeout = 60,
+    ///             },
+    ///         },
+    ///         HttpListeners = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayHttpListenerArgs
+    ///             {
+    ///                 Name = listenerName,
+    ///                 FrontendIpConfigurationName = frontendIpConfigurationName,
+    ///                 FrontendPortName = frontendPortName,
+    ///                 Protocol = "Http",
+    ///             },
+    ///         },
+    ///         RequestRoutingRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
+    ///             {
+    ///                 Name = requestRoutingRuleName,
+    ///                 RuleType = "Basic",
+    ///                 HttpListenerName = listenerName,
+    ///                 BackendAddressPoolName = backendAddressPoolName,
+    ///                 BackendHttpSettingsName = httpSettingName,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -155,7 +165,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/applicationGateway:ApplicationGateway")]
-    public partial class ApplicationGateway : Pulumi.CustomResource
+    public partial class ApplicationGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `authentication_certificate` blocks as defined below.
@@ -399,7 +409,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ApplicationGatewayArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationCertificates")]
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateArgs>? _authenticationCertificates;
@@ -716,9 +726,10 @@ namespace Pulumi.Azure.Network
         public ApplicationGatewayArgs()
         {
         }
+        public static new ApplicationGatewayArgs Empty => new ApplicationGatewayArgs();
     }
 
-    public sealed class ApplicationGatewayState : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayState : global::Pulumi.ResourceArgs
     {
         [Input("authenticationCertificates")]
         private InputList<Inputs.ApplicationGatewayAuthenticationCertificateGetArgs>? _authenticationCertificates;
@@ -1047,5 +1058,6 @@ namespace Pulumi.Azure.Network
         public ApplicationGatewayState()
         {
         }
+        public static new ApplicationGatewayState Empty => new ApplicationGatewayState();
     }
 }

@@ -22,7 +22,7 @@ type NamespaceCustomerManagedKey struct {
 // NamespaceCustomerManagedKeyInput is an input type that accepts NamespaceCustomerManagedKeyArgs and NamespaceCustomerManagedKeyOutput values.
 // You can construct a concrete instance of `NamespaceCustomerManagedKeyInput` via:
 //
-//          NamespaceCustomerManagedKeyArgs{...}
+//	NamespaceCustomerManagedKeyArgs{...}
 type NamespaceCustomerManagedKeyInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i NamespaceCustomerManagedKeyArgs) ToNamespaceCustomerManagedKeyPtrOutputW
 // NamespaceCustomerManagedKeyPtrInput is an input type that accepts NamespaceCustomerManagedKeyArgs, NamespaceCustomerManagedKeyPtr and NamespaceCustomerManagedKeyPtrOutput values.
 // You can construct a concrete instance of `NamespaceCustomerManagedKeyPtrInput` via:
 //
-//          NamespaceCustomerManagedKeyArgs{...}
+//	        NamespaceCustomerManagedKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NamespaceCustomerManagedKeyPtrInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type NamespaceIdentity struct {
 // NamespaceIdentityInput is an input type that accepts NamespaceIdentityArgs and NamespaceIdentityOutput values.
 // You can construct a concrete instance of `NamespaceIdentityInput` via:
 //
-//          NamespaceIdentityArgs{...}
+//	NamespaceIdentityArgs{...}
 type NamespaceIdentityInput interface {
 	pulumi.Input
 
@@ -241,11 +241,11 @@ func (i NamespaceIdentityArgs) ToNamespaceIdentityPtrOutputWithContext(ctx conte
 // NamespaceIdentityPtrInput is an input type that accepts NamespaceIdentityArgs, NamespaceIdentityPtr and NamespaceIdentityPtrOutput values.
 // You can construct a concrete instance of `NamespaceIdentityPtrInput` via:
 //
-//          NamespaceIdentityArgs{...}
+//	        NamespaceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NamespaceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -389,7 +389,7 @@ type NamespaceNetworkRuleSetNetworkRule struct {
 // NamespaceNetworkRuleSetNetworkRuleInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArgs and NamespaceNetworkRuleSetNetworkRuleOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleInput` via:
 //
-//          NamespaceNetworkRuleSetNetworkRuleArgs{...}
+//	NamespaceNetworkRuleSetNetworkRuleArgs{...}
 type NamespaceNetworkRuleSetNetworkRuleInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ func (i NamespaceNetworkRuleSetNetworkRuleArgs) ToNamespaceNetworkRuleSetNetwork
 // NamespaceNetworkRuleSetNetworkRuleArrayInput is an input type that accepts NamespaceNetworkRuleSetNetworkRuleArray and NamespaceNetworkRuleSetNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceNetworkRuleSetNetworkRuleArrayInput` via:
 //
-//          NamespaceNetworkRuleSetNetworkRuleArray{ NamespaceNetworkRuleSetNetworkRuleArgs{...} }
+//	NamespaceNetworkRuleSetNetworkRuleArray{ NamespaceNetworkRuleSetNetworkRuleArgs{...} }
 type NamespaceNetworkRuleSetNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -485,6 +485,181 @@ func (o NamespaceNetworkRuleSetNetworkRuleArrayOutput) Index(i pulumi.IntInput) 
 	}).(NamespaceNetworkRuleSetNetworkRuleOutput)
 }
 
+type SubscriptionClientScopedSubscription struct {
+	// Specifies the Client ID of the application that created the client-scoped subscription.
+	ClientId *string `pulumi:"clientId"`
+	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+	IsClientScopedSubscriptionDurable *bool `pulumi:"isClientScopedSubscriptionDurable"`
+	// Whether the client scoped subscription is shareable. Defaults to `true`
+	IsClientScopedSubscriptionShareable *bool `pulumi:"isClientScopedSubscriptionShareable"`
+}
+
+// SubscriptionClientScopedSubscriptionInput is an input type that accepts SubscriptionClientScopedSubscriptionArgs and SubscriptionClientScopedSubscriptionOutput values.
+// You can construct a concrete instance of `SubscriptionClientScopedSubscriptionInput` via:
+//
+//	SubscriptionClientScopedSubscriptionArgs{...}
+type SubscriptionClientScopedSubscriptionInput interface {
+	pulumi.Input
+
+	ToSubscriptionClientScopedSubscriptionOutput() SubscriptionClientScopedSubscriptionOutput
+	ToSubscriptionClientScopedSubscriptionOutputWithContext(context.Context) SubscriptionClientScopedSubscriptionOutput
+}
+
+type SubscriptionClientScopedSubscriptionArgs struct {
+	// Specifies the Client ID of the application that created the client-scoped subscription.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+	IsClientScopedSubscriptionDurable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionDurable"`
+	// Whether the client scoped subscription is shareable. Defaults to `true`
+	IsClientScopedSubscriptionShareable pulumi.BoolPtrInput `pulumi:"isClientScopedSubscriptionShareable"`
+}
+
+func (SubscriptionClientScopedSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionClientScopedSubscription)(nil)).Elem()
+}
+
+func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionOutput() SubscriptionClientScopedSubscriptionOutput {
+	return i.ToSubscriptionClientScopedSubscriptionOutputWithContext(context.Background())
+}
+
+func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionOutput)
+}
+
+func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
+	return i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i SubscriptionClientScopedSubscriptionArgs) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionOutput).ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx)
+}
+
+// SubscriptionClientScopedSubscriptionPtrInput is an input type that accepts SubscriptionClientScopedSubscriptionArgs, SubscriptionClientScopedSubscriptionPtr and SubscriptionClientScopedSubscriptionPtrOutput values.
+// You can construct a concrete instance of `SubscriptionClientScopedSubscriptionPtrInput` via:
+//
+//	        SubscriptionClientScopedSubscriptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type SubscriptionClientScopedSubscriptionPtrInput interface {
+	pulumi.Input
+
+	ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput
+	ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Context) SubscriptionClientScopedSubscriptionPtrOutput
+}
+
+type subscriptionClientScopedSubscriptionPtrType SubscriptionClientScopedSubscriptionArgs
+
+func SubscriptionClientScopedSubscriptionPtr(v *SubscriptionClientScopedSubscriptionArgs) SubscriptionClientScopedSubscriptionPtrInput {
+	return (*subscriptionClientScopedSubscriptionPtrType)(v)
+}
+
+func (*subscriptionClientScopedSubscriptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionClientScopedSubscription)(nil)).Elem()
+}
+
+func (i *subscriptionClientScopedSubscriptionPtrType) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
+	return i.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (i *subscriptionClientScopedSubscriptionPtrType) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionClientScopedSubscriptionPtrOutput)
+}
+
+type SubscriptionClientScopedSubscriptionOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionClientScopedSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubscriptionClientScopedSubscription)(nil)).Elem()
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSubscriptionOutput() SubscriptionClientScopedSubscriptionOutput {
+	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSubscriptionOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionOutput {
+	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
+	return o.ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(context.Background())
+}
+
+func (o SubscriptionClientScopedSubscriptionOutput) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SubscriptionClientScopedSubscription) *SubscriptionClientScopedSubscription {
+		return &v
+	}).(SubscriptionClientScopedSubscriptionPtrOutput)
+}
+
+// Specifies the Client ID of the application that created the client-scoped subscription.
+func (o SubscriptionClientScopedSubscriptionOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+func (o SubscriptionClientScopedSubscriptionOutput) IsClientScopedSubscriptionDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *bool { return v.IsClientScopedSubscriptionDurable }).(pulumi.BoolPtrOutput)
+}
+
+// Whether the client scoped subscription is shareable. Defaults to `true`
+func (o SubscriptionClientScopedSubscriptionOutput) IsClientScopedSubscriptionShareable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SubscriptionClientScopedSubscription) *bool { return v.IsClientScopedSubscriptionShareable }).(pulumi.BoolPtrOutput)
+}
+
+type SubscriptionClientScopedSubscriptionPtrOutput struct{ *pulumi.OutputState }
+
+func (SubscriptionClientScopedSubscriptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SubscriptionClientScopedSubscription)(nil)).Elem()
+}
+
+func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScopedSubscriptionPtrOutput() SubscriptionClientScopedSubscriptionPtrOutput {
+	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionPtrOutput) ToSubscriptionClientScopedSubscriptionPtrOutputWithContext(ctx context.Context) SubscriptionClientScopedSubscriptionPtrOutput {
+	return o
+}
+
+func (o SubscriptionClientScopedSubscriptionPtrOutput) Elem() SubscriptionClientScopedSubscriptionOutput {
+	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) SubscriptionClientScopedSubscription {
+		if v != nil {
+			return *v
+		}
+		var ret SubscriptionClientScopedSubscription
+		return ret
+	}).(SubscriptionClientScopedSubscriptionOutput)
+}
+
+// Specifies the Client ID of the application that created the client-scoped subscription.
+func (o SubscriptionClientScopedSubscriptionPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the client scoped subscription is durable. This property can only be controlled from the application side.
+func (o SubscriptionClientScopedSubscriptionPtrOutput) IsClientScopedSubscriptionDurable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsClientScopedSubscriptionDurable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether the client scoped subscription is shareable. Defaults to `true`
+func (o SubscriptionClientScopedSubscriptionPtrOutput) IsClientScopedSubscriptionShareable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SubscriptionClientScopedSubscription) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IsClientScopedSubscriptionShareable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type SubscriptionRuleCorrelationFilter struct {
 	// Content type of the message.
 	ContentType *string `pulumi:"contentType"`
@@ -509,7 +684,7 @@ type SubscriptionRuleCorrelationFilter struct {
 // SubscriptionRuleCorrelationFilterInput is an input type that accepts SubscriptionRuleCorrelationFilterArgs and SubscriptionRuleCorrelationFilterOutput values.
 // You can construct a concrete instance of `SubscriptionRuleCorrelationFilterInput` via:
 //
-//          SubscriptionRuleCorrelationFilterArgs{...}
+//	SubscriptionRuleCorrelationFilterArgs{...}
 type SubscriptionRuleCorrelationFilterInput interface {
 	pulumi.Input
 
@@ -561,11 +736,11 @@ func (i SubscriptionRuleCorrelationFilterArgs) ToSubscriptionRuleCorrelationFilt
 // SubscriptionRuleCorrelationFilterPtrInput is an input type that accepts SubscriptionRuleCorrelationFilterArgs, SubscriptionRuleCorrelationFilterPtr and SubscriptionRuleCorrelationFilterPtrOutput values.
 // You can construct a concrete instance of `SubscriptionRuleCorrelationFilterPtrInput` via:
 //
-//          SubscriptionRuleCorrelationFilterArgs{...}
+//	        SubscriptionRuleCorrelationFilterArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SubscriptionRuleCorrelationFilterPtrInput interface {
 	pulumi.Input
 
@@ -781,6 +956,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceIdentityPtrInput)(nil)).Elem(), NamespaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceNetworkRuleSetNetworkRuleArrayInput)(nil)).Elem(), NamespaceNetworkRuleSetNetworkRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionClientScopedSubscriptionInput)(nil)).Elem(), SubscriptionClientScopedSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionClientScopedSubscriptionPtrInput)(nil)).Elem(), SubscriptionClientScopedSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionRuleCorrelationFilterPtrInput)(nil)).Elem(), SubscriptionRuleCorrelationFilterArgs{})
 	pulumi.RegisterOutputType(NamespaceCustomerManagedKeyOutput{})
@@ -789,6 +966,8 @@ func init() {
 	pulumi.RegisterOutputType(NamespaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleOutput{})
 	pulumi.RegisterOutputType(NamespaceNetworkRuleSetNetworkRuleArrayOutput{})
+	pulumi.RegisterOutputType(SubscriptionClientScopedSubscriptionOutput{})
+	pulumi.RegisterOutputType(SubscriptionClientScopedSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterOutput{})
 	pulumi.RegisterOutputType(SubscriptionRuleCorrelationFilterPtrOutput{})
 }

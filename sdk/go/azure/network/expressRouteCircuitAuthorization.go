@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			ServiceProviderName: pulumi.String("Equinix"),
-// 			PeeringLocation:     pulumi.String("Silicon Valley"),
-// 			BandwidthInMbps:     pulumi.Int(50),
-// 			Sku: &network.ExpressRouteCircuitSkuArgs{
-// 				Tier:   pulumi.String("Standard"),
-// 				Family: pulumi.String("MeteredData"),
-// 			},
-// 			AllowClassicOperations: pulumi.Bool(false),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewExpressRouteCircuitAuthorization(ctx, "exampleExpressRouteCircuitAuthorization", &network.ExpressRouteCircuitAuthorizationArgs{
-// 			ExpressRouteCircuitName: exampleExpressRouteCircuit.Name,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				ServiceProviderName: pulumi.String("Equinix"),
+//				PeeringLocation:     pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:     pulumi.Int(50),
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
+//				AllowClassicOperations: pulumi.Bool(false),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRouteCircuitAuthorization(ctx, "exampleExpressRouteCircuitAuthorization", &network.ExpressRouteCircuitAuthorizationArgs{
+//				ExpressRouteCircuitName: exampleExpressRouteCircuit.Name,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // ExpressRoute Circuit Authorizations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/authorizations/auth1
+//
+//	$ pulumi import azure:network/expressRouteCircuitAuthorization:ExpressRouteCircuitAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute/authorizations/auth1
+//
 // ```
 type ExpressRouteCircuitAuthorization struct {
 	pulumi.CustomResourceState
@@ -203,7 +208,7 @@ func (i *ExpressRouteCircuitAuthorization) ToExpressRouteCircuitAuthorizationOut
 // ExpressRouteCircuitAuthorizationArrayInput is an input type that accepts ExpressRouteCircuitAuthorizationArray and ExpressRouteCircuitAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitAuthorizationArrayInput` via:
 //
-//          ExpressRouteCircuitAuthorizationArray{ ExpressRouteCircuitAuthorizationArgs{...} }
+//	ExpressRouteCircuitAuthorizationArray{ ExpressRouteCircuitAuthorizationArgs{...} }
 type ExpressRouteCircuitAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +233,7 @@ func (i ExpressRouteCircuitAuthorizationArray) ToExpressRouteCircuitAuthorizatio
 // ExpressRouteCircuitAuthorizationMapInput is an input type that accepts ExpressRouteCircuitAuthorizationMap and ExpressRouteCircuitAuthorizationMapOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitAuthorizationMapInput` via:
 //
-//          ExpressRouteCircuitAuthorizationMap{ "key": ExpressRouteCircuitAuthorizationArgs{...} }
+//	ExpressRouteCircuitAuthorizationMap{ "key": ExpressRouteCircuitAuthorizationArgs{...} }
 type ExpressRouteCircuitAuthorizationMapInput interface {
 	pulumi.Input
 

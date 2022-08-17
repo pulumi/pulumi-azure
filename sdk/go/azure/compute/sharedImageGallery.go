@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Description:       pulumi.String("Shared images and things."),
-// 			Tags: pulumi.StringMap{
-// 				"Hello": pulumi.String("There"),
-// 				"World": pulumi.String("Example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Description:       pulumi.String("Shared images and things."),
+//				Tags: pulumi.StringMap{
+//					"Hello": pulumi.String("There"),
+//					"World": pulumi.String("Example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // Shared Image Galleries can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
+//
+//	$ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
+//
 // ```
 type SharedImageGallery struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *SharedImageGallery) ToSharedImageGalleryOutputWithContext(ctx context.C
 // SharedImageGalleryArrayInput is an input type that accepts SharedImageGalleryArray and SharedImageGalleryArrayOutput values.
 // You can construct a concrete instance of `SharedImageGalleryArrayInput` via:
 //
-//          SharedImageGalleryArray{ SharedImageGalleryArgs{...} }
+//	SharedImageGalleryArray{ SharedImageGalleryArgs{...} }
 type SharedImageGalleryArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i SharedImageGalleryArray) ToSharedImageGalleryArrayOutputWithContext(ctx 
 // SharedImageGalleryMapInput is an input type that accepts SharedImageGalleryMap and SharedImageGalleryMapOutput values.
 // You can construct a concrete instance of `SharedImageGalleryMapInput` via:
 //
-//          SharedImageGalleryMap{ "key": SharedImageGalleryArgs{...} }
+//	SharedImageGalleryMap{ "key": SharedImageGalleryArgs{...} }
 type SharedImageGalleryMapInput interface {
 	pulumi.Input
 

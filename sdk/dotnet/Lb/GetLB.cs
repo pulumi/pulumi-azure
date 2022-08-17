@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Lb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
-        ///         {
-        ///             Name = "example-lb",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.LoadbalancerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("loadbalancerId")]
-        ///     public Output&lt;string&gt; LoadbalancerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loadbalancerId"] = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Lb
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
-        ///         {
-        ///             Name = "example-lb",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.LoadbalancerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-lb",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("loadbalancerId")]
-        ///     public Output&lt;string&gt; LoadbalancerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["loadbalancerId"] = example.Apply(getLBResult =&gt; getLBResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Lb
     }
 
 
-    public sealed class GetLBArgs : Pulumi.InvokeArgs
+    public sealed class GetLBArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Load Balancer.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Lb
         public GetLBArgs()
         {
         }
+        public static new GetLBArgs Empty => new GetLBArgs();
     }
 
-    public sealed class GetLBInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetLBInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Load Balancer.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Lb
         public GetLBInvokeArgs()
         {
         }
+        public static new GetLBInvokeArgs Empty => new GetLBInvokeArgs();
     }
 
 

@@ -15,26 +15,25 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new Azure.Compute.DedicatedHostGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PlatformFaultDomainCount = 1,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PlatformFaultDomainCount = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/dedicatedHostGroup:DedicatedHostGroup")]
-    public partial class DedicatedHostGroup : Pulumi.CustomResource
+    public partial class DedicatedHostGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -131,7 +130,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DedicatedHostGroupArgs : Pulumi.ResourceArgs
+    public sealed class DedicatedHostGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -181,9 +180,10 @@ namespace Pulumi.Azure.Compute
         public DedicatedHostGroupArgs()
         {
         }
+        public static new DedicatedHostGroupArgs Empty => new DedicatedHostGroupArgs();
     }
 
-    public sealed class DedicatedHostGroupState : Pulumi.ResourceArgs
+    public sealed class DedicatedHostGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Would virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -233,5 +233,6 @@ namespace Pulumi.Azure.Compute
         public DedicatedHostGroupState()
         {
         }
+        public static new DedicatedHostGroupState Empty => new DedicatedHostGroupState();
     }
 }

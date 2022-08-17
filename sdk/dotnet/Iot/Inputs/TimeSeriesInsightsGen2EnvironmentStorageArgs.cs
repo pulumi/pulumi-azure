@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class TimeSeriesInsightsGen2EnvironmentStorageArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsGen2EnvironmentStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Access key of storage account for Azure IoT Time Series Insights Gen2 Environment
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public TimeSeriesInsightsGen2EnvironmentStorageArgs()
         {
         }
+        public static new TimeSeriesInsightsGen2EnvironmentStorageArgs Empty => new TimeSeriesInsightsGen2EnvironmentStorageArgs();
     }
 }

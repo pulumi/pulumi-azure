@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard_AzureFrontDoor"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cdn.NewFrontdoorRuleSet(ctx, "exampleFrontdoorRuleSet", &cdn.FrontdoorRuleSetArgs{
-// 			CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorRuleSet(ctx, "exampleFrontdoorRuleSet", &cdn.FrontdoorRuleSetArgs{
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // CDN FrontDoor Rule Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
+//
+//	$ pulumi import azure:cdn/frontdoorRuleSet:FrontdoorRuleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1
+//
 // ```
 type FrontdoorRuleSet struct {
 	pulumi.CustomResourceState
@@ -156,7 +161,7 @@ func (i *FrontdoorRuleSet) ToFrontdoorRuleSetOutputWithContext(ctx context.Conte
 // FrontdoorRuleSetArrayInput is an input type that accepts FrontdoorRuleSetArray and FrontdoorRuleSetArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRuleSetArrayInput` via:
 //
-//          FrontdoorRuleSetArray{ FrontdoorRuleSetArgs{...} }
+//	FrontdoorRuleSetArray{ FrontdoorRuleSetArgs{...} }
 type FrontdoorRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +186,7 @@ func (i FrontdoorRuleSetArray) ToFrontdoorRuleSetArrayOutputWithContext(ctx cont
 // FrontdoorRuleSetMapInput is an input type that accepts FrontdoorRuleSetMap and FrontdoorRuleSetMapOutput values.
 // You can construct a concrete instance of `FrontdoorRuleSetMapInput` via:
 //
-//          FrontdoorRuleSetMap{ "key": FrontdoorRuleSetArgs{...} }
+//	FrontdoorRuleSetMap{ "key": FrontdoorRuleSetArgs{...} }
 type FrontdoorRuleSetMapInput interface {
 	pulumi.Input
 

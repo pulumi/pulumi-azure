@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class StandardIdentityArgs : Pulumi.ResourceArgs
+    public sealed class StandardIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this App Service.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public StandardIdentityArgs()
         {
         }
+        public static new StandardIdentityArgs Empty => new StandardIdentityArgs();
     }
 }

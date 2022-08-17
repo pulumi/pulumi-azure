@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			DatastoreType:     pulumi.String("VaultStore"),
-// 			Redundancy:        pulumi.String("LocallyRedundant"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "exampleBackupPolicyBlobStorage", &dataprotection.BackupPolicyBlobStorageArgs{
-// 			VaultId:           exampleBackupVault.ID(),
-// 			RetentionDuration: pulumi.String("P30D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatastoreType:     pulumi.String("VaultStore"),
+//				Redundancy:        pulumi.String("LocallyRedundant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "exampleBackupPolicyBlobStorage", &dataprotection.BackupPolicyBlobStorageArgs{
+//				VaultId:           exampleBackupVault.ID(),
+//				RetentionDuration: pulumi.String("P30D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Backup Policy Blob Storages can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupPolicies/backupPolicy1
+//
+//	$ pulumi import azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupPolicies/backupPolicy1
+//
 // ```
 type BackupPolicyBlobStorage struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStorageOutputWithContext(ctx
 // BackupPolicyBlobStorageArrayInput is an input type that accepts BackupPolicyBlobStorageArray and BackupPolicyBlobStorageArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyBlobStorageArrayInput` via:
 //
-//          BackupPolicyBlobStorageArray{ BackupPolicyBlobStorageArgs{...} }
+//	BackupPolicyBlobStorageArray{ BackupPolicyBlobStorageArgs{...} }
 type BackupPolicyBlobStorageArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i BackupPolicyBlobStorageArray) ToBackupPolicyBlobStorageArrayOutputWithCo
 // BackupPolicyBlobStorageMapInput is an input type that accepts BackupPolicyBlobStorageMap and BackupPolicyBlobStorageMapOutput values.
 // You can construct a concrete instance of `BackupPolicyBlobStorageMapInput` via:
 //
-//          BackupPolicyBlobStorageMap{ "key": BackupPolicyBlobStorageArgs{...} }
+//	BackupPolicyBlobStorageMap{ "key": BackupPolicyBlobStorageArgs{...} }
 type BackupPolicyBlobStorageMapInput interface {
 	pulumi.Input
 

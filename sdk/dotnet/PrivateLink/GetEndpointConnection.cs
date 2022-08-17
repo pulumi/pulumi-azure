@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetEndpointConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetEndpointConnection.InvokeAsync(new Azure.PrivateLink.GetEndpointConnectionArgs
-        ///         {
-        ///             Name = "example-private-endpoint",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateServiceConnections?[0]?.Status);
-        ///     }
+        ///         Name = "example-private-endpoint",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("privateEndpointStatus")]
-        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateEndpointStatus"] = example.Apply(getEndpointConnectionResult =&gt; getEndpointConnectionResult.PrivateServiceConnections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PrivateLink
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PrivateLink.GetEndpointConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PrivateLink.GetEndpointConnection.InvokeAsync(new Azure.PrivateLink.GetEndpointConnectionArgs
-        ///         {
-        ///             Name = "example-private-endpoint",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.PrivateEndpointStatus = example.Apply(example =&gt; example.PrivateServiceConnections?[0]?.Status);
-        ///     }
+        ///         Name = "example-private-endpoint",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("privateEndpointStatus")]
-        ///     public Output&lt;string&gt; PrivateEndpointStatus { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateEndpointStatus"] = example.Apply(getEndpointConnectionResult =&gt; getEndpointConnectionResult.PrivateServiceConnections[0]?.Status),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PrivateLink
     }
 
 
-    public sealed class GetEndpointConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the private endpoint.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.PrivateLink
         public GetEndpointConnectionArgs()
         {
         }
+        public static new GetEndpointConnectionArgs Empty => new GetEndpointConnectionArgs();
     }
 
-    public sealed class GetEndpointConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEndpointConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the private endpoint.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.PrivateLink
         public GetEndpointConnectionInvokeArgs()
         {
         }
+        public static new GetEndpointConnectionInvokeArgs Empty => new GetEndpointConnectionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingNotificationGetArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `email` block as defined below.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingNotificationGetArgs()
         {
         }
+        public static new AutoscaleSettingNotificationGetArgs Empty => new AutoscaleSettingNotificationGetArgs();
     }
 }

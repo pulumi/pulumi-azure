@@ -400,6 +400,21 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    @Import(name="virtualNetworkSubnetId")
+    private @Nullable Output<String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkSubnetId() {
+        return Optional.ofNullable(this.virtualNetworkSubnetId);
+    }
+
     private LinuxFunctionAppArgs() {}
 
     private LinuxFunctionAppArgs(LinuxFunctionAppArgs $) {
@@ -428,6 +443,7 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
         this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.storageUsesManagedIdentity = $.storageUsesManagedIdentity;
         this.tags = $.tags;
+        this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
     }
 
     public static Builder builder() {
@@ -981,6 +997,27 @@ public final class LinuxFunctionAppArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
+            $.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Function App for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }
 
         public LinuxFunctionAppArgs build() {

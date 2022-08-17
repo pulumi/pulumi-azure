@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs()
         {
         }
+        public static new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs Empty => new SystemTopicEventSubscriptionAdvancedFilterIsNullOrUndefinedGetArgs();
     }
 }

@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			AuthenticationType: pulumi.String("Anonymous"),
-// 			Url:                pulumi.String("https://www.bing.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetJson(ctx, "exampleDatasetJson", &datafactory.DatasetJsonArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceWeb.Name,
-// 			HttpServerLocation: &datafactory.DatasetJsonHttpServerLocationArgs{
-// 				RelativeUrl: pulumi.String("/fizz/buzz/"),
-// 				Path:        pulumi.String("foo/bar/"),
-// 				Filename:    pulumi.String("foo.txt"),
-// 			},
-// 			Encoding: pulumi.String("UTF-8"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				AuthenticationType: pulumi.String("Anonymous"),
+//				Url:                pulumi.String("https://www.bing.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetJson(ctx, "exampleDatasetJson", &datafactory.DatasetJsonArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
+//				HttpServerLocation: &datafactory.DatasetJsonHttpServerLocationArgs{
+//					RelativeUrl: pulumi.String("/fizz/buzz/"),
+//					Path:        pulumi.String("foo/bar/"),
+//					Filename:    pulumi.String("foo.txt"),
+//				},
+//				Encoding: pulumi.String("UTF-8"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Data Factory Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetJson:DatasetJson example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetJson:DatasetJson example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetJson struct {
 	pulumi.CustomResourceState
@@ -274,7 +279,7 @@ func (i *DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) Datase
 // DatasetJsonArrayInput is an input type that accepts DatasetJsonArray and DatasetJsonArrayOutput values.
 // You can construct a concrete instance of `DatasetJsonArrayInput` via:
 //
-//          DatasetJsonArray{ DatasetJsonArgs{...} }
+//	DatasetJsonArray{ DatasetJsonArgs{...} }
 type DatasetJsonArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +304,7 @@ func (i DatasetJsonArray) ToDatasetJsonArrayOutputWithContext(ctx context.Contex
 // DatasetJsonMapInput is an input type that accepts DatasetJsonMap and DatasetJsonMapOutput values.
 // You can construct a concrete instance of `DatasetJsonMapInput` via:
 //
-//          DatasetJsonMap{ "key": DatasetJsonArgs{...} }
+//	DatasetJsonMap{ "key": DatasetJsonArgs{...} }
 type DatasetJsonMapInput interface {
 	pulumi.Input
 

@@ -19,84 +19,87 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			AccountKind:            pulumi.String("StorageV2"),
-// 			IsHnsEnabled:           pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			Location:                        exampleResourceGroup.Location,
-// 			StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
-// 			SqlAdministratorLogin:           pulumi.String("sqladminuser"),
-// 			SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-// 			AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
-// 				Login:    pulumi.String("AzureAD Admin"),
-// 				ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 			Identity: &synapse.WorkspaceIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		auditLogs, err := storage.NewAccount(ctx, "auditLogs", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = synapse.NewWorkspaceSecurityAlertPolicy(ctx, "exampleWorkspaceSecurityAlertPolicy", &synapse.WorkspaceSecurityAlertPolicyArgs{
-// 			SynapseWorkspaceId:      exampleWorkspace.ID(),
-// 			PolicyState:             pulumi.String("Enabled"),
-// 			StorageEndpoint:         auditLogs.PrimaryBlobEndpoint,
-// 			StorageAccountAccessKey: auditLogs.PrimaryAccessKey,
-// 			DisabledAlerts: pulumi.StringArray{
-// 				pulumi.String("Sql_Injection"),
-// 				pulumi.String("Data_Exfiltration"),
-// 			},
-// 			RetentionDays: pulumi.Int(20),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				Location:                        exampleResourceGroup.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				AadAdmin: &synapse.WorkspaceAadAdminTypeArgs{
+//					Login:    pulumi.String("AzureAD Admin"),
+//					ObjectId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					TenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			auditLogs, err := storage.NewAccount(ctx, "auditLogs", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewWorkspaceSecurityAlertPolicy(ctx, "exampleWorkspaceSecurityAlertPolicy", &synapse.WorkspaceSecurityAlertPolicyArgs{
+//				SynapseWorkspaceId:      exampleWorkspace.ID(),
+//				PolicyState:             pulumi.String("Enabled"),
+//				StorageEndpoint:         auditLogs.PrimaryBlobEndpoint,
+//				StorageAccountAccessKey: auditLogs.PrimaryAccessKey,
+//				DisabledAlerts: pulumi.StringArray{
+//					pulumi.String("Sql_Injection"),
+//					pulumi.String("Data_Exfiltration"),
+//				},
+//				RetentionDays: pulumi.Int(20),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -104,7 +107,9 @@ import (
 // Synapse Workspace Security Alert Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/securityAlertPolicies/Default
+//
+//	$ pulumi import azure:synapse/workspaceSecurityAlertPolicy:WorkspaceSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/securityAlertPolicies/Default
+//
 // ```
 type WorkspaceSecurityAlertPolicy struct {
 	pulumi.CustomResourceState
@@ -268,7 +273,7 @@ func (i *WorkspaceSecurityAlertPolicy) ToWorkspaceSecurityAlertPolicyOutputWithC
 // WorkspaceSecurityAlertPolicyArrayInput is an input type that accepts WorkspaceSecurityAlertPolicyArray and WorkspaceSecurityAlertPolicyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceSecurityAlertPolicyArrayInput` via:
 //
-//          WorkspaceSecurityAlertPolicyArray{ WorkspaceSecurityAlertPolicyArgs{...} }
+//	WorkspaceSecurityAlertPolicyArray{ WorkspaceSecurityAlertPolicyArgs{...} }
 type WorkspaceSecurityAlertPolicyArrayInput interface {
 	pulumi.Input
 
@@ -293,7 +298,7 @@ func (i WorkspaceSecurityAlertPolicyArray) ToWorkspaceSecurityAlertPolicyArrayOu
 // WorkspaceSecurityAlertPolicyMapInput is an input type that accepts WorkspaceSecurityAlertPolicyMap and WorkspaceSecurityAlertPolicyMapOutput values.
 // You can construct a concrete instance of `WorkspaceSecurityAlertPolicyMapInput` via:
 //
-//          WorkspaceSecurityAlertPolicyMap{ "key": WorkspaceSecurityAlertPolicyArgs{...} }
+//	WorkspaceSecurityAlertPolicyMap{ "key": WorkspaceSecurityAlertPolicyArgs{...} }
 type WorkspaceSecurityAlertPolicyMapInput interface {
 	pulumi.Input
 

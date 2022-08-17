@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledEntityMappingGetArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledEntityMappingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledEntityMappingGetArgs()
         {
         }
+        public static new AlertRuleScheduledEntityMappingGetArgs Empty => new AlertRuleScheduledEntityMappingGetArgs();
     }
 }

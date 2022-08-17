@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-// 			ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
-// 			ServiceName:       exampleSpringCloudService.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudContainerDeployment(ctx, "exampleSpringCloudContainerDeployment", &appplatform.SpringCloudContainerDeploymentArgs{
-// 			SpringCloudAppId: exampleSpringCloudApp.ID(),
-// 			InstanceCount:    pulumi.Int(2),
-// 			Arguments: pulumi.StringArray{
-// 				pulumi.String("-cp"),
-// 				pulumi.String("/app/resources:/app/classes:/app/libs/*"),
-// 				pulumi.String("hello.Application"),
-// 			},
-// 			Commands: pulumi.StringArray{
-// 				pulumi.String("java"),
-// 			},
-// 			EnvironmentVariables: pulumi.StringMap{
-// 				"Foo": pulumi.String("Bar"),
-// 				"Env": pulumi.String("Staging"),
-// 			},
-// 			Server:            pulumi.String("docker.io"),
-// 			Image:             pulumi.String("springio/gs-spring-boot-docker"),
-// 			LanguageFramework: pulumi.String("springboot"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//				ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
+//				ServiceName:       exampleSpringCloudService.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudContainerDeployment(ctx, "exampleSpringCloudContainerDeployment", &appplatform.SpringCloudContainerDeploymentArgs{
+//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				InstanceCount:    pulumi.Int(2),
+//				Arguments: pulumi.StringArray{
+//					pulumi.String("-cp"),
+//					pulumi.String("/app/resources:/app/classes:/app/libs/*"),
+//					pulumi.String("hello.Application"),
+//				},
+//				Commands: pulumi.StringArray{
+//					pulumi.String("java"),
+//				},
+//				EnvironmentVariables: pulumi.StringMap{
+//					"Foo": pulumi.String("Bar"),
+//					"Env": pulumi.String("Staging"),
+//				},
+//				Server:            pulumi.String("docker.io"),
+//				Image:             pulumi.String("springio/gs-spring-boot-docker"),
+//				LanguageFramework: pulumi.String("springboot"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -79,7 +82,9 @@ import (
 // Spring Cloud Container Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+//
+//	$ pulumi import azure:appplatform/springCloudContainerDeployment:SpringCloudContainerDeployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/deployments/deploy1
+//
 // ```
 type SpringCloudContainerDeployment struct {
 	pulumi.CustomResourceState
@@ -276,7 +281,7 @@ func (i *SpringCloudContainerDeployment) ToSpringCloudContainerDeploymentOutputW
 // SpringCloudContainerDeploymentArrayInput is an input type that accepts SpringCloudContainerDeploymentArray and SpringCloudContainerDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudContainerDeploymentArrayInput` via:
 //
-//          SpringCloudContainerDeploymentArray{ SpringCloudContainerDeploymentArgs{...} }
+//	SpringCloudContainerDeploymentArray{ SpringCloudContainerDeploymentArgs{...} }
 type SpringCloudContainerDeploymentArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +306,7 @@ func (i SpringCloudContainerDeploymentArray) ToSpringCloudContainerDeploymentArr
 // SpringCloudContainerDeploymentMapInput is an input type that accepts SpringCloudContainerDeploymentMap and SpringCloudContainerDeploymentMapOutput values.
 // You can construct a concrete instance of `SpringCloudContainerDeploymentMapInput` via:
 //
-//          SpringCloudContainerDeploymentMap{ "key": SpringCloudContainerDeploymentArgs{...} }
+//	SpringCloudContainerDeploymentMap{ "key": SpringCloudContainerDeploymentArgs{...} }
 type SpringCloudContainerDeploymentMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolStartTaskUserIdentityAutoUserGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolStartTaskUserIdentityAutoUserGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The elevation level of the user identity under which the start task runs. Possible values are `Admin` or `NonAdmin`. Defaults to `NonAdmin`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolStartTaskUserIdentityAutoUserGetArgs()
         {
         }
+        public static new PoolStartTaskUserIdentityAutoUserGetArgs Empty => new PoolStartTaskUserIdentityAutoUserGetArgs();
     }
 }

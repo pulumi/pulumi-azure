@@ -107,6 +107,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.eventhub.EventHubNamespaceIdentity | undefined>;
     /**
+     * Is SAS authentication enabled for the EventHub Namespace?
+     */
+    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -115,6 +119,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      */
     public readonly maximumThroughputUnits!: pulumi.Output<number>;
     /**
+     * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    public readonly minimumTlsVersion!: pulumi.Output<string>;
+    /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
@@ -122,6 +130,10 @@ export class EventHubNamespace extends pulumi.CustomResource {
      * A `networkRulesets` block as defined below.
      */
     public readonly networkRulesets!: pulumi.Output<outputs.eventhub.EventHubNamespaceNetworkRulesets>;
+    /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
@@ -162,10 +174,13 @@ export class EventHubNamespace extends pulumi.CustomResource {
             resourceInputs["defaultSecondaryConnectionStringAlias"] = state ? state.defaultSecondaryConnectionStringAlias : undefined;
             resourceInputs["defaultSecondaryKey"] = state ? state.defaultSecondaryKey : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maximumThroughputUnits"] = state ? state.maximumThroughputUnits : undefined;
+            resourceInputs["minimumTlsVersion"] = state ? state.minimumTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkRulesets"] = state ? state.networkRulesets : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -182,10 +197,13 @@ export class EventHubNamespace extends pulumi.CustomResource {
             resourceInputs["capacity"] = args ? args.capacity : undefined;
             resourceInputs["dedicatedClusterId"] = args ? args.dedicatedClusterId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
+            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkRulesets"] = args ? args.networkRulesets : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -251,6 +269,10 @@ export interface EventHubNamespaceState {
      */
     identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
     /**
+     * Is SAS authentication enabled for the EventHub Namespace?
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -259,6 +281,10 @@ export interface EventHubNamespaceState {
      */
     maximumThroughputUnits?: pulumi.Input<number>;
     /**
+     * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -266,6 +292,10 @@ export interface EventHubNamespaceState {
      * A `networkRulesets` block as defined below.
      */
     networkRulesets?: pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesets>;
+    /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */
@@ -305,6 +335,10 @@ export interface EventHubNamespaceArgs {
      */
     identity?: pulumi.Input<inputs.eventhub.EventHubNamespaceIdentity>;
     /**
+     * Is SAS authentication enabled for the EventHub Namespace?
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
@@ -313,6 +347,10 @@ export interface EventHubNamespaceArgs {
      */
     maximumThroughputUnits?: pulumi.Input<number>;
     /**
+     * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     */
+    minimumTlsVersion?: pulumi.Input<string>;
+    /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
@@ -320,6 +358,10 @@ export interface EventHubNamespaceArgs {
      * A `networkRulesets` block as defined below.
      */
     networkRulesets?: pulumi.Input<inputs.eventhub.EventHubNamespaceNetworkRulesets>;
+    /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
      */

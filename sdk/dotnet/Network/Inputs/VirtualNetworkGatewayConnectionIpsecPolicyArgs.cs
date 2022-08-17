@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayConnectionIpsecPolicyArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayConnectionIpsecPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The DH group used in IKE phase 1 for initial SA. Valid
@@ -73,5 +73,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayConnectionIpsecPolicyArgs()
         {
         }
+        public static new VirtualNetworkGatewayConnectionIpsecPolicyArgs Empty => new VirtualNetworkGatewayConnectionIpsecPolicyArgs();
     }
 }

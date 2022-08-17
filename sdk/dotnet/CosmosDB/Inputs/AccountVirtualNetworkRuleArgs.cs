@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountVirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class AccountVirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the virtual network subnet.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountVirtualNetworkRuleArgs()
         {
         }
+        public static new AccountVirtualNetworkRuleArgs Empty => new AccountVirtualNetworkRuleArgs();
     }
 }

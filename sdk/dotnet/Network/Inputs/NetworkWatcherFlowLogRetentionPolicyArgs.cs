@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkWatcherFlowLogRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class NetworkWatcherFlowLogRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain flow log records.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkWatcherFlowLogRetentionPolicyArgs()
         {
         }
+        public static new NetworkWatcherFlowLogRetentionPolicyArgs Empty => new NetworkWatcherFlowLogRetentionPolicyArgs();
     }
 }

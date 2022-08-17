@@ -42,6 +42,7 @@ import * as dashboard from "./dashboard";
 import * as databasemigration from "./databasemigration";
 import * as databoxedge from "./databoxedge";
 import * as databricks from "./databricks";
+import * as datadog from "./datadog";
 import * as datafactory from "./datafactory";
 import * as dataprotection from "./dataprotection";
 import * as datashare from "./datashare";
@@ -151,6 +152,7 @@ export {
     databasemigration,
     databoxedge,
     databricks,
+    datadog,
     datafactory,
     dataprotection,
     datashare,

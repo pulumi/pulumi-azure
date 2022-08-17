@@ -98,14 +98,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+     * @return . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -523,7 +523,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+         * @param engine . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
          * 
          * @return builder
          * 
@@ -534,7 +534,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine . The engine type that should be used. Possible values are `V2` and `V3`. Defaults to `V2`.
+         * @param engine . The engine type that will be used in the backend. Possible values are `V2` and `V3`. Defaults to `V2`. Changing this forces a new Kusto Cluster to be created.
          * 
          * @return builder
          * 

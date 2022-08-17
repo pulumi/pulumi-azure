@@ -15,47 +15,47 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleMxRecord = new Azure.PrivateDns.MxRecord("exampleMxRecord", new Azure.PrivateDns.MxRecordArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ZoneName = exampleZone.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.PrivateDns.Inputs.MxRecordRecordArgs
-    ///                 {
-    ///                     Preference = 10,
-    ///                     Exchange = "mx1.contoso.com",
-    ///                 },
-    ///                 new Azure.PrivateDns.Inputs.MxRecordRecordArgs
-    ///                 {
-    ///                     Preference = 20,
-    ///                     Exchange = "backupmx.contoso.com",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleMxRecord = new Azure.PrivateDns.MxRecord("exampleMxRecord", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ZoneName = exampleZone.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///             {
+    ///                 Preference = 10,
+    ///                 Exchange = "mx1.contoso.com",
+    ///             },
+    ///             new Azure.PrivateDns.Inputs.MxRecordRecordArgs
+    ///             {
+    ///                 Preference = 20,
+    ///                 Exchange = "backupmx.contoso.com",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/mxRecord:MxRecord")]
-    public partial class MxRecord : Pulumi.CustomResource
+    public partial class MxRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS MX Record.
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class MxRecordArgs : Pulumi.ResourceArgs
+    public sealed class MxRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS MX Record. Changing this forces a new resource to be created. Default to '@' for root zone entry.
@@ -202,9 +202,10 @@ namespace Pulumi.Azure.PrivateDns
         public MxRecordArgs()
         {
         }
+        public static new MxRecordArgs Empty => new MxRecordArgs();
     }
 
-    public sealed class MxRecordState : Pulumi.ResourceArgs
+    public sealed class MxRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS MX Record.
@@ -260,5 +261,6 @@ namespace Pulumi.Azure.PrivateDns
         public MxRecordState()
         {
         }
+        public static new MxRecordState Empty => new MxRecordState();
     }
 }

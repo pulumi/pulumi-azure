@@ -19,22 +19,20 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var policy = Azure.SiteRecovery.GetReplicationPolicy.Invoke(new()
         ///     {
-        ///         var policy = Output.Create(Azure.SiteRecovery.GetReplicationPolicy.InvokeAsync(new Azure.SiteRecovery.GetReplicationPolicyArgs
-        ///         {
-        ///             Name = "replication-policy",
-        ///             RecoveryVaultName = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "replication-policy",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.SiteRecovery
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var policy = Azure.SiteRecovery.GetReplicationPolicy.Invoke(new()
         ///     {
-        ///         var policy = Output.Create(Azure.SiteRecovery.GetReplicationPolicy.InvokeAsync(new Azure.SiteRecovery.GetReplicationPolicyArgs
-        ///         {
-        ///             Name = "replication-policy",
-        ///             RecoveryVaultName = "tfex-recovery_vault",
-        ///             ResourceGroupName = "tfex-resource_group",
-        ///         }));
-        ///     }
+        ///         Name = "replication-policy",
+        ///         RecoveryVaultName = "tfex-recovery_vault",
+        ///         ResourceGroupName = "tfex-resource_group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.SiteRecovery
     }
 
 
-    public sealed class GetReplicationPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Azure Site Recovery replication policy.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.SiteRecovery
         public GetReplicationPolicyArgs()
         {
         }
+        public static new GetReplicationPolicyArgs Empty => new GetReplicationPolicyArgs();
     }
 
-    public sealed class GetReplicationPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetReplicationPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Azure Site Recovery replication policy.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.SiteRecovery
         public GetReplicationPolicyInvokeArgs()
         {
         }
+        public static new GetReplicationPolicyInvokeArgs Empty => new GetReplicationPolicyInvokeArgs();
     }
 
 

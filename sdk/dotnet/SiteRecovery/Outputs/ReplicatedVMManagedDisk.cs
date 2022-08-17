@@ -22,6 +22,10 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         /// </summary>
         public readonly string StagingStorageAccountId;
         /// <summary>
+        /// A `target_disk_encryption` block as defined below.
+        /// </summary>
+        public readonly Outputs.ReplicatedVMManagedDiskTargetDiskEncryption? TargetDiskEncryption;
+        /// <summary>
         /// The Disk Encryption Set that the Managed Disk will be associated with.
         /// </summary>
         public readonly string? TargetDiskEncryptionSetId;
@@ -44,6 +48,8 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
 
             string stagingStorageAccountId,
 
+            Outputs.ReplicatedVMManagedDiskTargetDiskEncryption? targetDiskEncryption,
+
             string? targetDiskEncryptionSetId,
 
             string targetDiskType,
@@ -54,6 +60,7 @@ namespace Pulumi.Azure.SiteRecovery.Outputs
         {
             DiskId = diskId;
             StagingStorageAccountId = stagingStorageAccountId;
+            TargetDiskEncryption = targetDiskEncryption;
             TargetDiskEncryptionSetId = targetDiskEncryptionSetId;
             TargetDiskType = targetDiskType;
             TargetReplicaDiskType = targetReplicaDiskType;

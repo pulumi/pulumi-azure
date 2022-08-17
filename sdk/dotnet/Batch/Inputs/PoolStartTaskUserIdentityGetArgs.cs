@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolStartTaskUserIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolStartTaskUserIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `auto_user` block that describes the user identity under which the start task runs.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolStartTaskUserIdentityGetArgs()
         {
         }
+        public static new PoolStartTaskUserIdentityGetArgs Empty => new PoolStartTaskUserIdentityGetArgs();
     }
 }

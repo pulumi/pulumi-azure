@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			ServiceProviderName: pulumi.String("Equinix"),
-// 			PeeringLocation:     pulumi.String("Silicon Valley"),
-// 			BandwidthInMbps:     pulumi.Int(50),
-// 			Sku: &network.ExpressRouteCircuitSkuArgs{
-// 				Tier:   pulumi.String("Standard"),
-// 				Family: pulumi.String("MeteredData"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				ServiceProviderName: pulumi.String("Equinix"),
+//				PeeringLocation:     pulumi.String("Silicon Valley"),
+//				BandwidthInMbps:     pulumi.Int(50),
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // ExpressRoute circuits can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
+//
+//	$ pulumi import azure:network/expressRouteCircuit:ExpressRouteCircuit myExpressRoute /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteCircuits/myExpressRoute
+//
 // ```
 type ExpressRouteCircuit struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 // ExpressRouteCircuitArrayInput is an input type that accepts ExpressRouteCircuitArray and ExpressRouteCircuitArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitArrayInput` via:
 //
-//          ExpressRouteCircuitArray{ ExpressRouteCircuitArgs{...} }
+//	ExpressRouteCircuitArray{ ExpressRouteCircuitArgs{...} }
 type ExpressRouteCircuitArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i ExpressRouteCircuitArray) ToExpressRouteCircuitArrayOutputWithContext(ct
 // ExpressRouteCircuitMapInput is an input type that accepts ExpressRouteCircuitMap and ExpressRouteCircuitMapOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitMapInput` via:
 //
-//          ExpressRouteCircuitMap{ "key": ExpressRouteCircuitArgs{...} }
+//	ExpressRouteCircuitMap{ "key": ExpressRouteCircuitArgs{...} }
 type ExpressRouteCircuitMapInput interface {
 	pulumi.Input
 

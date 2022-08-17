@@ -268,6 +268,8 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         """
         Manages an Azure Spring Cloud Deployment with a Java runtime.
 
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
+
         ## Example Usage
 
         ```python
@@ -325,6 +327,8 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Deployment with a Java runtime.
+
+        > **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
 
         ## Example Usage
 

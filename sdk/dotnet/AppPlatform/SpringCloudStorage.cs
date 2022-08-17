@@ -15,38 +15,39 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSpringCloudStorage = new Azure.AppPlatform.SpringCloudStorage("exampleSpringCloudStorage", new Azure.AppPlatform.SpringCloudStorageArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudStorage = new Azure.AppPlatform.SpringCloudStorage("exampleSpringCloudStorage", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +59,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudStorage:SpringCloudStorage")]
-    public partial class SpringCloudStorage : Pulumi.CustomResource
+    public partial class SpringCloudStorage : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
@@ -128,7 +129,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudStorageArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
@@ -157,9 +158,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudStorageArgs()
         {
         }
+        public static new SpringCloudStorageArgs Empty => new SpringCloudStorageArgs();
     }
 
-    public sealed class SpringCloudStorageState : Pulumi.ResourceArgs
+    public sealed class SpringCloudStorageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud Storage. Changing this forces a new Spring Cloud Storage to be created.
@@ -188,5 +190,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudStorageState()
         {
         }
+        public static new SpringCloudStorageState Empty => new SpringCloudStorageState();
     }
 }

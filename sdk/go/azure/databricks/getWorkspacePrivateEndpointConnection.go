@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/databricks"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := databricks.GetWorkspacePrivateEndpointConnection(ctx, &databricks.GetWorkspacePrivateEndpointConnectionArgs{
-// 			WorkspaceId:       azurerm_databricks_workspace.Example.Id,
-// 			PrivateEndpointId: azurerm_private_endpoint.Example.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("databricksWorkspacePrivateEndpointConnectionStatus", example.Connections[0].Status)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := databricks.GetWorkspacePrivateEndpointConnection(ctx, &databricks.GetWorkspacePrivateEndpointConnectionArgs{
+//				WorkspaceId:       azurerm_databricks_workspace.Example.Id,
+//				PrivateEndpointId: azurerm_private_endpoint.Example.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("databricksWorkspacePrivateEndpointConnectionStatus", example.Connections[0].Status)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetWorkspacePrivateEndpointConnection(ctx *pulumi.Context, args *GetWorkspacePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*GetWorkspacePrivateEndpointConnectionResult, error) {
 	var rv GetWorkspacePrivateEndpointConnectionResult

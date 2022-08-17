@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetOsProfileSecretGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetOsProfileSecretGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the key vault to use.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetOsProfileSecretGetArgs()
         {
         }
+        public static new ScaleSetOsProfileSecretGetArgs Empty => new ScaleSetOsProfileSecretGetArgs();
     }
 }

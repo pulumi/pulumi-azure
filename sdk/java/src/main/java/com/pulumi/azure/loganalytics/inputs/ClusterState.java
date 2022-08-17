@@ -94,14 +94,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
      */
     @Import(name="sizeGb")
     private @Nullable Output<Integer> sizeGb;
 
     /**
-     * @return The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * @return The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
      */
     public Optional<Output<Integer>> sizeGb() {
@@ -259,7 +259,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeGb The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+         * @param sizeGb The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sizeGb The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+         * @param sizeGb The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
          * 
          * @return builder
          * 

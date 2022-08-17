@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineTerminationNotificationArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineTerminationNotificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the termination notification be enabled on this Virtual Machine? Defaults to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineTerminationNotificationArgs()
         {
         }
+        public static new WindowsVirtualMachineTerminationNotificationArgs Empty => new WindowsVirtualMachineTerminationNotificationArgs();
     }
 }

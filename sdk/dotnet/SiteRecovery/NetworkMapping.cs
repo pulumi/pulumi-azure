@@ -15,76 +15,81 @@ namespace Pulumi.Azure.SiteRecovery
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
     ///     {
-    ///         var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West US",
-    ///         });
-    ///         var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "East US",
-    ///         });
-    ///         var vault = new Azure.RecoveryServices.Vault("vault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = secondaryResourceGroup.Location,
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = primaryResourceGroup.Location,
-    ///         });
-    ///         var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new Azure.SiteRecovery.FabricArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             Location = secondaryResourceGroup.Location,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 primaryFabric,
-    ///             },
-    ///         });
-    ///         // Avoids issues with creating fabrics simultaneously
-    ///         var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = primaryResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "192.168.1.0/24",
-    ///             },
-    ///             Location = primaryResourceGroup.Location,
-    ///         });
-    ///         var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "192.168.2.0/24",
-    ///             },
-    ///             Location = secondaryResourceGroup.Location,
-    ///         });
-    ///         var recovery_mapping = new Azure.SiteRecovery.NetworkMapping("recovery-mapping", new Azure.SiteRecovery.NetworkMappingArgs
-    ///         {
-    ///             ResourceGroupName = secondaryResourceGroup.Name,
-    ///             RecoveryVaultName = vault.Name,
-    ///             SourceRecoveryFabricName = "primary-fabric",
-    ///             TargetRecoveryFabricName = "secondary-fabric",
-    ///             SourceNetworkId = primaryVirtualNetwork.Id,
-    ///             TargetNetworkId = secondaryVirtualNetwork.Id,
-    ///         });
-    ///     }
+    ///         Location = "West US",
+    ///     });
     /// 
-    /// }
+    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
+    ///     {
+    ///         Location = "East US",
+    ///     });
+    /// 
+    ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Location = secondaryResourceGroup.Location,
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         Location = secondaryResourceGroup.Location,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             primaryFabric,
+    ///         },
+    ///     });
+    /// 
+    ///     // Avoids issues with creating fabrics simultaneously
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.1.0/24",
+    ///         },
+    ///         Location = primaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "192.168.2.0/24",
+    ///         },
+    ///         Location = secondaryResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var recovery_mapping = new Azure.SiteRecovery.NetworkMapping("recovery-mapping", new()
+    ///     {
+    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         RecoveryVaultName = vault.Name,
+    ///         SourceRecoveryFabricName = "primary-fabric",
+    ///         TargetRecoveryFabricName = "secondary-fabric",
+    ///         SourceNetworkId = primaryVirtualNetwork.Id,
+    ///         TargetNetworkId = secondaryVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +101,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// ```
     /// </summary>
     [AzureResourceType("azure:siterecovery/networkMapping:NetworkMapping")]
-    public partial class NetworkMapping : Pulumi.CustomResource
+    public partial class NetworkMapping : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the network mapping.
@@ -184,7 +189,7 @@ namespace Pulumi.Azure.SiteRecovery
         }
     }
 
-    public sealed class NetworkMappingArgs : Pulumi.ResourceArgs
+    public sealed class NetworkMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network mapping.
@@ -231,9 +236,10 @@ namespace Pulumi.Azure.SiteRecovery
         public NetworkMappingArgs()
         {
         }
+        public static new NetworkMappingArgs Empty => new NetworkMappingArgs();
     }
 
-    public sealed class NetworkMappingState : Pulumi.ResourceArgs
+    public sealed class NetworkMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the network mapping.
@@ -280,5 +286,6 @@ namespace Pulumi.Azure.SiteRecovery
         public NetworkMappingState()
         {
         }
+        public static new NetworkMappingState Empty => new NetworkMappingState();
     }
 }

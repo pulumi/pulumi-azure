@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const isesubnet1 = new azure.network.Subnet("isesubnet1", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.0/26"],
+ *     addressPrefixes: ["10.0.1.0/27"],
  *     delegations: [{
  *         name: "integrationServiceEnvironments",
  *         serviceDelegation: {
@@ -33,17 +33,17 @@ import * as utilities from "../utilities";
  * const isesubnet2 = new azure.network.Subnet("isesubnet2", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.64/26"],
+ *     addressPrefixes: ["10.0.1.32/27"],
  * });
  * const isesubnet3 = new azure.network.Subnet("isesubnet3", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.128/26"],
+ *     addressPrefixes: ["10.0.1.64/27"],
  * });
  * const isesubnet4 = new azure.network.Subnet("isesubnet4", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     addressPrefixes: ["10.0.1.192/26"],
+ *     addressPrefixes: ["10.0.1.96/27"],
  * });
  * const exampleInterationServiceEnvironment = new azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment", {
  *     location: exampleResourceGroup.location,
@@ -131,7 +131,7 @@ export class InterationServiceEnvironment extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      */
     public readonly virtualNetworkSubnetIds!: pulumi.Output<string[]>;
     /**
@@ -232,7 +232,7 @@ export interface InterationServiceEnvironmentState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      */
     virtualNetworkSubnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -274,7 +274,7 @@ export interface InterationServiceEnvironmentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      */
     virtualNetworkSubnetIds: pulumi.Input<pulumi.Input<string>[]>;
 }

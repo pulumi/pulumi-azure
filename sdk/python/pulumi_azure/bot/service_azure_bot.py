@@ -29,6 +29,7 @@ class ServiceAzureBotArgs:
                  microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
                  microsoft_app_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServiceAzureBot resource.
@@ -47,6 +48,7 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
@@ -76,6 +78,8 @@ class ServiceAzureBotArgs:
             pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if streaming_endpoint_enabled is not None:
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -260,6 +264,18 @@ class ServiceAzureBotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
+
+    @streaming_endpoint_enabled.setter
+    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_endpoint_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -290,6 +306,7 @@ class _ServiceAzureBotState:
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ServiceAzureBot resources.
@@ -308,6 +325,7 @@ class _ServiceAzureBotState:
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
         if developer_app_insights_api_key is not None:
@@ -340,6 +358,8 @@ class _ServiceAzureBotState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if streaming_endpoint_enabled is not None:
+            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -524,6 +544,18 @@ class _ServiceAzureBotState:
         pulumi.set(self, "sku", value)
 
     @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
+
+    @streaming_endpoint_enabled.setter
+    def streaming_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "streaming_endpoint_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -556,6 +588,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -620,6 +653,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
         ...
@@ -703,6 +737,7 @@ class ServiceAzureBot(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[str]] = None,
+                 streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -734,6 +769,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
             __props__.__dict__["tags"] = tags
         super(ServiceAzureBot, __self__).__init__(
             'azure:bot/serviceAzureBot:ServiceAzureBot',
@@ -760,6 +796,7 @@ class ServiceAzureBot(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             sku: Optional[pulumi.Input[str]] = None,
+            streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'ServiceAzureBot':
         """
         Get an existing ServiceAzureBot resource's state with the given name, id, and optional extra
@@ -783,6 +820,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -804,6 +842,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["streaming_endpoint_enabled"] = streaming_endpoint_enabled
         __props__.__dict__["tags"] = tags
         return ServiceAzureBot(resource_name, opts=opts, __props__=__props__)
 
@@ -926,6 +965,14 @@ class ServiceAzureBot(pulumi.CustomResource):
         The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="streamingEndpointEnabled")
+    def streaming_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        """
+        return pulumi.get(self, "streaming_endpoint_enabled")
 
     @property
     @pulumi.getter

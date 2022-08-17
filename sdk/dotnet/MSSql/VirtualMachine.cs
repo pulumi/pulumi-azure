@@ -17,37 +17,36 @@ namespace Pulumi.Azure.MSSql
     /// This example provisions a brief Managed Microsoft SQL Virtual Machine.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
     ///     {
-    ///         var exampleVirtualMachine = Output.Create(Azure.Compute.GetVirtualMachine.InvokeAsync(new Azure.Compute.GetVirtualMachineArgs
-    ///         {
-    ///             Name = "example-vm",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleMssql_virtualMachineVirtualMachine = new Azure.MSSql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", new Azure.MSSql.VirtualMachineArgs
-    ///         {
-    ///             VirtualMachineId = exampleVirtualMachine.Apply(exampleVirtualMachine =&gt; exampleVirtualMachine.Id),
-    ///             SqlLicenseType = "PAYG",
-    ///             RServicesEnabled = true,
-    ///             SqlConnectivityPort = 1433,
-    ///             SqlConnectivityType = "PRIVATE",
-    ///             SqlConnectivityUpdatePassword = "Password1234!",
-    ///             SqlConnectivityUpdateUsername = "sqllogin",
-    ///             AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
-    ///             {
-    ///                 DayOfWeek = "Sunday",
-    ///                 MaintenanceWindowDurationInMinutes = 60,
-    ///                 MaintenanceWindowStartingHour = 2,
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "example-vm",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMssql_virtualMachineVirtualMachine = new Azure.MSSql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", new()
+    ///     {
+    ///         VirtualMachineId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         SqlLicenseType = "PAYG",
+    ///         RServicesEnabled = true,
+    ///         SqlConnectivityPort = 1433,
+    ///         SqlConnectivityType = "PRIVATE",
+    ///         SqlConnectivityUpdatePassword = "Password1234!",
+    ///         SqlConnectivityUpdateUsername = "sqllogin",
+    ///         AutoPatching = new Azure.MSSql.Inputs.VirtualMachineAutoPatchingArgs
+    ///         {
+    ///             DayOfWeek = "Sunday",
+    ///             MaintenanceWindowDurationInMinutes = 60,
+    ///             MaintenanceWindowStartingHour = 2,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +58,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/virtualMachine:VirtualMachine")]
-    public partial class VirtualMachine : Pulumi.CustomResource
+    public partial class VirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -177,7 +176,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class VirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -260,9 +259,10 @@ namespace Pulumi.Azure.MSSql
         public VirtualMachineArgs()
         {
         }
+        public static new VirtualMachineArgs Empty => new VirtualMachineArgs();
     }
 
-    public sealed class VirtualMachineState : Pulumi.ResourceArgs
+    public sealed class VirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auto_backup` block as defined below. This block can be added to an existing resource, but removing this block forces a new resource to be created.
@@ -345,5 +345,6 @@ namespace Pulumi.Azure.MSSql
         public VirtualMachineState()
         {
         }
+        public static new VirtualMachineState Empty => new VirtualMachineState();
     }
 }

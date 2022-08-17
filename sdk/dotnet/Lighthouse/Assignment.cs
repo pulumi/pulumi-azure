@@ -15,22 +15,21 @@ namespace Pulumi.Azure.Lighthouse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var example = new Azure.Lighthouse.Assignment("example", new Azure.Lighthouse.AssignmentArgs
-    ///         {
-    ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             LighthouseDefinitionId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
-    ///         });
-    ///     }
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var example = new Azure.Lighthouse.Assignment("example", new()
+    ///     {
+    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         LighthouseDefinitionId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +41,7 @@ namespace Pulumi.Azure.Lighthouse
     /// ```
     /// </summary>
     [AzureResourceType("azure:lighthouse/assignment:Assignment")]
-    public partial class Assignment : Pulumi.CustomResource
+    public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
@@ -106,7 +105,7 @@ namespace Pulumi.Azure.Lighthouse
         }
     }
 
-    public sealed class AssignmentArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
@@ -129,9 +128,10 @@ namespace Pulumi.Azure.Lighthouse
         public AssignmentArgs()
         {
         }
+        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 
-    public sealed class AssignmentState : Pulumi.ResourceArgs
+    public sealed class AssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A Fully qualified path of the lighthouse definition, such as `/subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-8e081c90ada2`. Changing this forces a new resource to be created.
@@ -154,5 +154,6 @@ namespace Pulumi.Azure.Lighthouse
         public AssignmentState()
         {
         }
+        public static new AssignmentState Empty => new AssignmentState();
     }
 }

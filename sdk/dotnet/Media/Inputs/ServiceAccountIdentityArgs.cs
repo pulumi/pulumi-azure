@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ServiceAccountIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAccountIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ServiceAccountIdentityArgs()
         {
         }
+        public static new ServiceAccountIdentityArgs Empty => new ServiceAccountIdentityArgs();
     }
 }

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := siterecovery.LookupReplicationPolicy(ctx, &siterecovery.LookupReplicationPolicyArgs{
-// 			Name:              "replication-policy",
-// 			RecoveryVaultName: "tfex-recovery_vault",
-// 			ResourceGroupName: "tfex-resource_group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := siterecovery.LookupReplicationPolicy(ctx, &siterecovery.LookupReplicationPolicyArgs{
+//				Name:              "replication-policy",
+//				RecoveryVaultName: "tfex-recovery_vault",
+//				ResourceGroupName: "tfex-resource_group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupReplicationPolicy(ctx *pulumi.Context, args *LookupReplicationPolicyArgs, opts ...pulumi.InvokeOption) (*LookupReplicationPolicyResult, error) {
 	var rv LookupReplicationPolicyResult

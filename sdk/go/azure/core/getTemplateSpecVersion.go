@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
-// 			Name:              "exampleTemplateSpec",
-// 			ResourceGroupName: "MyResourceGroup",
-// 			Version:           "v1.0.4",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+//				Name:              "exampleTemplateSpec",
+//				ResourceGroupName: "MyResourceGroup",
+//				Version:           "v1.0.4",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetTemplateSpecVersion(ctx *pulumi.Context, args *GetTemplateSpecVersionArgs, opts ...pulumi.InvokeOption) (*GetTemplateSpecVersionResult, error) {
 	var rv GetTemplateSpecVersionResult

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.GetGatewayConnection(ctx, &network.GetGatewayConnectionArgs{
-// 			Name:              "production",
-// 			ResourceGroupName: "networking",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("virtualNetworkGatewayConnectionId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.GetGatewayConnection(ctx, &network.GetGatewayConnectionArgs{
+//				Name:              "production",
+//				ResourceGroupName: "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("virtualNetworkGatewayConnectionId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetGatewayConnection(ctx *pulumi.Context, args *GetGatewayConnectionArgs, opts ...pulumi.InvokeOption) (*GetGatewayConnectionResult, error) {
 	var rv GetGatewayConnectionResult

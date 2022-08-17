@@ -24,19 +24,22 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceProviderRegistration(ctx, "example", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceProviderRegistration(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Registering A Preview Feature)
 //
@@ -44,26 +47,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
-// 			Features: core.ResourceProviderRegistrationFeatureArray{
-// 				&core.ResourceProviderRegistrationFeatureArgs{
-// 					Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
-// 					Registered: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
+//				Features: core.ResourceProviderRegistrationFeatureArray{
+//					&core.ResourceProviderRegistrationFeatureArgs{
+//						Name:       pulumi.String("AKS-DataPlaneAutoApprove"),
+//						Registered: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +77,9 @@ import (
 // Resource Provider Registrations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
+//
+//	$ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
+//
 // ```
 type ResourceProviderRegistration struct {
 	pulumi.CustomResourceState
@@ -169,7 +177,7 @@ func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutputWithC
 // ResourceProviderRegistrationArrayInput is an input type that accepts ResourceProviderRegistrationArray and ResourceProviderRegistrationArrayOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationArrayInput` via:
 //
-//          ResourceProviderRegistrationArray{ ResourceProviderRegistrationArgs{...} }
+//	ResourceProviderRegistrationArray{ ResourceProviderRegistrationArgs{...} }
 type ResourceProviderRegistrationArrayInput interface {
 	pulumi.Input
 
@@ -194,7 +202,7 @@ func (i ResourceProviderRegistrationArray) ToResourceProviderRegistrationArrayOu
 // ResourceProviderRegistrationMapInput is an input type that accepts ResourceProviderRegistrationMap and ResourceProviderRegistrationMapOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationMapInput` via:
 //
-//          ResourceProviderRegistrationMap{ "key": ResourceProviderRegistrationArgs{...} }
+//	ResourceProviderRegistrationMap{ "key": ResourceProviderRegistrationArgs{...} }
 type ResourceProviderRegistrationMapInput interface {
 	pulumi.Input
 

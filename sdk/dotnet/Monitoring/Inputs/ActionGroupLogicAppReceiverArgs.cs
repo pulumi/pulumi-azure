@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupLogicAppReceiverArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupLogicAppReceiverArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The callback url where HTTP request sent to.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupLogicAppReceiverArgs()
         {
         }
+        public static new ActionGroupLogicAppReceiverArgs Empty => new ActionGroupLogicAppReceiverArgs();
     }
 }

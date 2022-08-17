@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ManagedApplication.Inputs
 {
 
-    public sealed class ApplicationPlanArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the plan from the marketplace.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
         public ApplicationPlanArgs()
         {
         }
+        public static new ApplicationPlanArgs Empty => new ApplicationPlanArgs();
     }
 }

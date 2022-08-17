@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mixedreality"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mixedreality"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mixedreality.NewSpatialAnchorsAccount(ctx, "exampleSpatialAnchorsAccount", &mixedreality.SpatialAnchorsAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mixedreality.NewSpatialAnchorsAccount(ctx, "exampleSpatialAnchorsAccount", &mixedreality.SpatialAnchorsAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Spatial Anchors Account can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.MixedReality/spatialAnchorsAccounts/example
+//
+//	$ pulumi import azure:mixedreality/spatialAnchorsAccount:SpatialAnchorsAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.MixedReality/spatialAnchorsAccounts/example
+//
 // ```
 type SpatialAnchorsAccount struct {
 	pulumi.CustomResourceState
@@ -182,7 +187,7 @@ func (i *SpatialAnchorsAccount) ToSpatialAnchorsAccountOutputWithContext(ctx con
 // SpatialAnchorsAccountArrayInput is an input type that accepts SpatialAnchorsAccountArray and SpatialAnchorsAccountArrayOutput values.
 // You can construct a concrete instance of `SpatialAnchorsAccountArrayInput` via:
 //
-//          SpatialAnchorsAccountArray{ SpatialAnchorsAccountArgs{...} }
+//	SpatialAnchorsAccountArray{ SpatialAnchorsAccountArgs{...} }
 type SpatialAnchorsAccountArrayInput interface {
 	pulumi.Input
 
@@ -207,7 +212,7 @@ func (i SpatialAnchorsAccountArray) ToSpatialAnchorsAccountArrayOutputWithContex
 // SpatialAnchorsAccountMapInput is an input type that accepts SpatialAnchorsAccountMap and SpatialAnchorsAccountMapOutput values.
 // You can construct a concrete instance of `SpatialAnchorsAccountMapInput` via:
 //
-//          SpatialAnchorsAccountMap{ "key": SpatialAnchorsAccountArgs{...} }
+//	SpatialAnchorsAccountMap{ "key": SpatialAnchorsAccountArgs{...} }
 type SpatialAnchorsAccountMapInput interface {
 	pulumi.Input
 

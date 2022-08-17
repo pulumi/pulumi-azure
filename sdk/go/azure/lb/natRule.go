@@ -22,7 +22,9 @@ import (
 // Load Balancer NAT Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+//
+//	$ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+//
 // ```
 type NatRule struct {
 	pulumi.CustomResourceState
@@ -251,7 +253,7 @@ func (i *NatRule) ToNatRuleOutputWithContext(ctx context.Context) NatRuleOutput 
 // NatRuleArrayInput is an input type that accepts NatRuleArray and NatRuleArrayOutput values.
 // You can construct a concrete instance of `NatRuleArrayInput` via:
 //
-//          NatRuleArray{ NatRuleArgs{...} }
+//	NatRuleArray{ NatRuleArgs{...} }
 type NatRuleArrayInput interface {
 	pulumi.Input
 
@@ -276,7 +278,7 @@ func (i NatRuleArray) ToNatRuleArrayOutputWithContext(ctx context.Context) NatRu
 // NatRuleMapInput is an input type that accepts NatRuleMap and NatRuleMapOutput values.
 // You can construct a concrete instance of `NatRuleMapInput` via:
 //
-//          NatRuleMap{ "key": NatRuleArgs{...} }
+//	NatRuleMap{ "key": NatRuleArgs{...} }
 type NatRuleMapInput interface {
 	pulumi.Input
 

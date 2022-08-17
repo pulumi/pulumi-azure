@@ -23,45 +23,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-// 				&network.NetworkSecurityGroupSecurityRuleArgs{
-// 					Name:                     pulumi.String("test123"),
-// 					Priority:                 pulumi.Int(100),
-// 					Direction:                pulumi.String("Inbound"),
-// 					Access:                   pulumi.String("Allow"),
-// 					Protocol:                 pulumi.String("Tcp"),
-// 					SourcePortRange:          pulumi.String("*"),
-// 					DestinationPortRange:     pulumi.String("*"),
-// 					SourceAddressPrefix:      pulumi.String("*"),
-// 					DestinationAddressPrefix: pulumi.String("*"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("test123"),
+//						Priority:                 pulumi.Int(100),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("*"),
+//						SourceAddressPrefix:      pulumi.String("*"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Network Security Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkSecurityGroup:NetworkSecurityGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup
+//
+//	$ pulumi import azure:network/networkSecurityGroup:NetworkSecurityGroup group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkSecurityGroups/mySecurityGroup
+//
 // ```
 type NetworkSecurityGroup struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *NetworkSecurityGroup) ToNetworkSecurityGroupOutputWithContext(ctx conte
 // NetworkSecurityGroupArrayInput is an input type that accepts NetworkSecurityGroupArray and NetworkSecurityGroupArrayOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupArrayInput` via:
 //
-//          NetworkSecurityGroupArray{ NetworkSecurityGroupArgs{...} }
+//	NetworkSecurityGroupArray{ NetworkSecurityGroupArgs{...} }
 type NetworkSecurityGroupArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i NetworkSecurityGroupArray) ToNetworkSecurityGroupArrayOutputWithContext(
 // NetworkSecurityGroupMapInput is an input type that accepts NetworkSecurityGroupMap and NetworkSecurityGroupMapOutput values.
 // You can construct a concrete instance of `NetworkSecurityGroupMapInput` via:
 //
-//          NetworkSecurityGroupMap{ "key": NetworkSecurityGroupArgs{...} }
+//	NetworkSecurityGroupMap{ "key": NetworkSecurityGroupArgs{...} }
 type NetworkSecurityGroupMapInput interface {
 	pulumi.Input
 

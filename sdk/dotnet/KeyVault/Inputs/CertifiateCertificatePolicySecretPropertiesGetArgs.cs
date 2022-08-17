@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicySecretPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicySecretPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicySecretPropertiesGetArgs()
         {
         }
+        public static new CertifiateCertificatePolicySecretPropertiesGetArgs Empty => new CertifiateCertificatePolicySecretPropertiesGetArgs();
     }
 }

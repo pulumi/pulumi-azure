@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("adminPassword")]
         public Input<string>? AdminPassword { get; set; }
@@ -55,5 +55,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs Empty => new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationGetArgs();
     }
 }

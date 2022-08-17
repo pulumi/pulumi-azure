@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Policy.Inputs
 {
 
-    public sealed class PolicySetDefinitionPolicyDefinitionReferenceArgs : Pulumi.ResourceArgs
+    public sealed class PolicySetDefinitionPolicyDefinitionReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Policy.Inputs
         public PolicySetDefinitionPolicyDefinitionReferenceArgs()
         {
         }
+        public static new PolicySetDefinitionPolicyDefinitionReferenceArgs Empty => new PolicySetDefinitionPolicyDefinitionReferenceArgs();
     }
 }

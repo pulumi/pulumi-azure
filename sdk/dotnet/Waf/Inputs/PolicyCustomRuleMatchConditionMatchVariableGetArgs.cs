@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyCustomRuleMatchConditionMatchVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyCustomRuleMatchConditionMatchVariableGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes field of the matchVariable collection
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyCustomRuleMatchConditionMatchVariableGetArgs()
         {
         }
+        public static new PolicyCustomRuleMatchConditionMatchVariableGetArgs Empty => new PolicyCustomRuleMatchConditionMatchVariableGetArgs();
     }
 }

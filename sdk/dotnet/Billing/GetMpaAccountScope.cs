@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetMpaAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetMpaAccountScope.InvokeAsync(new Azure.Billing.GetMpaAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-        ///             CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        ///         CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Billing
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Billing.GetMpaAccountScope.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Billing.GetMpaAccountScope.InvokeAsync(new Azure.Billing.GetMpaAccountScopeArgs
-        ///         {
-        ///             BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-        ///             CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+        ///         CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Billing
     }
 
 
-    public sealed class GetMpaAccountScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetMpaAccountScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the MPA account.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Billing
         public GetMpaAccountScopeArgs()
         {
         }
+        public static new GetMpaAccountScopeArgs Empty => new GetMpaAccountScopeArgs();
     }
 
-    public sealed class GetMpaAccountScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMpaAccountScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Billing Account Name of the MPA account.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Billing
         public GetMpaAccountScopeInvokeArgs()
         {
         }
+        public static new GetMpaAccountScopeInvokeArgs Empty => new GetMpaAccountScopeInvokeArgs();
     }
 
 

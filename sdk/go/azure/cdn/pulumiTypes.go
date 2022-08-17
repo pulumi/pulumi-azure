@@ -22,7 +22,7 @@ type EndpointCustomDomainCdnManagedHttps struct {
 // EndpointCustomDomainCdnManagedHttpsInput is an input type that accepts EndpointCustomDomainCdnManagedHttpsArgs and EndpointCustomDomainCdnManagedHttpsOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainCdnManagedHttpsInput` via:
 //
-//          EndpointCustomDomainCdnManagedHttpsArgs{...}
+//	EndpointCustomDomainCdnManagedHttpsArgs{...}
 type EndpointCustomDomainCdnManagedHttpsInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i EndpointCustomDomainCdnManagedHttpsArgs) ToEndpointCustomDomainCdnManage
 // EndpointCustomDomainCdnManagedHttpsPtrInput is an input type that accepts EndpointCustomDomainCdnManagedHttpsArgs, EndpointCustomDomainCdnManagedHttpsPtr and EndpointCustomDomainCdnManagedHttpsPtrOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainCdnManagedHttpsPtrInput` via:
 //
-//          EndpointCustomDomainCdnManagedHttpsArgs{...}
+//	        EndpointCustomDomainCdnManagedHttpsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointCustomDomainCdnManagedHttpsPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type EndpointCustomDomainUserManagedHttps struct {
 // EndpointCustomDomainUserManagedHttpsInput is an input type that accepts EndpointCustomDomainUserManagedHttpsArgs and EndpointCustomDomainUserManagedHttpsOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainUserManagedHttpsInput` via:
 //
-//          EndpointCustomDomainUserManagedHttpsArgs{...}
+//	EndpointCustomDomainUserManagedHttpsArgs{...}
 type EndpointCustomDomainUserManagedHttpsInput interface {
 	pulumi.Input
 
@@ -233,11 +233,11 @@ func (i EndpointCustomDomainUserManagedHttpsArgs) ToEndpointCustomDomainUserMana
 // EndpointCustomDomainUserManagedHttpsPtrInput is an input type that accepts EndpointCustomDomainUserManagedHttpsArgs, EndpointCustomDomainUserManagedHttpsPtr and EndpointCustomDomainUserManagedHttpsPtrOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainUserManagedHttpsPtrInput` via:
 //
-//          EndpointCustomDomainUserManagedHttpsArgs{...}
+//	        EndpointCustomDomainUserManagedHttpsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointCustomDomainUserManagedHttpsPtrInput interface {
 	pulumi.Input
 
@@ -391,7 +391,7 @@ type EndpointDeliveryRule struct {
 // EndpointDeliveryRuleInput is an input type that accepts EndpointDeliveryRuleArgs and EndpointDeliveryRuleOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleInput` via:
 //
-//          EndpointDeliveryRuleArgs{...}
+//	EndpointDeliveryRuleArgs{...}
 type EndpointDeliveryRuleInput interface {
 	pulumi.Input
 
@@ -461,7 +461,7 @@ func (i EndpointDeliveryRuleArgs) ToEndpointDeliveryRuleOutputWithContext(ctx co
 // EndpointDeliveryRuleArrayInput is an input type that accepts EndpointDeliveryRuleArray and EndpointDeliveryRuleArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleArrayInput` via:
 //
-//          EndpointDeliveryRuleArray{ EndpointDeliveryRuleArgs{...} }
+//	EndpointDeliveryRuleArray{ EndpointDeliveryRuleArgs{...} }
 type EndpointDeliveryRuleArrayInput interface {
 	pulumi.Input
 
@@ -663,7 +663,7 @@ type EndpointDeliveryRuleCacheExpirationAction struct {
 // EndpointDeliveryRuleCacheExpirationActionInput is an input type that accepts EndpointDeliveryRuleCacheExpirationActionArgs and EndpointDeliveryRuleCacheExpirationActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCacheExpirationActionInput` via:
 //
-//          EndpointDeliveryRuleCacheExpirationActionArgs{...}
+//	EndpointDeliveryRuleCacheExpirationActionArgs{...}
 type EndpointDeliveryRuleCacheExpirationActionInput interface {
 	pulumi.Input
 
@@ -701,11 +701,11 @@ func (i EndpointDeliveryRuleCacheExpirationActionArgs) ToEndpointDeliveryRuleCac
 // EndpointDeliveryRuleCacheExpirationActionPtrInput is an input type that accepts EndpointDeliveryRuleCacheExpirationActionArgs, EndpointDeliveryRuleCacheExpirationActionPtr and EndpointDeliveryRuleCacheExpirationActionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCacheExpirationActionPtrInput` via:
 //
-//          EndpointDeliveryRuleCacheExpirationActionArgs{...}
+//	        EndpointDeliveryRuleCacheExpirationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleCacheExpirationActionPtrInput interface {
 	pulumi.Input
 
@@ -819,7 +819,7 @@ type EndpointDeliveryRuleCacheKeyQueryStringAction struct {
 // EndpointDeliveryRuleCacheKeyQueryStringActionInput is an input type that accepts EndpointDeliveryRuleCacheKeyQueryStringActionArgs and EndpointDeliveryRuleCacheKeyQueryStringActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCacheKeyQueryStringActionInput` via:
 //
-//          EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//	EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
 type EndpointDeliveryRuleCacheKeyQueryStringActionInput interface {
 	pulumi.Input
 
@@ -857,11 +857,11 @@ func (i EndpointDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointDeliveryRul
 // EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput is an input type that accepts EndpointDeliveryRuleCacheKeyQueryStringActionArgs, EndpointDeliveryRuleCacheKeyQueryStringActionPtr and EndpointDeliveryRuleCacheKeyQueryStringActionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput` via:
 //
-//          EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//	        EndpointDeliveryRuleCacheKeyQueryStringActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleCacheKeyQueryStringActionPtrInput interface {
 	pulumi.Input
 
@@ -981,7 +981,7 @@ type EndpointDeliveryRuleCookiesCondition struct {
 // EndpointDeliveryRuleCookiesConditionInput is an input type that accepts EndpointDeliveryRuleCookiesConditionArgs and EndpointDeliveryRuleCookiesConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCookiesConditionInput` via:
 //
-//          EndpointDeliveryRuleCookiesConditionArgs{...}
+//	EndpointDeliveryRuleCookiesConditionArgs{...}
 type EndpointDeliveryRuleCookiesConditionInput interface {
 	pulumi.Input
 
@@ -1017,7 +1017,7 @@ func (i EndpointDeliveryRuleCookiesConditionArgs) ToEndpointDeliveryRuleCookiesC
 // EndpointDeliveryRuleCookiesConditionArrayInput is an input type that accepts EndpointDeliveryRuleCookiesConditionArray and EndpointDeliveryRuleCookiesConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleCookiesConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleCookiesConditionArray{ EndpointDeliveryRuleCookiesConditionArgs{...} }
+//	EndpointDeliveryRuleCookiesConditionArray{ EndpointDeliveryRuleCookiesConditionArgs{...} }
 type EndpointDeliveryRuleCookiesConditionArrayInput interface {
 	pulumi.Input
 
@@ -1110,7 +1110,7 @@ type EndpointDeliveryRuleDeviceCondition struct {
 // EndpointDeliveryRuleDeviceConditionInput is an input type that accepts EndpointDeliveryRuleDeviceConditionArgs and EndpointDeliveryRuleDeviceConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleDeviceConditionInput` via:
 //
-//          EndpointDeliveryRuleDeviceConditionArgs{...}
+//	EndpointDeliveryRuleDeviceConditionArgs{...}
 type EndpointDeliveryRuleDeviceConditionInput interface {
 	pulumi.Input
 
@@ -1150,11 +1150,11 @@ func (i EndpointDeliveryRuleDeviceConditionArgs) ToEndpointDeliveryRuleDeviceCon
 // EndpointDeliveryRuleDeviceConditionPtrInput is an input type that accepts EndpointDeliveryRuleDeviceConditionArgs, EndpointDeliveryRuleDeviceConditionPtr and EndpointDeliveryRuleDeviceConditionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleDeviceConditionPtrInput` via:
 //
-//          EndpointDeliveryRuleDeviceConditionArgs{...}
+//	        EndpointDeliveryRuleDeviceConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleDeviceConditionPtrInput interface {
 	pulumi.Input
 
@@ -1285,7 +1285,7 @@ type EndpointDeliveryRuleHttpVersionCondition struct {
 // EndpointDeliveryRuleHttpVersionConditionInput is an input type that accepts EndpointDeliveryRuleHttpVersionConditionArgs and EndpointDeliveryRuleHttpVersionConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleHttpVersionConditionInput` via:
 //
-//          EndpointDeliveryRuleHttpVersionConditionArgs{...}
+//	EndpointDeliveryRuleHttpVersionConditionArgs{...}
 type EndpointDeliveryRuleHttpVersionConditionInput interface {
 	pulumi.Input
 
@@ -1317,7 +1317,7 @@ func (i EndpointDeliveryRuleHttpVersionConditionArgs) ToEndpointDeliveryRuleHttp
 // EndpointDeliveryRuleHttpVersionConditionArrayInput is an input type that accepts EndpointDeliveryRuleHttpVersionConditionArray and EndpointDeliveryRuleHttpVersionConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleHttpVersionConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleHttpVersionConditionArray{ EndpointDeliveryRuleHttpVersionConditionArgs{...} }
+//	EndpointDeliveryRuleHttpVersionConditionArray{ EndpointDeliveryRuleHttpVersionConditionArgs{...} }
 type EndpointDeliveryRuleHttpVersionConditionArrayInput interface {
 	pulumi.Input
 
@@ -1400,7 +1400,7 @@ type EndpointDeliveryRuleModifyRequestHeaderAction struct {
 // EndpointDeliveryRuleModifyRequestHeaderActionInput is an input type that accepts EndpointDeliveryRuleModifyRequestHeaderActionArgs and EndpointDeliveryRuleModifyRequestHeaderActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleModifyRequestHeaderActionInput` via:
 //
-//          EndpointDeliveryRuleModifyRequestHeaderActionArgs{...}
+//	EndpointDeliveryRuleModifyRequestHeaderActionArgs{...}
 type EndpointDeliveryRuleModifyRequestHeaderActionInput interface {
 	pulumi.Input
 
@@ -1432,7 +1432,7 @@ func (i EndpointDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointDeliveryRul
 // EndpointDeliveryRuleModifyRequestHeaderActionArrayInput is an input type that accepts EndpointDeliveryRuleModifyRequestHeaderActionArray and EndpointDeliveryRuleModifyRequestHeaderActionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleModifyRequestHeaderActionArrayInput` via:
 //
-//          EndpointDeliveryRuleModifyRequestHeaderActionArray{ EndpointDeliveryRuleModifyRequestHeaderActionArgs{...} }
+//	EndpointDeliveryRuleModifyRequestHeaderActionArray{ EndpointDeliveryRuleModifyRequestHeaderActionArgs{...} }
 type EndpointDeliveryRuleModifyRequestHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -1515,7 +1515,7 @@ type EndpointDeliveryRuleModifyResponseHeaderAction struct {
 // EndpointDeliveryRuleModifyResponseHeaderActionInput is an input type that accepts EndpointDeliveryRuleModifyResponseHeaderActionArgs and EndpointDeliveryRuleModifyResponseHeaderActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleModifyResponseHeaderActionInput` via:
 //
-//          EndpointDeliveryRuleModifyResponseHeaderActionArgs{...}
+//	EndpointDeliveryRuleModifyResponseHeaderActionArgs{...}
 type EndpointDeliveryRuleModifyResponseHeaderActionInput interface {
 	pulumi.Input
 
@@ -1547,7 +1547,7 @@ func (i EndpointDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointDeliveryRu
 // EndpointDeliveryRuleModifyResponseHeaderActionArrayInput is an input type that accepts EndpointDeliveryRuleModifyResponseHeaderActionArray and EndpointDeliveryRuleModifyResponseHeaderActionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleModifyResponseHeaderActionArrayInput` via:
 //
-//          EndpointDeliveryRuleModifyResponseHeaderActionArray{ EndpointDeliveryRuleModifyResponseHeaderActionArgs{...} }
+//	EndpointDeliveryRuleModifyResponseHeaderActionArray{ EndpointDeliveryRuleModifyResponseHeaderActionArgs{...} }
 type EndpointDeliveryRuleModifyResponseHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -1634,7 +1634,7 @@ type EndpointDeliveryRulePostArgCondition struct {
 // EndpointDeliveryRulePostArgConditionInput is an input type that accepts EndpointDeliveryRulePostArgConditionArgs and EndpointDeliveryRulePostArgConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRulePostArgConditionInput` via:
 //
-//          EndpointDeliveryRulePostArgConditionArgs{...}
+//	EndpointDeliveryRulePostArgConditionArgs{...}
 type EndpointDeliveryRulePostArgConditionInput interface {
 	pulumi.Input
 
@@ -1670,7 +1670,7 @@ func (i EndpointDeliveryRulePostArgConditionArgs) ToEndpointDeliveryRulePostArgC
 // EndpointDeliveryRulePostArgConditionArrayInput is an input type that accepts EndpointDeliveryRulePostArgConditionArray and EndpointDeliveryRulePostArgConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRulePostArgConditionArrayInput` via:
 //
-//          EndpointDeliveryRulePostArgConditionArray{ EndpointDeliveryRulePostArgConditionArgs{...} }
+//	EndpointDeliveryRulePostArgConditionArray{ EndpointDeliveryRulePostArgConditionArgs{...} }
 type EndpointDeliveryRulePostArgConditionArrayInput interface {
 	pulumi.Input
 
@@ -1765,7 +1765,7 @@ type EndpointDeliveryRuleQueryStringCondition struct {
 // EndpointDeliveryRuleQueryStringConditionInput is an input type that accepts EndpointDeliveryRuleQueryStringConditionArgs and EndpointDeliveryRuleQueryStringConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleQueryStringConditionInput` via:
 //
-//          EndpointDeliveryRuleQueryStringConditionArgs{...}
+//	EndpointDeliveryRuleQueryStringConditionArgs{...}
 type EndpointDeliveryRuleQueryStringConditionInput interface {
 	pulumi.Input
 
@@ -1799,7 +1799,7 @@ func (i EndpointDeliveryRuleQueryStringConditionArgs) ToEndpointDeliveryRuleQuer
 // EndpointDeliveryRuleQueryStringConditionArrayInput is an input type that accepts EndpointDeliveryRuleQueryStringConditionArray and EndpointDeliveryRuleQueryStringConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleQueryStringConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleQueryStringConditionArray{ EndpointDeliveryRuleQueryStringConditionArgs{...} }
+//	EndpointDeliveryRuleQueryStringConditionArray{ EndpointDeliveryRuleQueryStringConditionArgs{...} }
 type EndpointDeliveryRuleQueryStringConditionArrayInput interface {
 	pulumi.Input
 
@@ -1887,7 +1887,7 @@ type EndpointDeliveryRuleRemoteAddressCondition struct {
 // EndpointDeliveryRuleRemoteAddressConditionInput is an input type that accepts EndpointDeliveryRuleRemoteAddressConditionArgs and EndpointDeliveryRuleRemoteAddressConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRemoteAddressConditionInput` via:
 //
-//          EndpointDeliveryRuleRemoteAddressConditionArgs{...}
+//	EndpointDeliveryRuleRemoteAddressConditionArgs{...}
 type EndpointDeliveryRuleRemoteAddressConditionInput interface {
 	pulumi.Input
 
@@ -1919,7 +1919,7 @@ func (i EndpointDeliveryRuleRemoteAddressConditionArgs) ToEndpointDeliveryRuleRe
 // EndpointDeliveryRuleRemoteAddressConditionArrayInput is an input type that accepts EndpointDeliveryRuleRemoteAddressConditionArray and EndpointDeliveryRuleRemoteAddressConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRemoteAddressConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleRemoteAddressConditionArray{ EndpointDeliveryRuleRemoteAddressConditionArgs{...} }
+//	EndpointDeliveryRuleRemoteAddressConditionArray{ EndpointDeliveryRuleRemoteAddressConditionArgs{...} }
 type EndpointDeliveryRuleRemoteAddressConditionArrayInput interface {
 	pulumi.Input
 
@@ -2004,7 +2004,7 @@ type EndpointDeliveryRuleRequestBodyCondition struct {
 // EndpointDeliveryRuleRequestBodyConditionInput is an input type that accepts EndpointDeliveryRuleRequestBodyConditionArgs and EndpointDeliveryRuleRequestBodyConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestBodyConditionInput` via:
 //
-//          EndpointDeliveryRuleRequestBodyConditionArgs{...}
+//	EndpointDeliveryRuleRequestBodyConditionArgs{...}
 type EndpointDeliveryRuleRequestBodyConditionInput interface {
 	pulumi.Input
 
@@ -2038,7 +2038,7 @@ func (i EndpointDeliveryRuleRequestBodyConditionArgs) ToEndpointDeliveryRuleRequ
 // EndpointDeliveryRuleRequestBodyConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestBodyConditionArray and EndpointDeliveryRuleRequestBodyConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestBodyConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleRequestBodyConditionArray{ EndpointDeliveryRuleRequestBodyConditionArgs{...} }
+//	EndpointDeliveryRuleRequestBodyConditionArray{ EndpointDeliveryRuleRequestBodyConditionArgs{...} }
 type EndpointDeliveryRuleRequestBodyConditionArrayInput interface {
 	pulumi.Input
 
@@ -2130,7 +2130,7 @@ type EndpointDeliveryRuleRequestHeaderCondition struct {
 // EndpointDeliveryRuleRequestHeaderConditionInput is an input type that accepts EndpointDeliveryRuleRequestHeaderConditionArgs and EndpointDeliveryRuleRequestHeaderConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestHeaderConditionInput` via:
 //
-//          EndpointDeliveryRuleRequestHeaderConditionArgs{...}
+//	EndpointDeliveryRuleRequestHeaderConditionArgs{...}
 type EndpointDeliveryRuleRequestHeaderConditionInput interface {
 	pulumi.Input
 
@@ -2166,7 +2166,7 @@ func (i EndpointDeliveryRuleRequestHeaderConditionArgs) ToEndpointDeliveryRuleRe
 // EndpointDeliveryRuleRequestHeaderConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestHeaderConditionArray and EndpointDeliveryRuleRequestHeaderConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestHeaderConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleRequestHeaderConditionArray{ EndpointDeliveryRuleRequestHeaderConditionArgs{...} }
+//	EndpointDeliveryRuleRequestHeaderConditionArray{ EndpointDeliveryRuleRequestHeaderConditionArgs{...} }
 type EndpointDeliveryRuleRequestHeaderConditionArrayInput interface {
 	pulumi.Input
 
@@ -2259,7 +2259,7 @@ type EndpointDeliveryRuleRequestMethodCondition struct {
 // EndpointDeliveryRuleRequestMethodConditionInput is an input type that accepts EndpointDeliveryRuleRequestMethodConditionArgs and EndpointDeliveryRuleRequestMethodConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestMethodConditionInput` via:
 //
-//          EndpointDeliveryRuleRequestMethodConditionArgs{...}
+//	EndpointDeliveryRuleRequestMethodConditionArgs{...}
 type EndpointDeliveryRuleRequestMethodConditionInput interface {
 	pulumi.Input
 
@@ -2299,11 +2299,11 @@ func (i EndpointDeliveryRuleRequestMethodConditionArgs) ToEndpointDeliveryRuleRe
 // EndpointDeliveryRuleRequestMethodConditionPtrInput is an input type that accepts EndpointDeliveryRuleRequestMethodConditionArgs, EndpointDeliveryRuleRequestMethodConditionPtr and EndpointDeliveryRuleRequestMethodConditionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestMethodConditionPtrInput` via:
 //
-//          EndpointDeliveryRuleRequestMethodConditionArgs{...}
+//	        EndpointDeliveryRuleRequestMethodConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleRequestMethodConditionPtrInput interface {
 	pulumi.Input
 
@@ -2434,7 +2434,7 @@ type EndpointDeliveryRuleRequestSchemeCondition struct {
 // EndpointDeliveryRuleRequestSchemeConditionInput is an input type that accepts EndpointDeliveryRuleRequestSchemeConditionArgs and EndpointDeliveryRuleRequestSchemeConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestSchemeConditionInput` via:
 //
-//          EndpointDeliveryRuleRequestSchemeConditionArgs{...}
+//	EndpointDeliveryRuleRequestSchemeConditionArgs{...}
 type EndpointDeliveryRuleRequestSchemeConditionInput interface {
 	pulumi.Input
 
@@ -2474,11 +2474,11 @@ func (i EndpointDeliveryRuleRequestSchemeConditionArgs) ToEndpointDeliveryRuleRe
 // EndpointDeliveryRuleRequestSchemeConditionPtrInput is an input type that accepts EndpointDeliveryRuleRequestSchemeConditionArgs, EndpointDeliveryRuleRequestSchemeConditionPtr and EndpointDeliveryRuleRequestSchemeConditionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestSchemeConditionPtrInput` via:
 //
-//          EndpointDeliveryRuleRequestSchemeConditionArgs{...}
+//	        EndpointDeliveryRuleRequestSchemeConditionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleRequestSchemeConditionPtrInput interface {
 	pulumi.Input
 
@@ -2611,7 +2611,7 @@ type EndpointDeliveryRuleRequestUriCondition struct {
 // EndpointDeliveryRuleRequestUriConditionInput is an input type that accepts EndpointDeliveryRuleRequestUriConditionArgs and EndpointDeliveryRuleRequestUriConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestUriConditionInput` via:
 //
-//          EndpointDeliveryRuleRequestUriConditionArgs{...}
+//	EndpointDeliveryRuleRequestUriConditionArgs{...}
 type EndpointDeliveryRuleRequestUriConditionInput interface {
 	pulumi.Input
 
@@ -2645,7 +2645,7 @@ func (i EndpointDeliveryRuleRequestUriConditionArgs) ToEndpointDeliveryRuleReque
 // EndpointDeliveryRuleRequestUriConditionArrayInput is an input type that accepts EndpointDeliveryRuleRequestUriConditionArray and EndpointDeliveryRuleRequestUriConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleRequestUriConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleRequestUriConditionArray{ EndpointDeliveryRuleRequestUriConditionArgs{...} }
+//	EndpointDeliveryRuleRequestUriConditionArray{ EndpointDeliveryRuleRequestUriConditionArgs{...} }
 type EndpointDeliveryRuleRequestUriConditionArrayInput interface {
 	pulumi.Input
 
@@ -2735,7 +2735,7 @@ type EndpointDeliveryRuleUrlFileExtensionCondition struct {
 // EndpointDeliveryRuleUrlFileExtensionConditionInput is an input type that accepts EndpointDeliveryRuleUrlFileExtensionConditionArgs and EndpointDeliveryRuleUrlFileExtensionConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlFileExtensionConditionInput` via:
 //
-//          EndpointDeliveryRuleUrlFileExtensionConditionArgs{...}
+//	EndpointDeliveryRuleUrlFileExtensionConditionArgs{...}
 type EndpointDeliveryRuleUrlFileExtensionConditionInput interface {
 	pulumi.Input
 
@@ -2769,7 +2769,7 @@ func (i EndpointDeliveryRuleUrlFileExtensionConditionArgs) ToEndpointDeliveryRul
 // EndpointDeliveryRuleUrlFileExtensionConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlFileExtensionConditionArray and EndpointDeliveryRuleUrlFileExtensionConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlFileExtensionConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleUrlFileExtensionConditionArray{ EndpointDeliveryRuleUrlFileExtensionConditionArgs{...} }
+//	EndpointDeliveryRuleUrlFileExtensionConditionArray{ EndpointDeliveryRuleUrlFileExtensionConditionArgs{...} }
 type EndpointDeliveryRuleUrlFileExtensionConditionArrayInput interface {
 	pulumi.Input
 
@@ -2859,7 +2859,7 @@ type EndpointDeliveryRuleUrlFileNameCondition struct {
 // EndpointDeliveryRuleUrlFileNameConditionInput is an input type that accepts EndpointDeliveryRuleUrlFileNameConditionArgs and EndpointDeliveryRuleUrlFileNameConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlFileNameConditionInput` via:
 //
-//          EndpointDeliveryRuleUrlFileNameConditionArgs{...}
+//	EndpointDeliveryRuleUrlFileNameConditionArgs{...}
 type EndpointDeliveryRuleUrlFileNameConditionInput interface {
 	pulumi.Input
 
@@ -2893,7 +2893,7 @@ func (i EndpointDeliveryRuleUrlFileNameConditionArgs) ToEndpointDeliveryRuleUrlF
 // EndpointDeliveryRuleUrlFileNameConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlFileNameConditionArray and EndpointDeliveryRuleUrlFileNameConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlFileNameConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleUrlFileNameConditionArray{ EndpointDeliveryRuleUrlFileNameConditionArgs{...} }
+//	EndpointDeliveryRuleUrlFileNameConditionArray{ EndpointDeliveryRuleUrlFileNameConditionArgs{...} }
 type EndpointDeliveryRuleUrlFileNameConditionArrayInput interface {
 	pulumi.Input
 
@@ -2983,7 +2983,7 @@ type EndpointDeliveryRuleUrlPathCondition struct {
 // EndpointDeliveryRuleUrlPathConditionInput is an input type that accepts EndpointDeliveryRuleUrlPathConditionArgs and EndpointDeliveryRuleUrlPathConditionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlPathConditionInput` via:
 //
-//          EndpointDeliveryRuleUrlPathConditionArgs{...}
+//	EndpointDeliveryRuleUrlPathConditionArgs{...}
 type EndpointDeliveryRuleUrlPathConditionInput interface {
 	pulumi.Input
 
@@ -3017,7 +3017,7 @@ func (i EndpointDeliveryRuleUrlPathConditionArgs) ToEndpointDeliveryRuleUrlPathC
 // EndpointDeliveryRuleUrlPathConditionArrayInput is an input type that accepts EndpointDeliveryRuleUrlPathConditionArray and EndpointDeliveryRuleUrlPathConditionArrayOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlPathConditionArrayInput` via:
 //
-//          EndpointDeliveryRuleUrlPathConditionArray{ EndpointDeliveryRuleUrlPathConditionArgs{...} }
+//	EndpointDeliveryRuleUrlPathConditionArray{ EndpointDeliveryRuleUrlPathConditionArgs{...} }
 type EndpointDeliveryRuleUrlPathConditionArrayInput interface {
 	pulumi.Input
 
@@ -3111,7 +3111,7 @@ type EndpointDeliveryRuleUrlRedirectAction struct {
 // EndpointDeliveryRuleUrlRedirectActionInput is an input type that accepts EndpointDeliveryRuleUrlRedirectActionArgs and EndpointDeliveryRuleUrlRedirectActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlRedirectActionInput` via:
 //
-//          EndpointDeliveryRuleUrlRedirectActionArgs{...}
+//	EndpointDeliveryRuleUrlRedirectActionArgs{...}
 type EndpointDeliveryRuleUrlRedirectActionInput interface {
 	pulumi.Input
 
@@ -3157,11 +3157,11 @@ func (i EndpointDeliveryRuleUrlRedirectActionArgs) ToEndpointDeliveryRuleUrlRedi
 // EndpointDeliveryRuleUrlRedirectActionPtrInput is an input type that accepts EndpointDeliveryRuleUrlRedirectActionArgs, EndpointDeliveryRuleUrlRedirectActionPtr and EndpointDeliveryRuleUrlRedirectActionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlRedirectActionPtrInput` via:
 //
-//          EndpointDeliveryRuleUrlRedirectActionArgs{...}
+//	        EndpointDeliveryRuleUrlRedirectActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleUrlRedirectActionPtrInput interface {
 	pulumi.Input
 
@@ -3337,7 +3337,7 @@ type EndpointDeliveryRuleUrlRewriteAction struct {
 // EndpointDeliveryRuleUrlRewriteActionInput is an input type that accepts EndpointDeliveryRuleUrlRewriteActionArgs and EndpointDeliveryRuleUrlRewriteActionOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlRewriteActionInput` via:
 //
-//          EndpointDeliveryRuleUrlRewriteActionArgs{...}
+//	EndpointDeliveryRuleUrlRewriteActionArgs{...}
 type EndpointDeliveryRuleUrlRewriteActionInput interface {
 	pulumi.Input
 
@@ -3377,11 +3377,11 @@ func (i EndpointDeliveryRuleUrlRewriteActionArgs) ToEndpointDeliveryRuleUrlRewri
 // EndpointDeliveryRuleUrlRewriteActionPtrInput is an input type that accepts EndpointDeliveryRuleUrlRewriteActionArgs, EndpointDeliveryRuleUrlRewriteActionPtr and EndpointDeliveryRuleUrlRewriteActionPtrOutput values.
 // You can construct a concrete instance of `EndpointDeliveryRuleUrlRewriteActionPtrInput` via:
 //
-//          EndpointDeliveryRuleUrlRewriteActionArgs{...}
+//	        EndpointDeliveryRuleUrlRewriteActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointDeliveryRuleUrlRewriteActionPtrInput interface {
 	pulumi.Input
 
@@ -3512,7 +3512,7 @@ type EndpointGeoFilter struct {
 // EndpointGeoFilterInput is an input type that accepts EndpointGeoFilterArgs and EndpointGeoFilterOutput values.
 // You can construct a concrete instance of `EndpointGeoFilterInput` via:
 //
-//          EndpointGeoFilterArgs{...}
+//	EndpointGeoFilterArgs{...}
 type EndpointGeoFilterInput interface {
 	pulumi.Input
 
@@ -3544,7 +3544,7 @@ func (i EndpointGeoFilterArgs) ToEndpointGeoFilterOutputWithContext(ctx context.
 // EndpointGeoFilterArrayInput is an input type that accepts EndpointGeoFilterArray and EndpointGeoFilterArrayOutput values.
 // You can construct a concrete instance of `EndpointGeoFilterArrayInput` via:
 //
-//          EndpointGeoFilterArray{ EndpointGeoFilterArgs{...} }
+//	EndpointGeoFilterArray{ EndpointGeoFilterArgs{...} }
 type EndpointGeoFilterArrayInput interface {
 	pulumi.Input
 
@@ -3633,7 +3633,7 @@ type EndpointGlobalDeliveryRule struct {
 // EndpointGlobalDeliveryRuleInput is an input type that accepts EndpointGlobalDeliveryRuleArgs and EndpointGlobalDeliveryRuleOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleInput` via:
 //
-//          EndpointGlobalDeliveryRuleArgs{...}
+//	EndpointGlobalDeliveryRuleArgs{...}
 type EndpointGlobalDeliveryRuleInput interface {
 	pulumi.Input
 
@@ -3679,11 +3679,11 @@ func (i EndpointGlobalDeliveryRuleArgs) ToEndpointGlobalDeliveryRulePtrOutputWit
 // EndpointGlobalDeliveryRulePtrInput is an input type that accepts EndpointGlobalDeliveryRuleArgs, EndpointGlobalDeliveryRulePtr and EndpointGlobalDeliveryRulePtrOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRulePtrInput` via:
 //
-//          EndpointGlobalDeliveryRuleArgs{...}
+//	        EndpointGlobalDeliveryRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGlobalDeliveryRulePtrInput interface {
 	pulumi.Input
 
@@ -3869,7 +3869,7 @@ type EndpointGlobalDeliveryRuleCacheExpirationAction struct {
 // EndpointGlobalDeliveryRuleCacheExpirationActionInput is an input type that accepts EndpointGlobalDeliveryRuleCacheExpirationActionArgs and EndpointGlobalDeliveryRuleCacheExpirationActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheExpirationActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
+//	EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
 type EndpointGlobalDeliveryRuleCacheExpirationActionInput interface {
 	pulumi.Input
 
@@ -3907,11 +3907,11 @@ func (i EndpointGlobalDeliveryRuleCacheExpirationActionArgs) ToEndpointGlobalDel
 // EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleCacheExpirationActionArgs, EndpointGlobalDeliveryRuleCacheExpirationActionPtr and EndpointGlobalDeliveryRuleCacheExpirationActionPtrOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput` via:
 //
-//          EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
+//	        EndpointGlobalDeliveryRuleCacheExpirationActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGlobalDeliveryRuleCacheExpirationActionPtrInput interface {
 	pulumi.Input
 
@@ -4025,7 +4025,7 @@ type EndpointGlobalDeliveryRuleCacheKeyQueryStringAction struct {
 // EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput is an input type that accepts EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs and EndpointGlobalDeliveryRuleCacheKeyQueryStringActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//	EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
 type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionInput interface {
 	pulumi.Input
 
@@ -4063,11 +4063,11 @@ func (i EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs) ToEndpointGloba
 // EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs, EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtr and EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput` via:
 //
-//          EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
+//	        EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGlobalDeliveryRuleCacheKeyQueryStringActionPtrInput interface {
 	pulumi.Input
 
@@ -4183,7 +4183,7 @@ type EndpointGlobalDeliveryRuleModifyRequestHeaderAction struct {
 // EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput is an input type that accepts EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs and EndpointGlobalDeliveryRuleModifyRequestHeaderActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...}
+//	EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...}
 type EndpointGlobalDeliveryRuleModifyRequestHeaderActionInput interface {
 	pulumi.Input
 
@@ -4215,7 +4215,7 @@ func (i EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs) ToEndpointGloba
 // EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput is an input type that accepts EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray and EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput` via:
 //
-//          EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray{ EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...} }
+//	EndpointGlobalDeliveryRuleModifyRequestHeaderActionArray{ EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs{...} }
 type EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -4298,7 +4298,7 @@ type EndpointGlobalDeliveryRuleModifyResponseHeaderAction struct {
 // EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput is an input type that accepts EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs and EndpointGlobalDeliveryRuleModifyResponseHeaderActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...}
+//	EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...}
 type EndpointGlobalDeliveryRuleModifyResponseHeaderActionInput interface {
 	pulumi.Input
 
@@ -4330,7 +4330,7 @@ func (i EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs) ToEndpointGlob
 // EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput is an input type that accepts EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray and EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput` via:
 //
-//          EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray{ EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...} }
+//	EndpointGlobalDeliveryRuleModifyResponseHeaderActionArray{ EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs{...} }
 type EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrayInput interface {
 	pulumi.Input
 
@@ -4419,7 +4419,7 @@ type EndpointGlobalDeliveryRuleUrlRedirectAction struct {
 // EndpointGlobalDeliveryRuleUrlRedirectActionInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRedirectActionArgs and EndpointGlobalDeliveryRuleUrlRedirectActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRedirectActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
+//	EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
 type EndpointGlobalDeliveryRuleUrlRedirectActionInput interface {
 	pulumi.Input
 
@@ -4465,11 +4465,11 @@ func (i EndpointGlobalDeliveryRuleUrlRedirectActionArgs) ToEndpointGlobalDeliver
 // EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRedirectActionArgs, EndpointGlobalDeliveryRuleUrlRedirectActionPtr and EndpointGlobalDeliveryRuleUrlRedirectActionPtrOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput` via:
 //
-//          EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
+//	        EndpointGlobalDeliveryRuleUrlRedirectActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGlobalDeliveryRuleUrlRedirectActionPtrInput interface {
 	pulumi.Input
 
@@ -4645,7 +4645,7 @@ type EndpointGlobalDeliveryRuleUrlRewriteAction struct {
 // EndpointGlobalDeliveryRuleUrlRewriteActionInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRewriteActionArgs and EndpointGlobalDeliveryRuleUrlRewriteActionOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRewriteActionInput` via:
 //
-//          EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
+//	EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
 type EndpointGlobalDeliveryRuleUrlRewriteActionInput interface {
 	pulumi.Input
 
@@ -4685,11 +4685,11 @@ func (i EndpointGlobalDeliveryRuleUrlRewriteActionArgs) ToEndpointGlobalDelivery
 // EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput is an input type that accepts EndpointGlobalDeliveryRuleUrlRewriteActionArgs, EndpointGlobalDeliveryRuleUrlRewriteActionPtr and EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput values.
 // You can construct a concrete instance of `EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput` via:
 //
-//          EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
+//	        EndpointGlobalDeliveryRuleUrlRewriteActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput interface {
 	pulumi.Input
 
@@ -4822,7 +4822,7 @@ type EndpointOrigin struct {
 // EndpointOriginInput is an input type that accepts EndpointOriginArgs and EndpointOriginOutput values.
 // You can construct a concrete instance of `EndpointOriginInput` via:
 //
-//          EndpointOriginArgs{...}
+//	EndpointOriginArgs{...}
 type EndpointOriginInput interface {
 	pulumi.Input
 
@@ -4856,7 +4856,7 @@ func (i EndpointOriginArgs) ToEndpointOriginOutputWithContext(ctx context.Contex
 // EndpointOriginArrayInput is an input type that accepts EndpointOriginArray and EndpointOriginArrayOutput values.
 // You can construct a concrete instance of `EndpointOriginArrayInput` via:
 //
-//          EndpointOriginArray{ EndpointOriginArgs{...} }
+//	EndpointOriginArray{ EndpointOriginArgs{...} }
 type EndpointOriginArrayInput interface {
 	pulumi.Input
 
@@ -4946,7 +4946,7 @@ type FrontdoorOriginGroupHealthProbe struct {
 // FrontdoorOriginGroupHealthProbeInput is an input type that accepts FrontdoorOriginGroupHealthProbeArgs and FrontdoorOriginGroupHealthProbeOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupHealthProbeInput` via:
 //
-//          FrontdoorOriginGroupHealthProbeArgs{...}
+//	FrontdoorOriginGroupHealthProbeArgs{...}
 type FrontdoorOriginGroupHealthProbeInput interface {
 	pulumi.Input
 
@@ -4988,11 +4988,11 @@ func (i FrontdoorOriginGroupHealthProbeArgs) ToFrontdoorOriginGroupHealthProbePt
 // FrontdoorOriginGroupHealthProbePtrInput is an input type that accepts FrontdoorOriginGroupHealthProbeArgs, FrontdoorOriginGroupHealthProbePtr and FrontdoorOriginGroupHealthProbePtrOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupHealthProbePtrInput` via:
 //
-//          FrontdoorOriginGroupHealthProbeArgs{...}
+//	        FrontdoorOriginGroupHealthProbeArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrontdoorOriginGroupHealthProbePtrInput interface {
 	pulumi.Input
 
@@ -5138,7 +5138,7 @@ type FrontdoorOriginGroupLoadBalancing struct {
 // FrontdoorOriginGroupLoadBalancingInput is an input type that accepts FrontdoorOriginGroupLoadBalancingArgs and FrontdoorOriginGroupLoadBalancingOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupLoadBalancingInput` via:
 //
-//          FrontdoorOriginGroupLoadBalancingArgs{...}
+//	FrontdoorOriginGroupLoadBalancingArgs{...}
 type FrontdoorOriginGroupLoadBalancingInput interface {
 	pulumi.Input
 
@@ -5178,11 +5178,11 @@ func (i FrontdoorOriginGroupLoadBalancingArgs) ToFrontdoorOriginGroupLoadBalanci
 // FrontdoorOriginGroupLoadBalancingPtrInput is an input type that accepts FrontdoorOriginGroupLoadBalancingArgs, FrontdoorOriginGroupLoadBalancingPtr and FrontdoorOriginGroupLoadBalancingPtrOutput values.
 // You can construct a concrete instance of `FrontdoorOriginGroupLoadBalancingPtrInput` via:
 //
-//          FrontdoorOriginGroupLoadBalancingArgs{...}
+//	        FrontdoorOriginGroupLoadBalancingArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrontdoorOriginGroupLoadBalancingPtrInput interface {
 	pulumi.Input
 
@@ -5315,7 +5315,7 @@ type FrontdoorOriginPrivateLink struct {
 // FrontdoorOriginPrivateLinkInput is an input type that accepts FrontdoorOriginPrivateLinkArgs and FrontdoorOriginPrivateLinkOutput values.
 // You can construct a concrete instance of `FrontdoorOriginPrivateLinkInput` via:
 //
-//          FrontdoorOriginPrivateLinkArgs{...}
+//	FrontdoorOriginPrivateLinkArgs{...}
 type FrontdoorOriginPrivateLinkInput interface {
 	pulumi.Input
 
@@ -5357,11 +5357,11 @@ func (i FrontdoorOriginPrivateLinkArgs) ToFrontdoorOriginPrivateLinkPtrOutputWit
 // FrontdoorOriginPrivateLinkPtrInput is an input type that accepts FrontdoorOriginPrivateLinkArgs, FrontdoorOriginPrivateLinkPtr and FrontdoorOriginPrivateLinkPtrOutput values.
 // You can construct a concrete instance of `FrontdoorOriginPrivateLinkPtrInput` via:
 //
-//          FrontdoorOriginPrivateLinkArgs{...}
+//	        FrontdoorOriginPrivateLinkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FrontdoorOriginPrivateLinkPtrInput interface {
 	pulumi.Input
 
@@ -5509,7 +5509,7 @@ type GetFrontdoorOriginGroupHealthProbe struct {
 // GetFrontdoorOriginGroupHealthProbeInput is an input type that accepts GetFrontdoorOriginGroupHealthProbeArgs and GetFrontdoorOriginGroupHealthProbeOutput values.
 // You can construct a concrete instance of `GetFrontdoorOriginGroupHealthProbeInput` via:
 //
-//          GetFrontdoorOriginGroupHealthProbeArgs{...}
+//	GetFrontdoorOriginGroupHealthProbeArgs{...}
 type GetFrontdoorOriginGroupHealthProbeInput interface {
 	pulumi.Input
 
@@ -5543,7 +5543,7 @@ func (i GetFrontdoorOriginGroupHealthProbeArgs) ToGetFrontdoorOriginGroupHealthP
 // GetFrontdoorOriginGroupHealthProbeArrayInput is an input type that accepts GetFrontdoorOriginGroupHealthProbeArray and GetFrontdoorOriginGroupHealthProbeArrayOutput values.
 // You can construct a concrete instance of `GetFrontdoorOriginGroupHealthProbeArrayInput` via:
 //
-//          GetFrontdoorOriginGroupHealthProbeArray{ GetFrontdoorOriginGroupHealthProbeArgs{...} }
+//	GetFrontdoorOriginGroupHealthProbeArray{ GetFrontdoorOriginGroupHealthProbeArgs{...} }
 type GetFrontdoorOriginGroupHealthProbeArrayInput interface {
 	pulumi.Input
 
@@ -5631,7 +5631,7 @@ type GetFrontdoorOriginGroupLoadBalancing struct {
 // GetFrontdoorOriginGroupLoadBalancingInput is an input type that accepts GetFrontdoorOriginGroupLoadBalancingArgs and GetFrontdoorOriginGroupLoadBalancingOutput values.
 // You can construct a concrete instance of `GetFrontdoorOriginGroupLoadBalancingInput` via:
 //
-//          GetFrontdoorOriginGroupLoadBalancingArgs{...}
+//	GetFrontdoorOriginGroupLoadBalancingArgs{...}
 type GetFrontdoorOriginGroupLoadBalancingInput interface {
 	pulumi.Input
 
@@ -5663,7 +5663,7 @@ func (i GetFrontdoorOriginGroupLoadBalancingArgs) ToGetFrontdoorOriginGroupLoadB
 // GetFrontdoorOriginGroupLoadBalancingArrayInput is an input type that accepts GetFrontdoorOriginGroupLoadBalancingArray and GetFrontdoorOriginGroupLoadBalancingArrayOutput values.
 // You can construct a concrete instance of `GetFrontdoorOriginGroupLoadBalancingArrayInput` via:
 //
-//          GetFrontdoorOriginGroupLoadBalancingArray{ GetFrontdoorOriginGroupLoadBalancingArgs{...} }
+//	GetFrontdoorOriginGroupLoadBalancingArray{ GetFrontdoorOriginGroupLoadBalancingArgs{...} }
 type GetFrontdoorOriginGroupLoadBalancingArrayInput interface {
 	pulumi.Input
 

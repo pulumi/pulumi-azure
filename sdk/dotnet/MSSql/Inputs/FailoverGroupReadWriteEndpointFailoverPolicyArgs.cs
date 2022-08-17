@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class FailoverGroupReadWriteEndpointFailoverPolicyArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupReadWriteEndpointFailoverPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public FailoverGroupReadWriteEndpointFailoverPolicyArgs()
         {
         }
+        public static new FailoverGroupReadWriteEndpointFailoverPolicyArgs Empty => new FailoverGroupReadWriteEndpointFailoverPolicyArgs();
     }
 }

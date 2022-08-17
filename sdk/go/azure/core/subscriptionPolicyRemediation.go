@@ -123,7 +123,7 @@ func (i *SubscriptionPolicyRemediation) ToSubscriptionPolicyRemediationOutputWit
 // SubscriptionPolicyRemediationArrayInput is an input type that accepts SubscriptionPolicyRemediationArray and SubscriptionPolicyRemediationArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyRemediationArrayInput` via:
 //
-//          SubscriptionPolicyRemediationArray{ SubscriptionPolicyRemediationArgs{...} }
+//	SubscriptionPolicyRemediationArray{ SubscriptionPolicyRemediationArgs{...} }
 type SubscriptionPolicyRemediationArrayInput interface {
 	pulumi.Input
 
@@ -148,7 +148,7 @@ func (i SubscriptionPolicyRemediationArray) ToSubscriptionPolicyRemediationArray
 // SubscriptionPolicyRemediationMapInput is an input type that accepts SubscriptionPolicyRemediationMap and SubscriptionPolicyRemediationMapOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyRemediationMapInput` via:
 //
-//          SubscriptionPolicyRemediationMap{ "key": SubscriptionPolicyRemediationArgs{...} }
+//	SubscriptionPolicyRemediationMap{ "key": SubscriptionPolicyRemediationArgs{...} }
 type SubscriptionPolicyRemediationMapInput interface {
 	pulumi.Input
 

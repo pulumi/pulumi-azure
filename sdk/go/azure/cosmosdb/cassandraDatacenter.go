@@ -19,14 +19,17 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Example Usage
@@ -35,82 +38,85 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: pulumi.StringRef("Azure Cosmos DB"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleVirtualNetwork.ID(),
-// 			RoleDefinitionName: pulumi.String("Network Contributor"),
-// 			PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCassandraCluster, err := cosmosdb.NewCassandraCluster(ctx, "exampleCassandraCluster", &cosmosdb.CassandraClusterArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			Location:                    exampleResourceGroup.Location,
-// 			DelegatedManagementSubnetId: exampleSubnet.ID(),
-// 			DefaultAdminPassword:        pulumi.String("Password1234"),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAssignment,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewCassandraDatacenter(ctx, "exampleCassandraDatacenter", &cosmosdb.CassandraDatacenterArgs{
-// 			Location:                    exampleCassandraCluster.Location,
-// 			CassandraClusterId:          exampleCassandraCluster.ID(),
-// 			DelegatedManagementSubnetId: exampleSubnet.ID(),
-// 			NodeCount:                   pulumi.Int(3),
-// 			DiskCount:                   pulumi.Int(4),
-// 			SkuName:                     pulumi.String("Standard_DS14_v2"),
-// 			AvailabilityZonesEnabled:    pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("Azure Cosmos DB"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        pulumi.String(exampleServicePrincipal.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCassandraCluster, err := cosmosdb.NewCassandraCluster(ctx, "exampleCassandraCluster", &cosmosdb.CassandraClusterArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				Location:                    exampleResourceGroup.Location,
+//				DelegatedManagementSubnetId: exampleSubnet.ID(),
+//				DefaultAdminPassword:        pulumi.String("Password1234"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewCassandraDatacenter(ctx, "exampleCassandraDatacenter", &cosmosdb.CassandraDatacenterArgs{
+//				Location:                    exampleCassandraCluster.Location,
+//				CassandraClusterId:          exampleCassandraCluster.ID(),
+//				DelegatedManagementSubnetId: exampleSubnet.ID(),
+//				NodeCount:                   pulumi.Int(3),
+//				DiskCount:                   pulumi.Int(4),
+//				SkuName:                     pulumi.String("Standard_DS14_v2"),
+//				AvailabilityZonesEnabled:    pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -118,7 +124,9 @@ import (
 // Cassandra Datacenters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/cassandraDatacenter:CassandraDatacenter example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1/dataCenters/dc1
+//
+//	$ pulumi import azure:cosmosdb/cassandraDatacenter:CassandraDatacenter example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DocumentDB/cassandraClusters/cluster1/dataCenters/dc1
+//
 // ```
 type CassandraDatacenter struct {
 	pulumi.CustomResourceState
@@ -322,7 +330,7 @@ func (i *CassandraDatacenter) ToCassandraDatacenterOutputWithContext(ctx context
 // CassandraDatacenterArrayInput is an input type that accepts CassandraDatacenterArray and CassandraDatacenterArrayOutput values.
 // You can construct a concrete instance of `CassandraDatacenterArrayInput` via:
 //
-//          CassandraDatacenterArray{ CassandraDatacenterArgs{...} }
+//	CassandraDatacenterArray{ CassandraDatacenterArgs{...} }
 type CassandraDatacenterArrayInput interface {
 	pulumi.Input
 
@@ -347,7 +355,7 @@ func (i CassandraDatacenterArray) ToCassandraDatacenterArrayOutputWithContext(ct
 // CassandraDatacenterMapInput is an input type that accepts CassandraDatacenterMap and CassandraDatacenterMapOutput values.
 // You can construct a concrete instance of `CassandraDatacenterMapInput` via:
 //
-//          CassandraDatacenterMap{ "key": CassandraDatacenterArgs{...} }
+//	CassandraDatacenterMap{ "key": CassandraDatacenterArgs{...} }
 type CassandraDatacenterMapInput interface {
 	pulumi.Input
 

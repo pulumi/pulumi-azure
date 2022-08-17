@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointGlobalDeliveryRuleUrlRewriteActionGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGlobalDeliveryRuleUrlRewriteActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This value must start with a `/` and can't be longer than 260 characters.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointGlobalDeliveryRuleUrlRewriteActionGetArgs()
         {
         }
+        public static new EndpointGlobalDeliveryRuleUrlRewriteActionGetArgs Empty => new EndpointGlobalDeliveryRuleUrlRewriteActionGetArgs();
     }
 }

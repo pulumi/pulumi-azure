@@ -19,78 +19,81 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("exampleact"),
-// 			WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
-// 				&monitoring.ActionGroupWebhookReceiverArgs{
-// 					Name:       pulumi.String("callmyapi"),
-// 					ServiceUri: pulumi.String("http://example.com/alert"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Scopes: pulumi.StringArray{
-// 				toMonitor.ID(),
-// 			},
-// 			Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
-// 			Criterias: monitoring.MetricAlertCriteriaArray{
-// 				&monitoring.MetricAlertCriteriaArgs{
-// 					MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
-// 					MetricName:      pulumi.String("Transactions"),
-// 					Aggregation:     pulumi.String("Total"),
-// 					Operator:        pulumi.String("GreaterThan"),
-// 					Threshold:       pulumi.Float64(50),
-// 					Dimensions: monitoring.MetricAlertCriteriaDimensionArray{
-// 						&monitoring.MetricAlertCriteriaDimensionArgs{
-// 							Name:     pulumi.String("ApiName"),
-// 							Operator: pulumi.String("Include"),
-// 							Values: pulumi.StringArray{
-// 								pulumi.String("*"),
-// 							},
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Actions: monitoring.MetricAlertActionArray{
-// 				&monitoring.MetricAlertActionArgs{
-// 					ActionGroupId: main.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("exampleact"),
+//				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
+//					&monitoring.ActionGroupWebhookReceiverArgs{
+//						Name:       pulumi.String("callmyapi"),
+//						ServiceUri: pulumi.String("http://example.com/alert"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Scopes: pulumi.StringArray{
+//					toMonitor.ID(),
+//				},
+//				Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
+//				Criterias: monitoring.MetricAlertCriteriaArray{
+//					&monitoring.MetricAlertCriteriaArgs{
+//						MetricNamespace: pulumi.String("Microsoft.Storage/storageAccounts"),
+//						MetricName:      pulumi.String("Transactions"),
+//						Aggregation:     pulumi.String("Total"),
+//						Operator:        pulumi.String("GreaterThan"),
+//						Threshold:       pulumi.Float64(50),
+//						Dimensions: monitoring.MetricAlertCriteriaDimensionArray{
+//							&monitoring.MetricAlertCriteriaDimensionArgs{
+//								Name:     pulumi.String("ApiName"),
+//								Operator: pulumi.String("Include"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Actions: monitoring.MetricAlertActionArray{
+//					&monitoring.MetricAlertActionArgs{
+//						ActionGroupId: main.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +101,9 @@ import (
 // Metric Alerts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
+//
+//	$ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
+//
 // ```
 type MetricAlert struct {
 	pulumi.CustomResourceState
@@ -342,7 +347,7 @@ func (i *MetricAlert) ToMetricAlertOutputWithContext(ctx context.Context) Metric
 // MetricAlertArrayInput is an input type that accepts MetricAlertArray and MetricAlertArrayOutput values.
 // You can construct a concrete instance of `MetricAlertArrayInput` via:
 //
-//          MetricAlertArray{ MetricAlertArgs{...} }
+//	MetricAlertArray{ MetricAlertArgs{...} }
 type MetricAlertArrayInput interface {
 	pulumi.Input
 
@@ -367,7 +372,7 @@ func (i MetricAlertArray) ToMetricAlertArrayOutputWithContext(ctx context.Contex
 // MetricAlertMapInput is an input type that accepts MetricAlertMap and MetricAlertMapOutput values.
 // You can construct a concrete instance of `MetricAlertMapInput` via:
 //
-//          MetricAlertMap{ "key": MetricAlertArgs{...} }
+//	MetricAlertMap{ "key": MetricAlertArgs{...} }
 type MetricAlertMapInput interface {
 	pulumi.Input
 

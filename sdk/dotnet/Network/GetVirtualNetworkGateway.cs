@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualNetworkGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualNetworkGateway.InvokeAsync(new Azure.Network.GetVirtualNetworkGatewayArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkGatewayId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkGatewayId")]
-        ///     public Output&lt;string&gt; VirtualNetworkGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkGatewayId"] = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualNetworkGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualNetworkGateway.InvokeAsync(new Azure.Network.GetVirtualNetworkGatewayArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkGatewayId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkGatewayId")]
-        ///     public Output&lt;string&gt; VirtualNetworkGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkGatewayId"] = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetVirtualNetworkGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network Gateway.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetVirtualNetworkGatewayArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayArgs Empty => new GetVirtualNetworkGatewayArgs();
     }
 
-    public sealed class GetVirtualNetworkGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network Gateway.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetVirtualNetworkGatewayInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkGatewayInvokeArgs Empty => new GetVirtualNetworkGatewayInvokeArgs();
     }
 
 

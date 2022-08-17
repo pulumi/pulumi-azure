@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppInsights.Inputs
 {
 
-    public sealed class WorkbookTemplateGalleryGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookTemplateGalleryGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Category for the gallery.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppInsights.Inputs
         public WorkbookTemplateGalleryGetArgs()
         {
         }
+        public static new WorkbookTemplateGalleryGetArgs Empty => new WorkbookTemplateGalleryGetArgs();
     }
 }

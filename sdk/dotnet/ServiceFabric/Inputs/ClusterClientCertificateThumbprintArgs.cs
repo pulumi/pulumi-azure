@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterClientCertificateThumbprintArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClientCertificateThumbprintArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterClientCertificateThumbprintArgs()
         {
         }
+        public static new ClusterClientCertificateThumbprintArgs Empty => new ClusterClientCertificateThumbprintArgs();
     }
 }

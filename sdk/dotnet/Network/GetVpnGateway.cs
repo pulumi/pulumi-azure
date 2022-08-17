@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVpnGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVpnGateway.InvokeAsync(new Azure.Network.GetVpnGatewayArgs
-        ///         {
-        ///             Name = "existing-local-vpn_gateway",
-        ///             ResourceGroupName = "existing-vpn_gateway",
-        ///         }));
-        ///         this.AzurermVpnGatewayId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-local-vpn_gateway",
+        ///         ResourceGroupName = "existing-vpn_gateway",
+        ///     });
         /// 
-        ///     [Output("azurermVpnGatewayId")]
-        ///     public Output&lt;string&gt; AzurermVpnGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermVpnGatewayId"] = example.Apply(getVpnGatewayResult =&gt; getVpnGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVpnGateway.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVpnGateway.InvokeAsync(new Azure.Network.GetVpnGatewayArgs
-        ///         {
-        ///             Name = "existing-local-vpn_gateway",
-        ///             ResourceGroupName = "existing-vpn_gateway",
-        ///         }));
-        ///         this.AzurermVpnGatewayId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing-local-vpn_gateway",
+        ///         ResourceGroupName = "existing-vpn_gateway",
+        ///     });
         /// 
-        ///     [Output("azurermVpnGatewayId")]
-        ///     public Output&lt;string&gt; AzurermVpnGatewayId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermVpnGatewayId"] = example.Apply(getVpnGatewayResult =&gt; getVpnGatewayResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetVpnGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the VPN Gateway.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetVpnGatewayArgs()
         {
         }
+        public static new GetVpnGatewayArgs Empty => new GetVpnGatewayArgs();
     }
 
-    public sealed class GetVpnGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVpnGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Name of the VPN Gateway.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetVpnGatewayInvokeArgs()
         {
         }
+        public static new GetVpnGatewayInvokeArgs Empty => new GetVpnGatewayInvokeArgs();
     }
 
 

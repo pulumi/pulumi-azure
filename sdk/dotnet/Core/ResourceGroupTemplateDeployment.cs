@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment")]
-    public partial class ResourceGroupTemplateDeployment : Pulumi.CustomResource
+    public partial class ResourceGroupTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupTemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -182,9 +182,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupTemplateDeploymentArgs()
         {
         }
+        public static new ResourceGroupTemplateDeploymentArgs Empty => new ResourceGroupTemplateDeploymentArgs();
     }
 
-    public sealed class ResourceGroupTemplateDeploymentState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -249,5 +250,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupTemplateDeploymentState()
         {
         }
+        public static new ResourceGroupTemplateDeploymentState Empty => new ResourceGroupTemplateDeploymentState();
     }
 }

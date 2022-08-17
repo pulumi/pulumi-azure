@@ -19,104 +19,109 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var config = new Config();
-    ///         var prefix = config.Get("prefix") ?? "example";
-    ///         var vmName = $"{prefix}-vm";
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = mainVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "internal",
-    ///                     SubnetId = @internal.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 mainNetworkInterface.Id,
-    ///             },
-    ///             VmSize = "Standard_F2",
-    ///             StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///             {
-    ///                 Name = "myosdisk1",
-    ///                 Caching = "ReadWrite",
-    ///                 CreateOption = "FromImage",
-    ///                 ManagedDiskType = "Standard_LRS",
-    ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
-    ///             {
-    ///                 ComputerName = vmName,
-    ///                 AdminUsername = "testadmin",
-    ///                 AdminPassword = "Password1234!",
-    ///             },
-    ///             OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
-    ///             {
-    ///                 DisablePasswordAuthentication = false,
-    ///             },
-    ///         });
-    ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccountType = "Standard_LRS",
-    ///             CreateOption = "Empty",
-    ///             DiskSizeGb = 10,
-    ///         });
-    ///         var exampleDataDiskAttachment = new Azure.Compute.DataDiskAttachment("exampleDataDiskAttachment", new Azure.Compute.DataDiskAttachmentArgs
-    ///         {
-    ///             ManagedDiskId = exampleManagedDisk.Id,
-    ///             VirtualMachineId = exampleVirtualMachine.Id,
-    ///             Lun = 10,
-    ///             Caching = "ReadWrite",
-    ///         });
-    ///     }
+    ///     var config = new Config();
+    ///     var prefix = config.Get("prefix") ?? "example";
+    ///     var vmName = $"{prefix}-vm";
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = mainVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = @internal.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             mainNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_F2",
+    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "myosdisk1",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Standard_LRS",
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         {
+    ///             ComputerName = vmName,
+    ///             AdminUsername = "testadmin",
+    ///             AdminPassword = "Password1234!",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 10,
+    ///     });
+    /// 
+    ///     var exampleDataDiskAttachment = new Azure.Compute.DataDiskAttachment("exampleDataDiskAttachment", new()
+    ///     {
+    ///         ManagedDiskId = exampleManagedDisk.Id,
+    ///         VirtualMachineId = exampleVirtualMachine.Id,
+    ///         Lun = 10,
+    ///         Caching = "ReadWrite",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -128,7 +133,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/dataDiskAttachment:DataDiskAttachment")]
-    public partial class DataDiskAttachment : Pulumi.CustomResource
+    public partial class DataDiskAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -210,7 +215,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DataDiskAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class DataDiskAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -251,9 +256,10 @@ namespace Pulumi.Azure.Compute
         public DataDiskAttachmentArgs()
         {
         }
+        public static new DataDiskAttachmentArgs Empty => new DataDiskAttachmentArgs();
     }
 
-    public sealed class DataDiskAttachmentState : Pulumi.ResourceArgs
+    public sealed class DataDiskAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements for this Data Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -294,5 +300,6 @@ namespace Pulumi.Azure.Compute
         public DataDiskAttachmentState()
         {
         }
+        public static new DataDiskAttachmentState Empty => new DataDiskAttachmentState();
     }
 }

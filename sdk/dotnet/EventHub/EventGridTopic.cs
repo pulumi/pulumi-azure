@@ -17,29 +17,28 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new Azure.EventGrid.TopicArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +51,7 @@ namespace Pulumi.Azure.EventHub
     /// </summary>
     [Obsolete(@"azure.eventhub.EventGridTopic has been deprecated in favor of azure.eventgrid.Topic")]
     [AzureResourceType("azure:eventhub/eventGridTopic:EventGridTopic")]
-    public partial class EventGridTopic : Pulumi.CustomResource
+    public partial class EventGridTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Endpoint associated with the EventGrid Topic.
@@ -182,7 +181,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventGridTopicArgs : Pulumi.ResourceArgs
+    public sealed class EventGridTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -265,9 +264,10 @@ namespace Pulumi.Azure.EventHub
         public EventGridTopicArgs()
         {
         }
+        public static new EventGridTopicArgs Empty => new EventGridTopicArgs();
     }
 
-    public sealed class EventGridTopicState : Pulumi.ResourceArgs
+    public sealed class EventGridTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Endpoint associated with the EventGrid Topic.
@@ -368,5 +368,6 @@ namespace Pulumi.Azure.EventHub
         public EventGridTopicState()
         {
         }
+        public static new EventGridTopicState Empty => new EventGridTopicState();
     }
 }

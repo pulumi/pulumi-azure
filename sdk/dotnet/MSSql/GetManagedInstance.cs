@@ -19,21 +19,19 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MSSql.GetManagedInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetManagedInstance.InvokeAsync(new Azure.MSSql.GetManagedInstanceArgs
-        ///         {
-        ///             Name = "managedsqlinstance",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "managedsqlinstance",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MSSql.GetManagedInstance.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetManagedInstance.InvokeAsync(new Azure.MSSql.GetManagedInstanceArgs
-        ///         {
-        ///             Name = "managedsqlinstance",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///     }
+        ///         Name = "managedsqlinstance",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.MSSql
     }
 
 
-    public sealed class GetManagedInstanceArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Managed Instance.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.MSSql
         public GetManagedInstanceArgs()
         {
         }
+        public static new GetManagedInstanceArgs Empty => new GetManagedInstanceArgs();
     }
 
-    public sealed class GetManagedInstanceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetManagedInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the SQL Managed Instance.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.MSSql
         public GetManagedInstanceInvokeArgs()
         {
         }
+        public static new GetManagedInstanceInvokeArgs Empty => new GetManagedInstanceInvokeArgs();
     }
 
 

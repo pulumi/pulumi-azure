@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class DiagnosticFrontendRequestDataMaskingArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticFrontendRequestDataMaskingArgs : global::Pulumi.ResourceArgs
     {
         [Input("headers")]
         private InputList<Inputs.DiagnosticFrontendRequestDataMaskingHeaderArgs>? _headers;
@@ -31,5 +31,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public DiagnosticFrontendRequestDataMaskingArgs()
         {
         }
+        public static new DiagnosticFrontendRequestDataMaskingArgs Empty => new DiagnosticFrontendRequestDataMaskingArgs();
     }
 }

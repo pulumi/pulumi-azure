@@ -38,7 +38,9 @@ __all__ = [
     'HadoopClusterNetworkArgs',
     'HadoopClusterRolesArgs',
     'HadoopClusterRolesEdgeNodeArgs',
+    'HadoopClusterRolesEdgeNodeHttpsEndpointArgs',
     'HadoopClusterRolesEdgeNodeInstallScriptActionArgs',
+    'HadoopClusterRolesEdgeNodeUninstallScriptActionArgs',
     'HadoopClusterRolesHeadNodeArgs',
     'HadoopClusterRolesWorkerNodeArgs',
     'HadoopClusterRolesWorkerNodeAutoscaleArgs',
@@ -1707,7 +1709,9 @@ class HadoopClusterRolesEdgeNodeArgs:
     def __init__(__self__, *,
                  install_script_actions: pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]],
                  target_instance_count: pulumi.Input[int],
-                 vm_size: pulumi.Input[str]):
+                 vm_size: pulumi.Input[str],
+                 https_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]] = None,
+                 uninstall_script_actions: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeInstallScriptActionArgs']]] install_script_actions: A `install_script_action` block as defined below.
         :param pulumi.Input[int] target_instance_count: The number of instances which should be run for the Worker Nodes.
@@ -1716,6 +1720,10 @@ class HadoopClusterRolesEdgeNodeArgs:
         pulumi.set(__self__, "install_script_actions", install_script_actions)
         pulumi.set(__self__, "target_instance_count", target_instance_count)
         pulumi.set(__self__, "vm_size", vm_size)
+        if https_endpoints is not None:
+            pulumi.set(__self__, "https_endpoints", https_endpoints)
+        if uninstall_script_actions is not None:
+            pulumi.set(__self__, "uninstall_script_actions", uninstall_script_actions)
 
     @property
     @pulumi.getter(name="installScriptActions")
@@ -1753,18 +1761,127 @@ class HadoopClusterRolesEdgeNodeArgs:
     def vm_size(self, value: pulumi.Input[str]):
         pulumi.set(self, "vm_size", value)
 
+    @property
+    @pulumi.getter(name="httpsEndpoints")
+    def https_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]:
+        return pulumi.get(self, "https_endpoints")
+
+    @https_endpoints.setter
+    def https_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]):
+        pulumi.set(self, "https_endpoints", value)
+
+    @property
+    @pulumi.getter(name="uninstallScriptActions")
+    def uninstall_script_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]:
+        return pulumi.get(self, "uninstall_script_actions")
+
+    @uninstall_script_actions.setter
+    def uninstall_script_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]):
+        pulumi.set(self, "uninstall_script_actions", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesEdgeNodeHttpsEndpointArgs:
+    def __init__(__self__, *,
+                 access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 destination_port: Optional[pulumi.Input[int]] = None,
+                 disable_gateway_auth: Optional[pulumi.Input[bool]] = None,
+                 private_ip_address: Optional[pulumi.Input[str]] = None,
+                 sub_domain_suffix: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] access_modes: A list of access modes for the application.
+        :param pulumi.Input[int] destination_port: The destination port to connect to.
+        :param pulumi.Input[bool] disable_gateway_auth: The value indicates whether the gateway authentication is enabled or not.
+        :param pulumi.Input[str] private_ip_address: The private ip address of the endpoint.
+        :param pulumi.Input[str] sub_domain_suffix: The application's subdomain suffix.
+        """
+        if access_modes is not None:
+            pulumi.set(__self__, "access_modes", access_modes)
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if disable_gateway_auth is not None:
+            pulumi.set(__self__, "disable_gateway_auth", disable_gateway_auth)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if sub_domain_suffix is not None:
+            pulumi.set(__self__, "sub_domain_suffix", sub_domain_suffix)
+
+    @property
+    @pulumi.getter(name="accessModes")
+    def access_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of access modes for the application.
+        """
+        return pulumi.get(self, "access_modes")
+
+    @access_modes.setter
+    def access_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "access_modes", value)
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The destination port to connect to.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @destination_port.setter
+    def destination_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "destination_port", value)
+
+    @property
+    @pulumi.getter(name="disableGatewayAuth")
+    def disable_gateway_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The value indicates whether the gateway authentication is enabled or not.
+        """
+        return pulumi.get(self, "disable_gateway_auth")
+
+    @disable_gateway_auth.setter
+    def disable_gateway_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_gateway_auth", value)
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private ip address of the endpoint.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @property
+    @pulumi.getter(name="subDomainSuffix")
+    def sub_domain_suffix(self) -> Optional[pulumi.Input[str]]:
+        """
+        The application's subdomain suffix.
+        """
+        return pulumi.get(self, "sub_domain_suffix")
+
+    @sub_domain_suffix.setter
+    def sub_domain_suffix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sub_domain_suffix", value)
+
 
 @pulumi.input_type
 class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 uri: pulumi.Input[str]):
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name of the install script action. Changing this forces a new resource to be created.
         :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: The parameters for the script.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
 
     @property
     @pulumi.getter
@@ -1789,6 +1906,71 @@ class HadoopClusterRolesEdgeNodeInstallScriptActionArgs:
     @uri.setter
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class HadoopClusterRolesEdgeNodeUninstallScriptActionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 uri: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The name of the uninstall script action. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] uri: The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] parameters: The parameters for the script.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "uri", uri)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the uninstall script action. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[str]:
+        """
+        The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameters for the script.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type

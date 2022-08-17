@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterOmsAgentGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterOmsAgentGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace which the OMS Agent should send data to.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterOmsAgentGetArgs()
         {
         }
+        public static new KubernetesClusterOmsAgentGetArgs Empty => new KubernetesClusterOmsAgentGetArgs();
     }
 }

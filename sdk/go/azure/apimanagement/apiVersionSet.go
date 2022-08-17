@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("pub1"),
-// 			PublisherEmail:    pulumi.String("pub1@email.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiVersionSet(ctx, "exampleApiVersionSet", &apimanagement.ApiVersionSetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			DisplayName:       pulumi.String("ExampleAPIVersionSet"),
-// 			VersioningScheme:  pulumi.String("Segment"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("pub1"),
+//				PublisherEmail:    pulumi.String("pub1@email.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiVersionSet(ctx, "exampleApiVersionSet", &apimanagement.ApiVersionSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				DisplayName:       pulumi.String("ExampleAPIVersionSet"),
+//				VersioningScheme:  pulumi.String("Segment"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Version Set can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
+//
+//	$ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
+//
 // ```
 type ApiVersionSet struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) Ap
 // ApiVersionSetArrayInput is an input type that accepts ApiVersionSetArray and ApiVersionSetArrayOutput values.
 // You can construct a concrete instance of `ApiVersionSetArrayInput` via:
 //
-//          ApiVersionSetArray{ ApiVersionSetArgs{...} }
+//	ApiVersionSetArray{ ApiVersionSetArgs{...} }
 type ApiVersionSetArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i ApiVersionSetArray) ToApiVersionSetArrayOutputWithContext(ctx context.Co
 // ApiVersionSetMapInput is an input type that accepts ApiVersionSetMap and ApiVersionSetMapOutput values.
 // You can construct a concrete instance of `ApiVersionSetMapInput` via:
 //
-//          ApiVersionSetMap{ "key": ApiVersionSetArgs{...} }
+//	ApiVersionSetMap{ "key": ApiVersionSetArgs{...} }
 type ApiVersionSetMapInput interface {
 	pulumi.Input
 

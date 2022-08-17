@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleApiVersionSet = new Azure.ApiManagement.ApiVersionSet("exampleApiVersionSet", new Azure.ApiManagement.ApiVersionSetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             DisplayName = "ExampleAPIVersionSet",
-    ///             VersioningScheme = "Segment",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleApiVersionSet = new Azure.ApiManagement.ApiVersionSet("exampleApiVersionSet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         DisplayName = "ExampleAPIVersionSet",
+    ///         VersioningScheme = "Segment",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiVersionSet:ApiVersionSet")]
-    public partial class ApiVersionSet : Pulumi.CustomResource
+    public partial class ApiVersionSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiVersionSetArgs : Pulumi.ResourceArgs
+    public sealed class ApiVersionSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
@@ -202,9 +202,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiVersionSetArgs()
         {
         }
+        public static new ApiVersionSetArgs Empty => new ApiVersionSetArgs();
     }
 
-    public sealed class ApiVersionSetState : Pulumi.ResourceArgs
+    public sealed class ApiVersionSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
@@ -257,5 +258,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiVersionSetState()
         {
         }
+        public static new ApiVersionSetState Empty => new ApiVersionSetState();
     }
 }

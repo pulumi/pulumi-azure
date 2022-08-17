@@ -20,6 +20,176 @@ import javax.annotation.Nullable;
  * Manages a Key Vault Managed Storage Account.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.ManagedStorageAccount;
+ * import com.pulumi.azure.keyvault.ManagedStorageAccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .secretPermissions(                
+ *                     &#34;Get&#34;,
+ *                     &#34;Delete&#34;)
+ *                 .storagePermissions(                
+ *                     &#34;Get&#34;,
+ *                     &#34;List&#34;,
+ *                     &#34;Set&#34;,
+ *                     &#34;SetSAS&#34;,
+ *                     &#34;GetSAS&#34;,
+ *                     &#34;DeleteSAS&#34;,
+ *                     &#34;Update&#34;,
+ *                     &#34;RegenerateKey&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .storageAccountKey(&#34;key1&#34;)
+ *             .regenerateKeyAutomatically(false)
+ *             .regenerationPeriod(&#34;P1D&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Automatically Regenerate Storage Account Access Key)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.inputs.GetServicePrincipalArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.keyvault.ManagedStorageAccount;
+ * import com.pulumi.azure.keyvault.ManagedStorageAccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         final var test = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *             .applicationId(&#34;cfa8b339-82a2-471a-a3c9-0fc0be7a4093&#34;)
+ *             .build());
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
+ *                 .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .secretPermissions(                
+ *                     &#34;Get&#34;,
+ *                     &#34;Delete&#34;)
+ *                 .storagePermissions(                
+ *                     &#34;Get&#34;,
+ *                     &#34;List&#34;,
+ *                     &#34;Set&#34;,
+ *                     &#34;SetSAS&#34;,
+ *                     &#34;GetSAS&#34;,
+ *                     &#34;DeleteSAS&#34;,
+ *                     &#34;Update&#34;,
+ *                     &#34;RegenerateKey&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleAccount.id())
+ *             .roleDefinitionName(&#34;Storage Account Key Operator Service Role&#34;)
+ *             .principalId(test.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *             .build());
+ * 
+ *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .storageAccountId(exampleAccount.id())
+ *             .storageAccountKey(&#34;key1&#34;)
+ *             .regenerateKeyAutomatically(true)
+ *             .regenerationPeriod(&#34;P1D&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAssignment)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

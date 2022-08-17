@@ -15,60 +15,61 @@ namespace Pulumi.Azure.DevTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "Sydney", "Australia" },
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new Azure.DevTest.VirtualNetworkArgs
-    ///         {
-    ///             LabName = exampleLab.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
-    ///             {
-    ///                 UsePublicIpAddress = "Allow",
-    ///                 UseInVirtualMachineCreation = "Allow",
-    ///             },
-    ///         });
-    ///         var exampleLinuxVirtualMachine = new Azure.DevTest.LinuxVirtualMachine("exampleLinuxVirtualMachine", new Azure.DevTest.LinuxVirtualMachineArgs
-    ///         {
-    ///             LabName = exampleLab.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Size = "Standard_DS2",
-    ///             Username = "exampleuser99",
-    ///             SshKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
-    ///             LabVirtualNetworkId = exampleVirtualNetwork.Id,
-    ///             LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
-    ///             StorageType = "Premium",
-    ///             Notes = "Some notes about this Virtual Machine.",
-    ///             GalleryImageReference = new Azure.DevTest.Inputs.LinuxVirtualMachineGalleryImageReferenceArgs
-    ///             {
-    ///                 Offer = "UbuntuServer",
-    ///                 Publisher = "Canonical",
-    ///                 Sku = "18.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         {
+    ///             UsePublicIpAddress = "Allow",
+    ///             UseInVirtualMachineCreation = "Allow",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleLinuxVirtualMachine = new Azure.DevTest.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_DS2",
+    ///         Username = "exampleuser99",
+    ///         SshKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
+    ///         StorageType = "Premium",
+    ///         Notes = "Some notes about this Virtual Machine.",
+    ///         GalleryImageReference = new Azure.DevTest.Inputs.LinuxVirtualMachineGalleryImageReferenceArgs
+    ///         {
+    ///             Offer = "UbuntuServer",
+    ///             Publisher = "Canonical",
+    ///             Sku = "18.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +81,7 @@ namespace Pulumi.Azure.DevTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/linuxVirtualMachine:LinuxVirtualMachine")]
-    public partial class LinuxVirtualMachine : Pulumi.CustomResource
+    public partial class LinuxVirtualMachine : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -240,7 +241,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
-    public sealed class LinuxVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -359,9 +360,10 @@ namespace Pulumi.Azure.DevTest
         public LinuxVirtualMachineArgs()
         {
         }
+        public static new LinuxVirtualMachineArgs Empty => new LinuxVirtualMachineArgs();
     }
 
-    public sealed class LinuxVirtualMachineState : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -492,5 +494,6 @@ namespace Pulumi.Azure.DevTest
         public LinuxVirtualMachineState()
         {
         }
+        public static new LinuxVirtualMachineState Empty => new LinuxVirtualMachineState();
     }
 }

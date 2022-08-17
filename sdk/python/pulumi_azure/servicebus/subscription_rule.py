@@ -123,6 +123,7 @@ class _SubscriptionRuleState:
                  filter_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  sql_filter: Optional[pulumi.Input[str]] = None,
+                 sql_filter_compatibility_level: Optional[pulumi.Input[int]] = None,
                  subscription_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SubscriptionRule resources.
@@ -143,6 +144,8 @@ class _SubscriptionRuleState:
             pulumi.set(__self__, "name", name)
         if sql_filter is not None:
             pulumi.set(__self__, "sql_filter", sql_filter)
+        if sql_filter_compatibility_level is not None:
+            pulumi.set(__self__, "sql_filter_compatibility_level", sql_filter_compatibility_level)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
 
@@ -205,6 +208,15 @@ class _SubscriptionRuleState:
     @sql_filter.setter
     def sql_filter(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sql_filter", value)
+
+    @property
+    @pulumi.getter(name="sqlFilterCompatibilityLevel")
+    def sql_filter_compatibility_level(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "sql_filter_compatibility_level")
+
+    @sql_filter_compatibility_level.setter
+    def sql_filter_compatibility_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "sql_filter_compatibility_level", value)
 
     @property
     @pulumi.getter(name="subscriptionId")
@@ -424,6 +436,7 @@ class SubscriptionRule(pulumi.CustomResource):
             if subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subscription_id'")
             __props__.__dict__["subscription_id"] = subscription_id
+            __props__.__dict__["sql_filter_compatibility_level"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:eventhub/subscriptionRule:SubscriptionRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionRule, __self__).__init__(
@@ -441,6 +454,7 @@ class SubscriptionRule(pulumi.CustomResource):
             filter_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             sql_filter: Optional[pulumi.Input[str]] = None,
+            sql_filter_compatibility_level: Optional[pulumi.Input[int]] = None,
             subscription_id: Optional[pulumi.Input[str]] = None) -> 'SubscriptionRule':
         """
         Get an existing SubscriptionRule resource's state with the given name, id, and optional extra
@@ -465,6 +479,7 @@ class SubscriptionRule(pulumi.CustomResource):
         __props__.__dict__["filter_type"] = filter_type
         __props__.__dict__["name"] = name
         __props__.__dict__["sql_filter"] = sql_filter
+        __props__.__dict__["sql_filter_compatibility_level"] = sql_filter_compatibility_level
         __props__.__dict__["subscription_id"] = subscription_id
         return SubscriptionRule(resource_name, opts=opts, __props__=__props__)
 
@@ -507,6 +522,11 @@ class SubscriptionRule(pulumi.CustomResource):
         Represents a filter written in SQL language-based syntax that to be evaluated against a BrokeredMessage. Required when `filter_type` is set to `SqlFilter`.
         """
         return pulumi.get(self, "sql_filter")
+
+    @property
+    @pulumi.getter(name="sqlFilterCompatibilityLevel")
+    def sql_filter_compatibility_level(self) -> pulumi.Output[int]:
+        return pulumi.get(self, "sql_filter_compatibility_level")
 
     @property
     @pulumi.getter(name="subscriptionId")

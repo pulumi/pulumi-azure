@@ -17,43 +17,44 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///         });
-    ///         var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new Azure.Lb.LoadBalancerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FrontendIpConfigurations = 
-    ///             {
-    ///                 new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
-    ///                 {
-    ///                     Name = "PublicIPAddress",
-    ///                     PublicIpAddressId = examplePublicIp.Id,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new Azure.Lb.BackendAddressPoolArgs
-    ///         {
-    ///             LoadbalancerId = exampleLoadBalancer.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///     });
+    /// 
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FrontendIpConfigurations = new[]
+    ///         {
+    ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
+    ///             {
+    ///                 Name = "PublicIPAddress",
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
+    ///     {
+    ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +66,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/backendAddressPool:BackendAddressPool")]
-    public partial class BackendAddressPool : Pulumi.CustomResource
+    public partial class BackendAddressPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Backend IP Configurations associated with this Backend Address Pool.
@@ -153,7 +154,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class BackendAddressPoolArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Load Balancer in which to create the Backend Address Pool.
@@ -182,9 +183,10 @@ namespace Pulumi.Azure.Lb
         public BackendAddressPoolArgs()
         {
         }
+        public static new BackendAddressPoolArgs Empty => new BackendAddressPoolArgs();
     }
 
-    public sealed class BackendAddressPoolState : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolState : global::Pulumi.ResourceArgs
     {
         [Input("backendIpConfigurations")]
         private InputList<string>? _backendIpConfigurations;
@@ -261,5 +263,6 @@ namespace Pulumi.Azure.Lb
         public BackendAddressPoolState()
         {
         }
+        public static new BackendAddressPoolState Empty => new BackendAddressPoolState();
     }
 }

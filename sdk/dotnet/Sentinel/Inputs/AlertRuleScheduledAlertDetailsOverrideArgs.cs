@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledAlertDetailsOverrideArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledAlertDetailsOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The format containing columns name(s) to override the description of this Sentinel Alert Rule.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledAlertDetailsOverrideArgs()
         {
         }
+        public static new AlertRuleScheduledAlertDetailsOverrideArgs Empty => new AlertRuleScheduledAlertDetailsOverrideArgs();
     }
 }

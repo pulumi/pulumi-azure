@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceAuthSettingsArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceAuthSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `active_directory` block as defined below.
@@ -111,5 +111,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceAuthSettingsArgs()
         {
         }
+        public static new AppServiceAuthSettingsArgs Empty => new AppServiceAuthSettingsArgs();
     }
 }

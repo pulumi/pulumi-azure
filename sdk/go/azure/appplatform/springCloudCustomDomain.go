@@ -18,7 +18,9 @@ import (
 // Spring Cloud Custom Domain can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/domains/domain.com
+//
+//	$ pulumi import azure:appplatform/springCloudCustomDomain:SpringCloudCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.AppPlatform/Spring/spring1/apps/app1/domains/domain.com
+//
 // ```
 type SpringCloudCustomDomain struct {
 	pulumi.CustomResourceState
@@ -139,7 +141,7 @@ func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainOutputWithContext(ctx
 // SpringCloudCustomDomainArrayInput is an input type that accepts SpringCloudCustomDomainArray and SpringCloudCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudCustomDomainArrayInput` via:
 //
-//          SpringCloudCustomDomainArray{ SpringCloudCustomDomainArgs{...} }
+//	SpringCloudCustomDomainArray{ SpringCloudCustomDomainArgs{...} }
 type SpringCloudCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -164,7 +166,7 @@ func (i SpringCloudCustomDomainArray) ToSpringCloudCustomDomainArrayOutputWithCo
 // SpringCloudCustomDomainMapInput is an input type that accepts SpringCloudCustomDomainMap and SpringCloudCustomDomainMapOutput values.
 // You can construct a concrete instance of `SpringCloudCustomDomainMapInput` via:
 //
-//          SpringCloudCustomDomainMap{ "key": SpringCloudCustomDomainArgs{...} }
+//	SpringCloudCustomDomainMap{ "key": SpringCloudCustomDomainArgs{...} }
 type SpringCloudCustomDomainMapInput interface {
 	pulumi.Input
 

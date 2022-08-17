@@ -23,40 +23,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Location:              exampleResourceGroup.Location,
-// 			AdministratorLogin:    pulumi.String("adminTerraform"),
-// 			AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
-// 			SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mysql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &mysql.FlexibleServerConfigurationArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleFlexibleServer.Name,
-// 			Value:             pulumi.String("600"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Location:              exampleResourceGroup.Location,
+//				AdministratorLogin:    pulumi.String("adminTerraform"),
+//				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
+//				SkuName:               pulumi.String("GP_Standard_D2ds_v4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewFlexibleServerConfiguration(ctx, "exampleFlexibleServerConfiguration", &mysql.FlexibleServerConfigurationArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleFlexibleServer.Name,
+//				Value:             pulumi.String("600"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,7 +67,9 @@ import (
 // MySQL Flexible Server Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/configurations/interactive_timeout
+//
+//	$ pulumi import azure:mysql/flexibleServerConfiguration:FlexibleServerConfiguration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1/configurations/interactive_timeout
+//
 // ```
 type FlexibleServerConfiguration struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *FlexibleServerConfiguration) ToFlexibleServerConfigurationOutputWithCon
 // FlexibleServerConfigurationArrayInput is an input type that accepts FlexibleServerConfigurationArray and FlexibleServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerConfigurationArrayInput` via:
 //
-//          FlexibleServerConfigurationArray{ FlexibleServerConfigurationArgs{...} }
+//	FlexibleServerConfigurationArray{ FlexibleServerConfigurationArgs{...} }
 type FlexibleServerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i FlexibleServerConfigurationArray) ToFlexibleServerConfigurationArrayOutp
 // FlexibleServerConfigurationMapInput is an input type that accepts FlexibleServerConfigurationMap and FlexibleServerConfigurationMapOutput values.
 // You can construct a concrete instance of `FlexibleServerConfigurationMapInput` via:
 //
-//          FlexibleServerConfigurationMap{ "key": FlexibleServerConfigurationArgs{...} }
+//	FlexibleServerConfigurationMap{ "key": FlexibleServerConfigurationArgs{...} }
 type FlexibleServerConfigurationMapInput interface {
 	pulumi.Input
 

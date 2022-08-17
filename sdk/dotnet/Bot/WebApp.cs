@@ -15,28 +15,28 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new Azure.Bot.WebAppArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +48,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/webApp:WebApp")]
-    public partial class WebApp : Pulumi.CustomResource
+    public partial class WebApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Application Insights API Key to associate with the Web App Bot.
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class WebAppArgs : Pulumi.ResourceArgs
+    public sealed class WebAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Insights API Key to associate with the Web App Bot.
@@ -267,9 +267,10 @@ namespace Pulumi.Azure.Bot
         public WebAppArgs()
         {
         }
+        public static new WebAppArgs Empty => new WebAppArgs();
     }
 
-    public sealed class WebAppState : Pulumi.ResourceArgs
+    public sealed class WebAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Insights API Key to associate with the Web App Bot.
@@ -364,5 +365,6 @@ namespace Pulumi.Azure.Bot
         public WebAppState()
         {
         }
+        public static new WebAppState Empty => new WebAppState();
     }
 }

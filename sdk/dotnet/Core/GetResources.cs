@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetResourcesArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource.
@@ -60,9 +60,10 @@ namespace Pulumi.Azure.Core
         public GetResourcesArgs()
         {
         }
+        public static new GetResourcesArgs Empty => new GetResourcesArgs();
     }
 
-    public sealed class GetResourcesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetResourcesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource.
@@ -97,6 +98,7 @@ namespace Pulumi.Azure.Core
         public GetResourcesInvokeArgs()
         {
         }
+        public static new GetResourcesInvokeArgs Empty => new GetResourcesInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterNodePoolLinuxOsConfigArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterNodePoolLinuxOsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterNodePoolLinuxOsConfigArgs()
         {
         }
+        public static new KubernetesClusterNodePoolLinuxOsConfigArgs Empty => new KubernetesClusterNodePoolLinuxOsConfigArgs();
     }
 }

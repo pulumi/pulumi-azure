@@ -15,43 +15,44 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorOffice365 = new Azure.Sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", new Azure.Sentinel.DataConnectorOffice365Args
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorOffice365 = new Azure.Sentinel.DataConnectorOffice365("exampleDataConnectorOffice365", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorOffice365:DataConnectorOffice365")]
-    public partial class DataConnectorOffice365 : Pulumi.CustomResource
+    public partial class DataConnectorOffice365 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Should the Exchange data connector be enabled? Defaults to `true`.
@@ -145,7 +146,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorOffice365Args : Pulumi.ResourceArgs
+    public sealed class DataConnectorOffice365Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Exchange data connector be enabled? Defaults to `true`.
@@ -186,9 +187,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorOffice365Args()
         {
         }
+        public static new DataConnectorOffice365Args Empty => new DataConnectorOffice365Args();
     }
 
-    public sealed class DataConnectorOffice365State : Pulumi.ResourceArgs
+    public sealed class DataConnectorOffice365State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the Exchange data connector be enabled? Defaults to `true`.
@@ -229,5 +231,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorOffice365State()
         {
         }
+        public static new DataConnectorOffice365State Empty => new DataConnectorOffice365State();
     }
 }

@@ -21,125 +21,127 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleRandomUuid = new Random.RandomUuid("exampleRandomUuid", new Random.RandomUuidArgs
-    ///         {
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new Azure.Authorization.RoleDefinitionArgs
-    ///         {
-    ///             Scope = exampleResourceGroup.Id,
-    ///             Description = "AVD AutoScale Role",
-    ///             Permissions = 
-    ///             {
-    ///                 new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
-    ///                 {
-    ///                     Actions = 
-    ///                     {
-    ///                         "Microsoft.Insights/eventtypes/values/read",
-    ///                         "Microsoft.Compute/virtualMachines/deallocate/action",
-    ///                         "Microsoft.Compute/virtualMachines/restart/action",
-    ///                         "Microsoft.Compute/virtualMachines/powerOff/action",
-    ///                         "Microsoft.Compute/virtualMachines/start/action",
-    ///                         "Microsoft.Compute/virtualMachines/read",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/read",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/write",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-    ///                         "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
-    ///                     },
-    ///                     NotActions = {},
-    ///                 },
-    ///             },
-    ///             AssignableScopes = 
-    ///             {
-    ///                 exampleResourceGroup.Id,
-    ///             },
-    ///         });
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "Windows Virtual Desktop",
-    ///         }));
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Name = exampleRandomUuid.Result,
-    ///             Scope = exampleResourceGroup.Id,
-    ///             RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///             PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.Id),
-    ///             SkipServicePrincipalAadCheck = true,
-    ///         });
-    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Type = "Pooled",
-    ///             ValidateEnvironment = true,
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var exampleScalingPlan = new Azure.DesktopVirtualization.ScalingPlan("exampleScalingPlan", new Azure.DesktopVirtualization.ScalingPlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FriendlyName = "Scaling Plan Example",
-    ///             Description = "Example Scaling Plan",
-    ///             TimeZone = "GMT Standard Time",
-    ///             Schedules = 
-    ///             {
-    ///                 new Azure.DesktopVirtualization.Inputs.ScalingPlanScheduleArgs
-    ///                 {
-    ///                     Name = "Weekdays",
-    ///                     DaysOfWeeks = 
-    ///                     {
-    ///                         "Monday",
-    ///                         "Tuesday",
-    ///                         "Wednesday",
-    ///                         "Thursday",
-    ///                         "Friday",
-    ///                     },
-    ///                     RampUpStartTime = "05:00",
-    ///                     RampUpLoadBalancingAlgorithm = "BreadthFirst",
-    ///                     RampUpMinimumHostsPercent = 20,
-    ///                     RampUpCapacityThresholdPercent = 10,
-    ///                     PeakStartTime = "09:00",
-    ///                     PeakLoadBalancingAlgorithm = "BreadthFirst",
-    ///                     RampDownStartTime = "19:00",
-    ///                     RampDownLoadBalancingAlgorithm = "DepthFirst",
-    ///                     RampDownMinimumHostsPercent = 10,
-    ///                     RampDownForceLogoffUsers = false,
-    ///                     RampDownWaitTimeMinutes = 45,
-    ///                     RampDownNotificationMessage = "Please log off in the next 45 minutes...",
-    ///                     RampDownCapacityThresholdPercent = 5,
-    ///                     RampDownStopHostsWhen = "ZeroSessions",
-    ///                     OffPeakStartTime = "22:00",
-    ///                     OffPeakLoadBalancingAlgorithm = "DepthFirst",
-    ///                 },
-    ///             },
-    ///             HostPools = 
-    ///             {
-    ///                 new Azure.DesktopVirtualization.Inputs.ScalingPlanHostPoolArgs
-    ///                 {
-    ///                     HostpoolId = exampleHostPool.Id,
-    ///                     ScalingPlanEnabled = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleRandomUuid = new Random.RandomUuid("exampleRandomUuid");
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
+    ///     {
+    ///         Scope = exampleResourceGroup.Id,
+    ///         Description = "AVD AutoScale Role",
+    ///         Permissions = new[]
+    ///         {
+    ///             new Azure.Authorization.Inputs.RoleDefinitionPermissionArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "Microsoft.Insights/eventtypes/values/read",
+    ///                     "Microsoft.Compute/virtualMachines/deallocate/action",
+    ///                     "Microsoft.Compute/virtualMachines/restart/action",
+    ///                     "Microsoft.Compute/virtualMachines/powerOff/action",
+    ///                     "Microsoft.Compute/virtualMachines/start/action",
+    ///                     "Microsoft.Compute/virtualMachines/read",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/read",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/write",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+    ///                     "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+    ///                 },
+    ///                 NotActions = new[] {},
+    ///             },
+    ///         },
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             exampleResourceGroup.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "Windows Virtual Desktop",
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Name = exampleRandomUuid.Result,
+    ///         Scope = exampleResourceGroup.Id,
+    ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
+    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///         SkipServicePrincipalAadCheck = true,
+    ///     });
+    /// 
+    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Pooled",
+    ///         ValidateEnvironment = true,
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var exampleScalingPlan = new Azure.DesktopVirtualization.ScalingPlan("exampleScalingPlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FriendlyName = "Scaling Plan Example",
+    ///         Description = "Example Scaling Plan",
+    ///         TimeZone = "GMT Standard Time",
+    ///         Schedules = new[]
+    ///         {
+    ///             new Azure.DesktopVirtualization.Inputs.ScalingPlanScheduleArgs
+    ///             {
+    ///                 Name = "Weekdays",
+    ///                 DaysOfWeeks = new[]
+    ///                 {
+    ///                     "Monday",
+    ///                     "Tuesday",
+    ///                     "Wednesday",
+    ///                     "Thursday",
+    ///                     "Friday",
+    ///                 },
+    ///                 RampUpStartTime = "05:00",
+    ///                 RampUpLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 RampUpMinimumHostsPercent = 20,
+    ///                 RampUpCapacityThresholdPercent = 10,
+    ///                 PeakStartTime = "09:00",
+    ///                 PeakLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 RampDownStartTime = "19:00",
+    ///                 RampDownLoadBalancingAlgorithm = "DepthFirst",
+    ///                 RampDownMinimumHostsPercent = 10,
+    ///                 RampDownForceLogoffUsers = false,
+    ///                 RampDownWaitTimeMinutes = 45,
+    ///                 RampDownNotificationMessage = "Please log off in the next 45 minutes...",
+    ///                 RampDownCapacityThresholdPercent = 5,
+    ///                 RampDownStopHostsWhen = "ZeroSessions",
+    ///                 OffPeakStartTime = "22:00",
+    ///                 OffPeakLoadBalancingAlgorithm = "DepthFirst",
+    ///             },
+    ///         },
+    ///         HostPools = new[]
+    ///         {
+    ///             new Azure.DesktopVirtualization.Inputs.ScalingPlanHostPoolArgs
+    ///             {
+    ///                 HostpoolId = exampleHostPool.Id,
+    ///                 ScalingPlanEnabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -151,7 +153,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/scalingPlan:ScalingPlan")]
-    public partial class ScalingPlan : Pulumi.CustomResource
+    public partial class ScalingPlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description of the Scaling Plan.
@@ -257,7 +259,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class ScalingPlanArgs : Pulumi.ResourceArgs
+    public sealed class ScalingPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Scaling Plan.
@@ -340,9 +342,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ScalingPlanArgs()
         {
         }
+        public static new ScalingPlanArgs Empty => new ScalingPlanArgs();
     }
 
-    public sealed class ScalingPlanState : Pulumi.ResourceArgs
+    public sealed class ScalingPlanState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the Scaling Plan.
@@ -425,5 +428,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public ScalingPlanState()
         {
         }
+        public static new ScalingPlanState Empty => new ScalingPlanState();
     }
 }

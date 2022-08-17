@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupExpressRouteCircuit(ctx, &network.LookupExpressRouteCircuitArgs{
-// 			ResourceGroupName: azurerm_resource_group.Example.Name,
-// 			Name:              azurerm_express_route_circuit.Example.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("expressRouteCircuitId", example.Id)
-// 		ctx.Export("serviceKey", example.ServiceKey)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupExpressRouteCircuit(ctx, &network.LookupExpressRouteCircuitArgs{
+//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				Name:              azurerm_express_route_circuit.Example.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("expressRouteCircuitId", example.Id)
+//			ctx.Export("serviceKey", example.ServiceKey)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupExpressRouteCircuit(ctx *pulumi.Context, args *LookupExpressRouteCircuitArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitResult, error) {
 	var rv LookupExpressRouteCircuitResult

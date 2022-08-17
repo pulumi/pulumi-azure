@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/advisor"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/advisor"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := advisor.GetRecommendations(ctx, &advisor.GetRecommendationsArgs{
-// 			FilterByCategories: []string{
-// 				"security",
-// 				"cost",
-// 			},
-// 			FilterByResourceGroups: []string{
-// 				"example-resgroups",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("recommendations", example.Recommendations)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := advisor.GetRecommendations(ctx, &advisor.GetRecommendationsArgs{
+//				FilterByCategories: []string{
+//					"security",
+//					"cost",
+//				},
+//				FilterByResourceGroups: []string{
+//					"example-resgroups",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("recommendations", example.Recommendations)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetRecommendations(ctx *pulumi.Context, args *GetRecommendationsArgs, opts ...pulumi.InvokeOption) (*GetRecommendationsResult, error) {
 	var rv GetRecommendationsResult

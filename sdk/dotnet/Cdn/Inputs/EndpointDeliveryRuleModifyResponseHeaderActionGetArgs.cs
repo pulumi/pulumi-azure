@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointDeliveryRuleModifyResponseHeaderActionGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeliveryRuleModifyResponseHeaderActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointDeliveryRuleModifyResponseHeaderActionGetArgs()
         {
         }
+        public static new EndpointDeliveryRuleModifyResponseHeaderActionGetArgs Empty => new EndpointDeliveryRuleModifyResponseHeaderActionGetArgs();
     }
 }

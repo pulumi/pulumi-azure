@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := postgresql.LookupServer(ctx, &postgresql.LookupServerArgs{
-// 			Name:              "postgresql-server-1",
-// 			ResourceGroupName: "api-rg-pro",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("postgresqlServerId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := postgresql.LookupServer(ctx, &postgresql.LookupServerArgs{
+//				Name:              "postgresql-server-1",
+//				ResourceGroupName: "api-rg-pro",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("postgresqlServerId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupServer(ctx *pulumi.Context, args *LookupServerArgs, opts ...pulumi.InvokeOption) (*LookupServerResult, error) {
 	var rv LookupServerResult

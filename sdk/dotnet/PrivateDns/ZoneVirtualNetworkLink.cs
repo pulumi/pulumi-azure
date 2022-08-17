@@ -15,39 +15,40 @@ namespace Pulumi.Azure.PrivateDns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new Azure.PrivateDns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new Azure.PrivateDns.ZoneVirtualNetworkLinkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PrivateDnsZoneName = exampleZone.Name,
-    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.PrivateDns
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/zoneVirtualNetworkLink:ZoneVirtualNetworkLink")]
-    public partial class ZoneVirtualNetworkLink : Pulumi.CustomResource
+    public partial class ZoneVirtualNetworkLink : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
@@ -141,7 +142,7 @@ namespace Pulumi.Azure.PrivateDns
         }
     }
 
-    public sealed class ZoneVirtualNetworkLinkArgs : Pulumi.ResourceArgs
+    public sealed class ZoneVirtualNetworkLinkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
@@ -188,9 +189,10 @@ namespace Pulumi.Azure.PrivateDns
         public ZoneVirtualNetworkLinkArgs()
         {
         }
+        public static new ZoneVirtualNetworkLinkArgs Empty => new ZoneVirtualNetworkLinkArgs();
     }
 
-    public sealed class ZoneVirtualNetworkLinkState : Pulumi.ResourceArgs
+    public sealed class ZoneVirtualNetworkLinkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
@@ -237,5 +239,6 @@ namespace Pulumi.Azure.PrivateDns
         public ZoneVirtualNetworkLinkState()
         {
         }
+        public static new ZoneVirtualNetworkLinkState Empty => new ZoneVirtualNetworkLinkState();
     }
 }

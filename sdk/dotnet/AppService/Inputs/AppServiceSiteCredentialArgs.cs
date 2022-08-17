@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceSiteCredentialArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceSiteCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password associated with the username, which can be used to publish to this App Service.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceSiteCredentialArgs()
         {
         }
+        public static new AppServiceSiteCredentialArgs Empty => new AppServiceSiteCredentialArgs();
     }
 }

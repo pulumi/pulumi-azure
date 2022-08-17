@@ -19,24 +19,23 @@ namespace Pulumi.Azure.MachineLearning
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.MachineLearning.GetWorkspace.InvokeAsync(new Azure.MachineLearning.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-workspace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = azurerm_machine_learning_workspace.Existing.Id;
-        ///     }
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.MachineLearning
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existing = Azure.MachineLearning.GetWorkspace.Invoke(new()
         ///     {
-        ///         var existing = Output.Create(Azure.MachineLearning.GetWorkspace.InvokeAsync(new Azure.MachineLearning.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-workspace",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.Id = azurerm_machine_learning_workspace.Existing.Id;
-        ///     }
+        ///         Name = "example-workspace",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.MachineLearning
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Machine Learning Workspace exists.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.MachineLearning
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Machine Learning Workspace exists.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.MachineLearning
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetNetworkProfileIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetNetworkProfileIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("applicationGatewayBackendAddressPoolIds")]
         private InputList<string>? _applicationGatewayBackendAddressPoolIds;
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetNetworkProfileIpConfigurationArgs()
         {
         }
+        public static new ScaleSetNetworkProfileIpConfigurationArgs Empty => new ScaleSetNetworkProfileIpConfigurationArgs();
     }
 }

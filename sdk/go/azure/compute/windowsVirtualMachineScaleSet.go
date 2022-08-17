@@ -15,8 +15,6 @@ import (
 //
 // ## Disclaimers
 //
-// > **NOTE:** As of the **v2.86.0** (November 19, 2021) release of the provider this resource will only create Virtual Machine Scale Sets with the **Uniform** Orchestration Mode.
-//
 // > **NOTE:**: All arguments including the administrator login and password will be stored in the raw state as plain-text.
 //
 // > **NOTE:** This provider will automatically update & reimage the nodes in the Scale Set (if Required) during an Update - this behaviour can be configured using the `features` setting within the Provider block.
@@ -31,77 +29,80 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "exampleWindowsVirtualMachineScaleSet", &compute.WindowsVirtualMachineScaleSetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Standard_F2"),
-// 			Instances:         pulumi.Int(1),
-// 			AdminPassword:     pulumi.String("P@55w0rd1234!"),
-// 			AdminUsername:     pulumi.String("adminuser"),
-// 			SourceImageReference: &compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs{
-// 				Publisher: pulumi.String("MicrosoftWindowsServer"),
-// 				Offer:     pulumi.String("WindowsServer"),
-// 				Sku:       pulumi.String("2016-Datacenter-Server-Core"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 			OsDisk: &compute.WindowsVirtualMachineScaleSetOsDiskArgs{
-// 				StorageAccountType: pulumi.String("Standard_LRS"),
-// 				Caching:            pulumi.String("ReadWrite"),
-// 			},
-// 			NetworkInterfaces: compute.WindowsVirtualMachineScaleSetNetworkInterfaceArray{
-// 				&compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs{
-// 					Name:    pulumi.String("example"),
-// 					Primary: pulumi.Bool(true),
-// 					IpConfigurations: compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
-// 						&compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
-// 							Name:     pulumi.String("internal"),
-// 							Primary:  pulumi.Bool(true),
-// 							SubnetId: internal.ID(),
-// 						},
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "exampleWindowsVirtualMachineScaleSet", &compute.WindowsVirtualMachineScaleSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(1),
+//				AdminPassword:     pulumi.String("P@55w0rd1234!"),
+//				AdminUsername:     pulumi.String("adminuser"),
+//				SourceImageReference: &compute.WindowsVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("MicrosoftWindowsServer"),
+//					Offer:     pulumi.String("WindowsServer"),
+//					Sku:       pulumi.String("2016-Datacenter-Server-Core"),
+//					Version:   pulumi.String("latest"),
+//				},
+//				OsDisk: &compute.WindowsVirtualMachineScaleSetOsDiskArgs{
+//					StorageAccountType: pulumi.String("Standard_LRS"),
+//					Caching:            pulumi.String("ReadWrite"),
+//				},
+//				NetworkInterfaces: compute.WindowsVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.WindowsVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name:    pulumi.String("example"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("internal"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: internal.ID(),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -109,7 +110,9 @@ import (
 // Windows Virtual Machine Scale Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
+//	$ pulumi import azure:compute/windowsVirtualMachineScaleSet:WindowsVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
 // ```
 type WindowsVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
@@ -744,7 +747,7 @@ func (i *WindowsVirtualMachineScaleSet) ToWindowsVirtualMachineScaleSetOutputWit
 // WindowsVirtualMachineScaleSetArrayInput is an input type that accepts WindowsVirtualMachineScaleSetArray and WindowsVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetArrayInput` via:
 //
-//          WindowsVirtualMachineScaleSetArray{ WindowsVirtualMachineScaleSetArgs{...} }
+//	WindowsVirtualMachineScaleSetArray{ WindowsVirtualMachineScaleSetArgs{...} }
 type WindowsVirtualMachineScaleSetArrayInput interface {
 	pulumi.Input
 
@@ -769,7 +772,7 @@ func (i WindowsVirtualMachineScaleSetArray) ToWindowsVirtualMachineScaleSetArray
 // WindowsVirtualMachineScaleSetMapInput is an input type that accepts WindowsVirtualMachineScaleSetMap and WindowsVirtualMachineScaleSetMapOutput values.
 // You can construct a concrete instance of `WindowsVirtualMachineScaleSetMapInput` via:
 //
-//          WindowsVirtualMachineScaleSetMap{ "key": WindowsVirtualMachineScaleSetArgs{...} }
+//	WindowsVirtualMachineScaleSetMap{ "key": WindowsVirtualMachineScaleSetArgs{...} }
 type WindowsVirtualMachineScaleSetMapInput interface {
 	pulumi.Input
 

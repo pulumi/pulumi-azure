@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppFunctionFileArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppFunctionFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the file.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppFunctionFileArgs()
         {
         }
+        public static new FunctionAppFunctionFileArgs Empty => new FunctionAppFunctionFileArgs();
     }
 }

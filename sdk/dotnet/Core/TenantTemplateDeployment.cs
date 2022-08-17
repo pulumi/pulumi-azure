@@ -13,27 +13,26 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
     ///     {
-    ///         var exampleTemplateSpecVersion = Output.Create(Azure.Core.GetTemplateSpecVersion.InvokeAsync(new Azure.Core.GetTemplateSpecVersionArgs
-    ///         {
-    ///             Name = "myTemplateForTenant",
-    ///             ResourceGroupName = "myResourceGroup",
-    ///             Version = "v0.1",
-    ///         }));
-    ///         var exampleTenantTemplateDeployment = new Azure.Core.TenantTemplateDeployment("exampleTenantTemplateDeployment", new Azure.Core.TenantTemplateDeploymentArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(exampleTemplateSpecVersion =&gt; exampleTemplateSpecVersion.Id),
-    ///         });
-    ///     }
+    ///         Name = "myTemplateForTenant",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Version = "v0.1",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTenantTemplateDeployment = new Azure.Core.TenantTemplateDeployment("exampleTenantTemplateDeployment", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/tenantTemplateDeployment:TenantTemplateDeployment")]
-    public partial class TenantTemplateDeployment : Pulumi.CustomResource
+    public partial class TenantTemplateDeployment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -139,7 +138,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class TenantTemplateDeploymentArgs : Pulumi.ResourceArgs
+    public sealed class TenantTemplateDeploymentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -192,9 +191,10 @@ namespace Pulumi.Azure.Core
         public TenantTemplateDeploymentArgs()
         {
         }
+        public static new TenantTemplateDeploymentArgs Empty => new TenantTemplateDeploymentArgs();
     }
 
-    public sealed class TenantTemplateDeploymentState : Pulumi.ResourceArgs
+    public sealed class TenantTemplateDeploymentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -253,5 +253,6 @@ namespace Pulumi.Azure.Core
         public TenantTemplateDeploymentState()
         {
         }
+        public static new TenantTemplateDeploymentState Empty => new TenantTemplateDeploymentState();
     }
 }

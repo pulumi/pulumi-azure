@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AlertRuleScheduledEntityMappingFieldMappingArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledEntityMappingFieldMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The column name to be mapped to the identifier.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AlertRuleScheduledEntityMappingFieldMappingArgs()
         {
         }
+        public static new AlertRuleScheduledEntityMappingFieldMappingArgs Empty => new AlertRuleScheduledEntityMappingFieldMappingArgs();
     }
 }

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/natRule:NatRule")]
-    public partial class NatRule : Pulumi.CustomResource
+    public partial class NatRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a reference to backendAddressPool resource.
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class NatRuleArgs : Pulumi.ResourceArgs
+    public sealed class NatRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a reference to backendAddressPool resource.
@@ -238,9 +238,10 @@ namespace Pulumi.Azure.Lb
         public NatRuleArgs()
         {
         }
+        public static new NatRuleArgs Empty => new NatRuleArgs();
     }
 
-    public sealed class NatRuleState : Pulumi.ResourceArgs
+    public sealed class NatRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a reference to backendAddressPool resource.
@@ -329,5 +330,6 @@ namespace Pulumi.Azure.Lb
         public NatRuleState()
         {
         }
+        public static new NatRuleState Empty => new NatRuleState();
     }
 }

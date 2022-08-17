@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "exampleDataSourceWindowsPerformanceCounter", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			WorkspaceName:     exampleAnalyticsWorkspace.Name,
-// 			ObjectName:        pulumi.String("CPU"),
-// 			InstanceName:      pulumi.String("*"),
-// 			CounterName:       pulumi.String("CPU"),
-// 			IntervalSeconds:   pulumi.Int(10),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "exampleDataSourceWindowsPerformanceCounter", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
+//				ObjectName:        pulumi.String("CPU"),
+//				InstanceName:      pulumi.String("*"),
+//				CounterName:       pulumi.String("CPU"),
+//				IntervalSeconds:   pulumi.Int(10),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Log Analytics Windows Performance Counter DataSources can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+//
+//	$ pulumi import azure:loganalytics/dataSourceWindowsPerformanceCounter:DataSourceWindowsPerformanceCounter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+//
 // ```
 type DataSourceWindowsPerformanceCounter struct {
 	pulumi.CustomResourceState
@@ -228,7 +233,7 @@ func (i *DataSourceWindowsPerformanceCounter) ToDataSourceWindowsPerformanceCoun
 // DataSourceWindowsPerformanceCounterArrayInput is an input type that accepts DataSourceWindowsPerformanceCounterArray and DataSourceWindowsPerformanceCounterArrayOutput values.
 // You can construct a concrete instance of `DataSourceWindowsPerformanceCounterArrayInput` via:
 //
-//          DataSourceWindowsPerformanceCounterArray{ DataSourceWindowsPerformanceCounterArgs{...} }
+//	DataSourceWindowsPerformanceCounterArray{ DataSourceWindowsPerformanceCounterArgs{...} }
 type DataSourceWindowsPerformanceCounterArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +258,7 @@ func (i DataSourceWindowsPerformanceCounterArray) ToDataSourceWindowsPerformance
 // DataSourceWindowsPerformanceCounterMapInput is an input type that accepts DataSourceWindowsPerformanceCounterMap and DataSourceWindowsPerformanceCounterMapOutput values.
 // You can construct a concrete instance of `DataSourceWindowsPerformanceCounterMapInput` via:
 //
-//          DataSourceWindowsPerformanceCounterMap{ "key": DataSourceWindowsPerformanceCounterArgs{...} }
+//	DataSourceWindowsPerformanceCounterMap{ "key": DataSourceWindowsPerformanceCounterArgs{...} }
 type DataSourceWindowsPerformanceCounterMapInput interface {
 	pulumi.Input
 

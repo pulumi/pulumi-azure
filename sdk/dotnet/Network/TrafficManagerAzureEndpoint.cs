@@ -15,56 +15,57 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             DomainNameLabel = "example-public-ip",
-    ///         });
-    ///         var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new Azure.Network.TrafficManagerProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TrafficRoutingMethod = "Weighted",
-    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///             {
-    ///                 RelativeName = "example-profile",
-    ///                 Ttl = 100,
-    ///             },
-    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///             {
-    ///                 Protocol = "HTTP",
-    ///                 Port = 80,
-    ///                 Path = "/",
-    ///                 IntervalInSeconds = 30,
-    ///                 TimeoutInSeconds = 9,
-    ///                 ToleratedNumberOfFailures = 3,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleTrafficManagerAzureEndpoint = new Azure.Network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", new Azure.Network.TrafficManagerAzureEndpointArgs
-    ///         {
-    ///             ProfileId = exampleTrafficManagerProfile.Id,
-    ///             Weight = 100,
-    ///             TargetResourceId = examplePublicIp.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         DomainNameLabel = "example-public-ip",
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Weighted",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = "example-profile",
+    ///             Ttl = 100,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 80,
+    ///             Path = "/",
+    ///             IntervalInSeconds = 30,
+    ///             TimeoutInSeconds = 9,
+    ///             ToleratedNumberOfFailures = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerAzureEndpoint = new Azure.Network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", new()
+    ///     {
+    ///         ProfileId = exampleTrafficManagerProfile.Id,
+    ///         Weight = 100,
+    ///         TargetResourceId = examplePublicIp.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -76,7 +77,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint")]
-    public partial class TrafficManagerAzureEndpoint : Pulumi.CustomResource
+    public partial class TrafficManagerAzureEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `custom_header` blocks as defined below.
@@ -179,7 +180,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class TrafficManagerAzureEndpointArgs : Pulumi.ResourceArgs
+    public sealed class TrafficManagerAzureEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerAzureEndpointCustomHeaderArgs>? _customHeaders;
@@ -259,9 +260,10 @@ namespace Pulumi.Azure.Network
         public TrafficManagerAzureEndpointArgs()
         {
         }
+        public static new TrafficManagerAzureEndpointArgs Empty => new TrafficManagerAzureEndpointArgs();
     }
 
-    public sealed class TrafficManagerAzureEndpointState : Pulumi.ResourceArgs
+    public sealed class TrafficManagerAzureEndpointState : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerAzureEndpointCustomHeaderGetArgs>? _customHeaders;
@@ -341,5 +343,6 @@ namespace Pulumi.Azure.Network
         public TrafficManagerAzureEndpointState()
         {
         }
+        public static new TrafficManagerAzureEndpointState Empty => new TrafficManagerAzureEndpointState();
     }
 }

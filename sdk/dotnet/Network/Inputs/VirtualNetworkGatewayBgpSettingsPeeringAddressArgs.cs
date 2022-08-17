@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayBgpSettingsPeeringAddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("apipaAddresses")]
         private InputList<string>? _apipaAddresses;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayBgpSettingsPeeringAddressArgs()
         {
         }
+        public static new VirtualNetworkGatewayBgpSettingsPeeringAddressArgs Empty => new VirtualNetworkGatewayBgpSettingsPeeringAddressArgs();
     }
 }

@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
-// 			StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
-// 			ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
-// 			Script:                 pulumi.String(fmt.Sprintf("function getRandomNumber(in) {\n  return in;\n}\n")),
-// 			Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
-// 				&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{
-// 					Type: pulumi.String("bigint"),
-// 				},
-// 			},
-// 			Output: &streamanalytics.FunctionJavaScriptUDFOutputTypeArgs{
-// 				Type: pulumi.String("bigint"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//				Name: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+//				Name:              "example-job",
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
+//				StreamAnalyticsJobName: pulumi.String(exampleJob.Name),
+//				ResourceGroupName:      pulumi.String(exampleJob.ResourceGroupName),
+//				Script:                 pulumi.String(fmt.Sprintf("function getRandomNumber(in) {\n  return in;\n}\n")),
+//				Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
+//					&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{
+//						Type: pulumi.String("bigint"),
+//					},
+//				},
+//				Output: &streamanalytics.FunctionJavaScriptUDFOutputTypeArgs{
+//					Type: pulumi.String("bigint"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Stream Analytics JavaScript UDF Functions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/functions/func1
+//
+//	$ pulumi import azure:streamanalytics/functionJavaScriptUDF:FunctionJavaScriptUDF example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/functions/func1
+//
 // ```
 type FunctionJavaScriptUDF struct {
 	pulumi.CustomResourceState
@@ -220,7 +225,7 @@ func (i *FunctionJavaScriptUDF) ToFunctionJavaScriptUDFOutputWithContext(ctx con
 // FunctionJavaScriptUDFArrayInput is an input type that accepts FunctionJavaScriptUDFArray and FunctionJavaScriptUDFArrayOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFArrayInput` via:
 //
-//          FunctionJavaScriptUDFArray{ FunctionJavaScriptUDFArgs{...} }
+//	FunctionJavaScriptUDFArray{ FunctionJavaScriptUDFArgs{...} }
 type FunctionJavaScriptUDFArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (i FunctionJavaScriptUDFArray) ToFunctionJavaScriptUDFArrayOutputWithContex
 // FunctionJavaScriptUDFMapInput is an input type that accepts FunctionJavaScriptUDFMap and FunctionJavaScriptUDFMapOutput values.
 // You can construct a concrete instance of `FunctionJavaScriptUDFMapInput` via:
 //
-//          FunctionJavaScriptUDFMap{ "key": FunctionJavaScriptUDFArgs{...} }
+//	FunctionJavaScriptUDFMap{ "key": FunctionJavaScriptUDFArgs{...} }
 type FunctionJavaScriptUDFMapInput interface {
 	pulumi.Input
 

@@ -15,89 +15,89 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///         });
-    ///         var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new Azure.DataProtection.BackupPolicyPostgresqlArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VaultName = exampleBackupVault.Name,
-    ///             BackupRepeatingTimeIntervals = 
-    ///             {
-    ///                 "R/2021-05-23T02:30:00+00:00/P1W",
-    ///             },
-    ///             DefaultRetentionDuration = "P4M",
-    ///             RetentionRules = 
-    ///             {
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
-    ///                 {
-    ///                     Name = "weekly",
-    ///                     Duration = "P6M",
-    ///                     Priority = 20,
-    ///                     Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
-    ///                     {
-    ///                         AbsoluteCriteria = "FirstOfWeek",
-    ///                     },
-    ///                 },
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
-    ///                 {
-    ///                     Name = "thursday",
-    ///                     Duration = "P1W",
-    ///                     Priority = 25,
-    ///                     Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
-    ///                     {
-    ///                         DaysOfWeeks = 
-    ///                         {
-    ///                             "Thursday",
-    ///                         },
-    ///                         ScheduledBackupTimes = 
-    ///                         {
-    ///                             "2021-05-23T02:30:00Z",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
-    ///                 {
-    ///                     Name = "monthly",
-    ///                     Duration = "P1D",
-    ///                     Priority = 15,
-    ///                     Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
-    ///                     {
-    ///                         WeeksOfMonths = 
-    ///                         {
-    ///                             "First",
-    ///                             "Last",
-    ///                         },
-    ///                         DaysOfWeeks = 
-    ///                         {
-    ///                             "Tuesday",
-    ///                         },
-    ///                         ScheduledBackupTimes = 
-    ///                         {
-    ///                             "2021-05-23T02:30:00Z",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VaultName = exampleBackupVault.Name,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-23T02:30:00+00:00/P1W",
+    ///         },
+    ///         DefaultRetentionDuration = "P4M",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "weekly",
+    ///                 Duration = "P6M",
+    ///                 Priority = 20,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfWeek",
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "thursday",
+    ///                 Duration = "P1W",
+    ///                 Priority = 25,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     DaysOfWeeks = new[]
+    ///                     {
+    ///                         "Thursday",
+    ///                     },
+    ///                     ScheduledBackupTimes = new[]
+    ///                     {
+    ///                         "2021-05-23T02:30:00Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleArgs
+    ///             {
+    ///                 Name = "monthly",
+    ///                 Duration = "P1D",
+    ///                 Priority = 15,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyPostgresqlRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     WeeksOfMonths = new[]
+    ///                     {
+    ///                         "First",
+    ///                         "Last",
+    ///                     },
+    ///                     DaysOfWeeks = new[]
+    ///                     {
+    ///                         "Tuesday",
+    ///                     },
+    ///                     ScheduledBackupTimes = new[]
+    ///                     {
+    ///                         "2021-05-23T02:30:00Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -109,7 +109,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql")]
-    public partial class BackupPolicyPostgresql : Pulumi.CustomResource
+    public partial class BackupPolicyPostgresql : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a list of repeating time interval. It supports weekly back. It should follow `ISO 8601` repeating time interval. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -191,7 +191,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class BackupPolicyPostgresqlArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyPostgresqlArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupRepeatingTimeIntervals", required: true)]
         private InputList<string>? _backupRepeatingTimeIntervals;
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyPostgresqlArgs()
         {
         }
+        public static new BackupPolicyPostgresqlArgs Empty => new BackupPolicyPostgresqlArgs();
     }
 
-    public sealed class BackupPolicyPostgresqlState : Pulumi.ResourceArgs
+    public sealed class BackupPolicyPostgresqlState : global::Pulumi.ResourceArgs
     {
         [Input("backupRepeatingTimeIntervals")]
         private InputList<string>? _backupRepeatingTimeIntervals;
@@ -299,5 +300,6 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyPostgresqlState()
         {
         }
+        public static new BackupPolicyPostgresqlState Empty => new BackupPolicyPostgresqlState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppSiteConfigAppServiceLogsGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppSiteConfigAppServiceLogsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The amount of disk space to use for logs. Valid values are between `25` and `100`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppSiteConfigAppServiceLogsGetArgs()
         {
         }
+        public static new LinuxFunctionAppSiteConfigAppServiceLogsGetArgs Empty => new LinuxFunctionAppSiteConfigAppServiceLogsGetArgs();
     }
 }

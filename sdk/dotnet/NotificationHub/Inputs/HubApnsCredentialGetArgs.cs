@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NotificationHub.Inputs
 {
 
-    public sealed class HubApnsCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class HubApnsCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.NotificationHub.Inputs
         public HubApnsCredentialGetArgs()
         {
         }
+        public static new HubApnsCredentialGetArgs Empty => new HubApnsCredentialGetArgs();
     }
 }

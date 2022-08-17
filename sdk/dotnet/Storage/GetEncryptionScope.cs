@@ -19,29 +19,29 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "storageaccountname",
-        ///             ResourceGroupName = "resourcegroupname",
-        ///         }));
-        ///         var exampleEncryptionScope = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetEncryptionScope.InvokeAsync(new Azure.Storage.GetEncryptionScopeArgs
-        ///         {
-        ///             Name = "existingStorageES",
-        ///             StorageAccountId = exampleAccount.Id,
-        ///         })));
-        ///         this.Id = exampleEncryptionScope.Apply(exampleEncryptionScope =&gt; exampleEncryptionScope.Id);
-        ///     }
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = "resourcegroupname",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
+        ///     {
+        ///         Name = "existingStorageES",
+        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -57,29 +57,29 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var exampleAccount = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "storageaccountname",
-        ///             ResourceGroupName = "resourcegroupname",
-        ///         }));
-        ///         var exampleEncryptionScope = exampleAccount.Apply(exampleAccount =&gt; Output.Create(Azure.Storage.GetEncryptionScope.InvokeAsync(new Azure.Storage.GetEncryptionScopeArgs
-        ///         {
-        ///             Name = "existingStorageES",
-        ///             StorageAccountId = exampleAccount.Id,
-        ///         })));
-        ///         this.Id = exampleEncryptionScope.Apply(exampleEncryptionScope =&gt; exampleEncryptionScope.Id);
-        ///     }
+        ///         Name = "storageaccountname",
+        ///         ResourceGroupName = "resourcegroupname",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
+        ///     {
+        ///         Name = "existingStorageES",
+        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetEncryptionScopeArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptionScopeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Storage Encryption Scope.
@@ -106,9 +106,10 @@ namespace Pulumi.Azure.Storage
         public GetEncryptionScopeArgs()
         {
         }
+        public static new GetEncryptionScopeArgs Empty => new GetEncryptionScopeArgs();
     }
 
-    public sealed class GetEncryptionScopeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptionScopeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Storage Encryption Scope.
@@ -125,6 +126,7 @@ namespace Pulumi.Azure.Storage
         public GetEncryptionScopeInvokeArgs()
         {
         }
+        public static new GetEncryptionScopeInvokeArgs Empty => new GetEncryptionScopeInvokeArgs();
     }
 
 

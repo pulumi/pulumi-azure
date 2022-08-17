@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery.inputs;
 
+import com.pulumi.azure.siterecovery.inputs.ReplicatedVMManagedDiskTargetDiskEncryptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -43,6 +44,21 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
      */
     public Output<String> stagingStorageAccountId() {
         return this.stagingStorageAccountId;
+    }
+
+    /**
+     * A `target_disk_encryption` block as defined below.
+     * 
+     */
+    @Import(name="targetDiskEncryption")
+    private @Nullable Output<ReplicatedVMManagedDiskTargetDiskEncryptionArgs> targetDiskEncryption;
+
+    /**
+     * @return A `target_disk_encryption` block as defined below.
+     * 
+     */
+    public Optional<Output<ReplicatedVMManagedDiskTargetDiskEncryptionArgs>> targetDiskEncryption() {
+        return Optional.ofNullable(this.targetDiskEncryption);
     }
 
     /**
@@ -110,6 +126,7 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
     private ReplicatedVMManagedDiskArgs(ReplicatedVMManagedDiskArgs $) {
         this.diskId = $.diskId;
         this.stagingStorageAccountId = $.stagingStorageAccountId;
+        this.targetDiskEncryption = $.targetDiskEncryption;
         this.targetDiskEncryptionSetId = $.targetDiskEncryptionSetId;
         this.targetDiskType = $.targetDiskType;
         this.targetReplicaDiskType = $.targetReplicaDiskType;
@@ -174,6 +191,27 @@ public final class ReplicatedVMManagedDiskArgs extends com.pulumi.resources.Reso
          */
         public Builder stagingStorageAccountId(String stagingStorageAccountId) {
             return stagingStorageAccountId(Output.of(stagingStorageAccountId));
+        }
+
+        /**
+         * @param targetDiskEncryption A `target_disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetDiskEncryption(@Nullable Output<ReplicatedVMManagedDiskTargetDiskEncryptionArgs> targetDiskEncryption) {
+            $.targetDiskEncryption = targetDiskEncryption;
+            return this;
+        }
+
+        /**
+         * @param targetDiskEncryption A `target_disk_encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder targetDiskEncryption(ReplicatedVMManagedDiskTargetDiskEncryptionArgs targetDiskEncryption) {
+            return targetDiskEncryption(Output.of(targetDiskEncryption));
         }
 
         /**

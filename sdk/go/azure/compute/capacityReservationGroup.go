@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewCapacityReservationGroup(ctx, "exampleCapacityReservationGroup", &compute.CapacityReservationGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewCapacityReservationGroup(ctx, "exampleCapacityReservationGroup", &compute.CapacityReservationGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Capacity Reservation Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
+//
+//	$ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
+//
 // ```
 type CapacityReservationGroup struct {
 	pulumi.CustomResourceState
@@ -180,7 +185,7 @@ func (i *CapacityReservationGroup) ToCapacityReservationGroupOutputWithContext(c
 // CapacityReservationGroupArrayInput is an input type that accepts CapacityReservationGroupArray and CapacityReservationGroupArrayOutput values.
 // You can construct a concrete instance of `CapacityReservationGroupArrayInput` via:
 //
-//          CapacityReservationGroupArray{ CapacityReservationGroupArgs{...} }
+//	CapacityReservationGroupArray{ CapacityReservationGroupArgs{...} }
 type CapacityReservationGroupArrayInput interface {
 	pulumi.Input
 
@@ -205,7 +210,7 @@ func (i CapacityReservationGroupArray) ToCapacityReservationGroupArrayOutputWith
 // CapacityReservationGroupMapInput is an input type that accepts CapacityReservationGroupMap and CapacityReservationGroupMapOutput values.
 // You can construct a concrete instance of `CapacityReservationGroupMapInput` via:
 //
-//          CapacityReservationGroupMap{ "key": CapacityReservationGroupArgs{...} }
+//	CapacityReservationGroupMap{ "key": CapacityReservationGroupArgs{...} }
 type CapacityReservationGroupMapInput interface {
 	pulumi.Input
 

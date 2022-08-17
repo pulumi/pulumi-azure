@@ -6,6 +6,10 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
+ * Manages a Node Pool within a Kubernetes Cluster
+ *
+ * > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+ *
  * ## Example Usage
  *
  * This example provisions a basic Kubernetes Node Pool.

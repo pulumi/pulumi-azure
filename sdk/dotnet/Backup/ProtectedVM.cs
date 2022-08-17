@@ -15,48 +15,50 @@ namespace Pulumi.Azure.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new Azure.Backup.PolicyVMArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = exampleVault.Name,
-    ///             Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
-    ///             {
-    ///                 Frequency = "Daily",
-    ///                 Time = "23:00",
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new Azure.Compute.GetVirtualMachineInvokeArgs
-    ///         {
-    ///             Name = "production",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var vm1 = new Azure.Backup.ProtectedVM("vm1", new Azure.Backup.ProtectedVMArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = exampleVault.Name,
-    ///             SourceVmId = exampleVirtualMachine.Apply(exampleVirtualMachine =&gt; exampleVirtualMachine.Id),
-    ///             BackupPolicyId = examplePolicyVM.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     {
+    ///         Name = "production",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var vm1 = new Azure.Backup.ProtectedVM("vm1", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         SourceVmId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         BackupPolicyId = examplePolicyVM.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +72,7 @@ namespace Pulumi.Azure.Backup
     ///  Note the ID requires quoting as there are semicolons
     /// </summary>
     [AzureResourceType("azure:backup/protectedVM:ProtectedVM")]
-    public partial class ProtectedVM : Pulumi.CustomResource
+    public partial class ProtectedVM : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the id of the backup policy to use.
@@ -152,7 +154,7 @@ namespace Pulumi.Azure.Backup
         }
     }
 
-    public sealed class ProtectedVMArgs : Pulumi.ResourceArgs
+    public sealed class ProtectedVMArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the backup policy to use.
@@ -205,9 +207,10 @@ namespace Pulumi.Azure.Backup
         public ProtectedVMArgs()
         {
         }
+        public static new ProtectedVMArgs Empty => new ProtectedVMArgs();
     }
 
-    public sealed class ProtectedVMState : Pulumi.ResourceArgs
+    public sealed class ProtectedVMState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the backup policy to use.
@@ -260,5 +263,6 @@ namespace Pulumi.Azure.Backup
         public ProtectedVMState()
         {
         }
+        public static new ProtectedVMState Empty => new ProtectedVMState();
     }
 }

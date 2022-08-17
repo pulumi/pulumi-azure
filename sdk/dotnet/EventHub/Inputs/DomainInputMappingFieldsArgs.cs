@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class DomainInputMappingFieldsArgs : Pulumi.ResourceArgs
+    public sealed class DomainInputMappingFieldsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public DomainInputMappingFieldsArgs()
         {
         }
+        public static new DomainInputMappingFieldsArgs Empty => new DomainInputMappingFieldsArgs();
     }
 }

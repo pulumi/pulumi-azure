@@ -15,79 +15,80 @@ namespace Pulumi.Azure.HDInsight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleHBaseCluster = new Azure.HDInsight.HBaseCluster("exampleHBaseCluster", new Azure.HDInsight.HBaseClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterVersion = "3.6",
-    ///             Tier = "Standard",
-    ///             ComponentVersion = new Azure.HDInsight.Inputs.HBaseClusterComponentVersionArgs
-    ///             {
-    ///                 Hbase = "1.1",
-    ///             },
-    ///             Gateway = new Azure.HDInsight.Inputs.HBaseClusterGatewayArgs
-    ///             {
-    ///                 Username = "acctestusrgw",
-    ///                 Password = "Password123!",
-    ///             },
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.HDInsight.Inputs.HBaseClusterStorageAccountArgs
-    ///                 {
-    ///                     StorageContainerId = exampleContainer.Id,
-    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                     IsDefault = true,
-    ///                 },
-    ///             },
-    ///             Roles = new Azure.HDInsight.Inputs.HBaseClusterRolesArgs
-    ///             {
-    ///                 HeadNode = new Azure.HDInsight.Inputs.HBaseClusterRolesHeadNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///                 WorkerNode = new Azure.HDInsight.Inputs.HBaseClusterRolesWorkerNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                     TargetInstanceCount = 3,
-    ///                 },
-    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.HBaseClusterRolesZookeeperNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_D3_V2",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleHBaseCluster = new Azure.HDInsight.HBaseCluster("exampleHBaseCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.HBaseClusterComponentVersionArgs
+    ///         {
+    ///             Hbase = "1.1",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.HBaseClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password123!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.HBaseClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.HBaseClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.HBaseClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.HBaseClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.HBaseClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_D3_V2",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +100,7 @@ namespace Pulumi.Azure.HDInsight
     /// ```
     /// </summary>
     [AzureResourceType("azure:hdinsight/hBaseCluster:HBaseCluster")]
-    public partial class HBaseCluster : Pulumi.CustomResource
+    public partial class HBaseCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -250,7 +251,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
-    public sealed class HBaseClusterArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -360,9 +361,10 @@ namespace Pulumi.Azure.HDInsight
         public HBaseClusterArgs()
         {
         }
+        public static new HBaseClusterArgs Empty => new HBaseClusterArgs();
     }
 
-    public sealed class HBaseClusterState : Pulumi.ResourceArgs
+    public sealed class HBaseClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -484,5 +486,6 @@ namespace Pulumi.Azure.HDInsight
         public HBaseClusterState()
         {
         }
+        public static new HBaseClusterState Empty => new HBaseClusterState();
     }
 }

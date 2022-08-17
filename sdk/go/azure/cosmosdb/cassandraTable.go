@@ -19,75 +19,78 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OfferType:         pulumi.String("Standard"),
-// 			Capabilities: cosmosdb.AccountCapabilityArray{
-// 				&cosmosdb.AccountCapabilityArgs{
-// 					Name: pulumi.String("EnableCassandra"),
-// 				},
-// 			},
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel: pulumi.String("Strong"),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         exampleResourceGroup.Location,
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCassandraKeyspace, err := cosmosdb.NewCassandraKeyspace(ctx, "exampleCassandraKeyspace", &cosmosdb.CassandraKeyspaceArgs{
-// 			ResourceGroupName: exampleAccount.ResourceGroupName,
-// 			AccountName:       exampleAccount.Name,
-// 			Throughput:        pulumi.Int(400),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewCassandraTable(ctx, "exampleCassandraTable", &cosmosdb.CassandraTableArgs{
-// 			CassandraKeyspaceId: exampleCassandraKeyspace.ID(),
-// 			Schema: &cosmosdb.CassandraTableSchemaArgs{
-// 				Columns: cosmosdb.CassandraTableSchemaColumnArray{
-// 					&cosmosdb.CassandraTableSchemaColumnArgs{
-// 						Name: pulumi.String("test1"),
-// 						Type: pulumi.String("ascii"),
-// 					},
-// 					&cosmosdb.CassandraTableSchemaColumnArgs{
-// 						Name: pulumi.String("test2"),
-// 						Type: pulumi.String("int"),
-// 					},
-// 				},
-// 				PartitionKeys: cosmosdb.CassandraTableSchemaPartitionKeyArray{
-// 					&cosmosdb.CassandraTableSchemaPartitionKeyArgs{
-// 						Name: pulumi.String("test1"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OfferType:         pulumi.String("Standard"),
+//				Capabilities: cosmosdb.AccountCapabilityArray{
+//					&cosmosdb.AccountCapabilityArgs{
+//						Name: pulumi.String("EnableCassandra"),
+//					},
+//				},
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("Strong"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCassandraKeyspace, err := cosmosdb.NewCassandraKeyspace(ctx, "exampleCassandraKeyspace", &cosmosdb.CassandraKeyspaceArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//				Throughput:        pulumi.Int(400),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewCassandraTable(ctx, "exampleCassandraTable", &cosmosdb.CassandraTableArgs{
+//				CassandraKeyspaceId: exampleCassandraKeyspace.ID(),
+//				Schema: &cosmosdb.CassandraTableSchemaArgs{
+//					Columns: cosmosdb.CassandraTableSchemaColumnArray{
+//						&cosmosdb.CassandraTableSchemaColumnArgs{
+//							Name: pulumi.String("test1"),
+//							Type: pulumi.String("ascii"),
+//						},
+//						&cosmosdb.CassandraTableSchemaColumnArgs{
+//							Name: pulumi.String("test2"),
+//							Type: pulumi.String("int"),
+//						},
+//					},
+//					PartitionKeys: cosmosdb.CassandraTableSchemaPartitionKeyArray{
+//						&cosmosdb.CassandraTableSchemaPartitionKeyArgs{
+//							Name: pulumi.String("test1"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -95,7 +98,9 @@ import (
 // Cosmos Cassandra Table can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/cassandraTable:CassandraTable ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1/tables/table1
+//
+//	$ pulumi import azure:cosmosdb/cassandraTable:CassandraTable ks1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/cassandraKeyspaces/ks1/tables/table1
+//
 // ```
 type CassandraTable struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *CassandraTable) ToCassandraTableOutputWithContext(ctx context.Context) 
 // CassandraTableArrayInput is an input type that accepts CassandraTableArray and CassandraTableArrayOutput values.
 // You can construct a concrete instance of `CassandraTableArrayInput` via:
 //
-//          CassandraTableArray{ CassandraTableArgs{...} }
+//	CassandraTableArray{ CassandraTableArgs{...} }
 type CassandraTableArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i CassandraTableArray) ToCassandraTableArrayOutputWithContext(ctx context.
 // CassandraTableMapInput is an input type that accepts CassandraTableMap and CassandraTableMapOutput values.
 // You can construct a concrete instance of `CassandraTableMapInput` via:
 //
-//          CassandraTableMap{ "key": CassandraTableArgs{...} }
+//	CassandraTableMap{ "key": CassandraTableArgs{...} }
 type CassandraTableMapInput interface {
 	pulumi.Input
 

@@ -15,31 +15,30 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 2,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 2,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/eventHubNamespace:EventHubNamespace")]
-    public partial class EventHubNamespace : Pulumi.CustomResource
+    public partial class EventHubNamespace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is Auto Inflate enabled for the EventHub Namespace?
@@ -118,6 +117,12 @@ namespace Pulumi.Azure.EventHub
         public Output<Outputs.EventHubNamespaceIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
+        /// Is SAS authentication enabled for the EventHub Namespace?
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -130,6 +135,12 @@ namespace Pulumi.Azure.EventHub
         public Output<int> MaximumThroughputUnits { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -140,6 +151,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("networkRulesets")]
         public Output<Outputs.EventHubNamespaceNetworkRulesets> NetworkRulesets { get; private set; } = null!;
+
+        /// <summary>
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
@@ -209,7 +226,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventHubNamespaceArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is Auto Inflate enabled for the EventHub Namespace?
@@ -236,6 +253,12 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventHubNamespaceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Is SAS authentication enabled for the EventHub Namespace?
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -248,6 +271,12 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -258,6 +287,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("networkRulesets")]
         public Input<Inputs.EventHubNamespaceNetworkRulesetsArgs>? NetworkRulesets { get; set; }
+
+        /// <summary>
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
@@ -292,9 +327,10 @@ namespace Pulumi.Azure.EventHub
         public EventHubNamespaceArgs()
         {
         }
+        public static new EventHubNamespaceArgs Empty => new EventHubNamespaceArgs();
     }
 
-    public sealed class EventHubNamespaceState : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is Auto Inflate enabled for the EventHub Namespace?
@@ -361,6 +397,12 @@ namespace Pulumi.Azure.EventHub
         public Input<Inputs.EventHubNamespaceIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
+        /// Is SAS authentication enabled for the EventHub Namespace?
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -373,6 +415,12 @@ namespace Pulumi.Azure.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
+        /// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public Input<string>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -383,6 +431,12 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("networkRulesets")]
         public Input<Inputs.EventHubNamespaceNetworkRulesetsGetArgs>? NetworkRulesets { get; set; }
+
+        /// <summary>
+        /// Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// The name of the resource group in which to create the namespace. Changing this forces a new resource to be created.
@@ -417,5 +471,6 @@ namespace Pulumi.Azure.EventHub
         public EventHubNamespaceState()
         {
         }
+        public static new EventHubNamespaceState Empty => new EventHubNamespaceState();
     }
 }

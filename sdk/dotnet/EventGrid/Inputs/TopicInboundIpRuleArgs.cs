@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class TopicInboundIpRuleArgs : Pulumi.ResourceArgs
+    public sealed class TopicInboundIpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take when the rule is matched. Possible values are `Allow`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public TopicInboundIpRuleArgs()
         {
         }
+        public static new TopicInboundIpRuleArgs Empty => new TopicInboundIpRuleArgs();
     }
 }

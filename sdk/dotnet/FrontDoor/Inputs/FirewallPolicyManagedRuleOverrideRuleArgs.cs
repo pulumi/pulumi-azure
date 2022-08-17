@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FirewallPolicyManagedRuleOverrideRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyManagedRuleOverrideRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FirewallPolicyManagedRuleOverrideRuleArgs()
         {
         }
+        public static new FirewallPolicyManagedRuleOverrideRuleArgs Empty => new FirewallPolicyManagedRuleOverrideRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountAzureFilesAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class AccountAzureFilesAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `active_directory` block as defined below. Required when `directory_type` is `AD`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountAzureFilesAuthenticationArgs()
         {
         }
+        public static new AccountAzureFilesAuthenticationArgs Empty => new AccountAzureFilesAuthenticationArgs();
     }
 }

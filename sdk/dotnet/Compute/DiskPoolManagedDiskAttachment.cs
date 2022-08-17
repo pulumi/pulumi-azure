@@ -28,102 +28,106 @@ namespace Pulumi.Azure.Compute
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "diskspool",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "diskspool",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Actions = new[]
     ///                     {
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/read",
-    ///                         },
-    ///                         Name = "Microsoft.StoragePool/diskPools",
+    ///                         "Microsoft.Network/virtualNetworks/read",
     ///                     },
+    ///                     Name = "Microsoft.StoragePool/diskPools",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new Azure.Compute.DiskPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///             SkuName = "Basic_B1",
-    ///         });
-    ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CreateOption = "Empty",
-    ///             StorageAccountType = "Premium_LRS",
-    ///             DiskSizeGb = 4,
-    ///             MaxShares = 2,
-    ///             Zone = "1",
-    ///         });
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "StoragePool Resource Provider",
-    ///         }));
-    ///         var roles = 
-    ///         {
-    ///             "Disk Pool Operator",
-    ///             "Virtual Machine Contributor",
-    ///         };
-    ///         var exampleAssignment = new List&lt;Azure.Authorization.Assignment&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; roles.Length; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             exampleAssignment.Add(new Azure.Authorization.Assignment($"exampleAssignment-{range.Value}", new Azure.Authorization.AssignmentArgs
-    ///             {
-    ///                 PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.Id),
-    ///                 RoleDefinitionName = roles[range.Value],
-    ///                 Scope = exampleManagedDisk.Id,
-    ///             }));
-    ///         }
-    ///         var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", new Azure.Compute.DiskPoolManagedDiskAttachmentArgs
-    ///         {
-    ///             DiskPoolId = exampleDiskPool.Id,
-    ///             ManagedDiskId = exampleManagedDisk.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///         SkuName = "Basic_B1",
+    ///     });
+    /// 
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CreateOption = "Empty",
+    ///         StorageAccountType = "Premium_LRS",
+    ///         DiskSizeGb = 4,
+    ///         MaxShares = 2,
+    ///         Zone = "1",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "StoragePool Resource Provider",
+    ///     });
+    /// 
+    ///     var roles = new[]
+    ///     {
+    ///         "Disk Pool Operator",
+    ///         "Virtual Machine Contributor",
+    ///     };
+    /// 
+    ///     var exampleAssignment = new List&lt;Azure.Authorization.Assignment&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; roles.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleAssignment.Add(new Azure.Authorization.Assignment($"exampleAssignment-{range.Value}", new()
+    ///         {
+    ///             PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///             RoleDefinitionName = roles[range.Value],
+    ///             Scope = exampleManagedDisk.Id,
+    ///         }));
+    ///     }
+    ///     var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", new()
+    ///     {
+    ///         DiskPoolId = exampleDiskPool.Id,
+    ///         ManagedDiskId = exampleManagedDisk.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -135,7 +139,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment")]
-    public partial class DiskPoolManagedDiskAttachment : Pulumi.CustomResource
+    public partial class DiskPoolManagedDiskAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
@@ -193,7 +197,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DiskPoolManagedDiskAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class DiskPoolManagedDiskAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
@@ -210,9 +214,10 @@ namespace Pulumi.Azure.Compute
         public DiskPoolManagedDiskAttachmentArgs()
         {
         }
+        public static new DiskPoolManagedDiskAttachmentArgs Empty => new DiskPoolManagedDiskAttachmentArgs();
     }
 
-    public sealed class DiskPoolManagedDiskAttachmentState : Pulumi.ResourceArgs
+    public sealed class DiskPoolManagedDiskAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
@@ -229,5 +234,6 @@ namespace Pulumi.Azure.Compute
         public DiskPoolManagedDiskAttachmentState()
         {
         }
+        public static new DiskPoolManagedDiskAttachmentState Empty => new DiskPoolManagedDiskAttachmentState();
     }
 }

@@ -25,7 +25,7 @@ class InterationServiceEnvironmentArgs:
         The set of arguments for constructing a InterationServiceEnvironment resource.
         :param pulumi.Input[str] access_endpoint_type: The type of access endpoint to use for the Integration Service Environment. Possible Values are `Internal` and `External`. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] location: The Azure Region where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] name: The name of the Integration Service Environment. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
@@ -71,7 +71,7 @@ class InterationServiceEnvironmentArgs:
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
@@ -152,7 +152,7 @@ class _InterationServiceEnvironmentState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing IP addresses of workflow.
         """
@@ -279,7 +279,7 @@ class _InterationServiceEnvironmentState:
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 
@@ -342,7 +342,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         isesubnet1 = azure.network.Subnet("isesubnet1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/26"],
+            address_prefixes=["10.0.1.0/27"],
             delegations=[azure.network.SubnetDelegationArgs(
                 name="integrationServiceEnvironments",
                 service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
@@ -352,15 +352,15 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         isesubnet2 = azure.network.Subnet("isesubnet2",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/26"])
+            address_prefixes=["10.0.1.32/27"])
         isesubnet3 = azure.network.Subnet("isesubnet3",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.128/26"])
+            address_prefixes=["10.0.1.64/27"])
         isesubnet4 = azure.network.Subnet("isesubnet4",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.192/26"])
+            address_prefixes=["10.0.1.96/27"])
         example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -393,7 +393,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
         ...
     @overload
@@ -418,7 +418,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         isesubnet1 = azure.network.Subnet("isesubnet1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.0/26"],
+            address_prefixes=["10.0.1.0/27"],
             delegations=[azure.network.SubnetDelegationArgs(
                 name="integrationServiceEnvironments",
                 service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
@@ -428,15 +428,15 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         isesubnet2 = azure.network.Subnet("isesubnet2",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.64/26"])
+            address_prefixes=["10.0.1.32/27"])
         isesubnet3 = azure.network.Subnet("isesubnet3",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.128/26"])
+            address_prefixes=["10.0.1.64/27"])
         isesubnet4 = azure.network.Subnet("isesubnet4",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.0.1.192/26"])
+            address_prefixes=["10.0.1.96/27"])
         example_interation_service_environment = azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -545,7 +545,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Integration Service Environment should exist. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[str] sku_name: The SKU name and capacity of the Integration Service Environment. Possible Values for `sku` element are `Developer` and `Premium` and possible values for the `capacity` element are from `0` to `10`.  Defaults to `sku` of `Developer` with a `Capacity` of `0` (e.g. `Developer_0`). Changing this forces a new Integration Service Environment to be created when `sku` element is not the same with existing one.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Integration Service Environment.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_endpoint_ip_addresses: The list of access endpoint IP addresses of workflow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] workflow_outbound_ip_addresses: The list of outgoing IP addresses of workflow.
         """
@@ -634,7 +634,7 @@ class InterationServiceEnvironment(pulumi.CustomResource):
     @pulumi.getter(name="virtualNetworkSubnetIds")
     def virtual_network_subnet_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+        A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
         """
         return pulumi.get(self, "virtual_network_subnet_ids")
 

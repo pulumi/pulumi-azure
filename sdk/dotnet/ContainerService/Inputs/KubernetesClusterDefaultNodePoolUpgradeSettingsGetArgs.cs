@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs()
         {
         }
+        public static new KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs Empty => new KubernetesClusterDefaultNodePoolUpgradeSettingsGetArgs();
     }
 }

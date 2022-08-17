@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayBackendHttpSettingArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendHttpSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the affinity cookie.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayBackendHttpSettingArgs()
         {
         }
+        public static new ApplicationGatewayBackendHttpSettingArgs Empty => new ApplicationGatewayBackendHttpSettingArgs();
     }
 }

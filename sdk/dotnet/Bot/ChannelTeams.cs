@@ -17,34 +17,35 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new Azure.Bot.ChannelsRegistrationArgs
-    ///         {
-    ///             Location = "global",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "F0",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///         });
-    ///         var exampleChannelTeams = new Azure.Bot.ChannelTeams("exampleChannelTeams", new Azure.Bot.ChannelTeamsArgs
-    ///         {
-    ///             BotName = exampleChannelsRegistration.Name,
-    ///             Location = exampleChannelsRegistration.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     {
+    ///         Location = "global",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "F0",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///     });
+    /// 
+    ///     var exampleChannelTeams = new Azure.Bot.ChannelTeams("exampleChannelTeams", new()
+    ///     {
+    ///         BotName = exampleChannelsRegistration.Name,
+    ///         Location = exampleChannelsRegistration.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/channelTeams:ChannelTeams")]
-    public partial class ChannelTeams : Pulumi.CustomResource
+    public partial class ChannelTeams : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -132,7 +133,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ChannelTeamsArgs : Pulumi.ResourceArgs
+    public sealed class ChannelTeamsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -167,9 +168,10 @@ namespace Pulumi.Azure.Bot
         public ChannelTeamsArgs()
         {
         }
+        public static new ChannelTeamsArgs Empty => new ChannelTeamsArgs();
     }
 
-    public sealed class ChannelTeamsState : Pulumi.ResourceArgs
+    public sealed class ChannelTeamsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -204,5 +206,6 @@ namespace Pulumi.Azure.Bot
         public ChannelTeamsState()
         {
         }
+        public static new ChannelTeamsState Empty => new ChannelTeamsState();
     }
 }

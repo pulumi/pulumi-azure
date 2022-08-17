@@ -23,7 +23,7 @@ namespace Pulumi.Azure.Hpc
     /// ```
     /// </summary>
     [AzureResourceType("azure:hpc/cacheNfsTarget:CacheNfsTarget")]
-    public partial class CacheNfsTarget : Pulumi.CustomResource
+    public partial class CacheNfsTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
@@ -105,7 +105,7 @@ namespace Pulumi.Azure.Hpc
         }
     }
 
-    public sealed class CacheNfsTargetArgs : Pulumi.ResourceArgs
+    public sealed class CacheNfsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
@@ -152,9 +152,10 @@ namespace Pulumi.Azure.Hpc
         public CacheNfsTargetArgs()
         {
         }
+        public static new CacheNfsTargetArgs Empty => new CacheNfsTargetArgs();
     }
 
-    public sealed class CacheNfsTargetState : Pulumi.ResourceArgs
+    public sealed class CacheNfsTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name HPC Cache, which the HPC Cache NFS Target will be added to. Changing this forces a new resource to be created.
@@ -201,5 +202,6 @@ namespace Pulumi.Azure.Hpc
         public CacheNfsTargetState()
         {
         }
+        public static new CacheNfsTargetState Empty => new CacheNfsTargetState();
     }
 }

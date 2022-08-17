@@ -170,6 +170,10 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    public readonly virtualNetworkSubnetId!: pulumi.Output<string | undefined>;
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */
     public readonly zipDeployFile!: pulumi.Output<string>;
@@ -212,6 +216,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteCredentials"] = state ? state.siteCredentials : undefined;
             resourceInputs["storageAccounts"] = state ? state.storageAccounts : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = state ? state.virtualNetworkSubnetId : undefined;
             resourceInputs["zipDeployFile"] = state ? state.zipDeployFile : undefined;
         } else {
             const args = argsOrState as WindowsWebAppSlotArgs | undefined;
@@ -238,6 +243,7 @@ export class WindowsWebAppSlot extends pulumi.CustomResource {
             resourceInputs["siteConfig"] = args ? args.siteConfig : undefined;
             resourceInputs["storageAccounts"] = args ? args.storageAccounts : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["virtualNetworkSubnetId"] = args ? args.virtualNetworkSubnetId : undefined;
             resourceInputs["zipDeployFile"] = args ? args.zipDeployFile : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
@@ -358,6 +364,10 @@ export interface WindowsWebAppSlotState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */
     zipDeployFile?: pulumi.Input<string>;
@@ -435,6 +445,10 @@ export interface WindowsWebAppSlotArgs {
      * A mapping of tags which should be assigned to the Windows Web App Slot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     */
+    virtualNetworkSubnetId?: pulumi.Input<string>;
     /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      */

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotLogsApplicationLogsAzureBlobStorageArgs : Pulumi.ResourceArgs
+    public sealed class SlotLogsApplicationLogsAzureBlobStorageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotLogsApplicationLogsAzureBlobStorageArgs()
         {
         }
+        public static new SlotLogsApplicationLogsAzureBlobStorageArgs Empty => new SlotLogsApplicationLogsAzureBlobStorageArgs();
     }
 }

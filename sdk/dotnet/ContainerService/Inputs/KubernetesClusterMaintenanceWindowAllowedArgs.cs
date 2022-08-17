@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterMaintenanceWindowAllowedArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterMaintenanceWindowAllowedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterMaintenanceWindowAllowedArgs()
         {
         }
+        public static new KubernetesClusterMaintenanceWindowAllowedArgs Empty => new KubernetesClusterMaintenanceWindowAllowedArgs();
     }
 }

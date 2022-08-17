@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PostgreSql.Inputs
 {
 
-    public sealed class FlexibleServerHighAvailabilityArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerHighAvailabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The high availability mode for the PostgreSQL Flexible Server. The only possible value is `ZoneRedundant`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         public FlexibleServerHighAvailabilityArgs()
         {
         }
+        public static new FlexibleServerHighAvailabilityArgs Empty => new FlexibleServerHighAvailabilityArgs();
     }
 }

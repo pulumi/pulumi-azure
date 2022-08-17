@@ -15,27 +15,26 @@ namespace Pulumi.Azure.ElasticCloud
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("testElasticsearch", new Azure.ElasticCloud.ElasticsearchArgs
-    ///         {
-    ///             ResourceGroupName = testResourceGroup.Name,
-    ///             Location = testResourceGroup.Location,
-    ///             SkuName = "ess-monthly-consumption_Monthly",
-    ///             ElasticCloudEmailAddress = "user@example.com",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("testElasticsearch", new()
+    ///     {
+    ///         ResourceGroupName = testResourceGroup.Name,
+    ///         Location = testResourceGroup.Location,
+    ///         SkuName = "ess-monthly-consumption_Monthly",
+    ///         ElasticCloudEmailAddress = "user@example.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.ElasticCloud
     /// ```
     /// </summary>
     [AzureResourceType("azure:elasticcloud/elasticsearch:Elasticsearch")]
-    public partial class Elasticsearch : Pulumi.CustomResource
+    public partial class Elasticsearch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Deployment within Elastic Cloud.
@@ -177,7 +176,7 @@ namespace Pulumi.Azure.ElasticCloud
         }
     }
 
-    public sealed class ElasticsearchArgs : Pulumi.ResourceArgs
+    public sealed class ElasticsearchArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Email Address which should be associated with this Elasticsearch account. Changing this forces a new Elasticsearch to be created.
@@ -236,9 +235,10 @@ namespace Pulumi.Azure.ElasticCloud
         public ElasticsearchArgs()
         {
         }
+        public static new ElasticsearchArgs Empty => new ElasticsearchArgs();
     }
 
-    public sealed class ElasticsearchState : Pulumi.ResourceArgs
+    public sealed class ElasticsearchState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Deployment within Elastic Cloud.
@@ -333,5 +333,6 @@ namespace Pulumi.Azure.ElasticCloud
         public ElasticsearchState()
         {
         }
+        public static new ElasticsearchState Empty => new ElasticsearchState();
     }
 }

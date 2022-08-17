@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerTumblingWindowTriggerDependencyGetArgs : Pulumi.ResourceArgs
+    public sealed class TriggerTumblingWindowTriggerDependencyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerTumblingWindowTriggerDependencyGetArgs()
         {
         }
+        public static new TriggerTumblingWindowTriggerDependencyGetArgs Empty => new TriggerTumblingWindowTriggerDependencyGetArgs();
     }
 }

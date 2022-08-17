@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Backup.Inputs
 {
 
-    public sealed class PolicyVMBackupArgs : Pulumi.ResourceArgs
+    public sealed class PolicyVMBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Backup.Inputs
         public PolicyVMBackupArgs()
         {
         }
+        public static new PolicyVMBackupArgs Empty => new PolicyVMBackupArgs();
     }
 }

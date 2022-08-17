@@ -15,95 +15,97 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@mycompany.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new Azure.ApiManagement.LoggerArgs
-    ///         {
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
-    ///             {
-    ///                 InstrumentationKey = exampleInsights.InstrumentationKey,
-    ///             },
-    ///         });
-    ///         var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("exampleDiagnostic", new Azure.ApiManagement.DiagnosticArgs
-    ///         {
-    ///             Identifier = "applicationinsights",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ApiManagementLoggerId = exampleLogger.Id,
-    ///             SamplingPercentage = 5,
-    ///             AlwaysLogErrors = true,
-    ///             LogClientIp = true,
-    ///             Verbosity = "verbose",
-    ///             HttpCorrelationProtocol = "W3C",
-    ///             FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
-    ///             {
-    ///                 BodyBytes = 32,
-    ///                 HeadersToLogs = 
-    ///                 {
-    ///                     "content-type",
-    ///                     "accept",
-    ///                     "origin",
-    ///                 },
-    ///             },
-    ///             FrontendResponse = new Azure.ApiManagement.Inputs.DiagnosticFrontendResponseArgs
-    ///             {
-    ///                 BodyBytes = 32,
-    ///                 HeadersToLogs = 
-    ///                 {
-    ///                     "content-type",
-    ///                     "content-length",
-    ///                     "origin",
-    ///                 },
-    ///             },
-    ///             BackendRequest = new Azure.ApiManagement.Inputs.DiagnosticBackendRequestArgs
-    ///             {
-    ///                 BodyBytes = 32,
-    ///                 HeadersToLogs = 
-    ///                 {
-    ///                     "content-type",
-    ///                     "accept",
-    ///                     "origin",
-    ///                 },
-    ///             },
-    ///             BackendResponse = new Azure.ApiManagement.Inputs.DiagnosticBackendResponseArgs
-    ///             {
-    ///                 BodyBytes = 32,
-    ///                 HeadersToLogs = 
-    ///                 {
-    ///                     "content-type",
-    ///                     "content-length",
-    ///                     "origin",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@mycompany.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
+    ///         {
+    ///             InstrumentationKey = exampleInsights.InstrumentationKey,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("exampleDiagnostic", new()
+    ///     {
+    ///         Identifier = "applicationinsights",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ApiManagementLoggerId = exampleLogger.Id,
+    ///         SamplingPercentage = 5,
+    ///         AlwaysLogErrors = true,
+    ///         LogClientIp = true,
+    ///         Verbosity = "verbose",
+    ///         HttpCorrelationProtocol = "W3C",
+    ///         FrontendRequest = new Azure.ApiManagement.Inputs.DiagnosticFrontendRequestArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "accept",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         FrontendResponse = new Azure.ApiManagement.Inputs.DiagnosticFrontendResponseArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "content-length",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         BackendRequest = new Azure.ApiManagement.Inputs.DiagnosticBackendRequestArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "accept",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///         BackendResponse = new Azure.ApiManagement.Inputs.DiagnosticBackendResponseArgs
+    ///         {
+    ///             BodyBytes = 32,
+    ///             HeadersToLogs = new[]
+    ///             {
+    ///                 "content-type",
+    ///                 "content-length",
+    ///                 "origin",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -115,7 +117,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/diagnostic:Diagnostic")]
-    public partial class Diagnostic : Pulumi.CustomResource
+    public partial class Diagnostic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -245,7 +247,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class DiagnosticArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -334,9 +336,10 @@ namespace Pulumi.Azure.ApiManagement
         public DiagnosticArgs()
         {
         }
+        public static new DiagnosticArgs Empty => new DiagnosticArgs();
     }
 
-    public sealed class DiagnosticState : Pulumi.ResourceArgs
+    public sealed class DiagnosticState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Always log errors. Send telemetry if there is an erroneous condition, regardless of sampling settings.
@@ -425,5 +428,6 @@ namespace Pulumi.Azure.ApiManagement
         public DiagnosticState()
         {
         }
+        public static new DiagnosticState Empty => new DiagnosticState();
     }
 }

@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		existingImage, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
-// 			Name:              pulumi.StringRef("search-api"),
-// 			ResourceGroupName: "packerimages",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		existingSharedImage, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
-// 			Name:              "existing-image",
-// 			GalleryName:       "existing_gallery",
-// 			ResourceGroupName: "existing-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewSharedImageVersion(ctx, "example", &compute.SharedImageVersionArgs{
-// 			GalleryName:       pulumi.String(existingSharedImage.GalleryName),
-// 			ImageName:         pulumi.String(existingSharedImage.Name),
-// 			ResourceGroupName: pulumi.String(existingSharedImage.ResourceGroupName),
-// 			Location:          pulumi.String(existingSharedImage.Location),
-// 			ManagedImageId:    pulumi.String(existingImage.Id),
-// 			TargetRegions: compute.SharedImageVersionTargetRegionArray{
-// 				&compute.SharedImageVersionTargetRegionArgs{
-// 					Name:                 pulumi.String(existingSharedImage.Location),
-// 					RegionalReplicaCount: pulumi.Int(5),
-// 					StorageAccountType:   pulumi.String("Standard_LRS"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			existingImage, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
+//				Name:              pulumi.StringRef("search-api"),
+//				ResourceGroupName: "packerimages",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			existingSharedImage, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
+//				Name:              "existing-image",
+//				GalleryName:       "existing_gallery",
+//				ResourceGroupName: "existing-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewSharedImageVersion(ctx, "example", &compute.SharedImageVersionArgs{
+//				GalleryName:       pulumi.String(existingSharedImage.GalleryName),
+//				ImageName:         pulumi.String(existingSharedImage.Name),
+//				ResourceGroupName: pulumi.String(existingSharedImage.ResourceGroupName),
+//				Location:          pulumi.String(existingSharedImage.Location),
+//				ManagedImageId:    pulumi.String(existingImage.Id),
+//				TargetRegions: compute.SharedImageVersionTargetRegionArray{
+//					&compute.SharedImageVersionTargetRegionArgs{
+//						Name:                 pulumi.String(existingSharedImage.Location),
+//						RegionalReplicaCount: pulumi.Int(5),
+//						StorageAccountType:   pulumi.String("Standard_LRS"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Shared Image Versions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
+//
+//	$ pulumi import azure:compute/sharedImageVersion:SharedImageVersion version /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1/images/image1/versions/1.2.3
+//
 // ```
 type SharedImageVersion struct {
 	pulumi.CustomResourceState
@@ -277,7 +282,7 @@ func (i *SharedImageVersion) ToSharedImageVersionOutputWithContext(ctx context.C
 // SharedImageVersionArrayInput is an input type that accepts SharedImageVersionArray and SharedImageVersionArrayOutput values.
 // You can construct a concrete instance of `SharedImageVersionArrayInput` via:
 //
-//          SharedImageVersionArray{ SharedImageVersionArgs{...} }
+//	SharedImageVersionArray{ SharedImageVersionArgs{...} }
 type SharedImageVersionArrayInput interface {
 	pulumi.Input
 
@@ -302,7 +307,7 @@ func (i SharedImageVersionArray) ToSharedImageVersionArrayOutputWithContext(ctx 
 // SharedImageVersionMapInput is an input type that accepts SharedImageVersionMap and SharedImageVersionMapOutput values.
 // You can construct a concrete instance of `SharedImageVersionMapInput` via:
 //
-//          SharedImageVersionMap{ "key": SharedImageVersionArgs{...} }
+//	SharedImageVersionMap{ "key": SharedImageVersionArgs{...} }
 type SharedImageVersionMapInput interface {
 	pulumi.Input
 

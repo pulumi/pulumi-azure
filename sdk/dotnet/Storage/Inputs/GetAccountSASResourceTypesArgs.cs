@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class GetAccountSASResourceTypesInputArgs : Pulumi.ResourceArgs
+    public sealed class GetAccountSASResourceTypesInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should permission be granted to the container?
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public GetAccountSASResourceTypesInputArgs()
         {
         }
+        public static new GetAccountSASResourceTypesInputArgs Empty => new GetAccountSASResourceTypesInputArgs();
     }
 }

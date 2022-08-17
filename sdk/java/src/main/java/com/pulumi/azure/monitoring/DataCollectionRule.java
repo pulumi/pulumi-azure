@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * Manages a Data Collection Rule.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataFlowArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleDataSourcesArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  *                         &#34;Microsoft-Perf&#34;,
  *                         &#34;Microsoft-InsightsMetrics&#34;)
  *                     .samplingFrequencyInSeconds(10)
- *                     .counterSpecifiers(&#34;Processor(*)\\%% Processor Time&#34;)
+ *                     .counterSpecifiers(&#34;Processor(*)\\% Processor Time&#34;)
  *                     .name(&#34;test-datasource-perfcounter&#34;)
  *                     .build())
  *                 .windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLogArgs.builder()
@@ -135,8 +135,9 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .description(&#34;data collection rule example&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .dependOn(exampleAnalyticsSolution)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(exampleAnalyticsSolution)
+ *                 .build());
  * 
  *     }
  * }

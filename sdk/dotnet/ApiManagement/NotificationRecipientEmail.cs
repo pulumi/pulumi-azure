@@ -15,34 +15,34 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleNotificationRecipientEmail = new Azure.ApiManagement.NotificationRecipientEmail("exampleNotificationRecipientEmail", new Azure.ApiManagement.NotificationRecipientEmailArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             NotificationType = "AccountClosedPublisher",
-    ///             Email = "foo@bar.com",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleNotificationRecipientEmail = new Azure.ApiManagement.NotificationRecipientEmail("exampleNotificationRecipientEmail", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         NotificationType = "AccountClosedPublisher",
+    ///         Email = "foo@bar.com",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/notificationRecipientEmail:NotificationRecipientEmail")]
-    public partial class NotificationRecipientEmail : Pulumi.CustomResource
+    public partial class NotificationRecipientEmail : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class NotificationRecipientEmailArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRecipientEmailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
@@ -141,9 +141,10 @@ namespace Pulumi.Azure.ApiManagement
         public NotificationRecipientEmailArgs()
         {
         }
+        public static new NotificationRecipientEmailArgs Empty => new NotificationRecipientEmailArgs();
     }
 
-    public sealed class NotificationRecipientEmailState : Pulumi.ResourceArgs
+    public sealed class NotificationRecipientEmailState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
@@ -166,5 +167,6 @@ namespace Pulumi.Azure.ApiManagement
         public NotificationRecipientEmailState()
         {
         }
+        public static new NotificationRecipientEmailState Empty => new NotificationRecipientEmailState();
     }
 }

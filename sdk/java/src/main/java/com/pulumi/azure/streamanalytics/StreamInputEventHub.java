@@ -110,6 +110,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:streamanalytics/streamInputEventHub:StreamInputEventHub")
 public class StreamInputEventHub extends com.pulumi.resources.CustomResource {
     /**
+     * The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    @Export(name="authenticationMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> authenticationMode;
+
+    /**
+     * @return The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
+     * 
+     */
+    public Output<Optional<String>> authenticationMode() {
+        return Codegen.optional(this.authenticationMode);
+    }
+    /**
      * The name of an Event Hub Consumer Group that should be used to read events from the Event Hub. Specifying distinct consumer group names for multiple inputs allows each of those inputs to receive the same events from the Event Hub. If not set the input will use the Event Hub&#39;s default consumer group.
      * 
      */

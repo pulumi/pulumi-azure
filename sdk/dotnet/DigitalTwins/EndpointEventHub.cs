@@ -15,53 +15,56 @@ namespace Pulumi.Azure.DigitalTwins
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new Azure.DigitalTwins.InstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Listen = false,
-    ///             Send = true,
-    ///             Manage = false,
-    ///         });
-    ///         var exampleEndpointEventHub = new Azure.DigitalTwins.EndpointEventHub("exampleEndpointEventHub", new Azure.DigitalTwins.EndpointEventHubArgs
-    ///         {
-    ///             DigitalTwinsId = exampleInstance.Id,
-    ///             EventhubPrimaryConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
-    ///             EventhubSecondaryConnectionString = exampleAuthorizationRule.SecondaryConnectionString,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = false,
+    ///         Send = true,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleEndpointEventHub = new Azure.DigitalTwins.EndpointEventHub("exampleEndpointEventHub", new()
+    ///     {
+    ///         DigitalTwinsId = exampleInstance.Id,
+    ///         EventhubPrimaryConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
+    ///         EventhubSecondaryConnectionString = exampleAuthorizationRule.SecondaryConnectionString,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +76,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// ```
     /// </summary>
     [AzureResourceType("azure:digitaltwins/endpointEventHub:EndpointEventHub")]
-    public partial class EndpointEventHub : Pulumi.CustomResource
+    public partial class EndpointEventHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -149,7 +152,7 @@ namespace Pulumi.Azure.DigitalTwins
         }
     }
 
-    public sealed class EndpointEventHubArgs : Pulumi.ResourceArgs
+    public sealed class EndpointEventHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -184,9 +187,10 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointEventHubArgs()
         {
         }
+        public static new EndpointEventHubArgs Empty => new EndpointEventHubArgs();
     }
 
-    public sealed class EndpointEventHubState : Pulumi.ResourceArgs
+    public sealed class EndpointEventHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -221,5 +225,6 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointEventHubState()
         {
         }
+        public static new EndpointEventHubState Empty => new EndpointEventHubState();
     }
 }

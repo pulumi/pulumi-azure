@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.eventhub.inputs;
 
+import com.pulumi.azure.eventhub.inputs.SubscriptionClientScopedSubscriptionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -30,6 +31,36 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> autoDeleteOnIdle() {
         return Optional.ofNullable(this.autoDeleteOnIdle);
+    }
+
+    /**
+     * A `client_scoped_subscription` block as defined below.
+     * 
+     */
+    @Import(name="clientScopedSubscription")
+    private @Nullable Output<SubscriptionClientScopedSubscriptionArgs> clientScopedSubscription;
+
+    /**
+     * @return A `client_scoped_subscription` block as defined below.
+     * 
+     */
+    public Optional<Output<SubscriptionClientScopedSubscriptionArgs>> clientScopedSubscription() {
+        return Optional.ofNullable(this.clientScopedSubscription);
+    }
+
+    /**
+     * whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     */
+    @Import(name="clientScopedSubscriptionEnabled")
+    private @Nullable Output<Boolean> clientScopedSubscriptionEnabled;
+
+    /**
+     * @return whether the subscription is scoped to a client id. Defaults to `False`.
+     * 
+     */
+    public Optional<Output<Boolean>> clientScopedSubscriptionEnabled() {
+        return Optional.ofNullable(this.clientScopedSubscriptionEnabled);
     }
 
     /**
@@ -216,6 +247,8 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
 
     private SubscriptionState(SubscriptionState $) {
         this.autoDeleteOnIdle = $.autoDeleteOnIdle;
+        this.clientScopedSubscription = $.clientScopedSubscription;
+        this.clientScopedSubscriptionEnabled = $.clientScopedSubscriptionEnabled;
         this.deadLetteringOnFilterEvaluationError = $.deadLetteringOnFilterEvaluationError;
         this.deadLetteringOnMessageExpiration = $.deadLetteringOnMessageExpiration;
         this.defaultMessageTtl = $.defaultMessageTtl;
@@ -267,6 +300,48 @@ public final class SubscriptionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
             return autoDeleteOnIdle(Output.of(autoDeleteOnIdle));
+        }
+
+        /**
+         * @param clientScopedSubscription A `client_scoped_subscription` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientScopedSubscription(@Nullable Output<SubscriptionClientScopedSubscriptionArgs> clientScopedSubscription) {
+            $.clientScopedSubscription = clientScopedSubscription;
+            return this;
+        }
+
+        /**
+         * @param clientScopedSubscription A `client_scoped_subscription` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientScopedSubscription(SubscriptionClientScopedSubscriptionArgs clientScopedSubscription) {
+            return clientScopedSubscription(Output.of(clientScopedSubscription));
+        }
+
+        /**
+         * @param clientScopedSubscriptionEnabled whether the subscription is scoped to a client id. Defaults to `False`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientScopedSubscriptionEnabled(@Nullable Output<Boolean> clientScopedSubscriptionEnabled) {
+            $.clientScopedSubscriptionEnabled = clientScopedSubscriptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param clientScopedSubscriptionEnabled whether the subscription is scoped to a client id. Defaults to `False`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder clientScopedSubscriptionEnabled(Boolean clientScopedSubscriptionEnabled) {
+            return clientScopedSubscriptionEnabled(Output.of(clientScopedSubscriptionEnabled));
         }
 
         /**

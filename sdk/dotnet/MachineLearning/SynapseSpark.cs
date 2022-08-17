@@ -15,91 +15,98 @@ namespace Pulumi.Azure.MachineLearning
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///             Tags = 
-    ///             {
-    ///                 { "stage", "example" },
-    ///             },
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "standard",
-    ///             PurgeProtectionEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new Azure.MachineLearning.WorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///         });
-    ///         var exampleSynapse_workspaceWorkspace = new Azure.Synapse.Workspace("exampleSynapse/workspaceWorkspace", new Azure.Synapse.WorkspaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
-    ///             SqlAdministratorLogin = "sqladminuser",
-    ///             SqlAdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleSparkPool = new Azure.Synapse.SparkPool("exampleSparkPool", new Azure.Synapse.SparkPoolArgs
-    ///         {
-    ///             SynapseWorkspaceId = exampleSynapse / workspaceWorkspace.Id,
-    ///             NodeSizeFamily = "MemoryOptimized",
-    ///             NodeSize = "Small",
-    ///             NodeCount = 3,
-    ///         });
-    ///         var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("exampleSynapseSpark", new Azure.MachineLearning.SynapseSparkArgs
-    ///         {
-    ///             MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SynapseSparkPoolId = exampleSparkPool.Id,
-    ///             Identity = new Azure.MachineLearning.Inputs.SynapseSparkIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "west europe",
+    ///         Tags = 
+    ///         {
+    ///             { "stage", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "standard",
+    ///         PurgeProtectionEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleSynapse_workspaceWorkspace = new Azure.Synapse.Workspace("exampleSynapse/workspaceWorkspace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSparkPool = new Azure.Synapse.SparkPool("exampleSparkPool", new()
+    ///     {
+    ///         SynapseWorkspaceId = exampleSynapse / workspaceWorkspace.Id,
+    ///         NodeSizeFamily = "MemoryOptimized",
+    ///         NodeSize = "Small",
+    ///         NodeCount = 3,
+    ///     });
+    /// 
+    ///     var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("exampleSynapseSpark", new()
+    ///     {
+    ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SynapseSparkPoolId = exampleSparkPool.Id,
+    ///         Identity = new Azure.MachineLearning.Inputs.SynapseSparkIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -111,7 +118,7 @@ namespace Pulumi.Azure.MachineLearning
     /// ```
     /// </summary>
     [AzureResourceType("azure:machinelearning/synapseSpark:SynapseSpark")]
-    public partial class SynapseSpark : Pulumi.CustomResource
+    public partial class SynapseSpark : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -205,7 +212,7 @@ namespace Pulumi.Azure.MachineLearning
         }
     }
 
-    public sealed class SynapseSparkArgs : Pulumi.ResourceArgs
+    public sealed class SynapseSparkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -264,9 +271,10 @@ namespace Pulumi.Azure.MachineLearning
         public SynapseSparkArgs()
         {
         }
+        public static new SynapseSparkArgs Empty => new SynapseSparkArgs();
     }
 
-    public sealed class SynapseSparkState : Pulumi.ResourceArgs
+    public sealed class SynapseSparkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Machine Learning Synapse Spark. Changing this forces a new Machine Learning Synapse Spark to be created.
@@ -325,5 +333,6 @@ namespace Pulumi.Azure.MachineLearning
         public SynapseSparkState()
         {
         }
+        public static new SynapseSparkState Empty => new SynapseSparkState();
     }
 }

@@ -19,68 +19,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("east us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_S1"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = webpubsub.NewHub(ctx, "exampleHub", &webpubsub.HubArgs{
-// 			WebPubsubId: exampleService.ID(),
-// 			EventHandlers: webpubsub.HubEventHandlerArray{
-// 				&webpubsub.HubEventHandlerArgs{
-// 					UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
-// 					UserEventPattern: pulumi.String("*"),
-// 					SystemEvents: pulumi.StringArray{
-// 						pulumi.String("connect"),
-// 						pulumi.String("connected"),
-// 					},
-// 				},
-// 				&webpubsub.HubEventHandlerArgs{
-// 					UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
-// 					UserEventPattern: pulumi.String("event1, event2"),
-// 					SystemEvents: pulumi.StringArray{
-// 						pulumi.String("connected"),
-// 					},
-// 					Auth: &webpubsub.HubEventHandlerAuthArgs{
-// 						ManagedIdentityId: exampleUserAssignedIdentity.ID(),
-// 					},
-// 				},
-// 			},
-// 			AnonymousConnectionsEnabled: pulumi.Bool(true),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleService,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_S1"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = webpubsub.NewHub(ctx, "exampleHub", &webpubsub.HubArgs{
+//				WebPubsubId: exampleService.ID(),
+//				EventHandlers: webpubsub.HubEventHandlerArray{
+//					&webpubsub.HubEventHandlerArgs{
+//						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
+//						UserEventPattern: pulumi.String("*"),
+//						SystemEvents: pulumi.StringArray{
+//							pulumi.String("connect"),
+//							pulumi.String("connected"),
+//						},
+//					},
+//					&webpubsub.HubEventHandlerArgs{
+//						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
+//						UserEventPattern: pulumi.String("event1, event2"),
+//						SystemEvents: pulumi.StringArray{
+//							pulumi.String("connected"),
+//						},
+//						Auth: &webpubsub.HubEventHandlerAuthArgs{
+//							ManagedIdentityId: exampleUserAssignedIdentity.ID(),
+//						},
+//					},
+//				},
+//				AnonymousConnectionsEnabled: pulumi.Bool(true),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleService,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -88,7 +91,9 @@ import (
 // Web Pubsub Hub can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/hubs/webpubsubhub1
+//
+//	$ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/hubs/webpubsubhub1
+//
 // ```
 type Hub struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *Hub) ToHubOutputWithContext(ctx context.Context) HubOutput {
 // HubArrayInput is an input type that accepts HubArray and HubArrayOutput values.
 // You can construct a concrete instance of `HubArrayInput` via:
 //
-//          HubArray{ HubArgs{...} }
+//	HubArray{ HubArgs{...} }
 type HubArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i HubArray) ToHubArrayOutputWithContext(ctx context.Context) HubArrayOutpu
 // HubMapInput is an input type that accepts HubMap and HubMapOutput values.
 // You can construct a concrete instance of `HubMapInput` via:
 //
-//          HubMap{ "key": HubArgs{...} }
+//	HubMap{ "key": HubArgs{...} }
 type HubMapInput interface {
 	pulumi.Input
 

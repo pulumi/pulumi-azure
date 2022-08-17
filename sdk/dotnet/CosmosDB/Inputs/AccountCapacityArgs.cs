@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountCapacityArgs : Pulumi.ResourceArgs
+    public sealed class AccountCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least `-1`. `-1` means no limit.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountCapacityArgs()
         {
         }
+        public static new AccountCapacityArgs Empty => new AccountCapacityArgs();
     }
 }

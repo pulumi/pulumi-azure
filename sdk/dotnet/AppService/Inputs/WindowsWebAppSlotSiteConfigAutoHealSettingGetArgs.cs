@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `action` block as defined above.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs Empty => new WindowsWebAppSlotSiteConfigAutoHealSettingGetArgs();
     }
 }

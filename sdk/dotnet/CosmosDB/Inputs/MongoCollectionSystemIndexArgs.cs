@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class MongoCollectionSystemIndexArgs : Pulumi.ResourceArgs
+    public sealed class MongoCollectionSystemIndexArgs : global::Pulumi.ResourceArgs
     {
         [Input("keys")]
         private InputList<string>? _keys;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public MongoCollectionSystemIndexArgs()
         {
         }
+        public static new MongoCollectionSystemIndexArgs Empty => new MongoCollectionSystemIndexArgs();
     }
 }

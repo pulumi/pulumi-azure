@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securitycenter.NewAutoProvisioning(ctx, "example", &securitycenter.AutoProvisioningArgs{
-// 			AutoProvision: pulumi.String("On"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewAutoProvisioning(ctx, "example", &securitycenter.AutoProvisioningArgs{
+//				AutoProvision: pulumi.String("On"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Security Center Auto Provisioning can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/autoProvisioning:AutoProvisioning example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/autoProvisioningSettings/default
+//
+//	$ pulumi import azure:securitycenter/autoProvisioning:AutoProvisioning example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/autoProvisioningSettings/default
+//
 // ```
 type AutoProvisioning struct {
 	pulumi.CustomResourceState
@@ -134,7 +139,7 @@ func (i *AutoProvisioning) ToAutoProvisioningOutputWithContext(ctx context.Conte
 // AutoProvisioningArrayInput is an input type that accepts AutoProvisioningArray and AutoProvisioningArrayOutput values.
 // You can construct a concrete instance of `AutoProvisioningArrayInput` via:
 //
-//          AutoProvisioningArray{ AutoProvisioningArgs{...} }
+//	AutoProvisioningArray{ AutoProvisioningArgs{...} }
 type AutoProvisioningArrayInput interface {
 	pulumi.Input
 
@@ -159,7 +164,7 @@ func (i AutoProvisioningArray) ToAutoProvisioningArrayOutputWithContext(ctx cont
 // AutoProvisioningMapInput is an input type that accepts AutoProvisioningMap and AutoProvisioningMapOutput values.
 // You can construct a concrete instance of `AutoProvisioningMapInput` via:
 //
-//          AutoProvisioningMap{ "key": AutoProvisioningArgs{...} }
+//	AutoProvisioningMap{ "key": AutoProvisioningArgs{...} }
 type AutoProvisioningMapInput interface {
 	pulumi.Input
 

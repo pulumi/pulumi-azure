@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  *     ttl: 300,
  *     records: [
- *         "ns1.contoso.com",
- *         "ns2.contoso.com",
+ *         "ns1.contoso.com.",
+ *         "ns2.contoso.com.",
  *     ],
  *     tags: {
  *         Environment: "Production",

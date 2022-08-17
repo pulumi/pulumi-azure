@@ -20,7 +20,7 @@ type FlexibleServerHighAvailability struct {
 // FlexibleServerHighAvailabilityInput is an input type that accepts FlexibleServerHighAvailabilityArgs and FlexibleServerHighAvailabilityOutput values.
 // You can construct a concrete instance of `FlexibleServerHighAvailabilityInput` via:
 //
-//          FlexibleServerHighAvailabilityArgs{...}
+//	FlexibleServerHighAvailabilityArgs{...}
 type FlexibleServerHighAvailabilityInput interface {
 	pulumi.Input
 
@@ -58,11 +58,11 @@ func (i FlexibleServerHighAvailabilityArgs) ToFlexibleServerHighAvailabilityPtrO
 // FlexibleServerHighAvailabilityPtrInput is an input type that accepts FlexibleServerHighAvailabilityArgs, FlexibleServerHighAvailabilityPtr and FlexibleServerHighAvailabilityPtrOutput values.
 // You can construct a concrete instance of `FlexibleServerHighAvailabilityPtrInput` via:
 //
-//          FlexibleServerHighAvailabilityArgs{...}
+//	        FlexibleServerHighAvailabilityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlexibleServerHighAvailabilityPtrInput interface {
 	pulumi.Input
 
@@ -178,7 +178,7 @@ type FlexibleServerMaintenanceWindow struct {
 // FlexibleServerMaintenanceWindowInput is an input type that accepts FlexibleServerMaintenanceWindowArgs and FlexibleServerMaintenanceWindowOutput values.
 // You can construct a concrete instance of `FlexibleServerMaintenanceWindowInput` via:
 //
-//          FlexibleServerMaintenanceWindowArgs{...}
+//	FlexibleServerMaintenanceWindowArgs{...}
 type FlexibleServerMaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -218,11 +218,11 @@ func (i FlexibleServerMaintenanceWindowArgs) ToFlexibleServerMaintenanceWindowPt
 // FlexibleServerMaintenanceWindowPtrInput is an input type that accepts FlexibleServerMaintenanceWindowArgs, FlexibleServerMaintenanceWindowPtr and FlexibleServerMaintenanceWindowPtrOutput values.
 // You can construct a concrete instance of `FlexibleServerMaintenanceWindowPtrInput` via:
 //
-//          FlexibleServerMaintenanceWindowArgs{...}
+//	        FlexibleServerMaintenanceWindowArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlexibleServerMaintenanceWindowPtrInput interface {
 	pulumi.Input
 
@@ -353,7 +353,7 @@ type FlexibleServerStorage struct {
 // FlexibleServerStorageInput is an input type that accepts FlexibleServerStorageArgs and FlexibleServerStorageOutput values.
 // You can construct a concrete instance of `FlexibleServerStorageInput` via:
 //
-//          FlexibleServerStorageArgs{...}
+//	FlexibleServerStorageArgs{...}
 type FlexibleServerStorageInput interface {
 	pulumi.Input
 
@@ -393,11 +393,11 @@ func (i FlexibleServerStorageArgs) ToFlexibleServerStoragePtrOutputWithContext(c
 // FlexibleServerStoragePtrInput is an input type that accepts FlexibleServerStorageArgs, FlexibleServerStoragePtr and FlexibleServerStoragePtrOutput values.
 // You can construct a concrete instance of `FlexibleServerStoragePtrInput` via:
 //
-//          FlexibleServerStorageArgs{...}
+//	        FlexibleServerStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FlexibleServerStoragePtrInput interface {
 	pulumi.Input
 
@@ -528,7 +528,7 @@ type ServerIdentity struct {
 // ServerIdentityInput is an input type that accepts ServerIdentityArgs and ServerIdentityOutput values.
 // You can construct a concrete instance of `ServerIdentityInput` via:
 //
-//          ServerIdentityArgs{...}
+//	ServerIdentityArgs{...}
 type ServerIdentityInput interface {
 	pulumi.Input
 
@@ -568,11 +568,11 @@ func (i ServerIdentityArgs) ToServerIdentityPtrOutputWithContext(ctx context.Con
 // ServerIdentityPtrInput is an input type that accepts ServerIdentityArgs, ServerIdentityPtr and ServerIdentityPtrOutput values.
 // You can construct a concrete instance of `ServerIdentityPtrInput` via:
 //
-//          ServerIdentityArgs{...}
+//	        ServerIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerIdentityPtrInput interface {
 	pulumi.Input
 
@@ -711,7 +711,7 @@ type ServerThreatDetectionPolicy struct {
 // ServerThreatDetectionPolicyInput is an input type that accepts ServerThreatDetectionPolicyArgs and ServerThreatDetectionPolicyOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyInput` via:
 //
-//          ServerThreatDetectionPolicyArgs{...}
+//	ServerThreatDetectionPolicyArgs{...}
 type ServerThreatDetectionPolicyInput interface {
 	pulumi.Input
 
@@ -759,11 +759,11 @@ func (i ServerThreatDetectionPolicyArgs) ToServerThreatDetectionPolicyPtrOutputW
 // ServerThreatDetectionPolicyPtrInput is an input type that accepts ServerThreatDetectionPolicyArgs, ServerThreatDetectionPolicyPtr and ServerThreatDetectionPolicyPtrOutput values.
 // You can construct a concrete instance of `ServerThreatDetectionPolicyPtrInput` via:
 //
-//          ServerThreatDetectionPolicyArgs{...}
+//	        ServerThreatDetectionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerThreatDetectionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ type GetFlexibleServerHighAvailability struct {
 // GetFlexibleServerHighAvailabilityInput is an input type that accepts GetFlexibleServerHighAvailabilityArgs and GetFlexibleServerHighAvailabilityOutput values.
 // You can construct a concrete instance of `GetFlexibleServerHighAvailabilityInput` via:
 //
-//          GetFlexibleServerHighAvailabilityArgs{...}
+//	GetFlexibleServerHighAvailabilityArgs{...}
 type GetFlexibleServerHighAvailabilityInput interface {
 	pulumi.Input
 
@@ -982,7 +982,7 @@ func (i GetFlexibleServerHighAvailabilityArgs) ToGetFlexibleServerHighAvailabili
 // GetFlexibleServerHighAvailabilityArrayInput is an input type that accepts GetFlexibleServerHighAvailabilityArray and GetFlexibleServerHighAvailabilityArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerHighAvailabilityArrayInput` via:
 //
-//          GetFlexibleServerHighAvailabilityArray{ GetFlexibleServerHighAvailabilityArgs{...} }
+//	GetFlexibleServerHighAvailabilityArray{ GetFlexibleServerHighAvailabilityArgs{...} }
 type GetFlexibleServerHighAvailabilityArrayInput interface {
 	pulumi.Input
 
@@ -1060,7 +1060,7 @@ type GetFlexibleServerMaintenanceWindow struct {
 // GetFlexibleServerMaintenanceWindowInput is an input type that accepts GetFlexibleServerMaintenanceWindowArgs and GetFlexibleServerMaintenanceWindowOutput values.
 // You can construct a concrete instance of `GetFlexibleServerMaintenanceWindowInput` via:
 //
-//          GetFlexibleServerMaintenanceWindowArgs{...}
+//	GetFlexibleServerMaintenanceWindowArgs{...}
 type GetFlexibleServerMaintenanceWindowInput interface {
 	pulumi.Input
 
@@ -1092,7 +1092,7 @@ func (i GetFlexibleServerMaintenanceWindowArgs) ToGetFlexibleServerMaintenanceWi
 // GetFlexibleServerMaintenanceWindowArrayInput is an input type that accepts GetFlexibleServerMaintenanceWindowArray and GetFlexibleServerMaintenanceWindowArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerMaintenanceWindowArrayInput` via:
 //
-//          GetFlexibleServerMaintenanceWindowArray{ GetFlexibleServerMaintenanceWindowArgs{...} }
+//	GetFlexibleServerMaintenanceWindowArray{ GetFlexibleServerMaintenanceWindowArgs{...} }
 type GetFlexibleServerMaintenanceWindowArrayInput interface {
 	pulumi.Input
 
@@ -1175,7 +1175,7 @@ type GetFlexibleServerStorage struct {
 // GetFlexibleServerStorageInput is an input type that accepts GetFlexibleServerStorageArgs and GetFlexibleServerStorageOutput values.
 // You can construct a concrete instance of `GetFlexibleServerStorageInput` via:
 //
-//          GetFlexibleServerStorageArgs{...}
+//	GetFlexibleServerStorageArgs{...}
 type GetFlexibleServerStorageInput interface {
 	pulumi.Input
 
@@ -1207,7 +1207,7 @@ func (i GetFlexibleServerStorageArgs) ToGetFlexibleServerStorageOutputWithContex
 // GetFlexibleServerStorageArrayInput is an input type that accepts GetFlexibleServerStorageArray and GetFlexibleServerStorageArrayOutput values.
 // You can construct a concrete instance of `GetFlexibleServerStorageArrayInput` via:
 //
-//          GetFlexibleServerStorageArray{ GetFlexibleServerStorageArgs{...} }
+//	GetFlexibleServerStorageArray{ GetFlexibleServerStorageArgs{...} }
 type GetFlexibleServerStorageArrayInput interface {
 	pulumi.Input
 
@@ -1291,7 +1291,7 @@ type GetServerIdentity struct {
 // GetServerIdentityInput is an input type that accepts GetServerIdentityArgs and GetServerIdentityOutput values.
 // You can construct a concrete instance of `GetServerIdentityInput` via:
 //
-//          GetServerIdentityArgs{...}
+//	GetServerIdentityArgs{...}
 type GetServerIdentityInput interface {
 	pulumi.Input
 
@@ -1324,7 +1324,7 @@ func (i GetServerIdentityArgs) ToGetServerIdentityOutputWithContext(ctx context.
 // GetServerIdentityArrayInput is an input type that accepts GetServerIdentityArray and GetServerIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServerIdentityArrayInput` via:
 //
-//          GetServerIdentityArray{ GetServerIdentityArgs{...} }
+//	GetServerIdentityArray{ GetServerIdentityArgs{...} }
 type GetServerIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1416,7 +1416,7 @@ type GetServerThreatDetectionPolicy struct {
 // GetServerThreatDetectionPolicyInput is an input type that accepts GetServerThreatDetectionPolicyArgs and GetServerThreatDetectionPolicyOutput values.
 // You can construct a concrete instance of `GetServerThreatDetectionPolicyInput` via:
 //
-//          GetServerThreatDetectionPolicyArgs{...}
+//	GetServerThreatDetectionPolicyArgs{...}
 type GetServerThreatDetectionPolicyInput interface {
 	pulumi.Input
 
@@ -1456,7 +1456,7 @@ func (i GetServerThreatDetectionPolicyArgs) ToGetServerThreatDetectionPolicyOutp
 // GetServerThreatDetectionPolicyArrayInput is an input type that accepts GetServerThreatDetectionPolicyArray and GetServerThreatDetectionPolicyArrayOutput values.
 // You can construct a concrete instance of `GetServerThreatDetectionPolicyArrayInput` via:
 //
-//          GetServerThreatDetectionPolicyArray{ GetServerThreatDetectionPolicyArgs{...} }
+//	GetServerThreatDetectionPolicyArray{ GetServerThreatDetectionPolicyArgs{...} }
 type GetServerThreatDetectionPolicyArrayInput interface {
 	pulumi.Input
 

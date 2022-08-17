@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSiteConfigAutoHealSettingActionCustomActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The executable to run for the `custom_action`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSiteConfigAutoHealSettingActionCustomActionGetArgs()
         {
         }
+        public static new WindowsWebAppSiteConfigAutoHealSettingActionCustomActionGetArgs Empty => new WindowsWebAppSiteConfigAutoHealSettingActionCustomActionGetArgs();
     }
 }

@@ -19,26 +19,23 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Azure.ContainerService.GetKubernetesServiceVersions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Azure.ContainerService.GetKubernetesServiceVersions.InvokeAsync(new Azure.ContainerService.GetKubernetesServiceVersionsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Versions = current.Apply(current =&gt; current.Versions);
-        ///         this.LatestVersion = current.Apply(current =&gt; current.LatestVersion);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("versions")]
-        ///     public Output&lt;string&gt; Versions { get; set; }
-        ///     [Output("latestVersion")]
-        ///     public Output&lt;string&gt; LatestVersion { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["versions"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.Versions),
+        ///         ["latestVersion"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.LatestVersion),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +51,23 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Azure.ContainerService.GetKubernetesServiceVersions.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Azure.ContainerService.GetKubernetesServiceVersions.InvokeAsync(new Azure.ContainerService.GetKubernetesServiceVersionsArgs
-        ///         {
-        ///             Location = "West Europe",
-        ///         }));
-        ///         this.Versions = current.Apply(current =&gt; current.Versions);
-        ///         this.LatestVersion = current.Apply(current =&gt; current.LatestVersion);
-        ///     }
+        ///         Location = "West Europe",
+        ///     });
         /// 
-        ///     [Output("versions")]
-        ///     public Output&lt;string&gt; Versions { get; set; }
-        ///     [Output("latestVersion")]
-        ///     public Output&lt;string&gt; LatestVersion { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["versions"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.Versions),
+        ///         ["latestVersion"] = current.Apply(getKubernetesServiceVersionsResult =&gt; getKubernetesServiceVersionsResult.LatestVersion),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +77,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetKubernetesServiceVersionsArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesServiceVersionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
@@ -106,9 +100,10 @@ namespace Pulumi.Azure.ContainerService
         public GetKubernetesServiceVersionsArgs()
         {
         }
+        public static new GetKubernetesServiceVersionsArgs Empty => new GetKubernetesServiceVersionsArgs();
     }
 
-    public sealed class GetKubernetesServiceVersionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesServiceVersionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Should Preview versions of Kubernetes in AKS be included? Defaults to `true`
@@ -131,6 +126,7 @@ namespace Pulumi.Azure.ContainerService
         public GetKubernetesServiceVersionsInvokeArgs()
         {
         }
+        public static new GetKubernetesServiceVersionsInvokeArgs Empty => new GetKubernetesServiceVersionsInvokeArgs();
     }
 
 

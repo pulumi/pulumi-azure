@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetSubscriptionFilterTagGetArgs : Pulumi.ResourceArgs
+    public sealed class BudgetSubscriptionFilterTagGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the tag to use for the filter.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetSubscriptionFilterTagGetArgs()
         {
         }
+        public static new BudgetSubscriptionFilterTagGetArgs Empty => new BudgetSubscriptionFilterTagGetArgs();
     }
 }

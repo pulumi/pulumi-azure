@@ -17,35 +17,35 @@ namespace Pulumi.Azure.Management
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleParent = new Azure.Management.Group("exampleParent", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "ParentGroup",
-    ///             SubscriptionIds = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.SubscriptionId),
-    ///             },
-    ///         });
-    ///         var exampleChild = new Azure.Management.Group("exampleChild", new Azure.Management.GroupArgs
-    ///         {
-    ///             DisplayName = "ChildGroup",
-    ///             ParentManagementGroupId = exampleParent.Id,
-    ///             SubscriptionIds = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.SubscriptionId),
-    ///             },
-    ///         });
-    ///         // other subscription IDs can go here
-    ///     }
+    ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var exampleParent = new Azure.Management.Group("exampleParent", new()
+    ///     {
+    ///         DisplayName = "ParentGroup",
+    ///         SubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleChild = new Azure.Management.Group("exampleChild", new()
+    ///     {
+    ///         DisplayName = "ChildGroup",
+    ///         ParentManagementGroupId = exampleParent.Id,
+    ///         SubscriptionIds = new[]
+    ///         {
+    ///             current.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.SubscriptionId),
+    ///         },
+    ///     });
+    /// 
+    ///     // other subscription IDs can go here
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Management
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -108,7 +108,7 @@ namespace Pulumi.Azure.Management
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup"},
+                    new global::Pulumi.Alias { Type = "azure:managementgroups/managementGroup:ManagementGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Management
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -166,9 +166,10 @@ namespace Pulumi.Azure.Management
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A friendly name for this Management Group. If not specified, this will be the same as the `name`.
@@ -203,5 +204,6 @@ namespace Pulumi.Azure.Management
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

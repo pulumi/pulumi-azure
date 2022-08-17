@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDedicatedHostGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDedicatedHostGroup.InvokeAsync(new Azure.Compute.GetDedicatedHostGroupArgs
-        ///         {
-        ///             Name = "example-dedicated-host-group",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dedicated-host-group",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDedicatedHostGroupResult =&gt; getDedicatedHostGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDedicatedHostGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDedicatedHostGroup.InvokeAsync(new Azure.Compute.GetDedicatedHostGroupArgs
-        ///         {
-        ///             Name = "example-dedicated-host-group",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dedicated-host-group",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDedicatedHostGroupResult =&gt; getDedicatedHostGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetDedicatedHostGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dedicated Host Group.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetDedicatedHostGroupArgs()
         {
         }
+        public static new GetDedicatedHostGroupArgs Empty => new GetDedicatedHostGroupArgs();
     }
 
-    public sealed class GetDedicatedHostGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDedicatedHostGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dedicated Host Group.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetDedicatedHostGroupInvokeArgs()
         {
         }
+        public static new GetDedicatedHostGroupInvokeArgs Empty => new GetDedicatedHostGroupInvokeArgs();
     }
 
 

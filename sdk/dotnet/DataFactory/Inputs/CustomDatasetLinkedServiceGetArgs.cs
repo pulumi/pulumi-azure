@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class CustomDatasetLinkedServiceGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomDatasetLinkedServiceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Data Factory Linked Service.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public CustomDatasetLinkedServiceGetArgs()
         {
         }
+        public static new CustomDatasetLinkedServiceGetArgs Empty => new CustomDatasetLinkedServiceGetArgs();
     }
 }

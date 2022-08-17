@@ -15,68 +15,70 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var ase = new Azure.Network.Subnet("ase", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.1.0/24",
-    ///             },
-    ///         });
-    ///         var gateway = new Azure.Network.Subnet("gateway", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new Azure.AppService.EnvironmentArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SubnetId = ase.Id,
-    ///             PricingTier = "I2",
-    ///             FrontEndScaleFactor = 10,
-    ///             InternalLoadBalancingMode = "Web, Publishing",
-    ///             AllowedUserIpCidrs = 
-    ///             {
-    ///                 "11.22.33.44/32",
-    ///                 "55.66.77.0/24",
-    ///             },
-    ///             ClusterSettings = 
-    ///             {
-    ///                 new Azure.AppService.Inputs.EnvironmentClusterSettingArgs
-    ///                 {
-    ///                     Name = "DisableTls1.0",
-    ///                     Value = "1",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var ase = new Azure.Network.Subnet("ase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var gateway = new Azure.Network.Subnet("gateway", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SubnetId = ase.Id,
+    ///         PricingTier = "I2",
+    ///         FrontEndScaleFactor = 10,
+    ///         InternalLoadBalancingMode = "Web, Publishing",
+    ///         AllowedUserIpCidrs = new[]
+    ///         {
+    ///             "11.22.33.44/32",
+    ///             "55.66.77.0/24",
+    ///         },
+    ///         ClusterSettings = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.EnvironmentClusterSettingArgs
+    ///             {
+    ///                 Name = "DisableTls1.0",
+    ///                 Value = "1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +90,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allowed user added IP ranges on the ASE database. Use the addresses you want to set as the explicit egress address ranges.
@@ -212,7 +214,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedUserIpCidrs")]
         private InputList<string>? _allowedUserIpCidrs;
@@ -289,9 +291,10 @@ namespace Pulumi.Azure.AppService
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         [Input("allowedUserIpCidrs")]
         private InputList<string>? _allowedUserIpCidrs;
@@ -398,5 +401,6 @@ namespace Pulumi.Azure.AppService
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

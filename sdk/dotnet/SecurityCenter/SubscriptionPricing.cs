@@ -17,21 +17,19 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.SecurityCenter.SubscriptionPricing("example", new()
     ///     {
-    ///         var example = new Azure.SecurityCenter.SubscriptionPricing("example", new Azure.SecurityCenter.SubscriptionPricingArgs
-    ///         {
-    ///             ResourceType = "VirtualMachines",
-    ///             Tier = "Standard",
-    ///         });
-    ///     }
+    ///         ResourceType = "VirtualMachines",
+    ///         Tier = "Standard",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -43,7 +41,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/subscriptionPricing:SubscriptionPricing")]
-    public partial class SubscriptionPricing : Pulumi.CustomResource
+    public partial class SubscriptionPricing : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
@@ -101,7 +99,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class SubscriptionPricingArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionPricingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
@@ -118,9 +116,10 @@ namespace Pulumi.Azure.SecurityCenter
         public SubscriptionPricingArgs()
         {
         }
+        public static new SubscriptionPricingArgs Empty => new SubscriptionPricingArgs();
     }
 
-    public sealed class SubscriptionPricingState : Pulumi.ResourceArgs
+    public sealed class SubscriptionPricingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource type this setting affects. Possible values are `AppServices`, `ContainerRegistry`, `KeyVaults`, `KubernetesService`, `SqlServers`, `SqlServerVirtualMachines`, `StorageAccounts`, `VirtualMachines`, `Arm`, `OpenSourceRelationalDatabases`, `Containers` and `Dns`. Defaults to `VirtualMachines`.
@@ -137,5 +136,6 @@ namespace Pulumi.Azure.SecurityCenter
         public SubscriptionPricingState()
         {
         }
+        public static new SubscriptionPricingState Empty => new SubscriptionPricingState();
     }
 }

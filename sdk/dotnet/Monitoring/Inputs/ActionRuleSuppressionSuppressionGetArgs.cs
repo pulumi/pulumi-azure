@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleSuppressionSuppressionGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionSuppressionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of suppression. Possible values are `Always`, `Daily`, `Monthly`, `Once`, and `Weekly`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleSuppressionSuppressionGetArgs()
         {
         }
+        public static new ActionRuleSuppressionSuppressionGetArgs Empty => new ActionRuleSuppressionSuppressionGetArgs();
     }
 }

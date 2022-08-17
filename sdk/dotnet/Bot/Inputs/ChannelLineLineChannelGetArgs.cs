@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Bot.Inputs
 {
 
-    public sealed class ChannelLineLineChannelGetArgs : Pulumi.ResourceArgs
+    public sealed class ChannelLineLineChannelGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access token which is used to call the Line Channel API.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Bot.Inputs
         public ChannelLineLineChannelGetArgs()
         {
         }
+        public static new ChannelLineLineChannelGetArgs Empty => new ChannelLineLineChannelGetArgs();
     }
 }

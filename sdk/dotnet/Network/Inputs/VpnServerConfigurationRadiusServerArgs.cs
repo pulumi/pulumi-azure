@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnServerConfigurationRadiusServerArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationRadiusServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Address of the Radius Server.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnServerConfigurationRadiusServerArgs()
         {
         }
+        public static new VpnServerConfigurationRadiusServerArgs Empty => new VpnServerConfigurationRadiusServerArgs();
     }
 }

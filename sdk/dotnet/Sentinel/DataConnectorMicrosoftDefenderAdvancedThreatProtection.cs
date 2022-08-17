@@ -15,43 +15,44 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection = new Azure.Sentinel.DataConnectorMicrosoftDefenderAdvancedThreatProtection("exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection", new Azure.Sentinel.DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         });
-    ///     }
+    ///         Location = "west europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection = new Azure.Sentinel.DataConnectorMicrosoftDefenderAdvancedThreatProtection("exampleDataConnectorMicrosoftDefenderAdvancedThreatProtection", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +64,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorMicrosoftDefenderAdvancedThreatProtection:DataConnectorMicrosoftDefenderAdvancedThreatProtection")]
-    public partial class DataConnectorMicrosoftDefenderAdvancedThreatProtection : Pulumi.CustomResource
+    public partial class DataConnectorMicrosoftDefenderAdvancedThreatProtection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
@@ -127,7 +128,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
@@ -150,9 +151,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs()
         {
         }
+        public static new DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs Empty => new DataConnectorMicrosoftDefenderAdvancedThreatProtectionArgs();
     }
 
-    public sealed class DataConnectorMicrosoftDefenderAdvancedThreatProtectionState : Pulumi.ResourceArgs
+    public sealed class DataConnectorMicrosoftDefenderAdvancedThreatProtectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Log Analytics Workspace that this Microsoft Defender Advanced Threat Protection Data Connector resides in. Changing this forces a new Microsoft Defender Advanced Threat Protection Data Connector to be created.
@@ -175,5 +177,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorMicrosoftDefenderAdvancedThreatProtectionState()
         {
         }
+        public static new DataConnectorMicrosoftDefenderAdvancedThreatProtectionState Empty => new DataConnectorMicrosoftDefenderAdvancedThreatProtectionState();
     }
 }

@@ -56,21 +56,12 @@ export interface GetSubnetArgs {
  * A collection of values returned by getSubnet.
  */
 export interface GetSubnetResult {
-    /**
-     * (Deprecated) The address prefix used for the subnet.
-     */
     readonly addressPrefix: string;
     /**
      * The address prefixes for the subnet.
      */
     readonly addressPrefixes: string[];
-    /**
-     * Enable or Disable network policies for the private link endpoint on the subnet.
-     */
     readonly enforcePrivateLinkEndpointNetworkPolicies: boolean;
-    /**
-     * Enable or Disable network policies for the private link service on the subnet.
-     */
     readonly enforcePrivateLinkServiceNetworkPolicies: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -81,6 +72,14 @@ export interface GetSubnetResult {
      * The ID of the Network Security Group associated with the subnet.
      */
     readonly networkSecurityGroupId: string;
+    /**
+     * Enable or Disable network policies for the private endpoint on the subnet.
+     */
+    readonly privateEndpointNetworkPoliciesEnabled: boolean;
+    /**
+     * Enable or Disable network policies for the private link service on the subnet.
+     */
+    readonly privateLinkServiceNetworkPoliciesEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The ID of the Route Table associated with this subnet.

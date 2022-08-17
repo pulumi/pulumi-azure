@@ -21,34 +21,34 @@ namespace Pulumi.Azure.Compute
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
     ///     {
-    ///         var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var testManagedDisk = new Azure.Compute.ManagedDisk("testManagedDisk", new Azure.Compute.ManagedDiskArgs
-    ///         {
-    ///             Location = testResourceGroup.Location,
-    ///             ResourceGroupName = testResourceGroup.Name,
-    ///             StorageAccountType = "Standard_LRS",
-    ///             CreateOption = "Empty",
-    ///             DiskSizeGb = 1,
-    ///         });
-    ///         var testManagedDiskSasToken = new Azure.Compute.ManagedDiskSasToken("testManagedDiskSasToken", new Azure.Compute.ManagedDiskSasTokenArgs
-    ///         {
-    ///             ManagedDiskId = testManagedDisk.Id,
-    ///             DurationInSeconds = 300,
-    ///             AccessLevel = "Read",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var testManagedDisk = new Azure.Compute.ManagedDisk("testManagedDisk", new()
+    ///     {
+    ///         Location = testResourceGroup.Location,
+    ///         ResourceGroupName = testResourceGroup.Name,
+    ///         StorageAccountType = "Standard_LRS",
+    ///         CreateOption = "Empty",
+    ///         DiskSizeGb = 1,
+    ///     });
+    /// 
+    ///     var testManagedDiskSasToken = new Azure.Compute.ManagedDiskSasToken("testManagedDiskSasToken", new()
+    ///     {
+    ///         ManagedDiskId = testManagedDisk.Id,
+    ///         DurationInSeconds = 300,
+    ///         AccessLevel = "Read",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/managedDiskSasToken:ManagedDiskSasToken")]
-    public partial class ManagedDiskSasToken : Pulumi.CustomResource
+    public partial class ManagedDiskSasToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write.
@@ -130,7 +130,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class ManagedDiskSasTokenArgs : Pulumi.ResourceArgs
+    public sealed class ManagedDiskSasTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write.
@@ -153,9 +153,10 @@ namespace Pulumi.Azure.Compute
         public ManagedDiskSasTokenArgs()
         {
         }
+        public static new ManagedDiskSasTokenArgs Empty => new ManagedDiskSasTokenArgs();
     }
 
-    public sealed class ManagedDiskSasTokenState : Pulumi.ResourceArgs
+    public sealed class ManagedDiskSasTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of access required on the disk. Supported are Read, Write.
@@ -184,5 +185,6 @@ namespace Pulumi.Azure.Compute
         public ManagedDiskSasTokenState()
         {
         }
+        public static new ManagedDiskSasTokenState Empty => new ManagedDiskSasTokenState();
     }
 }

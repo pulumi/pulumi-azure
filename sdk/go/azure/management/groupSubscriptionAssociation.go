@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
-// 			Name: pulumi.StringRef("exampleManagementGroup"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
-// 			SubscriptionId: pulumi.StringRef("12345678-1234-1234-1234-123456789012"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
-// 			ManagementGroupId: pulumi.String(exampleGroup.Id),
-// 			SubscriptionId:    pulumi.String(exampleSubscription.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//				Name: pulumi.StringRef("exampleManagementGroup"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
+//				SubscriptionId: pulumi.StringRef("12345678-1234-1234-1234-123456789012"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
+//				ManagementGroupId: pulumi.String(exampleGroup.Id),
+//				SubscriptionId:    pulumi.String(exampleSubscription.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Managements can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /managementGroup/MyManagementGroup/subscription/12345678-1234-1234-1234-123456789012
+//
+//	$ pulumi import azure:management/groupSubscriptionAssociation:GroupSubscriptionAssociation example /managementGroup/MyManagementGroup/subscription/12345678-1234-1234-1234-123456789012
+//
 // ```
 type GroupSubscriptionAssociation struct {
 	pulumi.CustomResourceState
@@ -161,7 +166,7 @@ func (i *GroupSubscriptionAssociation) ToGroupSubscriptionAssociationOutputWithC
 // GroupSubscriptionAssociationArrayInput is an input type that accepts GroupSubscriptionAssociationArray and GroupSubscriptionAssociationArrayOutput values.
 // You can construct a concrete instance of `GroupSubscriptionAssociationArrayInput` via:
 //
-//          GroupSubscriptionAssociationArray{ GroupSubscriptionAssociationArgs{...} }
+//	GroupSubscriptionAssociationArray{ GroupSubscriptionAssociationArgs{...} }
 type GroupSubscriptionAssociationArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +191,7 @@ func (i GroupSubscriptionAssociationArray) ToGroupSubscriptionAssociationArrayOu
 // GroupSubscriptionAssociationMapInput is an input type that accepts GroupSubscriptionAssociationMap and GroupSubscriptionAssociationMapOutput values.
 // You can construct a concrete instance of `GroupSubscriptionAssociationMapInput` via:
 //
-//          GroupSubscriptionAssociationMap{ "key": GroupSubscriptionAssociationArgs{...} }
+//	GroupSubscriptionAssociationMap{ "key": GroupSubscriptionAssociationArgs{...} }
 type GroupSubscriptionAssociationMapInput interface {
 	pulumi.Input
 

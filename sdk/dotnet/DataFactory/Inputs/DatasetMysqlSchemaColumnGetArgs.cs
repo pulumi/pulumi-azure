@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetMysqlSchemaColumnGetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetMysqlSchemaColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the column.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetMysqlSchemaColumnGetArgs()
         {
         }
+        public static new DatasetMysqlSchemaColumnGetArgs Empty => new DatasetMysqlSchemaColumnGetArgs();
     }
 }

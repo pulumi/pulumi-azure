@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 			Tags: pulumi.StringMap{
-// 				"source": pulumi.String("managed"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			RelayNamespaceName:          exampleNamespace.Name,
-// 			RequiresClientAuthorization: pulumi.Bool(false),
-// 			UserMetadata:                pulumi.String("testmetadata"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//				Tags: pulumi.StringMap{
+//					"source": pulumi.String("managed"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				RelayNamespaceName:          exampleNamespace.Name,
+//				RequiresClientAuthorization: pulumi.Bool(false),
+//				UserMetadata:                pulumi.String("testmetadata"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Relay Hybrid Connection's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:relay/hybridConnection:HybridConnection relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1/hybridConnections/hconn1
+//
+//	$ pulumi import azure:relay/hybridConnection:HybridConnection relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1/hybridConnections/hconn1
+//
 // ```
 type HybridConnection struct {
 	pulumi.CustomResourceState
@@ -196,7 +201,7 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 // HybridConnectionArrayInput is an input type that accepts HybridConnectionArray and HybridConnectionArrayOutput values.
 // You can construct a concrete instance of `HybridConnectionArrayInput` via:
 //
-//          HybridConnectionArray{ HybridConnectionArgs{...} }
+//	HybridConnectionArray{ HybridConnectionArgs{...} }
 type HybridConnectionArrayInput interface {
 	pulumi.Input
 
@@ -221,7 +226,7 @@ func (i HybridConnectionArray) ToHybridConnectionArrayOutputWithContext(ctx cont
 // HybridConnectionMapInput is an input type that accepts HybridConnectionMap and HybridConnectionMapOutput values.
 // You can construct a concrete instance of `HybridConnectionMapInput` via:
 //
-//          HybridConnectionMap{ "key": HybridConnectionArgs{...} }
+//	HybridConnectionMap{ "key": HybridConnectionArgs{...} }
 type HybridConnectionMapInput interface {
 	pulumi.Input
 

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := appservice.LookupWindowsFunctionApp(ctx, &appservice.LookupWindowsFunctionAppArgs{
-// 			Name:              "existing",
-// 			ResourceGroupName: "existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := appservice.LookupWindowsFunctionApp(ctx, &appservice.LookupWindowsFunctionAppArgs{
+//				Name:              "existing",
+//				ResourceGroupName: "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupWindowsFunctionApp(ctx *pulumi.Context, args *LookupWindowsFunctionAppArgs, opts ...pulumi.InvokeOption) (*LookupWindowsFunctionAppResult, error) {
 	var rv LookupWindowsFunctionAppResult
@@ -120,6 +123,8 @@ type LookupWindowsFunctionAppResult struct {
 	StorageUsesManagedIdentity bool `pulumi:"storageUsesManagedIdentity"`
 	// A mapping of tags assigned to the Windows Function App.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which the Windows Function App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupWindowsFunctionAppOutput(ctx *pulumi.Context, args LookupWindowsFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFunctionAppResultOutput {
@@ -326,6 +331,11 @@ func (o LookupWindowsFunctionAppResultOutput) StorageUsesManagedIdentity() pulum
 // A mapping of tags assigned to the Windows Function App.
 func (o LookupWindowsFunctionAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWindowsFunctionAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The subnet id which the Windows Function App is vNet Integrated with.
+func (o LookupWindowsFunctionAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsFunctionAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 func init() {

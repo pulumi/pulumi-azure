@@ -15,67 +15,70 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "FunctionApp",
+    ///         Reserved = true,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "FunctionApp",
-    ///             Reserved = true,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Dynamic",
-    ///                 Size = "Y1",
-    ///             },
-    ///         });
-    ///         var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new Azure.AppService.FunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             OsType = "linux",
-    ///             Version = "~3",
-    ///         });
-    ///         var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new Azure.StreamAnalytics.JobArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StreamingUnits = 3,
-    ///             TransformationQuery = @"    SELECT *
+    ///             Tier = "Dynamic",
+    ///             Size = "Y1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         OsType = "linux",
+    ///         Version = "~3",
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StreamingUnits = 3,
+    ///         TransformationQuery = @"    SELECT *
     ///     INTO [YourOutputAlias]
     ///     FROM [YourInputAlias]
     /// ",
-    ///         });
-    ///         var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("exampleOutputFunction", new Azure.StreamAnalytics.OutputFunctionArgs
-    ///         {
-    ///             ResourceGroupName = exampleJob.ResourceGroupName,
-    ///             StreamAnalyticsJobName = exampleJob.Name,
-    ///             FunctionApp = exampleFunctionApp.Name,
-    ///             FunctionName = "examplefunctionname",
-    ///             ApiKey = "exampleapikey",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("exampleOutputFunction", new()
+    ///     {
+    ///         ResourceGroupName = exampleJob.ResourceGroupName,
+    ///         StreamAnalyticsJobName = exampleJob.Name,
+    ///         FunctionApp = exampleFunctionApp.Name,
+    ///         FunctionName = "examplefunctionname",
+    ///         ApiKey = "exampleapikey",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -87,7 +90,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputFunction:OutputFunction")]
-    public partial class OutputFunction : Pulumi.CustomResource
+    public partial class OutputFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The API key for the Function.
@@ -181,7 +184,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputFunctionArgs : Pulumi.ResourceArgs
+    public sealed class OutputFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key for the Function.
@@ -234,9 +237,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputFunctionArgs()
         {
         }
+        public static new OutputFunctionArgs Empty => new OutputFunctionArgs();
     }
 
-    public sealed class OutputFunctionState : Pulumi.ResourceArgs
+    public sealed class OutputFunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API key for the Function.
@@ -289,5 +293,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputFunctionState()
         {
         }
+        public static new OutputFunctionState Empty => new OutputFunctionState();
     }
 }

@@ -16,7 +16,9 @@ import (
 // CDN FrontDoor Origin can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
+//
+//	$ pulumi import azure:cdn/frontdoorOrigin:FrontdoorOrigin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1/origins/origin1
+//
 // ```
 type FrontdoorOrigin struct {
 	pulumi.CustomResourceState
@@ -213,7 +215,7 @@ func (i *FrontdoorOrigin) ToFrontdoorOriginOutputWithContext(ctx context.Context
 // FrontdoorOriginArrayInput is an input type that accepts FrontdoorOriginArray and FrontdoorOriginArrayOutput values.
 // You can construct a concrete instance of `FrontdoorOriginArrayInput` via:
 //
-//          FrontdoorOriginArray{ FrontdoorOriginArgs{...} }
+//	FrontdoorOriginArray{ FrontdoorOriginArgs{...} }
 type FrontdoorOriginArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +240,7 @@ func (i FrontdoorOriginArray) ToFrontdoorOriginArrayOutputWithContext(ctx contex
 // FrontdoorOriginMapInput is an input type that accepts FrontdoorOriginMap and FrontdoorOriginMapOutput values.
 // You can construct a concrete instance of `FrontdoorOriginMapInput` via:
 //
-//          FrontdoorOriginMap{ "key": FrontdoorOriginArgs{...} }
+//	FrontdoorOriginMap{ "key": FrontdoorOriginArgs{...} }
 type FrontdoorOriginMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataShare.Inputs
 {
 
-    public sealed class AccountIdentityArgs : Pulumi.ResourceArgs
+    public sealed class AccountIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataShare.Inputs
         public AccountIdentityArgs()
         {
         }
+        public static new AccountIdentityArgs Empty => new AccountIdentityArgs();
     }
 }

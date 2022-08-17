@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDirectoryLdapGetArgs : Pulumi.ResourceArgs
+    public sealed class CacheDirectoryLdapGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The base distinguished name (DN) for the LDAP domain.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDirectoryLdapGetArgs()
         {
         }
+        public static new CacheDirectoryLdapGetArgs Empty => new CacheDirectoryLdapGetArgs();
     }
 }

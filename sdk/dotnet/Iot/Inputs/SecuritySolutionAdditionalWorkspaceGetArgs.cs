@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class SecuritySolutionAdditionalWorkspaceGetArgs : Pulumi.ResourceArgs
+    public sealed class SecuritySolutionAdditionalWorkspaceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dataTypes", required: true)]
         private InputList<string>? _dataTypes;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public SecuritySolutionAdditionalWorkspaceGetArgs()
         {
         }
+        public static new SecuritySolutionAdditionalWorkspaceGetArgs Empty => new SecuritySolutionAdditionalWorkspaceGetArgs();
     }
 }

@@ -15,40 +15,41 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ManagedVirtualNetworkEnabled = true,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountKind = "BlobStorage",
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleManagedPrivateEndpoint = new Azure.DataFactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new Azure.DataFactory.ManagedPrivateEndpointArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             TargetResourceId = exampleAccount.Id,
-    ///             SubresourceName = "blob",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ManagedVirtualNetworkEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountKind = "BlobStorage",
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleManagedPrivateEndpoint = new Azure.DataFactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         SubresourceName = "blob",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +61,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint")]
-    public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
+    public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -136,7 +137,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -177,9 +178,10 @@ namespace Pulumi.Azure.DataFactory
         public ManagedPrivateEndpointArgs()
         {
         }
+        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 
-    public sealed class ManagedPrivateEndpointState : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Factory on which to create the Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -220,5 +222,6 @@ namespace Pulumi.Azure.DataFactory
         public ManagedPrivateEndpointState()
         {
         }
+        public static new ManagedPrivateEndpointState Empty => new ManagedPrivateEndpointState();
     }
 }

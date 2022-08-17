@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesVirtualMachineArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
         [Input("deleteOsDiskOnDeletion")]
         public Input<bool>? DeleteOsDiskOnDeletion { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesVirtualMachineArgs()
         {
         }
+        public static new ProviderFeaturesVirtualMachineArgs Empty => new ProviderFeaturesVirtualMachineArgs();
     }
 }

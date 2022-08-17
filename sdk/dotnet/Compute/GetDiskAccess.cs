@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDiskAccess.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDiskAccess.InvokeAsync(new Azure.Compute.GetDiskAccessArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDiskAccessResult =&gt; getDiskAccessResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetDiskAccess.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetDiskAccess.InvokeAsync(new Azure.Compute.GetDiskAccessArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDiskAccessResult =&gt; getDiskAccessResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetDiskAccessArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskAccessArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Disk Access.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Compute
         public GetDiskAccessArgs()
         {
         }
+        public static new GetDiskAccessArgs Empty => new GetDiskAccessArgs();
     }
 
-    public sealed class GetDiskAccessInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDiskAccessInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Disk Access.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Compute
         public GetDiskAccessInvokeArgs()
         {
         }
+        public static new GetDiskAccessInvokeArgs Empty => new GetDiskAccessInvokeArgs();
     }
 
 

@@ -8,6 +8,94 @@ import * as utilities from "../utilities";
 /**
  * Manages a Data Collection Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ * });
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ *     solutionName: "WindowsEventForwarding",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *     workspaceName: exampleAnalyticsWorkspace.name,
+ *     plan: {
+ *         publisher: "Microsoft",
+ *         product: "OMSGallery/WindowsEventForwarding",
+ *     },
+ * });
+ * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("exampleDataCollectionRule", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     destinations: {
+ *         logAnalytics: [{
+ *             workspaceResourceId: exampleAnalyticsWorkspace.id,
+ *             name: "test-destination-log",
+ *         }],
+ *         azureMonitorMetrics: {
+ *             name: "test-destination-metrics",
+ *         },
+ *     },
+ *     dataFlows: [
+ *         {
+ *             streams: ["Microsoft-InsightsMetrics"],
+ *             destinations: ["test-destination-metrics"],
+ *         },
+ *         {
+ *             streams: [
+ *                 "Microsoft-InsightsMetrics",
+ *                 "Microsoft-Syslog",
+ *                 "Microsoft-Perf",
+ *             ],
+ *             destinations: ["test-destination-log"],
+ *         },
+ *     ],
+ *     dataSources: {
+ *         syslogs: [{
+ *             facilityNames: ["*"],
+ *             logLevels: ["*"],
+ *             name: "test-datasource-syslog",
+ *         }],
+ *         performanceCounters: [{
+ *             streams: [
+ *                 "Microsoft-Perf",
+ *                 "Microsoft-InsightsMetrics",
+ *             ],
+ *             samplingFrequencyInSeconds: 10,
+ *             counterSpecifiers: [`Processor(*)\% Processor Time`],
+ *             name: "test-datasource-perfcounter",
+ *         }],
+ *         windowsEventLogs: [{
+ *             streams: ["Microsoft-WindowsEvent"],
+ *             xPathQueries: ["*[System/Level=1]"],
+ *             name: "test-datasource-wineventlog",
+ *         }],
+ *         extensions: [{
+ *             streams: ["Microsoft-WindowsEvent"],
+ *             inputDataSources: ["test-datasource-wineventlog"],
+ *             extensionName: "test-extension-name",
+ *             extensionJson: JSON.stringify({
+ *                 a: 1,
+ *                 b: "hello",
+ *             }),
+ *             name: "test-datasource-extension",
+ *         }],
+ *     },
+ *     description: "data collection rule example",
+ *     tags: {
+ *         foo: "bar",
+ *     },
+ * }, {
+ *     dependsOn: [exampleAnalyticsSolution],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Data Collection Rules can be imported using the `resource id`, e.g.

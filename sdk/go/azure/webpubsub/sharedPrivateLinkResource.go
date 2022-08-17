@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/webpubsub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("east us"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			TenantId:                pulumi.String(current.TenantId),
-// 			SkuName:                 pulumi.String("standard"),
-// 			SoftDeleteRetentionDays: pulumi.Int(7),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					CertificatePermissions: pulumi.StringArray{
-// 						pulumi.String("managecontacts"),
-// 					},
-// 					KeyPermissions: pulumi.StringArray{
-// 						pulumi.String("create"),
-// 					},
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("set"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard_S1"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = webpubsub.NewSharedPrivateLinkResource(ctx, "exampleSharedPrivateLinkResource", &webpubsub.SharedPrivateLinkResourceArgs{
-// 			WebPubsubId:      exampleService.ID(),
-// 			SubresourceName:  pulumi.String("vault"),
-// 			TargetResourceId: exampleKeyVault.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("east us"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				TenantId:                pulumi.String(current.TenantId),
+//				SkuName:                 pulumi.String("standard"),
+//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("managecontacts"),
+//						},
+//						KeyPermissions: pulumi.StringArray{
+//							pulumi.String("create"),
+//						},
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("set"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard_S1"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = webpubsub.NewSharedPrivateLinkResource(ctx, "exampleSharedPrivateLinkResource", &webpubsub.SharedPrivateLinkResourceArgs{
+//				WebPubsubId:      exampleService.ID(),
+//				SubresourceName:  pulumi.String("vault"),
+//				TargetResourceId: exampleKeyVault.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Attributes Reference:
 //
@@ -96,7 +99,9 @@ import (
 // Web Pubsub Shared Private Link Resource can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/sharedPrivateLinkResources/resource1
+//
+//	$ pulumi import azure:webpubsub/sharedPrivateLinkResource:SharedPrivateLinkResource example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubsub/webpubsub1/sharedPrivateLinkResources/resource1
+//
 // ```
 type SharedPrivateLinkResource struct {
 	pulumi.CustomResourceState
@@ -236,7 +241,7 @@ func (i *SharedPrivateLinkResource) ToSharedPrivateLinkResourceOutputWithContext
 // SharedPrivateLinkResourceArrayInput is an input type that accepts SharedPrivateLinkResourceArray and SharedPrivateLinkResourceArrayOutput values.
 // You can construct a concrete instance of `SharedPrivateLinkResourceArrayInput` via:
 //
-//          SharedPrivateLinkResourceArray{ SharedPrivateLinkResourceArgs{...} }
+//	SharedPrivateLinkResourceArray{ SharedPrivateLinkResourceArgs{...} }
 type SharedPrivateLinkResourceArrayInput interface {
 	pulumi.Input
 
@@ -261,7 +266,7 @@ func (i SharedPrivateLinkResourceArray) ToSharedPrivateLinkResourceArrayOutputWi
 // SharedPrivateLinkResourceMapInput is an input type that accepts SharedPrivateLinkResourceMap and SharedPrivateLinkResourceMapOutput values.
 // You can construct a concrete instance of `SharedPrivateLinkResourceMapInput` via:
 //
-//          SharedPrivateLinkResourceMap{ "key": SharedPrivateLinkResourceArgs{...} }
+//	SharedPrivateLinkResourceMap{ "key": SharedPrivateLinkResourceArgs{...} }
 type SharedPrivateLinkResourceMapInput interface {
 	pulumi.Input
 

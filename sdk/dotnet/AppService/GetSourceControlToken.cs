@@ -17,23 +17,22 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetSourceControlToken.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetSourceControlToken.InvokeAsync(new Azure.AppService.GetSourceControlTokenArgs
-        ///         {
-        ///             Type = "GitHub",
-        ///         }));
-        ///         this.Id = data.Azurerm_app_service_github_token.Example.Id;
-        ///     }
+        ///         Type = "GitHub",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -47,23 +46,22 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetSourceControlToken.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetSourceControlToken.InvokeAsync(new Azure.AppService.GetSourceControlTokenArgs
-        ///         {
-        ///             Type = "GitHub",
-        ///         }));
-        ///         this.Id = data.Azurerm_app_service_github_token.Example.Id;
-        ///     }
+        ///         Type = "GitHub",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +71,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetSourceControlTokenArgs : Pulumi.InvokeArgs
+    public sealed class GetSourceControlTokenArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -84,9 +82,10 @@ namespace Pulumi.Azure.AppService
         public GetSourceControlTokenArgs()
         {
         }
+        public static new GetSourceControlTokenArgs Empty => new GetSourceControlTokenArgs();
     }
 
-    public sealed class GetSourceControlTokenInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSourceControlTokenInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Token type. Possible values include `Bitbucket`, `Dropbox`, `Github`, and `OneDrive`.
@@ -97,6 +96,7 @@ namespace Pulumi.Azure.AppService
         public GetSourceControlTokenInvokeArgs()
         {
         }
+        public static new GetSourceControlTokenInvokeArgs Empty => new GetSourceControlTokenInvokeArgs();
     }
 
 

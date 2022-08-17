@@ -15,79 +15,80 @@ namespace Pulumi.Azure.HDInsight
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleSparkCluster = new Azure.HDInsight.SparkCluster("exampleSparkCluster", new Azure.HDInsight.SparkClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterVersion = "3.6",
-    ///             Tier = "Standard",
-    ///             ComponentVersion = new Azure.HDInsight.Inputs.SparkClusterComponentVersionArgs
-    ///             {
-    ///                 Spark = "2.3",
-    ///             },
-    ///             Gateway = new Azure.HDInsight.Inputs.SparkClusterGatewayArgs
-    ///             {
-    ///                 Username = "acctestusrgw",
-    ///                 Password = "Password123!",
-    ///             },
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
-    ///                 {
-    ///                     StorageContainerId = exampleContainer.Id,
-    ///                     StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///                     IsDefault = true,
-    ///                 },
-    ///             },
-    ///             Roles = new Azure.HDInsight.Inputs.SparkClusterRolesArgs
-    ///             {
-    ///                 HeadNode = new Azure.HDInsight.Inputs.SparkClusterRolesHeadNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_A3",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///                 WorkerNode = new Azure.HDInsight.Inputs.SparkClusterRolesWorkerNodeArgs
-    ///                 {
-    ///                     VmSize = "Standard_A3",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                     TargetInstanceCount = 3,
-    ///                 },
-    ///                 ZookeeperNode = new Azure.HDInsight.Inputs.SparkClusterRolesZookeeperNodeArgs
-    ///                 {
-    ///                     VmSize = "Medium",
-    ///                     Username = "acctestusrvm",
-    ///                     Password = "AccTestvdSC4daf986!",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleSparkCluster = new Azure.HDInsight.SparkCluster("exampleSparkCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterVersion = "3.6",
+    ///         Tier = "Standard",
+    ///         ComponentVersion = new Azure.HDInsight.Inputs.SparkClusterComponentVersionArgs
+    ///         {
+    ///             Spark = "2.3",
+    ///         },
+    ///         Gateway = new Azure.HDInsight.Inputs.SparkClusterGatewayArgs
+    ///         {
+    ///             Username = "acctestusrgw",
+    ///             Password = "Password123!",
+    ///         },
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.HDInsight.Inputs.SparkClusterStorageAccountArgs
+    ///             {
+    ///                 StorageContainerId = exampleContainer.Id,
+    ///                 StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///                 IsDefault = true,
+    ///             },
+    ///         },
+    ///         Roles = new Azure.HDInsight.Inputs.SparkClusterRolesArgs
+    ///         {
+    ///             HeadNode = new Azure.HDInsight.Inputs.SparkClusterRolesHeadNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_A3",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///             WorkerNode = new Azure.HDInsight.Inputs.SparkClusterRolesWorkerNodeArgs
+    ///             {
+    ///                 VmSize = "Standard_A3",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///                 TargetInstanceCount = 3,
+    ///             },
+    ///             ZookeeperNode = new Azure.HDInsight.Inputs.SparkClusterRolesZookeeperNodeArgs
+    ///             {
+    ///                 VmSize = "Medium",
+    ///                 Username = "acctestusrvm",
+    ///                 Password = "AccTestvdSC4daf986!",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +100,7 @@ namespace Pulumi.Azure.HDInsight
     /// ```
     /// </summary>
     [AzureResourceType("azure:hdinsight/sparkCluster:SparkCluster")]
-    public partial class SparkCluster : Pulumi.CustomResource
+    public partial class SparkCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -256,7 +257,7 @@ namespace Pulumi.Azure.HDInsight
         }
     }
 
-    public sealed class SparkClusterArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -372,9 +373,10 @@ namespace Pulumi.Azure.HDInsight
         public SparkClusterArgs()
         {
         }
+        public static new SparkClusterArgs Empty => new SparkClusterArgs();
     }
 
-    public sealed class SparkClusterState : Pulumi.ResourceArgs
+    public sealed class SparkClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -502,5 +504,6 @@ namespace Pulumi.Azure.HDInsight
         public SparkClusterState()
         {
         }
+        public static new SparkClusterState Empty => new SparkClusterState();
     }
 }

@@ -19,115 +19,118 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			Revision:          pulumi.String("1"),
-// 			DisplayName:       pulumi.String("Example API"),
-// 			Path:              pulumi.String("example"),
-// 			Protocols: pulumi.StringArray{
-// 				pulumi.String("https"),
-// 			},
-// 			Import: &apimanagement.ApiImportArgs{
-// 				ContentFormat: pulumi.String("swagger-link-json"),
-// 				ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogger, err := apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
-// 				InstrumentationKey: exampleInsights.InstrumentationKey,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiDiagnostic(ctx, "exampleApiDiagnostic", &apimanagement.ApiDiagnosticArgs{
-// 			Identifier:              pulumi.String("applicationinsights"),
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			ApiManagementName:       exampleService.Name,
-// 			ApiName:                 exampleApi.Name,
-// 			ApiManagementLoggerId:   exampleLogger.ID(),
-// 			SamplingPercentage:      pulumi.Float64(5),
-// 			AlwaysLogErrors:         pulumi.Bool(true),
-// 			LogClientIp:             pulumi.Bool(true),
-// 			Verbosity:               pulumi.String("verbose"),
-// 			HttpCorrelationProtocol: pulumi.String("W3C"),
-// 			FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("accept"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			FrontendResponse: &apimanagement.ApiDiagnosticFrontendResponseArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("content-length"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			BackendRequest: &apimanagement.ApiDiagnosticBackendRequestArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("accept"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 			BackendResponse: &apimanagement.ApiDiagnosticBackendResponseArgs{
-// 				BodyBytes: pulumi.Int(32),
-// 				HeadersToLogs: pulumi.StringArray{
-// 					pulumi.String("content-type"),
-// 					pulumi.String("content-length"),
-// 					pulumi.String("origin"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@mycompany.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				Revision:          pulumi.String("1"),
+//				DisplayName:       pulumi.String("Example API"),
+//				Path:              pulumi.String("example"),
+//				Protocols: pulumi.StringArray{
+//					pulumi.String("https"),
+//				},
+//				Import: &apimanagement.ApiImportArgs{
+//					ContentFormat: pulumi.String("swagger-link-json"),
+//					ContentValue:  pulumi.String("http://conferenceapi.azurewebsites.net/?format=json"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogger, err := apimanagement.NewLogger(ctx, "exampleLogger", &apimanagement.LoggerArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationInsights: &apimanagement.LoggerApplicationInsightsArgs{
+//					InstrumentationKey: exampleInsights.InstrumentationKey,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiDiagnostic(ctx, "exampleApiDiagnostic", &apimanagement.ApiDiagnosticArgs{
+//				Identifier:              pulumi.String("applicationinsights"),
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				ApiManagementName:       exampleService.Name,
+//				ApiName:                 exampleApi.Name,
+//				ApiManagementLoggerId:   exampleLogger.ID(),
+//				SamplingPercentage:      pulumi.Float64(5),
+//				AlwaysLogErrors:         pulumi.Bool(true),
+//				LogClientIp:             pulumi.Bool(true),
+//				Verbosity:               pulumi.String("verbose"),
+//				HttpCorrelationProtocol: pulumi.String("W3C"),
+//				FrontendRequest: &apimanagement.ApiDiagnosticFrontendRequestArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("accept"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				FrontendResponse: &apimanagement.ApiDiagnosticFrontendResponseArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("content-length"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				BackendRequest: &apimanagement.ApiDiagnosticBackendRequestArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("accept"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//				BackendResponse: &apimanagement.ApiDiagnosticBackendResponseArgs{
+//					BodyBytes: pulumi.Int(32),
+//					HeadersToLogs: pulumi.StringArray{
+//						pulumi.String("content-type"),
+//						pulumi.String("content-length"),
+//						pulumi.String("origin"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -135,7 +138,9 @@ import (
 // API Management Service API Diagnostics Logs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1
+//
+//	$ pulumi import azure:apimanagement/apiDiagnostic:ApiDiagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/diagnostics/diagnostic1
+//
 // ```
 type ApiDiagnostic struct {
 	pulumi.CustomResourceState
@@ -378,7 +383,7 @@ func (i *ApiDiagnostic) ToApiDiagnosticOutputWithContext(ctx context.Context) Ap
 // ApiDiagnosticArrayInput is an input type that accepts ApiDiagnosticArray and ApiDiagnosticArrayOutput values.
 // You can construct a concrete instance of `ApiDiagnosticArrayInput` via:
 //
-//          ApiDiagnosticArray{ ApiDiagnosticArgs{...} }
+//	ApiDiagnosticArray{ ApiDiagnosticArgs{...} }
 type ApiDiagnosticArrayInput interface {
 	pulumi.Input
 
@@ -403,7 +408,7 @@ func (i ApiDiagnosticArray) ToApiDiagnosticArrayOutputWithContext(ctx context.Co
 // ApiDiagnosticMapInput is an input type that accepts ApiDiagnosticMap and ApiDiagnosticMapOutput values.
 // You can construct a concrete instance of `ApiDiagnosticMapInput` via:
 //
-//          ApiDiagnosticMap{ "key": ApiDiagnosticArgs{...} }
+//	ApiDiagnosticMap{ "key": ApiDiagnosticArgs{...} }
 type ApiDiagnosticMapInput interface {
 	pulumi.Input
 

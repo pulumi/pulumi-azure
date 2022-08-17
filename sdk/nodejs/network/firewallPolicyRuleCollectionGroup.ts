@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *                 },
  *             ],
  *             sourceAddresses: ["10.0.0.1"],
- *             destinationFqdns: [".microsoft.com"],
+ *             destinationFqdns: ["*.microsoft.com"],
  *         }],
  *     }],
  *     networkRuleCollections: [{

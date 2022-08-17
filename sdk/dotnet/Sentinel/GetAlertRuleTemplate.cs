@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Sentinel
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sentinel.GetAlertRuleTemplate.InvokeAsync(new Azure.Sentinel.GetAlertRuleTemplateArgs
-        ///         {
-        ///             LogAnalyticsWorkspaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
-        ///             DisplayName = "Create incidents based on Azure Security Center for IoT alerts",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         LogAnalyticsWorkspaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
+        ///         DisplayName = "Create incidents based on Azure Security Center for IoT alerts",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAlertRuleTemplateResult =&gt; getAlertRuleTemplateResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Sentinel
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Sentinel.GetAlertRuleTemplate.InvokeAsync(new Azure.Sentinel.GetAlertRuleTemplateArgs
-        ///         {
-        ///             LogAnalyticsWorkspaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
-        ///             DisplayName = "Create incidents based on Azure Security Center for IoT alerts",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         LogAnalyticsWorkspaceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1",
+        ///         DisplayName = "Create incidents based on Azure Security Center for IoT alerts",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getAlertRuleTemplateResult =&gt; getAlertRuleTemplateResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Sentinel
     }
 
 
-    public sealed class GetAlertRuleTemplateArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleTemplateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
@@ -102,9 +100,10 @@ namespace Pulumi.Azure.Sentinel
         public GetAlertRuleTemplateArgs()
         {
         }
+        public static new GetAlertRuleTemplateArgs Empty => new GetAlertRuleTemplateArgs();
     }
 
-    public sealed class GetAlertRuleTemplateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAlertRuleTemplateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
@@ -127,6 +126,7 @@ namespace Pulumi.Azure.Sentinel
         public GetAlertRuleTemplateInvokeArgs()
         {
         }
+        public static new GetAlertRuleTemplateInvokeArgs Empty => new GetAlertRuleTemplateInvokeArgs();
     }
 
 

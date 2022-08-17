@@ -19,70 +19,73 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.1.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApplicationSecurityGroup, err := network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("testconfiguration1"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx, "exampleNetworkInterfaceApplicationSecurityGroupAssociation", &network.NetworkInterfaceApplicationSecurityGroupAssociationArgs{
-// 			NetworkInterfaceId:         exampleNetworkInterface.ID(),
-// 			ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.1.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplicationSecurityGroup, err := network.NewApplicationSecurityGroup(ctx, "exampleApplicationSecurityGroup", &network.ApplicationSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkInterfaceApplicationSecurityGroupAssociation(ctx, "exampleNetworkInterfaceApplicationSecurityGroupAssociation", &network.NetworkInterfaceApplicationSecurityGroupAssociationArgs{
+//				NetworkInterfaceId:         exampleNetworkInterface.ID(),
+//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +93,9 @@ import (
 // Associations between Network Interfaces and Application Security Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securityGroup1"
+//
+//	$ pulumi import azure:network/networkInterfaceApplicationSecurityGroupAssociation:NetworkInterfaceApplicationSecurityGroupAssociation association1 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/applicationSecurityGroups/securityGroup1"
+//
 // ```
 type NetworkInterfaceApplicationSecurityGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -194,7 +199,7 @@ func (i *NetworkInterfaceApplicationSecurityGroupAssociation) ToNetworkInterface
 // NetworkInterfaceApplicationSecurityGroupAssociationArrayInput is an input type that accepts NetworkInterfaceApplicationSecurityGroupAssociationArray and NetworkInterfaceApplicationSecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationSecurityGroupAssociationArrayInput` via:
 //
-//          NetworkInterfaceApplicationSecurityGroupAssociationArray{ NetworkInterfaceApplicationSecurityGroupAssociationArgs{...} }
+//	NetworkInterfaceApplicationSecurityGroupAssociationArray{ NetworkInterfaceApplicationSecurityGroupAssociationArgs{...} }
 type NetworkInterfaceApplicationSecurityGroupAssociationArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +224,7 @@ func (i NetworkInterfaceApplicationSecurityGroupAssociationArray) ToNetworkInter
 // NetworkInterfaceApplicationSecurityGroupAssociationMapInput is an input type that accepts NetworkInterfaceApplicationSecurityGroupAssociationMap and NetworkInterfaceApplicationSecurityGroupAssociationMapOutput values.
 // You can construct a concrete instance of `NetworkInterfaceApplicationSecurityGroupAssociationMapInput` via:
 //
-//          NetworkInterfaceApplicationSecurityGroupAssociationMap{ "key": NetworkInterfaceApplicationSecurityGroupAssociationArgs{...} }
+//	NetworkInterfaceApplicationSecurityGroupAssociationMap{ "key": NetworkInterfaceApplicationSecurityGroupAssociationArgs{...} }
 type NetworkInterfaceApplicationSecurityGroupAssociationMapInput interface {
 	pulumi.Input
 

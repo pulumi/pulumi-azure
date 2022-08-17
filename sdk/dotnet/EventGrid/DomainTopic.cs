@@ -15,34 +15,34 @@ namespace Pulumi.Azure.EventGrid
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new Azure.EventGrid.DomainArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleDomainTopic = new Azure.EventGrid.DomainTopic("exampleDomainTopic", new Azure.EventGrid.DomainTopicArgs
-    ///         {
-    ///             DomainName = exampleDomain.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDomainTopic = new Azure.EventGrid.DomainTopic("exampleDomainTopic", new()
+    ///     {
+    ///         DomainName = exampleDomain.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventgrid/domainTopic:DomainTopic")]
-    public partial class DomainTopic : Pulumi.CustomResource
+    public partial class DomainTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
@@ -118,7 +118,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
-    public sealed class DomainTopicArgs : Pulumi.ResourceArgs
+    public sealed class DomainTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
@@ -141,9 +141,10 @@ namespace Pulumi.Azure.EventGrid
         public DomainTopicArgs()
         {
         }
+        public static new DomainTopicArgs Empty => new DomainTopicArgs();
     }
 
-    public sealed class DomainTopicState : Pulumi.ResourceArgs
+    public sealed class DomainTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventGrid Domain. Changing this forces a new resource to be created.
@@ -166,5 +167,6 @@ namespace Pulumi.Azure.EventGrid
         public DomainTopicState()
         {
         }
+        public static new DomainTopicState Empty => new DomainTopicState();
     }
 }

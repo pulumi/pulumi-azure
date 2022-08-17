@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyX509CertificatePropertiesArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyX509CertificatePropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("extendedKeyUsages")]
         private InputList<string>? _extendedKeyUsages;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyX509CertificatePropertiesArgs()
         {
         }
+        public static new CertifiateCertificatePolicyX509CertificatePropertiesArgs Empty => new CertifiateCertificatePolicyX509CertificatePropertiesArgs();
     }
 }

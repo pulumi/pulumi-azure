@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/confidentialledger"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/confidentialledger"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			LedgerType:        pulumi.String("Private"),
-// 			AzureadBasedServicePrincipals: confidentialledger.LedgerAzureadBasedServicePrincipalArray{
-// 				&confidentialledger.LedgerAzureadBasedServicePrincipalArgs{
-// 					PrincipalId:    pulumi.String(current.ObjectId),
-// 					TenantId:       pulumi.String(current.TenantId),
-// 					LedgerRoleName: pulumi.String("Administrator"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				LedgerType:        pulumi.String("Private"),
+//				AzureadBasedServicePrincipals: confidentialledger.LedgerAzureadBasedServicePrincipalArray{
+//					&confidentialledger.LedgerAzureadBasedServicePrincipalArgs{
+//						PrincipalId:    pulumi.String(current.ObjectId),
+//						TenantId:       pulumi.String(current.TenantId),
+//						LedgerRoleName: pulumi.String("Administrator"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // Confidential Ledgers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
+//
+//	$ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
+//
 // ```
 type Ledger struct {
 	pulumi.CustomResourceState
@@ -220,7 +225,7 @@ func (i *Ledger) ToLedgerOutputWithContext(ctx context.Context) LedgerOutput {
 // LedgerArrayInput is an input type that accepts LedgerArray and LedgerArrayOutput values.
 // You can construct a concrete instance of `LedgerArrayInput` via:
 //
-//          LedgerArray{ LedgerArgs{...} }
+//	LedgerArray{ LedgerArgs{...} }
 type LedgerArrayInput interface {
 	pulumi.Input
 
@@ -245,7 +250,7 @@ func (i LedgerArray) ToLedgerArrayOutputWithContext(ctx context.Context) LedgerA
 // LedgerMapInput is an input type that accepts LedgerMap and LedgerMapOutput values.
 // You can construct a concrete instance of `LedgerMapInput` via:
 //
-//          LedgerMap{ "key": LedgerArgs{...} }
+//	LedgerMap{ "key": LedgerArgs{...} }
 type LedgerMapInput interface {
 	pulumi.Input
 

@@ -19,26 +19,25 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
-        ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-        ///         {
-        ///             Name = "example-apim",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         var exampleGateway = exampleService.Apply(exampleService =&gt; Output.Create(Azure.ApiManagement.GetGateway.InvokeAsync(new Azure.ApiManagement.GetGatewayArgs
-        ///         {
-        ///             Name = "example-api-gateway",
-        ///             ApiManagementId = exampleService.Id,
-        ///         })));
-        ///     }
+        ///         Name = "example-apim",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        /// }
+        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     {
+        ///         Name = "example-api-gateway",
+        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
-        ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-        ///         {
-        ///             Name = "example-apim",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         var exampleGateway = exampleService.Apply(exampleService =&gt; Output.Create(Azure.ApiManagement.GetGateway.InvokeAsync(new Azure.ApiManagement.GetGatewayArgs
-        ///         {
-        ///             Name = "example-api-gateway",
-        ///             ApiManagementId = exampleService.Id,
-        ///         })));
-        ///     }
+        ///         Name = "example-apim",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        /// }
+        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     {
+        ///         Name = "example-api-gateway",
+        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetGatewayArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the API Management Service in which the Gateway exists.
@@ -100,9 +98,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetGatewayArgs()
         {
         }
+        public static new GetGatewayArgs Empty => new GetGatewayArgs();
     }
 
-    public sealed class GetGatewayInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The ID of the API Management Service in which the Gateway exists.
@@ -119,6 +118,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetGatewayInvokeArgs()
         {
         }
+        public static new GetGatewayInvokeArgs Empty => new GetGatewayInvokeArgs();
     }
 
 

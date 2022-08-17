@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterMetastoresArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterMetastoresArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `ambari` block as defined below.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterMetastoresArgs()
         {
         }
+        public static new HadoopClusterMetastoresArgs Empty => new HadoopClusterMetastoresArgs();
     }
 }

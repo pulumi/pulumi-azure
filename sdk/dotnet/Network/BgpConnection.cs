@@ -15,71 +15,75 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Static",
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.5.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.5.1.0/24",
-    ///             },
-    ///         });
-    ///         var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new Azure.Network.VirtualHubIpArgs
-    ///         {
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             PrivateIpAddress = "10.5.1.18",
-    ///             PrivateIpAllocationMethod = "Static",
-    ///             PublicIpAddressId = examplePublicIp.Id,
-    ///             SubnetId = exampleSubnet.Id,
-    ///         });
-    ///         var exampleBgpConnection = new Azure.Network.BgpConnection("exampleBgpConnection", new Azure.Network.BgpConnectionArgs
-    ///         {
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///             PeerAsn = 65514,
-    ///             PeerIp = "169.254.21.5",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleVirtualHubIp,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.5.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.5.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new()
+    ///     {
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         PrivateIpAddress = "10.5.1.18",
+    ///         PrivateIpAllocationMethod = "Static",
+    ///         PublicIpAddressId = examplePublicIp.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    ///     var exampleBgpConnection = new Azure.Network.BgpConnection("exampleBgpConnection", new()
+    ///     {
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///         PeerAsn = 65514,
+    ///         PeerIp = "169.254.21.5",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleVirtualHubIp,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +95,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/bgpConnection:BgpConnection")]
-    public partial class BgpConnection : Pulumi.CustomResource
+    public partial class BgpConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
@@ -161,7 +165,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class BgpConnectionArgs : Pulumi.ResourceArgs
+    public sealed class BgpConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
@@ -190,9 +194,10 @@ namespace Pulumi.Azure.Network
         public BgpConnectionArgs()
         {
         }
+        public static new BgpConnectionArgs Empty => new BgpConnectionArgs();
     }
 
-    public sealed class BgpConnectionState : Pulumi.ResourceArgs
+    public sealed class BgpConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Virtual Hub Bgp Connection. Changing this forces a new resource to be created.
@@ -221,5 +226,6 @@ namespace Pulumi.Azure.Network
         public BgpConnectionState()
         {
         }
+        public static new BgpConnectionState Empty => new BgpConnectionState();
     }
 }

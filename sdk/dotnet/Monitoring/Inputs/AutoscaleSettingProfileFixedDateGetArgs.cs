@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileFixedDateGetArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileFixedDateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the end date for the profile, formatted as an RFC3339 date string.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileFixedDateGetArgs()
         {
         }
+        public static new AutoscaleSettingProfileFixedDateGetArgs Empty => new AutoscaleSettingProfileFixedDateGetArgs();
     }
 }

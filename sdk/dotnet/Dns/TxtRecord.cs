@@ -13,45 +13,45 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTxtRecord = new Azure.Dns.TxtRecord("exampleTxtRecord", new Azure.Dns.TxtRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.Dns.Inputs.TxtRecordRecordArgs
-    ///                 {
-    ///                     Value = "google-site-authenticator",
-    ///                 },
-    ///                 new Azure.Dns.Inputs.TxtRecordRecordArgs
-    ///                 {
-    ///                     Value = "more site information here",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("exampleTxtRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = "google-site-authenticator",
+    ///             },
+    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = "more site information here",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/txtRecord:TxtRecord")]
-    public partial class TxtRecord : Pulumi.CustomResource
+    public partial class TxtRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS TXT Record.
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class TxtRecordArgs : Pulumi.ResourceArgs
+    public sealed class TxtRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS TXT Record.
@@ -204,9 +204,10 @@ namespace Pulumi.Azure.Dns
         public TxtRecordArgs()
         {
         }
+        public static new TxtRecordArgs Empty => new TxtRecordArgs();
     }
 
-    public sealed class TxtRecordState : Pulumi.ResourceArgs
+    public sealed class TxtRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS TXT Record.
@@ -265,5 +266,6 @@ namespace Pulumi.Azure.Dns
         public TxtRecordState()
         {
         }
+        public static new TxtRecordState Empty => new TxtRecordState();
     }
 }

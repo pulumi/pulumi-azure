@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
@@ -76,6 +77,7 @@ import javax.annotation.Nullable;
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
  *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
+ *             .ipv4Enabled(true)
  *             .vlanId(300)
  *             .microsoftPeeringConfig(ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs.builder()
  *                 .advertisedPublicPrefixes(&#34;123.1.0.0/24&#34;)
@@ -83,9 +85,75 @@ import javax.annotation.Nullable;
  *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
  *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
  *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
+ *                 .enabled(true)
  *                 .microsoftPeering(ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs.builder()
  *                     .advertisedPublicPrefixes(&#34;2002:db01::/126&#34;)
  *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Creating Azure Private Peering)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.ExpressRouteCircuit;
+ * import com.pulumi.azure.network.ExpressRouteCircuitArgs;
+ * import com.pulumi.azure.network.inputs.ExpressRouteCircuitSkuArgs;
+ * import com.pulumi.azure.network.ExpressRouteCircuitPeering;
+ * import com.pulumi.azure.network.ExpressRouteCircuitPeeringArgs;
+ * import com.pulumi.azure.network.inputs.ExpressRouteCircuitPeeringIpv6Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .serviceProviderName(&#34;Equinix&#34;)
+ *             .peeringLocation(&#34;Silicon Valley&#34;)
+ *             .bandwidthInMbps(50)
+ *             .sku(ExpressRouteCircuitSkuArgs.builder()
+ *                 .tier(&#34;Standard&#34;)
+ *                 .family(&#34;MeteredData&#34;)
+ *                 .build())
+ *             .allowClassicOperations(false)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
+ *             .peeringType(&#34;AzurePrivatePeering&#34;)
+ *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .peerAsn(100)
+ *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
+ *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
+ *             .ipv4Enabled(true)
+ *             .vlanId(300)
+ *             .ipv6(ExpressRouteCircuitPeeringIpv6Args.builder()
+ *                 .primaryPeerAddressPrefix(&#34;2002:db01::/126&#34;)
+ *                 .secondaryPeerAddressPrefix(&#34;2003:db01::/126&#34;)
+ *                 .enabled(true)
  *                 .build())
  *             .build());
  * 
@@ -132,6 +200,26 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
     public Output<String> expressRouteCircuitName() {
         return this.expressRouteCircuitName;
     }
+    @Export(name="gatewayManagerEtag", type=String.class, parameters={})
+    private Output<String> gatewayManagerEtag;
+
+    public Output<String> gatewayManagerEtag() {
+        return this.gatewayManagerEtag;
+    }
+    /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="ipv4Enabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> ipv4Enabled;
+
+    /**
+     * @return A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> ipv4Enabled() {
+        return Codegen.optional(this.ipv4Enabled);
+    }
     /**
      * A `ipv6` block as defined below.
      * 
@@ -147,14 +235,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.ipv6);
     }
     /**
-     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     @Export(name="microsoftPeeringConfig", type=ExpressRouteCircuitPeeringMicrosoftPeeringConfig.class, parameters={})
     private Output</* @Nullable */ ExpressRouteCircuitPeeringMicrosoftPeeringConfig> microsoftPeeringConfig;
 
     /**
-     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering`.
+     * @return A `microsoft_peering_config` block as defined below. Required when `peering_type` is set to `MicrosoftPeering` and config for IPv4.
      * 
      */
     public Output<Optional<ExpressRouteCircuitPeeringMicrosoftPeeringConfig>> microsoftPeeringConfig() {
@@ -207,14 +295,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="primaryPeerAddressPrefix", type=String.class, parameters={})
-    private Output<String> primaryPeerAddressPrefix;
+    private Output</* @Nullable */ String> primaryPeerAddressPrefix;
 
     /**
      * @return A subnet for the primary link.
      * 
      */
-    public Output<String> primaryPeerAddressPrefix() {
-        return this.primaryPeerAddressPrefix;
+    public Output<Optional<String>> primaryPeerAddressPrefix() {
+        return Codegen.optional(this.primaryPeerAddressPrefix);
     }
     /**
      * The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
@@ -263,14 +351,14 @@ public class ExpressRouteCircuitPeering extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="secondaryPeerAddressPrefix", type=String.class, parameters={})
-    private Output<String> secondaryPeerAddressPrefix;
+    private Output</* @Nullable */ String> secondaryPeerAddressPrefix;
 
     /**
      * @return A subnet for the secondary link.
      * 
      */
-    public Output<String> secondaryPeerAddressPrefix() {
-        return this.secondaryPeerAddressPrefix;
+    public Output<Optional<String>> secondaryPeerAddressPrefix() {
+        return Codegen.optional(this.secondaryPeerAddressPrefix);
     }
     /**
      * The shared key. Can be a maximum of 25 characters.

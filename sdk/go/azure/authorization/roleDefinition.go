@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
-// 			Scope:       pulumi.String(primary.Id),
-// 			Description: pulumi.String("This is a custom role created"),
-// 			Permissions: authorization.RoleDefinitionPermissionArray{
-// 				&authorization.RoleDefinitionPermissionArgs{
-// 					Actions: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 					NotActions: pulumi.StringArray{},
-// 				},
-// 			},
-// 			AssignableScopes: pulumi.StringArray{
-// 				pulumi.String(primary.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
+//				Scope:       pulumi.String(primary.Id),
+//				Description: pulumi.String("This is a custom role created"),
+//				Permissions: authorization.RoleDefinitionPermissionArray{
+//					&authorization.RoleDefinitionPermissionArgs{
+//						Actions: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						NotActions: pulumi.StringArray{},
+//					},
+//				},
+//				AssignableScopes: pulumi.StringArray{
+//					pulumi.String(primary.Id),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -58,7 +61,9 @@ import (
 // Role Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:authorization/roleDefinition:RoleDefinition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
+//
+//	$ pulumi import azure:authorization/roleDefinition:RoleDefinition example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000"
+//
 // ```
 type RoleDefinition struct {
 	pulumi.CustomResourceState
@@ -211,7 +216,7 @@ func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) 
 // RoleDefinitionArrayInput is an input type that accepts RoleDefinitionArray and RoleDefinitionArrayOutput values.
 // You can construct a concrete instance of `RoleDefinitionArrayInput` via:
 //
-//          RoleDefinitionArray{ RoleDefinitionArgs{...} }
+//	RoleDefinitionArray{ RoleDefinitionArgs{...} }
 type RoleDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +241,7 @@ func (i RoleDefinitionArray) ToRoleDefinitionArrayOutputWithContext(ctx context.
 // RoleDefinitionMapInput is an input type that accepts RoleDefinitionMap and RoleDefinitionMapOutput values.
 // You can construct a concrete instance of `RoleDefinitionMapInput` via:
 //
-//          RoleDefinitionMap{ "key": RoleDefinitionArgs{...} }
+//	RoleDefinitionMap{ "key": RoleDefinitionArgs{...} }
 type RoleDefinitionMapInput interface {
 	pulumi.Input
 

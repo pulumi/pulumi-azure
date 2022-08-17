@@ -17,48 +17,48 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         Quota = 50,
+    ///         Acls = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleShare = new Azure.Storage.Share("exampleShare", new Azure.Storage.ShareArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             Quota = 50,
-    ///             Acls = 
+    ///             new Azure.Storage.Inputs.ShareAclArgs
     ///             {
-    ///                 new Azure.Storage.Inputs.ShareAclArgs
+    ///                 Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+    ///                 AccessPolicies = new[]
     ///                 {
-    ///                     Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
-    ///                     AccessPolicies = 
+    ///                     new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
     ///                     {
-    ///                         new Azure.Storage.Inputs.ShareAclAccessPolicyArgs
-    ///                         {
-    ///                             Permissions = "rwdl",
-    ///                             Start = "2019-07-02T09:38:21.0000000Z",
-    ///                             Expiry = "2019-07-02T10:38:21.0000000Z",
-    ///                         },
+    ///                         Permissions = "rwdl",
+    ///                         Start = "2019-07-02T09:38:21.0000000Z",
+    ///                         Expiry = "2019-07-02T10:38:21.0000000Z",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +70,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/share:Share")]
-    public partial class Share : Pulumi.CustomResource
+    public partial class Share : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ShareArgs : Pulumi.ResourceArgs
+    public sealed class ShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
@@ -231,9 +231,10 @@ namespace Pulumi.Azure.Storage
         public ShareArgs()
         {
         }
+        public static new ShareArgs Empty => new ShareArgs();
     }
 
-    public sealed class ShareState : Pulumi.ResourceArgs
+    public sealed class ShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`.
@@ -305,5 +306,6 @@ namespace Pulumi.Azure.Storage
         public ShareState()
         {
         }
+        public static new ShareState Empty => new ShareState();
     }
 }

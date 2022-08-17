@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubEnrichmentGetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubEnrichmentGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointNames", required: true)]
         private InputList<string>? _endpointNames;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubEnrichmentGetArgs()
         {
         }
+        public static new IoTHubEnrichmentGetArgs Empty => new IoTHubEnrichmentGetArgs();
     }
 }

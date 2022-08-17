@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayWafConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayWafConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledRuleGroups")]
         private InputList<Inputs.ApplicationGatewayWafConfigurationDisabledRuleGroupGetArgs>? _disabledRuleGroups;
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayWafConfigurationGetArgs()
         {
         }
+        public static new ApplicationGatewayWafConfigurationGetArgs Empty => new ApplicationGatewayWafConfigurationGetArgs();
     }
 }

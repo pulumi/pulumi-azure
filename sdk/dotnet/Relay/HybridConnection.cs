@@ -15,37 +15,37 @@ namespace Pulumi.Azure.Relay
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new Azure.Relay.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "managed" },
-    ///             },
-    ///         });
-    ///         var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new Azure.Relay.HybridConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RelayNamespaceName = exampleNamespace.Name,
-    ///             RequiresClientAuthorization = false,
-    ///             UserMetadata = "testmetadata",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "managed" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RelayNamespaceName = exampleNamespace.Name,
+    ///         RequiresClientAuthorization = false,
+    ///         UserMetadata = "testmetadata",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Relay
     /// ```
     /// </summary>
     [AzureResourceType("azure:relay/hybridConnection:HybridConnection")]
-    public partial class HybridConnection : Pulumi.CustomResource
+    public partial class HybridConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -133,7 +133,7 @@ namespace Pulumi.Azure.Relay
         }
     }
 
-    public sealed class HybridConnectionArgs : Pulumi.ResourceArgs
+    public sealed class HybridConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -168,9 +168,10 @@ namespace Pulumi.Azure.Relay
         public HybridConnectionArgs()
         {
         }
+        public static new HybridConnectionArgs Empty => new HybridConnectionArgs();
     }
 
-    public sealed class HybridConnectionState : Pulumi.ResourceArgs
+    public sealed class HybridConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Azure Relay Hybrid Connection. Changing this forces a new resource to be created.
@@ -205,5 +206,6 @@ namespace Pulumi.Azure.Relay
         public HybridConnectionState()
         {
         }
+        public static new HybridConnectionState Empty => new HybridConnectionState();
     }
 }

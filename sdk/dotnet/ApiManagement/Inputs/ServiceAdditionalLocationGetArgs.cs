@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceAdditionalLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAdditionalLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of compute units in this region. Defaults to the capacity of the main region.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceAdditionalLocationGetArgs()
         {
         }
+        public static new ServiceAdditionalLocationGetArgs Empty => new ServiceAdditionalLocationGetArgs();
     }
 }

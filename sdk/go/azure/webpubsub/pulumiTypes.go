@@ -30,7 +30,7 @@ type HubEventHandler struct {
 // HubEventHandlerInput is an input type that accepts HubEventHandlerArgs and HubEventHandlerOutput values.
 // You can construct a concrete instance of `HubEventHandlerInput` via:
 //
-//          HubEventHandlerArgs{...}
+//	HubEventHandlerArgs{...}
 type HubEventHandlerInput interface {
 	pulumi.Input
 
@@ -70,7 +70,7 @@ func (i HubEventHandlerArgs) ToHubEventHandlerOutputWithContext(ctx context.Cont
 // HubEventHandlerArrayInput is an input type that accepts HubEventHandlerArray and HubEventHandlerArrayOutput values.
 // You can construct a concrete instance of `HubEventHandlerArrayInput` via:
 //
-//          HubEventHandlerArray{ HubEventHandlerArgs{...} }
+//	HubEventHandlerArray{ HubEventHandlerArgs{...} }
 type HubEventHandlerArrayInput interface {
 	pulumi.Input
 
@@ -160,7 +160,7 @@ type HubEventHandlerAuth struct {
 // HubEventHandlerAuthInput is an input type that accepts HubEventHandlerAuthArgs and HubEventHandlerAuthOutput values.
 // You can construct a concrete instance of `HubEventHandlerAuthInput` via:
 //
-//          HubEventHandlerAuthArgs{...}
+//	HubEventHandlerAuthArgs{...}
 type HubEventHandlerAuthInput interface {
 	pulumi.Input
 
@@ -196,11 +196,11 @@ func (i HubEventHandlerAuthArgs) ToHubEventHandlerAuthPtrOutputWithContext(ctx c
 // HubEventHandlerAuthPtrInput is an input type that accepts HubEventHandlerAuthArgs, HubEventHandlerAuthPtr and HubEventHandlerAuthPtrOutput values.
 // You can construct a concrete instance of `HubEventHandlerAuthPtrInput` via:
 //
-//          HubEventHandlerAuthArgs{...}
+//	        HubEventHandlerAuthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type HubEventHandlerAuthPtrInput interface {
 	pulumi.Input
 
@@ -301,7 +301,7 @@ type NetworkAclPrivateEndpoint struct {
 // NetworkAclPrivateEndpointInput is an input type that accepts NetworkAclPrivateEndpointArgs and NetworkAclPrivateEndpointOutput values.
 // You can construct a concrete instance of `NetworkAclPrivateEndpointInput` via:
 //
-//          NetworkAclPrivateEndpointArgs{...}
+//	NetworkAclPrivateEndpointArgs{...}
 type NetworkAclPrivateEndpointInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ func (i NetworkAclPrivateEndpointArgs) ToNetworkAclPrivateEndpointOutputWithCont
 // NetworkAclPrivateEndpointArrayInput is an input type that accepts NetworkAclPrivateEndpointArray and NetworkAclPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `NetworkAclPrivateEndpointArrayInput` via:
 //
-//          NetworkAclPrivateEndpointArray{ NetworkAclPrivateEndpointArgs{...} }
+//	NetworkAclPrivateEndpointArray{ NetworkAclPrivateEndpointArgs{...} }
 type NetworkAclPrivateEndpointArrayInput interface {
 	pulumi.Input
 
@@ -414,7 +414,7 @@ type NetworkAclPublicNetwork struct {
 // NetworkAclPublicNetworkInput is an input type that accepts NetworkAclPublicNetworkArgs and NetworkAclPublicNetworkOutput values.
 // You can construct a concrete instance of `NetworkAclPublicNetworkInput` via:
 //
-//          NetworkAclPublicNetworkArgs{...}
+//	NetworkAclPublicNetworkArgs{...}
 type NetworkAclPublicNetworkInput interface {
 	pulumi.Input
 
@@ -452,11 +452,11 @@ func (i NetworkAclPublicNetworkArgs) ToNetworkAclPublicNetworkPtrOutputWithConte
 // NetworkAclPublicNetworkPtrInput is an input type that accepts NetworkAclPublicNetworkArgs, NetworkAclPublicNetworkPtr and NetworkAclPublicNetworkPtrOutput values.
 // You can construct a concrete instance of `NetworkAclPublicNetworkPtrInput` via:
 //
-//          NetworkAclPublicNetworkArgs{...}
+//	        NetworkAclPublicNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type NetworkAclPublicNetworkPtrInput interface {
 	pulumi.Input
 
@@ -574,7 +574,7 @@ type ServiceIdentity struct {
 // ServiceIdentityInput is an input type that accepts ServiceIdentityArgs and ServiceIdentityOutput values.
 // You can construct a concrete instance of `ServiceIdentityInput` via:
 //
-//          ServiceIdentityArgs{...}
+//	ServiceIdentityArgs{...}
 type ServiceIdentityInput interface {
 	pulumi.Input
 
@@ -616,11 +616,11 @@ func (i ServiceIdentityArgs) ToServiceIdentityPtrOutputWithContext(ctx context.C
 // ServiceIdentityPtrInput is an input type that accepts ServiceIdentityArgs, ServiceIdentityPtr and ServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ServiceIdentityPtrInput` via:
 //
-//          ServiceIdentityArgs{...}
+//	        ServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -768,7 +768,7 @@ type ServiceLiveTrace struct {
 // ServiceLiveTraceInput is an input type that accepts ServiceLiveTraceArgs and ServiceLiveTraceOutput values.
 // You can construct a concrete instance of `ServiceLiveTraceInput` via:
 //
-//          ServiceLiveTraceArgs{...}
+//	ServiceLiveTraceArgs{...}
 type ServiceLiveTraceInput interface {
 	pulumi.Input
 
@@ -810,11 +810,11 @@ func (i ServiceLiveTraceArgs) ToServiceLiveTracePtrOutputWithContext(ctx context
 // ServiceLiveTracePtrInput is an input type that accepts ServiceLiveTraceArgs, ServiceLiveTracePtr and ServiceLiveTracePtrOutput values.
 // You can construct a concrete instance of `ServiceLiveTracePtrInput` via:
 //
-//          ServiceLiveTraceArgs{...}
+//	        ServiceLiveTraceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceLiveTracePtrInput interface {
 	pulumi.Input
 
@@ -958,7 +958,7 @@ type GetPrivateLinkResourceSharedPrivateLinkResourceType struct {
 // GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput is an input type that accepts GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs and GetPrivateLinkResourceSharedPrivateLinkResourceTypeOutput values.
 // You can construct a concrete instance of `GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput` via:
 //
-//          GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...}
+//	GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...}
 type GetPrivateLinkResourceSharedPrivateLinkResourceTypeInput interface {
 	pulumi.Input
 
@@ -988,7 +988,7 @@ func (i GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs) ToGetPrivateLin
 // GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput is an input type that accepts GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray and GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayOutput values.
 // You can construct a concrete instance of `GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput` via:
 //
-//          GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{ GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...} }
+//	GetPrivateLinkResourceSharedPrivateLinkResourceTypeArray{ GetPrivateLinkResourceSharedPrivateLinkResourceTypeArgs{...} }
 type GetPrivateLinkResourceSharedPrivateLinkResourceTypeArrayInput interface {
 	pulumi.Input
 

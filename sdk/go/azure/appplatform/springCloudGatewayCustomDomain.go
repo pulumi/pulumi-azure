@@ -13,48 +13,53 @@ import (
 
 // Manages a Spring Cloud Gateway Custom Domain.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudGatewayCustomDomain(ctx, "exampleSpringCloudGatewayCustomDomain", &appplatform.SpringCloudGatewayCustomDomainArgs{
-// 			SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudGatewayCustomDomain(ctx, "exampleSpringCloudGatewayCustomDomain", &appplatform.SpringCloudGatewayCustomDomainArgs{
+//				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +67,9 @@ import (
 // Spring Cloud Gateway Custom Domains can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/domains/domain1
+//
+//	$ pulumi import azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/gateways/gateway1/domains/domain1
+//
 // ```
 type SpringCloudGatewayCustomDomain struct {
 	pulumi.CustomResourceState
@@ -173,7 +180,7 @@ func (i *SpringCloudGatewayCustomDomain) ToSpringCloudGatewayCustomDomainOutputW
 // SpringCloudGatewayCustomDomainArrayInput is an input type that accepts SpringCloudGatewayCustomDomainArray and SpringCloudGatewayCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayCustomDomainArrayInput` via:
 //
-//          SpringCloudGatewayCustomDomainArray{ SpringCloudGatewayCustomDomainArgs{...} }
+//	SpringCloudGatewayCustomDomainArray{ SpringCloudGatewayCustomDomainArgs{...} }
 type SpringCloudGatewayCustomDomainArrayInput interface {
 	pulumi.Input
 
@@ -198,7 +205,7 @@ func (i SpringCloudGatewayCustomDomainArray) ToSpringCloudGatewayCustomDomainArr
 // SpringCloudGatewayCustomDomainMapInput is an input type that accepts SpringCloudGatewayCustomDomainMap and SpringCloudGatewayCustomDomainMapOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayCustomDomainMapInput` via:
 //
-//          SpringCloudGatewayCustomDomainMap{ "key": SpringCloudGatewayCustomDomainArgs{...} }
+//	SpringCloudGatewayCustomDomainMap{ "key": SpringCloudGatewayCustomDomainArgs{...} }
 type SpringCloudGatewayCustomDomainMapInput interface {
 	pulumi.Input
 

@@ -15,36 +15,37 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "standard",
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///         });
-    ///         var exampleCertificateIssuer = new Azure.KeyVault.CertificateIssuer("exampleCertificateIssuer", new Azure.KeyVault.CertificateIssuerArgs
-    ///         {
-    ///             OrgId = "ExampleOrgName",
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             ProviderName = "DigiCert",
-    ///             AccountId = "0000",
-    ///             Password = "example-password",
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "standard",
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///     });
+    /// 
+    ///     var exampleCertificateIssuer = new Azure.KeyVault.CertificateIssuer("exampleCertificateIssuer", new()
+    ///     {
+    ///         OrgId = "ExampleOrgName",
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         ProviderName = "DigiCert",
+    ///         AccountId = "0000",
+    ///         Password = "example-password",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +57,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/certificateIssuer:CertificateIssuer")]
-    public partial class CertificateIssuer : Pulumi.CustomResource
+    public partial class CertificateIssuer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The account number with the third-party Certificate Issuer.
@@ -144,7 +145,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class CertificateIssuerArgs : Pulumi.ResourceArgs
+    public sealed class CertificateIssuerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account number with the third-party Certificate Issuer.
@@ -197,9 +198,10 @@ namespace Pulumi.Azure.KeyVault
         public CertificateIssuerArgs()
         {
         }
+        public static new CertificateIssuerArgs Empty => new CertificateIssuerArgs();
     }
 
-    public sealed class CertificateIssuerState : Pulumi.ResourceArgs
+    public sealed class CertificateIssuerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The account number with the third-party Certificate Issuer.
@@ -252,5 +254,6 @@ namespace Pulumi.Azure.KeyVault
         public CertificateIssuerState()
         {
         }
+        public static new CertificateIssuerState Empty => new CertificateIssuerState();
     }
 }

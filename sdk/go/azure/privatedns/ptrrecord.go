@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewPTRRecord(ctx, "examplePTRRecord", &privatedns.PTRRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: pulumi.StringArray{
-// 				pulumi.String("test.example.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewPTRRecord(ctx, "examplePTRRecord", &privatedns.PTRRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String("test.example.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Private DNS PTR Records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
+//
+//	$ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
+//
 // ```
 type PTRRecord struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *PTRRecord) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordO
 // PTRRecordArrayInput is an input type that accepts PTRRecordArray and PTRRecordArrayOutput values.
 // You can construct a concrete instance of `PTRRecordArrayInput` via:
 //
-//          PTRRecordArray{ PTRRecordArgs{...} }
+//	PTRRecordArray{ PTRRecordArgs{...} }
 type PTRRecordArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i PTRRecordArray) ToPTRRecordArrayOutputWithContext(ctx context.Context) P
 // PTRRecordMapInput is an input type that accepts PTRRecordMap and PTRRecordMapOutput values.
 // You can construct a concrete instance of `PTRRecordMapInput` via:
 //
-//          PTRRecordMap{ "key": PTRRecordArgs{...} }
+//	PTRRecordMap{ "key": PTRRecordArgs{...} }
 type PTRRecordMapInput interface {
 	pulumi.Input
 

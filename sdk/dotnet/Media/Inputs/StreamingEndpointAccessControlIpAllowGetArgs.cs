@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingEndpointAccessControlIpAllowGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingEndpointAccessControlIpAllowGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address to allow.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingEndpointAccessControlIpAllowGetArgs()
         {
         }
+        public static new StreamingEndpointAccessControlIpAllowGetArgs Empty => new StreamingEndpointAccessControlIpAllowGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter.Inputs
 {
 
-    public sealed class AssessmentStatusGetArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentStatusGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the cause of the assessment status.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         public AssessmentStatusGetArgs()
         {
         }
+        public static new AssessmentStatusGetArgs Empty => new AssessmentStatusGetArgs();
     }
 }

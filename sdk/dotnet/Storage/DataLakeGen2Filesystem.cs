@@ -17,37 +17,37 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new Azure.Storage.DataLakeGen2FilesystemArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Properties = 
-    ///             {
-    ///                 { "hello", "aGVsbG8=" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Properties = 
+    ///         {
+    ///             { "hello", "aGVsbG8=" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem")]
-    public partial class DataLakeGen2Filesystem : Pulumi.CustomResource
+    public partial class DataLakeGen2Filesystem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `ace` blocks as defined below to specify the entries for the ACL for the path.
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class DataLakeGen2FilesystemArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeGen2FilesystemArgs : global::Pulumi.ResourceArgs
     {
         [Input("aces")]
         private InputList<Inputs.DataLakeGen2FilesystemAceArgs>? _aces;
@@ -194,9 +194,10 @@ namespace Pulumi.Azure.Storage
         public DataLakeGen2FilesystemArgs()
         {
         }
+        public static new DataLakeGen2FilesystemArgs Empty => new DataLakeGen2FilesystemArgs();
     }
 
-    public sealed class DataLakeGen2FilesystemState : Pulumi.ResourceArgs
+    public sealed class DataLakeGen2FilesystemState : global::Pulumi.ResourceArgs
     {
         [Input("aces")]
         private InputList<Inputs.DataLakeGen2FilesystemAceGetArgs>? _aces;
@@ -249,5 +250,6 @@ namespace Pulumi.Azure.Storage
         public DataLakeGen2FilesystemState()
         {
         }
+        public static new DataLakeGen2FilesystemState Empty => new DataLakeGen2FilesystemState();
     }
 }

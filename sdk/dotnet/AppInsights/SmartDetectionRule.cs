@@ -15,31 +15,31 @@ namespace Pulumi.Azure.AppInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleSmartDetectionRule = new Azure.AppInsights.SmartDetectionRule("exampleSmartDetectionRule", new Azure.AppInsights.SmartDetectionRuleArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             Enabled = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleSmartDetectionRule = new Azure.AppInsights.SmartDetectionRule("exampleSmartDetectionRule", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         Enabled = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/smartDetectionRule:SmartDetectionRule")]
-    public partial class SmartDetectionRule : Pulumi.CustomResource
+    public partial class SmartDetectionRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule.
@@ -129,7 +129,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class SmartDetectionRuleArgs : Pulumi.ResourceArgs
+    public sealed class SmartDetectionRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalEmailRecipients")]
         private InputList<string>? _additionalEmailRecipients;
@@ -172,9 +172,10 @@ namespace Pulumi.Azure.AppInsights
         public SmartDetectionRuleArgs()
         {
         }
+        public static new SmartDetectionRuleArgs Empty => new SmartDetectionRuleArgs();
     }
 
-    public sealed class SmartDetectionRuleState : Pulumi.ResourceArgs
+    public sealed class SmartDetectionRuleState : global::Pulumi.ResourceArgs
     {
         [Input("additionalEmailRecipients")]
         private InputList<string>? _additionalEmailRecipients;
@@ -217,5 +218,6 @@ namespace Pulumi.Azure.AppInsights
         public SmartDetectionRuleState()
         {
         }
+        public static new SmartDetectionRuleState Empty => new SmartDetectionRuleState();
     }
 }

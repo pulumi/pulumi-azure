@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetCertificate.InvokeAsync(new Azure.Batch.GetCertificateArgs
-        ///         {
-        ///             Name = "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-        ///             AccountName = "examplebatchaccount",
-        ///             ResourceGroupName = "example",
-        ///         }));
-        ///         this.Thumbprint = example.Apply(example =&gt; example.Thumbprint);
-        ///     }
+        ///         Name = "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+        ///         AccountName = "examplebatchaccount",
+        ///         ResourceGroupName = "example",
+        ///     });
         /// 
-        ///     [Output("thumbprint")]
-        ///     public Output&lt;string&gt; Thumbprint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["thumbprint"] = example.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetCertificate.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetCertificate.InvokeAsync(new Azure.Batch.GetCertificateArgs
-        ///         {
-        ///             Name = "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
-        ///             AccountName = "examplebatchaccount",
-        ///             ResourceGroupName = "example",
-        ///         }));
-        ///         this.Thumbprint = example.Apply(example =&gt; example.Thumbprint);
-        ///     }
+        ///         Name = "SHA1-42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
+        ///         AccountName = "examplebatchaccount",
+        ///         ResourceGroupName = "example",
+        ///     });
         /// 
-        ///     [Output("thumbprint")]
-        ///     public Output&lt;string&gt; Thumbprint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["thumbprint"] = example.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Batch
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Batch
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Batch
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

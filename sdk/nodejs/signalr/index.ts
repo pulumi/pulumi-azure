@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
 export * from "./getService";
 export * from "./service";
 export * from "./serviceNetworkAcl";
+export * from "./sharedPrivateLinkResource";
 
 // Import resources to register:
 import { Service } from "./service";
 import { ServiceNetworkAcl } from "./serviceNetworkAcl";
+import { SharedPrivateLinkResource } from "./sharedPrivateLinkResource";
 
 const _module = {
     version: utilities.getVersion(),
@@ -21,6 +23,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl":
                 return new ServiceNetworkAcl(name, <any>undefined, { urn })
+            case "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource":
+                return new SharedPrivateLinkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -28,3 +32,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "signalr/service", _module)
 pulumi.runtime.registerResourceModule("azure", "signalr/serviceNetworkAcl", _module)
+pulumi.runtime.registerResourceModule("azure", "signalr/sharedPrivateLinkResource", _module)

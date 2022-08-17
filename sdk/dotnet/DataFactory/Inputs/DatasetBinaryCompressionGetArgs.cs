@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetBinaryCompressionGetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetBinaryCompressionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The level of compression. Possible values are `Fastest` and `Optimal`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetBinaryCompressionGetArgs()
         {
         }
+        public static new DatasetBinaryCompressionGetArgs Empty => new DatasetBinaryCompressionGetArgs();
     }
 }

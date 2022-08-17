@@ -20,98 +20,101 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
-// 			Location:                exampleResourceGroup.Location,
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			ServicePlanId:           exampleServicePlan.ID(),
-// 			StorageAccountName:      exampleAccount.Name,
-// 			StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-// 			SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
-// 				ApplicationStack: &appservice.LinuxFunctionAppSiteConfigApplicationStackArgs{
-// 					PythonVersion: pulumi.String("3.9"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"name": "Azure",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"bindings": []interface{}{
-// 				map[string]interface{}{
-// 					"authLevel": "function",
-// 					"direction": "in",
-// 					"methods": []string{
-// 						"get",
-// 						"post",
-// 					},
-// 					"name": "req",
-// 					"type": "httpTrigger",
-// 				},
-// 				map[string]interface{}{
-// 					"direction": "out",
-// 					"name":      fmt.Sprintf("$return"),
-// 					"type":      "http",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
-// 			FunctionAppId: exampleLinuxFunctionApp.ID(),
-// 			Language:      pulumi.String("Python"),
-// 			TestData:      pulumi.String(json0),
-// 			ConfigJson:    pulumi.String(json1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("S1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
+//				Location:                exampleResourceGroup.Location,
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				ServicePlanId:           exampleServicePlan.ID(),
+//				StorageAccountName:      exampleAccount.Name,
+//				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
+//				SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
+//					ApplicationStack: &appservice.LinuxFunctionAppSiteConfigApplicationStackArgs{
+//						PythonVersion: pulumi.String("3.9"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"name": "Azure",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"bindings": []interface{}{
+//					map[string]interface{}{
+//						"authLevel": "function",
+//						"direction": "in",
+//						"methods": []string{
+//							"get",
+//							"post",
+//						},
+//						"name": "req",
+//						"type": "httpTrigger",
+//					},
+//					map[string]interface{}{
+//						"direction": "out",
+//						"name":      fmt.Sprintf("$return"),
+//						"type":      "http",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
+//				FunctionAppId: exampleLinuxFunctionApp.ID(),
+//				Language:      pulumi.String("Python"),
+//				TestData:      pulumi.String(json0),
+//				ConfigJson:    pulumi.String(json1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### HTTP Trigger With Code Upload
 //
@@ -119,113 +122,116 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OsType:            pulumi.String("Windows"),
-// 			SkuName:           pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewWindowsFunctionApp(ctx, "test", &appservice.WindowsFunctionAppArgs{
-// 			Location:                pulumi.Any(azurerm_resource_group.Test.Location),
-// 			ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
-// 			ServicePlanId:           pulumi.Any(azurerm_service_plan.Test.Id),
-// 			StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
-// 			StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
-// 			SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
-// 				ApplicationStack: &appservice.WindowsFunctionAppSiteConfigApplicationStackArgs{
-// 					DotnetVersion: pulumi.String("6"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
-// 			"name": "Azure",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"bindings": []interface{}{
-// 				map[string]interface{}{
-// 					"authLevel": "function",
-// 					"direction": "in",
-// 					"methods": []string{
-// 						"get",
-// 						"post",
-// 					},
-// 					"name": "req",
-// 					"type": "httpTrigger",
-// 				},
-// 				map[string]interface{}{
-// 					"direction": "out",
-// 					"name":      fmt.Sprintf("$return"),
-// 					"type":      "http",
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
-// 			FunctionAppId: pulumi.Any(azurerm_linux_function_app.Example.Id),
-// 			Language:      pulumi.String("CSharp"),
-// 			Files: appservice.FunctionAppFunctionFileArray{
-// 				&appservice.FunctionAppFunctionFileArgs{
-// 					Name:    pulumi.String("run.csx"),
-// 					Content: readFileOrPanic("exampledata/run.csx"),
-// 				},
-// 			},
-// 			TestData:   pulumi.String(json0),
-// 			ConfigJson: pulumi.String(json1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OsType:            pulumi.String("Windows"),
+//				SkuName:           pulumi.String("S1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewWindowsFunctionApp(ctx, "test", &appservice.WindowsFunctionAppArgs{
+//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
+//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
+//				ServicePlanId:           pulumi.Any(azurerm_service_plan.Test.Id),
+//				StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
+//				StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
+//				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
+//					ApplicationStack: &appservice.WindowsFunctionAppSiteConfigApplicationStackArgs{
+//						DotnetVersion: pulumi.String("6"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//				"name": "Azure",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"bindings": []interface{}{
+//					map[string]interface{}{
+//						"authLevel": "function",
+//						"direction": "in",
+//						"methods": []string{
+//							"get",
+//							"post",
+//						},
+//						"name": "req",
+//						"type": "httpTrigger",
+//					},
+//					map[string]interface{}{
+//						"direction": "out",
+//						"name":      fmt.Sprintf("$return"),
+//						"type":      "http",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
+//				FunctionAppId: pulumi.Any(azurerm_linux_function_app.Example.Id),
+//				Language:      pulumi.String("CSharp"),
+//				Files: appservice.FunctionAppFunctionFileArray{
+//					&appservice.FunctionAppFunctionFileArgs{
+//						Name:    pulumi.String("run.csx"),
+//						Content: readFileOrPanic("exampledata/run.csx"),
+//					},
+//				},
+//				TestData:   pulumi.String(json0),
+//				ConfigJson: pulumi.String(json1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -233,7 +239,9 @@ import (
 // a Function App Function can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/functionAppFunction:FunctionAppFunction example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/functions/function1"
+//
+//	$ pulumi import azure:appservice/functionAppFunction:FunctionAppFunction example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/functions/function1"
+//
 // ```
 type FunctionAppFunction struct {
 	pulumi.CustomResourceState
@@ -429,7 +437,7 @@ func (i *FunctionAppFunction) ToFunctionAppFunctionOutputWithContext(ctx context
 // FunctionAppFunctionArrayInput is an input type that accepts FunctionAppFunctionArray and FunctionAppFunctionArrayOutput values.
 // You can construct a concrete instance of `FunctionAppFunctionArrayInput` via:
 //
-//          FunctionAppFunctionArray{ FunctionAppFunctionArgs{...} }
+//	FunctionAppFunctionArray{ FunctionAppFunctionArgs{...} }
 type FunctionAppFunctionArrayInput interface {
 	pulumi.Input
 
@@ -454,7 +462,7 @@ func (i FunctionAppFunctionArray) ToFunctionAppFunctionArrayOutputWithContext(ct
 // FunctionAppFunctionMapInput is an input type that accepts FunctionAppFunctionMap and FunctionAppFunctionMapOutput values.
 // You can construct a concrete instance of `FunctionAppFunctionMapInput` via:
 //
-//          FunctionAppFunctionMap{ "key": FunctionAppFunctionArgs{...} }
+//	FunctionAppFunctionMap{ "key": FunctionAppFunctionArgs{...} }
 type FunctionAppFunctionMapInput interface {
 	pulumi.Input
 

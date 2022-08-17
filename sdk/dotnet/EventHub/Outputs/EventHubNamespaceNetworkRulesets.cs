@@ -14,7 +14,7 @@ namespace Pulumi.Azure.EventHub.Outputs
     public sealed class EventHubNamespaceNetworkRulesets
     {
         /// <summary>
-        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
+        /// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
         /// </summary>
         public readonly string DefaultAction;
         /// <summary>

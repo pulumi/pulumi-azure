@@ -15,39 +15,41 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = Azure.ApiManagement.GetService.Invoke(new Azure.ApiManagement.GetServiceInvokeArgs
-    ///         {
-    ///             Name = "example-apim",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleApi = new Azure.ApiManagement.Api("exampleApi", new Azure.ApiManagement.ApiArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
-    ///             Revision = "1",
-    ///         });
-    ///         var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new Azure.ApiManagement.TagArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Apply(exampleService =&gt; exampleService.Id),
-    ///         });
-    ///         var exampleApiTag = new Azure.ApiManagement.ApiTag("exampleApiTag", new Azure.ApiManagement.ApiTagArgs
-    ///         {
-    ///             ApiId = exampleApi.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     {
+    ///         Name = "example-apim",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         Revision = "1",
+    ///     });
+    /// 
+    ///     var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///     });
+    /// 
+    ///     var exampleApiTag = new Azure.ApiManagement.ApiTag("exampleApiTag", new()
+    ///     {
+    ///         ApiId = exampleApi.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +61,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/apiTag:ApiTag")]
-    public partial class ApiTag : Pulumi.CustomResource
+    public partial class ApiTag : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
@@ -117,7 +119,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ApiTagArgs : Pulumi.ResourceArgs
+    public sealed class ApiTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
@@ -134,9 +136,10 @@ namespace Pulumi.Azure.ApiManagement
         public ApiTagArgs()
         {
         }
+        public static new ApiTagArgs Empty => new ApiTagArgs();
     }
 
-    public sealed class ApiTagState : Pulumi.ResourceArgs
+    public sealed class ApiTagState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management API. Changing this forces a new API Management API Tag to be created.
@@ -153,5 +156,6 @@ namespace Pulumi.Azure.ApiManagement
         public ApiTagState()
         {
         }
+        public static new ApiTagState Empty => new ApiTagState();
     }
 }

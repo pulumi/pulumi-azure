@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingPolicyCommonEncryptionCencGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyCommonEncryptionCencGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `default_content_key` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingPolicyCommonEncryptionCencGetArgs()
         {
         }
+        public static new StreamingPolicyCommonEncryptionCencGetArgs Empty => new StreamingPolicyCommonEncryptionCencGetArgs();
     }
 }

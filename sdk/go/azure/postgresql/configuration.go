@@ -23,47 +23,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/postgresql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
-// 			StorageMb:                  pulumi.Int(5120),
-// 			BackupRetentionDays:        pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:  pulumi.Bool(false),
-// 			AutoGrowEnabled:            pulumi.Bool(true),
-// 			AdministratorLogin:         pulumi.String("psqladmin"),
-// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			Version:                    pulumi.String("9.5"),
-// 			SslEnforcementEnabled:      pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = postgresql.NewConfiguration(ctx, "exampleConfiguration", &postgresql.ConfigurationArgs{
-// 			Name:              pulumi.String("backslash_quote"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleServer.Name,
-// 			Value:             pulumi.String("on"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				SkuName:                    pulumi.String("B_Gen5_2"),
+//				StorageMb:                  pulumi.Int(5120),
+//				BackupRetentionDays:        pulumi.Int(7),
+//				GeoRedundantBackupEnabled:  pulumi.Bool(false),
+//				AutoGrowEnabled:            pulumi.Bool(true),
+//				AdministratorLogin:         pulumi.String("psqladmin"),
+//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+//				Version:                    pulumi.String("9.5"),
+//				SslEnforcementEnabled:      pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = postgresql.NewConfiguration(ctx, "exampleConfiguration", &postgresql.ConfigurationArgs{
+//				Name:              pulumi.String("backslash_quote"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				Value:             pulumi.String("on"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // PostgreSQL Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:postgresql/configuration:Configuration backslash_quote /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/configurations/backslash_quote
+//
+//	$ pulumi import azure:postgresql/configuration:Configuration backslash_quote /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/configurations/backslash_quote
+//
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
@@ -201,7 +206,7 @@ func (i *Configuration) ToConfigurationOutputWithContext(ctx context.Context) Co
 // ConfigurationArrayInput is an input type that accepts ConfigurationArray and ConfigurationArrayOutput values.
 // You can construct a concrete instance of `ConfigurationArrayInput` via:
 //
-//          ConfigurationArray{ ConfigurationArgs{...} }
+//	ConfigurationArray{ ConfigurationArgs{...} }
 type ConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -226,7 +231,7 @@ func (i ConfigurationArray) ToConfigurationArrayOutputWithContext(ctx context.Co
 // ConfigurationMapInput is an input type that accepts ConfigurationMap and ConfigurationMapOutput values.
 // You can construct a concrete instance of `ConfigurationMapInput` via:
 //
-//          ConfigurationMap{ "key": ConfigurationArgs{...} }
+//	ConfigurationMap{ "key": ConfigurationArgs{...} }
 type ConfigurationMapInput interface {
 	pulumi.Input
 

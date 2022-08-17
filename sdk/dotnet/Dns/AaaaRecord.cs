@@ -13,70 +13,71 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleAaaaRecord = new Azure.Dns.AaaaRecord("exampleAaaaRecord", new Azure.Dns.AaaaRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 "2001:db8::1:0:0:1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord("exampleAaaaRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             "2001:db8::1:0:0:1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Alias Record)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new Azure.Network.PublicIpArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AllocationMethod = "Dynamic",
-    ///             IpVersion = "IPv6",
-    ///         });
-    ///         var exampleAaaaRecord = new Azure.Dns.AaaaRecord("exampleAaaaRecord", new Azure.Dns.AaaaRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             TargetResourceId = examplePublicIp.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///         IpVersion = "IPv6",
+    ///     });
+    /// 
+    ///     var exampleAaaaRecord = new Azure.Dns.AaaaRecord("exampleAaaaRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         TargetResourceId = examplePublicIp.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +89,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/aaaaRecord:AaaaRecord")]
-    public partial class AaaaRecord : Pulumi.CustomResource
+    public partial class AaaaRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS AAAA Record.
@@ -179,7 +180,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class AaaaRecordArgs : Pulumi.ResourceArgs
+    public sealed class AaaaRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS AAAA Record.
@@ -235,9 +236,10 @@ namespace Pulumi.Azure.Dns
         public AaaaRecordArgs()
         {
         }
+        public static new AaaaRecordArgs Empty => new AaaaRecordArgs();
     }
 
-    public sealed class AaaaRecordState : Pulumi.ResourceArgs
+    public sealed class AaaaRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS AAAA Record.
@@ -299,5 +301,6 @@ namespace Pulumi.Azure.Dns
         public AaaaRecordState()
         {
         }
+        public static new AaaaRecordState Empty => new AaaaRecordState();
     }
 }

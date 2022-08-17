@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SignalR.Inputs
 {
 
-    public sealed class ServiceNetworkAclPublicNetworkGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNetworkAclPublicNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedRequestTypes")]
         private InputList<string>? _allowedRequestTypes;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.SignalR.Inputs
         public ServiceNetworkAclPublicNetworkGetArgs()
         {
         }
+        public static new ServiceNetworkAclPublicNetworkGetArgs Empty => new ServiceNetworkAclPublicNetworkGetArgs();
     }
 }

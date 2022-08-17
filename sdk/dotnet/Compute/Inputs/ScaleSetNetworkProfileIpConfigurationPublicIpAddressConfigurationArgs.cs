@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The domain name label for the DNS settings.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs()
         {
         }
+        public static new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs Empty => new ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs();
     }
 }

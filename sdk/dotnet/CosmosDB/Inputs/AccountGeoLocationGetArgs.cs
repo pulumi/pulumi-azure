@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountGeoLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountGeoLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountGeoLocationGetArgs()
         {
         }
+        public static new AccountGeoLocationGetArgs Empty => new AccountGeoLocationGetArgs();
     }
 }

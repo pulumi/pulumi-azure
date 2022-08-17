@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterComponentVersionArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterComponentVersionArgs : global::Pulumi.ResourceArgs
     {
         [Input("interactiveHive", required: true)]
         public Input<string> InteractiveHive { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterComponentVersionArgs()
         {
         }
+        public static new InteractiveQueryClusterComponentVersionArgs Empty => new InteractiveQueryClusterComponentVersionArgs();
     }
 }

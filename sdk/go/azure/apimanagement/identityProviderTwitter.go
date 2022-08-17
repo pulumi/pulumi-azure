@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@mycompany.io"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewIdentityProviderTwitter(ctx, "exampleIdentityProviderTwitter", &apimanagement.IdentityProviderTwitterArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApiManagementName: exampleService.Name,
-// 			ApiKey:            pulumi.String("00000000000000000000000000000000"),
-// 			ApiSecretKey:      pulumi.String("00000000000000000000000000000000"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@mycompany.io"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewIdentityProviderTwitter(ctx, "exampleIdentityProviderTwitter", &apimanagement.IdentityProviderTwitterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApiManagementName: exampleService.Name,
+//				ApiKey:            pulumi.String("00000000000000000000000000000000"),
+//				ApiSecretKey:      pulumi.String("00000000000000000000000000000000"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // API Management Twitter Identity Provider can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
+//
+//	$ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
+//
 // ```
 type IdentityProviderTwitter struct {
 	pulumi.CustomResourceState
@@ -191,7 +196,7 @@ func (i *IdentityProviderTwitter) ToIdentityProviderTwitterOutputWithContext(ctx
 // IdentityProviderTwitterArrayInput is an input type that accepts IdentityProviderTwitterArray and IdentityProviderTwitterArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderTwitterArrayInput` via:
 //
-//          IdentityProviderTwitterArray{ IdentityProviderTwitterArgs{...} }
+//	IdentityProviderTwitterArray{ IdentityProviderTwitterArgs{...} }
 type IdentityProviderTwitterArrayInput interface {
 	pulumi.Input
 
@@ -216,7 +221,7 @@ func (i IdentityProviderTwitterArray) ToIdentityProviderTwitterArrayOutputWithCo
 // IdentityProviderTwitterMapInput is an input type that accepts IdentityProviderTwitterMap and IdentityProviderTwitterMapOutput values.
 // You can construct a concrete instance of `IdentityProviderTwitterMapInput` via:
 //
-//          IdentityProviderTwitterMap{ "key": IdentityProviderTwitterArgs{...} }
+//	IdentityProviderTwitterMap{ "key": IdentityProviderTwitterArgs{...} }
 type IdentityProviderTwitterMapInput interface {
 	pulumi.Input
 

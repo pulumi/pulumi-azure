@@ -17,31 +17,31 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleWorkspace = new Azure.SecurityCenter.Workspace("exampleWorkspace", new Azure.SecurityCenter.WorkspaceArgs
-    ///         {
-    ///             Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
-    ///             WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.SecurityCenter.Workspace("exampleWorkspace", new()
+    ///     {
+    ///         Scope = "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/workspace:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
@@ -111,7 +111,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
@@ -128,9 +128,10 @@ namespace Pulumi.Azure.SecurityCenter
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 
-    public sealed class WorkspaceState : Pulumi.ResourceArgs
+    public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The scope of VMs to send their security data to the desired workspace, unless overridden by a setting with more specific scope.
@@ -147,5 +148,6 @@ namespace Pulumi.Azure.SecurityCenter
         public WorkspaceState()
         {
         }
+        public static new WorkspaceState Empty => new WorkspaceState();
     }
 }

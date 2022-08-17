@@ -19,41 +19,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-// 			Location:                        exampleResourceGroup.Location,
-// 			ResourceGroupName:               exampleResourceGroup.Name,
-// 			AdministratorLogin:              pulumi.String("mysqladminun"),
-// 			AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
-// 			SkuName:                         pulumi.String("B_Gen5_2"),
-// 			StorageMb:                       pulumi.Int(5120),
-// 			Version:                         pulumi.String("5.7"),
-// 			AutoGrowEnabled:                 pulumi.Bool(true),
-// 			BackupRetentionDays:             pulumi.Int(7),
-// 			GeoRedundantBackupEnabled:       pulumi.Bool(false),
-// 			InfrastructureEncryptionEnabled: pulumi.Bool(false),
-// 			PublicNetworkAccessEnabled:      pulumi.Bool(true),
-// 			SslEnforcementEnabled:           pulumi.Bool(true),
-// 			SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
+//				Location:                        exampleResourceGroup.Location,
+//				ResourceGroupName:               exampleResourceGroup.Name,
+//				AdministratorLogin:              pulumi.String("mysqladminun"),
+//				AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
+//				SkuName:                         pulumi.String("B_Gen5_2"),
+//				StorageMb:                       pulumi.Int(5120),
+//				Version:                         pulumi.String("5.7"),
+//				AutoGrowEnabled:                 pulumi.Bool(true),
+//				BackupRetentionDays:             pulumi.Int(7),
+//				GeoRedundantBackupEnabled:       pulumi.Bool(false),
+//				InfrastructureEncryptionEnabled: pulumi.Bool(false),
+//				PublicNetworkAccessEnabled:      pulumi.Bool(true),
+//				SslEnforcementEnabled:           pulumi.Bool(true),
+//				SslMinimalTlsVersionEnforced:    pulumi.String("TLS1_2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -61,7 +64,9 @@ import (
 // MySQL Server's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mysql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1
+//
+//	$ pulumi import azure:mysql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1
+//
 // ```
 type Server struct {
 	pulumi.CustomResourceState
@@ -367,7 +372,7 @@ func (i *Server) ToServerOutputWithContext(ctx context.Context) ServerOutput {
 // ServerArrayInput is an input type that accepts ServerArray and ServerArrayOutput values.
 // You can construct a concrete instance of `ServerArrayInput` via:
 //
-//          ServerArray{ ServerArgs{...} }
+//	ServerArray{ ServerArgs{...} }
 type ServerArrayInput interface {
 	pulumi.Input
 
@@ -392,7 +397,7 @@ func (i ServerArray) ToServerArrayOutputWithContext(ctx context.Context) ServerA
 // ServerMapInput is an input type that accepts ServerMap and ServerMapOutput values.
 // You can construct a concrete instance of `ServerMapInput` via:
 //
-//          ServerMap{ "key": ServerArgs{...} }
+//	ServerMap{ "key": ServerArgs{...} }
 type ServerMapInput interface {
 	pulumi.Input
 

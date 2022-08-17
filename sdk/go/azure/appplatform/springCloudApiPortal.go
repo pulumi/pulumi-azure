@@ -13,62 +13,67 @@ import (
 
 // Manages a Spring Cloud API Portal.
 //
+// > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("E0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
-// 			SpringCloudServiceId: exampleSpringCloudService.ID(),
-// 			GatewayIds: pulumi.StringArray{
-// 				exampleSpringCloudGateway.ID(),
-// 			},
-// 			HttpsOnlyEnabled:           pulumi.Bool(false),
-// 			PublicNetworkAccessEnabled: pulumi.Bool(true),
-// 			InstanceCount:              pulumi.Int(1),
-// 			Sso: &appplatform.SpringCloudApiPortalSsoArgs{
-// 				ClientId:     pulumi.String("test"),
-// 				ClientSecret: pulumi.String("secret"),
-// 				IssuerUri:    pulumi.String("https://www.example.com/issueToken"),
-// 				Scopes: pulumi.StringArray{
-// 					pulumi.String("read"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("E0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
+//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				GatewayIds: pulumi.StringArray{
+//					exampleSpringCloudGateway.ID(),
+//				},
+//				HttpsOnlyEnabled:           pulumi.Bool(false),
+//				PublicNetworkAccessEnabled: pulumi.Bool(true),
+//				InstanceCount:              pulumi.Int(1),
+//				Sso: &appplatform.SpringCloudApiPortalSsoArgs{
+//					ClientId:     pulumi.String("test"),
+//					ClientSecret: pulumi.String("secret"),
+//					IssuerUri:    pulumi.String("https://www.example.com/issueToken"),
+//					Scopes: pulumi.StringArray{
+//						pulumi.String("read"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +81,9 @@ import (
 // Spring Cloud API Portals can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/apiPortals/apiPortal1
+//
+//	$ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/apiPortals/apiPortal1
+//
 // ```
 type SpringCloudApiPortal struct {
 	pulumi.CustomResourceState
@@ -233,7 +240,7 @@ func (i *SpringCloudApiPortal) ToSpringCloudApiPortalOutputWithContext(ctx conte
 // SpringCloudApiPortalArrayInput is an input type that accepts SpringCloudApiPortalArray and SpringCloudApiPortalArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalArrayInput` via:
 //
-//          SpringCloudApiPortalArray{ SpringCloudApiPortalArgs{...} }
+//	SpringCloudApiPortalArray{ SpringCloudApiPortalArgs{...} }
 type SpringCloudApiPortalArrayInput interface {
 	pulumi.Input
 
@@ -258,7 +265,7 @@ func (i SpringCloudApiPortalArray) ToSpringCloudApiPortalArrayOutputWithContext(
 // SpringCloudApiPortalMapInput is an input type that accepts SpringCloudApiPortalMap and SpringCloudApiPortalMapOutput values.
 // You can construct a concrete instance of `SpringCloudApiPortalMapInput` via:
 //
-//          SpringCloudApiPortalMap{ "key": SpringCloudApiPortalArgs{...} }
+//	SpringCloudApiPortalMap{ "key": SpringCloudApiPortalArgs{...} }
 type SpringCloudApiPortalMapInput interface {
 	pulumi.Input
 

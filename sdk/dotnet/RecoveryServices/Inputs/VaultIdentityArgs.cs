@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.RecoveryServices.Inputs
 {
 
-    public sealed class VaultIdentityArgs : Pulumi.ResourceArgs
+    public sealed class VaultIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         public VaultIdentityArgs()
         {
         }
+        public static new VaultIdentityArgs Empty => new VaultIdentityArgs();
     }
 }

@@ -19,23 +19,22 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicyDefintion.InvokeAsync(new Azure.Policy.GetPolicyDefintionArgs
-        ///         {
-        ///             DisplayName = "Allowed resource types",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         DisplayName = "Allowed resource types",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +50,22 @@ namespace Pulumi.Azure.Policy
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Policy.GetPolicyDefintion.InvokeAsync(new Azure.Policy.GetPolicyDefintionArgs
-        ///         {
-        ///             DisplayName = "Allowed resource types",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         DisplayName = "Allowed resource types",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +75,7 @@ namespace Pulumi.Azure.Policy
     }
 
 
-    public sealed class GetPolicyDefintionArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyDefintionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
@@ -100,9 +98,10 @@ namespace Pulumi.Azure.Policy
         public GetPolicyDefintionArgs()
         {
         }
+        public static new GetPolicyDefintionArgs Empty => new GetPolicyDefintionArgs();
     }
 
-    public sealed class GetPolicyDefintionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyDefintionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the display name of the Policy Definition. Conflicts with `name`.
@@ -125,6 +124,7 @@ namespace Pulumi.Azure.Policy
         public GetPolicyDefintionInvokeArgs()
         {
         }
+        public static new GetPolicyDefintionInvokeArgs Empty => new GetPolicyDefintionInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class IntegrationAccountAgreementHostIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountAgreementHostIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The authenticating body that provides unique host identities to organizations.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public IntegrationAccountAgreementHostIdentityGetArgs()
         {
         }
+        public static new IntegrationAccountAgreementHostIdentityGetArgs Empty => new IntegrationAccountAgreementHostIdentityGetArgs();
     }
 }

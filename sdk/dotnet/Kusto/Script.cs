@@ -15,80 +15,85 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Dev(No SLA)_Standard_D11_v2",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleBlob = new Azure.Storage.Blob("exampleBlob", new Azure.Storage.BlobArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             Type = "Block",
-    ///             SourceContent = ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
-    ///         });
-    ///         var exampleAccountBlobContainerSAS = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new Azure.Storage.GetAccountBlobContainerSASInvokeArgs
-    ///         {
-    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///             ContainerName = exampleContainer.Name,
-    ///             HttpsOnly = true,
-    ///             Start = "2017-03-21",
-    ///             Expiry = "2022-03-21",
-    ///             Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
-    ///             {
-    ///                 Read = true,
-    ///                 Add = false,
-    ///                 Create = false,
-    ///                 Write = true,
-    ///                 Delete = false,
-    ///                 List = true,
-    ///             },
-    ///         });
-    ///         var exampleScript = new Azure.Kusto.Script("exampleScript", new Azure.Kusto.ScriptArgs
-    ///         {
-    ///             DatabaseId = exampleDatabase.Id,
-    ///             Url = exampleBlob.Id,
-    ///             SasToken = exampleAccountBlobContainerSAS.Apply(exampleAccountBlobContainerSAS =&gt; exampleAccountBlobContainerSAS.Sas),
-    ///             ContinueOnErrorsEnabled = true,
-    ///             ForceAnUpdateWhenValueChanged = "first",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Dev(No SLA)_Standard_D11_v2",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         Type = "Block",
+    ///         SourceContent = ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
+    ///     });
+    /// 
+    ///     var exampleAccountBlobContainerSAS = Azure.Storage.GetAccountBlobContainerSAS.Invoke(new()
+    ///     {
+    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///         ContainerName = exampleContainer.Name,
+    ///         HttpsOnly = true,
+    ///         Start = "2017-03-21",
+    ///         Expiry = "2022-03-21",
+    ///         Permissions = new Azure.Storage.Inputs.GetAccountBlobContainerSASPermissionsInputArgs
+    ///         {
+    ///             Read = true,
+    ///             Add = false,
+    ///             Create = false,
+    ///             Write = true,
+    ///             Delete = false,
+    ///             List = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScript = new Azure.Kusto.Script("exampleScript", new()
+    ///     {
+    ///         DatabaseId = exampleDatabase.Id,
+    ///         Url = exampleBlob.Id,
+    ///         SasToken = exampleAccountBlobContainerSAS.Apply(getAccountBlobContainerSASResult =&gt; getAccountBlobContainerSASResult.Sas),
+    ///         ContinueOnErrorsEnabled = true,
+    ///         ForceAnUpdateWhenValueChanged = "first",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -100,7 +105,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/script:Script")]
-    public partial class Script : Pulumi.CustomResource
+    public partial class Script : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Flag that indicates whether to continue if one of the command fails.
@@ -188,7 +193,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class ScriptArgs : Pulumi.ResourceArgs
+    public sealed class ScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag that indicates whether to continue if one of the command fails.
@@ -235,9 +240,10 @@ namespace Pulumi.Azure.Kusto
         public ScriptArgs()
         {
         }
+        public static new ScriptArgs Empty => new ScriptArgs();
     }
 
-    public sealed class ScriptState : Pulumi.ResourceArgs
+    public sealed class ScriptState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Flag that indicates whether to continue if one of the command fails.
@@ -284,5 +290,6 @@ namespace Pulumi.Azure.Kusto
         public ScriptState()
         {
         }
+        public static new ScriptState Empty => new ScriptState();
     }
 }

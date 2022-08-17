@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyKeyPropertiesGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyKeyPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyKeyPropertiesGetArgs()
         {
         }
+        public static new CertifiateCertificatePolicyKeyPropertiesGetArgs Empty => new CertifiateCertificatePolicyKeyPropertiesGetArgs();
     }
 }

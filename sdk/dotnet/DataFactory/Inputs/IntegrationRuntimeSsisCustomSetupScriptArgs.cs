@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisCustomSetupScriptArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisCustomSetupScriptArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The blob endpoint for the container which contains a custom setup script that will be run on every node on startup. See [https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup) for more information.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisCustomSetupScriptArgs()
         {
         }
+        public static new IntegrationRuntimeSsisCustomSetupScriptArgs Empty => new IntegrationRuntimeSsisCustomSetupScriptArgs();
     }
 }

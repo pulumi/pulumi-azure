@@ -160,6 +160,9 @@ __all__ = [
     'GetImagesImageResult',
     'GetImagesImageDataDiskResult',
     'GetImagesImageOsDiskResult',
+    'GetManagedDiskEncryptionSettingResult',
+    'GetManagedDiskEncryptionSettingDiskEncryptionKeyResult',
+    'GetManagedDiskEncryptionSettingKeyEncryptionKeyResult',
     'GetSharedImageIdentifierResult',
     'GetSharedImageVersionTargetRegionResult',
     'GetSharedImageVersionsImageResult',
@@ -9191,6 +9194,100 @@ class GetImagesImageOsDiskResult(dict):
         the size of this Data Disk in GB.
         """
         return pulumi.get(self, "size_gb")
+
+
+@pulumi.output_type
+class GetManagedDiskEncryptionSettingResult(dict):
+    def __init__(__self__, *,
+                 disk_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult'],
+                 enabled: bool,
+                 key_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult']):
+        """
+        :param Sequence['GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs'] disk_encryption_keys: A `disk_encryption_key` block as defined above.
+        :param Sequence['GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs'] key_encryption_keys: A `key_encryption_key` block as defined below.
+        """
+        pulumi.set(__self__, "disk_encryption_keys", disk_encryption_keys)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "key_encryption_keys", key_encryption_keys)
+
+    @property
+    @pulumi.getter(name="diskEncryptionKeys")
+    def disk_encryption_keys(self) -> Sequence['outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult']:
+        """
+        A `disk_encryption_key` block as defined above.
+        """
+        return pulumi.get(self, "disk_encryption_keys")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeys")
+    def key_encryption_keys(self) -> Sequence['outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult']:
+        """
+        A `key_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "key_encryption_keys")
+
+
+@pulumi.output_type
+class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 secret_url: str,
+                 source_vault_id: str):
+        """
+        :param str secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> str:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
+
+
+@pulumi.output_type
+class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
+    def __init__(__self__, *,
+                 key_url: str,
+                 source_vault_id: str):
+        """
+        :param str key_url: The URL to the Key Vault Key used as the Key Encryption Key.
+        :param str source_vault_id: The ID of the source Key Vault.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "source_vault_id", source_vault_id)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> str:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key.
+        """
+        return pulumi.get(self, "key_url")
+
+    @property
+    @pulumi.getter(name="sourceVaultId")
+    def source_vault_id(self) -> str:
+        """
+        The ID of the source Key Vault.
+        """
+        return pulumi.get(self, "source_vault_id")
 
 
 @pulumi.output_type

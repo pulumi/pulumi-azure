@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class ConnectedRegistryNotificationGetArgs : Pulumi.ResourceArgs
+    public sealed class ConnectedRegistryNotificationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public ConnectedRegistryNotificationGetArgs()
         {
         }
+        public static new ConnectedRegistryNotificationGetArgs Empty => new ConnectedRegistryNotificationGetArgs();
     }
 }

@@ -19,25 +19,24 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetApplication.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetApplication.InvokeAsync(new Azure.Batch.GetApplicationArgs
-        ///         {
-        ///             Name = "testapplication",
-        ///             ResourceGroupName = "test",
-        ///             AccountName = "testbatchaccount",
-        ///         }));
-        ///         this.BatchApplicationId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "testapplication",
+        ///         ResourceGroupName = "test",
+        ///         AccountName = "testbatchaccount",
+        ///     });
         /// 
-        ///     [Output("batchApplicationId")]
-        ///     public Output&lt;string&gt; BatchApplicationId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["batchApplicationId"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.Batch
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Batch.GetApplication.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Batch.GetApplication.InvokeAsync(new Azure.Batch.GetApplicationArgs
-        ///         {
-        ///             Name = "testapplication",
-        ///             ResourceGroupName = "test",
-        ///             AccountName = "testbatchaccount",
-        ///         }));
-        ///         this.BatchApplicationId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "testapplication",
+        ///         ResourceGroupName = "test",
+        ///         AccountName = "testbatchaccount",
+        ///     });
         /// 
-        ///     [Output("batchApplicationId")]
-        ///     public Output&lt;string&gt; BatchApplicationId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["batchApplicationId"] = example.Apply(getApplicationResult =&gt; getApplicationResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.Batch
     }
 
 
-    public sealed class GetApplicationArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.Batch
         public GetApplicationArgs()
         {
         }
+        public static new GetApplicationArgs Empty => new GetApplicationArgs();
     }
 
-    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetApplicationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Batch account.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.Batch
         public GetApplicationInvokeArgs()
         {
         }
+        public static new GetApplicationInvokeArgs Empty => new GetApplicationInvokeArgs();
     }
 
 

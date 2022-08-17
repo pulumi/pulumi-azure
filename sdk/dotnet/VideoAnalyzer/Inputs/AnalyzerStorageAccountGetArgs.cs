@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.VideoAnalyzer.Inputs
 {
 
-    public sealed class AnalyzerStorageAccountGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerStorageAccountGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.VideoAnalyzer.Inputs
         public AnalyzerStorageAccountGetArgs()
         {
         }
+        public static new AnalyzerStorageAccountGetArgs Empty => new AnalyzerStorageAccountGetArgs();
     }
 }

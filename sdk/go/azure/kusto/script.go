@@ -19,94 +19,97 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/kusto"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &kusto.ClusterSkuArgs{
-// 				Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			ClusterName:       exampleCluster.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBlob, err := storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
-// 			StorageAccountName:   exampleAccount.Name,
-// 			StorageContainerName: exampleContainer.Name,
-// 			Type:                 pulumi.String("Block"),
-// 			SourceContent:        pulumi.String(".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccountBlobContainerSAS := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
-// 			ConnectionString: exampleAccount.PrimaryConnectionString,
-// 			ContainerName:    exampleContainer.Name,
-// 			HttpsOnly:        pulumi.Bool(true),
-// 			Start:            pulumi.String("2017-03-21"),
-// 			Expiry:           pulumi.String("2022-03-21"),
-// 			Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
-// 				Read:   pulumi.Bool(true),
-// 				Add:    pulumi.Bool(false),
-// 				Create: pulumi.Bool(false),
-// 				Write:  pulumi.Bool(true),
-// 				Delete: pulumi.Bool(false),
-// 				List:   pulumi.Bool(true),
-// 			},
-// 		}, nil)
-// 		_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
-// 			DatabaseId: exampleDatabase.ID(),
-// 			Url:        exampleBlob.ID(),
-// 			SasToken: exampleAccountBlobContainerSAS.ApplyT(func(exampleAccountBlobContainerSAS storage.GetAccountBlobContainerSASResult) (string, error) {
-// 				return exampleAccountBlobContainerSAS.Sas, nil
-// 			}).(pulumi.StringOutput),
-// 			ContinueOnErrorsEnabled:       pulumi.Bool(true),
-// 			ForceAnUpdateWhenValueChanged: pulumi.String("first"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &kusto.ClusterSkuArgs{
+//					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				ClusterName:       exampleCluster.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBlob, err := storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//				StorageAccountName:   exampleAccount.Name,
+//				StorageContainerName: exampleContainer.Name,
+//				Type:                 pulumi.String("Block"),
+//				SourceContent:        pulumi.String(".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccountBlobContainerSAS := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				ContainerName:    exampleContainer.Name,
+//				HttpsOnly:        pulumi.Bool(true),
+//				Start:            pulumi.String("2017-03-21"),
+//				Expiry:           pulumi.String("2022-03-21"),
+//				Permissions: &storage.GetAccountBlobContainerSASPermissionsArgs{
+//					Read:   pulumi.Bool(true),
+//					Add:    pulumi.Bool(false),
+//					Create: pulumi.Bool(false),
+//					Write:  pulumi.Bool(true),
+//					Delete: pulumi.Bool(false),
+//					List:   pulumi.Bool(true),
+//				},
+//			}, nil)
+//			_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
+//				DatabaseId: exampleDatabase.ID(),
+//				Url:        exampleBlob.ID(),
+//				SasToken: exampleAccountBlobContainerSAS.ApplyT(func(exampleAccountBlobContainerSAS storage.GetAccountBlobContainerSASResult) (string, error) {
+//					return exampleAccountBlobContainerSAS.Sas, nil
+//				}).(pulumi.StringOutput),
+//				ContinueOnErrorsEnabled:       pulumi.Bool(true),
+//				ForceAnUpdateWhenValueChanged: pulumi.String("first"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -114,7 +117,9 @@ import (
 // Kusto Scripts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Scripts/script1
+//
+//	$ pulumi import azure:kusto/script:Script example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Kusto/Clusters/cluster1/Databases/database1/Scripts/script1
+//
 // ```
 type Script struct {
 	pulumi.CustomResourceState
@@ -265,7 +270,7 @@ func (i *Script) ToScriptOutputWithContext(ctx context.Context) ScriptOutput {
 // ScriptArrayInput is an input type that accepts ScriptArray and ScriptArrayOutput values.
 // You can construct a concrete instance of `ScriptArrayInput` via:
 //
-//          ScriptArray{ ScriptArgs{...} }
+//	ScriptArray{ ScriptArgs{...} }
 type ScriptArrayInput interface {
 	pulumi.Input
 
@@ -290,7 +295,7 @@ func (i ScriptArray) ToScriptArrayOutputWithContext(ctx context.Context) ScriptA
 // ScriptMapInput is an input type that accepts ScriptMap and ScriptMapOutput values.
 // You can construct a concrete instance of `ScriptMapInput` via:
 //
-//          ScriptMap{ "key": ScriptArgs{...} }
+//	ScriptMap{ "key": ScriptArgs{...} }
 type ScriptMapInput interface {
 	pulumi.Input
 

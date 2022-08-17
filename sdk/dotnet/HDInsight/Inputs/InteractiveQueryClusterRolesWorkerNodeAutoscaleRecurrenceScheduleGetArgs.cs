@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("days", required: true)]
         private InputList<string>? _days;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs()
         {
         }
+        public static new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs Empty => new InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceScheduleGetArgs();
     }
 }

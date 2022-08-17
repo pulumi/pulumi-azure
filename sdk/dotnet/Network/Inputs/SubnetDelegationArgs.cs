@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class SubnetDelegationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetDelegationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A name for this delegation.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public SubnetDelegationArgs()
         {
         }
+        public static new SubnetDelegationArgs Empty => new SubnetDelegationArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineStorageOsDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineStorageOsDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements for the OS Disk. Possible values include `None`, `ReadOnly` and `ReadWrite`.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineStorageOsDiskGetArgs()
         {
         }
+        public static new VirtualMachineStorageOsDiskGetArgs Empty => new VirtualMachineStorageOsDiskGetArgs();
     }
 }

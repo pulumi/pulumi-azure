@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDestinationsGetArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDestinationsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `azure_monitor_metrics` block as defined above.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDestinationsGetArgs()
         {
         }
+        public static new DataCollectionRuleDestinationsGetArgs Empty => new DataCollectionRuleDestinationsGetArgs();
     }
 }

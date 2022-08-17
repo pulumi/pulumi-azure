@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupWebhookReceiverAadAuthArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupWebhookReceiverAadAuthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The identifier URI for AAD auth.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupWebhookReceiverAadAuthArgs()
         {
         }
+        public static new ActionGroupWebhookReceiverAadAuthArgs Empty => new ActionGroupWebhookReceiverAadAuthArgs();
     }
 }

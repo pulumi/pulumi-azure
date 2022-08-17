@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountCapabilityArgs : Pulumi.ResourceArgs
+    public sealed class AccountCapabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountCapabilityArgs()
         {
         }
+        public static new AccountCapabilityArgs Empty => new AccountCapabilityArgs();
     }
 }

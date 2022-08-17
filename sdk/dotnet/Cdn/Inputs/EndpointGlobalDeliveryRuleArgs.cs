@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointGlobalDeliveryRuleArgs : Pulumi.ResourceArgs
+    public sealed class EndpointGlobalDeliveryRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `cache_expiration_action` block as defined above.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointGlobalDeliveryRuleArgs()
         {
         }
+        public static new EndpointGlobalDeliveryRuleArgs Empty => new EndpointGlobalDeliveryRuleArgs();
     }
 }

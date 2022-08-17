@@ -15,52 +15,54 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "admin",
-    ///             AdministratorLoginPassword = "password",
-    ///         });
-    ///         var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new Azure.MSSql.DatabaseArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///         });
-    ///         var exampleReferenceInputMssql = new Azure.StreamAnalytics.ReferenceInputMssql("exampleReferenceInputMssql", new Azure.StreamAnalytics.ReferenceInputMssqlArgs
-    ///         {
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             Server = exampleServer.FullyQualifiedDomainName,
-    ///             Database = exampleDatabase.Name,
-    ///             Username = "exampleuser",
-    ///             Password = "examplepassword",
-    ///             RefreshType = "RefreshPeriodicallyWithFull",
-    ///             RefreshIntervalDuration = "00:20:00",
-    ///             FullSnapshotQuery = @"    SELECT *
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "admin",
+    ///         AdministratorLoginPassword = "password",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///     });
+    /// 
+    ///     var exampleReferenceInputMssql = new Azure.StreamAnalytics.ReferenceInputMssql("exampleReferenceInputMssql", new()
+    ///     {
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         Server = exampleServer.FullyQualifiedDomainName,
+    ///         Database = exampleDatabase.Name,
+    ///         Username = "exampleuser",
+    ///         Password = "examplepassword",
+    ///         RefreshType = "RefreshPeriodicallyWithFull",
+    ///         RefreshIntervalDuration = "00:20:00",
+    ///         FullSnapshotQuery = @"    SELECT *
     ///     INTO [YourOutputAlias]
     ///     FROM [YourInputAlias]
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +74,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/referenceInputMssql:ReferenceInputMssql")]
-    public partial class ReferenceInputMssql : Pulumi.CustomResource
+    public partial class ReferenceInputMssql : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The MS SQL database name where the reference data exists.
@@ -184,7 +186,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class ReferenceInputMssqlArgs : Pulumi.ResourceArgs
+    public sealed class ReferenceInputMssqlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The MS SQL database name where the reference data exists.
@@ -255,9 +257,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public ReferenceInputMssqlArgs()
         {
         }
+        public static new ReferenceInputMssqlArgs Empty => new ReferenceInputMssqlArgs();
     }
 
-    public sealed class ReferenceInputMssqlState : Pulumi.ResourceArgs
+    public sealed class ReferenceInputMssqlState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The MS SQL database name where the reference data exists.
@@ -328,5 +331,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public ReferenceInputMssqlState()
         {
         }
+        public static new ReferenceInputMssqlState Empty => new ReferenceInputMssqlState();
     }
 }

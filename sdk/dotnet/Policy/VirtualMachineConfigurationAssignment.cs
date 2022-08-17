@@ -17,126 +17,130 @@ namespace Pulumi.Azure.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "internal",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new Azure.Compute.WindowsVirtualMachineArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Size = "Standard_F2",
-    ///             AdminUsername = "adminuser",
-    ///             AdminPassword = "P@$$w0rd1234!",
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 exampleNetworkInterface.Id,
-    ///             },
-    ///             Identity = new Azure.Compute.Inputs.WindowsVirtualMachineIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
-    ///             {
-    ///                 Caching = "ReadWrite",
-    ///                 StorageAccountType = "Standard_LRS",
-    ///             },
-    ///             SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineSourceImageReferenceArgs
-    ///             {
-    ///                 Publisher = "MicrosoftWindowsServer",
-    ///                 Offer = "WindowsServer",
-    ///                 Sku = "2019-Datacenter",
-    ///                 Version = "latest",
-    ///             },
-    ///         });
-    ///         var exampleExtension = new Azure.Compute.Extension("exampleExtension", new Azure.Compute.ExtensionArgs
-    ///         {
-    ///             VirtualMachineId = exampleWindowsVirtualMachine.Id,
-    ///             Publisher = "Microsoft.GuestConfiguration",
-    ///             Type = "ConfigurationforWindows",
-    ///             TypeHandlerVersion = "1.0",
-    ///             AutoUpgradeMinorVersion = true,
-    ///         });
-    ///         var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", new Azure.Policy.VirtualMachineConfigurationAssignmentArgs
-    ///         {
-    ///             Location = exampleWindowsVirtualMachine.Location,
-    ///             VirtualMachineId = exampleWindowsVirtualMachine.Id,
-    ///             Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs
-    ///             {
-    ///                 AssignmentType = "ApplyAndMonitor",
-    ///                 Version = "1.*",
-    ///                 Parameters = 
-    ///                 {
-    ///                     new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
-    ///                     {
-    ///                         Name = "Minimum Password Length;ExpectedValue",
-    ///                         Value = "16",
-    ///                     },
-    ///                     new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
-    ///                     {
-    ///                         Name = "Minimum Password Age;ExpectedValue",
-    ///                         Value = "0",
-    ///                     },
-    ///                     new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
-    ///                     {
-    ///                         Name = "Maximum Password Age;ExpectedValue",
-    ///                         Value = "30,45",
-    ///                     },
-    ///                     new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
-    ///                     {
-    ///                         Name = "Enforce Password History;ExpectedValue",
-    ///                         Value = "10",
-    ///                     },
-    ///                     new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
-    ///                     {
-    ///                         Name = "Password Must Meet Complexity Requirements;ExpectedValue",
-    ///                         Value = "1",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         AdminPassword = "P@$$w0rd1234!",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         Identity = new Azure.Compute.Inputs.WindowsVirtualMachineIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.WindowsVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.WindowsVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "MicrosoftWindowsServer",
+    ///             Offer = "WindowsServer",
+    ///             Sku = "2019-Datacenter",
+    ///             Version = "latest",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     {
+    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///         Publisher = "Microsoft.GuestConfiguration",
+    ///         Type = "ConfigurationforWindows",
+    ///         TypeHandlerVersion = "1.0",
+    ///         AutoUpgradeMinorVersion = true,
+    ///     });
+    /// 
+    ///     var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", new()
+    ///     {
+    ///         Location = exampleWindowsVirtualMachine.Location,
+    ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
+    ///         Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs
+    ///         {
+    ///             AssignmentType = "ApplyAndMonitor",
+    ///             Version = "1.*",
+    ///             Parameters = new[]
+    ///             {
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Minimum Password Length;ExpectedValue",
+    ///                     Value = "16",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Minimum Password Age;ExpectedValue",
+    ///                     Value = "0",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Maximum Password Age;ExpectedValue",
+    ///                     Value = "30,45",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Enforce Password History;ExpectedValue",
+    ///                     Value = "10",
+    ///                 },
+    ///                 new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs
+    ///                 {
+    ///                     Name = "Password Must Meet Complexity Requirements;ExpectedValue",
+    ///                     Value = "1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -148,7 +152,7 @@ namespace Pulumi.Azure.Policy
     /// ```
     /// </summary>
     [AzureResourceType("azure:policy/virtualMachineConfigurationAssignment:VirtualMachineConfigurationAssignment")]
-    public partial class VirtualMachineConfigurationAssignment : Pulumi.CustomResource
+    public partial class VirtualMachineConfigurationAssignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `configuration` block as defined below.
@@ -218,7 +222,7 @@ namespace Pulumi.Azure.Policy
         }
     }
 
-    public sealed class VirtualMachineConfigurationAssignmentArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationAssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `configuration` block as defined below.
@@ -247,9 +251,10 @@ namespace Pulumi.Azure.Policy
         public VirtualMachineConfigurationAssignmentArgs()
         {
         }
+        public static new VirtualMachineConfigurationAssignmentArgs Empty => new VirtualMachineConfigurationAssignmentArgs();
     }
 
-    public sealed class VirtualMachineConfigurationAssignmentState : Pulumi.ResourceArgs
+    public sealed class VirtualMachineConfigurationAssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `configuration` block as defined below.
@@ -278,5 +283,6 @@ namespace Pulumi.Azure.Policy
         public VirtualMachineConfigurationAssignmentState()
         {
         }
+        public static new VirtualMachineConfigurationAssignmentState Empty => new VirtualMachineConfigurationAssignmentState();
     }
 }

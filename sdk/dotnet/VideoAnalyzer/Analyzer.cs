@@ -17,73 +17,76 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var contributor = new Azure.Authorization.Assignment("contributor", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Storage Blob Data Contributor",
-    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-    ///         });
-    ///         var reader = new Azure.Authorization.Assignment("reader", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleAccount.Id,
-    ///             RoleDefinitionName = "Reader",
-    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-    ///         });
-    ///         var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("exampleAnalyzer", new Azure.VideoAnalyzer.AnalyzerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccount = new Azure.VideoAnalyzer.Inputs.AnalyzerStorageAccountArgs
-    ///             {
-    ///                 Id = exampleAccount.Id,
-    ///                 UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
-    ///             },
-    ///             Identity = new Azure.VideoAnalyzer.Inputs.AnalyzerIdentityArgs
-    ///             {
-    ///                 Type = "UserAssigned",
-    ///                 IdentityIds = 
-    ///                 {
-    ///                     exampleUserAssignedIdentity.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 contributor,
-    ///                 reader,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var contributor = new Azure.Authorization.Assignment("contributor", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var reader = new Azure.Authorization.Assignment("reader", new()
+    ///     {
+    ///         Scope = exampleAccount.Id,
+    ///         RoleDefinitionName = "Reader",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccount = new Azure.VideoAnalyzer.Inputs.AnalyzerStorageAccountArgs
+    ///         {
+    ///             Id = exampleAccount.Id,
+    ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
+    ///         },
+    ///         Identity = new Azure.VideoAnalyzer.Inputs.AnalyzerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 exampleUserAssignedIdentity.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             contributor,
+    ///             reader,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -95,7 +98,7 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// ```
     /// </summary>
     [AzureResourceType("azure:videoanalyzer/analyzer:Analyzer")]
-    public partial class Analyzer : Pulumi.CustomResource
+    public partial class Analyzer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -177,7 +180,7 @@ namespace Pulumi.Azure.VideoAnalyzer
         }
     }
 
-    public sealed class AnalyzerArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -224,9 +227,10 @@ namespace Pulumi.Azure.VideoAnalyzer
         public AnalyzerArgs()
         {
         }
+        public static new AnalyzerArgs Empty => new AnalyzerArgs();
     }
 
-    public sealed class AnalyzerState : Pulumi.ResourceArgs
+    public sealed class AnalyzerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -273,5 +277,6 @@ namespace Pulumi.Azure.VideoAnalyzer
         public AnalyzerState()
         {
         }
+        public static new AnalyzerState Empty => new AnalyzerState();
     }
 }

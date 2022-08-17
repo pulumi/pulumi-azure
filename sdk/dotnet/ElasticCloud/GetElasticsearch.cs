@@ -19,27 +19,24 @@ namespace Pulumi.Azure.ElasticCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ElasticCloud.GetElasticsearch.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ElasticCloud.GetElasticsearch.InvokeAsync(new Azure.ElasticCloud.GetElasticsearchArgs
-        ///         {
-        ///             Name = "my-elastic-search",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.ElasticsearchEndpoint = example.Apply(example =&gt; example.ElasticsearchServiceUrl);
-        ///         this.KibanaEndpoint = example.Apply(example =&gt; example.KibanaServiceUrl);
-        ///     }
+        ///         Name = "my-elastic-search",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("elasticsearchEndpoint")]
-        ///     public Output&lt;string&gt; ElasticsearchEndpoint { get; set; }
-        ///     [Output("kibanaEndpoint")]
-        ///     public Output&lt;string&gt; KibanaEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticsearchEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.ElasticsearchServiceUrl),
+        ///         ["kibanaEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.KibanaServiceUrl),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,27 +52,24 @@ namespace Pulumi.Azure.ElasticCloud
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ElasticCloud.GetElasticsearch.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ElasticCloud.GetElasticsearch.InvokeAsync(new Azure.ElasticCloud.GetElasticsearchArgs
-        ///         {
-        ///             Name = "my-elastic-search",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.ElasticsearchEndpoint = example.Apply(example =&gt; example.ElasticsearchServiceUrl);
-        ///         this.KibanaEndpoint = example.Apply(example =&gt; example.KibanaServiceUrl);
-        ///     }
+        ///         Name = "my-elastic-search",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("elasticsearchEndpoint")]
-        ///     public Output&lt;string&gt; ElasticsearchEndpoint { get; set; }
-        ///     [Output("kibanaEndpoint")]
-        ///     public Output&lt;string&gt; KibanaEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticsearchEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.ElasticsearchServiceUrl),
+        ///         ["kibanaEndpoint"] = example.Apply(getElasticsearchResult =&gt; getElasticsearchResult.KibanaServiceUrl),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -85,7 +79,7 @@ namespace Pulumi.Azure.ElasticCloud
     }
 
 
-    public sealed class GetElasticsearchArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticsearchArgs : global::Pulumi.InvokeArgs
     {
         [Input("logs")]
         private List<Inputs.GetElasticsearchLogArgs>? _logs;
@@ -114,9 +108,10 @@ namespace Pulumi.Azure.ElasticCloud
         public GetElasticsearchArgs()
         {
         }
+        public static new GetElasticsearchArgs Empty => new GetElasticsearchArgs();
     }
 
-    public sealed class GetElasticsearchInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticsearchInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("logs")]
         private InputList<Inputs.GetElasticsearchLogInputArgs>? _logs;
@@ -145,6 +140,7 @@ namespace Pulumi.Azure.ElasticCloud
         public GetElasticsearchInvokeArgs()
         {
         }
+        public static new GetElasticsearchInvokeArgs Empty => new GetElasticsearchInvokeArgs();
     }
 
 

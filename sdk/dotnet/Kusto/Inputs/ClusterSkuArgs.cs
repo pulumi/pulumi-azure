@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto.Inputs
 {
 
-    public sealed class ClusterSkuArgs : Pulumi.ResourceArgs
+    public sealed class ClusterSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the node count for the cluster. Boundaries depend on the SKU name.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Kusto.Inputs
         public ClusterSkuArgs()
         {
         }
+        public static new ClusterSkuArgs Empty => new ClusterSkuArgs();
     }
 }

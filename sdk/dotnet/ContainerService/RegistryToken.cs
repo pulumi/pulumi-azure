@@ -13,54 +13,55 @@ namespace Pulumi.Azure.ContainerService
     /// Manages an Azure Container Registry token. Tokens are a preview feature only available in Premium SKU Container registries.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = "Premium",
-    ///             AdminEnabled = false,
-    ///             Georeplications = 
-    ///             {
-    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///                 {
-    ///                     Location = "East US",
-    ///                 },
-    ///                 new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
-    ///                 {
-    ///                     Location = "West Europe",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new Azure.ContainerService.RegistryScopeMapArgs
-    ///         {
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Actions = 
-    ///             {
-    ///                 "repositories/repo1/content/read",
-    ///                 "repositories/repo1/content/write",
-    ///             },
-    ///         });
-    ///         var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new Azure.ContainerService.RegistryTokenArgs
-    ///         {
-    ///             ContainerRegistryName = exampleRegistry.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ScopeMapId = exampleRegistryScopeMap.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = "Premium",
+    ///         AdminEnabled = false,
+    ///         Georeplications = new[]
+    ///         {
+    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             {
+    ///                 Location = "East US",
+    ///             },
+    ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
+    ///             {
+    ///                 Location = "West Europe",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/repo1/content/read",
+    ///             "repositories/repo1/content/write",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new()
+    ///     {
+    ///         ContainerRegistryName = exampleRegistry.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ScopeMapId = exampleRegistryScopeMap.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -72,7 +73,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryToken:RegistryToken")]
-    public partial class RegistryToken : Pulumi.CustomResource
+    public partial class RegistryToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Container Registry. Changing this forces a new resource to be created.
@@ -148,7 +149,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class RegistryTokenArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Container Registry. Changing this forces a new resource to be created.
@@ -183,9 +184,10 @@ namespace Pulumi.Azure.ContainerService
         public RegistryTokenArgs()
         {
         }
+        public static new RegistryTokenArgs Empty => new RegistryTokenArgs();
     }
 
-    public sealed class RegistryTokenState : Pulumi.ResourceArgs
+    public sealed class RegistryTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Container Registry. Changing this forces a new resource to be created.
@@ -220,5 +222,6 @@ namespace Pulumi.Azure.ContainerService
         public RegistryTokenState()
         {
         }
+        public static new RegistryTokenState Empty => new RegistryTokenState();
     }
 }

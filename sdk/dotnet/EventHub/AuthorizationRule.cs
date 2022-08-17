@@ -15,47 +15,48 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Basic",
-    ///             Capacity = 2,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 2,
-    ///         });
-    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Listen = true,
-    ///             Send = false,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Basic",
+    ///         Capacity = 2,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 2,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +68,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/authorizationRule:AuthorizationRule")]
-    public partial class AuthorizationRule : Pulumi.CustomResource
+    public partial class AuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -172,7 +173,7 @@ namespace Pulumi.Azure.EventHub
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/eventHubAuthorizationRule:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +196,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class AuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -242,9 +243,10 @@ namespace Pulumi.Azure.EventHub
         public AuthorizationRuleArgs()
         {
         }
+        public static new AuthorizationRuleArgs Empty => new AuthorizationRuleArgs();
     }
 
-    public sealed class AuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class AuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -327,5 +329,6 @@ namespace Pulumi.Azure.EventHub
         public AuthorizationRuleState()
         {
         }
+        public static new AuthorizationRuleState Empty => new AuthorizationRuleState();
     }
 }

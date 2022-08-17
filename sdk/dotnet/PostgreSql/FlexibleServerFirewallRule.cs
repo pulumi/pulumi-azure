@@ -15,36 +15,36 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12",
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             StorageMb = 32768,
-    ///             SkuName = "GP_Standard_D4s_v3",
-    ///         });
-    ///         var exampleFlexibleServerFirewallRule = new Azure.PostgreSql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new Azure.PostgreSql.FlexibleServerFirewallRuleArgs
-    ///         {
-    ///             ServerId = exampleFlexibleServer.Id,
-    ///             StartIpAddress = "122.122.0.0",
-    ///             EndIpAddress = "122.122.0.0",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerFirewallRule = new Azure.PostgreSql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         StartIpAddress = "122.122.0.0",
+    ///         EndIpAddress = "122.122.0.0",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule")]
-    public partial class FlexibleServerFirewallRule : Pulumi.CustomResource
+    public partial class FlexibleServerFirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
@@ -126,7 +126,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class FlexibleServerFirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerFirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
@@ -155,9 +155,10 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerFirewallRuleArgs()
         {
         }
+        public static new FlexibleServerFirewallRuleArgs Empty => new FlexibleServerFirewallRuleArgs();
     }
 
-    public sealed class FlexibleServerFirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerFirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
@@ -186,5 +187,6 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerFirewallRuleState()
         {
         }
+        public static new FlexibleServerFirewallRuleState Empty => new FlexibleServerFirewallRuleState();
     }
 }

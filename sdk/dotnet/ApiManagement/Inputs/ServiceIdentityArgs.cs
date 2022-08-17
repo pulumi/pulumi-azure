@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServiceIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceIdentityArgs()
         {
         }
+        public static new ServiceIdentityArgs Empty => new ServiceIdentityArgs();
     }
 }

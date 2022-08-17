@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class FunctionAppSourceControlGetArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppSourceControlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch of the remote repository to use. Defaults to 'master'.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public FunctionAppSourceControlGetArgs()
         {
         }
+        public static new FunctionAppSourceControlGetArgs Empty => new FunctionAppSourceControlGetArgs();
     }
 }

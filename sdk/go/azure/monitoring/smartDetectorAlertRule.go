@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewSmartDetectorAlertRule(ctx, "exampleSmartDetectorAlertRule", &monitoring.SmartDetectorAlertRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Severity:          pulumi.String("Sev0"),
-// 			ScopeResourceIds: pulumi.StringArray{
-// 				exampleInsights.ID(),
-// 			},
-// 			Frequency:    pulumi.String("PT1M"),
-// 			DetectorType: pulumi.String("FailureAnomaliesDetector"),
-// 			ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
-// 				Ids: pulumi.StringArray{
-// 					exampleActionGroup.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewSmartDetectorAlertRule(ctx, "exampleSmartDetectorAlertRule", &monitoring.SmartDetectorAlertRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Severity:          pulumi.String("Sev0"),
+//				ScopeResourceIds: pulumi.StringArray{
+//					exampleInsights.ID(),
+//				},
+//				Frequency:    pulumi.String("PT1M"),
+//				DetectorType: pulumi.String("FailureAnomaliesDetector"),
+//				ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
+//					Ids: pulumi.StringArray{
+//						exampleActionGroup.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // Monitor Smart Detector Alert Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartdetectoralertrules/rule1
+//
+//	$ pulumi import azure:monitoring/smartDetectorAlertRule:SmartDetectorAlertRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/smartdetectoralertrules/rule1
+//
 // ```
 type SmartDetectorAlertRule struct {
 	pulumi.CustomResourceState
@@ -281,7 +286,7 @@ func (i *SmartDetectorAlertRule) ToSmartDetectorAlertRuleOutputWithContext(ctx c
 // SmartDetectorAlertRuleArrayInput is an input type that accepts SmartDetectorAlertRuleArray and SmartDetectorAlertRuleArrayOutput values.
 // You can construct a concrete instance of `SmartDetectorAlertRuleArrayInput` via:
 //
-//          SmartDetectorAlertRuleArray{ SmartDetectorAlertRuleArgs{...} }
+//	SmartDetectorAlertRuleArray{ SmartDetectorAlertRuleArgs{...} }
 type SmartDetectorAlertRuleArrayInput interface {
 	pulumi.Input
 
@@ -306,7 +311,7 @@ func (i SmartDetectorAlertRuleArray) ToSmartDetectorAlertRuleArrayOutputWithCont
 // SmartDetectorAlertRuleMapInput is an input type that accepts SmartDetectorAlertRuleMap and SmartDetectorAlertRuleMapOutput values.
 // You can construct a concrete instance of `SmartDetectorAlertRuleMapInput` via:
 //
-//          SmartDetectorAlertRuleMap{ "key": SmartDetectorAlertRuleArgs{...} }
+//	SmartDetectorAlertRuleMap{ "key": SmartDetectorAlertRuleArgs{...} }
 type SmartDetectorAlertRuleMapInput interface {
 	pulumi.Input
 

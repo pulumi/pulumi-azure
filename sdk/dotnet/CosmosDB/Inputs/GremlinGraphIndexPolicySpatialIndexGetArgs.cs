@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphIndexPolicySpatialIndexGetArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphIndexPolicySpatialIndexGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
@@ -29,5 +29,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphIndexPolicySpatialIndexGetArgs()
         {
         }
+        public static new GremlinGraphIndexPolicySpatialIndexGetArgs Empty => new GremlinGraphIndexPolicySpatialIndexGetArgs();
     }
 }

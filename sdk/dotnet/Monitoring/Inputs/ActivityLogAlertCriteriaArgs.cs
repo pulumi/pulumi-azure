@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActivityLogAlertCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class ActivityLogAlertCriteriaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The email address or Azure Active Directory identifier of the user who performed the operation.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActivityLogAlertCriteriaArgs()
         {
         }
+        public static new ActivityLogAlertCriteriaArgs Empty => new ActivityLogAlertCriteriaArgs();
     }
 }

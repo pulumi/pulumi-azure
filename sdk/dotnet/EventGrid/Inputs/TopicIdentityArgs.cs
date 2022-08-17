@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventGrid.Inputs
 {
 
-    public sealed class TopicIdentityArgs : Pulumi.ResourceArgs
+    public sealed class TopicIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.EventGrid.Inputs
         public TopicIdentityArgs()
         {
         }
+        public static new TopicIdentityArgs Empty => new TopicIdentityArgs();
     }
 }

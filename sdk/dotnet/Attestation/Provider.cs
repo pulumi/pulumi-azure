@@ -15,27 +15,26 @@ namespace Pulumi.Azure.Attestation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleProvider = new Azure.Attestation.Provider("exampleProvider", new Azure.Attestation.ProviderArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             PolicySigningCertificateData = File.ReadAllText("./example/cert.pem"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleProvider = new Azure.Attestation.Provider("exampleProvider", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         PolicySigningCertificateData = File.ReadAllText("./example/cert.pem"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.Attestation
     /// ```
     /// </summary>
     [AzureResourceType("azure:attestation/provider:Provider")]
-    public partial class Provider : Pulumi.CustomResource
+    public partial class Provider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URI of the Attestation Service.
@@ -135,7 +134,7 @@ namespace Pulumi.Azure.Attestation
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Attestation Provider should exist. Changing this forces a new resource to be created.
@@ -176,9 +175,10 @@ namespace Pulumi.Azure.Attestation
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 
-    public sealed class ProviderState : Pulumi.ResourceArgs
+    public sealed class ProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URI of the Attestation Service.
@@ -231,5 +231,6 @@ namespace Pulumi.Azure.Attestation
         public ProviderState()
         {
         }
+        public static new ProviderState Empty => new ProviderState();
     }
 }

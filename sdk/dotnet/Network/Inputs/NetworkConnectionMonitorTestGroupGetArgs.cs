@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestGroupGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestGroupGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("destinationEndpoints", required: true)]
         private InputList<string>? _destinationEndpoints;
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestGroupGetArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestGroupGetArgs Empty => new NetworkConnectionMonitorTestGroupGetArgs();
     }
 }

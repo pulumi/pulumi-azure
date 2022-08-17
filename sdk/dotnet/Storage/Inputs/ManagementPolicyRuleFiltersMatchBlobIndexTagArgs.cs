@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleFiltersMatchBlobIndexTagArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The filter tag name used for tag based filtering for blob objects.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ManagementPolicyRuleFiltersMatchBlobIndexTagArgs()
         {
         }
+        public static new ManagementPolicyRuleFiltersMatchBlobIndexTagArgs Empty => new ManagementPolicyRuleFiltersMatchBlobIndexTagArgs();
     }
 }

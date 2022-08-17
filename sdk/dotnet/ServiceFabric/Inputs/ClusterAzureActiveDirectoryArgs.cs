@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterAzureActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class ClusterAzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Active Directory Client ID which should be used for the Client Application.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterAzureActiveDirectoryArgs()
         {
         }
+        public static new ClusterAzureActiveDirectoryArgs Empty => new ClusterAzureActiveDirectoryArgs();
     }
 }

@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PrefixLength:      pulumi.Int(30),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "exampleNatGatewayPublicIpPrefixAssociation", &network.NatGatewayPublicIpPrefixAssociationArgs{
-// 			NatGatewayId:     exampleNatGateway.ID(),
-// 			PublicIpPrefixId: examplePublicIpPrefix.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "examplePublicIpPrefix", &network.PublicIpPrefixArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PrefixLength:      pulumi.Int(30),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "exampleNatGatewayPublicIpPrefixAssociation", &network.NatGatewayPublicIpPrefixAssociationArgs{
+//				NatGatewayId:     exampleNatGateway.ID(),
+//				PublicIpPrefixId: examplePublicIpPrefix.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
+//
+//	$ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
+//
 // ```
 type NatGatewayPublicIpPrefixAssociation struct {
 	pulumi.CustomResourceState
@@ -172,7 +177,7 @@ func (i *NatGatewayPublicIpPrefixAssociation) ToNatGatewayPublicIpPrefixAssociat
 // NatGatewayPublicIpPrefixAssociationArrayInput is an input type that accepts NatGatewayPublicIpPrefixAssociationArray and NatGatewayPublicIpPrefixAssociationArrayOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpPrefixAssociationArrayInput` via:
 //
-//          NatGatewayPublicIpPrefixAssociationArray{ NatGatewayPublicIpPrefixAssociationArgs{...} }
+//	NatGatewayPublicIpPrefixAssociationArray{ NatGatewayPublicIpPrefixAssociationArgs{...} }
 type NatGatewayPublicIpPrefixAssociationArrayInput interface {
 	pulumi.Input
 
@@ -197,7 +202,7 @@ func (i NatGatewayPublicIpPrefixAssociationArray) ToNatGatewayPublicIpPrefixAsso
 // NatGatewayPublicIpPrefixAssociationMapInput is an input type that accepts NatGatewayPublicIpPrefixAssociationMap and NatGatewayPublicIpPrefixAssociationMapOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpPrefixAssociationMapInput` via:
 //
-//          NatGatewayPublicIpPrefixAssociationMap{ "key": NatGatewayPublicIpPrefixAssociationArgs{...} }
+//	NatGatewayPublicIpPrefixAssociationMap{ "key": NatGatewayPublicIpPrefixAssociationArgs{...} }
 type NatGatewayPublicIpPrefixAssociationMapInput interface {
 	pulumi.Input
 

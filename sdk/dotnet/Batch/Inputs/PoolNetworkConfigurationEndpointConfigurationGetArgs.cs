@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolNetworkConfigurationEndpointConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolNetworkConfigurationEndpointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolNetworkConfigurationEndpointConfigurationGetArgs()
         {
         }
+        public static new PoolNetworkConfigurationEndpointConfigurationGetArgs Empty => new PoolNetworkConfigurationEndpointConfigurationGetArgs();
     }
 }

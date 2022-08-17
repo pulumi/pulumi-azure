@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleUrlGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleUrlGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL path to rewrite.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayRewriteRuleSetRewriteRuleUrlGetArgs()
         {
         }
+        public static new ApplicationGatewayRewriteRuleSetRewriteRuleUrlGetArgs Empty => new ApplicationGatewayRewriteRuleSetRewriteRuleUrlGetArgs();
     }
 }

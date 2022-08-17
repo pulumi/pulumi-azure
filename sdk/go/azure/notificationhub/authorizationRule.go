@@ -19,50 +19,53 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/notificationhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			NamespaceType:     pulumi.String("NotificationHub"),
-// 			SkuName:           pulumi.String("Free"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHub, err := notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
-// 			NamespaceName:     exampleNamespace.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = notificationhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &notificationhub.AuthorizationRuleArgs{
-// 			NotificationHubName: exampleHub.Name,
-// 			NamespaceName:       exampleNamespace.Name,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Manage:              pulumi.Bool(true),
-// 			Send:                pulumi.Bool(true),
-// 			Listen:              pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				NamespaceType:     pulumi.String("NotificationHub"),
+//				SkuName:           pulumi.String("Free"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHub, err := notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
+//				NamespaceName:     exampleNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = notificationhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &notificationhub.AuthorizationRuleArgs{
+//				NotificationHubName: exampleHub.Name,
+//				NamespaceName:       exampleNamespace.Name,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Manage:              pulumi.Bool(true),
+//				Send:                pulumi.Bool(true),
+//				Listen:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -70,7 +73,9 @@ import (
 // Notification Hub Authorization Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1/authorizationRules/rule1
+//
+//	$ pulumi import azure:notificationhub/authorizationRule:AuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1/authorizationRules/rule1
+//
 // ```
 type AuthorizationRule struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *AuthorizationRule) ToAuthorizationRuleOutputWithContext(ctx context.Con
 // AuthorizationRuleArrayInput is an input type that accepts AuthorizationRuleArray and AuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `AuthorizationRuleArrayInput` via:
 //
-//          AuthorizationRuleArray{ AuthorizationRuleArgs{...} }
+//	AuthorizationRuleArray{ AuthorizationRuleArgs{...} }
 type AuthorizationRuleArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i AuthorizationRuleArray) ToAuthorizationRuleArrayOutputWithContext(ctx co
 // AuthorizationRuleMapInput is an input type that accepts AuthorizationRuleMap and AuthorizationRuleMapOutput values.
 // You can construct a concrete instance of `AuthorizationRuleMapInput` via:
 //
-//          AuthorizationRuleMap{ "key": AuthorizationRuleArgs{...} }
+//	AuthorizationRuleMap{ "key": AuthorizationRuleArgs{...} }
 type AuthorizationRuleMapInput interface {
 	pulumi.Input
 

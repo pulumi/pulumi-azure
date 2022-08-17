@@ -15,79 +15,83 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///             HotCachePeriod = "P7D",
-    ///             SoftDeletePeriod = "P31D",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "B1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("exampleSharedAccessPolicy", new Azure.Iot.SharedAccessPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
-    ///             RegistryRead = true,
-    ///         });
-    ///         var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("exampleConsumerGroup", new Azure.Iot.ConsumerGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubName = exampleIoTHub.Name,
-    ///             EventhubEndpointName = "events",
-    ///         });
-    ///         var exampleIotHubDataConnection = new Azure.Kusto.IotHubDataConnection("exampleIotHubDataConnection", new Azure.Kusto.IotHubDataConnectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClusterName = exampleCluster.Name,
-    ///             DatabaseName = exampleDatabase.Name,
-    ///             IothubId = exampleIoTHub.Id,
-    ///             ConsumerGroup = exampleConsumerGroup.Name,
-    ///             SharedAccessPolicyName = exampleSharedAccessPolicy.Name,
-    ///             EventSystemProperties = 
-    ///             {
-    ///                 "message-id",
-    ///                 "sequence-number",
-    ///                 "to",
-    ///             },
-    ///             TableName = "my-table",
-    ///             MappingRuleName = "my-table-mapping",
-    ///             DataFormat = "JSON",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "B1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSharedAccessPolicy = new Azure.Iot.SharedAccessPolicy("exampleSharedAccessPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubName = exampleIoTHub.Name,
+    ///         RegistryRead = true,
+    ///     });
+    /// 
+    ///     var exampleConsumerGroup = new Azure.Iot.ConsumerGroup("exampleConsumerGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubName = exampleIoTHub.Name,
+    ///         EventhubEndpointName = "events",
+    ///     });
+    /// 
+    ///     var exampleIotHubDataConnection = new Azure.Kusto.IotHubDataConnection("exampleIotHubDataConnection", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClusterName = exampleCluster.Name,
+    ///         DatabaseName = exampleDatabase.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         ConsumerGroup = exampleConsumerGroup.Name,
+    ///         SharedAccessPolicyName = exampleSharedAccessPolicy.Name,
+    ///         EventSystemProperties = new[]
+    ///         {
+    ///             "message-id",
+    ///             "sequence-number",
+    ///             "to",
+    ///         },
+    ///         TableName = "my-table",
+    ///         MappingRuleName = "my-table-mapping",
+    ///         DataFormat = "JSON",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +103,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/iotHubDataConnection:IotHubDataConnection")]
-    public partial class IotHubDataConnection : Pulumi.CustomResource
+    public partial class IotHubDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -223,7 +227,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class IotHubDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -312,9 +316,10 @@ namespace Pulumi.Azure.Kusto
         public IotHubDataConnectionArgs()
         {
         }
+        public static new IotHubDataConnectionArgs Empty => new IotHubDataConnectionArgs();
     }
 
-    public sealed class IotHubDataConnectionState : Pulumi.ResourceArgs
+    public sealed class IotHubDataConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -403,5 +408,6 @@ namespace Pulumi.Azure.Kusto
         public IotHubDataConnectionState()
         {
         }
+        public static new IotHubDataConnectionState Empty => new IotHubDataConnectionState();
     }
 }

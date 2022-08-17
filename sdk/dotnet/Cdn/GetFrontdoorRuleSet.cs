@@ -19,22 +19,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorRuleSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorRuleSet.InvokeAsync(new Azure.Cdn.GetFrontdoorRuleSetArgs
-        ///         {
-        ///             Name = "existing-rule-set",
-        ///             ProfileName = "existing-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-rule-set",
+        ///         ProfileName = "existing-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,22 +48,20 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorRuleSet.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorRuleSet.InvokeAsync(new Azure.Cdn.GetFrontdoorRuleSetArgs
-        ///         {
-        ///             Name = "existing-rule-set",
-        ///             ProfileName = "existing-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-rule-set",
+        ///         ProfileName = "existing-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.Cdn
     }
 
 
-    public sealed class GetFrontdoorRuleSetArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorRuleSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorRuleSetArgs()
         {
         }
+        public static new GetFrontdoorRuleSetArgs Empty => new GetFrontdoorRuleSetArgs();
     }
 
-    public sealed class GetFrontdoorRuleSetInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorRuleSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the CDN FrontDoor Rule Set to retrieve.
@@ -123,6 +120,7 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorRuleSetInvokeArgs()
         {
         }
+        public static new GetFrontdoorRuleSetInvokeArgs Empty => new GetFrontdoorRuleSetInvokeArgs();
     }
 
 

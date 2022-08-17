@@ -20,6 +20,7 @@ class AccountArgs:
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
                  custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
+                 custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
@@ -42,6 +43,7 @@ class AccountArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cognitive Service Account is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Cognitive Service Account. Possible values are `F0`, `F1`, `S`, `S0`, `S1`, `S2`, `S3`, `S4`, `S5`, `S6`, `P0`, `P1`, and `P2`.
         :param pulumi.Input[str] custom_question_answering_search_service_id: If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
@@ -64,6 +66,8 @@ class AccountArgs:
         pulumi.set(__self__, "sku_name", sku_name)
         if custom_question_answering_search_service_id is not None:
             pulumi.set(__self__, "custom_question_answering_search_service_id", custom_question_answering_search_service_id)
+        if custom_question_answering_search_service_key is not None:
+            pulumi.set(__self__, "custom_question_answering_search_service_key", custom_question_answering_search_service_key)
         if custom_subdomain_name is not None:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if fqdns is not None:
@@ -144,6 +148,18 @@ class AccountArgs:
     @custom_question_answering_search_service_id.setter
     def custom_question_answering_search_service_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_question_answering_search_service_id", value)
+
+    @property
+    @pulumi.getter(name="customQuestionAnsweringSearchServiceKey")
+    def custom_question_answering_search_service_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        """
+        return pulumi.get(self, "custom_question_answering_search_service_key")
+
+    @custom_question_answering_search_service_key.setter
+    def custom_question_answering_search_service_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_question_answering_search_service_key", value)
 
     @property
     @pulumi.getter(name="customSubdomainName")
@@ -342,6 +358,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
+                 custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -367,6 +384,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] custom_question_answering_search_service_id: If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -392,6 +410,8 @@ class _AccountState:
         """
         if custom_question_answering_search_service_id is not None:
             pulumi.set(__self__, "custom_question_answering_search_service_id", custom_question_answering_search_service_id)
+        if custom_question_answering_search_service_key is not None:
+            pulumi.set(__self__, "custom_question_answering_search_service_key", custom_question_answering_search_service_key)
         if custom_subdomain_name is not None:
             pulumi.set(__self__, "custom_subdomain_name", custom_subdomain_name)
         if endpoint is not None:
@@ -448,6 +468,18 @@ class _AccountState:
     @custom_question_answering_search_service_id.setter
     def custom_question_answering_search_service_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_question_answering_search_service_id", value)
+
+    @property
+    @pulumi.getter(name="customQuestionAnsweringSearchServiceKey")
+    def custom_question_answering_search_service_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        """
+        return pulumi.get(self, "custom_question_answering_search_service_key")
+
+    @custom_question_answering_search_service_key.setter
+    def custom_question_answering_search_service_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_question_answering_search_service_key", value)
 
     @property
     @pulumi.getter(name="customSubdomainName")
@@ -720,6 +752,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
+                 custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -769,6 +802,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_question_answering_search_service_id: If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
@@ -837,6 +871,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
+                 custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
                  custom_subdomain_name: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
@@ -866,6 +901,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["custom_question_answering_search_service_id"] = custom_question_answering_search_service_id
+            __props__.__dict__["custom_question_answering_search_service_key"] = custom_question_answering_search_service_key
             __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
             __props__.__dict__["fqdns"] = fqdns
             __props__.__dict__["identity"] = identity
@@ -905,6 +941,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_question_answering_search_service_id: Optional[pulumi.Input[str]] = None,
+            custom_question_answering_search_service_key: Optional[pulumi.Input[str]] = None,
             custom_subdomain_name: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -935,6 +972,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_question_answering_search_service_id: If `kind` is `TextAnalytics` this specifies the ID of the Search service.
+        :param pulumi.Input[str] custom_question_answering_search_service_key: If `kind` is `TextAnalytics` this specifies the key of the Search service.
         :param pulumi.Input[str] custom_subdomain_name: The subdomain name used for token-based authentication. Changing this forces a new resource to be created.
         :param pulumi.Input[str] endpoint: The endpoint used to connect to the Cognitive Service Account.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fqdns: List of FQDNs allowed for the Cognitive Account.
@@ -963,6 +1001,7 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["custom_question_answering_search_service_id"] = custom_question_answering_search_service_id
+        __props__.__dict__["custom_question_answering_search_service_key"] = custom_question_answering_search_service_key
         __props__.__dict__["custom_subdomain_name"] = custom_subdomain_name
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["fqdns"] = fqdns
@@ -994,6 +1033,14 @@ class Account(pulumi.CustomResource):
         If `kind` is `TextAnalytics` this specifies the ID of the Search service.
         """
         return pulumi.get(self, "custom_question_answering_search_service_id")
+
+    @property
+    @pulumi.getter(name="customQuestionAnsweringSearchServiceKey")
+    def custom_question_answering_search_service_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        If `kind` is `TextAnalytics` this specifies the key of the Search service.
+        """
+        return pulumi.get(self, "custom_question_answering_search_service_key")
 
     @property
     @pulumi.getter(name="customSubdomainName")

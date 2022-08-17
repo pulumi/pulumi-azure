@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AadB2C
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AadB2C.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AadB2C.GetDirectory.InvokeAsync(new Azure.AadB2C.GetDirectoryArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             DomainName = "exampleb2ctenant.onmicrosoft.com",
-        ///         }));
-        ///         this.TenantId = example.Apply(example =&gt; example.TenantId);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
+        ///     });
         /// 
-        ///     [Output("tenantId")]
-        ///     public Output&lt;string&gt; TenantId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["tenantId"] = example.Apply(getDirectoryResult =&gt; getDirectoryResult.TenantId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AadB2C
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AadB2C.GetDirectory.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AadB2C.GetDirectory.InvokeAsync(new Azure.AadB2C.GetDirectoryArgs
-        ///         {
-        ///             ResourceGroupName = "example-rg",
-        ///             DomainName = "exampleb2ctenant.onmicrosoft.com",
-        ///         }));
-        ///         this.TenantId = example.Apply(example =&gt; example.TenantId);
-        ///     }
+        ///         ResourceGroupName = "example-rg",
+        ///         DomainName = "exampleb2ctenant.onmicrosoft.com",
+        ///     });
         /// 
-        ///     [Output("tenantId")]
-        ///     public Output&lt;string&gt; TenantId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["tenantId"] = example.Apply(getDirectoryResult =&gt; getDirectoryResult.TenantId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AadB2C
     }
 
 
-    public sealed class GetDirectoryArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AadB2C
         public GetDirectoryArgs()
         {
         }
+        public static new GetDirectoryArgs Empty => new GetDirectoryArgs();
     }
 
-    public sealed class GetDirectoryInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDirectoryInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Domain name of the B2C tenant, including the `.onmicrosoft.com` suffix.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AadB2C
         public GetDirectoryInvokeArgs()
         {
         }
+        public static new GetDirectoryInvokeArgs Empty => new GetDirectoryInvokeArgs();
     }
 
 

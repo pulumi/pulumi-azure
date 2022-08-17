@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class TableAclAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TableAclAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ISO8061 UTC time at which this Access Policy should be valid until.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public TableAclAccessPolicyArgs()
         {
         }
+        public static new TableAclAccessPolicyArgs Empty => new TableAclAccessPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DigitalTwins.Inputs
 {
 
-    public sealed class InstanceIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class InstanceIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("principalId")]
         public Input<string>? PrincipalId { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.DigitalTwins.Inputs
         public InstanceIdentityGetArgs()
         {
         }
+        public static new InstanceIdentityGetArgs Empty => new InstanceIdentityGetArgs();
     }
 }

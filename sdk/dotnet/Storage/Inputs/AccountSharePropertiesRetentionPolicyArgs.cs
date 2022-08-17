@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountSharePropertiesRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AccountSharePropertiesRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountSharePropertiesRetentionPolicyArgs()
         {
         }
+        public static new AccountSharePropertiesRetentionPolicyArgs Empty => new AccountSharePropertiesRetentionPolicyArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorBackendPoolSettingArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorBackendPoolSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between `0` - `240`. Defaults to `60`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorBackendPoolSettingArgs()
         {
         }
+        public static new FrontdoorBackendPoolSettingArgs Empty => new FrontdoorBackendPoolSettingArgs();
     }
 }

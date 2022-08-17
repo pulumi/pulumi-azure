@@ -15,21 +15,19 @@ namespace Pulumi.Azure.Synapse
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Synapse.PrivateLinkHub("example", new()
     ///     {
-    ///         var example = new Azure.Synapse.PrivateLinkHub("example", new Azure.Synapse.PrivateLinkHubArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             ResourceGroupName = "example-rg",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = "example-rg",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -41,7 +39,7 @@ namespace Pulumi.Azure.Synapse
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/privateLinkHub:PrivateLinkHub")]
-    public partial class PrivateLinkHub : Pulumi.CustomResource
+    public partial class PrivateLinkHub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
@@ -111,7 +109,7 @@ namespace Pulumi.Azure.Synapse
         }
     }
 
-    public sealed class PrivateLinkHubArgs : Pulumi.ResourceArgs
+    public sealed class PrivateLinkHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
@@ -146,9 +144,10 @@ namespace Pulumi.Azure.Synapse
         public PrivateLinkHubArgs()
         {
         }
+        public static new PrivateLinkHubArgs Empty => new PrivateLinkHubArgs();
     }
 
-    public sealed class PrivateLinkHubState : Pulumi.ResourceArgs
+    public sealed class PrivateLinkHubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
@@ -183,5 +182,6 @@ namespace Pulumi.Azure.Synapse
         public PrivateLinkHubState()
         {
         }
+        public static new PrivateLinkHubState Empty => new PrivateLinkHubState();
     }
 }

@@ -15,54 +15,54 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new Azure.Network.VpnServerConfigurationArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VpnAuthenticationTypes = 
-    ///             {
-    ///                 "Radius",
-    ///             },
-    ///             Radius = new Azure.Network.Inputs.VpnServerConfigurationRadiusArgs
-    ///             {
-    ///                 Servers = 
-    ///                 {
-    ///                     new Azure.Network.Inputs.VpnServerConfigurationRadiusServerArgs
-    ///                     {
-    ///                         Address = "10.105.1.1",
-    ///                         Secret = "vindicators-the-return-of-worldender",
-    ///                         Score = 15,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", new Azure.Network.VpnServerConfigurationPolicyGroupArgs
-    ///         {
-    ///             VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
-    ///             Policies = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VpnServerConfigurationPolicyGroupPolicyArgs
-    ///                 {
-    ///                     Name = "policy1",
-    ///                     Type = "RadiusAzureGroupId",
-    ///                     Value = "6ad1bd08",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VpnAuthenticationTypes = new[]
+    ///         {
+    ///             "Radius",
+    ///         },
+    ///         Radius = new Azure.Network.Inputs.VpnServerConfigurationRadiusArgs
+    ///         {
+    ///             Servers = new[]
+    ///             {
+    ///                 new Azure.Network.Inputs.VpnServerConfigurationRadiusServerArgs
+    ///                 {
+    ///                     Address = "10.105.1.1",
+    ///                     Secret = "vindicators-the-return-of-worldender",
+    ///                     Score = 15,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", new()
+    ///     {
+    ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
+    ///         Policies = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VpnServerConfigurationPolicyGroupPolicyArgs
+    ///             {
+    ///                 Name = "policy1",
+    ///                 Type = "RadiusAzureGroupId",
+    ///                 Value = "6ad1bd08",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +74,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup")]
-    public partial class VpnServerConfigurationPolicyGroup : Pulumi.CustomResource
+    public partial class VpnServerConfigurationPolicyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -150,7 +150,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VpnServerConfigurationPolicyGroupArgs : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationPolicyGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -191,9 +191,10 @@ namespace Pulumi.Azure.Network
         public VpnServerConfigurationPolicyGroupArgs()
         {
         }
+        public static new VpnServerConfigurationPolicyGroupArgs Empty => new VpnServerConfigurationPolicyGroupArgs();
     }
 
-    public sealed class VpnServerConfigurationPolicyGroupState : Pulumi.ResourceArgs
+    public sealed class VpnServerConfigurationPolicyGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -234,5 +235,6 @@ namespace Pulumi.Azure.Network
         public VpnServerConfigurationPolicyGroupState()
         {
         }
+        public static new VpnServerConfigurationPolicyGroupState Empty => new VpnServerConfigurationPolicyGroupState();
     }
 }

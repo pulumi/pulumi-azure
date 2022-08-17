@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskBaseImageTriggerArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskBaseImageTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the trigger be enabled? Defaults to `true`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskBaseImageTriggerArgs()
         {
         }
+        public static new RegistryTaskBaseImageTriggerArgs Empty => new RegistryTaskBaseImageTriggerArgs();
     }
 }

@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventgrid"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("staging"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSystemTopic, err := eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
-// 			Location:            pulumi.String("Global"),
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			SourceArmResourceId: exampleResourceGroup.ID(),
-// 			TopicType:           pulumi.String("Microsoft.Resources.ResourceGroups"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = eventgrid.NewSystemTopicEventSubscription(ctx, "exampleSystemTopicEventSubscription", &eventgrid.SystemTopicEventSubscriptionArgs{
-// 			SystemTopic:       exampleSystemTopic.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
-// 				StorageAccountId: exampleAccount.ID(),
-// 				QueueName:        exampleQueue.Name,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("staging"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSystemTopic, err := eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
+//				Location:            pulumi.String("Global"),
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				SourceArmResourceId: exampleResourceGroup.ID(),
+//				TopicType:           pulumi.String("Microsoft.Resources.ResourceGroups"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventgrid.NewSystemTopicEventSubscription(ctx, "exampleSystemTopicEventSubscription", &eventgrid.SystemTopicEventSubscriptionArgs{
+//				SystemTopic:       exampleSystemTopic.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageQueueEndpoint: &eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs{
+//					StorageAccountId: exampleAccount.ID(),
+//					QueueName:        exampleQueue.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
+//
+//	$ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
+//
 // ```
 type SystemTopicEventSubscription struct {
 	pulumi.CustomResourceState
@@ -385,7 +390,7 @@ func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithC
 // SystemTopicEventSubscriptionArrayInput is an input type that accepts SystemTopicEventSubscriptionArray and SystemTopicEventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionArrayInput` via:
 //
-//          SystemTopicEventSubscriptionArray{ SystemTopicEventSubscriptionArgs{...} }
+//	SystemTopicEventSubscriptionArray{ SystemTopicEventSubscriptionArgs{...} }
 type SystemTopicEventSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -410,7 +415,7 @@ func (i SystemTopicEventSubscriptionArray) ToSystemTopicEventSubscriptionArrayOu
 // SystemTopicEventSubscriptionMapInput is an input type that accepts SystemTopicEventSubscriptionMap and SystemTopicEventSubscriptionMapOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionMapInput` via:
 //
-//          SystemTopicEventSubscriptionMap{ "key": SystemTopicEventSubscriptionArgs{...} }
+//	SystemTopicEventSubscriptionMap{ "key": SystemTopicEventSubscriptionArgs{...} }
 type SystemTopicEventSubscriptionMapInput interface {
 	pulumi.Input
 

@@ -19,21 +19,19 @@ namespace Pulumi.Azure.EventGrid
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventGrid.GetDomainTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventGrid.GetDomainTopic.InvokeAsync(new Azure.EventGrid.GetDomainTopicArgs
-        ///         {
-        ///             Name = "my-eventgrid-domain-topic",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         Name = "my-eventgrid-domain-topic",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.EventGrid
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventGrid.GetDomainTopic.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventGrid.GetDomainTopic.InvokeAsync(new Azure.EventGrid.GetDomainTopicArgs
-        ///         {
-        ///             Name = "my-eventgrid-domain-topic",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         Name = "my-eventgrid-domain-topic",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.EventGrid
     }
 
 
-    public sealed class GetDomainTopicArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainTopicArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventGrid Domain Topic domain.
@@ -96,9 +92,10 @@ namespace Pulumi.Azure.EventGrid
         public GetDomainTopicArgs()
         {
         }
+        public static new GetDomainTopicArgs Empty => new GetDomainTopicArgs();
     }
 
-    public sealed class GetDomainTopicInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDomainTopicInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the EventGrid Domain Topic domain.
@@ -121,6 +118,7 @@ namespace Pulumi.Azure.EventGrid
         public GetDomainTopicInvokeArgs()
         {
         }
+        public static new GetDomainTopicInvokeArgs Empty => new GetDomainTopicInvokeArgs();
     }
 
 

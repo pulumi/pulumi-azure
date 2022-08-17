@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is `Local`. Changing this forces a new resource to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineOsDiskDiffDiskSettingsArgs()
         {
         }
+        public static new LinuxVirtualMachineOsDiskDiffDiskSettingsArgs Empty => new LinuxVirtualMachineOsDiskDiffDiskSettingsArgs();
     }
 }

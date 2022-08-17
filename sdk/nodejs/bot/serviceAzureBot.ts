@@ -141,6 +141,10 @@ export class ServiceAzureBot extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
+     * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+     */
+    public readonly streamingEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -173,6 +177,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["streamingEndpointEnabled"] = state ? state.streamingEndpointEnabled : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as ServiceAzureBotArgs | undefined;
@@ -200,6 +205,7 @@ export class ServiceAzureBot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["streamingEndpointEnabled"] = args ? args.streamingEndpointEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -272,6 +278,10 @@ export interface ServiceAzureBotState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+     */
+    streamingEndpointEnabled?: pulumi.Input<boolean>;
+    /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -341,6 +351,10 @@ export interface ServiceAzureBotArgs {
      * The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
      */
     sku: pulumi.Input<string>;
+    /**
+     * Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+     */
+    streamingEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to this Azure Bot Service.
      */

@@ -20,24 +20,23 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DatabaseMigration.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DatabaseMigration.GetService.InvokeAsync(new Azure.DatabaseMigration.GetServiceArgs
-        ///         {
-        ///             Name = "example-dms",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.AzurermDmsId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dms",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("azurermDmsId")]
-        ///     public Output&lt;string&gt; AzurermDmsId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDmsId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,24 +53,23 @@ namespace Pulumi.Azure.DatabaseMigration
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DatabaseMigration.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DatabaseMigration.GetService.InvokeAsync(new Azure.DatabaseMigration.GetServiceArgs
-        ///         {
-        ///             Name = "example-dms",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.AzurermDmsId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dms",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("azurermDmsId")]
-        ///     public Output&lt;string&gt; AzurermDmsId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["azurermDmsId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.DatabaseMigration
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the name of the database migration service.
@@ -98,9 +96,10 @@ namespace Pulumi.Azure.DatabaseMigration
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specify the name of the database migration service.
@@ -117,6 +116,7 @@ namespace Pulumi.Azure.DatabaseMigration
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

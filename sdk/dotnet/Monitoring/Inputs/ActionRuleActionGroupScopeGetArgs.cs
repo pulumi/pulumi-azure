@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleActionGroupScopeGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleActionGroupScopeGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("resourceIds", required: true)]
         private InputList<string>? _resourceIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleActionGroupScopeGetArgs()
         {
         }
+        public static new ActionRuleActionGroupScopeGetArgs Empty => new ActionRuleActionGroupScopeGetArgs();
     }
 }

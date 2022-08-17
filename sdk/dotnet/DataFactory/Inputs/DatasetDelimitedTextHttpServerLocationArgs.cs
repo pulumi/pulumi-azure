@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetDelimitedTextHttpServerLocationArgs : Pulumi.ResourceArgs
+    public sealed class DatasetDelimitedTextHttpServerLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetDelimitedTextHttpServerLocationArgs()
         {
         }
+        public static new DatasetDelimitedTextHttpServerLocationArgs Empty => new DatasetDelimitedTextHttpServerLocationArgs();
     }
 }

@@ -17,37 +17,38 @@ namespace Pulumi.Azure.Lb
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleVirtualNetwork = Azure.Network.GetVirtualNetwork.Invoke(new()
     ///     {
-    ///         var exampleVirtualNetwork = Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
-    ///         {
-    ///             Name = "example-network",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleLB = Output.Create(Azure.Lb.GetLB.InvokeAsync(new Azure.Lb.GetLBArgs
-    ///         {
-    ///             Name = "example-lb",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleBackendAddressPool = exampleLB.Apply(exampleLB =&gt; Output.Create(Azure.Lb.GetBackendAddressPool.InvokeAsync(new Azure.Lb.GetBackendAddressPoolArgs
-    ///         {
-    ///             Name = "first",
-    ///             LoadbalancerId = exampleLB.Id,
-    ///         })));
-    ///         var exampleBackendAddressPoolAddress = new Azure.Lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", new Azure.Lb.BackendAddressPoolAddressArgs
-    ///         {
-    ///             BackendAddressPoolId = exampleBackendAddressPool.Apply(exampleBackendAddressPool =&gt; exampleBackendAddressPool.Id),
-    ///             VirtualNetworkId = exampleVirtualNetwork.Apply(exampleVirtualNetwork =&gt; exampleVirtualNetwork.Id),
-    ///             IpAddress = "10.0.0.1",
-    ///         });
-    ///     }
+    ///         Name = "example-network",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
+    ///     {
+    ///         Name = "example-lb",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+    ///     {
+    ///         Name = "first",
+    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///     });
+    /// 
+    ///     var exampleBackendAddressPoolAddress = new Azure.Lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", new()
+    ///     {
+    ///         BackendAddressPoolId = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+    ///         VirtualNetworkId = exampleVirtualNetwork.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+    ///         IpAddress = "10.0.0.1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.Lb
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress")]
-    public partial class BackendAddressPoolAddress : Pulumi.CustomResource
+    public partial class BackendAddressPoolAddress : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
@@ -135,7 +136,7 @@ namespace Pulumi.Azure.Lb
         }
     }
 
-    public sealed class BackendAddressPoolAddressArgs : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
@@ -164,9 +165,10 @@ namespace Pulumi.Azure.Lb
         public BackendAddressPoolAddressArgs()
         {
         }
+        public static new BackendAddressPoolAddressArgs Empty => new BackendAddressPoolAddressArgs();
     }
 
-    public sealed class BackendAddressPoolAddressState : Pulumi.ResourceArgs
+    public sealed class BackendAddressPoolAddressState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
@@ -207,5 +209,6 @@ namespace Pulumi.Azure.Lb
         public BackendAddressPoolAddressState()
         {
         }
+        public static new BackendAddressPoolAddressState Empty => new BackendAddressPoolAddressState();
     }
 }

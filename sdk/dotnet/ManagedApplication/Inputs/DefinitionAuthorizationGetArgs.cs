@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ManagedApplication.Inputs
 {
 
-    public sealed class DefinitionAuthorizationGetArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionAuthorizationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a role definition identifier for the provider. This role will define all the permissions that the provider must have on the managed application's container resource group. This role definition cannot have permission to delete the resource group.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ManagedApplication.Inputs
         public DefinitionAuthorizationGetArgs()
         {
         }
+        public static new DefinitionAuthorizationGetArgs Empty => new DefinitionAuthorizationGetArgs();
     }
 }

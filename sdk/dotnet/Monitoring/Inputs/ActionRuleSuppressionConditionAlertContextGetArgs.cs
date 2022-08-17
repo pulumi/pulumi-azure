@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleSuppressionConditionAlertContextGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleSuppressionConditionAlertContextGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleSuppressionConditionAlertContextGetArgs()
         {
         }
+        public static new ActionRuleSuppressionConditionAlertContextGetArgs Empty => new ActionRuleSuppressionConditionAlertContextGetArgs();
     }
 }

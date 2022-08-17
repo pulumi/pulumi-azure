@@ -24,7 +24,7 @@ type ServerIdentity struct {
 // ServerIdentityInput is an input type that accepts ServerIdentityArgs and ServerIdentityOutput values.
 // You can construct a concrete instance of `ServerIdentityInput` via:
 //
-//          ServerIdentityArgs{...}
+//	ServerIdentityArgs{...}
 type ServerIdentityInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i ServerIdentityArgs) ToServerIdentityPtrOutputWithContext(ctx context.Con
 // ServerIdentityPtrInput is an input type that accepts ServerIdentityArgs, ServerIdentityPtr and ServerIdentityPtrOutput values.
 // You can construct a concrete instance of `ServerIdentityPtrInput` via:
 //
-//          ServerIdentityArgs{...}
+//	        ServerIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServerIdentityPtrInput interface {
 	pulumi.Input
 

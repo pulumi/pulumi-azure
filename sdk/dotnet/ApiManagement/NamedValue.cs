@@ -15,35 +15,35 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleNamedValue = new Azure.ApiManagement.NamedValue("exampleNamedValue", new Azure.ApiManagement.NamedValueArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             DisplayName = "ExampleProperty",
-    ///             Value = "Example Value",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleNamedValue = new Azure.ApiManagement.NamedValue("exampleNamedValue", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         DisplayName = "ExampleProperty",
+    ///         Value = "Example Value",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +55,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/namedValue:NamedValue")]
-    public partial class NamedValue : Pulumi.CustomResource
+    public partial class NamedValue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -149,7 +149,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class NamedValueArgs : Pulumi.ResourceArgs
+    public sealed class NamedValueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -208,9 +208,10 @@ namespace Pulumi.Azure.ApiManagement
         public NamedValueArgs()
         {
         }
+        public static new NamedValueArgs Empty => new NamedValueArgs();
     }
 
-    public sealed class NamedValueState : Pulumi.ResourceArgs
+    public sealed class NamedValueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which the API Management Named Value should exist. Changing this forces a new resource to be created.
@@ -269,5 +270,6 @@ namespace Pulumi.Azure.ApiManagement
         public NamedValueState()
         {
         }
+        public static new NamedValueState Empty => new NamedValueState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupDiagnosticsLogAnalyticsGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupDiagnosticsLogAnalyticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupDiagnosticsLogAnalyticsGetArgs()
         {
         }
+        public static new GroupDiagnosticsLogAnalyticsGetArgs Empty => new GroupDiagnosticsLogAnalyticsGetArgs();
     }
 }

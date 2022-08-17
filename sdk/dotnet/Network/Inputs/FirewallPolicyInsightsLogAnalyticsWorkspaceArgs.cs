@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyInsightsLogAnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyInsightsLogAnalyticsWorkspaceArgs()
         {
         }
+        public static new FirewallPolicyInsightsLogAnalyticsWorkspaceArgs Empty => new FirewallPolicyInsightsLogAnalyticsWorkspaceArgs();
     }
 }

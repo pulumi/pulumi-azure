@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			Sku:               pulumi.String("Premium"),
-// 			AdminEnabled:      pulumi.Bool(false),
-// 			Georeplications: containerservice.RegistryGeoreplicationArray{
-// 				&containerservice.RegistryGeoreplicationArgs{
-// 					Location:              pulumi.String("East US"),
-// 					ZoneRedundancyEnabled: pulumi.Bool(true),
-// 					Tags:                  nil,
-// 				},
-// 				&containerservice.RegistryGeoreplicationArgs{
-// 					Location:              pulumi.String("westeurope"),
-// 					ZoneRedundancyEnabled: pulumi.Bool(true),
-// 					Tags:                  nil,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("Premium"),
+//				AdminEnabled:      pulumi.Bool(false),
+//				Georeplications: containerservice.RegistryGeoreplicationArray{
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location:              pulumi.String("East US"),
+//						ZoneRedundancyEnabled: pulumi.Bool(true),
+//						Tags:                  nil,
+//					},
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location:              pulumi.String("westeurope"),
+//						ZoneRedundancyEnabled: pulumi.Bool(true),
+//						Tags:                  nil,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Encryption)
 //
@@ -63,57 +66,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-// 			Name:       "super-secret",
-// 			KeyVaultId: data.Azurerm_key_vault.Existing.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Premium"),
-// 			Identity: &containerservice.RegistryIdentityArgs{
-// 				Type: pulumi.String("UserAssigned"),
-// 				IdentityIds: pulumi.StringArray{
-// 					exampleUserAssignedIdentity.ID(),
-// 				},
-// 			},
-// 			Encryption: &containerservice.RegistryEncryptionArgs{
-// 				Enabled:          pulumi.Bool(true),
-// 				KeyVaultKeyId:    pulumi.String(exampleKey.Id),
-// 				IdentityClientId: exampleUserAssignedIdentity.ClientId,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+//				Name:       "super-secret",
+//				KeyVaultId: data.Azurerm_key_vault.Existing.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//				Identity: &containerservice.RegistryIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//				Encryption: &containerservice.RegistryEncryptionArgs{
+//					Enabled:          pulumi.Bool(true),
+//					KeyVaultKeyId:    pulumi.String(exampleKey.Id),
+//					IdentityClientId: exampleUserAssignedIdentity.ClientId,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Attaching A Container Registry To A Kubernetes Cluster)
 //
@@ -121,61 +127,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Premium"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DnsPrefix:         pulumi.String("exampleaks1"),
-// 			DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-// 				Name:      pulumi.String("default"),
-// 				NodeCount: pulumi.Int(1),
-// 				VmSize:    pulumi.String("Standard_D2_v2"),
-// 			},
-// 			Identity: &containerservice.KubernetesClusterIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (string, error) {
-// 				return kubeletIdentity.ObjectId, nil
-// 			}).(pulumi.StringOutput),
-// 			RoleDefinitionName:           pulumi.String("AcrPull"),
-// 			Scope:                        exampleRegistry.ID(),
-// 			SkipServicePrincipalAadCheck: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DnsPrefix:         pulumi.String("exampleaks1"),
+//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
+//					Name:      pulumi.String("default"),
+//					NodeCount: pulumi.Int(1),
+//					VmSize:    pulumi.String("Standard_D2_v2"),
+//				},
+//				Identity: &containerservice.KubernetesClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				PrincipalId: exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (string, error) {
+//					return kubeletIdentity.ObjectId, nil
+//				}).(pulumi.StringOutput),
+//				RoleDefinitionName:           pulumi.String("AcrPull"),
+//				Scope:                        exampleRegistry.ID(),
+//				SkipServicePrincipalAadCheck: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -183,7 +192,9 @@ import (
 // Container Registries can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+//
+//	$ pulumi import azure:containerservice/registry:Registry example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1
+//
 // ```
 type Registry struct {
 	pulumi.CustomResourceState
@@ -475,7 +486,7 @@ func (i *Registry) ToRegistryOutputWithContext(ctx context.Context) RegistryOutp
 // RegistryArrayInput is an input type that accepts RegistryArray and RegistryArrayOutput values.
 // You can construct a concrete instance of `RegistryArrayInput` via:
 //
-//          RegistryArray{ RegistryArgs{...} }
+//	RegistryArray{ RegistryArgs{...} }
 type RegistryArrayInput interface {
 	pulumi.Input
 
@@ -500,7 +511,7 @@ func (i RegistryArray) ToRegistryArrayOutputWithContext(ctx context.Context) Reg
 // RegistryMapInput is an input type that accepts RegistryMap and RegistryMapOutput values.
 // You can construct a concrete instance of `RegistryMapInput` via:
 //
-//          RegistryMap{ "key": RegistryArgs{...} }
+//	RegistryMap{ "key": RegistryArgs{...} }
 type RegistryMapInput interface {
 	pulumi.Input
 

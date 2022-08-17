@@ -19,31 +19,30 @@ namespace Pulumi.Azure.Advisor
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Advisor.GetRecommendations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Advisor.GetRecommendations.InvokeAsync(new Azure.Advisor.GetRecommendationsArgs
+        ///         FilterByCategories = new[]
         ///         {
-        ///             FilterByCategories = 
-        ///             {
-        ///                 "security",
-        ///                 "cost",
-        ///             },
-        ///             FilterByResourceGroups = 
-        ///             {
-        ///                 "example-resgroups",
-        ///             },
-        ///         }));
-        ///         this.Recommendations = example.Apply(example =&gt; example.Recommendations);
-        ///     }
+        ///             "security",
+        ///             "cost",
+        ///         },
+        ///         FilterByResourceGroups = new[]
+        ///         {
+        ///             "example-resgroups",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("recommendations")]
-        ///     public Output&lt;string&gt; Recommendations { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["recommendations"] = example.Apply(getRecommendationsResult =&gt; getRecommendationsResult.Recommendations),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -59,31 +58,30 @@ namespace Pulumi.Azure.Advisor
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Advisor.GetRecommendations.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Advisor.GetRecommendations.InvokeAsync(new Azure.Advisor.GetRecommendationsArgs
+        ///         FilterByCategories = new[]
         ///         {
-        ///             FilterByCategories = 
-        ///             {
-        ///                 "security",
-        ///                 "cost",
-        ///             },
-        ///             FilterByResourceGroups = 
-        ///             {
-        ///                 "example-resgroups",
-        ///             },
-        ///         }));
-        ///         this.Recommendations = example.Apply(example =&gt; example.Recommendations);
-        ///     }
+        ///             "security",
+        ///             "cost",
+        ///         },
+        ///         FilterByResourceGroups = new[]
+        ///         {
+        ///             "example-resgroups",
+        ///         },
+        ///     });
         /// 
-        ///     [Output("recommendations")]
-        ///     public Output&lt;string&gt; Recommendations { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["recommendations"] = example.Apply(getRecommendationsResult =&gt; getRecommendationsResult.Recommendations),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -93,7 +91,7 @@ namespace Pulumi.Azure.Advisor
     }
 
 
-    public sealed class GetRecommendationsArgs : Pulumi.InvokeArgs
+    public sealed class GetRecommendationsArgs : global::Pulumi.InvokeArgs
     {
         [Input("filterByCategories")]
         private List<string>? _filterByCategories;
@@ -122,9 +120,10 @@ namespace Pulumi.Azure.Advisor
         public GetRecommendationsArgs()
         {
         }
+        public static new GetRecommendationsArgs Empty => new GetRecommendationsArgs();
     }
 
-    public sealed class GetRecommendationsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRecommendationsInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("filterByCategories")]
         private InputList<string>? _filterByCategories;
@@ -153,6 +152,7 @@ namespace Pulumi.Azure.Advisor
         public GetRecommendationsInvokeArgs()
         {
         }
+        public static new GetRecommendationsInvokeArgs Empty => new GetRecommendationsInvokeArgs();
     }
 
 

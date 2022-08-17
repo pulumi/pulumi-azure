@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = securitycenter.NewAdvancedThreatProtection(ctx, "exampleAdvancedThreatProtection", &securitycenter.AdvancedThreatProtectionArgs{
-// 			TargetResourceId: exampleAccount.ID(),
-// 			Enabled:          pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securitycenter.NewAdvancedThreatProtection(ctx, "exampleAdvancedThreatProtection", &securitycenter.AdvancedThreatProtectionArgs{
+//				TargetResourceId: exampleAccount.ID(),
+//				Enabled:          pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Advanced Threat Protection can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+//
+//	$ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+//
 // ```
 type AdvancedThreatProtection struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(c
 // AdvancedThreatProtectionArrayInput is an input type that accepts AdvancedThreatProtectionArray and AdvancedThreatProtectionArrayOutput values.
 // You can construct a concrete instance of `AdvancedThreatProtectionArrayInput` via:
 //
-//          AdvancedThreatProtectionArray{ AdvancedThreatProtectionArgs{...} }
+//	AdvancedThreatProtectionArray{ AdvancedThreatProtectionArgs{...} }
 type AdvancedThreatProtectionArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutputWith
 // AdvancedThreatProtectionMapInput is an input type that accepts AdvancedThreatProtectionMap and AdvancedThreatProtectionMapOutput values.
 // You can construct a concrete instance of `AdvancedThreatProtectionMapInput` via:
 //
-//          AdvancedThreatProtectionMap{ "key": AdvancedThreatProtectionArgs{...} }
+//	AdvancedThreatProtectionMap{ "key": AdvancedThreatProtectionArgs{...} }
 type AdvancedThreatProtectionMapInput interface {
 	pulumi.Input
 

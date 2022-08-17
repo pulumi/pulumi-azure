@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountQueuePropertiesLoggingGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountQueuePropertiesLoggingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Indicates whether all delete requests should be logged. Changing this forces a new resource.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountQueuePropertiesLoggingGetArgs()
         {
         }
+        public static new AccountQueuePropertiesLoggingGetArgs Empty => new AccountQueuePropertiesLoggingGetArgs();
     }
 }

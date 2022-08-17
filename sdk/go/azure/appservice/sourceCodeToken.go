@@ -17,22 +17,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appservice.NewSourceCodeToken(ctx, "example", &appservice.SourceCodeTokenArgs{
-// 			Token: pulumi.String("7e57735e77e577e57"),
-// 			Type:  pulumi.String("GitHub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := appservice.NewSourceCodeToken(ctx, "example", &appservice.SourceCodeTokenArgs{
+//				Token: pulumi.String("7e57735e77e577e57"),
+//				Type:  pulumi.String("GitHub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -40,7 +43,9 @@ import (
 // App Service Source Control Token's can be imported using the `type`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
+//
+//	$ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example /providers/Microsoft.Web/sourceControls/GitHub
+//
 // ```
 type SourceCodeToken struct {
 	pulumi.CustomResourceState
@@ -154,7 +159,7 @@ func (i *SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context
 // SourceCodeTokenArrayInput is an input type that accepts SourceCodeTokenArray and SourceCodeTokenArrayOutput values.
 // You can construct a concrete instance of `SourceCodeTokenArrayInput` via:
 //
-//          SourceCodeTokenArray{ SourceCodeTokenArgs{...} }
+//	SourceCodeTokenArray{ SourceCodeTokenArgs{...} }
 type SourceCodeTokenArrayInput interface {
 	pulumi.Input
 
@@ -179,7 +184,7 @@ func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutputWithContext(ctx contex
 // SourceCodeTokenMapInput is an input type that accepts SourceCodeTokenMap and SourceCodeTokenMapOutput values.
 // You can construct a concrete instance of `SourceCodeTokenMapInput` via:
 //
-//          SourceCodeTokenMap{ "key": SourceCodeTokenArgs{...} }
+//	SourceCodeTokenMap{ "key": SourceCodeTokenArgs{...} }
 type SourceCodeTokenMapInput interface {
 	pulumi.Input
 

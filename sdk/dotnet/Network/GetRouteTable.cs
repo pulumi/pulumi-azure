@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetRouteTable.InvokeAsync(new Azure.Network.GetRouteTableArgs
-        ///         {
-        ///             Name = "myroutetable",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "myroutetable",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetRouteTable.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetRouteTable.InvokeAsync(new Azure.Network.GetRouteTableArgs
-        ///         {
-        ///             Name = "myroutetable",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "myroutetable",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetRouteTableArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Route Table.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.Network
         public GetRouteTableArgs()
         {
         }
+        public static new GetRouteTableArgs Empty => new GetRouteTableArgs();
     }
 
-    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRouteTableInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Route Table.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.Network
         public GetRouteTableInvokeArgs()
         {
         }
+        public static new GetRouteTableInvokeArgs Empty => new GetRouteTableInvokeArgs();
     }
 
 

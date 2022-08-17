@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationRequestRepresentationFormParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationRequestRepresentationFormParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The default value for this Form Parameter.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationRequestRepresentationFormParameterGetArgs()
         {
         }
+        public static new ApiOperationRequestRepresentationFormParameterGetArgs Empty => new ApiOperationRequestRepresentationFormParameterGetArgs();
     }
 }

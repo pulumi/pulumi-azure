@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName: exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewSubscriptionCostManagementExport(ctx, "exampleSubscriptionCostManagementExport", &core.SubscriptionCostManagementExportArgs{
-// 			SubscriptionId:            pulumi.String(exampleSubscription.Id),
-// 			RecurrenceType:            pulumi.String("Monthly"),
-// 			RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
-// 			RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
-// 			ExportDataStorageLocation: &core.SubscriptionCostManagementExportExportDataStorageLocationArgs{
-// 				ContainerId:    exampleContainer.ResourceManagerId,
-// 				RootFolderPath: pulumi.String("/root/updated"),
-// 			},
-// 			ExportDataOptions: &core.SubscriptionCostManagementExportExportDataOptionsArgs{
-// 				Type:      pulumi.String("Usage"),
-// 				TimeFrame: pulumi.String("WeekToDate"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName: exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewSubscriptionCostManagementExport(ctx, "exampleSubscriptionCostManagementExport", &core.SubscriptionCostManagementExportArgs{
+//				SubscriptionId:            pulumi.String(exampleSubscription.Id),
+//				RecurrenceType:            pulumi.String("Monthly"),
+//				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
+//				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
+//				ExportDataStorageLocation: &core.SubscriptionCostManagementExportExportDataStorageLocationArgs{
+//					ContainerId:    exampleContainer.ResourceManagerId,
+//					RootFolderPath: pulumi.String("/root/updated"),
+//				},
+//				ExportDataOptions: &core.SubscriptionCostManagementExportExportDataOptionsArgs{
+//					Type:      pulumi.String("Usage"),
+//					TimeFrame: pulumi.String("WeekToDate"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // Subscription Cost Management Exports can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
+//
+//	$ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
+//
 // ```
 type SubscriptionCostManagementExport struct {
 	pulumi.CustomResourceState
@@ -249,7 +254,7 @@ func (i *SubscriptionCostManagementExport) ToSubscriptionCostManagementExportOut
 // SubscriptionCostManagementExportArrayInput is an input type that accepts SubscriptionCostManagementExportArray and SubscriptionCostManagementExportArrayOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportArrayInput` via:
 //
-//          SubscriptionCostManagementExportArray{ SubscriptionCostManagementExportArgs{...} }
+//	SubscriptionCostManagementExportArray{ SubscriptionCostManagementExportArgs{...} }
 type SubscriptionCostManagementExportArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +279,7 @@ func (i SubscriptionCostManagementExportArray) ToSubscriptionCostManagementExpor
 // SubscriptionCostManagementExportMapInput is an input type that accepts SubscriptionCostManagementExportMap and SubscriptionCostManagementExportMapOutput values.
 // You can construct a concrete instance of `SubscriptionCostManagementExportMapInput` via:
 //
-//          SubscriptionCostManagementExportMap{ "key": SubscriptionCostManagementExportArgs{...} }
+//	SubscriptionCostManagementExportMap{ "key": SubscriptionCostManagementExportArgs{...} }
 type SubscriptionCostManagementExportMapInput interface {
 	pulumi.Input
 

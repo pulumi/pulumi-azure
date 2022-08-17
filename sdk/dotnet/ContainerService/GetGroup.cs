@@ -19,30 +19,25 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetGroup.InvokeAsync(new Azure.ContainerService.GetGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///         this.IpAddress = example.Apply(example =&gt; example.IpAddress);
-        ///         this.Fqdn = example.Apply(example =&gt; example.Fqdn);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("ipAddress")]
-        ///     public Output&lt;string&gt; IpAddress { get; set; }
-        ///     [Output("fqdn")]
-        ///     public Output&lt;string&gt; Fqdn { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["ipAddress"] = example.Apply(getGroupResult =&gt; getGroupResult.IpAddress),
+        ///         ["fqdn"] = example.Apply(getGroupResult =&gt; getGroupResult.Fqdn),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -58,30 +53,25 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetGroup.InvokeAsync(new Azure.ContainerService.GetGroupArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///         this.IpAddress = example.Apply(example =&gt; example.IpAddress);
-        ///         this.Fqdn = example.Apply(example =&gt; example.Fqdn);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("ipAddress")]
-        ///     public Output&lt;string&gt; IpAddress { get; set; }
-        ///     [Output("fqdn")]
-        ///     public Output&lt;string&gt; Fqdn { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["ipAddress"] = example.Apply(getGroupResult =&gt; getGroupResult.IpAddress),
+        ///         ["fqdn"] = example.Apply(getGroupResult =&gt; getGroupResult.Fqdn),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,7 +81,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Container Group instance.
@@ -108,9 +98,10 @@ namespace Pulumi.Azure.ContainerService
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Container Group instance.
@@ -127,6 +118,7 @@ namespace Pulumi.Azure.ContainerService
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

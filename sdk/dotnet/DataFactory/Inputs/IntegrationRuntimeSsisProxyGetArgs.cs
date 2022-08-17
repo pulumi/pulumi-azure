@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisProxyGetArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisProxyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The path in the data store to be used when moving data between Self-Hosted and Azure-SSIS Integration Runtimes.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisProxyGetArgs()
         {
         }
+        public static new IntegrationRuntimeSsisProxyGetArgs Empty => new IntegrationRuntimeSsisProxyGetArgs();
     }
 }

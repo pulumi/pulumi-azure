@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventHubNamespaceIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class EventHubNamespaceIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -41,5 +41,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventHubNamespaceIdentityGetArgs()
         {
         }
+        public static new EventHubNamespaceIdentityGetArgs Empty => new EventHubNamespaceIdentityGetArgs();
     }
 }

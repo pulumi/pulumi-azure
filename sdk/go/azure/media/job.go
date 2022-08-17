@@ -19,96 +19,99 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/media"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			StorageAccounts: media.ServiceAccountStorageAccountArray{
-// 				&media.ServiceAccountStorageAccountArgs{
-// 					Id:        exampleAccount.ID(),
-// 					IsPrimary: pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTransform, err := media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("My transform description"),
-// 			Outputs: media.TransformOutputTypeArray{
-// 				&media.TransformOutputTypeArgs{
-// 					RelativePriority: pulumi.String("Normal"),
-// 					OnErrorAction:    pulumi.String("ContinueJob"),
-// 					BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
-// 						PresetName: pulumi.String("AACGoodQualityAudio"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		input, err := media.NewAsset(ctx, "input", &media.AssetArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("Input Asset description"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		output, err := media.NewAsset(ctx, "output", &media.AssetArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			Description:              pulumi.String("Output Asset description"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = media.NewJob(ctx, "exampleJob", &media.JobArgs{
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			MediaServicesAccountName: exampleServiceAccount.Name,
-// 			TransformName:            exampleTransform.Name,
-// 			Description:              pulumi.String("My Job description"),
-// 			Priority:                 pulumi.String("Normal"),
-// 			InputAsset: &media.JobInputAssetArgs{
-// 				Name: input.Name,
-// 			},
-// 			OutputAssets: media.JobOutputAssetArray{
-// 				&media.JobOutputAssetArgs{
-// 					Name: output.Name,
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				StorageAccounts: media.ServiceAccountStorageAccountArray{
+//					&media.ServiceAccountStorageAccountArgs{
+//						Id:        exampleAccount.ID(),
+//						IsPrimary: pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTransform, err := media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("My transform description"),
+//				Outputs: media.TransformOutputTypeArray{
+//					&media.TransformOutputTypeArgs{
+//						RelativePriority: pulumi.String("Normal"),
+//						OnErrorAction:    pulumi.String("ContinueJob"),
+//						BuiltinPreset: &media.TransformOutputBuiltinPresetArgs{
+//							PresetName: pulumi.String("AACGoodQualityAudio"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			input, err := media.NewAsset(ctx, "input", &media.AssetArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("Input Asset description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			output, err := media.NewAsset(ctx, "output", &media.AssetArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				Description:              pulumi.String("Output Asset description"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = media.NewJob(ctx, "exampleJob", &media.JobArgs{
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				MediaServicesAccountName: exampleServiceAccount.Name,
+//				TransformName:            exampleTransform.Name,
+//				Description:              pulumi.String("My Job description"),
+//				Priority:                 pulumi.String("Normal"),
+//				InputAsset: &media.JobInputAssetArgs{
+//					Name: input.Name,
+//				},
+//				OutputAssets: media.JobOutputAssetArray{
+//					&media.JobOutputAssetArgs{
+//						Name: output.Name,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -116,7 +119,9 @@ import (
 // Media Jobs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:media/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/transforms/transform1/jobs/job1
+//
+//	$ pulumi import azure:media/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaservices/account1/transforms/transform1/jobs/job1
+//
 // ```
 type Job struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *Job) ToJobOutputWithContext(ctx context.Context) JobOutput {
 // JobArrayInput is an input type that accepts JobArray and JobArrayOutput values.
 // You can construct a concrete instance of `JobArrayInput` via:
 //
-//          JobArray{ JobArgs{...} }
+//	JobArray{ JobArgs{...} }
 type JobArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i JobArray) ToJobArrayOutputWithContext(ctx context.Context) JobArrayOutpu
 // JobMapInput is an input type that accepts JobMap and JobMapOutput values.
 // You can construct a concrete instance of `JobMapInput` via:
 //
-//          JobMap{ "key": JobArgs{...} }
+//	JobMap{ "key": JobArgs{...} }
 type JobMapInput interface {
 	pulumi.Input
 

@@ -19,52 +19,55 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
-// 			ResourceGroupName:    exampleResourceGroup.Name,
-// 			TrafficRoutingMethod: pulumi.String("Weighted"),
-// 			DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
-// 				RelativeName: pulumi.String("example-profile"),
-// 				Ttl:          pulumi.Int(100),
-// 			},
-// 			MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
-// 				Protocol:                  pulumi.String("HTTP"),
-// 				Port:                      pulumi.Int(80),
-// 				Path:                      pulumi.String("/"),
-// 				IntervalInSeconds:         pulumi.Int(30),
-// 				TimeoutInSeconds:          pulumi.Int(9),
-// 				ToleratedNumberOfFailures: pulumi.Int(3),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewTrafficManagerExternalEndpoint(ctx, "exampleTrafficManagerExternalEndpoint", &network.TrafficManagerExternalEndpointArgs{
-// 			ProfileId: exampleTrafficManagerProfile.ID(),
-// 			Weight:    pulumi.Int(100),
-// 			Target:    pulumi.String("www.example.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
+//				ResourceGroupName:    exampleResourceGroup.Name,
+//				TrafficRoutingMethod: pulumi.String("Weighted"),
+//				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
+//					RelativeName: pulumi.String("example-profile"),
+//					Ttl:          pulumi.Int(100),
+//				},
+//				MonitorConfig: &network.TrafficManagerProfileMonitorConfigArgs{
+//					Protocol:                  pulumi.String("HTTP"),
+//					Port:                      pulumi.Int(80),
+//					Path:                      pulumi.String("/"),
+//					IntervalInSeconds:         pulumi.Int(30),
+//					TimeoutInSeconds:          pulumi.Int(9),
+//					ToleratedNumberOfFailures: pulumi.Int(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewTrafficManagerExternalEndpoint(ctx, "exampleTrafficManagerExternalEndpoint", &network.TrafficManagerExternalEndpointArgs{
+//				ProfileId: exampleTrafficManagerProfile.ID(),
+//				Weight:    pulumi.Int(100),
+//				Target:    pulumi.String("www.example.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -72,7 +75,9 @@ import (
 // External Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
+//
+//	$ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
+//
 // ```
 type TrafficManagerExternalEndpoint struct {
 	pulumi.CustomResourceState
@@ -276,7 +281,7 @@ func (i *TrafficManagerExternalEndpoint) ToTrafficManagerExternalEndpointOutputW
 // TrafficManagerExternalEndpointArrayInput is an input type that accepts TrafficManagerExternalEndpointArray and TrafficManagerExternalEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerExternalEndpointArrayInput` via:
 //
-//          TrafficManagerExternalEndpointArray{ TrafficManagerExternalEndpointArgs{...} }
+//	TrafficManagerExternalEndpointArray{ TrafficManagerExternalEndpointArgs{...} }
 type TrafficManagerExternalEndpointArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +306,7 @@ func (i TrafficManagerExternalEndpointArray) ToTrafficManagerExternalEndpointArr
 // TrafficManagerExternalEndpointMapInput is an input type that accepts TrafficManagerExternalEndpointMap and TrafficManagerExternalEndpointMapOutput values.
 // You can construct a concrete instance of `TrafficManagerExternalEndpointMapInput` via:
 //
-//          TrafficManagerExternalEndpointMap{ "key": TrafficManagerExternalEndpointArgs{...} }
+//	TrafficManagerExternalEndpointMap{ "key": TrafficManagerExternalEndpointArgs{...} }
 type TrafficManagerExternalEndpointMapInput interface {
 	pulumi.Input
 

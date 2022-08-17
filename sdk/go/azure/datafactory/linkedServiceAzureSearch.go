@@ -18,7 +18,9 @@ import (
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceAzureSearch struct {
 	pulumi.CustomResourceState
@@ -206,7 +208,7 @@ func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchOutputWithContext(c
 // LinkedServiceAzureSearchArrayInput is an input type that accepts LinkedServiceAzureSearchArray and LinkedServiceAzureSearchArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSearchArrayInput` via:
 //
-//          LinkedServiceAzureSearchArray{ LinkedServiceAzureSearchArgs{...} }
+//	LinkedServiceAzureSearchArray{ LinkedServiceAzureSearchArgs{...} }
 type LinkedServiceAzureSearchArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +233,7 @@ func (i LinkedServiceAzureSearchArray) ToLinkedServiceAzureSearchArrayOutputWith
 // LinkedServiceAzureSearchMapInput is an input type that accepts LinkedServiceAzureSearchMap and LinkedServiceAzureSearchMapOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSearchMapInput` via:
 //
-//          LinkedServiceAzureSearchMap{ "key": LinkedServiceAzureSearchArgs{...} }
+//	LinkedServiceAzureSearchMap{ "key": LinkedServiceAzureSearchArgs{...} }
 type LinkedServiceAzureSearchMapInput interface {
 	pulumi.Input
 

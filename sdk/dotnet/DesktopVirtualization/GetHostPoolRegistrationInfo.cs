@@ -15,33 +15,33 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "westeurope",
-    ///         });
-    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Type = "Pooled",
-    ///             ValidateEnvironment = true,
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var examplegetHostPoolRegistrationInfo = new Azure.DesktopVirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo", new Azure.DesktopVirtualization.GetHostPoolRegistrationInfoArgs
-    ///         {
-    ///             HostpoolId = exampleHostPool.Id,
-    ///             ExpirationDate = "2022-01-01T23:40:52Z",
-    ///         });
-    ///     }
+    ///         Location = "westeurope",
+    ///     });
     /// 
-    /// }
+    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Pooled",
+    ///         ValidateEnvironment = true,
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var examplegetHostPoolRegistrationInfo = new Azure.DesktopVirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo", new()
+    ///     {
+    ///         HostpoolId = exampleHostPool.Id,
+    ///         ExpirationDate = "2022-01-01T23:40:52Z",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/getHostPoolRegistrationInfo:getHostPoolRegistrationInfo")]
-    public partial class GetHostPoolRegistrationInfo : Pulumi.CustomResource
+    public partial class GetHostPoolRegistrationInfo : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A valid `RFC3339Time` for the expiration of the token..
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class GetHostPoolRegistrationInfoArgs : Pulumi.ResourceArgs
+    public sealed class GetHostPoolRegistrationInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid `RFC3339Time` for the expiration of the token..
@@ -134,9 +134,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public GetHostPoolRegistrationInfoArgs()
         {
         }
+        public static new GetHostPoolRegistrationInfoArgs Empty => new GetHostPoolRegistrationInfoArgs();
     }
 
-    public sealed class GetHostPoolRegistrationInfoState : Pulumi.ResourceArgs
+    public sealed class GetHostPoolRegistrationInfoState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid `RFC3339Time` for the expiration of the token..
@@ -159,5 +160,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public GetHostPoolRegistrationInfoState()
         {
         }
+        public static new GetHostPoolRegistrationInfoState Empty => new GetHostPoolRegistrationInfoState();
     }
 }

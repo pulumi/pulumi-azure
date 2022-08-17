@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = automation.NewCredential(ctx, "exampleCredential", &automation.CredentialArgs{
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			AutomationAccountName: exampleAccount.Name,
-// 			Username:              pulumi.String("example_user"),
-// 			Password:              pulumi.String("example_pwd"),
-// 			Description:           pulumi.String("This is an example credential"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewCredential(ctx, "exampleCredential", &automation.CredentialArgs{
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				AutomationAccountName: exampleAccount.Name,
+//				Username:              pulumi.String("example_user"),
+//				Password:              pulumi.String("example_pwd"),
+//				Description:           pulumi.String("This is an example credential"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Automation Credentials can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
+//
+//	$ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
+//
 // ```
 type Credential struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *Credential) ToCredentialOutputWithContext(ctx context.Context) Credenti
 // CredentialArrayInput is an input type that accepts CredentialArray and CredentialArrayOutput values.
 // You can construct a concrete instance of `CredentialArrayInput` via:
 //
-//          CredentialArray{ CredentialArgs{...} }
+//	CredentialArray{ CredentialArgs{...} }
 type CredentialArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i CredentialArray) ToCredentialArrayOutputWithContext(ctx context.Context)
 // CredentialMapInput is an input type that accepts CredentialMap and CredentialMapOutput values.
 // You can construct a concrete instance of `CredentialMapInput` via:
 //
-//          CredentialMap{ "key": CredentialArgs{...} }
+//	CredentialMap{ "key": CredentialArgs{...} }
 type CredentialMapInput interface {
 	pulumi.Input
 

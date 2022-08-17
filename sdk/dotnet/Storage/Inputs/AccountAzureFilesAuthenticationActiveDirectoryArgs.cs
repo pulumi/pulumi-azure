@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class AccountAzureFilesAuthenticationActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class AccountAzureFilesAuthenticationActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the domain GUID.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public AccountAzureFilesAuthenticationActiveDirectoryArgs()
         {
         }
+        public static new AccountAzureFilesAuthenticationActiveDirectoryArgs Empty => new AccountAzureFilesAuthenticationActiveDirectoryArgs();
     }
 }

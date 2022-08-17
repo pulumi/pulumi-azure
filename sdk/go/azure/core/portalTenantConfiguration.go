@@ -27,21 +27,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewPortalTenantConfiguration(ctx, "example", &core.PortalTenantConfigurationArgs{
-// 			PrivateMarkdownStorageEnforced: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewPortalTenantConfiguration(ctx, "example", &core.PortalTenantConfigurationArgs{
+//				PrivateMarkdownStorageEnforced: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Portal Tenant Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
+//
+//	$ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
+//
 // ```
 type PortalTenantConfiguration struct {
 	pulumi.CustomResourceState
@@ -140,7 +145,7 @@ func (i *PortalTenantConfiguration) ToPortalTenantConfigurationOutputWithContext
 // PortalTenantConfigurationArrayInput is an input type that accepts PortalTenantConfigurationArray and PortalTenantConfigurationArrayOutput values.
 // You can construct a concrete instance of `PortalTenantConfigurationArrayInput` via:
 //
-//          PortalTenantConfigurationArray{ PortalTenantConfigurationArgs{...} }
+//	PortalTenantConfigurationArray{ PortalTenantConfigurationArgs{...} }
 type PortalTenantConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -165,7 +170,7 @@ func (i PortalTenantConfigurationArray) ToPortalTenantConfigurationArrayOutputWi
 // PortalTenantConfigurationMapInput is an input type that accepts PortalTenantConfigurationMap and PortalTenantConfigurationMapOutput values.
 // You can construct a concrete instance of `PortalTenantConfigurationMapInput` via:
 //
-//          PortalTenantConfigurationMap{ "key": PortalTenantConfigurationArgs{...} }
+//	PortalTenantConfigurationMap{ "key": PortalTenantConfigurationArgs{...} }
 type PortalTenantConfigurationMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.WebPubSub.Inputs
 {
 
-    public sealed class ServiceLiveTraceGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceLiveTraceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public ServiceLiveTraceGetArgs()
         {
         }
+        public static new ServiceLiveTraceGetArgs Empty => new ServiceLiveTraceGetArgs();
     }
 }

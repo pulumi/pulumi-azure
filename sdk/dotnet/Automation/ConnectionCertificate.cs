@@ -16,45 +16,47 @@ namespace Pulumi.Azure.Automation
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleCertificate = new Azure.Automation.Certificate("exampleCertificate", new Azure.Automation.CertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Base64 = ReadFileBase64("certificate.pfx"),
-    ///         });
-    ///         var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("exampleConnectionCertificate", new Azure.Automation.ConnectionCertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             AutomationCertificateName = exampleCertificate.Name,
-    ///             SubscriptionId = exampleClientConfig.Apply(exampleClientConfig =&gt; exampleClientConfig.SubscriptionId),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.Automation.Certificate("exampleCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Base64 = ReadFileBase64("certificate.pfx"),
+    ///     });
+    /// 
+    ///     var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("exampleConnectionCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         AutomationCertificateName = exampleCertificate.Name,
+    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/connectionCertificate:ConnectionCertificate")]
-    public partial class ConnectionCertificate : Pulumi.CustomResource
+    public partial class ConnectionCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -148,7 +150,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class ConnectionCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ConnectionCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -189,9 +191,10 @@ namespace Pulumi.Azure.Automation
         public ConnectionCertificateArgs()
         {
         }
+        public static new ConnectionCertificateArgs Empty => new ConnectionCertificateArgs();
     }
 
-    public sealed class ConnectionCertificateState : Pulumi.ResourceArgs
+    public sealed class ConnectionCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Connection is created. Changing this forces a new resource to be created.
@@ -232,5 +235,6 @@ namespace Pulumi.Azure.Automation
         public ConnectionCertificateState()
         {
         }
+        public static new ConnectionCertificateState Empty => new ConnectionCertificateState();
     }
 }

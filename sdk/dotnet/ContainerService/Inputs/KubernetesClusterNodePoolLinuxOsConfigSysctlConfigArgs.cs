@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`. Changing this forces a new resource to be created.
@@ -189,5 +189,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs()
         {
         }
+        public static new KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs Empty => new KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs();
     }
 }

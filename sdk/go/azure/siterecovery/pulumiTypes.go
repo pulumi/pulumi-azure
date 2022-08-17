@@ -15,6 +15,8 @@ type ReplicatedVMManagedDisk struct {
 	DiskId string `pulumi:"diskId"`
 	// Storage account that should be used for caching.
 	StagingStorageAccountId string `pulumi:"stagingStorageAccountId"`
+	// A `targetDiskEncryption` block as defined below.
+	TargetDiskEncryption *ReplicatedVMManagedDiskTargetDiskEncryption `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with.
 	TargetDiskEncryptionSetId *string `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done.
@@ -28,7 +30,7 @@ type ReplicatedVMManagedDisk struct {
 // ReplicatedVMManagedDiskInput is an input type that accepts ReplicatedVMManagedDiskArgs and ReplicatedVMManagedDiskOutput values.
 // You can construct a concrete instance of `ReplicatedVMManagedDiskInput` via:
 //
-//          ReplicatedVMManagedDiskArgs{...}
+//	ReplicatedVMManagedDiskArgs{...}
 type ReplicatedVMManagedDiskInput interface {
 	pulumi.Input
 
@@ -41,6 +43,8 @@ type ReplicatedVMManagedDiskArgs struct {
 	DiskId pulumi.StringInput `pulumi:"diskId"`
 	// Storage account that should be used for caching.
 	StagingStorageAccountId pulumi.StringInput `pulumi:"stagingStorageAccountId"`
+	// A `targetDiskEncryption` block as defined below.
+	TargetDiskEncryption ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput `pulumi:"targetDiskEncryption"`
 	// The Disk Encryption Set that the Managed Disk will be associated with.
 	TargetDiskEncryptionSetId pulumi.StringPtrInput `pulumi:"targetDiskEncryptionSetId"`
 	// What type should the disk be when a failover is done.
@@ -66,7 +70,7 @@ func (i ReplicatedVMManagedDiskArgs) ToReplicatedVMManagedDiskOutputWithContext(
 // ReplicatedVMManagedDiskArrayInput is an input type that accepts ReplicatedVMManagedDiskArray and ReplicatedVMManagedDiskArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMManagedDiskArrayInput` via:
 //
-//          ReplicatedVMManagedDiskArray{ ReplicatedVMManagedDiskArgs{...} }
+//	ReplicatedVMManagedDiskArray{ ReplicatedVMManagedDiskArgs{...} }
 type ReplicatedVMManagedDiskArrayInput interface {
 	pulumi.Input
 
@@ -112,6 +116,13 @@ func (o ReplicatedVMManagedDiskOutput) StagingStorageAccountId() pulumi.StringOu
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) string { return v.StagingStorageAccountId }).(pulumi.StringOutput)
 }
 
+// A `targetDiskEncryption` block as defined below.
+func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryption() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDisk) *ReplicatedVMManagedDiskTargetDiskEncryption {
+		return v.TargetDiskEncryption
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
+}
+
 // The Disk Encryption Set that the Managed Disk will be associated with.
 func (o ReplicatedVMManagedDiskOutput) TargetDiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDisk) *string { return v.TargetDiskEncryptionSetId }).(pulumi.StringPtrOutput)
@@ -152,6 +163,478 @@ func (o ReplicatedVMManagedDiskArrayOutput) Index(i pulumi.IntInput) ReplicatedV
 	}).(ReplicatedVMManagedDiskOutput)
 }
 
+type ReplicatedVMManagedDiskTargetDiskEncryption struct {
+	// A `diskEncryptionKey` block as defined below.
+	DiskEncryptionKey ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey `pulumi:"diskEncryptionKey"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey `pulumi:"keyEncryptionKey"`
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionArgs and ReplicatedVMManagedDiskTargetDiskEncryptionOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionInput` via:
+//
+//	ReplicatedVMManagedDiskTargetDiskEncryptionArgs{...}
+type ReplicatedVMManagedDiskTargetDiskEncryptionInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionOutput() ReplicatedVMManagedDiskTargetDiskEncryptionOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionOutput
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionArgs struct {
+	// A `diskEncryptionKey` block as defined below.
+	DiskEncryptionKey ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyInput `pulumi:"diskEncryptionKey"`
+	// A `keyEncryptionKey` block as defined below.
+	KeyEncryptionKey ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput `pulumi:"keyEncryptionKey"`
+}
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryption)(nil)).Elem()
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionOutput() ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionOutput)
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionOutput).ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx)
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionArgs, ReplicatedVMManagedDiskTargetDiskEncryptionPtr and ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput` via:
+//
+//	        ReplicatedVMManagedDiskTargetDiskEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput
+}
+
+type replicatedVMManagedDiskTargetDiskEncryptionPtrType ReplicatedVMManagedDiskTargetDiskEncryptionArgs
+
+func ReplicatedVMManagedDiskTargetDiskEncryptionPtr(v *ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput {
+	return (*replicatedVMManagedDiskTargetDiskEncryptionPtrType)(v)
+}
+
+func (*replicatedVMManagedDiskTargetDiskEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryption)(nil)).Elem()
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryption)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionOutput() ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return o.ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVMManagedDiskTargetDiskEncryption) *ReplicatedVMManagedDiskTargetDiskEncryption {
+		return &v
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
+}
+
+// A `diskEncryptionKey` block as defined below.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) DiskEncryptionKey() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryption) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+		return v.DiskEncryptionKey
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) KeyEncryptionKey() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryption) *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+		return v.KeyEncryptionKey
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryption)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryption) ReplicatedVMManagedDiskTargetDiskEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatedVMManagedDiskTargetDiskEncryption
+		return ret
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionOutput)
+}
+
+// A `diskEncryptionKey` block as defined below.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) DiskEncryptionKey() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryption) *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+		if v == nil {
+			return nil
+		}
+		return &v.DiskEncryptionKey
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput)
+}
+
+// A `keyEncryptionKey` block as defined below.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) KeyEncryptionKey() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryption) *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+		if v == nil {
+			return nil
+		}
+		return v.KeyEncryptionKey
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+	SecretUrl string `pulumi:"secretUrl"`
+	// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+	VaultId string `pulumi:"vaultId"`
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs and ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyInput` via:
+//
+//	ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs{...}
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs struct {
+	// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+	SecretUrl pulumi.StringInput `pulumi:"secretUrl"`
+	// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+	VaultId pulumi.StringInput `pulumi:"vaultId"`
+}
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput)
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput).ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx)
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs, ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtr and ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrInput` via:
+//
+//	        ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput
+}
+
+type replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs
+
+func ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtr(v *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrInput {
+	return (*replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType)(v)
+}
+
+func (*replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey)(nil)).Elem()
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return o.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+		return &v
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput)
+}
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) VaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) string { return v.VaultId }).(pulumi.StringOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey
+		return ret
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput)
+}
+
+// The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) SecretUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) VaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+	KeyUrl string `pulumi:"keyUrl"`
+	// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+	VaultId string `pulumi:"vaultId"`
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs and ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyInput` via:
+//
+//	ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{...}
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs struct {
+	// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+	KeyUrl pulumi.StringInput `pulumi:"keyUrl"`
+	// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+	VaultId pulumi.StringInput `pulumi:"vaultId"`
+}
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput)
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput).ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx)
+}
+
+// ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput is an input type that accepts ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs, ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtr and ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput values.
+// You can construct a concrete instance of `ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput` via:
+//
+//	        ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput interface {
+	pulumi.Input
+
+	ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput
+	ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput
+}
+
+type replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs
+
+func ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtr(v *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput {
+	return (*replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType)(v)
+}
+
+func (*replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey)(nil)).Elem()
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (i *replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+		return &v
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
+}
+
+// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
+}
+
+// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) VaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) string { return v.VaultId }).(pulumi.StringOutput)
+}
+
+type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey)(nil)).Elem()
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
+	return o
+}
+
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey
+		return ret
+	}).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput)
+}
+
+// The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) KeyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) VaultId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VaultId
+	}).(pulumi.StringPtrOutput)
+}
+
 type ReplicatedVMNetworkInterface struct {
 	// Id of the public IP object to use when a failover is done.
 	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
@@ -166,7 +649,7 @@ type ReplicatedVMNetworkInterface struct {
 // ReplicatedVMNetworkInterfaceInput is an input type that accepts ReplicatedVMNetworkInterfaceArgs and ReplicatedVMNetworkInterfaceOutput values.
 // You can construct a concrete instance of `ReplicatedVMNetworkInterfaceInput` via:
 //
-//          ReplicatedVMNetworkInterfaceArgs{...}
+//	ReplicatedVMNetworkInterfaceArgs{...}
 type ReplicatedVMNetworkInterfaceInput interface {
 	pulumi.Input
 
@@ -200,7 +683,7 @@ func (i ReplicatedVMNetworkInterfaceArgs) ToReplicatedVMNetworkInterfaceOutputWi
 // ReplicatedVMNetworkInterfaceArrayInput is an input type that accepts ReplicatedVMNetworkInterfaceArray and ReplicatedVMNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMNetworkInterfaceArrayInput` via:
 //
-//          ReplicatedVMNetworkInterfaceArray{ ReplicatedVMNetworkInterfaceArgs{...} }
+//	ReplicatedVMNetworkInterfaceArray{ ReplicatedVMNetworkInterfaceArgs{...} }
 type ReplicatedVMNetworkInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -279,10 +762,22 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskInput)(nil)).Elem(), ReplicatedVMManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskArrayInput)(nil)).Elem(), ReplicatedVMManagedDiskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
 }

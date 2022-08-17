@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterStorageAccountGen2Args : Pulumi.ResourceArgs
+    public sealed class SparkClusterStorageAccountGen2Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Gen2 Filesystem. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterStorageAccountGen2Args()
         {
         }
+        public static new SparkClusterStorageAccountGen2Args Empty => new SparkClusterStorageAccountGen2Args();
     }
 }

@@ -15,82 +15,82 @@ namespace Pulumi.Azure.Backup
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new Azure.RecoveryServices.VaultArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var policy = new Azure.Backup.PolicyFileShare("policy", new Azure.Backup.PolicyFileShareArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             RecoveryVaultName = exampleVault.Name,
-    ///             Timezone = "UTC",
-    ///             Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
-    ///             {
-    ///                 Frequency = "Daily",
-    ///                 Time = "23:00",
-    ///             },
-    ///             RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
-    ///             {
-    ///                 Count = 10,
-    ///             },
-    ///             RetentionWeekly = new Azure.Backup.Inputs.PolicyFileShareRetentionWeeklyArgs
-    ///             {
-    ///                 Count = 7,
-    ///                 Weekdays = 
-    ///                 {
-    ///                     "Sunday",
-    ///                     "Wednesday",
-    ///                     "Friday",
-    ///                     "Saturday",
-    ///                 },
-    ///             },
-    ///             RetentionMonthly = new Azure.Backup.Inputs.PolicyFileShareRetentionMonthlyArgs
-    ///             {
-    ///                 Count = 7,
-    ///                 Weekdays = 
-    ///                 {
-    ///                     "Sunday",
-    ///                     "Wednesday",
-    ///                 },
-    ///                 Weeks = 
-    ///                 {
-    ///                     "First",
-    ///                     "Last",
-    ///                 },
-    ///             },
-    ///             RetentionYearly = new Azure.Backup.Inputs.PolicyFileShareRetentionYearlyArgs
-    ///             {
-    ///                 Count = 7,
-    ///                 Weekdays = 
-    ///                 {
-    ///                     "Sunday",
-    ///                 },
-    ///                 Weeks = 
-    ///                 {
-    ///                     "Last",
-    ///                 },
-    ///                 Months = 
-    ///                 {
-    ///                     "January",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var policy = new Azure.Backup.PolicyFileShare("policy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RecoveryVaultName = exampleVault.Name,
+    ///         Timezone = "UTC",
+    ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
+    ///         {
+    ///             Frequency = "Daily",
+    ///             Time = "23:00",
+    ///         },
+    ///         RetentionDaily = new Azure.Backup.Inputs.PolicyFileShareRetentionDailyArgs
+    ///         {
+    ///             Count = 10,
+    ///         },
+    ///         RetentionWeekly = new Azure.Backup.Inputs.PolicyFileShareRetentionWeeklyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///                 "Friday",
+    ///                 "Saturday",
+    ///             },
+    ///         },
+    ///         RetentionMonthly = new Azure.Backup.Inputs.PolicyFileShareRetentionMonthlyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///                 "Wednesday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "First",
+    ///                 "Last",
+    ///             },
+    ///         },
+    ///         RetentionYearly = new Azure.Backup.Inputs.PolicyFileShareRetentionYearlyArgs
+    ///         {
+    ///             Count = 7,
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Sunday",
+    ///             },
+    ///             Weeks = new[]
+    ///             {
+    ///                 "Last",
+    ///             },
+    ///             Months = new[]
+    ///             {
+    ///                 "January",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -102,7 +102,7 @@ namespace Pulumi.Azure.Backup
     /// ```
     /// </summary>
     [AzureResourceType("azure:backup/policyFileShare:PolicyFileShare")]
-    public partial class PolicyFileShare : Pulumi.CustomResource
+    public partial class PolicyFileShare : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
@@ -202,7 +202,7 @@ namespace Pulumi.Azure.Backup
         }
     }
 
-    public sealed class PolicyFileShareArgs : Pulumi.ResourceArgs
+    public sealed class PolicyFileShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
@@ -261,9 +261,10 @@ namespace Pulumi.Azure.Backup
         public PolicyFileShareArgs()
         {
         }
+        public static new PolicyFileShareArgs Empty => new PolicyFileShareArgs();
     }
 
-    public sealed class PolicyFileShareState : Pulumi.ResourceArgs
+    public sealed class PolicyFileShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures the Policy backup frequency and times as documented in the `backup` block below.
@@ -322,5 +323,6 @@ namespace Pulumi.Azure.Backup
         public PolicyFileShareState()
         {
         }
+        public static new PolicyFileShareState Empty => new PolicyFileShareState();
     }
 }

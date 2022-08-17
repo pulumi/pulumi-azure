@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PostgreSql.Inputs
 {
 
-    public sealed class FlexibleServerMaintenanceWindowArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerMaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = `0`, Monday = `1`. Defaults to `0`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.PostgreSql.Inputs
         public FlexibleServerMaintenanceWindowArgs()
         {
         }
+        public static new FlexibleServerMaintenanceWindowArgs Empty => new FlexibleServerMaintenanceWindowArgs();
     }
 }

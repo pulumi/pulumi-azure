@@ -19,97 +19,100 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
-// 				&lb.LoadBalancerFrontendIpConfigurationArgs{
-// 					Name:              pulumi.String("primary"),
-// 					PublicIpAddressId: examplePublicIp.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNatRule, err := lb.NewNatRule(ctx, "exampleNatRule", &lb.NatRuleArgs{
-// 			ResourceGroupName:           exampleResourceGroup.Name,
-// 			LoadbalancerId:              exampleLoadBalancer.ID(),
-// 			Protocol:                    pulumi.String("Tcp"),
-// 			FrontendPort:                pulumi.Int(3389),
-// 			BackendPort:                 pulumi.Int(3389),
-// 			FrontendIpConfigurationName: pulumi.String("primary"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
-// 				&network.NetworkInterfaceIpConfigurationArgs{
-// 					Name:                       pulumi.String("testconfiguration1"),
-// 					SubnetId:                   exampleSubnet.ID(),
-// 					PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkInterfaceNatRuleAssociation(ctx, "exampleNetworkInterfaceNatRuleAssociation", &network.NetworkInterfaceNatRuleAssociationArgs{
-// 			NetworkInterfaceId:  exampleNetworkInterface.ID(),
-// 			IpConfigurationName: pulumi.String("testconfiguration1"),
-// 			NatRuleId:           exampleNatRule.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
+//					&lb.LoadBalancerFrontendIpConfigurationArgs{
+//						Name:              pulumi.String("primary"),
+//						PublicIpAddressId: examplePublicIp.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNatRule, err := lb.NewNatRule(ctx, "exampleNatRule", &lb.NatRuleArgs{
+//				ResourceGroupName:           exampleResourceGroup.Name,
+//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				Protocol:                    pulumi.String("Tcp"),
+//				FrontendPort:                pulumi.Int(3389),
+//				BackendPort:                 pulumi.Int(3389),
+//				FrontendIpConfigurationName: pulumi.String("primary"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
+//					&network.NetworkInterfaceIpConfigurationArgs{
+//						Name:                       pulumi.String("testconfiguration1"),
+//						SubnetId:                   exampleSubnet.ID(),
+//						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkInterfaceNatRuleAssociation(ctx, "exampleNetworkInterfaceNatRuleAssociation", &network.NetworkInterfaceNatRuleAssociationArgs{
+//				NetworkInterfaceId:  exampleNetworkInterface.ID(),
+//				IpConfigurationName: pulumi.String("testconfiguration1"),
+//				NatRuleId:           exampleNatRule.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -117,7 +120,9 @@ import (
 // Associations between Network Interfaces and Load Balancer NAT Rule can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+//
+//	$ pulumi import azure:network/networkInterfaceNatRuleAssociation:NetworkInterfaceNatRuleAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.network/networkInterfaces/nic1/ipConfigurations/example|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+//
 // ```
 type NetworkInterfaceNatRuleAssociation struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *NetworkInterfaceNatRuleAssociation) ToNetworkInterfaceNatRuleAssociatio
 // NetworkInterfaceNatRuleAssociationArrayInput is an input type that accepts NetworkInterfaceNatRuleAssociationArray and NetworkInterfaceNatRuleAssociationArrayOutput values.
 // You can construct a concrete instance of `NetworkInterfaceNatRuleAssociationArrayInput` via:
 //
-//          NetworkInterfaceNatRuleAssociationArray{ NetworkInterfaceNatRuleAssociationArgs{...} }
+//	NetworkInterfaceNatRuleAssociationArray{ NetworkInterfaceNatRuleAssociationArgs{...} }
 type NetworkInterfaceNatRuleAssociationArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i NetworkInterfaceNatRuleAssociationArray) ToNetworkInterfaceNatRuleAssoci
 // NetworkInterfaceNatRuleAssociationMapInput is an input type that accepts NetworkInterfaceNatRuleAssociationMap and NetworkInterfaceNatRuleAssociationMapOutput values.
 // You can construct a concrete instance of `NetworkInterfaceNatRuleAssociationMapInput` via:
 //
-//          NetworkInterfaceNatRuleAssociationMap{ "key": NetworkInterfaceNatRuleAssociationArgs{...} }
+//	NetworkInterfaceNatRuleAssociationMap{ "key": NetworkInterfaceNatRuleAssociationArgs{...} }
 type NetworkInterfaceNatRuleAssociationMapInput interface {
 	pulumi.Input
 

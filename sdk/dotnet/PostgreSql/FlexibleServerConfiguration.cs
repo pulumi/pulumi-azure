@@ -15,68 +15,68 @@ namespace Pulumi.Azure.PostgreSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12",
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             StorageMb = 32768,
-    ///             SkuName = "GP_Standard_D4s_v3",
-    ///         });
-    ///         var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new Azure.PostgreSql.FlexibleServerConfigurationArgs
-    ///         {
-    ///             ServerId = exampleFlexibleServer.Id,
-    ///             Value = "on",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         Value = "on",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Azure Extensions
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new Azure.PostgreSql.FlexibleServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12",
-    ///             AdministratorLogin = "psqladmin",
-    ///             AdministratorPassword = "H@Sh1CoR3!",
-    ///             StorageMb = 32768,
-    ///             SkuName = "GP_Standard_D4s_v3",
-    ///         });
-    ///         var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new Azure.PostgreSql.FlexibleServerConfigurationArgs
-    ///         {
-    ///             ServerId = exampleFlexibleServer.Id,
-    ///             Value = "CUBE,CITEXT,BTREE_GIST",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12",
+    ///         AdministratorLogin = "psqladmin",
+    ///         AdministratorPassword = "H@Sh1CoR3!",
+    ///         StorageMb = 32768,
+    ///         SkuName = "GP_Standard_D4s_v3",
+    ///     });
+    /// 
+    ///     var exampleFlexibleServerConfiguration = new Azure.PostgreSql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new()
+    ///     {
+    ///         ServerId = exampleFlexibleServer.Id,
+    ///         Value = "CUBE,CITEXT,BTREE_GIST",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.PostgreSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration")]
-    public partial class FlexibleServerConfiguration : Pulumi.CustomResource
+    public partial class FlexibleServerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.PostgreSql
         }
     }
 
-    public sealed class FlexibleServerConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -175,9 +175,10 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerConfigurationArgs()
         {
         }
+        public static new FlexibleServerConfigurationArgs Empty => new FlexibleServerConfigurationArgs();
     }
 
-    public sealed class FlexibleServerConfigurationState : Pulumi.ResourceArgs
+    public sealed class FlexibleServerConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the PostgreSQL Configuration, which needs [to be a valid PostgreSQL configuration name](https://www.postgresql.org/docs/current/static/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIER). Changing this forces a new resource to be created.
@@ -200,5 +201,6 @@ namespace Pulumi.Azure.PostgreSql
         public FlexibleServerConfigurationState()
         {
         }
+        public static new FlexibleServerConfigurationState Empty => new FlexibleServerConfigurationState();
     }
 }

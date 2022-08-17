@@ -16,7 +16,7 @@ namespace Pulumi.Azure
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [AzureResourceType("pulumi:providers:azure")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The password associated with the Client Certificate. For use when authenticating as a Service Principal using a Client
@@ -121,7 +121,7 @@ namespace Pulumi.Azure
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("auxiliaryTenantIds", json: true)]
         private InputList<string>? _auxiliaryTenantIds;
@@ -256,5 +256,6 @@ namespace Pulumi.Azure
             StorageUseAzuread = Utilities.GetEnvBoolean("ARM_STORAGE_USE_AZUREAD") ?? false;
             SubscriptionId = Utilities.GetEnv("ARM_SUBSCRIPTION_ID") ?? "";
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

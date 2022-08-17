@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetVirtualWanArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualWanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Virtual Wan.
@@ -42,9 +42,10 @@ namespace Pulumi.Azure.Network
         public GetVirtualWanArgs()
         {
         }
+        public static new GetVirtualWanArgs Empty => new GetVirtualWanArgs();
     }
 
-    public sealed class GetVirtualWanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualWanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Virtual Wan.
@@ -61,6 +62,7 @@ namespace Pulumi.Azure.Network
         public GetVirtualWanInvokeArgs()
         {
         }
+        public static new GetVirtualWanInvokeArgs Empty => new GetVirtualWanInvokeArgs();
     }
 
 

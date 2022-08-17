@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterNodeTypeGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterNodeTypeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the port range available for applications. Format is `&lt;from_port&gt;-&lt;to_port&gt;`, for example `10000-20000`.
@@ -141,5 +141,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterNodeTypeGetArgs()
         {
         }
+        public static new ManagedClusterNodeTypeGetArgs Empty => new ManagedClusterNodeTypeGetArgs();
     }
 }

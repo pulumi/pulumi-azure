@@ -15,31 +15,30 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new Azure.Iot.IotHubDpsArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AllocationPolicy = "Hashed",
-    ///             Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AllocationPolicy = "Hashed",
+    ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +50,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/iotHubDps:IotHubDps")]
-    public partial class IotHubDps : Pulumi.CustomResource
+    public partial class IotHubDps : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
@@ -169,7 +168,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class IotHubDpsArgs : Pulumi.ResourceArgs
+    public sealed class IotHubDpsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
@@ -246,9 +245,10 @@ namespace Pulumi.Azure.Iot
         public IotHubDpsArgs()
         {
         }
+        public static new IotHubDpsArgs Empty => new IotHubDpsArgs();
     }
 
-    public sealed class IotHubDpsState : Pulumi.ResourceArgs
+    public sealed class IotHubDpsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The allocation policy of the IoT Device Provisioning Service (`Hashed`, `GeoLatency` or `Static`). Defaults to `Hashed`.
@@ -343,5 +343,6 @@ namespace Pulumi.Azure.Iot
         public IotHubDpsState()
         {
         }
+        public static new IotHubDpsState Empty => new IotHubDpsState();
     }
 }

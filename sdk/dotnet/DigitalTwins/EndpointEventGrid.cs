@@ -15,37 +15,38 @@ namespace Pulumi.Azure.DigitalTwins
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new Azure.DigitalTwins.InstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new Azure.EventGrid.TopicArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("exampleEndpointEventGrid", new Azure.DigitalTwins.EndpointEventGridArgs
-    ///         {
-    ///             DigitalTwinsId = exampleInstance.Id,
-    ///             EventgridTopicEndpoint = exampleTopic.Endpoint,
-    ///             EventgridTopicPrimaryAccessKey = exampleTopic.PrimaryAccessKey,
-    ///             EventgridTopicSecondaryAccessKey = exampleTopic.SecondaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("exampleEndpointEventGrid", new()
+    ///     {
+    ///         DigitalTwinsId = exampleInstance.Id,
+    ///         EventgridTopicEndpoint = exampleTopic.Endpoint,
+    ///         EventgridTopicPrimaryAccessKey = exampleTopic.PrimaryAccessKey,
+    ///         EventgridTopicSecondaryAccessKey = exampleTopic.SecondaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +58,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// ```
     /// </summary>
     [AzureResourceType("azure:digitaltwins/endpointEventGrid:EndpointEventGrid")]
-    public partial class EndpointEventGrid : Pulumi.CustomResource
+    public partial class EndpointEventGrid : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -139,7 +140,7 @@ namespace Pulumi.Azure.DigitalTwins
         }
     }
 
-    public sealed class EndpointEventGridArgs : Pulumi.ResourceArgs
+    public sealed class EndpointEventGridArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -180,9 +181,10 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointEventGridArgs()
         {
         }
+        public static new EndpointEventGridArgs Empty => new EndpointEventGridArgs();
     }
 
-    public sealed class EndpointEventGridState : Pulumi.ResourceArgs
+    public sealed class EndpointEventGridState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The storage secret of the dead-lettering, whose format is `https://&lt;storageAccountname&gt;.blob.core.windows.net/&lt;containerName&gt;?&lt;SASToken&gt;`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -223,5 +225,6 @@ namespace Pulumi.Azure.DigitalTwins
         public EndpointEventGridState()
         {
         }
+        public static new EndpointEventGridState Empty => new EndpointEventGridState();
     }
 }

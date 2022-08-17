@@ -15,37 +15,38 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleSubscription = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var examplePolicySetDefinition = Output.Create(Azure.Policy.GetPolicySetDefinition.InvokeAsync(new Azure.Policy.GetPolicySetDefinitionArgs
-    ///         {
-    ///             DisplayName = "Audit machines with insecure password security settings",
-    ///         }));
-    ///         var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new Azure.Core.SubscriptionPolicyAssignmentArgs
-    ///         {
-    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             PolicyDefinitionId = examplePolicySetDefinition.Apply(examplePolicySetDefinition =&gt; examplePolicySetDefinition.Id),
-    ///             Location = "westus",
-    ///             Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", new Azure.Core.SubscriptionPolicyExemptionArgs
-    ///         {
-    ///             SubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
-    ///             ExemptionCategory = "Mitigated",
-    ///         });
-    ///     }
+    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     {
+    ///         DisplayName = "Audit machines with insecure password security settings",
+    ///     });
+    /// 
+    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
+    ///     {
+    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Location = "westus",
+    ///         Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", new()
+    ///     {
+    ///         SubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
+    ///         ExemptionCategory = "Mitigated",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +58,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/subscriptionPolicyExemption:SubscriptionPolicyExemption")]
-    public partial class SubscriptionPolicyExemption : Pulumi.CustomResource
+    public partial class SubscriptionPolicyExemption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -157,7 +158,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class SubscriptionPolicyExemptionArgs : Pulumi.ResourceArgs
+    public sealed class SubscriptionPolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -222,9 +223,10 @@ namespace Pulumi.Azure.Core
         public SubscriptionPolicyExemptionArgs()
         {
         }
+        public static new SubscriptionPolicyExemptionArgs Empty => new SubscriptionPolicyExemptionArgs();
     }
 
-    public sealed class SubscriptionPolicyExemptionState : Pulumi.ResourceArgs
+    public sealed class SubscriptionPolicyExemptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -289,5 +291,6 @@ namespace Pulumi.Azure.Core
         public SubscriptionPolicyExemptionState()
         {
         }
+        public static new SubscriptionPolicyExemptionState Empty => new SubscriptionPolicyExemptionState();
     }
 }

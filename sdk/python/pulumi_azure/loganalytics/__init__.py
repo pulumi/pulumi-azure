@@ -12,6 +12,7 @@ from .data_source_windows_event import *
 from .data_source_windows_performance_counter import *
 from .linked_service import *
 from .linked_storage_account import *
+from .query_pack import *
 from .saved_search import *
 from .storage_insights import *
 from ._inputs import *

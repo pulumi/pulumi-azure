@@ -15,44 +15,46 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "Pooled",
-    ///             LoadBalancerType = "BreadthFirst",
-    ///         });
-    ///         var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new Azure.DesktopVirtualization.ApplicationGroupArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Type = "RemoteApp",
-    ///             HostPoolId = pooledbreadthfirst.Id,
-    ///         });
-    ///         var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new Azure.DesktopVirtualization.WorkspaceArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///         var workspaceremoteapp = new Azure.DesktopVirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", new Azure.DesktopVirtualization.WorkspaceApplicationGroupAssociationArgs
-    ///         {
-    ///             WorkspaceId = workspace.Id,
-    ///             ApplicationGroupId = remoteapp.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "Pooled",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///     });
+    /// 
+    ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Type = "RemoteApp",
+    ///         HostPoolId = pooledbreadthfirst.Id,
+    ///     });
+    /// 
+    ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var workspaceremoteapp = new Azure.DesktopVirtualization.WorkspaceApplicationGroupAssociation("workspaceremoteapp", new()
+    ///     {
+    ///         WorkspaceId = workspace.Id,
+    ///         ApplicationGroupId = remoteapp.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +66,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/workspaceApplicationGroupAssociation:WorkspaceApplicationGroupAssociation")]
-    public partial class WorkspaceApplicationGroupAssociation : Pulumi.CustomResource
+    public partial class WorkspaceApplicationGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resource ID for the Virtual Desktop Application Group.
@@ -122,7 +124,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class WorkspaceApplicationGroupAssociationArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceApplicationGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID for the Virtual Desktop Application Group.
@@ -139,9 +141,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public WorkspaceApplicationGroupAssociationArgs()
         {
         }
+        public static new WorkspaceApplicationGroupAssociationArgs Empty => new WorkspaceApplicationGroupAssociationArgs();
     }
 
-    public sealed class WorkspaceApplicationGroupAssociationState : Pulumi.ResourceArgs
+    public sealed class WorkspaceApplicationGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID for the Virtual Desktop Application Group.
@@ -158,5 +161,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public WorkspaceApplicationGroupAssociationState()
         {
         }
+        public static new WorkspaceApplicationGroupAssociationState Empty => new WorkspaceApplicationGroupAssociationState();
     }
 }

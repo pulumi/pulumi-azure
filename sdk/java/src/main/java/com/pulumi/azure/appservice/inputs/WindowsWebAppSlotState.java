@@ -402,6 +402,21 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    @Import(name="virtualNetworkSubnetId")
+    private @Nullable Output<String> virtualNetworkSubnetId;
+
+    /**
+     * @return The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+     * 
+     */
+    public Optional<Output<String>> virtualNetworkSubnetId() {
+        return Optional.ofNullable(this.virtualNetworkSubnetId);
+    }
+
+    /**
      * The local path and filename of the Zip packaged application to deploy to this Windows Web App.
      * 
      */
@@ -444,6 +459,7 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
         this.siteCredentials = $.siteCredentials;
         this.storageAccounts = $.storageAccounts;
         this.tags = $.tags;
+        this.virtualNetworkSubnetId = $.virtualNetworkSubnetId;
         this.zipDeployFile = $.zipDeployFile;
     }
 
@@ -1038,6 +1054,27 @@ public final class WindowsWebAppSlotState extends com.pulumi.resources.ResourceA
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(@Nullable Output<String> virtualNetworkSubnetId) {
+            $.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return this;
+        }
+
+        /**
+         * @param virtualNetworkSubnetId The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            return virtualNetworkSubnetId(Output.of(virtualNetworkSubnetId));
         }
 
         /**

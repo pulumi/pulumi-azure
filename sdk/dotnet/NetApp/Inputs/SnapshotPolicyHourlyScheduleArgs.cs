@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class SnapshotPolicyHourlyScheduleArgs : Pulumi.ResourceArgs
+    public sealed class SnapshotPolicyHourlyScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public SnapshotPolicyHourlyScheduleArgs()
         {
         }
+        public static new SnapshotPolicyHourlyScheduleArgs Empty => new SnapshotPolicyHourlyScheduleArgs();
     }
 }

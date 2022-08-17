@@ -23,20 +23,18 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.PortalTenantConfiguration("example", new()
     ///     {
-    ///         var example = new Azure.Core.PortalTenantConfiguration("example", new Azure.Core.PortalTenantConfigurationArgs
-    ///         {
-    ///             PrivateMarkdownStorageEnforced = true,
-    ///         });
-    ///     }
+    ///         PrivateMarkdownStorageEnforced = true,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -48,7 +46,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/portalTenantConfiguration:PortalTenantConfiguration")]
-    public partial class PortalTenantConfiguration : Pulumi.CustomResource
+    public partial class PortalTenantConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
@@ -100,7 +98,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class PortalTenantConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class PortalTenantConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
@@ -111,9 +109,10 @@ namespace Pulumi.Azure.Core
         public PortalTenantConfigurationArgs()
         {
         }
+        public static new PortalTenantConfigurationArgs Empty => new PortalTenantConfigurationArgs();
     }
 
-    public sealed class PortalTenantConfigurationState : Pulumi.ResourceArgs
+    public sealed class PortalTenantConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the private tile markdown storage which used to display custom dynamic and static content enabled?
@@ -124,5 +123,6 @@ namespace Pulumi.Azure.Core
         public PortalTenantConfigurationState()
         {
         }
+        public static new PortalTenantConfigurationState Empty => new PortalTenantConfigurationState();
     }
 }

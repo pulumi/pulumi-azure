@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := storage.LookupSync(ctx, &storage.LookupSyncArgs{
-// 			Name:              "existingStorageSyncName",
-// 			ResourceGroupName: "existingResGroup",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := storage.LookupSync(ctx, &storage.LookupSyncArgs{
+//				Name:              "existingStorageSyncName",
+//				ResourceGroupName: "existingResGroup",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupSync(ctx *pulumi.Context, args *LookupSyncArgs, opts ...pulumi.InvokeOption) (*LookupSyncResult, error) {
 	var rv LookupSyncResult

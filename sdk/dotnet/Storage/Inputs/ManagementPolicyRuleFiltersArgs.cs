@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ManagementPolicyRuleFiltersArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleFiltersArgs : global::Pulumi.ResourceArgs
     {
         [Input("blobTypes", required: true)]
         private InputList<string>? _blobTypes;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ManagementPolicyRuleFiltersArgs()
         {
         }
+        public static new ManagementPolicyRuleFiltersArgs Empty => new ManagementPolicyRuleFiltersArgs();
     }
 }

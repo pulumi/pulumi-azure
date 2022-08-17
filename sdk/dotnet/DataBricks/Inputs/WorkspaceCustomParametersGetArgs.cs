@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks.Inputs
 {
 
-    public sealed class WorkspaceCustomParametersGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceCustomParametersGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of a Azure Machine Learning workspace to link with Databricks workspace. Changing this forces a new resource to be created.
@@ -87,5 +87,6 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public WorkspaceCustomParametersGetArgs()
         {
         }
+        public static new WorkspaceCustomParametersGetArgs Empty => new WorkspaceCustomParametersGetArgs();
     }
 }

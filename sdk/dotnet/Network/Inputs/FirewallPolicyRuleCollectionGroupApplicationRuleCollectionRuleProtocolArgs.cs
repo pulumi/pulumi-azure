@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Port number of the protocol. Range is 0-64000.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs Empty => new FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs();
     }
 }

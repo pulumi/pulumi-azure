@@ -15,44 +15,45 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@terraform.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleUser = new Azure.ApiManagement.User("exampleUser", new Azure.ApiManagement.UserArgs
-    ///         {
-    ///             UserId = "123",
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FirstName = "Example",
-    ///             LastName = "User",
-    ///             Email = "foo@bar.com",
-    ///             State = "active",
-    ///         });
-    ///         var exampleNotificationRecipientUser = new Azure.ApiManagement.NotificationRecipientUser("exampleNotificationRecipientUser", new Azure.ApiManagement.NotificationRecipientUserArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             NotificationType = "AccountClosedPublisher",
-    ///             UserId = exampleUser.UserId,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@terraform.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleUser = new Azure.ApiManagement.User("exampleUser", new()
+    ///     {
+    ///         UserId = "123",
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FirstName = "Example",
+    ///         LastName = "User",
+    ///         Email = "foo@bar.com",
+    ///         State = "active",
+    ///     });
+    /// 
+    ///     var exampleNotificationRecipientUser = new Azure.ApiManagement.NotificationRecipientUser("exampleNotificationRecipientUser", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         NotificationType = "AccountClosedPublisher",
+    ///         UserId = exampleUser.UserId,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/notificationRecipientUser:NotificationRecipientUser")]
-    public partial class NotificationRecipientUser : Pulumi.CustomResource
+    public partial class NotificationRecipientUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
@@ -128,7 +129,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class NotificationRecipientUserArgs : Pulumi.ResourceArgs
+    public sealed class NotificationRecipientUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
@@ -151,9 +152,10 @@ namespace Pulumi.Azure.ApiManagement
         public NotificationRecipientUserArgs()
         {
         }
+        public static new NotificationRecipientUserArgs Empty => new NotificationRecipientUserArgs();
     }
 
-    public sealed class NotificationRecipientUserState : Pulumi.ResourceArgs
+    public sealed class NotificationRecipientUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management Service from which to create this Notification Recipient User. Changing this forces a new API Management Notification Recipient User to be created.
@@ -176,5 +178,6 @@ namespace Pulumi.Azure.ApiManagement
         public NotificationRecipientUserState()
         {
         }
+        public static new NotificationRecipientUserState Empty => new NotificationRecipientUserState();
     }
 }

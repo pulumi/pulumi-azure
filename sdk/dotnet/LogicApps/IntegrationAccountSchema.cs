@@ -15,33 +15,33 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new Azure.LogicApps.IntegrationAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleIntegrationAccountSchema = new Azure.LogicApps.IntegrationAccountSchema("exampleIntegrationAccountSchema", new Azure.LogicApps.IntegrationAccountSchemaArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IntegrationAccountName = exampleIntegrationAccount.Name,
-    ///             Content = File.ReadAllText("testdata/integration_account_schema_content.xsd"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleIntegrationAccountSchema = new Azure.LogicApps.IntegrationAccountSchema("exampleIntegrationAccountSchema", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IntegrationAccountName = exampleIntegrationAccount.Name,
+    ///         Content = File.ReadAllText("testdata/integration_account_schema_content.xsd"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountSchema:IntegrationAccountSchema")]
-    public partial class IntegrationAccountSchema : Pulumi.CustomResource
+    public partial class IntegrationAccountSchema : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The content of the Logic App Integration Account Schema.
@@ -135,7 +135,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class IntegrationAccountSchemaArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSchemaArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the Logic App Integration Account Schema.
@@ -176,9 +176,10 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountSchemaArgs()
         {
         }
+        public static new IntegrationAccountSchemaArgs Empty => new IntegrationAccountSchemaArgs();
     }
 
-    public sealed class IntegrationAccountSchemaState : Pulumi.ResourceArgs
+    public sealed class IntegrationAccountSchemaState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of the Logic App Integration Account Schema.
@@ -219,5 +220,6 @@ namespace Pulumi.Azure.LogicApps
         public IntegrationAccountSchemaState()
         {
         }
+        public static new IntegrationAccountSchemaState Empty => new IntegrationAccountSchemaState();
     }
 }

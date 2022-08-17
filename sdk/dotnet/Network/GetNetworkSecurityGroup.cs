@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkSecurityGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkSecurityGroup.InvokeAsync(new Azure.Network.GetNetworkSecurityGroupArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.Location = example.Apply(example =&gt; example.Location);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("location")]
-        ///     public Output&lt;string&gt; Location { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["location"] = example.Apply(getNetworkSecurityGroupResult =&gt; getNetworkSecurityGroupResult.Location),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkSecurityGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkSecurityGroup.InvokeAsync(new Azure.Network.GetNetworkSecurityGroupArgs
-        ///         {
-        ///             Name = "example",
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.Location = example.Apply(example =&gt; example.Location);
-        ///     }
+        ///         Name = "example",
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("location")]
-        ///     public Output&lt;string&gt; Location { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["location"] = example.Apply(getNetworkSecurityGroupResult =&gt; getNetworkSecurityGroupResult.Location),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetNetworkSecurityGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkSecurityGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Network Security Group.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetNetworkSecurityGroupArgs()
         {
         }
+        public static new GetNetworkSecurityGroupArgs Empty => new GetNetworkSecurityGroupArgs();
     }
 
-    public sealed class GetNetworkSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkSecurityGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Network Security Group.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetNetworkSecurityGroupInvokeArgs()
         {
         }
+        public static new GetNetworkSecurityGroupInvokeArgs Empty => new GetNetworkSecurityGroupInvokeArgs();
     }
 
 

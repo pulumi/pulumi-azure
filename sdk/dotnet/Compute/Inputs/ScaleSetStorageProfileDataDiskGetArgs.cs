@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetStorageProfileDataDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetStorageProfileDataDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetStorageProfileDataDiskGetArgs()
         {
         }
+        public static new ScaleSetStorageProfileDataDiskGetArgs Empty => new ScaleSetStorageProfileDataDiskGetArgs();
     }
 }

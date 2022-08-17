@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceBackupArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this Backup enabled?
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceBackupArgs()
         {
         }
+        public static new AppServiceBackupArgs Empty => new AppServiceBackupArgs();
     }
 }

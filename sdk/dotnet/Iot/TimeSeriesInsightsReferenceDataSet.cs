@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new Azure.Iot.TimeSeriesInsightsStandardEnvironmentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "S1_1",
-    ///             DataRetentionTime = "P30D",
-    ///         });
-    ///         var exampleTimeSeriesInsightsReferenceDataSet = new Azure.Iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", new Azure.Iot.TimeSeriesInsightsReferenceDataSetArgs
-    ///         {
-    ///             TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             KeyProperties = 
-    ///             {
-    ///                 new Azure.Iot.Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs
-    ///                 {
-    ///                     Name = "keyProperty1",
-    ///                     Type = "String",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "S1_1",
+    ///         DataRetentionTime = "P30D",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsReferenceDataSet = new Azure.Iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", new()
+    ///     {
+    ///         TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         KeyProperties = new[]
+    ///         {
+    ///             new Azure.Iot.Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs
+    ///             {
+    ///                 Name = "keyProperty1",
+    ///                 Type = "String",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet")]
-    public partial class TimeSeriesInsightsReferenceDataSet : Pulumi.CustomResource
+    public partial class TimeSeriesInsightsReferenceDataSet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
@@ -142,7 +142,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class TimeSeriesInsightsReferenceDataSetArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsReferenceDataSetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
@@ -195,9 +195,10 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsReferenceDataSetArgs()
         {
         }
+        public static new TimeSeriesInsightsReferenceDataSetArgs Empty => new TimeSeriesInsightsReferenceDataSetArgs();
     }
 
-    public sealed class TimeSeriesInsightsReferenceDataSetState : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsReferenceDataSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The comparison behavior that will be used to compare keys. Valid values include `Ordinal` and `OrdinalIgnoreCase`. Defaults to `Ordinal`. Changing this forces a new resource to be created.
@@ -250,5 +251,6 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsReferenceDataSetState()
         {
         }
+        public static new TimeSeriesInsightsReferenceDataSetState Empty => new TimeSeriesInsightsReferenceDataSetState();
     }
 }

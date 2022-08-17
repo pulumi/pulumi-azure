@@ -15,53 +15,55 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         var exampleApiKey = new Azure.AppInsights.ApiKey("exampleApiKey", new Azure.AppInsights.ApiKeyArgs
-    ///         {
-    ///             ApplicationInsightsId = exampleInsights.Id,
-    ///             ReadPermissions = 
-    ///             {
-    ///                 "aggregate",
-    ///                 "api",
-    ///                 "draft",
-    ///                 "extendqueries",
-    ///                 "search",
-    ///             },
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new Azure.Bot.ServiceAzureBotArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "global",
-    ///             MicrosoftAppId = current.Apply(current =&gt; current.ClientId),
-    ///             Sku = "F0",
-    ///             Endpoint = "https://example.com",
-    ///             DeveloperAppInsightsApiKey = exampleApiKey.ApiKey,
-    ///             DeveloperAppInsightsApplicationId = exampleInsights.AppId,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleApiKey = new Azure.AppInsights.ApiKey("exampleApiKey", new()
+    ///     {
+    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ReadPermissions = new[]
+    ///         {
+    ///             "aggregate",
+    ///             "api",
+    ///             "draft",
+    ///             "extendqueries",
+    ///             "search",
+    ///         },
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "global",
+    ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         Sku = "F0",
+    ///         Endpoint = "https://example.com",
+    ///         DeveloperAppInsightsApiKey = exampleApiKey.ApiKey,
+    ///         DeveloperAppInsightsApplicationId = exampleInsights.AppId,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +75,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/serviceAzureBot:ServiceAzureBot")]
-    public partial class ServiceAzureBot : Pulumi.CustomResource
+    public partial class ServiceAzureBot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
@@ -166,6 +168,12 @@ namespace Pulumi.Azure.Bot
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// </summary>
+        [Output("streamingEndpointEnabled")]
+        public Output<bool?> StreamingEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to this Azure Bot Service.
         /// </summary>
         [Output("tags")]
@@ -215,7 +223,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class ServiceAzureBotArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAzureBotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
@@ -313,6 +321,12 @@ namespace Pulumi.Azure.Bot
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
 
+        /// <summary>
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// </summary>
+        [Input("streamingEndpointEnabled")]
+        public Input<bool>? StreamingEndpointEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -328,9 +342,10 @@ namespace Pulumi.Azure.Bot
         public ServiceAzureBotArgs()
         {
         }
+        public static new ServiceAzureBotArgs Empty => new ServiceAzureBotArgs();
     }
 
-    public sealed class ServiceAzureBotState : Pulumi.ResourceArgs
+    public sealed class ServiceAzureBotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Application Insights API Key to associate with this Azure Bot Service.
@@ -428,6 +443,12 @@ namespace Pulumi.Azure.Bot
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
+        /// </summary>
+        [Input("streamingEndpointEnabled")]
+        public Input<bool>? StreamingEndpointEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -443,5 +464,6 @@ namespace Pulumi.Azure.Bot
         public ServiceAzureBotState()
         {
         }
+        public static new ServiceAzureBotState Empty => new ServiceAzureBotState();
     }
 }

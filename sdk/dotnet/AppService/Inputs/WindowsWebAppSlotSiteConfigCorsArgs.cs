@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsWebAppSlotSiteConfigCorsArgs : Pulumi.ResourceArgs
+    public sealed class WindowsWebAppSlotSiteConfigCorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsWebAppSlotSiteConfigCorsArgs()
         {
         }
+        public static new WindowsWebAppSlotSiteConfigCorsArgs Empty => new WindowsWebAppSlotSiteConfigCorsArgs();
     }
 }

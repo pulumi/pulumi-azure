@@ -21,70 +21,72 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Storage",
-    ///             },
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("exampleAccountNetworkRules", new Azure.Storage.AccountNetworkRulesArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             DefaultAction = "Allow",
-    ///             IpRules = 
-    ///             {
-    ///                 "127.0.0.1",
-    ///             },
-    ///             VirtualNetworkSubnetIds = 
-    ///             {
-    ///                 exampleSubnet.Id,
-    ///             },
-    ///             Bypasses = 
-    ///             {
-    ///                 "Metrics",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Storage",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("exampleAccountNetworkRules", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         DefaultAction = "Allow",
+    ///         IpRules = new[]
+    ///         {
+    ///             "127.0.0.1",
+    ///         },
+    ///         VirtualNetworkSubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///         Bypasses = new[]
+    ///         {
+    ///             "Metrics",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +98,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/accountNetworkRules:AccountNetworkRules")]
-    public partial class AccountNetworkRules : Pulumi.CustomResource
+    public partial class AccountNetworkRules : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -178,7 +180,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class AccountNetworkRulesArgs : Pulumi.ResourceArgs
+    public sealed class AccountNetworkRulesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bypasses")]
         private InputList<string>? _bypasses;
@@ -243,9 +245,10 @@ namespace Pulumi.Azure.Storage
         public AccountNetworkRulesArgs()
         {
         }
+        public static new AccountNetworkRulesArgs Empty => new AccountNetworkRulesArgs();
     }
 
-    public sealed class AccountNetworkRulesState : Pulumi.ResourceArgs
+    public sealed class AccountNetworkRulesState : global::Pulumi.ResourceArgs
     {
         [Input("bypasses")]
         private InputList<string>? _bypasses;
@@ -310,5 +313,6 @@ namespace Pulumi.Azure.Storage
         public AccountNetworkRulesState()
         {
         }
+        public static new AccountNetworkRulesState Empty => new AccountNetworkRulesState();
     }
 }

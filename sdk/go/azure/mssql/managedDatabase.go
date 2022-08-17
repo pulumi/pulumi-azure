@@ -19,63 +19,66 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "exampleManagedInstance", &mssql.ManagedInstanceArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			LicenseType:                pulumi.String("BasePrice"),
-// 			SkuName:                    pulumi.String("GP_Gen5"),
-// 			StorageSizeInGb:            pulumi.Int(32),
-// 			SubnetId:                   exampleSubnet.ID(),
-// 			Vcores:                     pulumi.Int(4),
-// 			AdministratorLogin:         pulumi.String("msadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewManagedDatabase(ctx, "exampleManagedDatabase", &mssql.ManagedDatabaseArgs{
-// 			ManagedInstanceId: exampleManagedInstance.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "exampleManagedInstance", &mssql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				StorageSizeInGb:            pulumi.Int(32),
+//				SubnetId:                   exampleSubnet.ID(),
+//				Vcores:                     pulumi.Int(4),
+//				AdministratorLogin:         pulumi.String("msadministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewManagedDatabase(ctx, "exampleManagedDatabase", &mssql.ManagedDatabaseArgs{
+//				ManagedInstanceId: exampleManagedInstance.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -83,7 +86,9 @@ import (
 // SQL Managed Databases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/managedDatabase:ManagedDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver/databases/mydatabase
+//
+//	$ pulumi import azure:mssql/managedDatabase:ManagedDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver/databases/mydatabase
+//
 // ```
 type ManagedDatabase struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context
 // ManagedDatabaseArrayInput is an input type that accepts ManagedDatabaseArray and ManagedDatabaseArrayOutput values.
 // You can construct a concrete instance of `ManagedDatabaseArrayInput` via:
 //
-//          ManagedDatabaseArray{ ManagedDatabaseArgs{...} }
+//	ManagedDatabaseArray{ ManagedDatabaseArgs{...} }
 type ManagedDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i ManagedDatabaseArray) ToManagedDatabaseArrayOutputWithContext(ctx contex
 // ManagedDatabaseMapInput is an input type that accepts ManagedDatabaseMap and ManagedDatabaseMapOutput values.
 // You can construct a concrete instance of `ManagedDatabaseMapInput` via:
 //
-//          ManagedDatabaseMap{ "key": ManagedDatabaseArgs{...} }
+//	ManagedDatabaseMap{ "key": ManagedDatabaseArgs{...} }
 type ManagedDatabaseMapInput interface {
 	pulumi.Input
 

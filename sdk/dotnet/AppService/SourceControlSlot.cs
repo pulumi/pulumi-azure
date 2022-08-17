@@ -15,45 +15,47 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Linux",
-    ///             SkuName = "P1v2",
-    ///         });
-    ///         var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new Azure.AppService.LinuxWebAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleServicePlan.Location,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("exampleLinuxWebAppSlot", new Azure.AppService.LinuxWebAppSlotArgs
-    ///         {
-    ///             AppServiceId = exampleLinuxWebApp.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleSourceControlSlot = new Azure.AppService.SourceControlSlot("exampleSourceControlSlot", new Azure.AppService.SourceControlSlotArgs
-    ///         {
-    ///             SlotId = exampleLinuxWebAppSlot.Id,
-    ///             RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",
-    ///             Branch = "master",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "P1v2",
+    ///     });
+    /// 
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("exampleLinuxWebAppSlot", new()
+    ///     {
+    ///         AppServiceId = exampleLinuxWebApp.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleSourceControlSlot = new Azure.AppService.SourceControlSlot("exampleSourceControlSlot", new()
+    ///     {
+    ///         SlotId = exampleLinuxWebAppSlot.Id,
+    ///         RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",
+    ///         Branch = "master",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +67,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/sourceControlSlot:SourceControlSlot")]
-    public partial class SourceControlSlot : Pulumi.CustomResource
+    public partial class SourceControlSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The URL for the repository. Changing this forces a new resource to be created.
@@ -171,7 +173,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SourceControlSlotArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for the repository. Changing this forces a new resource to be created.
@@ -224,9 +226,10 @@ namespace Pulumi.Azure.AppService
         public SourceControlSlotArgs()
         {
         }
+        public static new SourceControlSlotArgs Empty => new SourceControlSlotArgs();
     }
 
-    public sealed class SourceControlSlotState : Pulumi.ResourceArgs
+    public sealed class SourceControlSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL for the repository. Changing this forces a new resource to be created.
@@ -291,5 +294,6 @@ namespace Pulumi.Azure.AppService
         public SourceControlSlotState()
         {
         }
+        public static new SourceControlSlotState Empty => new SourceControlSlotState();
     }
 }

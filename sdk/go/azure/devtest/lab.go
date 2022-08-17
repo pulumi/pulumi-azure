@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Sydney": pulumi.String("Australia"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Sydney": pulumi.String("Australia"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -52,7 +55,9 @@ import (
 // Dev Test Labs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
+//
+//	$ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
+//
 // ```
 type Lab struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *Lab) ToLabOutputWithContext(ctx context.Context) LabOutput {
 // LabArrayInput is an input type that accepts LabArray and LabArrayOutput values.
 // You can construct a concrete instance of `LabArrayInput` via:
 //
-//          LabArray{ LabArgs{...} }
+//	LabArray{ LabArgs{...} }
 type LabArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i LabArray) ToLabArrayOutputWithContext(ctx context.Context) LabArrayOutpu
 // LabMapInput is an input type that accepts LabMap and LabMapOutput values.
 // You can construct a concrete instance of `LabMapInput` via:
 //
-//          LabMap{ "key": LabArgs{...} }
+//	LabMap{ "key": LabArgs{...} }
 type LabMapInput interface {
 	pulumi.Input
 

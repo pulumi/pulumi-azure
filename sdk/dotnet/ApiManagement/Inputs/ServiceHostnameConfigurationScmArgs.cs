@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceHostnameConfigurationScmArgs : Pulumi.ResourceArgs
+    public sealed class ServiceHostnameConfigurationScmArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// One or more (up to 10) `certificate` blocks as defined below.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceHostnameConfigurationScmArgs()
         {
         }
+        public static new ServiceHostnameConfigurationScmArgs Empty => new ServiceHostnameConfigurationScmArgs();
     }
 }

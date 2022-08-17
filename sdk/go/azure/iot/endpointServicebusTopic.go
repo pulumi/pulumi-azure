@@ -21,68 +21,71 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
-// 			NamespaceId: exampleNamespace.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
-// 			TopicId: exampleTopic.ID(),
-// 			Listen:  pulumi.Bool(false),
-// 			Send:    pulumi.Bool(true),
-// 			Manage:  pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("B1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"purpose": pulumi.String("example"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewEndpointServicebusTopic(ctx, "exampleEndpointServicebusTopic", &iot.EndpointServicebusTopicArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			IothubId:          exampleIoTHub.ID(),
-// 			ConnectionString:  exampleTopicAuthorizationRule.PrimaryConnectionString,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//				NamespaceId: exampleNamespace.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
+//				TopicId: exampleTopic.ID(),
+//				Listen:  pulumi.Bool(false),
+//				Send:    pulumi.Bool(true),
+//				Manage:  pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("B1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"purpose": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewEndpointServicebusTopic(ctx, "exampleEndpointServicebusTopic", &iot.EndpointServicebusTopicArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				IothubId:          exampleIoTHub.ID(),
+//				ConnectionString:  exampleTopicAuthorizationRule.PrimaryConnectionString,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +93,9 @@ import (
 // IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebustopic_endpoint1
+//
+//	$ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Endpoints/servicebustopic_endpoint1
+//
 // ```
 type EndpointServicebusTopic struct {
 	pulumi.CustomResourceState
@@ -254,7 +259,7 @@ func (i *EndpointServicebusTopic) ToEndpointServicebusTopicOutputWithContext(ctx
 // EndpointServicebusTopicArrayInput is an input type that accepts EndpointServicebusTopicArray and EndpointServicebusTopicArrayOutput values.
 // You can construct a concrete instance of `EndpointServicebusTopicArrayInput` via:
 //
-//          EndpointServicebusTopicArray{ EndpointServicebusTopicArgs{...} }
+//	EndpointServicebusTopicArray{ EndpointServicebusTopicArgs{...} }
 type EndpointServicebusTopicArrayInput interface {
 	pulumi.Input
 
@@ -279,7 +284,7 @@ func (i EndpointServicebusTopicArray) ToEndpointServicebusTopicArrayOutputWithCo
 // EndpointServicebusTopicMapInput is an input type that accepts EndpointServicebusTopicMap and EndpointServicebusTopicMapOutput values.
 // You can construct a concrete instance of `EndpointServicebusTopicMapInput` via:
 //
-//          EndpointServicebusTopicMap{ "key": EndpointServicebusTopicArgs{...} }
+//	EndpointServicebusTopicMap{ "key": EndpointServicebusTopicArgs{...} }
 type EndpointServicebusTopicMapInput interface {
 	pulumi.Input
 

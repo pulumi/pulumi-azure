@@ -24,7 +24,7 @@ type BackupPolicyDiskRetentionRule struct {
 // BackupPolicyDiskRetentionRuleInput is an input type that accepts BackupPolicyDiskRetentionRuleArgs and BackupPolicyDiskRetentionRuleOutput values.
 // You can construct a concrete instance of `BackupPolicyDiskRetentionRuleInput` via:
 //
-//          BackupPolicyDiskRetentionRuleArgs{...}
+//	BackupPolicyDiskRetentionRuleArgs{...}
 type BackupPolicyDiskRetentionRuleInput interface {
 	pulumi.Input
 
@@ -58,7 +58,7 @@ func (i BackupPolicyDiskRetentionRuleArgs) ToBackupPolicyDiskRetentionRuleOutput
 // BackupPolicyDiskRetentionRuleArrayInput is an input type that accepts BackupPolicyDiskRetentionRuleArray and BackupPolicyDiskRetentionRuleArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyDiskRetentionRuleArrayInput` via:
 //
-//          BackupPolicyDiskRetentionRuleArray{ BackupPolicyDiskRetentionRuleArgs{...} }
+//	BackupPolicyDiskRetentionRuleArray{ BackupPolicyDiskRetentionRuleArgs{...} }
 type BackupPolicyDiskRetentionRuleArrayInput interface {
 	pulumi.Input
 
@@ -142,7 +142,7 @@ type BackupPolicyDiskRetentionRuleCriteria struct {
 // BackupPolicyDiskRetentionRuleCriteriaInput is an input type that accepts BackupPolicyDiskRetentionRuleCriteriaArgs and BackupPolicyDiskRetentionRuleCriteriaOutput values.
 // You can construct a concrete instance of `BackupPolicyDiskRetentionRuleCriteriaInput` via:
 //
-//          BackupPolicyDiskRetentionRuleCriteriaArgs{...}
+//	BackupPolicyDiskRetentionRuleCriteriaArgs{...}
 type BackupPolicyDiskRetentionRuleCriteriaInput interface {
 	pulumi.Input
 
@@ -200,7 +200,7 @@ type BackupPolicyPostgresqlRetentionRule struct {
 // BackupPolicyPostgresqlRetentionRuleInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleArgs and BackupPolicyPostgresqlRetentionRuleOutput values.
 // You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleInput` via:
 //
-//          BackupPolicyPostgresqlRetentionRuleArgs{...}
+//	BackupPolicyPostgresqlRetentionRuleArgs{...}
 type BackupPolicyPostgresqlRetentionRuleInput interface {
 	pulumi.Input
 
@@ -234,7 +234,7 @@ func (i BackupPolicyPostgresqlRetentionRuleArgs) ToBackupPolicyPostgresqlRetenti
 // BackupPolicyPostgresqlRetentionRuleArrayInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleArray and BackupPolicyPostgresqlRetentionRuleArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleArrayInput` via:
 //
-//          BackupPolicyPostgresqlRetentionRuleArray{ BackupPolicyPostgresqlRetentionRuleArgs{...} }
+//	BackupPolicyPostgresqlRetentionRuleArray{ BackupPolicyPostgresqlRetentionRuleArgs{...} }
 type BackupPolicyPostgresqlRetentionRuleArrayInput interface {
 	pulumi.Input
 
@@ -328,7 +328,7 @@ type BackupPolicyPostgresqlRetentionRuleCriteria struct {
 // BackupPolicyPostgresqlRetentionRuleCriteriaInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleCriteriaArgs and BackupPolicyPostgresqlRetentionRuleCriteriaOutput values.
 // You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleCriteriaInput` via:
 //
-//          BackupPolicyPostgresqlRetentionRuleCriteriaArgs{...}
+//	BackupPolicyPostgresqlRetentionRuleCriteriaArgs{...}
 type BackupPolicyPostgresqlRetentionRuleCriteriaInput interface {
 	pulumi.Input
 
@@ -412,7 +412,7 @@ type BackupVaultIdentity struct {
 // BackupVaultIdentityInput is an input type that accepts BackupVaultIdentityArgs and BackupVaultIdentityOutput values.
 // You can construct a concrete instance of `BackupVaultIdentityInput` via:
 //
-//          BackupVaultIdentityArgs{...}
+//	BackupVaultIdentityArgs{...}
 type BackupVaultIdentityInput interface {
 	pulumi.Input
 
@@ -452,11 +452,11 @@ func (i BackupVaultIdentityArgs) ToBackupVaultIdentityPtrOutputWithContext(ctx c
 // BackupVaultIdentityPtrInput is an input type that accepts BackupVaultIdentityArgs, BackupVaultIdentityPtr and BackupVaultIdentityPtrOutput values.
 // You can construct a concrete instance of `BackupVaultIdentityPtrInput` via:
 //
-//          BackupVaultIdentityArgs{...}
+//	        BackupVaultIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type BackupVaultIdentityPtrInput interface {
 	pulumi.Input
 
@@ -587,7 +587,7 @@ type GetBackupVaultIdentity struct {
 // GetBackupVaultIdentityInput is an input type that accepts GetBackupVaultIdentityArgs and GetBackupVaultIdentityOutput values.
 // You can construct a concrete instance of `GetBackupVaultIdentityInput` via:
 //
-//          GetBackupVaultIdentityArgs{...}
+//	GetBackupVaultIdentityArgs{...}
 type GetBackupVaultIdentityInput interface {
 	pulumi.Input
 
@@ -619,7 +619,7 @@ func (i GetBackupVaultIdentityArgs) ToGetBackupVaultIdentityOutputWithContext(ct
 // GetBackupVaultIdentityArrayInput is an input type that accepts GetBackupVaultIdentityArray and GetBackupVaultIdentityArrayOutput values.
 // You can construct a concrete instance of `GetBackupVaultIdentityArrayInput` via:
 //
-//          GetBackupVaultIdentityArray{ GetBackupVaultIdentityArgs{...} }
+//	GetBackupVaultIdentityArray{ GetBackupVaultIdentityArgs{...} }
 type GetBackupVaultIdentityArrayInput interface {
 	pulumi.Input
 

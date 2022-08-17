@@ -19,24 +19,23 @@ namespace Pulumi.Azure.MariaDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
         ///     {
-        ///         var dbServer = Output.Create(Azure.MariaDB.GetMariaDbServer.InvokeAsync(new Azure.MariaDB.GetMariaDbServerArgs
-        ///         {
-        ///             Name = "mariadb-server",
-        ///             ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
-        ///         }));
-        ///         this.MariadbServerId = data.Azurerm_mariadb_server.Example.Id;
-        ///     }
+        ///         Name = "mariadb-server",
+        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("mariadbServerId")]
-        ///     public Output&lt;string&gt; MariadbServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.MariaDB
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
         ///     {
-        ///         var dbServer = Output.Create(Azure.MariaDB.GetMariaDbServer.InvokeAsync(new Azure.MariaDB.GetMariaDbServerArgs
-        ///         {
-        ///             Name = "mariadb-server",
-        ///             ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
-        ///         }));
-        ///         this.MariadbServerId = data.Azurerm_mariadb_server.Example.Id;
-        ///     }
+        ///         Name = "mariadb-server",
+        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
+        ///     });
         /// 
-        ///     [Output("mariadbServerId")]
-        ///     public Output&lt;string&gt; MariadbServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.MariaDB
     }
 
 
-    public sealed class GetMariaDbServerArgs : Pulumi.InvokeArgs
+    public sealed class GetMariaDbServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MariaDB Server to retrieve information about.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.MariaDB
         public GetMariaDbServerArgs()
         {
         }
+        public static new GetMariaDbServerArgs Empty => new GetMariaDbServerArgs();
     }
 
-    public sealed class GetMariaDbServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMariaDbServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the MariaDB Server to retrieve information about.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.MariaDB
         public GetMariaDbServerInvokeArgs()
         {
         }
+        public static new GetMariaDbServerInvokeArgs Empty => new GetMariaDbServerInvokeArgs();
     }
 
 

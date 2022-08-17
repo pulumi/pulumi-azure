@@ -8,6 +8,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Spring Cloud Gateway Route Config.
  *
+ * > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+ *
  * ## Example Usage
  *
  * ```typescript

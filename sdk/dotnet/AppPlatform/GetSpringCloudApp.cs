@@ -19,25 +19,24 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppPlatform.GetSpringCloudApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppPlatform.GetSpringCloudApp.InvokeAsync(new Azure.AppPlatform.GetSpringCloudAppArgs
-        ///         {
-        ///             Name = azurerm_spring_cloud_app.Example.Name,
-        ///             ResourceGroupName = azurerm_spring_cloud_app.Example.Resource_group_name,
-        ///             ServiceName = azurerm_spring_cloud_app.Example.Service_name,
-        ///         }));
-        ///         this.SpringCloudAppId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_spring_cloud_app.Example.Name,
+        ///         ResourceGroupName = azurerm_spring_cloud_app.Example.Resource_group_name,
+        ///         ServiceName = azurerm_spring_cloud_app.Example.Service_name,
+        ///     });
         /// 
-        ///     [Output("springCloudAppId")]
-        ///     public Output&lt;string&gt; SpringCloudAppId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["springCloudAppId"] = example.Apply(getSpringCloudAppResult =&gt; getSpringCloudAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.AppPlatform
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppPlatform.GetSpringCloudApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppPlatform.GetSpringCloudApp.InvokeAsync(new Azure.AppPlatform.GetSpringCloudAppArgs
-        ///         {
-        ///             Name = azurerm_spring_cloud_app.Example.Name,
-        ///             ResourceGroupName = azurerm_spring_cloud_app.Example.Resource_group_name,
-        ///             ServiceName = azurerm_spring_cloud_app.Example.Service_name,
-        ///         }));
-        ///         this.SpringCloudAppId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_spring_cloud_app.Example.Name,
+        ///         ResourceGroupName = azurerm_spring_cloud_app.Example.Resource_group_name,
+        ///         ServiceName = azurerm_spring_cloud_app.Example.Service_name,
+        ///     });
         /// 
-        ///     [Output("springCloudAppId")]
-        ///     public Output&lt;string&gt; SpringCloudAppId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["springCloudAppId"] = example.Apply(getSpringCloudAppResult =&gt; getSpringCloudAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.AppPlatform
     }
 
 
-    public sealed class GetSpringCloudAppArgs : Pulumi.InvokeArgs
+    public sealed class GetSpringCloudAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Spring Cloud Application.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.AppPlatform
         public GetSpringCloudAppArgs()
         {
         }
+        public static new GetSpringCloudAppArgs Empty => new GetSpringCloudAppArgs();
     }
 
-    public sealed class GetSpringCloudAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSpringCloudAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Spring Cloud Application.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.AppPlatform
         public GetSpringCloudAppInvokeArgs()
         {
         }
+        public static new GetSpringCloudAppInvokeArgs Empty => new GetSpringCloudAppInvokeArgs();
     }
 
 

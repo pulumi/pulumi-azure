@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Azure.Compute.GetConfidentialLedger.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Azure.Compute.GetConfidentialLedger.InvokeAsync(new Azure.Compute.GetConfidentialLedgerArgs
-        ///         {
-        ///             Name = "example-ledger",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.LedgerEndpoint = current.Apply(current =&gt; current.LedgerEndpoint);
-        ///     }
+        ///         Name = "example-ledger",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("ledgerEndpoint")]
-        ///     public Output&lt;string&gt; LedgerEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ledgerEndpoint"] = current.Apply(getConfidentialLedgerResult =&gt; getConfidentialLedgerResult.LedgerEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var current = Azure.Compute.GetConfidentialLedger.Invoke(new()
         ///     {
-        ///         var current = Output.Create(Azure.Compute.GetConfidentialLedger.InvokeAsync(new Azure.Compute.GetConfidentialLedgerArgs
-        ///         {
-        ///             Name = "example-ledger",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.LedgerEndpoint = current.Apply(current =&gt; current.LedgerEndpoint);
-        ///     }
+        ///         Name = "example-ledger",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("ledgerEndpoint")]
-        ///     public Output&lt;string&gt; LedgerEndpoint { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["ledgerEndpoint"] = current.Apply(getConfidentialLedgerResult =&gt; getConfidentialLedgerResult.LedgerEndpoint),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetConfidentialLedgerArgs : Pulumi.InvokeArgs
+    public sealed class GetConfidentialLedgerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of this Confidential Ledger.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Compute
         public GetConfidentialLedgerArgs()
         {
         }
+        public static new GetConfidentialLedgerArgs Empty => new GetConfidentialLedgerArgs();
     }
 
-    public sealed class GetConfidentialLedgerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetConfidentialLedgerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of this Confidential Ledger.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Compute
         public GetConfidentialLedgerInvokeArgs()
         {
         }
+        public static new GetConfidentialLedgerInvokeArgs Empty => new GetConfidentialLedgerInvokeArgs();
     }
 
 

@@ -15,29 +15,29 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleIntegrationRuntimeSelfHosted = new Azure.DataFactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new Azure.DataFactory.IntegrationRuntimeSelfHostedArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeSelfHosted = new Azure.DataFactory.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +49,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted")]
-    public partial class IntegrationRuntimeSelfHosted : Pulumi.CustomResource
+    public partial class IntegrationRuntimeSelfHosted : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class IntegrationRuntimeSelfHostedArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSelfHostedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -166,9 +166,10 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeSelfHostedArgs()
         {
         }
+        public static new IntegrationRuntimeSelfHostedArgs Empty => new IntegrationRuntimeSelfHostedArgs();
     }
 
-    public sealed class IntegrationRuntimeSelfHostedState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSelfHostedState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -215,5 +216,6 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeSelfHostedState()
         {
         }
+        public static new IntegrationRuntimeSelfHostedState Empty => new IntegrationRuntimeSelfHostedState();
     }
 }

@@ -19,20 +19,18 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetImages.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetImages.InvokeAsync(new Azure.Compute.GetImagesArgs
-        ///         {
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetImages.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetImages.InvokeAsync(new Azure.Compute.GetImagesArgs
-        ///         {
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///     }
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetImagesArgs : Pulumi.InvokeArgs
+    public sealed class GetImagesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group in which the Image exists.
@@ -94,9 +90,10 @@ namespace Pulumi.Azure.Compute
         public GetImagesArgs()
         {
         }
+        public static new GetImagesArgs Empty => new GetImagesArgs();
     }
 
-    public sealed class GetImagesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetImagesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Resource Group in which the Image exists.
@@ -119,6 +116,7 @@ namespace Pulumi.Azure.Compute
         public GetImagesInvokeArgs()
         {
         }
+        public static new GetImagesInvokeArgs Empty => new GetImagesInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.VideoAnalyzer.Inputs
 {
 
-    public sealed class AnalyzerIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyzerIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.VideoAnalyzer.Inputs
         public AnalyzerIdentityGetArgs()
         {
         }
+        public static new AnalyzerIdentityGetArgs Empty => new AnalyzerIdentityGetArgs();
     }
 }

@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/billing"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
-// 			BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
-// 			CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
+//				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
+//				CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetMpaAccountScope(ctx *pulumi.Context, args *GetMpaAccountScopeArgs, opts ...pulumi.InvokeOption) (*GetMpaAccountScopeResult, error) {
 	var rv GetMpaAccountScopeResult

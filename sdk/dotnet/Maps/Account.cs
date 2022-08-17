@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Maps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Maps.Account("exampleAccount", new Azure.Maps.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "S1",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "S1",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Maps
     /// ```
     /// </summary>
     [AzureResourceType("azure:maps/account:Account")]
-    public partial class Account : Pulumi.CustomResource
+    public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
@@ -137,7 +136,7 @@ namespace Pulumi.Azure.Maps
         }
     }
 
-    public sealed class AccountArgs : Pulumi.ResourceArgs
+    public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
@@ -172,9 +171,10 @@ namespace Pulumi.Azure.Maps
         public AccountArgs()
         {
         }
+        public static new AccountArgs Empty => new AccountArgs();
     }
 
-    public sealed class AccountState : Pulumi.ResourceArgs
+    public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Azure Maps Account. Changing this forces a new resource to be created.
@@ -227,5 +227,6 @@ namespace Pulumi.Azure.Maps
         public AccountState()
         {
         }
+        public static new AccountState Empty => new AccountState();
     }
 }

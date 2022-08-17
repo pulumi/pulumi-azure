@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "exampleManagedHardwareSecurityModule", &keyvault.ManagedHardwareSecurityModuleArgs{
-// 			ResourceGroupName:       exampleResourceGroup.Name,
-// 			Location:                exampleResourceGroup.Location,
-// 			SkuName:                 pulumi.String("Standard_B1"),
-// 			PurgeProtectionEnabled:  pulumi.Bool(false),
-// 			SoftDeleteRetentionDays: pulumi.Int(90),
-// 			TenantId:                pulumi.String(current.TenantId),
-// 			AdminObjectIds: pulumi.StringArray{
-// 				pulumi.String(current.ObjectId),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("Test"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "exampleManagedHardwareSecurityModule", &keyvault.ManagedHardwareSecurityModuleArgs{
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				Location:                exampleResourceGroup.Location,
+//				SkuName:                 pulumi.String("Standard_B1"),
+//				PurgeProtectionEnabled:  pulumi.Bool(false),
+//				SoftDeleteRetentionDays: pulumi.Int(90),
+//				TenantId:                pulumi.String(current.TenantId),
+//				AdminObjectIds: pulumi.StringArray{
+//					pulumi.String(current.ObjectId),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Env": pulumi.String("Test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Key Vault Managed Hardware Security Module can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/managedHSMs/hsm1
+//
+//	$ pulumi import azure:keyvault/managedHardwareSecurityModule:ManagedHardwareSecurityModule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/managedHSMs/hsm1
+//
 // ```
 type ManagedHardwareSecurityModule struct {
 	pulumi.CustomResourceState
@@ -249,7 +254,7 @@ func (i *ManagedHardwareSecurityModule) ToManagedHardwareSecurityModuleOutputWit
 // ManagedHardwareSecurityModuleArrayInput is an input type that accepts ManagedHardwareSecurityModuleArray and ManagedHardwareSecurityModuleArrayOutput values.
 // You can construct a concrete instance of `ManagedHardwareSecurityModuleArrayInput` via:
 //
-//          ManagedHardwareSecurityModuleArray{ ManagedHardwareSecurityModuleArgs{...} }
+//	ManagedHardwareSecurityModuleArray{ ManagedHardwareSecurityModuleArgs{...} }
 type ManagedHardwareSecurityModuleArrayInput interface {
 	pulumi.Input
 
@@ -274,7 +279,7 @@ func (i ManagedHardwareSecurityModuleArray) ToManagedHardwareSecurityModuleArray
 // ManagedHardwareSecurityModuleMapInput is an input type that accepts ManagedHardwareSecurityModuleMap and ManagedHardwareSecurityModuleMapOutput values.
 // You can construct a concrete instance of `ManagedHardwareSecurityModuleMapInput` via:
 //
-//          ManagedHardwareSecurityModuleMap{ "key": ManagedHardwareSecurityModuleArgs{...} }
+//	ManagedHardwareSecurityModuleMap{ "key": ManagedHardwareSecurityModuleArgs{...} }
 type ManagedHardwareSecurityModuleMapInput interface {
 	pulumi.Input
 

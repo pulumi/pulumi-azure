@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Dns.Inputs
 {
 
-    public sealed class MxRecordRecordArgs : Pulumi.ResourceArgs
+    public sealed class MxRecordRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The mail server responsible for the domain covered by the MX record.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Dns.Inputs
         public MxRecordRecordArgs()
         {
         }
+        public static new MxRecordRecordArgs Empty => new MxRecordRecordArgs();
     }
 }

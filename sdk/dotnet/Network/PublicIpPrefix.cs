@@ -15,30 +15,29 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new Azure.Network.PublicIpPrefixArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PrefixLength = 31,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePublicIpPrefix = new Azure.Network.PublicIpPrefix("examplePublicIpPrefix", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PrefixLength = 31,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/publicIpPrefix:PublicIpPrefix")]
-    public partial class PublicIpPrefix : Pulumi.CustomResource
+    public partial class PublicIpPrefix : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The IP address prefix value that was allocated.
@@ -150,7 +149,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class PublicIpPrefixArgs : Pulumi.ResourceArgs
+    public sealed class PublicIpPrefixArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`.
@@ -215,9 +214,10 @@ namespace Pulumi.Azure.Network
         public PublicIpPrefixArgs()
         {
         }
+        public static new PublicIpPrefixArgs Empty => new PublicIpPrefixArgs();
     }
 
-    public sealed class PublicIpPrefixState : Pulumi.ResourceArgs
+    public sealed class PublicIpPrefixState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The IP address prefix value that was allocated.
@@ -288,5 +288,6 @@ namespace Pulumi.Azure.Network
         public PublicIpPrefixState()
         {
         }
+        public static new PublicIpPrefixState Empty => new PublicIpPrefixState();
     }
 }

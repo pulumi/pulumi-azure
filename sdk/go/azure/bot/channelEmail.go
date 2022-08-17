@@ -21,45 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelEmail(ctx, "exampleChannelEmail", &bot.ChannelEmailArgs{
-// 			BotName:           exampleChannelsRegistration.Name,
-// 			Location:          exampleChannelsRegistration.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			EmailAddress:      pulumi.String("example.com"),
-// 			EmailPassword:     pulumi.String("123456"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelEmail(ctx, "exampleChannelEmail", &bot.ChannelEmailArgs{
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				EmailAddress:      pulumi.String("example.com"),
+//				EmailPassword:     pulumi.String("123456"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // The Email Integration for a Bot Channel can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
+//
+//	$ pulumi import azure:bot/channelEmail:ChannelEmail example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/EmailChannel
+//
 // ```
 type ChannelEmail struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *ChannelEmail) ToChannelEmailOutputWithContext(ctx context.Context) Chan
 // ChannelEmailArrayInput is an input type that accepts ChannelEmailArray and ChannelEmailArrayOutput values.
 // You can construct a concrete instance of `ChannelEmailArrayInput` via:
 //
-//          ChannelEmailArray{ ChannelEmailArgs{...} }
+//	ChannelEmailArray{ ChannelEmailArgs{...} }
 type ChannelEmailArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i ChannelEmailArray) ToChannelEmailArrayOutputWithContext(ctx context.Cont
 // ChannelEmailMapInput is an input type that accepts ChannelEmailMap and ChannelEmailMapOutput values.
 // You can construct a concrete instance of `ChannelEmailMapInput` via:
 //
-//          ChannelEmailMap{ "key": ChannelEmailArgs{...} }
+//	ChannelEmailMap{ "key": ChannelEmailArgs{...} }
 type ChannelEmailMapInput interface {
 	pulumi.Input
 

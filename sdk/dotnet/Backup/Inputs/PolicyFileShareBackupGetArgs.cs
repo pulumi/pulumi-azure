@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Backup.Inputs
 {
 
-    public sealed class PolicyFileShareBackupGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyFileShareBackupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets the backup frequency. Currently, only `Daily` is supported
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Backup.Inputs
         public PolicyFileShareBackupGetArgs()
         {
         }
+        public static new PolicyFileShareBackupGetArgs Empty => new PolicyFileShareBackupGetArgs();
     }
 }

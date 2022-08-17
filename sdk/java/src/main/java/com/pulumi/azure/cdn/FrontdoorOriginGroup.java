@@ -22,7 +22,6 @@ import javax.annotation.Nullable;
  * Manages a CDN FrontDoor Origin Group.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -70,7 +69,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
  *                 .additionalLatencyInMilliseconds(0)
- *                 .sampleCount(16)
+ *                 .sampleSize(16)
  *                 .successfulSamplesRequired(3)
  *                 .build())
  *             .build());

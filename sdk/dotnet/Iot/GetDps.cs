@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetDps.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetDps.InvokeAsync(new Azure.Iot.GetDpsArgs
-        ///         {
-        ///             Name = "iot_hub_dps_test",
-        ///             ResourceGroupName = "iothub_dps_rg",
-        ///         }));
-        ///     }
+        ///         Name = "iot_hub_dps_test",
+        ///         ResourceGroupName = "iothub_dps_rg",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Iot
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Iot.GetDps.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Iot.GetDps.InvokeAsync(new Azure.Iot.GetDpsArgs
-        ///         {
-        ///             Name = "iot_hub_dps_test",
-        ///             ResourceGroupName = "iothub_dps_rg",
-        ///         }));
-        ///     }
+        ///         Name = "iot_hub_dps_test",
+        ///         ResourceGroupName = "iothub_dps_rg",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Iot
     }
 
 
-    public sealed class GetDpsArgs : Pulumi.InvokeArgs
+    public sealed class GetDpsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Iot Device Provisioning Service resource.
@@ -98,9 +94,10 @@ namespace Pulumi.Azure.Iot
         public GetDpsArgs()
         {
         }
+        public static new GetDpsArgs Empty => new GetDpsArgs();
     }
 
-    public sealed class GetDpsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDpsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Iot Device Provisioning Service resource.
@@ -125,6 +122,7 @@ namespace Pulumi.Azure.Iot
         public GetDpsInvokeArgs()
         {
         }
+        public static new GetDpsInvokeArgs Empty => new GetDpsInvokeArgs();
     }
 
 

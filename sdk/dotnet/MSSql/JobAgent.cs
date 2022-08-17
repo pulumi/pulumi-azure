@@ -15,39 +15,40 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "northeurope",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new Azure.MSSql.DatabaseArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             Collation = "SQL_Latin1_General_CP1_CI_AS",
-    ///             SkuName = "S1",
-    ///         });
-    ///         var exampleJobAgent = new Azure.MSSql.JobAgent("exampleJobAgent", new Azure.MSSql.JobAgentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatabaseId = exampleDatabase.Id,
-    ///         });
-    ///     }
+    ///         Location = "northeurope",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var exampleJobAgent = new Azure.MSSql.JobAgent("exampleJobAgent", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatabaseId = exampleDatabase.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/jobAgent:JobAgent")]
-    public partial class JobAgent : Pulumi.CustomResource
+    public partial class JobAgent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
@@ -129,7 +130,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class JobAgentArgs : Pulumi.ResourceArgs
+    public sealed class JobAgentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
@@ -164,9 +165,10 @@ namespace Pulumi.Azure.MSSql
         public JobAgentArgs()
         {
         }
+        public static new JobAgentArgs Empty => new JobAgentArgs();
     }
 
-    public sealed class JobAgentState : Pulumi.ResourceArgs
+    public sealed class JobAgentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the database to store metadata for the Elastic Job Agent. Changing this forces a new Elastic Job Agent to be created.
@@ -201,5 +203,6 @@ namespace Pulumi.Azure.MSSql
         public JobAgentState()
         {
         }
+        public static new JobAgentState Empty => new JobAgentState();
     }
 }

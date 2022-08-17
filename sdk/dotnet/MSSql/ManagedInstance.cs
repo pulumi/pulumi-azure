@@ -17,217 +17,230 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var allowManagementInbound = new Azure.Network.NetworkSecurityRule("allowManagementInbound", new()
+    ///     {
+    ///         Priority = 106,
+    ///         Direction = "Inbound",
+    ///         Access = "Allow",
+    ///         Protocol = "Tcp",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRanges = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
+    ///             "9000",
+    ///             "9003",
+    ///             "1438",
+    ///             "1440",
+    ///             "1452",
+    ///         },
+    ///         SourceAddressPrefix = "*",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var allowMisubnetInbound = new Azure.Network.NetworkSecurityRule("allowMisubnetInbound", new()
+    ///     {
+    ///         Priority = 200,
+    ///         Direction = "Inbound",
+    ///         Access = "Allow",
+    ///         Protocol = "*",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "10.0.0.0/24",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var allowHealthProbeInbound = new Azure.Network.NetworkSecurityRule("allowHealthProbeInbound", new()
+    ///     {
+    ///         Priority = 300,
+    ///         Direction = "Inbound",
+    ///         Access = "Allow",
+    ///         Protocol = "*",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "AzureLoadBalancer",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var allowTdsInbound = new Azure.Network.NetworkSecurityRule("allowTdsInbound", new()
+    ///     {
+    ///         Priority = 1000,
+    ///         Direction = "Inbound",
+    ///         Access = "Allow",
+    ///         Protocol = "Tcp",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "1433",
+    ///         SourceAddressPrefix = "VirtualNetwork",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var denyAllInbound = new Azure.Network.NetworkSecurityRule("denyAllInbound", new()
+    ///     {
+    ///         Priority = 4096,
+    ///         Direction = "Inbound",
+    ///         Access = "Deny",
+    ///         Protocol = "*",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "*",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var allowManagementOutbound = new Azure.Network.NetworkSecurityRule("allowManagementOutbound", new()
+    ///     {
+    ///         Priority = 102,
+    ///         Direction = "Outbound",
+    ///         Access = "Allow",
+    ///         Protocol = "Tcp",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRanges = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var allowManagementInbound = new Azure.Network.NetworkSecurityRule("allowManagementInbound", new Azure.Network.NetworkSecurityRuleArgs
+    ///             "80",
+    ///             "443",
+    ///             "12000",
+    ///         },
+    ///         SourceAddressPrefix = "*",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var allowMisubnetOutbound = new Azure.Network.NetworkSecurityRule("allowMisubnetOutbound", new()
+    ///     {
+    ///         Priority = 200,
+    ///         Direction = "Outbound",
+    ///         Access = "Allow",
+    ///         Protocol = "*",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "10.0.0.0/24",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var denyAllOutbound = new Azure.Network.NetworkSecurityRule("denyAllOutbound", new()
+    ///     {
+    ///         Priority = 4096,
+    ///         Direction = "Outbound",
+    ///         Access = "Deny",
+    ///         Protocol = "*",
+    ///         SourcePortRange = "*",
+    ///         DestinationPortRange = "*",
+    ///         SourceAddressPrefix = "*",
+    ///         DestinationAddressPrefix = "*",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Priority = 106,
-    ///             Direction = "Inbound",
-    ///             Access = "Allow",
-    ///             Protocol = "Tcp",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRanges = 
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "9000",
-    ///                 "9003",
-    ///                 "1438",
-    ///                 "1440",
-    ///                 "1452",
-    ///             },
-    ///             SourceAddressPrefix = "*",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var allowMisubnetInbound = new Azure.Network.NetworkSecurityRule("allowMisubnetInbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 200,
-    ///             Direction = "Inbound",
-    ///             Access = "Allow",
-    ///             Protocol = "*",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "10.0.0.0/24",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var allowHealthProbeInbound = new Azure.Network.NetworkSecurityRule("allowHealthProbeInbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 300,
-    ///             Direction = "Inbound",
-    ///             Access = "Allow",
-    ///             Protocol = "*",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "AzureLoadBalancer",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var allowTdsInbound = new Azure.Network.NetworkSecurityRule("allowTdsInbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 1000,
-    ///             Direction = "Inbound",
-    ///             Access = "Allow",
-    ///             Protocol = "Tcp",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "1433",
-    ///             SourceAddressPrefix = "VirtualNetwork",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var denyAllInbound = new Azure.Network.NetworkSecurityRule("denyAllInbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 4096,
-    ///             Direction = "Inbound",
-    ///             Access = "Deny",
-    ///             Protocol = "*",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "*",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var allowManagementOutbound = new Azure.Network.NetworkSecurityRule("allowManagementOutbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 102,
-    ///             Direction = "Outbound",
-    ///             Access = "Allow",
-    ///             Protocol = "Tcp",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRanges = 
-    ///             {
-    ///                 "80",
-    ///                 "443",
-    ///                 "12000",
-    ///             },
-    ///             SourceAddressPrefix = "*",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var allowMisubnetOutbound = new Azure.Network.NetworkSecurityRule("allowMisubnetOutbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 200,
-    ///             Direction = "Outbound",
-    ///             Access = "Allow",
-    ///             Protocol = "*",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "10.0.0.0/24",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var denyAllOutbound = new Azure.Network.NetworkSecurityRule("denyAllOutbound", new Azure.Network.NetworkSecurityRuleArgs
-    ///         {
-    ///             Priority = 4096,
-    ///             Direction = "Outbound",
-    ///             Access = "Deny",
-    ///             Protocol = "*",
-    ///             SourcePortRange = "*",
-    ///             DestinationPortRange = "*",
-    ///             SourceAddressPrefix = "*",
-    ///             DestinationAddressPrefix = "*",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkSecurityGroupName = exampleNetworkSecurityGroup.Name,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "managedinstancedelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "managedinstancedelegation",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Name = "Microsoft.Sql/managedInstances",
+    ///                     Actions = new[]
     ///                     {
-    ///                         Name = "Microsoft.Sql/managedInstances",
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/subnets/join/action",
-    ///                             "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
-    ///                             "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
-    ///                         },
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action",
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new Azure.Network.SubnetNetworkSecurityGroupAssociationArgs
-    ///         {
-    ///             SubnetId = exampleSubnet.Id,
-    ///             NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
-    ///         });
-    ///         var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new Azure.Network.RouteTableArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             DisableBgpRoutePropagation = false,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleSubnet,
-    ///             },
-    ///         });
-    ///         var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new Azure.Network.SubnetRouteTableAssociationArgs
-    ///         {
-    ///             SubnetId = exampleSubnet.Id,
-    ///             RouteTableId = exampleRouteTable.Id,
-    ///         });
-    ///         var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new Azure.MSSql.ManagedInstanceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             LicenseType = "BasePrice",
-    ///             SkuName = "GP_Gen5",
-    ///             StorageSizeInGb = 32,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             Vcores = 4,
-    ///             AdministratorLogin = "mradministrator",
-    ///             AdministratorLoginPassword = "thisIsDog11",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleSubnetNetworkSecurityGroupAssociation,
-    ///                 exampleSubnetRouteTableAssociation,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         DisableBgpRoutePropagation = false,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSubnet,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         RouteTableId = exampleRouteTable.Id,
+    ///     });
+    /// 
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         LicenseType = "BasePrice",
+    ///         SkuName = "GP_Gen5",
+    ///         StorageSizeInGb = 32,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Vcores = 4,
+    ///         AdministratorLogin = "mradministrator",
+    ///         AdministratorLoginPassword = "thisIsDog11",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleSubnetNetworkSecurityGroupAssociation,
+    ///             exampleSubnetRouteTableAssociation,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -239,7 +252,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/managedInstance:ManagedInstance")]
-    public partial class ManagedInstance : Pulumi.CustomResource
+    public partial class ManagedInstance : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -326,7 +339,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         /// </summary>
         [Output("skuName")]
         public Output<string> SkuName { get; private set; } = null!;
@@ -411,7 +424,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ManagedInstanceArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -492,7 +505,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         /// </summary>
         [Input("skuName", required: true)]
         public Input<string> SkuName { get; set; } = null!;
@@ -542,9 +555,10 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceArgs()
         {
         }
+        public static new ManagedInstanceArgs Empty => new ManagedInstanceArgs();
     }
 
-    public sealed class ManagedInstanceState : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The administrator login name for the new SQL Managed Instance. Changing this forces a new resource to be created.
@@ -631,7 +645,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_G8IM`, `GP_G8IH`, `BC_Gen4`, `BC_Gen5`, `BC_G8IM` or `BC_G8IH`.
+        /// Specifies the SKU Name for the SQL Managed Instance. Valid values include `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
@@ -681,5 +695,6 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceState()
         {
         }
+        public static new ManagedInstanceState Empty => new ManagedInstanceState();
     }
 }

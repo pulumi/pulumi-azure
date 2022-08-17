@@ -19,102 +19,104 @@ namespace Pulumi.Azure.LogicApps
     /// ### With App Service Plan)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "WorkflowStandard",
-    ///                 Size = "WS1",
-    ///             },
-    ///         });
-    ///         var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new Azure.LogicApps.StandardArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "WorkflowStandard",
+    ///             Size = "WS1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### For Container Mode)
     /// 
     /// &gt; **Note:** You must set `azure.appservice.Plan` `kind` to `Linux` and `reserved` to `true` when used with `linux_fx_version`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Kind = "Linux",
-    ///             Reserved = true,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "WorkflowStandard",
-    ///                 Size = "WS1",
-    ///             },
-    ///         });
-    ///         var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new Azure.LogicApps.StandardArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
-    ///             {
-    ///                 LinuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
-    ///             },
-    ///             AppSettings = 
-    ///             {
-    ///                 { "DOCKER_REGISTRY_SERVER_URL", "https://&lt;server-name&gt;.azurecr.io" },
-    ///                 { "DOCKER_REGISTRY_SERVER_USERNAME", "username" },
-    ///                 { "DOCKER_REGISTRY_SERVER_PASSWORD", "password" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Kind = "Linux",
+    ///         Reserved = true,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "WorkflowStandard",
+    ///             Size = "WS1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStandard = new Azure.LogicApps.Standard("exampleStandard", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
+    ///         {
+    ///             LinuxFxVersion = "DOCKER|mcr.microsoft.com/azure-functions/dotnet:3.0-appservice",
+    ///         },
+    ///         AppSettings = 
+    ///         {
+    ///             { "DOCKER_REGISTRY_SERVER_URL", "https://&lt;server-name&gt;.azurecr.io" },
+    ///             { "DOCKER_REGISTRY_SERVER_USERNAME", "username" },
+    ///             { "DOCKER_REGISTRY_SERVER_PASSWORD", "password" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -126,7 +128,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/standard:Standard")]
-    public partial class Standard : Pulumi.CustomResource
+    public partial class Standard : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Logic App
@@ -322,7 +324,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class StandardArgs : Pulumi.ResourceArgs
+    public sealed class StandardArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Logic App
@@ -459,9 +461,10 @@ namespace Pulumi.Azure.LogicApps
         public StandardArgs()
         {
         }
+        public static new StandardArgs Empty => new StandardArgs();
     }
 
-    public sealed class StandardState : Pulumi.ResourceArgs
+    public sealed class StandardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the App Service Plan within which to create this Logic App
@@ -640,5 +643,6 @@ namespace Pulumi.Azure.LogicApps
         public StandardState()
         {
         }
+        public static new StandardState Empty => new StandardState();
     }
 }

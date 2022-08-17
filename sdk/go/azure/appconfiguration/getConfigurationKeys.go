@@ -20,22 +20,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appconfiguration"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := appconfiguration.GetConfigurationKeys(ctx, &appconfiguration.GetConfigurationKeysArgs{
-// 			ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("value", test.Items)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := appconfiguration.GetConfigurationKeys(ctx, &appconfiguration.GetConfigurationKeysArgs{
+//				ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("value", test.Items)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetConfigurationKeys(ctx *pulumi.Context, args *GetConfigurationKeysArgs, opts ...pulumi.InvokeOption) (*GetConfigurationKeysResult, error) {
 	var rv GetConfigurationKeysResult

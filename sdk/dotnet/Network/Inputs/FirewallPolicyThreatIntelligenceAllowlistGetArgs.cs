@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyThreatIntelligenceAllowlistGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyThreatIntelligenceAllowlistGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("fqdns")]
         private InputList<string>? _fqdns;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyThreatIntelligenceAllowlistGetArgs()
         {
         }
+        public static new FirewallPolicyThreatIntelligenceAllowlistGetArgs Empty => new FirewallPolicyThreatIntelligenceAllowlistGetArgs();
     }
 }

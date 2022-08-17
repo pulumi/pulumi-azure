@@ -19,26 +19,25 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetQueueAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetQueueAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetQueueAuthorizationRuleArgs
-        ///         {
-        ///             Name = "example-tfex_name",
-        ///             ResourceGroupName = "example-resources",
-        ///             QueueName = "example-servicebus_queue",
-        ///             NamespaceName = "example-namespace",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-tfex_name",
+        ///         ResourceGroupName = "example-resources",
+        ///         QueueName = "example-servicebus_queue",
+        ///         NamespaceName = "example-namespace",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getQueueAuthorizationRuleResult =&gt; getQueueAuthorizationRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,26 +53,25 @@ namespace Pulumi.Azure.ServiceBus
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ServiceBus.GetQueueAuthorizationRule.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ServiceBus.GetQueueAuthorizationRule.InvokeAsync(new Azure.ServiceBus.GetQueueAuthorizationRuleArgs
-        ///         {
-        ///             Name = "example-tfex_name",
-        ///             ResourceGroupName = "example-resources",
-        ///             QueueName = "example-servicebus_queue",
-        ///             NamespaceName = "example-namespace",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-tfex_name",
+        ///         ResourceGroupName = "example-resources",
+        ///         QueueName = "example-servicebus_queue",
+        ///         NamespaceName = "example-namespace",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getQueueAuthorizationRuleResult =&gt; getQueueAuthorizationRuleResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,7 +81,7 @@ namespace Pulumi.Azure.ServiceBus
     }
 
 
-    public sealed class GetQueueAuthorizationRuleArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueAuthorizationRuleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this ServiceBus Queue Authorisation Rule.
@@ -115,9 +113,10 @@ namespace Pulumi.Azure.ServiceBus
         public GetQueueAuthorizationRuleArgs()
         {
         }
+        public static new GetQueueAuthorizationRuleArgs Empty => new GetQueueAuthorizationRuleArgs();
     }
 
-    public sealed class GetQueueAuthorizationRuleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetQueueAuthorizationRuleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this ServiceBus Queue Authorisation Rule.
@@ -149,6 +148,7 @@ namespace Pulumi.Azure.ServiceBus
         public GetQueueAuthorizationRuleInvokeArgs()
         {
         }
+        public static new GetQueueAuthorizationRuleInvokeArgs Empty => new GetQueueAuthorizationRuleInvokeArgs();
     }
 
 

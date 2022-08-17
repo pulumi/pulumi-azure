@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterAutoScalerProfileArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterAutoScalerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Detect similar node groups and balance the number of nodes between them. Defaults to `false`.
@@ -117,5 +117,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterAutoScalerProfileArgs()
         {
         }
+        public static new KubernetesClusterAutoScalerProfileArgs Empty => new KubernetesClusterAutoScalerProfileArgs();
     }
 }

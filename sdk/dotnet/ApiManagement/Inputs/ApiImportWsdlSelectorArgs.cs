@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiImportWsdlSelectorArgs : Pulumi.ResourceArgs
+    public sealed class ApiImportWsdlSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of endpoint (port) to import from WSDL.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiImportWsdlSelectorArgs()
         {
         }
+        public static new ApiImportWsdlSelectorArgs Empty => new ApiImportWsdlSelectorArgs();
     }
 }

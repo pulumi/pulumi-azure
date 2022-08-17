@@ -15,33 +15,32 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new Azure.DesktopVirtualization.HostPoolArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             FriendlyName = "pooleddepthfirst",
-    ///             ValidateEnvironment = true,
-    ///             StartVmOnConnect = true,
-    ///             CustomRdpProperties = "audiocapturemode:i:1;audiomode:i:0;",
-    ///             Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
-    ///             Type = "Pooled",
-    ///             MaximumSessionsAllowed = 50,
-    ///             LoadBalancerType = "DepthFirst",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         FriendlyName = "pooleddepthfirst",
+    ///         ValidateEnvironment = true,
+    ///         StartVmOnConnect = true,
+    ///         CustomRdpProperties = "audiocapturemode:i:1;audiomode:i:0;",
+    ///         Description = "Acceptance Test: A pooled host pool - pooleddepthfirst",
+    ///         Type = "Pooled",
+    ///         MaximumSessionsAllowed = 50,
+    ///         LoadBalancerType = "DepthFirst",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +52,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/hostPool:HostPool")]
-    public partial class HostPool : Pulumi.CustomResource
+    public partial class HostPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -193,7 +192,7 @@ namespace Pulumi.Azure.DesktopVirtualization
         }
     }
 
-    public sealed class HostPoolArgs : Pulumi.ResourceArgs
+    public sealed class HostPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -298,9 +297,10 @@ namespace Pulumi.Azure.DesktopVirtualization
         public HostPoolArgs()
         {
         }
+        public static new HostPoolArgs Empty => new HostPoolArgs();
     }
 
-    public sealed class HostPoolState : Pulumi.ResourceArgs
+    public sealed class HostPoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -405,5 +405,6 @@ namespace Pulumi.Azure.DesktopVirtualization
         public HostPoolState()
         {
         }
+        public static new HostPoolState Empty => new HostPoolState();
     }
 }

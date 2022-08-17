@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ManagementPolicyRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `actions` block as documented below.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ManagementPolicyRuleGetArgs()
         {
         }
+        public static new ManagementPolicyRuleGetArgs Empty => new ManagementPolicyRuleGetArgs();
     }
 }

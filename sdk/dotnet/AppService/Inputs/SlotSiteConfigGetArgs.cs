@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotSiteConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotSiteConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Are Managed Identity Credentials used for Azure Container Registry pull
@@ -219,5 +219,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotSiteConfigGetArgs()
         {
         }
+        public static new SlotSiteConfigGetArgs Empty => new SlotSiteConfigGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql.Inputs
 {
 
-    public sealed class ServerIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServerIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID associated with this Managed Service Identity.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MySql.Inputs
         public ServerIdentityArgs()
         {
         }
+        public static new ServerIdentityArgs Empty => new ServerIdentityArgs();
     }
 }

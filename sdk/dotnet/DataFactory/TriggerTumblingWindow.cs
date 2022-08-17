@@ -15,71 +15,72 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new Azure.DataFactory.PipelineArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///         });
-    ///         var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("exampleTriggerTumblingWindow", new Azure.DataFactory.TriggerTumblingWindowArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             StartTime = "2022-09-21T00:00:00Z",
-    ///             EndTime = "2022-09-21T08:00:00Z",
-    ///             Frequency = "Minute",
-    ///             Interval = 15,
-    ///             Delay = "16:00:00",
-    ///             Annotations = 
-    ///             {
-    ///                 "example1",
-    ///                 "example2",
-    ///                 "example3",
-    ///             },
-    ///             Description = "example description",
-    ///             Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
-    ///             {
-    ///                 Count = 1,
-    ///                 Interval = 30,
-    ///             },
-    ///             Pipeline = new Azure.DataFactory.Inputs.TriggerTumblingWindowPipelineArgs
-    ///             {
-    ///                 Name = examplePipeline.Name,
-    ///                 Parameters = 
-    ///                 {
-    ///                     { "Env", "Prod" },
-    ///                 },
-    ///             },
-    ///             TriggerDependencies = 
-    ///             {
-    ///                 new Azure.DataFactory.Inputs.TriggerTumblingWindowTriggerDependencyArgs
-    ///                 {
-    ///                     Size = "24:00:00",
-    ///                     Offset = "-24:00:00",
-    ///                 },
-    ///             },
-    ///             AdditionalProperties = 
-    ///             {
-    ///                 { "foo", "value1" },
-    ///                 { "bar", "value2" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var examplePipeline = new Azure.DataFactory.Pipeline("examplePipeline", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///     });
+    /// 
+    ///     var exampleTriggerTumblingWindow = new Azure.DataFactory.TriggerTumblingWindow("exampleTriggerTumblingWindow", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         StartTime = "2022-09-21T00:00:00Z",
+    ///         EndTime = "2022-09-21T08:00:00Z",
+    ///         Frequency = "Minute",
+    ///         Interval = 15,
+    ///         Delay = "16:00:00",
+    ///         Annotations = new[]
+    ///         {
+    ///             "example1",
+    ///             "example2",
+    ///             "example3",
+    ///         },
+    ///         Description = "example description",
+    ///         Retry = new Azure.DataFactory.Inputs.TriggerTumblingWindowRetryArgs
+    ///         {
+    ///             Count = 1,
+    ///             Interval = 30,
+    ///         },
+    ///         Pipeline = new Azure.DataFactory.Inputs.TriggerTumblingWindowPipelineArgs
+    ///         {
+    ///             Name = examplePipeline.Name,
+    ///             Parameters = 
+    ///             {
+    ///                 { "Env", "Prod" },
+    ///             },
+    ///         },
+    ///         TriggerDependencies = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.TriggerTumblingWindowTriggerDependencyArgs
+    ///             {
+    ///                 Size = "24:00:00",
+    ///                 Offset = "-24:00:00",
+    ///             },
+    ///         },
+    ///         AdditionalProperties = 
+    ///         {
+    ///             { "foo", "value1" },
+    ///             { "bar", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -91,7 +92,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow")]
-    public partial class TriggerTumblingWindow : Pulumi.CustomResource
+    public partial class TriggerTumblingWindow : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -227,7 +228,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class TriggerTumblingWindowArgs : Pulumi.ResourceArgs
+    public sealed class TriggerTumblingWindowArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -340,9 +341,10 @@ namespace Pulumi.Azure.DataFactory
         public TriggerTumblingWindowArgs()
         {
         }
+        public static new TriggerTumblingWindowArgs Empty => new TriggerTumblingWindowArgs();
     }
 
-    public sealed class TriggerTumblingWindowState : Pulumi.ResourceArgs
+    public sealed class TriggerTumblingWindowState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -455,5 +457,6 @@ namespace Pulumi.Azure.DataFactory
         public TriggerTumblingWindowState()
         {
         }
+        public static new TriggerTumblingWindowState Empty => new TriggerTumblingWindowState();
     }
 }

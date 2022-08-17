@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineAutoBackupManualScheduleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineAutoBackupManualScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Frequency of full backups. Valid values include `Daily` or `Weekly`. Required when `backup_schedule_automated` is false.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineAutoBackupManualScheduleArgs()
         {
         }
+        public static new VirtualMachineAutoBackupManualScheduleArgs Empty => new VirtualMachineAutoBackupManualScheduleArgs();
     }
 }

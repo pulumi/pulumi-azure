@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class ComputeClusterSshGetArgs : Pulumi.ResourceArgs
+    public sealed class ComputeClusterSshGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public ComputeClusterSshGetArgs()
         {
         }
+        public static new ComputeClusterSshGetArgs Empty => new ComputeClusterSshGetArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetIpGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetIpGroup.InvokeAsync(new Azure.Network.GetIpGroupArgs
-        ///         {
-        ///             Name = "example1-ipgroup",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Cidrs = example.Apply(example =&gt; example.Cidrs);
-        ///     }
+        ///         Name = "example1-ipgroup",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("cidrs")]
-        ///     public Output&lt;string&gt; Cidrs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cidrs"] = example.Apply(getIpGroupResult =&gt; getIpGroupResult.Cidrs),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetIpGroup.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetIpGroup.InvokeAsync(new Azure.Network.GetIpGroupArgs
-        ///         {
-        ///             Name = "example1-ipgroup",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Cidrs = example.Apply(example =&gt; example.Cidrs);
-        ///     }
+        ///         Name = "example1-ipgroup",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("cidrs")]
-        ///     public Output&lt;string&gt; Cidrs { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["cidrs"] = example.Apply(getIpGroupResult =&gt; getIpGroupResult.Cidrs),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetIpGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetIpGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the IP Group.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetIpGroupArgs()
         {
         }
+        public static new GetIpGroupArgs Empty => new GetIpGroupArgs();
     }
 
-    public sealed class GetIpGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIpGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the IP Group.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetIpGroupInvokeArgs()
         {
         }
+        public static new GetIpGroupInvokeArgs Empty => new GetIpGroupInvokeArgs();
     }
 
 

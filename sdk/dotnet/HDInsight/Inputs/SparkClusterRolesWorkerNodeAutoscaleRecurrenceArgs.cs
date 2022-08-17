@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs : global::Pulumi.ResourceArgs
     {
         [Input("schedules", required: true)]
         private InputList<Inputs.SparkClusterRolesWorkerNodeAutoscaleRecurrenceScheduleArgs>? _schedules;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs()
         {
         }
+        public static new SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs Empty => new SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs();
     }
 }

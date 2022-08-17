@@ -19,23 +19,21 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetTableEntity.InvokeAsync(new Azure.Storage.GetTableEntityArgs
-        ///         {
-        ///             PartitionKey = "example-partition-key",
-        ///             RowKey = "example-row-key",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///             TableName = "example-table-name",
-        ///         }));
-        ///     }
+        ///         PartitionKey = "example-partition-key",
+        ///         RowKey = "example-row-key",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         TableName = "example-table-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +49,21 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetTableEntity.InvokeAsync(new Azure.Storage.GetTableEntityArgs
-        ///         {
-        ///             PartitionKey = "example-partition-key",
-        ///             RowKey = "example-row-key",
-        ///             StorageAccountName = "example-storage-account-name",
-        ///             TableName = "example-table-name",
-        ///         }));
-        ///     }
+        ///         PartitionKey = "example-partition-key",
+        ///         RowKey = "example-row-key",
+        ///         StorageAccountName = "example-storage-account-name",
+        ///         TableName = "example-table-name",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetTableEntityArgs : Pulumi.InvokeArgs
+    public sealed class GetTableEntityArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The key for the partition where the entity will be retrieved.
@@ -106,9 +102,10 @@ namespace Pulumi.Azure.Storage
         public GetTableEntityArgs()
         {
         }
+        public static new GetTableEntityArgs Empty => new GetTableEntityArgs();
     }
 
-    public sealed class GetTableEntityInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTableEntityInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The key for the partition where the entity will be retrieved.
@@ -137,6 +134,7 @@ namespace Pulumi.Azure.Storage
         public GetTableEntityInvokeArgs()
         {
         }
+        public static new GetTableEntityInvokeArgs Empty => new GetTableEntityInvokeArgs();
     }
 
 

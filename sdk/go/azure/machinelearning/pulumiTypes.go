@@ -24,7 +24,7 @@ type ComputeClusterIdentity struct {
 // ComputeClusterIdentityInput is an input type that accepts ComputeClusterIdentityArgs and ComputeClusterIdentityOutput values.
 // You can construct a concrete instance of `ComputeClusterIdentityInput` via:
 //
-//          ComputeClusterIdentityArgs{...}
+//	ComputeClusterIdentityArgs{...}
 type ComputeClusterIdentityInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i ComputeClusterIdentityArgs) ToComputeClusterIdentityPtrOutputWithContext
 // ComputeClusterIdentityPtrInput is an input type that accepts ComputeClusterIdentityArgs, ComputeClusterIdentityPtr and ComputeClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `ComputeClusterIdentityPtrInput` via:
 //
-//          ComputeClusterIdentityArgs{...}
+//	        ComputeClusterIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -216,7 +216,7 @@ type ComputeClusterScaleSettings struct {
 // ComputeClusterScaleSettingsInput is an input type that accepts ComputeClusterScaleSettingsArgs and ComputeClusterScaleSettingsOutput values.
 // You can construct a concrete instance of `ComputeClusterScaleSettingsInput` via:
 //
-//          ComputeClusterScaleSettingsArgs{...}
+//	ComputeClusterScaleSettingsArgs{...}
 type ComputeClusterScaleSettingsInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i ComputeClusterScaleSettingsArgs) ToComputeClusterScaleSettingsPtrOutputW
 // ComputeClusterScaleSettingsPtrInput is an input type that accepts ComputeClusterScaleSettingsArgs, ComputeClusterScaleSettingsPtr and ComputeClusterScaleSettingsPtrOutput values.
 // You can construct a concrete instance of `ComputeClusterScaleSettingsPtrInput` via:
 //
-//          ComputeClusterScaleSettingsArgs{...}
+//	        ComputeClusterScaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeClusterScaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -391,7 +391,7 @@ type ComputeClusterSsh struct {
 // ComputeClusterSshInput is an input type that accepts ComputeClusterSshArgs and ComputeClusterSshOutput values.
 // You can construct a concrete instance of `ComputeClusterSshInput` via:
 //
-//          ComputeClusterSshArgs{...}
+//	ComputeClusterSshArgs{...}
 type ComputeClusterSshInput interface {
 	pulumi.Input
 
@@ -431,11 +431,11 @@ func (i ComputeClusterSshArgs) ToComputeClusterSshPtrOutputWithContext(ctx conte
 // ComputeClusterSshPtrInput is an input type that accepts ComputeClusterSshArgs, ComputeClusterSshPtr and ComputeClusterSshPtrOutput values.
 // You can construct a concrete instance of `ComputeClusterSshPtrInput` via:
 //
-//          ComputeClusterSshArgs{...}
+//	        ComputeClusterSshArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeClusterSshPtrInput interface {
 	pulumi.Input
 
@@ -564,7 +564,7 @@ type ComputeInstanceAssignToUser struct {
 // ComputeInstanceAssignToUserInput is an input type that accepts ComputeInstanceAssignToUserArgs and ComputeInstanceAssignToUserOutput values.
 // You can construct a concrete instance of `ComputeInstanceAssignToUserInput` via:
 //
-//          ComputeInstanceAssignToUserArgs{...}
+//	ComputeInstanceAssignToUserArgs{...}
 type ComputeInstanceAssignToUserInput interface {
 	pulumi.Input
 
@@ -602,11 +602,11 @@ func (i ComputeInstanceAssignToUserArgs) ToComputeInstanceAssignToUserPtrOutputW
 // ComputeInstanceAssignToUserPtrInput is an input type that accepts ComputeInstanceAssignToUserArgs, ComputeInstanceAssignToUserPtr and ComputeInstanceAssignToUserPtrOutput values.
 // You can construct a concrete instance of `ComputeInstanceAssignToUserPtrInput` via:
 //
-//          ComputeInstanceAssignToUserArgs{...}
+//	        ComputeInstanceAssignToUserArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeInstanceAssignToUserPtrInput interface {
 	pulumi.Input
 
@@ -724,7 +724,7 @@ type ComputeInstanceIdentity struct {
 // ComputeInstanceIdentityInput is an input type that accepts ComputeInstanceIdentityArgs and ComputeInstanceIdentityOutput values.
 // You can construct a concrete instance of `ComputeInstanceIdentityInput` via:
 //
-//          ComputeInstanceIdentityArgs{...}
+//	ComputeInstanceIdentityArgs{...}
 type ComputeInstanceIdentityInput interface {
 	pulumi.Input
 
@@ -766,11 +766,11 @@ func (i ComputeInstanceIdentityArgs) ToComputeInstanceIdentityPtrOutputWithConte
 // ComputeInstanceIdentityPtrInput is an input type that accepts ComputeInstanceIdentityArgs, ComputeInstanceIdentityPtr and ComputeInstanceIdentityPtrOutput values.
 // You can construct a concrete instance of `ComputeInstanceIdentityPtrInput` via:
 //
-//          ComputeInstanceIdentityArgs{...}
+//	        ComputeInstanceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeInstanceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -916,7 +916,7 @@ type ComputeInstanceSsh struct {
 // ComputeInstanceSshInput is an input type that accepts ComputeInstanceSshArgs and ComputeInstanceSshOutput values.
 // You can construct a concrete instance of `ComputeInstanceSshInput` via:
 //
-//          ComputeInstanceSshArgs{...}
+//	ComputeInstanceSshArgs{...}
 type ComputeInstanceSshInput interface {
 	pulumi.Input
 
@@ -956,11 +956,11 @@ func (i ComputeInstanceSshArgs) ToComputeInstanceSshPtrOutputWithContext(ctx con
 // ComputeInstanceSshPtrInput is an input type that accepts ComputeInstanceSshArgs, ComputeInstanceSshPtr and ComputeInstanceSshPtrOutput values.
 // You can construct a concrete instance of `ComputeInstanceSshPtrInput` via:
 //
-//          ComputeInstanceSshArgs{...}
+//	        ComputeInstanceSshArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ComputeInstanceSshPtrInput interface {
 	pulumi.Input
 
@@ -1093,7 +1093,7 @@ type InferenceClusterIdentity struct {
 // InferenceClusterIdentityInput is an input type that accepts InferenceClusterIdentityArgs and InferenceClusterIdentityOutput values.
 // You can construct a concrete instance of `InferenceClusterIdentityInput` via:
 //
-//          InferenceClusterIdentityArgs{...}
+//	InferenceClusterIdentityArgs{...}
 type InferenceClusterIdentityInput interface {
 	pulumi.Input
 
@@ -1135,11 +1135,11 @@ func (i InferenceClusterIdentityArgs) ToInferenceClusterIdentityPtrOutputWithCon
 // InferenceClusterIdentityPtrInput is an input type that accepts InferenceClusterIdentityArgs, InferenceClusterIdentityPtr and InferenceClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `InferenceClusterIdentityPtrInput` via:
 //
-//          InferenceClusterIdentityArgs{...}
+//	        InferenceClusterIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InferenceClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1289,7 +1289,7 @@ type InferenceClusterSsl struct {
 // InferenceClusterSslInput is an input type that accepts InferenceClusterSslArgs and InferenceClusterSslOutput values.
 // You can construct a concrete instance of `InferenceClusterSslInput` via:
 //
-//          InferenceClusterSslArgs{...}
+//	InferenceClusterSslArgs{...}
 type InferenceClusterSslInput interface {
 	pulumi.Input
 
@@ -1333,11 +1333,11 @@ func (i InferenceClusterSslArgs) ToInferenceClusterSslPtrOutputWithContext(ctx c
 // InferenceClusterSslPtrInput is an input type that accepts InferenceClusterSslArgs, InferenceClusterSslPtr and InferenceClusterSslPtrOutput values.
 // You can construct a concrete instance of `InferenceClusterSslPtrInput` via:
 //
-//          InferenceClusterSslArgs{...}
+//	        InferenceClusterSslArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type InferenceClusterSslPtrInput interface {
 	pulumi.Input
 
@@ -1500,7 +1500,7 @@ type SynapseSparkIdentity struct {
 // SynapseSparkIdentityInput is an input type that accepts SynapseSparkIdentityArgs and SynapseSparkIdentityOutput values.
 // You can construct a concrete instance of `SynapseSparkIdentityInput` via:
 //
-//          SynapseSparkIdentityArgs{...}
+//	SynapseSparkIdentityArgs{...}
 type SynapseSparkIdentityInput interface {
 	pulumi.Input
 
@@ -1542,11 +1542,11 @@ func (i SynapseSparkIdentityArgs) ToSynapseSparkIdentityPtrOutputWithContext(ctx
 // SynapseSparkIdentityPtrInput is an input type that accepts SynapseSparkIdentityArgs, SynapseSparkIdentityPtr and SynapseSparkIdentityPtrOutput values.
 // You can construct a concrete instance of `SynapseSparkIdentityPtrInput` via:
 //
-//          SynapseSparkIdentityArgs{...}
+//	        SynapseSparkIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SynapseSparkIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1692,7 +1692,7 @@ type WorkspaceEncryption struct {
 // WorkspaceEncryptionInput is an input type that accepts WorkspaceEncryptionArgs and WorkspaceEncryptionOutput values.
 // You can construct a concrete instance of `WorkspaceEncryptionInput` via:
 //
-//          WorkspaceEncryptionArgs{...}
+//	WorkspaceEncryptionArgs{...}
 type WorkspaceEncryptionInput interface {
 	pulumi.Input
 
@@ -1732,11 +1732,11 @@ func (i WorkspaceEncryptionArgs) ToWorkspaceEncryptionPtrOutputWithContext(ctx c
 // WorkspaceEncryptionPtrInput is an input type that accepts WorkspaceEncryptionArgs, WorkspaceEncryptionPtr and WorkspaceEncryptionPtrOutput values.
 // You can construct a concrete instance of `WorkspaceEncryptionPtrInput` via:
 //
-//          WorkspaceEncryptionArgs{...}
+//	        WorkspaceEncryptionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceEncryptionPtrInput interface {
 	pulumi.Input
 
@@ -1869,7 +1869,7 @@ type WorkspaceIdentity struct {
 // WorkspaceIdentityInput is an input type that accepts WorkspaceIdentityArgs and WorkspaceIdentityOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityInput` via:
 //
-//          WorkspaceIdentityArgs{...}
+//	WorkspaceIdentityArgs{...}
 type WorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -1911,11 +1911,11 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutputWithContext(ctx conte
 // WorkspaceIdentityPtrInput is an input type that accepts WorkspaceIdentityArgs, WorkspaceIdentityPtr and WorkspaceIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkspaceIdentityPtrInput` via:
 //
-//          WorkspaceIdentityArgs{...}
+//	        WorkspaceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -2063,7 +2063,7 @@ type GetWorkspaceIdentity struct {
 // GetWorkspaceIdentityInput is an input type that accepts GetWorkspaceIdentityArgs and GetWorkspaceIdentityOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityInput` via:
 //
-//          GetWorkspaceIdentityArgs{...}
+//	GetWorkspaceIdentityArgs{...}
 type GetWorkspaceIdentityInput interface {
 	pulumi.Input
 
@@ -2097,7 +2097,7 @@ func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutputWithContext(ctx co
 // GetWorkspaceIdentityArrayInput is an input type that accepts GetWorkspaceIdentityArray and GetWorkspaceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityArrayInput` via:
 //
-//          GetWorkspaceIdentityArray{ GetWorkspaceIdentityArgs{...} }
+//	GetWorkspaceIdentityArray{ GetWorkspaceIdentityArgs{...} }
 type GetWorkspaceIdentityArrayInput interface {
 	pulumi.Input
 

@@ -15,33 +15,33 @@ namespace Pulumi.Azure.NotificationHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new Azure.NotificationHub.NamespaceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             NamespaceType = "NotificationHub",
-    ///             SkuName = "Free",
-    ///         });
-    ///         var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new Azure.NotificationHub.HubArgs
-    ///         {
-    ///             NamespaceName = exampleNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NamespaceType = "NotificationHub",
+    ///         SkuName = "Free",
+    ///     });
+    /// 
+    ///     var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new()
+    ///     {
+    ///         NamespaceName = exampleNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.NotificationHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:notificationhub/hub:Hub")]
-    public partial class Hub : Pulumi.CustomResource
+    public partial class Hub : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `apns_credential` block as defined below.
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.NotificationHub
         }
     }
 
-    public sealed class HubArgs : Pulumi.ResourceArgs
+    public sealed class HubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `apns_credential` block as defined below.
@@ -194,9 +194,10 @@ namespace Pulumi.Azure.NotificationHub
         public HubArgs()
         {
         }
+        public static new HubArgs Empty => new HubArgs();
     }
 
-    public sealed class HubState : Pulumi.ResourceArgs
+    public sealed class HubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `apns_credential` block as defined below.
@@ -249,5 +250,6 @@ namespace Pulumi.Azure.NotificationHub
         public HubState()
         {
         }
+        public static new HubState Empty => new HubState();
     }
 }

@@ -21,45 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			DnsPrefix:         pulumi.String("exampleaks1"),
-// 			DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
-// 				Name:      pulumi.String("default"),
-// 				NodeCount: pulumi.Int(1),
-// 				VmSize:    pulumi.String("Standard_D2_v2"),
-// 			},
-// 			Identity: &containerservice.KubernetesClusterIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (string, error) {
-// 			return kubeConfigs[0].ClientCertificate, nil
-// 		}).(pulumi.StringOutput))
-// 		ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				DnsPrefix:         pulumi.String("exampleaks1"),
+//				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
+//					Name:      pulumi.String("default"),
+//					NodeCount: pulumi.Int(1),
+//					VmSize:    pulumi.String("Standard_D2_v2"),
+//				},
+//				Identity: &containerservice.KubernetesClusterIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (string, error) {
+//				return kubeConfigs[0].ClientCertificate, nil
+//			}).(pulumi.StringOutput))
+//			ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+//
+//	$ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+//
 // ```
 type KubernetesCluster struct {
 	pulumi.CustomResourceState
@@ -595,7 +600,7 @@ func (i *KubernetesCluster) ToKubernetesClusterOutputWithContext(ctx context.Con
 // KubernetesClusterArrayInput is an input type that accepts KubernetesClusterArray and KubernetesClusterArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterArrayInput` via:
 //
-//          KubernetesClusterArray{ KubernetesClusterArgs{...} }
+//	KubernetesClusterArray{ KubernetesClusterArgs{...} }
 type KubernetesClusterArrayInput interface {
 	pulumi.Input
 
@@ -620,7 +625,7 @@ func (i KubernetesClusterArray) ToKubernetesClusterArrayOutputWithContext(ctx co
 // KubernetesClusterMapInput is an input type that accepts KubernetesClusterMap and KubernetesClusterMapOutput values.
 // You can construct a concrete instance of `KubernetesClusterMapInput` via:
 //
-//          KubernetesClusterMap{ "key": KubernetesClusterArgs{...} }
+//	KubernetesClusterMap{ "key": KubernetesClusterArgs{...} }
 type KubernetesClusterMapInput interface {
 	pulumi.Input
 

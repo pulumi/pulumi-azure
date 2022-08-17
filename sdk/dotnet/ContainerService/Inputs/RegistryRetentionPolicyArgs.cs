@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryRetentionPolicyArgs : Pulumi.ResourceArgs
+    public sealed class RegistryRetentionPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryRetentionPolicyArgs()
         {
         }
+        public static new RegistryRetentionPolicyArgs Empty => new RegistryRetentionPolicyArgs();
     }
 }

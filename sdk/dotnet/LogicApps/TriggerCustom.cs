@@ -15,26 +15,27 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleTriggerCustom = new Azure.LogicApps.TriggerCustom("exampleTriggerCustom", new Azure.LogicApps.TriggerCustomArgs
-    ///         {
-    ///             LogicAppId = exampleWorkflow.Id,
-    ///             Body = @"{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleTriggerCustom = new Azure.LogicApps.TriggerCustom("exampleTriggerCustom", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Body = @"{
     ///   ""recurrence"": {
     ///     ""frequency"": ""Day"",
     ///     ""interval"": 1
@@ -42,10 +43,9 @@ namespace Pulumi.Azure.LogicApps
     ///   ""type"": ""Recurrence""
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/triggerCustom:TriggerCustom")]
-    public partial class TriggerCustom : Pulumi.CustomResource
+    public partial class TriggerCustom : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Trigger.
@@ -121,7 +121,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class TriggerCustomArgs : Pulumi.ResourceArgs
+    public sealed class TriggerCustomArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Trigger.
@@ -144,9 +144,10 @@ namespace Pulumi.Azure.LogicApps
         public TriggerCustomArgs()
         {
         }
+        public static new TriggerCustomArgs Empty => new TriggerCustomArgs();
     }
 
-    public sealed class TriggerCustomState : Pulumi.ResourceArgs
+    public sealed class TriggerCustomState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Trigger.
@@ -169,5 +170,6 @@ namespace Pulumi.Azure.LogicApps
         public TriggerCustomState()
         {
         }
+        public static new TriggerCustomState Empty => new TriggerCustomState();
     }
 }

@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
 /**
  * Manages a CDN FrontDoor Origin Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {resourceGroupName: exampleResourceGroup.name});
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
+ *     healthProbe: {
+ *         intervalInSeconds: 240,
+ *         path: "/healthProbe",
+ *         protocol: "Https",
+ *         requestType: "HEAD",
+ *     },
+ *     loadBalancing: {
+ *         additionalLatencyInMilliseconds: 0,
+ *         sampleSize: 16,
+ *         successfulSamplesRequired: 3,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * CDN FrontDoor Origin Groups can be imported using the `resource id`, e.g.

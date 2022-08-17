@@ -19,127 +19,130 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azuread/sdk/v4/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
-// 			DisplayName: pulumi.StringRef("Azure Spring Cloud Domain-Management"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			SkuName:           pulumi.String("standard"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(current.ObjectId),
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Set"),
-// 					},
-// 					CertificatePermissions: pulumi.StringArray{
-// 						pulumi.String("Create"),
-// 						pulumi.String("Delete"),
-// 						pulumi.String("Get"),
-// 						pulumi.String("Update"),
-// 					},
-// 				},
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.String(current.TenantId),
-// 					ObjectId: pulumi.String(exampleServicePrincipal.ObjectId),
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("List"),
-// 					},
-// 					CertificatePermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("List"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
-// 				IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
-// 					Name: pulumi.String("Self"),
-// 				},
-// 				KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
-// 					Exportable: pulumi.Bool(true),
-// 					KeySize:    pulumi.Int(2048),
-// 					KeyType:    pulumi.String("RSA"),
-// 					ReuseKey:   pulumi.Bool(true),
-// 				},
-// 				LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
-// 					&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
-// 						Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
-// 							ActionType: pulumi.String("AutoRenew"),
-// 						},
-// 						Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
-// 							DaysBeforeExpiry: pulumi.Int(30),
-// 						},
-// 					},
-// 				},
-// 				SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
-// 					ContentType: pulumi.String("application/x-pkcs12"),
-// 				},
-// 				X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
-// 					KeyUsages: pulumi.StringArray{
-// 						pulumi.String("cRLSign"),
-// 						pulumi.String("dataEncipherment"),
-// 						pulumi.String("digitalSignature"),
-// 						pulumi.String("keyAgreement"),
-// 						pulumi.String("keyCertSign"),
-// 						pulumi.String("keyEncipherment"),
-// 					},
-// 					Subject:          pulumi.String("CN=contoso.com"),
-// 					ValidityInMonths: pulumi.Int(12),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appplatform.NewSpringCloudCertificate(ctx, "exampleSpringCloudCertificate", &appplatform.SpringCloudCertificateArgs{
-// 			ResourceGroupName:     exampleSpringCloudService.ResourceGroupName,
-// 			ServiceName:           exampleSpringCloudService.Name,
-// 			KeyVaultCertificateId: exampleCertificate.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &GetServicePrincipalArgs{
+//				DisplayName: pulumi.StringRef("Azure Spring Cloud Domain-Management"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.String(current.TenantId),
+//				SkuName:           pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(current.ObjectId),
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Set"),
+//						},
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("Create"),
+//							pulumi.String("Delete"),
+//							pulumi.String("Get"),
+//							pulumi.String("Update"),
+//						},
+//					},
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.String(current.TenantId),
+//						ObjectId: pulumi.String(exampleServicePrincipal.ObjectId),
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//						CertificatePermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
+//					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
+//						Name: pulumi.String("Self"),
+//					},
+//					KeyProperties: &keyvault.CertificateCertificatePolicyKeyPropertiesArgs{
+//						Exportable: pulumi.Bool(true),
+//						KeySize:    pulumi.Int(2048),
+//						KeyType:    pulumi.String("RSA"),
+//						ReuseKey:   pulumi.Bool(true),
+//					},
+//					LifetimeActions: keyvault.CertificateCertificatePolicyLifetimeActionArray{
+//						&keyvault.CertificateCertificatePolicyLifetimeActionArgs{
+//							Action: &keyvault.CertificateCertificatePolicyLifetimeActionActionArgs{
+//								ActionType: pulumi.String("AutoRenew"),
+//							},
+//							Trigger: &keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs{
+//								DaysBeforeExpiry: pulumi.Int(30),
+//							},
+//						},
+//					},
+//					SecretProperties: &keyvault.CertificateCertificatePolicySecretPropertiesArgs{
+//						ContentType: pulumi.String("application/x-pkcs12"),
+//					},
+//					X509CertificateProperties: &keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs{
+//						KeyUsages: pulumi.StringArray{
+//							pulumi.String("cRLSign"),
+//							pulumi.String("dataEncipherment"),
+//							pulumi.String("digitalSignature"),
+//							pulumi.String("keyAgreement"),
+//							pulumi.String("keyCertSign"),
+//							pulumi.String("keyEncipherment"),
+//						},
+//						Subject:          pulumi.String("CN=contoso.com"),
+//						ValidityInMonths: pulumi.Int(12),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appplatform.NewSpringCloudCertificate(ctx, "exampleSpringCloudCertificate", &appplatform.SpringCloudCertificateArgs{
+//				ResourceGroupName:     exampleSpringCloudService.ResourceGroupName,
+//				ServiceName:           exampleSpringCloudService.Name,
+//				KeyVaultCertificateId: exampleCertificate.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -147,7 +150,9 @@ import (
 // Spring Cloud Certificate can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/spring1/certificates/cert1
+//
+//	$ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/Spring/spring1/certificates/cert1
+//
 // ```
 type SpringCloudCertificate struct {
 	pulumi.CustomResourceState
@@ -287,7 +292,7 @@ func (i *SpringCloudCertificate) ToSpringCloudCertificateOutputWithContext(ctx c
 // SpringCloudCertificateArrayInput is an input type that accepts SpringCloudCertificateArray and SpringCloudCertificateArrayOutput values.
 // You can construct a concrete instance of `SpringCloudCertificateArrayInput` via:
 //
-//          SpringCloudCertificateArray{ SpringCloudCertificateArgs{...} }
+//	SpringCloudCertificateArray{ SpringCloudCertificateArgs{...} }
 type SpringCloudCertificateArrayInput interface {
 	pulumi.Input
 
@@ -312,7 +317,7 @@ func (i SpringCloudCertificateArray) ToSpringCloudCertificateArrayOutputWithCont
 // SpringCloudCertificateMapInput is an input type that accepts SpringCloudCertificateMap and SpringCloudCertificateMapOutput values.
 // You can construct a concrete instance of `SpringCloudCertificateMapInput` via:
 //
-//          SpringCloudCertificateMap{ "key": SpringCloudCertificateArgs{...} }
+//	SpringCloudCertificateMap{ "key": SpringCloudCertificateArgs{...} }
 type SpringCloudCertificateMapInput interface {
 	pulumi.Input
 

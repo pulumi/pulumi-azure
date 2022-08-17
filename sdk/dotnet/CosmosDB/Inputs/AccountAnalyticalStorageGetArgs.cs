@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountAnalyticalStorageGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountAnalyticalStorageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The schema type of the Analytical Storage for this Cosmos DB account. Possible values are `FullFidelity` and `WellDefined`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountAnalyticalStorageGetArgs()
         {
         }
+        public static new AccountAnalyticalStorageGetArgs Empty => new AccountAnalyticalStorageGetArgs();
     }
 }

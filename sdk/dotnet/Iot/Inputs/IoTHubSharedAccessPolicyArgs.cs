@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubSharedAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubSharedAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the shared access policy.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubSharedAccessPolicyArgs()
         {
         }
+        public static new IoTHubSharedAccessPolicyArgs Empty => new IoTHubSharedAccessPolicyArgs();
     }
 }

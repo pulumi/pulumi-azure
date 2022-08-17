@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSiteConfigApplicationStackGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSiteConfigApplicationStackGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Docker image reference, including repository host as needed.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSiteConfigApplicationStackGetArgs()
         {
         }
+        public static new LinuxWebAppSiteConfigApplicationStackGetArgs Empty => new LinuxWebAppSiteConfigApplicationStackGetArgs();
     }
 }

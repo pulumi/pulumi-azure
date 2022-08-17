@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class ComputeInstanceSshGetArgs : Pulumi.ResourceArgs
+    public sealed class ComputeInstanceSshGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes the port for connecting through SSH.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public ComputeInstanceSshGetArgs()
         {
         }
+        public static new ComputeInstanceSshGetArgs Empty => new ComputeInstanceSshGetArgs();
     }
 }

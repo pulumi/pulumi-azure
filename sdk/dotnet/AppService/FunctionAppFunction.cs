@@ -21,81 +21,80 @@ namespace Pulumi.Azure.AppService
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OsType = "Linux",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("exampleLinuxFunctionApp", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         SiteConfig = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OsType = "Linux",
-    ///             SkuName = "S1",
-    ///         });
-    ///         var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("exampleLinuxFunctionApp", new Azure.AppService.LinuxFunctionAppArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             SiteConfig = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigArgs
+    ///             ApplicationStack = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigApplicationStackArgs
     ///             {
-    ///                 ApplicationStack = new Azure.AppService.Inputs.LinuxFunctionAppSiteConfigApplicationStackArgs
+    ///                 PythonVersion = "3.9",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new()
+    ///     {
+    ///         FunctionAppId = exampleLinuxFunctionApp.Id,
+    ///         Language = "Python",
+    ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["name"] = "Azure",
+    ///         }),
+    ///         ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["bindings"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
     ///                 {
-    ///                     PythonVersion = "3.9",
+    ///                     ["authLevel"] = "function",
+    ///                     ["direction"] = "in",
+    ///                     ["methods"] = new[]
+    ///                     {
+    ///                         "get",
+    ///                         "post",
+    ///                     },
+    ///                     ["name"] = "req",
+    ///                     ["type"] = "httpTrigger",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["direction"] = "out",
+    ///                     ["name"] = "$return",
+    ///                     ["type"] = "http",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new Azure.AppService.FunctionAppFunctionArgs
-    ///         {
-    ///             FunctionAppId = exampleLinuxFunctionApp.Id,
-    ///             Language = "Python",
-    ///             TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "name", "Azure" },
-    ///             }),
-    ///             ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "bindings", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "authLevel", "function" },
-    ///                             { "direction", "in" },
-    ///                             { "methods", new[]
-    ///                                 {
-    ///                                     "get",
-    ///                                     "post",
-    ///                                 }
-    ///                              },
-    ///                             { "name", "req" },
-    ///                             { "type", "httpTrigger" },
-    ///                         },
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "direction", "out" },
-    ///                             { "name", "$return" },
-    ///                             { "type", "http" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///         }),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### HTTP Trigger With Code Upload
     /// 
@@ -106,89 +105,88 @@ namespace Pulumi.Azure.AppService
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             OsType = "Windows",
-    ///             SkuName = "S1",
-    ///         });
-    ///         var test = new Azure.AppService.WindowsFunctionApp("test", new Azure.AppService.WindowsFunctionAppArgs
-    ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             ServicePlanId = azurerm_service_plan.Test.Id,
-    ///             StorageAccountName = azurerm_storage_account.Test.Name,
-    ///             StorageAccountAccessKey = azurerm_storage_account.Test.Primary_access_key,
-    ///             SiteConfig = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigArgs
-    ///             {
-    ///                 ApplicationStack = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigApplicationStackArgs
-    ///                 {
-    ///                     DotnetVersion = "6",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new Azure.AppService.FunctionAppFunctionArgs
-    ///         {
-    ///             FunctionAppId = azurerm_linux_function_app.Example.Id,
-    ///             Language = "CSharp",
-    ///             Files = 
-    ///             {
-    ///                 new Azure.AppService.Inputs.FunctionAppFunctionFileArgs
-    ///                 {
-    ///                     Name = "run.csx",
-    ///                     Content = File.ReadAllText("exampledata/run.csx"),
-    ///                 },
-    ///             },
-    ///             TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "name", "Azure" },
-    ///             }),
-    ///             ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "bindings", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "authLevel", "function" },
-    ///                             { "direction", "in" },
-    ///                             { "methods", new[]
-    ///                                 {
-    ///                                     "get",
-    ///                                     "post",
-    ///                                 }
-    ///                              },
-    ///                             { "name", "req" },
-    ///                             { "type", "httpTrigger" },
-    ///                         },
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "direction", "out" },
-    ///                             { "name", "$return" },
-    ///                             { "type", "http" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///             }),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         OsType = "Windows",
+    ///         SkuName = "S1",
+    ///     });
+    /// 
+    ///     var test = new Azure.AppService.WindowsFunctionApp("test", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Test.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         ServicePlanId = azurerm_service_plan.Test.Id,
+    ///         StorageAccountName = azurerm_storage_account.Test.Name,
+    ///         StorageAccountAccessKey = azurerm_storage_account.Test.Primary_access_key,
+    ///         SiteConfig = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigArgs
+    ///         {
+    ///             ApplicationStack = new Azure.AppService.Inputs.WindowsFunctionAppSiteConfigApplicationStackArgs
+    ///             {
+    ///                 DotnetVersion = "6",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new()
+    ///     {
+    ///         FunctionAppId = azurerm_linux_function_app.Example.Id,
+    ///         Language = "CSharp",
+    ///         Files = new[]
+    ///         {
+    ///             new Azure.AppService.Inputs.FunctionAppFunctionFileArgs
+    ///             {
+    ///                 Name = "run.csx",
+    ///                 Content = File.ReadAllText("exampledata/run.csx"),
+    ///             },
+    ///         },
+    ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["name"] = "Azure",
+    ///         }),
+    ///         ConfigJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["bindings"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["authLevel"] = "function",
+    ///                     ["direction"] = "in",
+    ///                     ["methods"] = new[]
+    ///                     {
+    ///                         "get",
+    ///                         "post",
+    ///                     },
+    ///                     ["name"] = "req",
+    ///                     ["type"] = "httpTrigger",
+    ///                 },
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["direction"] = "out",
+    ///                     ["name"] = "$return",
+    ///                     ["type"] = "http",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -200,7 +198,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/functionAppFunction:FunctionAppFunction")]
-    public partial class FunctionAppFunction : Pulumi.CustomResource
+    public partial class FunctionAppFunction : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The config for this Function in JSON format.
@@ -330,7 +328,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class FunctionAppFunctionArgs : Pulumi.ResourceArgs
+    public sealed class FunctionAppFunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The config for this Function in JSON format.
@@ -383,9 +381,10 @@ namespace Pulumi.Azure.AppService
         public FunctionAppFunctionArgs()
         {
         }
+        public static new FunctionAppFunctionArgs Empty => new FunctionAppFunctionArgs();
     }
 
-    public sealed class FunctionAppFunctionState : Pulumi.ResourceArgs
+    public sealed class FunctionAppFunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The config for this Function in JSON format.
@@ -480,5 +479,6 @@ namespace Pulumi.Azure.AppService
         public FunctionAppFunctionState()
         {
         }
+        public static new FunctionAppFunctionState Empty => new FunctionAppFunctionState();
     }
 }

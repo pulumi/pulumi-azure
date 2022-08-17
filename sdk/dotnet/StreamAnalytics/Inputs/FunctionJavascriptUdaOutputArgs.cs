@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.StreamAnalytics.Inputs
 {
 
-    public sealed class FunctionJavascriptUdaOutputArgs : Pulumi.ResourceArgs
+    public sealed class FunctionJavascriptUdaOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.StreamAnalytics.Inputs
         public FunctionJavascriptUdaOutputArgs()
         {
         }
+        public static new FunctionJavascriptUdaOutputArgs Empty => new FunctionJavascriptUdaOutputArgs();
     }
 }

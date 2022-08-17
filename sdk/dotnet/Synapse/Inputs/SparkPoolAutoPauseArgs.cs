@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class SparkPoolAutoPauseArgs : Pulumi.ResourceArgs
+    public sealed class SparkPoolAutoPauseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public SparkPoolAutoPauseArgs()
         {
         }
+        public static new SparkPoolAutoPauseArgs Empty => new SparkPoolAutoPauseArgs();
     }
 }

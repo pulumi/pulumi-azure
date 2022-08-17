@@ -22,7 +22,7 @@ type LedgerAzureadBasedServicePrincipal struct {
 // LedgerAzureadBasedServicePrincipalInput is an input type that accepts LedgerAzureadBasedServicePrincipalArgs and LedgerAzureadBasedServicePrincipalOutput values.
 // You can construct a concrete instance of `LedgerAzureadBasedServicePrincipalInput` via:
 //
-//          LedgerAzureadBasedServicePrincipalArgs{...}
+//	LedgerAzureadBasedServicePrincipalArgs{...}
 type LedgerAzureadBasedServicePrincipalInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i LedgerAzureadBasedServicePrincipalArgs) ToLedgerAzureadBasedServicePrinc
 // LedgerAzureadBasedServicePrincipalArrayInput is an input type that accepts LedgerAzureadBasedServicePrincipalArray and LedgerAzureadBasedServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `LedgerAzureadBasedServicePrincipalArrayInput` via:
 //
-//          LedgerAzureadBasedServicePrincipalArray{ LedgerAzureadBasedServicePrincipalArgs{...} }
+//	LedgerAzureadBasedServicePrincipalArray{ LedgerAzureadBasedServicePrincipalArgs{...} }
 type LedgerAzureadBasedServicePrincipalArrayInput interface {
 	pulumi.Input
 
@@ -135,7 +135,7 @@ type LedgerCertificateBasedSecurityPrincipal struct {
 // LedgerCertificateBasedSecurityPrincipalInput is an input type that accepts LedgerCertificateBasedSecurityPrincipalArgs and LedgerCertificateBasedSecurityPrincipalOutput values.
 // You can construct a concrete instance of `LedgerCertificateBasedSecurityPrincipalInput` via:
 //
-//          LedgerCertificateBasedSecurityPrincipalArgs{...}
+//	LedgerCertificateBasedSecurityPrincipalArgs{...}
 type LedgerCertificateBasedSecurityPrincipalInput interface {
 	pulumi.Input
 
@@ -165,7 +165,7 @@ func (i LedgerCertificateBasedSecurityPrincipalArgs) ToLedgerCertificateBasedSec
 // LedgerCertificateBasedSecurityPrincipalArrayInput is an input type that accepts LedgerCertificateBasedSecurityPrincipalArray and LedgerCertificateBasedSecurityPrincipalArrayOutput values.
 // You can construct a concrete instance of `LedgerCertificateBasedSecurityPrincipalArrayInput` via:
 //
-//          LedgerCertificateBasedSecurityPrincipalArray{ LedgerCertificateBasedSecurityPrincipalArgs{...} }
+//	LedgerCertificateBasedSecurityPrincipalArray{ LedgerCertificateBasedSecurityPrincipalArgs{...} }
 type LedgerCertificateBasedSecurityPrincipalArrayInput interface {
 	pulumi.Input
 

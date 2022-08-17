@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterDiagnosticsConfigArgs : Pulumi.ResourceArgs
+    public sealed class ClusterDiagnosticsConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Blob Endpoint of the Storage Account.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterDiagnosticsConfigArgs()
         {
         }
+        public static new ClusterDiagnosticsConfigArgs Empty => new ClusterDiagnosticsConfigArgs();
     }
 }

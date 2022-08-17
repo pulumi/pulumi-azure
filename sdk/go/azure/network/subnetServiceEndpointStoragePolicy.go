@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("GRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnetServiceEndpointStoragePolicy(ctx, "exampleSubnetServiceEndpointStoragePolicy", &network.SubnetServiceEndpointStoragePolicyArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Definition: &network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
-// 				Name:        pulumi.String("name1"),
-// 				Description: pulumi.String("definition1"),
-// 				ServiceResources: pulumi.StringArray{
-// 					exampleResourceGroup.ID(),
-// 					exampleAccount.ID(),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("GRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetServiceEndpointStoragePolicy(ctx, "exampleSubnetServiceEndpointStoragePolicy", &network.SubnetServiceEndpointStoragePolicyArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Definition: &network.SubnetServiceEndpointStoragePolicyDefinitionArgs{
+//					Name:        pulumi.String("name1"),
+//					Description: pulumi.String("definition1"),
+//					ServiceResources: pulumi.StringArray{
+//						exampleResourceGroup.ID(),
+//						exampleAccount.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Subnet Service Endpoint Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/serviceEndpointPolicies/policy1
+//
+//	$ pulumi import azure:network/subnetServiceEndpointStoragePolicy:SubnetServiceEndpointStoragePolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/serviceEndpointPolicies/policy1
+//
 // ```
 type SubnetServiceEndpointStoragePolicy struct {
 	pulumi.CustomResourceState
@@ -198,7 +203,7 @@ func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolic
 // SubnetServiceEndpointStoragePolicyArrayInput is an input type that accepts SubnetServiceEndpointStoragePolicyArray and SubnetServiceEndpointStoragePolicyArrayOutput values.
 // You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyArrayInput` via:
 //
-//          SubnetServiceEndpointStoragePolicyArray{ SubnetServiceEndpointStoragePolicyArgs{...} }
+//	SubnetServiceEndpointStoragePolicyArray{ SubnetServiceEndpointStoragePolicyArgs{...} }
 type SubnetServiceEndpointStoragePolicyArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +228,7 @@ func (i SubnetServiceEndpointStoragePolicyArray) ToSubnetServiceEndpointStorageP
 // SubnetServiceEndpointStoragePolicyMapInput is an input type that accepts SubnetServiceEndpointStoragePolicyMap and SubnetServiceEndpointStoragePolicyMapOutput values.
 // You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyMapInput` via:
 //
-//          SubnetServiceEndpointStoragePolicyMap{ "key": SubnetServiceEndpointStoragePolicyArgs{...} }
+//	SubnetServiceEndpointStoragePolicyMap{ "key": SubnetServiceEndpointStoragePolicyArgs{...} }
 type SubnetServiceEndpointStoragePolicyMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class PointToPointVpnGatewayConnectionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayConnectionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public PointToPointVpnGatewayConnectionConfigurationGetArgs()
         {
         }
+        public static new PointToPointVpnGatewayConnectionConfigurationGetArgs Empty => new PointToPointVpnGatewayConnectionConfigurationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionRuleActionGroupConditionMonitorArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleActionGroupConditionMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The operator for a given condition. Possible values are `Equals` and `NotEquals`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionRuleActionGroupConditionMonitorArgs()
         {
         }
+        public static new ActionRuleActionGroupConditionMonitorArgs Empty => new ActionRuleActionGroupConditionMonitorArgs();
     }
 }

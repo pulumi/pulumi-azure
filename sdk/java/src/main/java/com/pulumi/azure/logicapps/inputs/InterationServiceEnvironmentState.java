@@ -138,14 +138,14 @@ public final class InterationServiceEnvironmentState extends com.pulumi.resource
     }
 
     /**
-     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      * 
      */
     @Import(name="virtualNetworkSubnetIds")
     private @Nullable Output<List<String>> virtualNetworkSubnetIds;
 
     /**
-     * @return A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+     * @return A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
      * 
      */
     public Optional<Output<List<String>>> virtualNetworkSubnetIds() {
@@ -405,7 +405,7 @@ public final class InterationServiceEnvironmentState extends com.pulumi.resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
          * 
          * @return builder
          * 
@@ -416,7 +416,7 @@ public final class InterationServiceEnvironmentState extends com.pulumi.resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
          * 
          * @return builder
          * 
@@ -426,7 +426,7 @@ public final class InterationServiceEnvironmentState extends com.pulumi.resource
         }
 
         /**
-         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to subnets must be provided. Changing this forces a new Integration Service Environment to be created.
+         * @param virtualNetworkSubnetIds A list of virtual network subnet ids to be used by Integration Service Environment. Exactly four distinct ids to `/27` subnets must be provided. Changing this forces a new Integration Service Environment to be created.
          * 
          * @return builder
          * 

@@ -15,37 +15,37 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new Azure.Iot.IotHubDpsArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleDpsSharedAccessPolicy = new Azure.Iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", new Azure.Iot.DpsSharedAccessPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubDpsName = exampleIotHubDps.Name,
-    ///             EnrollmentWrite = true,
-    ///             EnrollmentRead = true,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDpsSharedAccessPolicy = new Azure.Iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubDpsName = exampleIotHubDps.Name,
+    ///         EnrollmentWrite = true,
+    ///         EnrollmentRead = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/dpsSharedAccessPolicy:DpsSharedAccessPolicy")]
-    public partial class DpsSharedAccessPolicy : Pulumi.CustomResource
+    public partial class DpsSharedAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class DpsSharedAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class DpsSharedAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
@@ -228,9 +228,10 @@ namespace Pulumi.Azure.Iot
         public DpsSharedAccessPolicyArgs()
         {
         }
+        public static new DpsSharedAccessPolicyArgs Empty => new DpsSharedAccessPolicyArgs();
     }
 
-    public sealed class DpsSharedAccessPolicyState : Pulumi.ResourceArgs
+    public sealed class DpsSharedAccessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
@@ -307,5 +308,6 @@ namespace Pulumi.Azure.Iot
         public DpsSharedAccessPolicyState()
         {
         }
+        public static new DpsSharedAccessPolicyState Empty => new DpsSharedAccessPolicyState();
     }
 }

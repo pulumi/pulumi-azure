@@ -21,7 +21,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator")]
-    public partial class ManagedInstanceActiveDirectoryAdministrator : Pulumi.CustomResource
+    public partial class ManagedInstanceActiveDirectoryAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
@@ -97,7 +97,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ManagedInstanceActiveDirectoryAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceActiveDirectoryAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
@@ -132,9 +132,10 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceActiveDirectoryAdministratorArgs()
         {
         }
+        public static new ManagedInstanceActiveDirectoryAdministratorArgs Empty => new ManagedInstanceActiveDirectoryAdministratorArgs();
     }
 
-    public sealed class ManagedInstanceActiveDirectoryAdministratorState : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceActiveDirectoryAdministratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// When `true`, only permit logins from AAD users and administrators. When `false`, also allow local database users. Defaults to `false`.
@@ -169,5 +170,6 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceActiveDirectoryAdministratorState()
         {
         }
+        public static new ManagedInstanceActiveDirectoryAdministratorState Empty => new ManagedInstanceActiveDirectoryAdministratorState();
     }
 }

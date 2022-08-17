@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupFirewall(ctx, &network.LookupFirewallArgs{
-// 			Name:              "firewall1",
-// 			ResourceGroupName: "firewall-RG",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("firewallPrivateIp", example.IpConfigurations[0].PrivateIpAddress)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupFirewall(ctx, &network.LookupFirewallArgs{
+//				Name:              "firewall1",
+//				ResourceGroupName: "firewall-RG",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("firewallPrivateIp", example.IpConfigurations[0].PrivateIpAddress)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupFirewall(ctx *pulumi.Context, args *LookupFirewallArgs, opts ...pulumi.InvokeOption) (*LookupFirewallResult, error) {
 	var rv LookupFirewallResult

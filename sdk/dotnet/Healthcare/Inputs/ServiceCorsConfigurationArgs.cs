@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class ServiceCorsConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ServiceCorsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If credentials are allowed via CORS.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public ServiceCorsConfigurationArgs()
         {
         }
+        public static new ServiceCorsConfigurationArgs Empty => new ServiceCorsConfigurationArgs();
     }
 }

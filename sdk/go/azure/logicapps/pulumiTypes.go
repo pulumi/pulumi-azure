@@ -20,7 +20,7 @@ type ActionHttpRunAfter struct {
 // ActionHttpRunAfterInput is an input type that accepts ActionHttpRunAfterArgs and ActionHttpRunAfterOutput values.
 // You can construct a concrete instance of `ActionHttpRunAfterInput` via:
 //
-//          ActionHttpRunAfterArgs{...}
+//	ActionHttpRunAfterArgs{...}
 type ActionHttpRunAfterInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i ActionHttpRunAfterArgs) ToActionHttpRunAfterOutputWithContext(ctx contex
 // ActionHttpRunAfterArrayInput is an input type that accepts ActionHttpRunAfterArray and ActionHttpRunAfterArrayOutput values.
 // You can construct a concrete instance of `ActionHttpRunAfterArrayInput` via:
 //
-//          ActionHttpRunAfterArray{ ActionHttpRunAfterArgs{...} }
+//	ActionHttpRunAfterArray{ ActionHttpRunAfterArgs{...} }
 type ActionHttpRunAfterArrayInput interface {
 	pulumi.Input
 
@@ -126,7 +126,7 @@ type IntegrationAccountAgreementGuestIdentity struct {
 // IntegrationAccountAgreementGuestIdentityInput is an input type that accepts IntegrationAccountAgreementGuestIdentityArgs and IntegrationAccountAgreementGuestIdentityOutput values.
 // You can construct a concrete instance of `IntegrationAccountAgreementGuestIdentityInput` via:
 //
-//          IntegrationAccountAgreementGuestIdentityArgs{...}
+//	IntegrationAccountAgreementGuestIdentityArgs{...}
 type IntegrationAccountAgreementGuestIdentityInput interface {
 	pulumi.Input
 
@@ -164,11 +164,11 @@ func (i IntegrationAccountAgreementGuestIdentityArgs) ToIntegrationAccountAgreem
 // IntegrationAccountAgreementGuestIdentityPtrInput is an input type that accepts IntegrationAccountAgreementGuestIdentityArgs, IntegrationAccountAgreementGuestIdentityPtr and IntegrationAccountAgreementGuestIdentityPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountAgreementGuestIdentityPtrInput` via:
 //
-//          IntegrationAccountAgreementGuestIdentityArgs{...}
+//	        IntegrationAccountAgreementGuestIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountAgreementGuestIdentityPtrInput interface {
 	pulumi.Input
 
@@ -282,7 +282,7 @@ type IntegrationAccountAgreementHostIdentity struct {
 // IntegrationAccountAgreementHostIdentityInput is an input type that accepts IntegrationAccountAgreementHostIdentityArgs and IntegrationAccountAgreementHostIdentityOutput values.
 // You can construct a concrete instance of `IntegrationAccountAgreementHostIdentityInput` via:
 //
-//          IntegrationAccountAgreementHostIdentityArgs{...}
+//	IntegrationAccountAgreementHostIdentityArgs{...}
 type IntegrationAccountAgreementHostIdentityInput interface {
 	pulumi.Input
 
@@ -320,11 +320,11 @@ func (i IntegrationAccountAgreementHostIdentityArgs) ToIntegrationAccountAgreeme
 // IntegrationAccountAgreementHostIdentityPtrInput is an input type that accepts IntegrationAccountAgreementHostIdentityArgs, IntegrationAccountAgreementHostIdentityPtr and IntegrationAccountAgreementHostIdentityPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountAgreementHostIdentityPtrInput` via:
 //
-//          IntegrationAccountAgreementHostIdentityArgs{...}
+//	        IntegrationAccountAgreementHostIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountAgreementHostIdentityPtrInput interface {
 	pulumi.Input
 
@@ -440,7 +440,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteria struct {
 // IntegrationAccountBatchConfigurationReleaseCriteriaInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaArgs and IntegrationAccountBatchConfigurationReleaseCriteriaOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
+//	IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
 type IntegrationAccountBatchConfigurationReleaseCriteriaInput interface {
 	pulumi.Input
 
@@ -480,11 +480,11 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaArgs) ToIntegrationAc
 // IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaArgs, IntegrationAccountBatchConfigurationReleaseCriteriaPtr and IntegrationAccountBatchConfigurationReleaseCriteriaPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
+//	        IntegrationAccountBatchConfigurationReleaseCriteriaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountBatchConfigurationReleaseCriteriaPtrInput interface {
 	pulumi.Input
 
@@ -623,7 +623,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence struct {
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
+//	IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceInput interface {
 	pulumi.Input
 
@@ -669,11 +669,11 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs) ToInt
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs, IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtr and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
+//	        IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrencePtrInput interface {
 	pulumi.Input
 
@@ -855,7 +855,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedule struc
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
+//	IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -899,11 +899,11 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArg
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs, IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtr and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
+//	        IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceSchedulePtrInput interface {
 	pulumi.Input
 
@@ -1068,7 +1068,7 @@ type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthl
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...}
+//	IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...}
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyInput interface {
 	pulumi.Input
 
@@ -1098,7 +1098,7 @@ func (i IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMon
 // IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput is an input type that accepts IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray and IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput` via:
 //
-//          IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray{ IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...} }
+//	IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArray{ IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs{...} }
 type IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArrayInput interface {
 	pulumi.Input
 
@@ -1180,7 +1180,7 @@ type IntegrationAccountCertificateKeyVaultKey struct {
 // IntegrationAccountCertificateKeyVaultKeyInput is an input type that accepts IntegrationAccountCertificateKeyVaultKeyArgs and IntegrationAccountCertificateKeyVaultKeyOutput values.
 // You can construct a concrete instance of `IntegrationAccountCertificateKeyVaultKeyInput` via:
 //
-//          IntegrationAccountCertificateKeyVaultKeyArgs{...}
+//	IntegrationAccountCertificateKeyVaultKeyArgs{...}
 type IntegrationAccountCertificateKeyVaultKeyInput interface {
 	pulumi.Input
 
@@ -1220,11 +1220,11 @@ func (i IntegrationAccountCertificateKeyVaultKeyArgs) ToIntegrationAccountCertif
 // IntegrationAccountCertificateKeyVaultKeyPtrInput is an input type that accepts IntegrationAccountCertificateKeyVaultKeyArgs, IntegrationAccountCertificateKeyVaultKeyPtr and IntegrationAccountCertificateKeyVaultKeyPtrOutput values.
 // You can construct a concrete instance of `IntegrationAccountCertificateKeyVaultKeyPtrInput` via:
 //
-//          IntegrationAccountCertificateKeyVaultKeyArgs{...}
+//	        IntegrationAccountCertificateKeyVaultKeyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type IntegrationAccountCertificateKeyVaultKeyPtrInput interface {
 	pulumi.Input
 
@@ -1353,7 +1353,7 @@ type IntegrationAccountPartnerBusinessIdentity struct {
 // IntegrationAccountPartnerBusinessIdentityInput is an input type that accepts IntegrationAccountPartnerBusinessIdentityArgs and IntegrationAccountPartnerBusinessIdentityOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerBusinessIdentityInput` via:
 //
-//          IntegrationAccountPartnerBusinessIdentityArgs{...}
+//	IntegrationAccountPartnerBusinessIdentityArgs{...}
 type IntegrationAccountPartnerBusinessIdentityInput interface {
 	pulumi.Input
 
@@ -1383,7 +1383,7 @@ func (i IntegrationAccountPartnerBusinessIdentityArgs) ToIntegrationAccountPartn
 // IntegrationAccountPartnerBusinessIdentityArrayInput is an input type that accepts IntegrationAccountPartnerBusinessIdentityArray and IntegrationAccountPartnerBusinessIdentityArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerBusinessIdentityArrayInput` via:
 //
-//          IntegrationAccountPartnerBusinessIdentityArray{ IntegrationAccountPartnerBusinessIdentityArgs{...} }
+//	IntegrationAccountPartnerBusinessIdentityArray{ IntegrationAccountPartnerBusinessIdentityArgs{...} }
 type IntegrationAccountPartnerBusinessIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1461,7 +1461,7 @@ type StandardConnectionString struct {
 // StandardConnectionStringInput is an input type that accepts StandardConnectionStringArgs and StandardConnectionStringOutput values.
 // You can construct a concrete instance of `StandardConnectionStringInput` via:
 //
-//          StandardConnectionStringArgs{...}
+//	StandardConnectionStringArgs{...}
 type StandardConnectionStringInput interface {
 	pulumi.Input
 
@@ -1493,7 +1493,7 @@ func (i StandardConnectionStringArgs) ToStandardConnectionStringOutputWithContex
 // StandardConnectionStringArrayInput is an input type that accepts StandardConnectionStringArray and StandardConnectionStringArrayOutput values.
 // You can construct a concrete instance of `StandardConnectionStringArrayInput` via:
 //
-//          StandardConnectionStringArray{ StandardConnectionStringArgs{...} }
+//	StandardConnectionStringArray{ StandardConnectionStringArgs{...} }
 type StandardConnectionStringArrayInput interface {
 	pulumi.Input
 
@@ -1576,7 +1576,7 @@ type StandardIdentity struct {
 // StandardIdentityInput is an input type that accepts StandardIdentityArgs and StandardIdentityOutput values.
 // You can construct a concrete instance of `StandardIdentityInput` via:
 //
-//          StandardIdentityArgs{...}
+//	StandardIdentityArgs{...}
 type StandardIdentityInput interface {
 	pulumi.Input
 
@@ -1616,11 +1616,11 @@ func (i StandardIdentityArgs) ToStandardIdentityPtrOutputWithContext(ctx context
 // StandardIdentityPtrInput is an input type that accepts StandardIdentityArgs, StandardIdentityPtr and StandardIdentityPtrOutput values.
 // You can construct a concrete instance of `StandardIdentityPtrInput` via:
 //
-//          StandardIdentityArgs{...}
+//	        StandardIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StandardIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1777,7 +1777,7 @@ type StandardSiteConfig struct {
 // StandardSiteConfigInput is an input type that accepts StandardSiteConfigArgs and StandardSiteConfigOutput values.
 // You can construct a concrete instance of `StandardSiteConfigInput` via:
 //
-//          StandardSiteConfigArgs{...}
+//	StandardSiteConfigArgs{...}
 type StandardSiteConfigInput interface {
 	pulumi.Input
 
@@ -1843,11 +1843,11 @@ func (i StandardSiteConfigArgs) ToStandardSiteConfigPtrOutputWithContext(ctx con
 // StandardSiteConfigPtrInput is an input type that accepts StandardSiteConfigArgs, StandardSiteConfigPtr and StandardSiteConfigPtrOutput values.
 // You can construct a concrete instance of `StandardSiteConfigPtrInput` via:
 //
-//          StandardSiteConfigArgs{...}
+//	        StandardSiteConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StandardSiteConfigPtrInput interface {
 	pulumi.Input
 
@@ -2171,7 +2171,7 @@ type StandardSiteConfigCors struct {
 // StandardSiteConfigCorsInput is an input type that accepts StandardSiteConfigCorsArgs and StandardSiteConfigCorsOutput values.
 // You can construct a concrete instance of `StandardSiteConfigCorsInput` via:
 //
-//          StandardSiteConfigCorsArgs{...}
+//	StandardSiteConfigCorsArgs{...}
 type StandardSiteConfigCorsInput interface {
 	pulumi.Input
 
@@ -2209,11 +2209,11 @@ func (i StandardSiteConfigCorsArgs) ToStandardSiteConfigCorsPtrOutputWithContext
 // StandardSiteConfigCorsPtrInput is an input type that accepts StandardSiteConfigCorsArgs, StandardSiteConfigCorsPtr and StandardSiteConfigCorsPtrOutput values.
 // You can construct a concrete instance of `StandardSiteConfigCorsPtrInput` via:
 //
-//          StandardSiteConfigCorsArgs{...}
+//	        StandardSiteConfigCorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StandardSiteConfigCorsPtrInput interface {
 	pulumi.Input
 
@@ -2337,7 +2337,7 @@ type StandardSiteConfigIpRestriction struct {
 // StandardSiteConfigIpRestrictionInput is an input type that accepts StandardSiteConfigIpRestrictionArgs and StandardSiteConfigIpRestrictionOutput values.
 // You can construct a concrete instance of `StandardSiteConfigIpRestrictionInput` via:
 //
-//          StandardSiteConfigIpRestrictionArgs{...}
+//	StandardSiteConfigIpRestrictionArgs{...}
 type StandardSiteConfigIpRestrictionInput interface {
 	pulumi.Input
 
@@ -2377,7 +2377,7 @@ func (i StandardSiteConfigIpRestrictionArgs) ToStandardSiteConfigIpRestrictionOu
 // StandardSiteConfigIpRestrictionArrayInput is an input type that accepts StandardSiteConfigIpRestrictionArray and StandardSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `StandardSiteConfigIpRestrictionArrayInput` via:
 //
-//          StandardSiteConfigIpRestrictionArray{ StandardSiteConfigIpRestrictionArgs{...} }
+//	StandardSiteConfigIpRestrictionArray{ StandardSiteConfigIpRestrictionArgs{...} }
 type StandardSiteConfigIpRestrictionArrayInput interface {
 	pulumi.Input
 
@@ -2482,7 +2482,7 @@ type StandardSiteConfigIpRestrictionHeaders struct {
 // StandardSiteConfigIpRestrictionHeadersInput is an input type that accepts StandardSiteConfigIpRestrictionHeadersArgs and StandardSiteConfigIpRestrictionHeadersOutput values.
 // You can construct a concrete instance of `StandardSiteConfigIpRestrictionHeadersInput` via:
 //
-//          StandardSiteConfigIpRestrictionHeadersArgs{...}
+//	StandardSiteConfigIpRestrictionHeadersArgs{...}
 type StandardSiteConfigIpRestrictionHeadersInput interface {
 	pulumi.Input
 
@@ -2524,11 +2524,11 @@ func (i StandardSiteConfigIpRestrictionHeadersArgs) ToStandardSiteConfigIpRestri
 // StandardSiteConfigIpRestrictionHeadersPtrInput is an input type that accepts StandardSiteConfigIpRestrictionHeadersArgs, StandardSiteConfigIpRestrictionHeadersPtr and StandardSiteConfigIpRestrictionHeadersPtrOutput values.
 // You can construct a concrete instance of `StandardSiteConfigIpRestrictionHeadersPtrInput` via:
 //
-//          StandardSiteConfigIpRestrictionHeadersArgs{...}
+//	        StandardSiteConfigIpRestrictionHeadersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type StandardSiteConfigIpRestrictionHeadersPtrInput interface {
 	pulumi.Input
 
@@ -2672,7 +2672,7 @@ type StandardSiteCredential struct {
 // StandardSiteCredentialInput is an input type that accepts StandardSiteCredentialArgs and StandardSiteCredentialOutput values.
 // You can construct a concrete instance of `StandardSiteCredentialInput` via:
 //
-//          StandardSiteCredentialArgs{...}
+//	StandardSiteCredentialArgs{...}
 type StandardSiteCredentialInput interface {
 	pulumi.Input
 
@@ -2702,7 +2702,7 @@ func (i StandardSiteCredentialArgs) ToStandardSiteCredentialOutputWithContext(ct
 // StandardSiteCredentialArrayInput is an input type that accepts StandardSiteCredentialArray and StandardSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `StandardSiteCredentialArrayInput` via:
 //
-//          StandardSiteCredentialArray{ StandardSiteCredentialArgs{...} }
+//	StandardSiteCredentialArray{ StandardSiteCredentialArgs{...} }
 type StandardSiteCredentialArrayInput interface {
 	pulumi.Input
 
@@ -2780,7 +2780,7 @@ type TriggerRecurrenceSchedule struct {
 // TriggerRecurrenceScheduleInput is an input type that accepts TriggerRecurrenceScheduleArgs and TriggerRecurrenceScheduleOutput values.
 // You can construct a concrete instance of `TriggerRecurrenceScheduleInput` via:
 //
-//          TriggerRecurrenceScheduleArgs{...}
+//	TriggerRecurrenceScheduleArgs{...}
 type TriggerRecurrenceScheduleInput interface {
 	pulumi.Input
 
@@ -2820,11 +2820,11 @@ func (i TriggerRecurrenceScheduleArgs) ToTriggerRecurrenceSchedulePtrOutputWithC
 // TriggerRecurrenceSchedulePtrInput is an input type that accepts TriggerRecurrenceScheduleArgs, TriggerRecurrenceSchedulePtr and TriggerRecurrenceSchedulePtrOutput values.
 // You can construct a concrete instance of `TriggerRecurrenceSchedulePtrInput` via:
 //
-//          TriggerRecurrenceScheduleArgs{...}
+//	        TriggerRecurrenceScheduleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TriggerRecurrenceSchedulePtrInput interface {
 	pulumi.Input
 
@@ -2957,7 +2957,7 @@ type WorkflowAccessControl struct {
 // WorkflowAccessControlInput is an input type that accepts WorkflowAccessControlArgs and WorkflowAccessControlOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlInput` via:
 //
-//          WorkflowAccessControlArgs{...}
+//	WorkflowAccessControlArgs{...}
 type WorkflowAccessControlInput interface {
 	pulumi.Input
 
@@ -2999,11 +2999,11 @@ func (i WorkflowAccessControlArgs) ToWorkflowAccessControlPtrOutputWithContext(c
 // WorkflowAccessControlPtrInput is an input type that accepts WorkflowAccessControlArgs, WorkflowAccessControlPtr and WorkflowAccessControlPtrOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlPtrInput` via:
 //
-//          WorkflowAccessControlArgs{...}
+//	        WorkflowAccessControlArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowAccessControlPtrInput interface {
 	pulumi.Input
 
@@ -3145,7 +3145,7 @@ type WorkflowAccessControlAction struct {
 // WorkflowAccessControlActionInput is an input type that accepts WorkflowAccessControlActionArgs and WorkflowAccessControlActionOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlActionInput` via:
 //
-//          WorkflowAccessControlActionArgs{...}
+//	WorkflowAccessControlActionArgs{...}
 type WorkflowAccessControlActionInput interface {
 	pulumi.Input
 
@@ -3181,11 +3181,11 @@ func (i WorkflowAccessControlActionArgs) ToWorkflowAccessControlActionPtrOutputW
 // WorkflowAccessControlActionPtrInput is an input type that accepts WorkflowAccessControlActionArgs, WorkflowAccessControlActionPtr and WorkflowAccessControlActionPtrOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlActionPtrInput` via:
 //
-//          WorkflowAccessControlActionArgs{...}
+//	        WorkflowAccessControlActionArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowAccessControlActionPtrInput interface {
 	pulumi.Input
 
@@ -3282,7 +3282,7 @@ type WorkflowAccessControlContent struct {
 // WorkflowAccessControlContentInput is an input type that accepts WorkflowAccessControlContentArgs and WorkflowAccessControlContentOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlContentInput` via:
 //
-//          WorkflowAccessControlContentArgs{...}
+//	WorkflowAccessControlContentArgs{...}
 type WorkflowAccessControlContentInput interface {
 	pulumi.Input
 
@@ -3318,11 +3318,11 @@ func (i WorkflowAccessControlContentArgs) ToWorkflowAccessControlContentPtrOutpu
 // WorkflowAccessControlContentPtrInput is an input type that accepts WorkflowAccessControlContentArgs, WorkflowAccessControlContentPtr and WorkflowAccessControlContentPtrOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlContentPtrInput` via:
 //
-//          WorkflowAccessControlContentArgs{...}
+//	        WorkflowAccessControlContentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowAccessControlContentPtrInput interface {
 	pulumi.Input
 
@@ -3421,7 +3421,7 @@ type WorkflowAccessControlTrigger struct {
 // WorkflowAccessControlTriggerInput is an input type that accepts WorkflowAccessControlTriggerArgs and WorkflowAccessControlTriggerOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerInput` via:
 //
-//          WorkflowAccessControlTriggerArgs{...}
+//	WorkflowAccessControlTriggerArgs{...}
 type WorkflowAccessControlTriggerInput interface {
 	pulumi.Input
 
@@ -3459,11 +3459,11 @@ func (i WorkflowAccessControlTriggerArgs) ToWorkflowAccessControlTriggerPtrOutpu
 // WorkflowAccessControlTriggerPtrInput is an input type that accepts WorkflowAccessControlTriggerArgs, WorkflowAccessControlTriggerPtr and WorkflowAccessControlTriggerPtrOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerPtrInput` via:
 //
-//          WorkflowAccessControlTriggerArgs{...}
+//	        WorkflowAccessControlTriggerArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowAccessControlTriggerPtrInput interface {
 	pulumi.Input
 
@@ -3579,7 +3579,7 @@ type WorkflowAccessControlTriggerOpenAuthenticationPolicy struct {
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs and WorkflowAccessControlTriggerOpenAuthenticationPolicyOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyInput` via:
 //
-//          WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...}
+//	WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...}
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyInput interface {
 	pulumi.Input
 
@@ -3609,7 +3609,7 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs) ToWorkflowAcce
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput` via:
 //
-//          WorkflowAccessControlTriggerOpenAuthenticationPolicyArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...} }
+//	WorkflowAccessControlTriggerOpenAuthenticationPolicyArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs{...} }
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -3687,7 +3687,7 @@ type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim struct {
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs and WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput` via:
 //
-//          WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...}
+//	WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...}
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimInput interface {
 	pulumi.Input
 
@@ -3717,7 +3717,7 @@ func (i WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs) ToWorkflo
 // WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput is an input type that accepts WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray and WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput` via:
 //
-//          WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...} }
+//	WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArray{ WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArgs{...} }
 type WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimArrayInput interface {
 	pulumi.Input
 
@@ -3791,7 +3791,7 @@ type WorkflowAccessControlWorkflowManagement struct {
 // WorkflowAccessControlWorkflowManagementInput is an input type that accepts WorkflowAccessControlWorkflowManagementArgs and WorkflowAccessControlWorkflowManagementOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlWorkflowManagementInput` via:
 //
-//          WorkflowAccessControlWorkflowManagementArgs{...}
+//	WorkflowAccessControlWorkflowManagementArgs{...}
 type WorkflowAccessControlWorkflowManagementInput interface {
 	pulumi.Input
 
@@ -3827,11 +3827,11 @@ func (i WorkflowAccessControlWorkflowManagementArgs) ToWorkflowAccessControlWork
 // WorkflowAccessControlWorkflowManagementPtrInput is an input type that accepts WorkflowAccessControlWorkflowManagementArgs, WorkflowAccessControlWorkflowManagementPtr and WorkflowAccessControlWorkflowManagementPtrOutput values.
 // You can construct a concrete instance of `WorkflowAccessControlWorkflowManagementPtrInput` via:
 //
-//          WorkflowAccessControlWorkflowManagementArgs{...}
+//	        WorkflowAccessControlWorkflowManagementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowAccessControlWorkflowManagementPtrInput interface {
 	pulumi.Input
 
@@ -3934,7 +3934,7 @@ type WorkflowIdentity struct {
 // WorkflowIdentityInput is an input type that accepts WorkflowIdentityArgs and WorkflowIdentityOutput values.
 // You can construct a concrete instance of `WorkflowIdentityInput` via:
 //
-//          WorkflowIdentityArgs{...}
+//	WorkflowIdentityArgs{...}
 type WorkflowIdentityInput interface {
 	pulumi.Input
 
@@ -3976,11 +3976,11 @@ func (i WorkflowIdentityArgs) ToWorkflowIdentityPtrOutputWithContext(ctx context
 // WorkflowIdentityPtrInput is an input type that accepts WorkflowIdentityArgs, WorkflowIdentityPtr and WorkflowIdentityPtrOutput values.
 // You can construct a concrete instance of `WorkflowIdentityPtrInput` via:
 //
-//          WorkflowIdentityArgs{...}
+//	        WorkflowIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkflowIdentityPtrInput interface {
 	pulumi.Input
 
@@ -4125,7 +4125,7 @@ type GetStandardConnectionString struct {
 // GetStandardConnectionStringInput is an input type that accepts GetStandardConnectionStringArgs and GetStandardConnectionStringOutput values.
 // You can construct a concrete instance of `GetStandardConnectionStringInput` via:
 //
-//          GetStandardConnectionStringArgs{...}
+//	GetStandardConnectionStringArgs{...}
 type GetStandardConnectionStringInput interface {
 	pulumi.Input
 
@@ -4156,7 +4156,7 @@ func (i GetStandardConnectionStringArgs) ToGetStandardConnectionStringOutputWith
 // GetStandardConnectionStringArrayInput is an input type that accepts GetStandardConnectionStringArray and GetStandardConnectionStringArrayOutput values.
 // You can construct a concrete instance of `GetStandardConnectionStringArrayInput` via:
 //
-//          GetStandardConnectionStringArray{ GetStandardConnectionStringArgs{...} }
+//	GetStandardConnectionStringArray{ GetStandardConnectionStringArgs{...} }
 type GetStandardConnectionStringArrayInput interface {
 	pulumi.Input
 
@@ -4238,7 +4238,7 @@ type GetStandardIdentity struct {
 // GetStandardIdentityInput is an input type that accepts GetStandardIdentityArgs and GetStandardIdentityOutput values.
 // You can construct a concrete instance of `GetStandardIdentityInput` via:
 //
-//          GetStandardIdentityArgs{...}
+//	GetStandardIdentityArgs{...}
 type GetStandardIdentityInput interface {
 	pulumi.Input
 
@@ -4270,7 +4270,7 @@ func (i GetStandardIdentityArgs) ToGetStandardIdentityOutputWithContext(ctx cont
 // GetStandardIdentityArrayInput is an input type that accepts GetStandardIdentityArray and GetStandardIdentityArrayOutput values.
 // You can construct a concrete instance of `GetStandardIdentityArrayInput` via:
 //
-//          GetStandardIdentityArray{ GetStandardIdentityArgs{...} }
+//	GetStandardIdentityArray{ GetStandardIdentityArgs{...} }
 type GetStandardIdentityArrayInput interface {
 	pulumi.Input
 
@@ -4363,7 +4363,7 @@ type GetStandardSiteConfig struct {
 // GetStandardSiteConfigInput is an input type that accepts GetStandardSiteConfigArgs and GetStandardSiteConfigOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigInput` via:
 //
-//          GetStandardSiteConfigArgs{...}
+//	GetStandardSiteConfigArgs{...}
 type GetStandardSiteConfigInput interface {
 	pulumi.Input
 
@@ -4413,11 +4413,11 @@ func (i GetStandardSiteConfigArgs) ToGetStandardSiteConfigPtrOutputWithContext(c
 // GetStandardSiteConfigPtrInput is an input type that accepts GetStandardSiteConfigArgs, GetStandardSiteConfigPtr and GetStandardSiteConfigPtrOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigPtrInput` via:
 //
-//          GetStandardSiteConfigArgs{...}
+//	        GetStandardSiteConfigArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetStandardSiteConfigPtrInput interface {
 	pulumi.Input
 
@@ -4707,7 +4707,7 @@ type GetStandardSiteConfigCors struct {
 // GetStandardSiteConfigCorsInput is an input type that accepts GetStandardSiteConfigCorsArgs and GetStandardSiteConfigCorsOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigCorsInput` via:
 //
-//          GetStandardSiteConfigCorsArgs{...}
+//	GetStandardSiteConfigCorsArgs{...}
 type GetStandardSiteConfigCorsInput interface {
 	pulumi.Input
 
@@ -4743,11 +4743,11 @@ func (i GetStandardSiteConfigCorsArgs) ToGetStandardSiteConfigCorsPtrOutputWithC
 // GetStandardSiteConfigCorsPtrInput is an input type that accepts GetStandardSiteConfigCorsArgs, GetStandardSiteConfigCorsPtr and GetStandardSiteConfigCorsPtrOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigCorsPtrInput` via:
 //
-//          GetStandardSiteConfigCorsArgs{...}
+//	        GetStandardSiteConfigCorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GetStandardSiteConfigCorsPtrInput interface {
 	pulumi.Input
 
@@ -4861,7 +4861,7 @@ type GetStandardSiteConfigIpRestriction struct {
 // GetStandardSiteConfigIpRestrictionInput is an input type that accepts GetStandardSiteConfigIpRestrictionArgs and GetStandardSiteConfigIpRestrictionOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionInput` via:
 //
-//          GetStandardSiteConfigIpRestrictionArgs{...}
+//	GetStandardSiteConfigIpRestrictionArgs{...}
 type GetStandardSiteConfigIpRestrictionInput interface {
 	pulumi.Input
 
@@ -4895,7 +4895,7 @@ func (i GetStandardSiteConfigIpRestrictionArgs) ToGetStandardSiteConfigIpRestric
 // GetStandardSiteConfigIpRestrictionArrayInput is an input type that accepts GetStandardSiteConfigIpRestrictionArray and GetStandardSiteConfigIpRestrictionArrayOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionArrayInput` via:
 //
-//          GetStandardSiteConfigIpRestrictionArray{ GetStandardSiteConfigIpRestrictionArgs{...} }
+//	GetStandardSiteConfigIpRestrictionArray{ GetStandardSiteConfigIpRestrictionArgs{...} }
 type GetStandardSiteConfigIpRestrictionArrayInput interface {
 	pulumi.Input
 
@@ -4990,7 +4990,7 @@ type GetStandardSiteConfigIpRestrictionHeaders struct {
 // GetStandardSiteConfigIpRestrictionHeadersInput is an input type that accepts GetStandardSiteConfigIpRestrictionHeadersArgs and GetStandardSiteConfigIpRestrictionHeadersOutput values.
 // You can construct a concrete instance of `GetStandardSiteConfigIpRestrictionHeadersInput` via:
 //
-//          GetStandardSiteConfigIpRestrictionHeadersArgs{...}
+//	GetStandardSiteConfigIpRestrictionHeadersArgs{...}
 type GetStandardSiteConfigIpRestrictionHeadersInput interface {
 	pulumi.Input
 
@@ -5055,7 +5055,7 @@ type GetStandardSiteCredential struct {
 // GetStandardSiteCredentialInput is an input type that accepts GetStandardSiteCredentialArgs and GetStandardSiteCredentialOutput values.
 // You can construct a concrete instance of `GetStandardSiteCredentialInput` via:
 //
-//          GetStandardSiteCredentialArgs{...}
+//	GetStandardSiteCredentialArgs{...}
 type GetStandardSiteCredentialInput interface {
 	pulumi.Input
 
@@ -5083,7 +5083,7 @@ func (i GetStandardSiteCredentialArgs) ToGetStandardSiteCredentialOutputWithCont
 // GetStandardSiteCredentialArrayInput is an input type that accepts GetStandardSiteCredentialArray and GetStandardSiteCredentialArrayOutput values.
 // You can construct a concrete instance of `GetStandardSiteCredentialArrayInput` via:
 //
-//          GetStandardSiteCredentialArray{ GetStandardSiteCredentialArgs{...} }
+//	GetStandardSiteCredentialArray{ GetStandardSiteCredentialArgs{...} }
 type GetStandardSiteCredentialArrayInput interface {
 	pulumi.Input
 
@@ -5161,7 +5161,7 @@ type GetWorkflowIdentity struct {
 // GetWorkflowIdentityInput is an input type that accepts GetWorkflowIdentityArgs and GetWorkflowIdentityOutput values.
 // You can construct a concrete instance of `GetWorkflowIdentityInput` via:
 //
-//          GetWorkflowIdentityArgs{...}
+//	GetWorkflowIdentityArgs{...}
 type GetWorkflowIdentityInput interface {
 	pulumi.Input
 
@@ -5195,7 +5195,7 @@ func (i GetWorkflowIdentityArgs) ToGetWorkflowIdentityOutputWithContext(ctx cont
 // GetWorkflowIdentityArrayInput is an input type that accepts GetWorkflowIdentityArray and GetWorkflowIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkflowIdentityArrayInput` via:
 //
-//          GetWorkflowIdentityArray{ GetWorkflowIdentityArgs{...} }
+//	GetWorkflowIdentityArray{ GetWorkflowIdentityArgs{...} }
 type GetWorkflowIdentityArrayInput interface {
 	pulumi.Input
 

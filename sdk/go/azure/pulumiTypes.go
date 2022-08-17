@@ -26,7 +26,7 @@ type ProviderFeatures struct {
 // ProviderFeaturesInput is an input type that accepts ProviderFeaturesArgs and ProviderFeaturesOutput values.
 // You can construct a concrete instance of `ProviderFeaturesInput` via:
 //
-//          ProviderFeaturesArgs{...}
+//	ProviderFeaturesArgs{...}
 type ProviderFeaturesInput interface {
 	pulumi.Input
 
@@ -70,11 +70,11 @@ func (i ProviderFeaturesArgs) ToProviderFeaturesPtrOutputWithContext(ctx context
 // ProviderFeaturesPtrInput is an input type that accepts ProviderFeaturesArgs, ProviderFeaturesPtr and ProviderFeaturesPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesPtrInput` via:
 //
-//          ProviderFeaturesArgs{...}
+//	        ProviderFeaturesArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesPtrInput interface {
 	pulumi.Input
 
@@ -286,7 +286,7 @@ type ProviderFeaturesApiManagement struct {
 // ProviderFeaturesApiManagementInput is an input type that accepts ProviderFeaturesApiManagementArgs and ProviderFeaturesApiManagementOutput values.
 // You can construct a concrete instance of `ProviderFeaturesApiManagementInput` via:
 //
-//          ProviderFeaturesApiManagementArgs{...}
+//	ProviderFeaturesApiManagementArgs{...}
 type ProviderFeaturesApiManagementInput interface {
 	pulumi.Input
 
@@ -322,11 +322,11 @@ func (i ProviderFeaturesApiManagementArgs) ToProviderFeaturesApiManagementPtrOut
 // ProviderFeaturesApiManagementPtrInput is an input type that accepts ProviderFeaturesApiManagementArgs, ProviderFeaturesApiManagementPtr and ProviderFeaturesApiManagementPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesApiManagementPtrInput` via:
 //
-//          ProviderFeaturesApiManagementArgs{...}
+//	        ProviderFeaturesApiManagementArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesApiManagementPtrInput interface {
 	pulumi.Input
 
@@ -433,7 +433,7 @@ type ProviderFeaturesApplicationInsights struct {
 // ProviderFeaturesApplicationInsightsInput is an input type that accepts ProviderFeaturesApplicationInsightsArgs and ProviderFeaturesApplicationInsightsOutput values.
 // You can construct a concrete instance of `ProviderFeaturesApplicationInsightsInput` via:
 //
-//          ProviderFeaturesApplicationInsightsArgs{...}
+//	ProviderFeaturesApplicationInsightsArgs{...}
 type ProviderFeaturesApplicationInsightsInput interface {
 	pulumi.Input
 
@@ -468,11 +468,11 @@ func (i ProviderFeaturesApplicationInsightsArgs) ToProviderFeaturesApplicationIn
 // ProviderFeaturesApplicationInsightsPtrInput is an input type that accepts ProviderFeaturesApplicationInsightsArgs, ProviderFeaturesApplicationInsightsPtr and ProviderFeaturesApplicationInsightsPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesApplicationInsightsPtrInput` via:
 //
-//          ProviderFeaturesApplicationInsightsArgs{...}
+//	        ProviderFeaturesApplicationInsightsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesApplicationInsightsPtrInput interface {
 	pulumi.Input
 
@@ -566,7 +566,7 @@ type ProviderFeaturesCognitiveAccount struct {
 // ProviderFeaturesCognitiveAccountInput is an input type that accepts ProviderFeaturesCognitiveAccountArgs and ProviderFeaturesCognitiveAccountOutput values.
 // You can construct a concrete instance of `ProviderFeaturesCognitiveAccountInput` via:
 //
-//          ProviderFeaturesCognitiveAccountArgs{...}
+//	ProviderFeaturesCognitiveAccountArgs{...}
 type ProviderFeaturesCognitiveAccountInput interface {
 	pulumi.Input
 
@@ -601,11 +601,11 @@ func (i ProviderFeaturesCognitiveAccountArgs) ToProviderFeaturesCognitiveAccount
 // ProviderFeaturesCognitiveAccountPtrInput is an input type that accepts ProviderFeaturesCognitiveAccountArgs, ProviderFeaturesCognitiveAccountPtr and ProviderFeaturesCognitiveAccountPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesCognitiveAccountPtrInput` via:
 //
-//          ProviderFeaturesCognitiveAccountArgs{...}
+//	        ProviderFeaturesCognitiveAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesCognitiveAccountPtrInput interface {
 	pulumi.Input
 
@@ -707,7 +707,7 @@ type ProviderFeaturesKeyVault struct {
 // ProviderFeaturesKeyVaultInput is an input type that accepts ProviderFeaturesKeyVaultArgs and ProviderFeaturesKeyVaultOutput values.
 // You can construct a concrete instance of `ProviderFeaturesKeyVaultInput` via:
 //
-//          ProviderFeaturesKeyVaultArgs{...}
+//	ProviderFeaturesKeyVaultArgs{...}
 type ProviderFeaturesKeyVaultInput interface {
 	pulumi.Input
 
@@ -750,11 +750,11 @@ func (i ProviderFeaturesKeyVaultArgs) ToProviderFeaturesKeyVaultPtrOutputWithCon
 // ProviderFeaturesKeyVaultPtrInput is an input type that accepts ProviderFeaturesKeyVaultArgs, ProviderFeaturesKeyVaultPtr and ProviderFeaturesKeyVaultPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesKeyVaultPtrInput` via:
 //
-//          ProviderFeaturesKeyVaultArgs{...}
+//	        ProviderFeaturesKeyVaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -952,7 +952,7 @@ type ProviderFeaturesLogAnalyticsWorkspace struct {
 // ProviderFeaturesLogAnalyticsWorkspaceInput is an input type that accepts ProviderFeaturesLogAnalyticsWorkspaceArgs and ProviderFeaturesLogAnalyticsWorkspaceOutput values.
 // You can construct a concrete instance of `ProviderFeaturesLogAnalyticsWorkspaceInput` via:
 //
-//          ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
+//	ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
 type ProviderFeaturesLogAnalyticsWorkspaceInput interface {
 	pulumi.Input
 
@@ -987,11 +987,11 @@ func (i ProviderFeaturesLogAnalyticsWorkspaceArgs) ToProviderFeaturesLogAnalytic
 // ProviderFeaturesLogAnalyticsWorkspacePtrInput is an input type that accepts ProviderFeaturesLogAnalyticsWorkspaceArgs, ProviderFeaturesLogAnalyticsWorkspacePtr and ProviderFeaturesLogAnalyticsWorkspacePtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesLogAnalyticsWorkspacePtrInput` via:
 //
-//          ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
+//	        ProviderFeaturesLogAnalyticsWorkspaceArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesLogAnalyticsWorkspacePtrInput interface {
 	pulumi.Input
 
@@ -1085,7 +1085,7 @@ type ProviderFeaturesNetwork struct {
 // ProviderFeaturesNetworkInput is an input type that accepts ProviderFeaturesNetworkArgs and ProviderFeaturesNetworkOutput values.
 // You can construct a concrete instance of `ProviderFeaturesNetworkInput` via:
 //
-//          ProviderFeaturesNetworkArgs{...}
+//	ProviderFeaturesNetworkArgs{...}
 type ProviderFeaturesNetworkInput interface {
 	pulumi.Input
 
@@ -1120,11 +1120,11 @@ func (i ProviderFeaturesNetworkArgs) ToProviderFeaturesNetworkPtrOutputWithConte
 // ProviderFeaturesNetworkPtrInput is an input type that accepts ProviderFeaturesNetworkArgs, ProviderFeaturesNetworkPtr and ProviderFeaturesNetworkPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesNetworkPtrInput` via:
 //
-//          ProviderFeaturesNetworkArgs{...}
+//	        ProviderFeaturesNetworkArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesNetworkPtrInput interface {
 	pulumi.Input
 
@@ -1218,7 +1218,7 @@ type ProviderFeaturesResourceGroup struct {
 // ProviderFeaturesResourceGroupInput is an input type that accepts ProviderFeaturesResourceGroupArgs and ProviderFeaturesResourceGroupOutput values.
 // You can construct a concrete instance of `ProviderFeaturesResourceGroupInput` via:
 //
-//          ProviderFeaturesResourceGroupArgs{...}
+//	ProviderFeaturesResourceGroupArgs{...}
 type ProviderFeaturesResourceGroupInput interface {
 	pulumi.Input
 
@@ -1253,11 +1253,11 @@ func (i ProviderFeaturesResourceGroupArgs) ToProviderFeaturesResourceGroupPtrOut
 // ProviderFeaturesResourceGroupPtrInput is an input type that accepts ProviderFeaturesResourceGroupArgs, ProviderFeaturesResourceGroupPtr and ProviderFeaturesResourceGroupPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesResourceGroupPtrInput` via:
 //
-//          ProviderFeaturesResourceGroupArgs{...}
+//	        ProviderFeaturesResourceGroupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesResourceGroupPtrInput interface {
 	pulumi.Input
 
@@ -1351,7 +1351,7 @@ type ProviderFeaturesTemplateDeployment struct {
 // ProviderFeaturesTemplateDeploymentInput is an input type that accepts ProviderFeaturesTemplateDeploymentArgs and ProviderFeaturesTemplateDeploymentOutput values.
 // You can construct a concrete instance of `ProviderFeaturesTemplateDeploymentInput` via:
 //
-//          ProviderFeaturesTemplateDeploymentArgs{...}
+//	ProviderFeaturesTemplateDeploymentArgs{...}
 type ProviderFeaturesTemplateDeploymentInput interface {
 	pulumi.Input
 
@@ -1386,11 +1386,11 @@ func (i ProviderFeaturesTemplateDeploymentArgs) ToProviderFeaturesTemplateDeploy
 // ProviderFeaturesTemplateDeploymentPtrInput is an input type that accepts ProviderFeaturesTemplateDeploymentArgs, ProviderFeaturesTemplateDeploymentPtr and ProviderFeaturesTemplateDeploymentPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesTemplateDeploymentPtrInput` via:
 //
-//          ProviderFeaturesTemplateDeploymentArgs{...}
+//	        ProviderFeaturesTemplateDeploymentArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesTemplateDeploymentPtrInput interface {
 	pulumi.Input
 
@@ -1486,7 +1486,7 @@ type ProviderFeaturesVirtualMachine struct {
 // ProviderFeaturesVirtualMachineInput is an input type that accepts ProviderFeaturesVirtualMachineArgs and ProviderFeaturesVirtualMachineOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineInput` via:
 //
-//          ProviderFeaturesVirtualMachineArgs{...}
+//	ProviderFeaturesVirtualMachineArgs{...}
 type ProviderFeaturesVirtualMachineInput interface {
 	pulumi.Input
 
@@ -1523,11 +1523,11 @@ func (i ProviderFeaturesVirtualMachineArgs) ToProviderFeaturesVirtualMachinePtrO
 // ProviderFeaturesVirtualMachinePtrInput is an input type that accepts ProviderFeaturesVirtualMachineArgs, ProviderFeaturesVirtualMachinePtr and ProviderFeaturesVirtualMachinePtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachinePtrInput` via:
 //
-//          ProviderFeaturesVirtualMachineArgs{...}
+//	        ProviderFeaturesVirtualMachineArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesVirtualMachinePtrInput interface {
 	pulumi.Input
 
@@ -1649,7 +1649,7 @@ type ProviderFeaturesVirtualMachineScaleSet struct {
 // ProviderFeaturesVirtualMachineScaleSetInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs and ProviderFeaturesVirtualMachineScaleSetOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineScaleSetInput` via:
 //
-//          ProviderFeaturesVirtualMachineScaleSetArgs{...}
+//	ProviderFeaturesVirtualMachineScaleSetArgs{...}
 type ProviderFeaturesVirtualMachineScaleSetInput interface {
 	pulumi.Input
 
@@ -1686,11 +1686,11 @@ func (i ProviderFeaturesVirtualMachineScaleSetArgs) ToProviderFeaturesVirtualMac
 // ProviderFeaturesVirtualMachineScaleSetPtrInput is an input type that accepts ProviderFeaturesVirtualMachineScaleSetArgs, ProviderFeaturesVirtualMachineScaleSetPtr and ProviderFeaturesVirtualMachineScaleSetPtrOutput values.
 // You can construct a concrete instance of `ProviderFeaturesVirtualMachineScaleSetPtrInput` via:
 //
-//          ProviderFeaturesVirtualMachineScaleSetArgs{...}
+//	        ProviderFeaturesVirtualMachineScaleSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ProviderFeaturesVirtualMachineScaleSetPtrInput interface {
 	pulumi.Input
 

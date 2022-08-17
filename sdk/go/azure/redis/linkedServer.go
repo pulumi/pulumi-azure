@@ -19,70 +19,73 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.NewResourceGroup(ctx, "example-primaryResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewCache(ctx, "example-primaryCache", &redis.CacheArgs{
-// 			Location:          example_primaryResourceGroup.Location,
-// 			ResourceGroupName: example_primaryResourceGroup.Name,
-// 			Capacity:          pulumi.Int(1),
-// 			Family:            pulumi.String("P"),
-// 			SkuName:           pulumi.String("Premium"),
-// 			EnableNonSslPort:  pulumi.Bool(false),
-// 			RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-// 				MaxmemoryReserved: pulumi.Int(2),
-// 				MaxmemoryDelta:    pulumi.Int(2),
-// 				MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.NewResourceGroup(ctx, "example-secondaryResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewCache(ctx, "example-secondaryCache", &redis.CacheArgs{
-// 			Location:          example_secondaryResourceGroup.Location,
-// 			ResourceGroupName: example_secondaryResourceGroup.Name,
-// 			Capacity:          pulumi.Int(1),
-// 			Family:            pulumi.String("P"),
-// 			SkuName:           pulumi.String("Premium"),
-// 			EnableNonSslPort:  pulumi.Bool(false),
-// 			RedisConfiguration: &redis.CacheRedisConfigurationArgs{
-// 				MaxmemoryReserved: pulumi.Int(2),
-// 				MaxmemoryDelta:    pulumi.Int(2),
-// 				MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
-// 			TargetRedisCacheName:     example_primaryCache.Name,
-// 			ResourceGroupName:        example_primaryCache.ResourceGroupName,
-// 			LinkedRedisCacheId:       example_secondaryCache.ID(),
-// 			LinkedRedisCacheLocation: example_secondaryCache.Location,
-// 			ServerRole:               pulumi.String("Secondary"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "example-primaryResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "example-primaryCache", &redis.CacheArgs{
+//				Location:          example_primaryResourceGroup.Location,
+//				ResourceGroupName: example_primaryResourceGroup.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  pulumi.Bool(false),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.NewResourceGroup(ctx, "example-secondaryResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewCache(ctx, "example-secondaryCache", &redis.CacheArgs{
+//				Location:          example_secondaryResourceGroup.Location,
+//				ResourceGroupName: example_secondaryResourceGroup.Name,
+//				Capacity:          pulumi.Int(1),
+//				Family:            pulumi.String("P"),
+//				SkuName:           pulumi.String("Premium"),
+//				EnableNonSslPort:  pulumi.Bool(false),
+//				RedisConfiguration: &redis.CacheRedisConfigurationArgs{
+//					MaxmemoryReserved: pulumi.Int(2),
+//					MaxmemoryDelta:    pulumi.Int(2),
+//					MaxmemoryPolicy:   pulumi.String("allkeys-lru"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = redis.NewLinkedServer(ctx, "example-link", &redis.LinkedServerArgs{
+//				TargetRedisCacheName:     example_primaryCache.Name,
+//				ResourceGroupName:        example_primaryCache.ResourceGroupName,
+//				LinkedRedisCacheId:       example_secondaryCache.ID(),
+//				LinkedRedisCacheLocation: example_secondaryCache.Location,
+//				ServerRole:               pulumi.String("Secondary"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -90,7 +93,9 @@ import (
 // Redis can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2
+//
+//	$ pulumi import azure:redis/linkedServer:LinkedServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2
+//
 // ```
 type LinkedServer struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *LinkedServer) ToLinkedServerOutputWithContext(ctx context.Context) Link
 // LinkedServerArrayInput is an input type that accepts LinkedServerArray and LinkedServerArrayOutput values.
 // You can construct a concrete instance of `LinkedServerArrayInput` via:
 //
-//          LinkedServerArray{ LinkedServerArgs{...} }
+//	LinkedServerArray{ LinkedServerArgs{...} }
 type LinkedServerArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i LinkedServerArray) ToLinkedServerArrayOutputWithContext(ctx context.Cont
 // LinkedServerMapInput is an input type that accepts LinkedServerMap and LinkedServerMapOutput values.
 // You can construct a concrete instance of `LinkedServerMapInput` via:
 //
-//          LinkedServerMap{ "key": LinkedServerArgs{...} }
+//	LinkedServerMap{ "key": LinkedServerArgs{...} }
 type LinkedServerMapInput interface {
 	pulumi.Input
 

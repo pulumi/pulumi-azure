@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterKubeAdminConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterKubeAdminConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterKubeAdminConfigGetArgs()
         {
         }
+        public static new KubernetesClusterKubeAdminConfigGetArgs Empty => new KubernetesClusterKubeAdminConfigGetArgs();
     }
 }

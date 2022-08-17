@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			OsType:            pulumi.String("Linux"),
-// 			SkuName:           pulumi.String("P1v2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleServicePlan.Location,
-// 			ServicePlanId:     exampleServicePlan.ID(),
-// 			SiteConfig:        nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "exampleLinuxWebAppSlot", &appservice.LinuxWebAppSlotArgs{
-// 			AppServiceId: exampleLinuxWebApp.ID(),
-// 			SiteConfig:   nil,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewSourceControlSlot(ctx, "exampleSourceControlSlot", &appservice.SourceControlSlotArgs{
-// 			SlotId:  exampleLinuxWebAppSlot.ID(),
-// 			RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
-// 			Branch:  pulumi.String("master"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("P1v2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleServicePlan.Location,
+//				ServicePlanId:     exampleServicePlan.ID(),
+//				SiteConfig:        nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxWebAppSlot, err := appservice.NewLinuxWebAppSlot(ctx, "exampleLinuxWebAppSlot", &appservice.LinuxWebAppSlotArgs{
+//				AppServiceId: exampleLinuxWebApp.ID(),
+//				SiteConfig:   nil,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewSourceControlSlot(ctx, "exampleSourceControlSlot", &appservice.SourceControlSlotArgs{
+//				SlotId:  exampleLinuxWebAppSlot.ID(),
+//				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
+//				Branch:  pulumi.String("master"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // an App Service Source Control Slot can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/sourceControlSlot:SourceControlSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
+//	$ pulumi import azure:appservice/sourceControlSlot:SourceControlSlot example "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1"
+//
 // ```
 type SourceControlSlot struct {
 	pulumi.CustomResourceState
@@ -248,7 +253,7 @@ func (i *SourceControlSlot) ToSourceControlSlotOutputWithContext(ctx context.Con
 // SourceControlSlotArrayInput is an input type that accepts SourceControlSlotArray and SourceControlSlotArrayOutput values.
 // You can construct a concrete instance of `SourceControlSlotArrayInput` via:
 //
-//          SourceControlSlotArray{ SourceControlSlotArgs{...} }
+//	SourceControlSlotArray{ SourceControlSlotArgs{...} }
 type SourceControlSlotArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +278,7 @@ func (i SourceControlSlotArray) ToSourceControlSlotArrayOutputWithContext(ctx co
 // SourceControlSlotMapInput is an input type that accepts SourceControlSlotMap and SourceControlSlotMapOutput values.
 // You can construct a concrete instance of `SourceControlSlotMapInput` via:
 //
-//          SourceControlSlotMap{ "key": SourceControlSlotArgs{...} }
+//	SourceControlSlotMap{ "key": SourceControlSlotArgs{...} }
 type SourceControlSlotMapInput interface {
 	pulumi.Input
 

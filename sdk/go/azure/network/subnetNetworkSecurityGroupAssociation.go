@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
-// 				&network.NetworkSecurityGroupSecurityRuleArgs{
-// 					Name:                     pulumi.String("test123"),
-// 					Priority:                 pulumi.Int(100),
-// 					Direction:                pulumi.String("Inbound"),
-// 					Access:                   pulumi.String("Allow"),
-// 					Protocol:                 pulumi.String("Tcp"),
-// 					SourcePortRange:          pulumi.String("*"),
-// 					DestinationPortRange:     pulumi.String("*"),
-// 					SourceAddressPrefix:      pulumi.String("*"),
-// 					DestinationAddressPrefix: pulumi.String("*"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
-// 			SubnetId:               exampleSubnet.ID(),
-// 			NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
+//					&network.NetworkSecurityGroupSecurityRuleArgs{
+//						Name:                     pulumi.String("test123"),
+//						Priority:                 pulumi.Int(100),
+//						Direction:                pulumi.String("Inbound"),
+//						Access:                   pulumi.String("Allow"),
+//						Protocol:                 pulumi.String("Tcp"),
+//						SourcePortRange:          pulumi.String("*"),
+//						DestinationPortRange:     pulumi.String("*"),
+//						SourceAddressPrefix:      pulumi.String("*"),
+//						DestinationAddressPrefix: pulumi.String("*"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               exampleSubnet.ID(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +92,9 @@ import (
 // Subnet `<->` Network Security Group Associations can be imported using the `resource id` of the Subnet, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
+//	$ pulumi import azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+//
 // ```
 type SubnetNetworkSecurityGroupAssociation struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *SubnetNetworkSecurityGroupAssociation) ToSubnetNetworkSecurityGroupAsso
 // SubnetNetworkSecurityGroupAssociationArrayInput is an input type that accepts SubnetNetworkSecurityGroupAssociationArray and SubnetNetworkSecurityGroupAssociationArrayOutput values.
 // You can construct a concrete instance of `SubnetNetworkSecurityGroupAssociationArrayInput` via:
 //
-//          SubnetNetworkSecurityGroupAssociationArray{ SubnetNetworkSecurityGroupAssociationArgs{...} }
+//	SubnetNetworkSecurityGroupAssociationArray{ SubnetNetworkSecurityGroupAssociationArgs{...} }
 type SubnetNetworkSecurityGroupAssociationArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i SubnetNetworkSecurityGroupAssociationArray) ToSubnetNetworkSecurityGroup
 // SubnetNetworkSecurityGroupAssociationMapInput is an input type that accepts SubnetNetworkSecurityGroupAssociationMap and SubnetNetworkSecurityGroupAssociationMapOutput values.
 // You can construct a concrete instance of `SubnetNetworkSecurityGroupAssociationMapInput` via:
 //
-//          SubnetNetworkSecurityGroupAssociationMap{ "key": SubnetNetworkSecurityGroupAssociationArgs{...} }
+//	SubnetNetworkSecurityGroupAssociationMap{ "key": SubnetNetworkSecurityGroupAssociationArgs{...} }
 type SubnetNetworkSecurityGroupAssociationMapInput interface {
 	pulumi.Input
 

@@ -15,34 +15,34 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Automation.Account("exampleAccount", new Azure.Automation.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Basic",
-    ///         });
-    ///         var exampleCredential = new Azure.Automation.Credential("exampleCredential", new Azure.Automation.CredentialArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AutomationAccountName = exampleAccount.Name,
-    ///             Username = "example_user",
-    ///             Password = "example_pwd",
-    ///             Description = "This is an example credential",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Basic",
+    ///     });
+    /// 
+    ///     var exampleCredential = new Azure.Automation.Credential("exampleCredential", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AutomationAccountName = exampleAccount.Name,
+    ///         Username = "example_user",
+    ///         Password = "example_pwd",
+    ///         Description = "This is an example credential",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/credential:Credential")]
-    public partial class Credential : Pulumi.CustomResource
+    public partial class Credential : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class CredentialArgs : Pulumi.ResourceArgs
+    public sealed class CredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -177,9 +177,10 @@ namespace Pulumi.Azure.Automation
         public CredentialArgs()
         {
         }
+        public static new CredentialArgs Empty => new CredentialArgs();
     }
 
-    public sealed class CredentialState : Pulumi.ResourceArgs
+    public sealed class CredentialState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the automation account in which the Credential is created. Changing this forces a new resource to be created.
@@ -220,5 +221,6 @@ namespace Pulumi.Azure.Automation
         public CredentialState()
         {
         }
+        public static new CredentialState Empty => new CredentialState();
     }
 }

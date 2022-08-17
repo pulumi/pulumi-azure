@@ -15,55 +15,57 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Sql",
-    ///             },
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleVirtualNetworkRule = new Azure.MSSql.VirtualNetworkRule("exampleVirtualNetworkRule", new Azure.MSSql.VirtualNetworkRuleArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             SubnetId = exampleSubnet.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkRule = new Azure.MSSql.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +77,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/virtualNetworkRule:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
@@ -145,7 +147,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
@@ -174,9 +176,10 @@ namespace Pulumi.Azure.MSSql
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 
-    public sealed class VirtualNetworkRuleState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`.
@@ -205,5 +208,6 @@ namespace Pulumi.Azure.MSSql
         public VirtualNetworkRuleState()
         {
         }
+        public static new VirtualNetworkRuleState Empty => new VirtualNetworkRuleState();
     }
 }

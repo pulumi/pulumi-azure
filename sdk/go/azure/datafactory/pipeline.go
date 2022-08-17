@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Activities
 //
@@ -55,39 +58,44 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
-// 			DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
-// 			Variables: pulumi.StringMap{
-// 				"bob": pulumi.String("item1"),
-// 			},
-// 			ActivitiesJson: pulumi.String(fmt.Sprintf(`[
-// 	{
-// 		"name": "Append variable1",
-// 		"type": "AppendVariable",
-// 		"dependsOn": [],
-// 		"userProperties": [],
-// 		"typeProperties": {
-// 			"variableName": "bob",
-// 			"value": "something"
-// 		}
-// 	}
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datafactory.NewPipeline(ctx, "test", &datafactory.PipelineArgs{
+//				DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
+//				Variables: pulumi.StringMap{
+//					"bob": pulumi.String("item1"),
+//				},
+//				ActivitiesJson: pulumi.String(fmt.Sprintf(`[
+//		{
+//			"name": "Append variable1",
+//			"type": "AppendVariable",
+//			"dependsOn": [],
+//			"userProperties": [],
+//			"typeProperties": {
+//				"variableName": "bob",
+//				"value": "something"
+//			}
+//		}
+//
 // ]
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -95,7 +103,9 @@ import (
 // Data Factory Pipeline's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/pipeline:Pipeline example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/pipelines/example
+//
+//	$ pulumi import azure:datafactory/pipeline:Pipeline example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/pipelines/example
+//
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState
@@ -276,7 +286,7 @@ func (i *Pipeline) ToPipelineOutputWithContext(ctx context.Context) PipelineOutp
 // PipelineArrayInput is an input type that accepts PipelineArray and PipelineArrayOutput values.
 // You can construct a concrete instance of `PipelineArrayInput` via:
 //
-//          PipelineArray{ PipelineArgs{...} }
+//	PipelineArray{ PipelineArgs{...} }
 type PipelineArrayInput interface {
 	pulumi.Input
 
@@ -301,7 +311,7 @@ func (i PipelineArray) ToPipelineArrayOutputWithContext(ctx context.Context) Pip
 // PipelineMapInput is an input type that accepts PipelineMap and PipelineMapOutput values.
 // You can construct a concrete instance of `PipelineMapInput` via:
 //
-//          PipelineMap{ "key": PipelineArgs{...} }
+//	PipelineMap{ "key": PipelineArgs{...} }
 type PipelineMapInput interface {
 	pulumi.Input
 

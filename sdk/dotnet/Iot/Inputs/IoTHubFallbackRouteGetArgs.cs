@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubFallbackRouteGetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubFallbackRouteGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition that is evaluated to apply the routing rule. Defaults to `true`. For grammar, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubFallbackRouteGetArgs()
         {
         }
+        public static new IoTHubFallbackRouteGetArgs Empty => new IoTHubFallbackRouteGetArgs();
     }
 }

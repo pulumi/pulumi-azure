@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheNfsTargetNamespaceJunctionGetArgs : Pulumi.ResourceArgs
+    public sealed class CacheNfsTargetNamespaceJunctionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheNfsTargetNamespaceJunctionGetArgs()
         {
         }
+        public static new CacheNfsTargetNamespaceJunctionGetArgs Empty => new CacheNfsTargetNamespaceJunctionGetArgs();
     }
 }

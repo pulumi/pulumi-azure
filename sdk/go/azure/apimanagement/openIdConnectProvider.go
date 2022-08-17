@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			PublisherName:     pulumi.String("My Company"),
-// 			PublisherEmail:    pulumi.String("company@exmaple.com"),
-// 			SkuName:           pulumi.String("Developer_1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewOpenIdConnectProvider(ctx, "exampleOpenIdConnectProvider", &apimanagement.OpenIdConnectProviderArgs{
-// 			ApiManagementName: exampleService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ClientId:          pulumi.String("00001111-2222-3333-4444-555566667777"),
-// 			ClientSecret:      pulumi.String("00001111-423egvwdcsjx-00001111"),
-// 			DisplayName:       pulumi.String("Example Provider"),
-// 			MetadataEndpoint:  pulumi.String("https://example.com/example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PublisherName:     pulumi.String("My Company"),
+//				PublisherEmail:    pulumi.String("company@exmaple.com"),
+//				SkuName:           pulumi.String("Developer_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewOpenIdConnectProvider(ctx, "exampleOpenIdConnectProvider", &apimanagement.OpenIdConnectProviderArgs{
+//				ApiManagementName: exampleService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClientId:          pulumi.String("00001111-2222-3333-4444-555566667777"),
+//				ClientSecret:      pulumi.String("00001111-423egvwdcsjx-00001111"),
+//				DisplayName:       pulumi.String("Example Provider"),
+//				MetadataEndpoint:  pulumi.String("https://example.com/example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
+//
+//	$ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
+//
 // ```
 type OpenIdConnectProvider struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *OpenIdConnectProvider) ToOpenIdConnectProviderOutputWithContext(ctx con
 // OpenIdConnectProviderArrayInput is an input type that accepts OpenIdConnectProviderArray and OpenIdConnectProviderArrayOutput values.
 // You can construct a concrete instance of `OpenIdConnectProviderArrayInput` via:
 //
-//          OpenIdConnectProviderArray{ OpenIdConnectProviderArgs{...} }
+//	OpenIdConnectProviderArray{ OpenIdConnectProviderArgs{...} }
 type OpenIdConnectProviderArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i OpenIdConnectProviderArray) ToOpenIdConnectProviderArrayOutputWithContex
 // OpenIdConnectProviderMapInput is an input type that accepts OpenIdConnectProviderMap and OpenIdConnectProviderMapOutput values.
 // You can construct a concrete instance of `OpenIdConnectProviderMapInput` via:
 //
-//          OpenIdConnectProviderMap{ "key": OpenIdConnectProviderArgs{...} }
+//	OpenIdConnectProviderMap{ "key": OpenIdConnectProviderArgs{...} }
 type OpenIdConnectProviderMapInput interface {
 	pulumi.Input
 

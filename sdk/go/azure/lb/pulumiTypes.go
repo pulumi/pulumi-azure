@@ -22,7 +22,7 @@ type BackendAddressPoolAddressInboundNatRulePortMapping struct {
 // BackendAddressPoolAddressInboundNatRulePortMappingInput is an input type that accepts BackendAddressPoolAddressInboundNatRulePortMappingArgs and BackendAddressPoolAddressInboundNatRulePortMappingOutput values.
 // You can construct a concrete instance of `BackendAddressPoolAddressInboundNatRulePortMappingInput` via:
 //
-//          BackendAddressPoolAddressInboundNatRulePortMappingArgs{...}
+//	BackendAddressPoolAddressInboundNatRulePortMappingArgs{...}
 type BackendAddressPoolAddressInboundNatRulePortMappingInput interface {
 	pulumi.Input
 
@@ -54,7 +54,7 @@ func (i BackendAddressPoolAddressInboundNatRulePortMappingArgs) ToBackendAddress
 // BackendAddressPoolAddressInboundNatRulePortMappingArrayInput is an input type that accepts BackendAddressPoolAddressInboundNatRulePortMappingArray and BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolAddressInboundNatRulePortMappingArrayInput` via:
 //
-//          BackendAddressPoolAddressInboundNatRulePortMappingArray{ BackendAddressPoolAddressInboundNatRulePortMappingArgs{...} }
+//	BackendAddressPoolAddressInboundNatRulePortMappingArray{ BackendAddressPoolAddressInboundNatRulePortMappingArgs{...} }
 type BackendAddressPoolAddressInboundNatRulePortMappingArrayInput interface {
 	pulumi.Input
 
@@ -139,7 +139,7 @@ type BackendAddressPoolTunnelInterface struct {
 // BackendAddressPoolTunnelInterfaceInput is an input type that accepts BackendAddressPoolTunnelInterfaceArgs and BackendAddressPoolTunnelInterfaceOutput values.
 // You can construct a concrete instance of `BackendAddressPoolTunnelInterfaceInput` via:
 //
-//          BackendAddressPoolTunnelInterfaceArgs{...}
+//	BackendAddressPoolTunnelInterfaceArgs{...}
 type BackendAddressPoolTunnelInterfaceInput interface {
 	pulumi.Input
 
@@ -173,7 +173,7 @@ func (i BackendAddressPoolTunnelInterfaceArgs) ToBackendAddressPoolTunnelInterfa
 // BackendAddressPoolTunnelInterfaceArrayInput is an input type that accepts BackendAddressPoolTunnelInterfaceArray and BackendAddressPoolTunnelInterfaceArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolTunnelInterfaceArrayInput` via:
 //
-//          BackendAddressPoolTunnelInterfaceArray{ BackendAddressPoolTunnelInterfaceArgs{...} }
+//	BackendAddressPoolTunnelInterfaceArray{ BackendAddressPoolTunnelInterfaceArgs{...} }
 type BackendAddressPoolTunnelInterfaceArrayInput interface {
 	pulumi.Input
 
@@ -281,7 +281,7 @@ type LoadBalancerFrontendIpConfiguration struct {
 // LoadBalancerFrontendIpConfigurationInput is an input type that accepts LoadBalancerFrontendIpConfigurationArgs and LoadBalancerFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIpConfigurationInput` via:
 //
-//          LoadBalancerFrontendIpConfigurationArgs{...}
+//	LoadBalancerFrontendIpConfigurationArgs{...}
 type LoadBalancerFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -333,7 +333,7 @@ func (i LoadBalancerFrontendIpConfigurationArgs) ToLoadBalancerFrontendIpConfigu
 // LoadBalancerFrontendIpConfigurationArrayInput is an input type that accepts LoadBalancerFrontendIpConfigurationArray and LoadBalancerFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIpConfigurationArrayInput` via:
 //
-//          LoadBalancerFrontendIpConfigurationArray{ LoadBalancerFrontendIpConfigurationArgs{...} }
+//	LoadBalancerFrontendIpConfigurationArray{ LoadBalancerFrontendIpConfigurationArgs{...} }
 type LoadBalancerFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -466,7 +466,7 @@ type OutboundRuleFrontendIpConfiguration struct {
 // OutboundRuleFrontendIpConfigurationInput is an input type that accepts OutboundRuleFrontendIpConfigurationArgs and OutboundRuleFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `OutboundRuleFrontendIpConfigurationInput` via:
 //
-//          OutboundRuleFrontendIpConfigurationArgs{...}
+//	OutboundRuleFrontendIpConfigurationArgs{...}
 type OutboundRuleFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -496,7 +496,7 @@ func (i OutboundRuleFrontendIpConfigurationArgs) ToOutboundRuleFrontendIpConfigu
 // OutboundRuleFrontendIpConfigurationArrayInput is an input type that accepts OutboundRuleFrontendIpConfigurationArray and OutboundRuleFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `OutboundRuleFrontendIpConfigurationArrayInput` via:
 //
-//          OutboundRuleFrontendIpConfigurationArray{ OutboundRuleFrontendIpConfigurationArgs{...} }
+//	OutboundRuleFrontendIpConfigurationArray{ OutboundRuleFrontendIpConfigurationArgs{...} }
 type OutboundRuleFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -576,7 +576,7 @@ type GetBackendAddressPoolBackendAddress struct {
 // GetBackendAddressPoolBackendAddressInput is an input type that accepts GetBackendAddressPoolBackendAddressArgs and GetBackendAddressPoolBackendAddressOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInput` via:
 //
-//          GetBackendAddressPoolBackendAddressArgs{...}
+//	GetBackendAddressPoolBackendAddressArgs{...}
 type GetBackendAddressPoolBackendAddressInput interface {
 	pulumi.Input
 
@@ -610,7 +610,7 @@ func (i GetBackendAddressPoolBackendAddressArgs) ToGetBackendAddressPoolBackendA
 // GetBackendAddressPoolBackendAddressArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressArray and GetBackendAddressPoolBackendAddressArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressArrayInput` via:
 //
-//          GetBackendAddressPoolBackendAddressArray{ GetBackendAddressPoolBackendAddressArgs{...} }
+//	GetBackendAddressPoolBackendAddressArray{ GetBackendAddressPoolBackendAddressArgs{...} }
 type GetBackendAddressPoolBackendAddressArrayInput interface {
 	pulumi.Input
 
@@ -700,7 +700,7 @@ type GetBackendAddressPoolBackendAddressInboundNatRulePortMapping struct {
 // GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput is an input type that accepts GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs and GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput` via:
 //
-//          GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...}
+//	GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...}
 type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingInput interface {
 	pulumi.Input
 
@@ -732,7 +732,7 @@ func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ToGetB
 // GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray and GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput` via:
 //
-//          GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray{ GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...} }
+//	GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray{ GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs{...} }
 type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput interface {
 	pulumi.Input
 
@@ -813,7 +813,7 @@ type GetBackendAddressPoolBackendIpConfiguration struct {
 // GetBackendAddressPoolBackendIpConfigurationInput is an input type that accepts GetBackendAddressPoolBackendIpConfigurationArgs and GetBackendAddressPoolBackendIpConfigurationOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendIpConfigurationInput` via:
 //
-//          GetBackendAddressPoolBackendIpConfigurationArgs{...}
+//	GetBackendAddressPoolBackendIpConfigurationArgs{...}
 type GetBackendAddressPoolBackendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -841,7 +841,7 @@ func (i GetBackendAddressPoolBackendIpConfigurationArgs) ToGetBackendAddressPool
 // GetBackendAddressPoolBackendIpConfigurationArrayInput is an input type that accepts GetBackendAddressPoolBackendIpConfigurationArray and GetBackendAddressPoolBackendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendIpConfigurationArrayInput` via:
 //
-//          GetBackendAddressPoolBackendIpConfigurationArray{ GetBackendAddressPoolBackendIpConfigurationArgs{...} }
+//	GetBackendAddressPoolBackendIpConfigurationArray{ GetBackendAddressPoolBackendIpConfigurationArgs{...} }
 type GetBackendAddressPoolBackendIpConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -924,7 +924,7 @@ type GetLBFrontendIpConfiguration struct {
 // GetLBFrontendIpConfigurationInput is an input type that accepts GetLBFrontendIpConfigurationArgs and GetLBFrontendIpConfigurationOutput values.
 // You can construct a concrete instance of `GetLBFrontendIpConfigurationInput` via:
 //
-//          GetLBFrontendIpConfigurationArgs{...}
+//	GetLBFrontendIpConfigurationArgs{...}
 type GetLBFrontendIpConfigurationInput interface {
 	pulumi.Input
 
@@ -966,7 +966,7 @@ func (i GetLBFrontendIpConfigurationArgs) ToGetLBFrontendIpConfigurationOutputWi
 // GetLBFrontendIpConfigurationArrayInput is an input type that accepts GetLBFrontendIpConfigurationArray and GetLBFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetLBFrontendIpConfigurationArrayInput` via:
 //
-//          GetLBFrontendIpConfigurationArray{ GetLBFrontendIpConfigurationArgs{...} }
+//	GetLBFrontendIpConfigurationArray{ GetLBFrontendIpConfigurationArgs{...} }
 type GetLBFrontendIpConfigurationArrayInput interface {
 	pulumi.Input
 

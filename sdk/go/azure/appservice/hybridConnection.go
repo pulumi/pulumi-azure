@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/relay"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("Standard"),
-// 				Size: pulumi.String("S1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AppServicePlanId:  examplePlan.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			RelayNamespaceName: exampleNamespace.Name,
-// 			UserMetadata:       pulumi.String("examplemetadata"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewHybridConnection(ctx, "exampleAppservice/hybridConnectionHybridConnection", &appservice.HybridConnectionArgs{
-// 			AppServiceName:    exampleAppService.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			RelayId:           exampleHybridConnection.ID(),
-// 			Hostname:          pulumi.String("testhostname.example"),
-// 			Port:              pulumi.Int(8080),
-// 			SendKeyName:       pulumi.String("exampleSharedAccessKey"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AppServicePlanId:  examplePlan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				RelayNamespaceName: exampleNamespace.Name,
+//				UserMetadata:       pulumi.String("examplemetadata"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewHybridConnection(ctx, "exampleAppservice/hybridConnectionHybridConnection", &appservice.HybridConnectionArgs{
+//				AppServiceName:    exampleAppService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RelayId:           exampleHybridConnection.ID(),
+//				Hostname:          pulumi.String("testhostname.example"),
+//				Port:              pulumi.Int(8080),
+//				SendKeyName:       pulumi.String("exampleSharedAccessKey"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -89,7 +92,9 @@ import (
 // App Service Hybrid Connections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
+//
+//	$ pulumi import azure:appservice/hybridConnection:HybridConnection example /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/exampleResourceGroup1/providers/Microsoft.Web/sites/exampleAppService1/hybridConnectionNamespaces/exampleRN1/relays/exampleRHC1
+//
 // ```
 type HybridConnection struct {
 	pulumi.CustomResourceState
@@ -269,7 +274,7 @@ func (i *HybridConnection) ToHybridConnectionOutputWithContext(ctx context.Conte
 // HybridConnectionArrayInput is an input type that accepts HybridConnectionArray and HybridConnectionArrayOutput values.
 // You can construct a concrete instance of `HybridConnectionArrayInput` via:
 //
-//          HybridConnectionArray{ HybridConnectionArgs{...} }
+//	HybridConnectionArray{ HybridConnectionArgs{...} }
 type HybridConnectionArrayInput interface {
 	pulumi.Input
 
@@ -294,7 +299,7 @@ func (i HybridConnectionArray) ToHybridConnectionArrayOutputWithContext(ctx cont
 // HybridConnectionMapInput is an input type that accepts HybridConnectionMap and HybridConnectionMapOutput values.
 // You can construct a concrete instance of `HybridConnectionMapInput` via:
 //
-//          HybridConnectionMap{ "key": HybridConnectionArgs{...} }
+//	HybridConnectionMap{ "key": HybridConnectionArgs{...} }
 type HybridConnectionMapInput interface {
 	pulumi.Input
 

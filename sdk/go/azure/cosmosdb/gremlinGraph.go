@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 			DatabaseName:      exampleGremlinDatabase.Name,
-// 			PartitionKeyPath:  pulumi.String("/Example"),
-// 			Throughput:        pulumi.Int(400),
-// 			IndexPolicy: &cosmosdb.GremlinGraphIndexPolicyArgs{
-// 				Automatic:    pulumi.Bool(true),
-// 				IndexingMode: pulumi.String("consistent"),
-// 				IncludedPaths: pulumi.StringArray{
-// 					pulumi.String("/*"),
-// 				},
-// 				ExcludedPaths: pulumi.StringArray{
-// 					pulumi.String("/\"_etag\"/?"),
-// 				},
-// 			},
-// 			ConflictResolutionPolicy: &cosmosdb.GremlinGraphConflictResolutionPolicyArgs{
-// 				Mode:                   pulumi.String("LastWriterWins"),
-// 				ConflictResolutionPath: pulumi.String("/_ts"),
-// 			},
-// 			UniqueKeys: cosmosdb.GremlinGraphUniqueKeyArray{
-// 				&cosmosdb.GremlinGraphUniqueKeyArgs{
-// 					Paths: pulumi.StringArray{
-// 						pulumi.String("/definition/id1"),
-// 						pulumi.String("/definition/id2"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//				DatabaseName:      exampleGremlinDatabase.Name,
+//				PartitionKeyPath:  pulumi.String("/Example"),
+//				Throughput:        pulumi.Int(400),
+//				IndexPolicy: &cosmosdb.GremlinGraphIndexPolicyArgs{
+//					Automatic:    pulumi.Bool(true),
+//					IndexingMode: pulumi.String("consistent"),
+//					IncludedPaths: pulumi.StringArray{
+//						pulumi.String("/*"),
+//					},
+//					ExcludedPaths: pulumi.StringArray{
+//						pulumi.String("/\"_etag\"/?"),
+//					},
+//				},
+//				ConflictResolutionPolicy: &cosmosdb.GremlinGraphConflictResolutionPolicyArgs{
+//					Mode:                   pulumi.String("LastWriterWins"),
+//					ConflictResolutionPath: pulumi.String("/_ts"),
+//				},
+//				UniqueKeys: cosmosdb.GremlinGraphUniqueKeyArray{
+//					&cosmosdb.GremlinGraphUniqueKeyArgs{
+//						Paths: pulumi.StringArray{
+//							pulumi.String("/definition/id1"),
+//							pulumi.String("/definition/id2"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // > **NOTE:** The CosmosDB Account needs to have the `EnableGremlin` capability enabled to use this resource - which can be done by adding this to the `capabilities` list within the `cosmosdb.Account` resource.
@@ -83,7 +86,9 @@ import (
 // Cosmos Gremlin Graphs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
+//
+//	$ pulumi import azure:cosmosdb/gremlinGraph:GremlinGraph example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1/graphs/graphs1
+//
 // ```
 type GremlinGraph struct {
 	pulumi.CustomResourceState
@@ -288,7 +293,7 @@ func (i *GremlinGraph) ToGremlinGraphOutputWithContext(ctx context.Context) Grem
 // GremlinGraphArrayInput is an input type that accepts GremlinGraphArray and GremlinGraphArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphArrayInput` via:
 //
-//          GremlinGraphArray{ GremlinGraphArgs{...} }
+//	GremlinGraphArray{ GremlinGraphArgs{...} }
 type GremlinGraphArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +318,7 @@ func (i GremlinGraphArray) ToGremlinGraphArrayOutputWithContext(ctx context.Cont
 // GremlinGraphMapInput is an input type that accepts GremlinGraphMap and GremlinGraphMapOutput values.
 // You can construct a concrete instance of `GremlinGraphMapInput` via:
 //
-//          GremlinGraphMap{ "key": GremlinGraphArgs{...} }
+//	GremlinGraphMap{ "key": GremlinGraphArgs{...} }
 type GremlinGraphMapInput interface {
 	pulumi.Input
 

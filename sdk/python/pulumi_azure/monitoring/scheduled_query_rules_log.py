@@ -33,6 +33,7 @@ class ScheduledQueryRulesLogArgs:
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "criteria", criteria)
         pulumi.set(__self__, "data_source_id", data_source_id)
@@ -143,6 +144,9 @@ class ScheduledQueryRulesLogArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,6 +174,7 @@ class _ScheduledQueryRulesLogState:
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if authorized_resource_ids is not None:
             pulumi.set(__self__, "authorized_resource_ids", authorized_resource_ids)
@@ -283,6 +288,9 @@ class _ScheduledQueryRulesLogState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -358,7 +366,10 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             ),
             data_source_id=example_analytics_workspace.id,
             description="Scheduled query rule LogToMetric example",
-            enabled=True)
+            enabled=True,
+            tags={
+                "foo": "bar",
+            })
         ```
 
         ## Import
@@ -377,6 +388,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
     @overload
@@ -437,7 +449,10 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             ),
             data_source_id=example_analytics_workspace.id,
             description="Scheduled query rule LogToMetric example",
-            enabled=True)
+            enabled=True,
+            tags={
+                "foo": "bar",
+            })
         ```
 
         ## Import
@@ -528,6 +543,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled.  Default is `true`.
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -605,5 +621,8 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A mapping of tags to assign to the resource.
+        """
         return pulumi.get(self, "tags")
 

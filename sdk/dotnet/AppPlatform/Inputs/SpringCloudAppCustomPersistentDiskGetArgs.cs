@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudAppCustomPersistentDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppCustomPersistentDiskGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("mountOptions")]
         private InputList<string>? _mountOptions;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudAppCustomPersistentDiskGetArgs()
         {
         }
+        public static new SpringCloudAppCustomPersistentDiskGetArgs Empty => new SpringCloudAppCustomPersistentDiskGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointDeliveryRuleCacheExpirationActionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeliveryRuleCacheExpirationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointDeliveryRuleCacheExpirationActionArgs()
         {
         }
+        public static new EndpointDeliveryRuleCacheExpirationActionArgs Empty => new EndpointDeliveryRuleCacheExpirationActionArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSelfHostedRbacAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSelfHostedRbacAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSelfHostedRbacAuthorizationArgs()
         {
         }
+        public static new IntegrationRuntimeSelfHostedRbacAuthorizationArgs Empty => new IntegrationRuntimeSelfHostedRbacAuthorizationArgs();
     }
 }

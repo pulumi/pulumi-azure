@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class JobInputAssetArgs : Pulumi.ResourceArgs
+    public sealed class JobInputAssetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public JobInputAssetArgs()
         {
         }
+        public static new JobInputAssetArgs Empty => new JobInputAssetArgs();
     }
 }

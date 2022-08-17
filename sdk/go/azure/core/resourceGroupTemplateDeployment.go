@@ -20,7 +20,9 @@ import (
 // Resource Group Template Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Resources/deployments/template1
+//
+//	$ pulumi import azure:core/resourceGroupTemplateDeployment:ResourceGroupTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Resources/deployments/template1
+//
 // ```
 type ResourceGroupTemplateDeployment struct {
 	pulumi.CustomResourceState
@@ -190,7 +192,7 @@ func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutpu
 // ResourceGroupTemplateDeploymentArrayInput is an input type that accepts ResourceGroupTemplateDeploymentArray and ResourceGroupTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupTemplateDeploymentArrayInput` via:
 //
-//          ResourceGroupTemplateDeploymentArray{ ResourceGroupTemplateDeploymentArgs{...} }
+//	ResourceGroupTemplateDeploymentArray{ ResourceGroupTemplateDeploymentArgs{...} }
 type ResourceGroupTemplateDeploymentArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +217,7 @@ func (i ResourceGroupTemplateDeploymentArray) ToResourceGroupTemplateDeploymentA
 // ResourceGroupTemplateDeploymentMapInput is an input type that accepts ResourceGroupTemplateDeploymentMap and ResourceGroupTemplateDeploymentMapOutput values.
 // You can construct a concrete instance of `ResourceGroupTemplateDeploymentMapInput` via:
 //
-//          ResourceGroupTemplateDeploymentMap{ "key": ResourceGroupTemplateDeploymentArgs{...} }
+//	ResourceGroupTemplateDeploymentMap{ "key": ResourceGroupTemplateDeploymentArgs{...} }
 type ResourceGroupTemplateDeploymentMapInput interface {
 	pulumi.Input
 

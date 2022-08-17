@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Healthcare.Inputs
 {
 
-    public sealed class ServiceAuthenticationConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceAuthenticationConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The intended audience to receive authentication tokens for the service. The default value is https://azurehealthcareapis.com
@@ -34,5 +34,6 @@ namespace Pulumi.Azure.Healthcare.Inputs
         public ServiceAuthenticationConfigurationGetArgs()
         {
         }
+        public static new ServiceAuthenticationConfigurationGetArgs Empty => new ServiceAuthenticationConfigurationGetArgs();
     }
 }

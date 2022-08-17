@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class AppServiceBackupScheduleArgs : Pulumi.ResourceArgs
+    public sealed class AppServiceBackupScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Sets how often the backup should be executed.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public AppServiceBackupScheduleArgs()
         {
         }
+        public static new AppServiceBackupScheduleArgs Empty => new AppServiceBackupScheduleArgs();
     }
 }

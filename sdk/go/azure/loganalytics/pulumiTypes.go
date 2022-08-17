@@ -22,7 +22,7 @@ type ClusterIdentity struct {
 // ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
 // You can construct a concrete instance of `ClusterIdentityInput` via:
 //
-//          ClusterIdentityArgs{...}
+//	ClusterIdentityArgs{...}
 type ClusterIdentityInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i ClusterIdentityArgs) ToClusterIdentityPtrOutputWithContext(ctx context.C
 // ClusterIdentityPtrInput is an input type that accepts ClusterIdentityArgs, ClusterIdentityPtr and ClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `ClusterIdentityPtrInput` via:
 //
-//          ClusterIdentityArgs{...}
+//	        ClusterIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ClusterIdentityPtrInput interface {
 	pulumi.Input
 

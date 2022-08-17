@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSshPublicKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSshPublicKey.InvokeAsync(new Azure.Compute.GetSshPublicKeyArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSshPublicKeyResult =&gt; getSshPublicKeyResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Compute
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Compute.GetSshPublicKey.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Compute.GetSshPublicKey.InvokeAsync(new Azure.Compute.GetSshPublicKeyArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSshPublicKeyResult =&gt; getSshPublicKeyResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Compute
     }
 
 
-    public sealed class GetSshPublicKeyArgs : Pulumi.InvokeArgs
+    public sealed class GetSshPublicKeyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this SSH Public Key.
@@ -108,9 +106,10 @@ namespace Pulumi.Azure.Compute
         public GetSshPublicKeyArgs()
         {
         }
+        public static new GetSshPublicKeyArgs Empty => new GetSshPublicKeyArgs();
     }
 
-    public sealed class GetSshPublicKeyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSshPublicKeyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this SSH Public Key.
@@ -139,6 +138,7 @@ namespace Pulumi.Azure.Compute
         public GetSshPublicKeyInvokeArgs()
         {
         }
+        public static new GetSshPublicKeyInvokeArgs Empty => new GetSshPublicKeyInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupContainerReadinessProbeArgs : Pulumi.ResourceArgs
+    public sealed class GroupContainerReadinessProbeArgs : global::Pulumi.ResourceArgs
     {
         [Input("execs")]
         private InputList<string>? _execs;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupContainerReadinessProbeArgs()
         {
         }
+        public static new GroupContainerReadinessProbeArgs Empty => new GroupContainerReadinessProbeArgs();
     }
 }

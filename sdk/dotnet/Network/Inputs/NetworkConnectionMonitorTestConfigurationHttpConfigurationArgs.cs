@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The HTTP method for the HTTP request. Possible values are `Get` and `Post`. Defaults to `Get`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs()
         {
         }
+        public static new NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs Empty => new NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs();
     }
 }

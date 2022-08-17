@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyIssuerParametersArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyIssuerParametersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let's Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyIssuerParametersArgs()
         {
         }
+        public static new CertifiateCertificatePolicyIssuerParametersArgs Empty => new CertifiateCertificatePolicyIssuerParametersArgs();
     }
 }

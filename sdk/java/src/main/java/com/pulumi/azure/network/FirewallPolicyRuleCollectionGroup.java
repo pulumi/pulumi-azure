@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  *                             .port(443)
  *                             .build())
  *                     .sourceAddresses(&#34;10.0.0.1&#34;)
- *                     .destinationFqdns(&#34;.microsoft.com&#34;)
+ *                     .destinationFqdns(&#34;*.microsoft.com&#34;)
  *                     .build())
  *                 .build())
  *             .networkRuleCollections(FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs.builder()

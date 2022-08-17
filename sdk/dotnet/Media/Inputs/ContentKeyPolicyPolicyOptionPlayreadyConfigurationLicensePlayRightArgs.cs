@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Configures Automatic Gain Control (AGC) and Color Stripe in the license. Must be between 0 and 3 inclusive.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs Empty => new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicensePlayRightArgs();
     }
 }

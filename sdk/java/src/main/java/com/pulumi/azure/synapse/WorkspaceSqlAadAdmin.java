@@ -17,6 +17,115 @@ import javax.annotation.Nullable;
  * Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
+ * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Key;
+ * import com.pulumi.azure.keyvault.KeyArgs;
+ * import com.pulumi.azure.synapse.Workspace;
+ * import com.pulumi.azure.synapse.WorkspaceArgs;
+ * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.synapse.WorkspaceSqlAadAdmin;
+ * import com.pulumi.azure.synapse.WorkspaceSqlAadAdminArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountKind(&#34;StorageV2&#34;)
+ *             .isHnsEnabled(&#34;true&#34;)
+ *             .build());
+ * 
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .storageAccountId(exampleAccount.id())
+ *             .build());
+ * 
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;standard&#34;)
+ *             .purgeProtectionEnabled(true)
+ *             .build());
+ * 
+ *         var deployer = new AccessPolicy(&#34;deployer&#34;, AccessPolicyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .keyPermissions(            
+ *                 &#34;Create&#34;,
+ *                 &#34;Get&#34;,
+ *                 &#34;Delete&#34;,
+ *                 &#34;Purge&#34;)
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(deployer)
+ *                 .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
+ *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
+ *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;Env&#34;, &#34;production&#34;))
+ *             .build());
+ * 
+ *         var exampleWorkspaceSqlAadAdmin = new WorkspaceSqlAadAdmin(&#34;exampleWorkspaceSqlAadAdmin&#34;, WorkspaceSqlAadAdminArgs.builder()        
+ *             .synapseWorkspaceId(exampleWorkspace.id())
+ *             .login(&#34;AzureAD Admin&#34;)
+ *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

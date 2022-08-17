@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppConfiguration.Inputs
 {
 
-    public sealed class ConfigurationFeatureTimewindowFilterArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationFeatureTimewindowFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppConfiguration.Inputs
         public ConfigurationFeatureTimewindowFilterArgs()
         {
         }
+        public static new ConfigurationFeatureTimewindowFilterArgs Empty => new ConfigurationFeatureTimewindowFilterArgs();
     }
 }

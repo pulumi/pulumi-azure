@@ -17,39 +17,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: pulumi.StringArray{
-// 				pulumi.String("10.0.180.17"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: pulumi.StringArray{
+//					pulumi.String("10.0.180.17"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Alias Record)
 //
@@ -57,47 +60,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Dynamic"),
-// 			IpVersion:         pulumi.String("IPv4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			TargetResourceId:  examplePublicIp.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Dynamic"),
+//				IpVersion:         pulumi.String("IPv4"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				TargetResourceId:  examplePublicIp.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -105,7 +111,9 @@ import (
 // A records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/aRecord:ARecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/A/myrecord1
+//
+//	$ pulumi import azure:dns/aRecord:ARecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/A/myrecord1
+//
 // ```
 type ARecord struct {
 	pulumi.CustomResourceState
@@ -122,7 +130,8 @@ type ARecord struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	Ttl              pulumi.IntOutput       `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -177,7 +186,8 @@ type arecordState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl              *int    `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl *int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
@@ -195,7 +205,8 @@ type ARecordState struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl              pulumi.IntPtrInput
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntPtrInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -215,7 +226,8 @@ type arecordArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl              int     `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -232,7 +244,8 @@ type ARecordArgs struct {
 	Tags pulumi.StringMapInput
 	// The Azure resource id of the target object. Conflicts with `records`
 	TargetResourceId pulumi.StringPtrInput
-	Ttl              pulumi.IntInput
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -263,7 +276,7 @@ func (i *ARecord) ToARecordOutputWithContext(ctx context.Context) ARecordOutput 
 // ARecordArrayInput is an input type that accepts ARecordArray and ARecordArrayOutput values.
 // You can construct a concrete instance of `ARecordArrayInput` via:
 //
-//          ARecordArray{ ARecordArgs{...} }
+//	ARecordArray{ ARecordArgs{...} }
 type ARecordArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +301,7 @@ func (i ARecordArray) ToARecordArrayOutputWithContext(ctx context.Context) AReco
 // ARecordMapInput is an input type that accepts ARecordMap and ARecordMapOutput values.
 // You can construct a concrete instance of `ARecordMapInput` via:
 //
-//          ARecordMap{ "key": ARecordArgs{...} }
+//	ARecordMap{ "key": ARecordArgs{...} }
 type ARecordMapInput interface {
 	pulumi.Input
 
@@ -354,6 +367,7 @@ func (o ARecordOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The Time To Live (TTL) of the DNS record in seconds.
 func (o ARecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }

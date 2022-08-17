@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterRolesKafkaManagementNodeArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterRolesKafkaManagementNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Password associated with the local administrator for the Kafka Management Nodes. Changing this forces a new resource to be created.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterRolesKafkaManagementNodeArgs()
         {
         }
+        public static new KafkaClusterRolesKafkaManagementNodeArgs Empty => new KafkaClusterRolesKafkaManagementNodeArgs();
     }
 }

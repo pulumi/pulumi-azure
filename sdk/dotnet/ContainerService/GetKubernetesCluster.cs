@@ -19,21 +19,19 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetKubernetesCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetKubernetesCluster.InvokeAsync(new Azure.ContainerService.GetKubernetesClusterArgs
-        ///         {
-        ///             Name = "myakscluster",
-        ///             ResourceGroupName = "my-example-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "myakscluster",
+        ///         ResourceGroupName = "my-example-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.ContainerService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ContainerService.GetKubernetesCluster.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ContainerService.GetKubernetesCluster.InvokeAsync(new Azure.ContainerService.GetKubernetesClusterArgs
-        ///         {
-        ///             Name = "myakscluster",
-        ///             ResourceGroupName = "my-example-resource-group",
-        ///         }));
-        ///     }
+        ///         Name = "myakscluster",
+        ///         ResourceGroupName = "my-example-resource-group",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.ContainerService
     }
 
 
-    public sealed class GetKubernetesClusterArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed Kubernetes Cluster.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.ContainerService
         public GetKubernetesClusterArgs()
         {
         }
+        public static new GetKubernetesClusterArgs Empty => new GetKubernetesClusterArgs();
     }
 
-    public sealed class GetKubernetesClusterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKubernetesClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the managed Kubernetes Cluster.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.ContainerService
         public GetKubernetesClusterInvokeArgs()
         {
         }
+        public static new GetKubernetesClusterInvokeArgs Empty => new GetKubernetesClusterInvokeArgs();
     }
 
 

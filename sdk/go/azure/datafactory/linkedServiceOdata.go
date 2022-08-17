@@ -21,47 +21,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
-// 			BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
-// 				Username: pulumi.String("emma"),
-// 				Password: pulumi.String("Ch4ngeM3!"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
+//				BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
+//					Username: pulumi.String("emma"),
+//					Password: pulumi.String("Ch4ngeM3!"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Data Factory OData Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceOdata:LinkedServiceOdata example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceOdata:LinkedServiceOdata example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceOdata struct {
 	pulumi.CustomResourceState
@@ -243,7 +248,7 @@ func (i *LinkedServiceOdata) ToLinkedServiceOdataOutputWithContext(ctx context.C
 // LinkedServiceOdataArrayInput is an input type that accepts LinkedServiceOdataArray and LinkedServiceOdataArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceOdataArrayInput` via:
 //
-//          LinkedServiceOdataArray{ LinkedServiceOdataArgs{...} }
+//	LinkedServiceOdataArray{ LinkedServiceOdataArgs{...} }
 type LinkedServiceOdataArrayInput interface {
 	pulumi.Input
 
@@ -268,7 +273,7 @@ func (i LinkedServiceOdataArray) ToLinkedServiceOdataArrayOutputWithContext(ctx 
 // LinkedServiceOdataMapInput is an input type that accepts LinkedServiceOdataMap and LinkedServiceOdataMapOutput values.
 // You can construct a concrete instance of `LinkedServiceOdataMapInput` via:
 //
-//          LinkedServiceOdataMap{ "key": LinkedServiceOdataArgs{...} }
+//	LinkedServiceOdataMap{ "key": LinkedServiceOdataArgs{...} }
 type LinkedServiceOdataMapInput interface {
 	pulumi.Input
 

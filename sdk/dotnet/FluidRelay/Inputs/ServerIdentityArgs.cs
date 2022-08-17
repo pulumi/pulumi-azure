@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FluidRelay.Inputs
 {
 
-    public sealed class ServerIdentityArgs : Pulumi.ResourceArgs
+    public sealed class ServerIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.FluidRelay.Inputs
         public ServerIdentityArgs()
         {
         }
+        public static new ServerIdentityArgs Empty => new ServerIdentityArgs();
     }
 }

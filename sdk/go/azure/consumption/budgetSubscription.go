@@ -19,92 +19,95 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/consumption"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("eastus"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ShortName:         pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = consumption.NewBudgetSubscription(ctx, "exampleBudgetSubscription", &consumption.BudgetSubscriptionArgs{
-// 			SubscriptionId: pulumi.String(current.Id),
-// 			Amount:         pulumi.Float64(1000),
-// 			TimeGrain:      pulumi.String("Monthly"),
-// 			TimePeriod: &consumption.BudgetSubscriptionTimePeriodArgs{
-// 				StartDate: pulumi.String("2022-06-01T00:00:00Z"),
-// 				EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
-// 			},
-// 			Filter: &consumption.BudgetSubscriptionFilterArgs{
-// 				Dimensions: consumption.BudgetSubscriptionFilterDimensionArray{
-// 					&consumption.BudgetSubscriptionFilterDimensionArgs{
-// 						Name: pulumi.String("ResourceGroupName"),
-// 						Values: pulumi.StringArray{
-// 							exampleResourceGroup.Name,
-// 						},
-// 					},
-// 				},
-// 				Tags: consumption.BudgetSubscriptionFilterTagArray{
-// 					&consumption.BudgetSubscriptionFilterTagArgs{
-// 						Name: pulumi.String("foo"),
-// 						Values: pulumi.StringArray{
-// 							pulumi.String("bar"),
-// 							pulumi.String("baz"),
-// 						},
-// 					},
-// 				},
-// 			},
-// 			Notifications: consumption.BudgetSubscriptionNotificationArray{
-// 				&consumption.BudgetSubscriptionNotificationArgs{
-// 					Enabled:   pulumi.Bool(true),
-// 					Threshold: pulumi.Int(90),
-// 					Operator:  pulumi.String("EqualTo"),
-// 					ContactEmails: pulumi.StringArray{
-// 						pulumi.String("foo@example.com"),
-// 						pulumi.String("bar@example.com"),
-// 					},
-// 					ContactGroups: pulumi.StringArray{
-// 						exampleActionGroup.ID(),
-// 					},
-// 					ContactRoles: pulumi.StringArray{
-// 						pulumi.String("Owner"),
-// 					},
-// 				},
-// 				&consumption.BudgetSubscriptionNotificationArgs{
-// 					Enabled:       pulumi.Bool(false),
-// 					Threshold:     pulumi.Int(100),
-// 					Operator:      pulumi.String("GreaterThan"),
-// 					ThresholdType: pulumi.String("Forecasted"),
-// 					ContactEmails: pulumi.StringArray{
-// 						pulumi.String("foo@example.com"),
-// 						pulumi.String("bar@example.com"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("eastus"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ShortName:         pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = consumption.NewBudgetSubscription(ctx, "exampleBudgetSubscription", &consumption.BudgetSubscriptionArgs{
+//				SubscriptionId: pulumi.String(current.Id),
+//				Amount:         pulumi.Float64(1000),
+//				TimeGrain:      pulumi.String("Monthly"),
+//				TimePeriod: &consumption.BudgetSubscriptionTimePeriodArgs{
+//					StartDate: pulumi.String("2022-06-01T00:00:00Z"),
+//					EndDate:   pulumi.String("2022-07-01T00:00:00Z"),
+//				},
+//				Filter: &consumption.BudgetSubscriptionFilterArgs{
+//					Dimensions: consumption.BudgetSubscriptionFilterDimensionArray{
+//						&consumption.BudgetSubscriptionFilterDimensionArgs{
+//							Name: pulumi.String("ResourceGroupName"),
+//							Values: pulumi.StringArray{
+//								exampleResourceGroup.Name,
+//							},
+//						},
+//					},
+//					Tags: consumption.BudgetSubscriptionFilterTagArray{
+//						&consumption.BudgetSubscriptionFilterTagArgs{
+//							Name: pulumi.String("foo"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("bar"),
+//								pulumi.String("baz"),
+//							},
+//						},
+//					},
+//				},
+//				Notifications: consumption.BudgetSubscriptionNotificationArray{
+//					&consumption.BudgetSubscriptionNotificationArgs{
+//						Enabled:   pulumi.Bool(true),
+//						Threshold: pulumi.Int(90),
+//						Operator:  pulumi.String("EqualTo"),
+//						ContactEmails: pulumi.StringArray{
+//							pulumi.String("foo@example.com"),
+//							pulumi.String("bar@example.com"),
+//						},
+//						ContactGroups: pulumi.StringArray{
+//							exampleActionGroup.ID(),
+//						},
+//						ContactRoles: pulumi.StringArray{
+//							pulumi.String("Owner"),
+//						},
+//					},
+//					&consumption.BudgetSubscriptionNotificationArgs{
+//						Enabled:       pulumi.Bool(false),
+//						Threshold:     pulumi.Int(100),
+//						Operator:      pulumi.String("GreaterThan"),
+//						ThresholdType: pulumi.String("Forecasted"),
+//						ContactEmails: pulumi.StringArray{
+//							pulumi.String("foo@example.com"),
+//							pulumi.String("bar@example.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -112,7 +115,9 @@ import (
 // Subscription Consumption Budgets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:consumption/budgetSubscription:BudgetSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/subscription1
+//
+//	$ pulumi import azure:consumption/budgetSubscription:BudgetSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/subscription1
+//
 // ```
 type BudgetSubscription struct {
 	pulumi.CustomResourceState
@@ -282,7 +287,7 @@ func (i *BudgetSubscription) ToBudgetSubscriptionOutputWithContext(ctx context.C
 // BudgetSubscriptionArrayInput is an input type that accepts BudgetSubscriptionArray and BudgetSubscriptionArrayOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionArrayInput` via:
 //
-//          BudgetSubscriptionArray{ BudgetSubscriptionArgs{...} }
+//	BudgetSubscriptionArray{ BudgetSubscriptionArgs{...} }
 type BudgetSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +312,7 @@ func (i BudgetSubscriptionArray) ToBudgetSubscriptionArrayOutputWithContext(ctx 
 // BudgetSubscriptionMapInput is an input type that accepts BudgetSubscriptionMap and BudgetSubscriptionMapOutput values.
 // You can construct a concrete instance of `BudgetSubscriptionMapInput` via:
 //
-//          BudgetSubscriptionMap{ "key": BudgetSubscriptionArgs{...} }
+//	BudgetSubscriptionMap{ "key": BudgetSubscriptionArgs{...} }
 type BudgetSubscriptionMapInput interface {
 	pulumi.Input
 

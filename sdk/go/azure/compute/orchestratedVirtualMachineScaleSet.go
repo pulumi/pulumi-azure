@@ -25,33 +25,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = compute.NewOrchestratedVirtualMachineScaleSet(ctx, "exampleOrchestratedVirtualMachineScaleSet", &compute.OrchestratedVirtualMachineScaleSetArgs{
-// 			Location:                 exampleResourceGroup.Location,
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			PlatformFaultDomainCount: pulumi.Int(1),
-// 			Zones: pulumi.StringArray{
-// 				pulumi.String("1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewOrchestratedVirtualMachineScaleSet(ctx, "exampleOrchestratedVirtualMachineScaleSet", &compute.OrchestratedVirtualMachineScaleSetArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				PlatformFaultDomainCount: pulumi.Int(1),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
+//	$ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+//
 // ```
 type OrchestratedVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
@@ -339,7 +344,7 @@ func (i *OrchestratedVirtualMachineScaleSet) ToOrchestratedVirtualMachineScaleSe
 // OrchestratedVirtualMachineScaleSetArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetArray and OrchestratedVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetArrayInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetArray{ OrchestratedVirtualMachineScaleSetArgs{...} }
+//	OrchestratedVirtualMachineScaleSetArray{ OrchestratedVirtualMachineScaleSetArgs{...} }
 type OrchestratedVirtualMachineScaleSetArrayInput interface {
 	pulumi.Input
 
@@ -364,7 +369,7 @@ func (i OrchestratedVirtualMachineScaleSetArray) ToOrchestratedVirtualMachineSca
 // OrchestratedVirtualMachineScaleSetMapInput is an input type that accepts OrchestratedVirtualMachineScaleSetMap and OrchestratedVirtualMachineScaleSetMapOutput values.
 // You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetMapInput` via:
 //
-//          OrchestratedVirtualMachineScaleSetMap{ "key": OrchestratedVirtualMachineScaleSetArgs{...} }
+//	OrchestratedVirtualMachineScaleSetMap{ "key": OrchestratedVirtualMachineScaleSetArgs{...} }
 type OrchestratedVirtualMachineScaleSetMapInput interface {
 	pulumi.Input
 

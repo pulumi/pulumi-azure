@@ -15,27 +15,26 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCertificateOrder = new Azure.AppService.CertificateOrder("exampleCertificateOrder", new Azure.AppService.CertificateOrderArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = "global",
-    ///             DistinguishedName = "CN=example.com",
-    ///             ProductType = "Standard",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCertificateOrder = new Azure.AppService.CertificateOrder("exampleCertificateOrder", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = "global",
+    ///         DistinguishedName = "CN=example.com",
+    ///         ProductType = "Standard",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -47,7 +46,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/certificateOrder:CertificateOrder")]
-    public partial class CertificateOrder : Pulumi.CustomResource
+    public partial class CertificateOrder : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Reasons why App Service Certificate is not renewable at the current moment.
@@ -207,7 +206,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class CertificateOrderArgs : Pulumi.ResourceArgs
+    public sealed class CertificateOrderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to true.
@@ -278,9 +277,10 @@ namespace Pulumi.Azure.AppService
         public CertificateOrderArgs()
         {
         }
+        public static new CertificateOrderArgs Empty => new CertificateOrderArgs();
     }
 
-    public sealed class CertificateOrderState : Pulumi.ResourceArgs
+    public sealed class CertificateOrderState : global::Pulumi.ResourceArgs
     {
         [Input("appServiceCertificateNotRenewableReasons")]
         private InputList<string>? _appServiceCertificateNotRenewableReasons;
@@ -417,5 +417,6 @@ namespace Pulumi.Azure.AppService
         public CertificateOrderState()
         {
         }
+        public static new CertificateOrderState Empty => new CertificateOrderState();
     }
 }

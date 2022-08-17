@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetGatewayConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetGatewayConnection.InvokeAsync(new Azure.Network.GetGatewayConnectionArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkGatewayConnectionId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkGatewayConnectionId")]
-        ///     public Output&lt;string&gt; VirtualNetworkGatewayConnectionId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkGatewayConnectionId"] = example.Apply(getGatewayConnectionResult =&gt; getGatewayConnectionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetGatewayConnection.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetGatewayConnection.InvokeAsync(new Azure.Network.GetGatewayConnectionArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkGatewayConnectionId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkGatewayConnectionId")]
-        ///     public Output&lt;string&gt; VirtualNetworkGatewayConnectionId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkGatewayConnectionId"] = example.Apply(getGatewayConnectionResult =&gt; getGatewayConnectionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetGatewayConnectionArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayConnectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network Gateway Connection.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetGatewayConnectionArgs()
         {
         }
+        public static new GetGatewayConnectionArgs Empty => new GetGatewayConnectionArgs();
     }
 
-    public sealed class GetGatewayConnectionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGatewayConnectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network Gateway Connection.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetGatewayConnectionInvokeArgs()
         {
         }
+        public static new GetGatewayConnectionInvokeArgs Empty => new GetGatewayConnectionInvokeArgs();
     }
 
 

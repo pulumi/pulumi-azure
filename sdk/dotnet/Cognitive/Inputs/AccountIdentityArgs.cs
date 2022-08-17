@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive.Inputs
 {
 
-    public sealed class AccountIdentityArgs : Pulumi.ResourceArgs
+    public sealed class AccountIdentityArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public AccountIdentityArgs()
         {
         }
+        public static new AccountIdentityArgs Empty => new AccountIdentityArgs();
     }
 }

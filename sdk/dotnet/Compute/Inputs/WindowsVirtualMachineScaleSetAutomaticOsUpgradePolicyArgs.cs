@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should automatic rollbacks be disabled?
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs()
         {
         }
+        public static new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs Empty => new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs();
     }
 }

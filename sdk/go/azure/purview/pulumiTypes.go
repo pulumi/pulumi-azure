@@ -23,7 +23,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-//          AccountIdentityArgs{...}
+//	AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -64,11 +64,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-//          AccountIdentityArgs{...}
+//	        AccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -212,7 +212,7 @@ type AccountManagedResource struct {
 // AccountManagedResourceInput is an input type that accepts AccountManagedResourceArgs and AccountManagedResourceOutput values.
 // You can construct a concrete instance of `AccountManagedResourceInput` via:
 //
-//          AccountManagedResourceArgs{...}
+//	AccountManagedResourceArgs{...}
 type AccountManagedResourceInput interface {
 	pulumi.Input
 
@@ -244,7 +244,7 @@ func (i AccountManagedResourceArgs) ToAccountManagedResourceOutputWithContext(ct
 // AccountManagedResourceArrayInput is an input type that accepts AccountManagedResourceArray and AccountManagedResourceArrayOutput values.
 // You can construct a concrete instance of `AccountManagedResourceArrayInput` via:
 //
-//          AccountManagedResourceArray{ AccountManagedResourceArgs{...} }
+//	AccountManagedResourceArray{ AccountManagedResourceArgs{...} }
 type AccountManagedResourceArrayInput interface {
 	pulumi.Input
 

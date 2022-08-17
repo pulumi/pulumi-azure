@@ -15,34 +15,35 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleLinkedServiceDataLakeStorageGen2 = new Azure.DataFactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", new Azure.DataFactory.LinkedServiceDataLakeStorageGen2Args
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ServicePrincipalId = current.Apply(current =&gt; current.ClientId),
-    ///             ServicePrincipalKey = "exampleKey",
-    ///             Tenant = "11111111-1111-1111-1111-111111111111",
-    ///             Url = "https://datalakestoragegen2",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleLinkedServiceDataLakeStorageGen2 = new Azure.DataFactory.LinkedServiceDataLakeStorageGen2("exampleLinkedServiceDataLakeStorageGen2", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
+    ///         ServicePrincipalKey = "exampleKey",
+    ///         Tenant = "11111111-1111-1111-1111-111111111111",
+    ///         Url = "https://datalakestoragegen2",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +55,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2")]
-    public partial class LinkedServiceDataLakeStorageGen2 : Pulumi.CustomResource
+    public partial class LinkedServiceDataLakeStorageGen2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -179,7 +180,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceDataLakeStorageGen2Args : Pulumi.ResourceArgs
+    public sealed class LinkedServiceDataLakeStorageGen2Args : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -281,9 +282,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceDataLakeStorageGen2Args()
         {
         }
+        public static new LinkedServiceDataLakeStorageGen2Args Empty => new LinkedServiceDataLakeStorageGen2Args();
     }
 
-    public sealed class LinkedServiceDataLakeStorageGen2State : Pulumi.ResourceArgs
+    public sealed class LinkedServiceDataLakeStorageGen2State : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -385,5 +387,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceDataLakeStorageGen2State()
         {
         }
+        public static new LinkedServiceDataLakeStorageGen2State Empty => new LinkedServiceDataLakeStorageGen2State();
     }
 }

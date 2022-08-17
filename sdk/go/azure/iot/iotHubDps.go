@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			AllocationPolicy:  pulumi.String("Hashed"),
-// 			Sku: &iot.IotHubDpsSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				AllocationPolicy:  pulumi.String("Hashed"),
+//				Sku: &iot.IotHubDpsSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -54,7 +57,9 @@ import (
 // IoT Device Provisioning Service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/iotHubDps:IotHubDps example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example
+//
+//	$ pulumi import azure:iot/iotHubDps:IotHubDps example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/provisioningServices/example
+//
 // ```
 type IotHubDps struct {
 	pulumi.CustomResourceState
@@ -246,7 +251,7 @@ func (i *IotHubDps) ToIotHubDpsOutputWithContext(ctx context.Context) IotHubDpsO
 // IotHubDpsArrayInput is an input type that accepts IotHubDpsArray and IotHubDpsArrayOutput values.
 // You can construct a concrete instance of `IotHubDpsArrayInput` via:
 //
-//          IotHubDpsArray{ IotHubDpsArgs{...} }
+//	IotHubDpsArray{ IotHubDpsArgs{...} }
 type IotHubDpsArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +276,7 @@ func (i IotHubDpsArray) ToIotHubDpsArrayOutputWithContext(ctx context.Context) I
 // IotHubDpsMapInput is an input type that accepts IotHubDpsMap and IotHubDpsMapOutput values.
 // You can construct a concrete instance of `IotHubDpsMapInput` via:
 //
-//          IotHubDpsMap{ "key": IotHubDpsArgs{...} }
+//	IotHubDpsMap{ "key": IotHubDpsArgs{...} }
 type IotHubDpsMapInput interface {
 	pulumi.Input
 

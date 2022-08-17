@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class TransformOutputArgs : Pulumi.ResourceArgs
+    public sealed class TransformOutputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `audio_analyzer_preset` block as defined below.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Media.Inputs
         public TransformOutputArgs()
         {
         }
+        public static new TransformOutputArgs Empty => new TransformOutputArgs();
     }
 }

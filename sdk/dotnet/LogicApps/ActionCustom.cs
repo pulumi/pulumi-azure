@@ -15,26 +15,27 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new Azure.LogicApps.WorkflowArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleActionCustom = new Azure.LogicApps.ActionCustom("exampleActionCustom", new Azure.LogicApps.ActionCustomArgs
-    ///         {
-    ///             LogicAppId = exampleWorkflow.Id,
-    ///             Body = @"{
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleActionCustom = new Azure.LogicApps.ActionCustom("exampleActionCustom", new()
+    ///     {
+    ///         LogicAppId = exampleWorkflow.Id,
+    ///         Body = @"{
     ///     ""description"": ""A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old)."",
     ///     ""inputs"": {
     ///         ""variables"": [
@@ -49,10 +50,9 @@ namespace Pulumi.Azure.LogicApps
     ///     ""type"": ""InitializeVariable""
     /// }
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.LogicApps
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/actionCustom:ActionCustom")]
-    public partial class ActionCustom : Pulumi.CustomResource
+    public partial class ActionCustom : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.LogicApps
         }
     }
 
-    public sealed class ActionCustomArgs : Pulumi.ResourceArgs
+    public sealed class ActionCustomArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
@@ -151,9 +151,10 @@ namespace Pulumi.Azure.LogicApps
         public ActionCustomArgs()
         {
         }
+        public static new ActionCustomArgs Empty => new ActionCustomArgs();
     }
 
-    public sealed class ActionCustomState : Pulumi.ResourceArgs
+    public sealed class ActionCustomState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the JSON Blob defining the Body of this Custom Action.
@@ -176,5 +177,6 @@ namespace Pulumi.Azure.LogicApps
         public ActionCustomState()
         {
         }
+        public static new ActionCustomState Empty => new ActionCustomState();
     }
 }

@@ -20,50 +20,46 @@ namespace Pulumi.Azure.AppInsights
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleWorkbook = new Azure.AppInsights.Workbook("exampleWorkbook", new Azure.AppInsights.WorkbookArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DisplayName = "workbook1",
-    ///             DataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "version", "Notebook/1.0" },
-    ///                 { "items", new[]
-    ///                     {
-    ///                         new Dictionary&lt;string, object?&gt;
-    ///                         {
-    ///                             { "type", 1 },
-    ///                             { "content", new Dictionary&lt;string, object?&gt;
-    ///                             {
-    ///                                 { "json", "Test2022" },
-    ///                             } },
-    ///                             { "name", "text - 0" },
-    ///                         },
-    ///                     }
-    ///                  },
-    ///                 { "isLocked", false },
-    ///                 { "fallbackResourceIds", new[]
-    ///                     {
-    ///                         "Azure Monitor",
-    ///                     }
-    ///                  },
-    ///             }),
-    ///             Tags = 
-    ///             {
-    ///                 { "ENV", "Test" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleWorkbook = new Azure.AppInsights.Workbook("exampleWorkbook", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DisplayName = "workbook1",
+    ///         DataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "Notebook/1.0",
+    ///             ["items"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["type"] = 1,
+    ///                     ["content"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["json"] = "Test2022",
+    ///                     },
+    ///                     ["name"] = "text - 0",
+    ///                 },
+    ///             },
+    ///             ["isLocked"] = false,
+    ///             ["fallbackResourceIds"] = new[]
+    ///             {
+    ///                 "Azure Monitor",
+    ///             },
+    ///         }),
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "Test" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +71,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/workbook:Workbook")]
-    public partial class Workbook : Pulumi.CustomResource
+    public partial class Workbook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
@@ -187,7 +183,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class WorkbookArgs : Pulumi.ResourceArgs
+    public sealed class WorkbookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
@@ -264,9 +260,10 @@ namespace Pulumi.Azure.AppInsights
         public WorkbookArgs()
         {
         }
+        public static new WorkbookArgs Empty => new WorkbookArgs();
     }
 
-    public sealed class WorkbookState : Pulumi.ResourceArgs
+    public sealed class WorkbookState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
@@ -343,5 +340,6 @@ namespace Pulumi.Azure.AppInsights
         public WorkbookState()
         {
         }
+        public static new WorkbookState Empty => new WorkbookState();
     }
 }

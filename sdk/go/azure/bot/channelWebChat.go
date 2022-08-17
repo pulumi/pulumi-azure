@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/bot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
-// 			Location:          pulumi.String("global"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("F0"),
-// 			MicrosoftAppId:    pulumi.String(current.ClientId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = bot.NewChannelWebChat(ctx, "exampleChannelWebChat", &bot.ChannelWebChatArgs{
-// 			BotName:           exampleChannelsRegistration.Name,
-// 			Location:          exampleChannelsRegistration.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SiteNames: pulumi.StringArray{
-// 				pulumi.String("TestSite"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//				Location:          pulumi.String("global"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("F0"),
+//				MicrosoftAppId:    pulumi.String(current.ClientId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = bot.NewChannelWebChat(ctx, "exampleChannelWebChat", &bot.ChannelWebChatArgs{
+//				BotName:           exampleChannelsRegistration.Name,
+//				Location:          exampleChannelsRegistration.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SiteNames: pulumi.StringArray{
+//					pulumi.String("TestSite"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Web Chat Channels can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:bot/channelWebChat:ChannelWebChat example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/WebChatChannel
+//
+//	$ pulumi import azure:bot/channelWebChat:ChannelWebChat example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/WebChatChannel
+//
 // ```
 type ChannelWebChat struct {
 	pulumi.CustomResourceState
@@ -193,7 +198,7 @@ func (i *ChannelWebChat) ToChannelWebChatOutputWithContext(ctx context.Context) 
 // ChannelWebChatArrayInput is an input type that accepts ChannelWebChatArray and ChannelWebChatArrayOutput values.
 // You can construct a concrete instance of `ChannelWebChatArrayInput` via:
 //
-//          ChannelWebChatArray{ ChannelWebChatArgs{...} }
+//	ChannelWebChatArray{ ChannelWebChatArgs{...} }
 type ChannelWebChatArrayInput interface {
 	pulumi.Input
 
@@ -218,7 +223,7 @@ func (i ChannelWebChatArray) ToChannelWebChatArrayOutputWithContext(ctx context.
 // ChannelWebChatMapInput is an input type that accepts ChannelWebChatMap and ChannelWebChatMapOutput values.
 // You can construct a concrete instance of `ChannelWebChatMapInput` via:
 //
-//          ChannelWebChatMap{ "key": ChannelWebChatArgs{...} }
+//	ChannelWebChatMap{ "key": ChannelWebChatArgs{...} }
 type ChannelWebChatMapInput interface {
 	pulumi.Input
 

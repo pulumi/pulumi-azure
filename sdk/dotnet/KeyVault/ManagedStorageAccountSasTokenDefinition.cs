@@ -15,105 +15,109 @@ namespace Pulumi.Azure.KeyVault
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+    ///     {
+    ///         ConnectionString = exampleAccount.PrimaryConnectionString,
+    ///         HttpsOnly = true,
+    ///         ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
+    ///             Service = true,
+    ///             Container = false,
+    ///             Object = false,
+    ///         },
+    ///         Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new Azure.Storage.GetAccountSASInvokeArgs
+    ///             Blob = true,
+    ///             Queue = false,
+    ///             Table = false,
+    ///             File = false,
+    ///         },
+    ///         Start = "2021-04-30T00:00:00Z",
+    ///         Expiry = "2023-04-30T00:00:00Z",
+    ///         Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
     ///         {
-    ///             ConnectionString = exampleAccount.PrimaryConnectionString,
-    ///             HttpsOnly = true,
-    ///             ResourceTypes = new Azure.Storage.Inputs.GetAccountSASResourceTypesInputArgs
-    ///             {
-    ///                 Service = true,
-    ///                 Container = false,
-    ///                 Object = false,
-    ///             },
-    ///             Services = new Azure.Storage.Inputs.GetAccountSASServicesInputArgs
-    ///             {
-    ///                 Blob = true,
-    ///                 Queue = false,
-    ///                 Table = false,
-    ///                 File = false,
-    ///             },
-    ///             Start = "2021-04-30T00:00:00Z",
-    ///             Expiry = "2023-04-30T00:00:00Z",
-    ///             Permissions = new Azure.Storage.Inputs.GetAccountSASPermissionsInputArgs
-    ///             {
-    ///                 Read = true,
-    ///                 Write = true,
-    ///                 Delete = false,
-    ///                 List = false,
-    ///                 Add = true,
-    ///                 Create = true,
-    ///                 Update = false,
-    ///                 Process = false,
-    ///             },
-    ///         });
-    ///         var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new Azure.KeyVault.KeyVaultArgs
+    ///             Read = true,
+    ///             Write = true,
+    ///             Delete = false,
+    ///             List = false,
+    ///             Add = true,
+    ///             Create = true,
+    ///             Update = false,
+    ///             Process = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///         SkuName = "standard",
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TenantId = data.Azurerm_client_config.Current.Tenant_id,
-    ///             SkuName = "standard",
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = data.Azurerm_client_config.Current.Tenant_id,
+    ///                 ObjectId = data.Azurerm_client_config.Current.Object_id,
+    ///                 SecretPermissions = new[]
     ///                 {
-    ///                     TenantId = data.Azurerm_client_config.Current.Tenant_id,
-    ///                     ObjectId = data.Azurerm_client_config.Current.Object_id,
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                         "Delete",
-    ///                     },
-    ///                     StoragePermissions = 
-    ///                     {
-    ///                         "Get",
-    ///                         "List",
-    ///                         "Set",
-    ///                         "SetSAS",
-    ///                         "GetSAS",
-    ///                         "DeleteSAS",
-    ///                         "Update",
-    ///                         "RegenerateKey",
-    ///                     },
+    ///                     "Get",
+    ///                     "Delete",
+    ///                 },
+    ///                 StoragePermissions = new[]
+    ///                 {
+    ///                     "Get",
+    ///                     "List",
+    ///                     "Set",
+    ///                     "SetSAS",
+    ///                     "GetSAS",
+    ///                     "DeleteSAS",
+    ///                     "Update",
+    ///                     "RegenerateKey",
     ///                 },
     ///             },
-    ///         });
-    ///         var test = new Azure.KeyVault.ManagedStorageAccount("test", new Azure.KeyVault.ManagedStorageAccountArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             StorageAccountKey = "key1",
-    ///             RegenerateKeyAutomatically = false,
-    ///             RegenerationPeriod = "P1D",
-    ///         });
-    ///         var exampleManagedStorageAccountSasTokenDefinition = new Azure.KeyVault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", new Azure.KeyVault.ManagedStorageAccountSasTokenDefinitionArgs
-    ///         {
-    ///             ValidityPeriod = "P1D",
-    ///             ManagedStorageAccountId = azurerm_key_vault_managed_storage_account.Example.Id,
-    ///             SasTemplateUri = exampleAccountSAS.Apply(exampleAccountSAS =&gt; exampleAccountSAS.Sas),
-    ///             SasType = "account",
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var test = new Azure.KeyVault.ManagedStorageAccount("test", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         StorageAccountKey = "key1",
+    ///         RegenerateKeyAutomatically = false,
+    ///         RegenerationPeriod = "P1D",
+    ///     });
+    /// 
+    ///     var exampleManagedStorageAccountSasTokenDefinition = new Azure.KeyVault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", new()
+    ///     {
+    ///         ValidityPeriod = "P1D",
+    ///         ManagedStorageAccountId = azurerm_key_vault_managed_storage_account.Example.Id,
+    ///         SasTemplateUri = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+    ///         SasType = "account",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +129,7 @@ namespace Pulumi.Azure.KeyVault
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition")]
-    public partial class ManagedStorageAccountSasTokenDefinition : Pulumi.CustomResource
+    public partial class ManagedStorageAccountSasTokenDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Managed Storage Account.
@@ -213,7 +217,7 @@ namespace Pulumi.Azure.KeyVault
         }
     }
 
-    public sealed class ManagedStorageAccountSasTokenDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class ManagedStorageAccountSasTokenDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Managed Storage Account.
@@ -260,9 +264,10 @@ namespace Pulumi.Azure.KeyVault
         public ManagedStorageAccountSasTokenDefinitionArgs()
         {
         }
+        public static new ManagedStorageAccountSasTokenDefinitionArgs Empty => new ManagedStorageAccountSasTokenDefinitionArgs();
     }
 
-    public sealed class ManagedStorageAccountSasTokenDefinitionState : Pulumi.ResourceArgs
+    public sealed class ManagedStorageAccountSasTokenDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Managed Storage Account.
@@ -315,5 +320,6 @@ namespace Pulumi.Azure.KeyVault
         public ManagedStorageAccountSasTokenDefinitionState()
         {
         }
+        public static new ManagedStorageAccountSasTokenDefinitionState Empty => new ManagedStorageAccountSasTokenDefinitionState();
     }
 }

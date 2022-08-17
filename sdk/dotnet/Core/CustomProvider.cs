@@ -15,33 +15,32 @@ namespace Pulumi.Azure.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCustomProvider = new Azure.Core.CustomProvider("exampleCustomProvider", new Azure.Core.CustomProviderArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ResourceTypes = 
-    ///             {
-    ///                 new Azure.Core.Inputs.CustomProviderResourceTypeArgs
-    ///                 {
-    ///                     Name = "dEf1",
-    ///                     Endpoint = "https://testendpoint.com/",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleCustomProvider = new Azure.Core.CustomProvider("exampleCustomProvider", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             new Azure.Core.Inputs.CustomProviderResourceTypeArgs
+    ///             {
+    ///                 Name = "dEf1",
+    ///                 Endpoint = "https://testendpoint.com/",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +52,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/customProvider:CustomProvider")]
-    public partial class CustomProvider : Pulumi.CustomResource
+    public partial class CustomProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Any number of `action` block as defined below. One of `resource_type` or `action` must be specified.
@@ -141,7 +140,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class CustomProviderArgs : Pulumi.ResourceArgs
+    public sealed class CustomProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.CustomProviderActionArgs>? _actions;
@@ -212,9 +211,10 @@ namespace Pulumi.Azure.Core
         public CustomProviderArgs()
         {
         }
+        public static new CustomProviderArgs Empty => new CustomProviderArgs();
     }
 
-    public sealed class CustomProviderState : Pulumi.ResourceArgs
+    public sealed class CustomProviderState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.CustomProviderActionGetArgs>? _actions;
@@ -285,5 +285,6 @@ namespace Pulumi.Azure.Core
         public CustomProviderState()
         {
         }
+        public static new CustomProviderState Empty => new CustomProviderState();
     }
 }

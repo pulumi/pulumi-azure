@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupDiagnosticsGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `log_analytics` block as defined below. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupDiagnosticsGetArgs()
         {
         }
+        public static new GroupDiagnosticsGetArgs Empty => new GroupDiagnosticsGetArgs();
     }
 }

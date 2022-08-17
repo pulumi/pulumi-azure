@@ -19,24 +19,23 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PostgreSql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PostgreSql.GetServer.InvokeAsync(new Azure.PostgreSql.GetServerArgs
-        ///         {
-        ///             Name = "postgresql-server-1",
-        ///             ResourceGroupName = "api-rg-pro",
-        ///         }));
-        ///         this.PostgresqlServerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "postgresql-server-1",
+        ///         ResourceGroupName = "api-rg-pro",
+        ///     });
         /// 
-        ///     [Output("postgresqlServerId")]
-        ///     public Output&lt;string&gt; PostgresqlServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["postgresqlServerId"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.PostgreSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.PostgreSql.GetServer.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.PostgreSql.GetServer.InvokeAsync(new Azure.PostgreSql.GetServerArgs
-        ///         {
-        ///             Name = "postgresql-server-1",
-        ///             ResourceGroupName = "api-rg-pro",
-        ///         }));
-        ///         this.PostgresqlServerId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "postgresql-server-1",
+        ///         ResourceGroupName = "api-rg-pro",
+        ///     });
         /// 
-        ///     [Output("postgresqlServerId")]
-        ///     public Output&lt;string&gt; PostgresqlServerId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["postgresqlServerId"] = example.Apply(getServerResult =&gt; getServerResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.PostgreSql
     }
 
 
-    public sealed class GetServerArgs : Pulumi.InvokeArgs
+    public sealed class GetServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the PostgreSQL Server.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.PostgreSql
         public GetServerArgs()
         {
         }
+        public static new GetServerArgs Empty => new GetServerArgs();
     }
 
-    public sealed class GetServerInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the PostgreSQL Server.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.PostgreSql
         public GetServerInvokeArgs()
         {
         }
+        public static new GetServerInvokeArgs Empty => new GetServerInvokeArgs();
     }
 
 

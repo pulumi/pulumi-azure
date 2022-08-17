@@ -17,32 +17,31 @@ namespace Pulumi.Azure.Redis
     /// This example provisions a Standard Redis Cache.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         // NOTE: the Name used for Redis needs to be globally unique
-    ///         var exampleCache = new Azure.Redis.Cache("exampleCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Capacity = 2,
-    ///             Family = "C",
-    ///             SkuName = "Standard",
-    ///             EnableNonSslPort = false,
-    ///             MinimumTlsVersion = "1.2",
-    ///             RedisConfiguration = ,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     // NOTE: the Name used for Redis needs to be globally unique
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 2,
+    ///         Family = "C",
+    ///         SkuName = "Standard",
+    ///         EnableNonSslPort = false,
+    ///         MinimumTlsVersion = "1.2",
+    ///         RedisConfiguration = ,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Default Redis Configuration Values
     /// 
@@ -82,7 +81,7 @@ namespace Pulumi.Azure.Redis
     /// ```
     /// </summary>
     [AzureResourceType("azure:redis/cache:Cache")]
-    public partial class Cache : Pulumi.CustomResource
+    public partial class Cache : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
@@ -298,7 +297,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
-    public sealed class CacheArgs : Pulumi.ResourceArgs
+    public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
@@ -455,9 +454,10 @@ namespace Pulumi.Azure.Redis
         public CacheArgs()
         {
         }
+        public static new CacheArgs Empty => new CacheArgs();
     }
 
-    public sealed class CacheState : Pulumi.ResourceArgs
+    public sealed class CacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4`.
@@ -656,5 +656,6 @@ namespace Pulumi.Azure.Redis
         public CacheState()
         {
         }
+        public static new CacheState Empty => new CacheState();
     }
 }

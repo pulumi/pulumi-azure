@@ -19,7 +19,7 @@ type DicomServiceAuthentication struct {
 // DicomServiceAuthenticationInput is an input type that accepts DicomServiceAuthenticationArgs and DicomServiceAuthenticationOutput values.
 // You can construct a concrete instance of `DicomServiceAuthenticationInput` via:
 //
-//          DicomServiceAuthenticationArgs{...}
+//	DicomServiceAuthenticationArgs{...}
 type DicomServiceAuthenticationInput interface {
 	pulumi.Input
 
@@ -48,7 +48,7 @@ func (i DicomServiceAuthenticationArgs) ToDicomServiceAuthenticationOutputWithCo
 // DicomServiceAuthenticationArrayInput is an input type that accepts DicomServiceAuthenticationArray and DicomServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `DicomServiceAuthenticationArrayInput` via:
 //
-//          DicomServiceAuthenticationArray{ DicomServiceAuthenticationArgs{...} }
+//	DicomServiceAuthenticationArray{ DicomServiceAuthenticationArgs{...} }
 type DicomServiceAuthenticationArrayInput interface {
 	pulumi.Input
 
@@ -125,7 +125,7 @@ type DicomServiceIdentity struct {
 // DicomServiceIdentityInput is an input type that accepts DicomServiceIdentityArgs and DicomServiceIdentityOutput values.
 // You can construct a concrete instance of `DicomServiceIdentityInput` via:
 //
-//          DicomServiceIdentityArgs{...}
+//	DicomServiceIdentityArgs{...}
 type DicomServiceIdentityInput interface {
 	pulumi.Input
 
@@ -165,11 +165,11 @@ func (i DicomServiceIdentityArgs) ToDicomServiceIdentityPtrOutputWithContext(ctx
 // DicomServiceIdentityPtrInput is an input type that accepts DicomServiceIdentityArgs, DicomServiceIdentityPtr and DicomServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `DicomServiceIdentityPtrInput` via:
 //
-//          DicomServiceIdentityArgs{...}
+//	        DicomServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type DicomServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -309,7 +309,7 @@ type DicomServicePrivateEndpoint struct {
 // DicomServicePrivateEndpointInput is an input type that accepts DicomServicePrivateEndpointArgs and DicomServicePrivateEndpointOutput values.
 // You can construct a concrete instance of `DicomServicePrivateEndpointInput` via:
 //
-//          DicomServicePrivateEndpointArgs{...}
+//	DicomServicePrivateEndpointArgs{...}
 type DicomServicePrivateEndpointInput interface {
 	pulumi.Input
 
@@ -339,7 +339,7 @@ func (i DicomServicePrivateEndpointArgs) ToDicomServicePrivateEndpointOutputWith
 // DicomServicePrivateEndpointArrayInput is an input type that accepts DicomServicePrivateEndpointArray and DicomServicePrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `DicomServicePrivateEndpointArrayInput` via:
 //
-//          DicomServicePrivateEndpointArray{ DicomServicePrivateEndpointArgs{...} }
+//	DicomServicePrivateEndpointArray{ DicomServicePrivateEndpointArgs{...} }
 type DicomServicePrivateEndpointArrayInput interface {
 	pulumi.Input
 
@@ -415,7 +415,7 @@ type FhirServiceAuthentication struct {
 // FhirServiceAuthenticationInput is an input type that accepts FhirServiceAuthenticationArgs and FhirServiceAuthenticationOutput values.
 // You can construct a concrete instance of `FhirServiceAuthenticationInput` via:
 //
-//          FhirServiceAuthenticationArgs{...}
+//	FhirServiceAuthenticationArgs{...}
 type FhirServiceAuthenticationInput interface {
 	pulumi.Input
 
@@ -453,11 +453,11 @@ func (i FhirServiceAuthenticationArgs) ToFhirServiceAuthenticationPtrOutputWithC
 // FhirServiceAuthenticationPtrInput is an input type that accepts FhirServiceAuthenticationArgs, FhirServiceAuthenticationPtr and FhirServiceAuthenticationPtrOutput values.
 // You can construct a concrete instance of `FhirServiceAuthenticationPtrInput` via:
 //
-//          FhirServiceAuthenticationArgs{...}
+//	        FhirServiceAuthenticationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FhirServiceAuthenticationPtrInput interface {
 	pulumi.Input
 
@@ -588,7 +588,7 @@ type FhirServiceCors struct {
 // FhirServiceCorsInput is an input type that accepts FhirServiceCorsArgs and FhirServiceCorsOutput values.
 // You can construct a concrete instance of `FhirServiceCorsInput` via:
 //
-//          FhirServiceCorsArgs{...}
+//	FhirServiceCorsArgs{...}
 type FhirServiceCorsInput interface {
 	pulumi.Input
 
@@ -632,11 +632,11 @@ func (i FhirServiceCorsArgs) ToFhirServiceCorsPtrOutputWithContext(ctx context.C
 // FhirServiceCorsPtrInput is an input type that accepts FhirServiceCorsArgs, FhirServiceCorsPtr and FhirServiceCorsPtrOutput values.
 // You can construct a concrete instance of `FhirServiceCorsPtrInput` via:
 //
-//          FhirServiceCorsArgs{...}
+//	        FhirServiceCorsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FhirServiceCorsPtrInput interface {
 	pulumi.Input
 
@@ -795,7 +795,7 @@ type FhirServiceIdentity struct {
 // FhirServiceIdentityInput is an input type that accepts FhirServiceIdentityArgs and FhirServiceIdentityOutput values.
 // You can construct a concrete instance of `FhirServiceIdentityInput` via:
 //
-//          FhirServiceIdentityArgs{...}
+//	FhirServiceIdentityArgs{...}
 type FhirServiceIdentityInput interface {
 	pulumi.Input
 
@@ -833,11 +833,11 @@ func (i FhirServiceIdentityArgs) ToFhirServiceIdentityPtrOutputWithContext(ctx c
 // FhirServiceIdentityPtrInput is an input type that accepts FhirServiceIdentityArgs, FhirServiceIdentityPtr and FhirServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `FhirServiceIdentityPtrInput` via:
 //
-//          FhirServiceIdentityArgs{...}
+//	        FhirServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type FhirServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -965,7 +965,7 @@ type ServiceAuthenticationConfiguration struct {
 // ServiceAuthenticationConfigurationInput is an input type that accepts ServiceAuthenticationConfigurationArgs and ServiceAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `ServiceAuthenticationConfigurationInput` via:
 //
-//          ServiceAuthenticationConfigurationArgs{...}
+//	ServiceAuthenticationConfigurationArgs{...}
 type ServiceAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -1006,11 +1006,11 @@ func (i ServiceAuthenticationConfigurationArgs) ToServiceAuthenticationConfigura
 // ServiceAuthenticationConfigurationPtrInput is an input type that accepts ServiceAuthenticationConfigurationArgs, ServiceAuthenticationConfigurationPtr and ServiceAuthenticationConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceAuthenticationConfigurationPtrInput` via:
 //
-//          ServiceAuthenticationConfigurationArgs{...}
+//	        ServiceAuthenticationConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceAuthenticationConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1147,7 +1147,7 @@ type ServiceCorsConfiguration struct {
 // ServiceCorsConfigurationInput is an input type that accepts ServiceCorsConfigurationArgs and ServiceCorsConfigurationOutput values.
 // You can construct a concrete instance of `ServiceCorsConfigurationInput` via:
 //
-//          ServiceCorsConfigurationArgs{...}
+//	ServiceCorsConfigurationArgs{...}
 type ServiceCorsConfigurationInput interface {
 	pulumi.Input
 
@@ -1191,11 +1191,11 @@ func (i ServiceCorsConfigurationArgs) ToServiceCorsConfigurationPtrOutputWithCon
 // ServiceCorsConfigurationPtrInput is an input type that accepts ServiceCorsConfigurationArgs, ServiceCorsConfigurationPtr and ServiceCorsConfigurationPtrOutput values.
 // You can construct a concrete instance of `ServiceCorsConfigurationPtrInput` via:
 //
-//          ServiceCorsConfigurationArgs{...}
+//	        ServiceCorsConfigurationArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceCorsConfigurationPtrInput interface {
 	pulumi.Input
 
@@ -1354,7 +1354,7 @@ type WorkspacePrivateEndpointConnection struct {
 // WorkspacePrivateEndpointConnectionInput is an input type that accepts WorkspacePrivateEndpointConnectionArgs and WorkspacePrivateEndpointConnectionOutput values.
 // You can construct a concrete instance of `WorkspacePrivateEndpointConnectionInput` via:
 //
-//          WorkspacePrivateEndpointConnectionArgs{...}
+//	WorkspacePrivateEndpointConnectionArgs{...}
 type WorkspacePrivateEndpointConnectionInput interface {
 	pulumi.Input
 
@@ -1384,7 +1384,7 @@ func (i WorkspacePrivateEndpointConnectionArgs) ToWorkspacePrivateEndpointConnec
 // WorkspacePrivateEndpointConnectionArrayInput is an input type that accepts WorkspacePrivateEndpointConnectionArray and WorkspacePrivateEndpointConnectionArrayOutput values.
 // You can construct a concrete instance of `WorkspacePrivateEndpointConnectionArrayInput` via:
 //
-//          WorkspacePrivateEndpointConnectionArray{ WorkspacePrivateEndpointConnectionArgs{...} }
+//	WorkspacePrivateEndpointConnectionArray{ WorkspacePrivateEndpointConnectionArgs{...} }
 type WorkspacePrivateEndpointConnectionArrayInput interface {
 	pulumi.Input
 
@@ -1459,7 +1459,7 @@ type GetDicomServiceAuthentication struct {
 // GetDicomServiceAuthenticationInput is an input type that accepts GetDicomServiceAuthenticationArgs and GetDicomServiceAuthenticationOutput values.
 // You can construct a concrete instance of `GetDicomServiceAuthenticationInput` via:
 //
-//          GetDicomServiceAuthenticationArgs{...}
+//	GetDicomServiceAuthenticationArgs{...}
 type GetDicomServiceAuthenticationInput interface {
 	pulumi.Input
 
@@ -1488,7 +1488,7 @@ func (i GetDicomServiceAuthenticationArgs) ToGetDicomServiceAuthenticationOutput
 // GetDicomServiceAuthenticationArrayInput is an input type that accepts GetDicomServiceAuthenticationArray and GetDicomServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetDicomServiceAuthenticationArrayInput` via:
 //
-//          GetDicomServiceAuthenticationArray{ GetDicomServiceAuthenticationArgs{...} }
+//	GetDicomServiceAuthenticationArray{ GetDicomServiceAuthenticationArgs{...} }
 type GetDicomServiceAuthenticationArrayInput interface {
 	pulumi.Input
 
@@ -1563,7 +1563,7 @@ type GetDicomServiceIdentity struct {
 // GetDicomServiceIdentityInput is an input type that accepts GetDicomServiceIdentityArgs and GetDicomServiceIdentityOutput values.
 // You can construct a concrete instance of `GetDicomServiceIdentityInput` via:
 //
-//          GetDicomServiceIdentityArgs{...}
+//	GetDicomServiceIdentityArgs{...}
 type GetDicomServiceIdentityInput interface {
 	pulumi.Input
 
@@ -1593,7 +1593,7 @@ func (i GetDicomServiceIdentityArgs) ToGetDicomServiceIdentityOutputWithContext(
 // GetDicomServiceIdentityArrayInput is an input type that accepts GetDicomServiceIdentityArray and GetDicomServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetDicomServiceIdentityArrayInput` via:
 //
-//          GetDicomServiceIdentityArray{ GetDicomServiceIdentityArgs{...} }
+//	GetDicomServiceIdentityArray{ GetDicomServiceIdentityArgs{...} }
 type GetDicomServiceIdentityArrayInput interface {
 	pulumi.Input
 
@@ -1675,7 +1675,7 @@ type GetDicomServicePrivateEndpoint struct {
 // GetDicomServicePrivateEndpointInput is an input type that accepts GetDicomServicePrivateEndpointArgs and GetDicomServicePrivateEndpointOutput values.
 // You can construct a concrete instance of `GetDicomServicePrivateEndpointInput` via:
 //
-//          GetDicomServicePrivateEndpointArgs{...}
+//	GetDicomServicePrivateEndpointArgs{...}
 type GetDicomServicePrivateEndpointInput interface {
 	pulumi.Input
 
@@ -1705,7 +1705,7 @@ func (i GetDicomServicePrivateEndpointArgs) ToGetDicomServicePrivateEndpointOutp
 // GetDicomServicePrivateEndpointArrayInput is an input type that accepts GetDicomServicePrivateEndpointArray and GetDicomServicePrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `GetDicomServicePrivateEndpointArrayInput` via:
 //
-//          GetDicomServicePrivateEndpointArray{ GetDicomServicePrivateEndpointArgs{...} }
+//	GetDicomServicePrivateEndpointArray{ GetDicomServicePrivateEndpointArgs{...} }
 type GetDicomServicePrivateEndpointArrayInput interface {
 	pulumi.Input
 
@@ -1781,7 +1781,7 @@ type GetFhirServiceAuthentication struct {
 // GetFhirServiceAuthenticationInput is an input type that accepts GetFhirServiceAuthenticationArgs and GetFhirServiceAuthenticationOutput values.
 // You can construct a concrete instance of `GetFhirServiceAuthenticationInput` via:
 //
-//          GetFhirServiceAuthenticationArgs{...}
+//	GetFhirServiceAuthenticationArgs{...}
 type GetFhirServiceAuthenticationInput interface {
 	pulumi.Input
 
@@ -1811,7 +1811,7 @@ func (i GetFhirServiceAuthenticationArgs) ToGetFhirServiceAuthenticationOutputWi
 // GetFhirServiceAuthenticationArrayInput is an input type that accepts GetFhirServiceAuthenticationArray and GetFhirServiceAuthenticationArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceAuthenticationArrayInput` via:
 //
-//          GetFhirServiceAuthenticationArray{ GetFhirServiceAuthenticationArgs{...} }
+//	GetFhirServiceAuthenticationArray{ GetFhirServiceAuthenticationArgs{...} }
 type GetFhirServiceAuthenticationArrayInput interface {
 	pulumi.Input
 
@@ -1896,7 +1896,7 @@ type GetFhirServiceCor struct {
 // GetFhirServiceCorInput is an input type that accepts GetFhirServiceCorArgs and GetFhirServiceCorOutput values.
 // You can construct a concrete instance of `GetFhirServiceCorInput` via:
 //
-//          GetFhirServiceCorArgs{...}
+//	GetFhirServiceCorArgs{...}
 type GetFhirServiceCorInput interface {
 	pulumi.Input
 
@@ -1932,7 +1932,7 @@ func (i GetFhirServiceCorArgs) ToGetFhirServiceCorOutputWithContext(ctx context.
 // GetFhirServiceCorArrayInput is an input type that accepts GetFhirServiceCorArray and GetFhirServiceCorArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceCorArrayInput` via:
 //
-//          GetFhirServiceCorArray{ GetFhirServiceCorArgs{...} }
+//	GetFhirServiceCorArray{ GetFhirServiceCorArgs{...} }
 type GetFhirServiceCorArrayInput interface {
 	pulumi.Input
 
@@ -2025,7 +2025,7 @@ type GetFhirServiceIdentity struct {
 // GetFhirServiceIdentityInput is an input type that accepts GetFhirServiceIdentityArgs and GetFhirServiceIdentityOutput values.
 // You can construct a concrete instance of `GetFhirServiceIdentityInput` via:
 //
-//          GetFhirServiceIdentityArgs{...}
+//	GetFhirServiceIdentityArgs{...}
 type GetFhirServiceIdentityInput interface {
 	pulumi.Input
 
@@ -2057,7 +2057,7 @@ func (i GetFhirServiceIdentityArgs) ToGetFhirServiceIdentityOutputWithContext(ct
 // GetFhirServiceIdentityArrayInput is an input type that accepts GetFhirServiceIdentityArray and GetFhirServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetFhirServiceIdentityArrayInput` via:
 //
-//          GetFhirServiceIdentityArray{ GetFhirServiceIdentityArgs{...} }
+//	GetFhirServiceIdentityArray{ GetFhirServiceIdentityArgs{...} }
 type GetFhirServiceIdentityArrayInput interface {
 	pulumi.Input
 
@@ -2140,7 +2140,7 @@ type GetServiceAuthenticationConfiguration struct {
 // GetServiceAuthenticationConfigurationInput is an input type that accepts GetServiceAuthenticationConfigurationArgs and GetServiceAuthenticationConfigurationOutput values.
 // You can construct a concrete instance of `GetServiceAuthenticationConfigurationInput` via:
 //
-//          GetServiceAuthenticationConfigurationArgs{...}
+//	GetServiceAuthenticationConfigurationArgs{...}
 type GetServiceAuthenticationConfigurationInput interface {
 	pulumi.Input
 
@@ -2172,7 +2172,7 @@ func (i GetServiceAuthenticationConfigurationArgs) ToGetServiceAuthenticationCon
 // GetServiceAuthenticationConfigurationArrayInput is an input type that accepts GetServiceAuthenticationConfigurationArray and GetServiceAuthenticationConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceAuthenticationConfigurationArrayInput` via:
 //
-//          GetServiceAuthenticationConfigurationArray{ GetServiceAuthenticationConfigurationArgs{...} }
+//	GetServiceAuthenticationConfigurationArray{ GetServiceAuthenticationConfigurationArgs{...} }
 type GetServiceAuthenticationConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -2259,7 +2259,7 @@ type GetServiceCorsConfiguration struct {
 // GetServiceCorsConfigurationInput is an input type that accepts GetServiceCorsConfigurationArgs and GetServiceCorsConfigurationOutput values.
 // You can construct a concrete instance of `GetServiceCorsConfigurationInput` via:
 //
-//          GetServiceCorsConfigurationArgs{...}
+//	GetServiceCorsConfigurationArgs{...}
 type GetServiceCorsConfigurationInput interface {
 	pulumi.Input
 
@@ -2295,7 +2295,7 @@ func (i GetServiceCorsConfigurationArgs) ToGetServiceCorsConfigurationOutputWith
 // GetServiceCorsConfigurationArrayInput is an input type that accepts GetServiceCorsConfigurationArray and GetServiceCorsConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetServiceCorsConfigurationArrayInput` via:
 //
-//          GetServiceCorsConfigurationArray{ GetServiceCorsConfigurationArgs{...} }
+//	GetServiceCorsConfigurationArray{ GetServiceCorsConfigurationArgs{...} }
 type GetServiceCorsConfigurationArrayInput interface {
 	pulumi.Input
 

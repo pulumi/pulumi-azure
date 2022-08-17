@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mysql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-// 			Location:                   exampleResourceGroup.Location,
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			AdministratorLogin:         pulumi.String("mysqladminun"),
-// 			AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
-// 			SslEnforcementEnabled:      pulumi.Bool(true),
-// 			SkuName:                    pulumi.String("B_Gen5_2"),
-// 			StorageMb:                  pulumi.Int(5120),
-// 			Version:                    pulumi.String("5.7"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mysql.NewActiveDirectoryAdministrator(ctx, "exampleActiveDirectoryAdministrator", &mysql.ActiveDirectoryAdministratorArgs{
-// 			ServerName:        exampleServer.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Login:             pulumi.String("sqladmin"),
-// 			TenantId:          pulumi.String(current.TenantId),
-// 			ObjectId:          pulumi.String(current.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
+//				Location:                   exampleResourceGroup.Location,
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				AdministratorLogin:         pulumi.String("mysqladminun"),
+//				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
+//				SslEnforcementEnabled:      pulumi.Bool(true),
+//				SkuName:                    pulumi.String("B_Gen5_2"),
+//				StorageMb:                  pulumi.Int(5120),
+//				Version:                    pulumi.String("5.7"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mysql.NewActiveDirectoryAdministrator(ctx, "exampleActiveDirectoryAdministrator", &mysql.ActiveDirectoryAdministratorArgs{
+//				ServerName:        exampleServer.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Login:             pulumi.String("sqladmin"),
+//				TenantId:          pulumi.String(current.TenantId),
+//				ObjectId:          pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+//
+//	$ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+//
 // ```
 type ActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutputWithC
 // ActiveDirectoryAdministratorArrayInput is an input type that accepts ActiveDirectoryAdministratorArray and ActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `ActiveDirectoryAdministratorArrayInput` via:
 //
-//          ActiveDirectoryAdministratorArray{ ActiveDirectoryAdministratorArgs{...} }
+//	ActiveDirectoryAdministratorArray{ ActiveDirectoryAdministratorArgs{...} }
 type ActiveDirectoryAdministratorArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i ActiveDirectoryAdministratorArray) ToActiveDirectoryAdministratorArrayOu
 // ActiveDirectoryAdministratorMapInput is an input type that accepts ActiveDirectoryAdministratorMap and ActiveDirectoryAdministratorMapOutput values.
 // You can construct a concrete instance of `ActiveDirectoryAdministratorMapInput` via:
 //
-//          ActiveDirectoryAdministratorMap{ "key": ActiveDirectoryAdministratorArgs{...} }
+//	ActiveDirectoryAdministratorMap{ "key": ActiveDirectoryAdministratorArgs{...} }
 type ActiveDirectoryAdministratorMapInput interface {
 	pulumi.Input
 

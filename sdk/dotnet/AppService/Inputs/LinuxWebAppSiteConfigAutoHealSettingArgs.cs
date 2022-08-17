@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxWebAppSiteConfigAutoHealSettingArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSiteConfigAutoHealSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `action` block as defined above.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxWebAppSiteConfigAutoHealSettingArgs()
         {
         }
+        public static new LinuxWebAppSiteConfigAutoHealSettingArgs Empty => new LinuxWebAppSiteConfigAutoHealSettingArgs();
     }
 }

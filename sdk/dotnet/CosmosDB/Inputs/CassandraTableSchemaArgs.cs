@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class CassandraTableSchemaArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableSchemaArgs : global::Pulumi.ResourceArgs
     {
         [Input("clusterKeys")]
         private InputList<Inputs.CassandraTableSchemaClusterKeyArgs>? _clusterKeys;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public CassandraTableSchemaArgs()
         {
         }
+        public static new CassandraTableSchemaArgs Empty => new CassandraTableSchemaArgs();
     }
 }

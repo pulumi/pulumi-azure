@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class LocalNetworkGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class LocalNetworkGatewayBgpSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The BGP speaker's ASN.
@@ -35,5 +35,6 @@ namespace Pulumi.Azure.Network.Inputs
         public LocalNetworkGatewayBgpSettingsGetArgs()
         {
         }
+        public static new LocalNetworkGatewayBgpSettingsGetArgs Empty => new LocalNetworkGatewayBgpSettingsGetArgs();
     }
 }

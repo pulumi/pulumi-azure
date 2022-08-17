@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs Empty => new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressGetArgs();
     }
 }

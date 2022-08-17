@@ -15,26 +15,25 @@ namespace Pulumi.Azure.Bot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleHealthbot = new Azure.Bot.Healthbot("exampleHealthbot", new Azure.Bot.HealthbotArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SkuName = "F0",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleHealthbot = new Azure.Bot.Healthbot("exampleHealthbot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SkuName = "F0",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -46,7 +45,7 @@ namespace Pulumi.Azure.Bot
     /// ```
     /// </summary>
     [AzureResourceType("azure:bot/healthbot:Healthbot")]
-    public partial class Healthbot : Pulumi.CustomResource
+    public partial class Healthbot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The management portal url.
@@ -129,7 +128,7 @@ namespace Pulumi.Azure.Bot
         }
     }
 
-    public sealed class HealthbotArgs : Pulumi.ResourceArgs
+    public sealed class HealthbotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies The Azure Region where the resource exists. CHanging this force a new resource to be created.
@@ -171,9 +170,10 @@ namespace Pulumi.Azure.Bot
         public HealthbotArgs()
         {
         }
+        public static new HealthbotArgs Empty => new HealthbotArgs();
     }
 
-    public sealed class HealthbotState : Pulumi.ResourceArgs
+    public sealed class HealthbotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The management portal url.
@@ -221,5 +221,6 @@ namespace Pulumi.Azure.Bot
         public HealthbotState()
         {
         }
+        public static new HealthbotState Empty => new HealthbotState();
     }
 }

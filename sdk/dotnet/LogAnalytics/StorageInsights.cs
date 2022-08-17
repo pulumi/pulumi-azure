@@ -15,41 +15,42 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleStorageInsights = new Azure.LogAnalytics.StorageInsights("exampleStorageInsights", new Azure.LogAnalytics.StorageInsightsArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleStorageInsights = new Azure.LogAnalytics.StorageInsights("exampleStorageInsights", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -61,7 +62,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/storageInsights:StorageInsights")]
-    public partial class StorageInsights : Pulumi.CustomResource
+    public partial class StorageInsights : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The names of the blob containers that the workspace should read.
@@ -149,7 +150,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class StorageInsightsArgs : Pulumi.ResourceArgs
+    public sealed class StorageInsightsArgs : global::Pulumi.ResourceArgs
     {
         [Input("blobContainerNames")]
         private InputList<string>? _blobContainerNames;
@@ -208,9 +209,10 @@ namespace Pulumi.Azure.LogAnalytics
         public StorageInsightsArgs()
         {
         }
+        public static new StorageInsightsArgs Empty => new StorageInsightsArgs();
     }
 
-    public sealed class StorageInsightsState : Pulumi.ResourceArgs
+    public sealed class StorageInsightsState : global::Pulumi.ResourceArgs
     {
         [Input("blobContainerNames")]
         private InputList<string>? _blobContainerNames;
@@ -269,5 +271,6 @@ namespace Pulumi.Azure.LogAnalytics
         public StorageInsightsState()
         {
         }
+        public static new StorageInsightsState Empty => new StorageInsightsState();
     }
 }

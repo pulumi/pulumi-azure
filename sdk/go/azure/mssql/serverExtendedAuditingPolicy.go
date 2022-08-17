@@ -19,191 +19,197 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
-// 			ServerId:                           exampleServer.ID(),
-// 			StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
-// 			StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
-// 			StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
-// 			RetentionInDays:                    pulumi.Int(6),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
+//				ServerId:                           exampleServer.ID(),
+//				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+//				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
+//				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
+//				RetentionInDays:                    pulumi.Int(6),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With Storage Account Behind VNet And Firewall
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := core.LookupSubscription(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-// 			AddressSpaces: pulumi.StringArray{
-// 				pulumi.String("10.0.0.0/16"),
-// 			},
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-// 			ResourceGroupName:  exampleResourceGroup.Name,
-// 			VirtualNetworkName: exampleVirtualNetwork.Name,
-// 			AddressPrefixes: pulumi.StringArray{
-// 				pulumi.String("10.0.2.0/24"),
-// 			},
-// 			ServiceEndpoints: pulumi.StringArray{
-// 				pulumi.String("Microsoft.Sql"),
-// 				pulumi.String("Microsoft.Storage"),
-// 			},
-// 			EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("missadministrator"),
-// 			AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
-// 			MinimumTlsVersion:          pulumi.String("1.2"),
-// 			Identity: &mssql.ServerIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-// 			Scope:              pulumi.String(primary.Id),
-// 			RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-// 			PrincipalId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (string, error) {
-// 				return identity.PrincipalId, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleServer.Name,
-// 			SubnetId:          exampleSubnet.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewFirewallRule(ctx, "exampleFirewallRule", &sql.FirewallRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ServerName:        exampleServer.Name,
-// 			StartIpAddress:    pulumi.String("0.0.0.0"),
-// 			EndIpAddress:      pulumi.String("0.0.0.0"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			AccountTier:                pulumi.String("Standard"),
-// 			AccountReplicationType:     pulumi.String("LRS"),
-// 			AccountKind:                pulumi.String("StorageV2"),
-// 			AllowNestedItemsToBePublic: pulumi.Bool(false),
-// 			NetworkRules: &storage.AccountNetworkRulesTypeArgs{
-// 				DefaultAction: pulumi.String("Deny"),
-// 				IpRules: pulumi.StringArray{
-// 					pulumi.String("127.0.0.1"),
-// 				},
-// 				VirtualNetworkSubnetIds: pulumi.StringArray{
-// 					exampleSubnet.ID(),
-// 				},
-// 				Bypasses: pulumi.StringArray{
-// 					pulumi.String("AzureServices"),
-// 				},
-// 			},
-// 			Identity: &storage.AccountIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
-// 			StorageEndpoint:              exampleAccount.PrimaryBlobEndpoint,
-// 			ServerId:                     exampleServer.ID(),
-// 			RetentionInDays:              pulumi.Int(6),
-// 			LogMonitoringEnabled:         pulumi.Bool(false),
-// 			StorageAccountSubscriptionId: pulumi.Any(azurerm_subscription.Primary.Subscription_id),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			exampleAssignment,
-// 			exampleAccount,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//				ServiceEndpoints: pulumi.StringArray{
+//					pulumi.String("Microsoft.Sql"),
+//					pulumi.String("Microsoft.Storage"),
+//				},
+//				EnforcePrivateLinkEndpointNetworkPolicies: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("missadministrator"),
+//				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
+//				MinimumTlsVersion:          pulumi.String("1.2"),
+//				Identity: &mssql.ServerIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//				Scope:              pulumi.String(primary.Id),
+//				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
+//				PrincipalId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (string, error) {
+//					return identity.PrincipalId, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				SubnetId:          exampleSubnet.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewFirewallRule(ctx, "exampleFirewallRule", &sql.FirewallRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ServerName:        exampleServer.Name,
+//				StartIpAddress:    pulumi.String("0.0.0.0"),
+//				EndIpAddress:      pulumi.String("0.0.0.0"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AccountTier:                pulumi.String("Standard"),
+//				AccountReplicationType:     pulumi.String("LRS"),
+//				AccountKind:                pulumi.String("StorageV2"),
+//				AllowNestedItemsToBePublic: pulumi.Bool(false),
+//				NetworkRules: &storage.AccountNetworkRulesTypeArgs{
+//					DefaultAction: pulumi.String("Deny"),
+//					IpRules: pulumi.StringArray{
+//						pulumi.String("127.0.0.1"),
+//					},
+//					VirtualNetworkSubnetIds: pulumi.StringArray{
+//						exampleSubnet.ID(),
+//					},
+//					Bypasses: pulumi.StringArray{
+//						pulumi.String("AzureServices"),
+//					},
+//				},
+//				Identity: &storage.AccountIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewServerExtendedAuditingPolicy(ctx, "exampleServerExtendedAuditingPolicy", &mssql.ServerExtendedAuditingPolicyArgs{
+//				StorageEndpoint:              exampleAccount.PrimaryBlobEndpoint,
+//				ServerId:                     exampleServer.ID(),
+//				RetentionInDays:              pulumi.Int(6),
+//				LogMonitoringEnabled:         pulumi.Bool(false),
+//				StorageAccountSubscriptionId: pulumi.Any(azurerm_subscription.Primary.Subscription_id),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAssignment,
+//				exampleAccount,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -211,7 +217,9 @@ import (
 // MS SQL Server Extended Auditing Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
+//
+//	$ pulumi import azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/sqlServer1/extendedAuditingSettings/default
+//
 // ```
 type ServerExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
@@ -372,7 +380,7 @@ func (i *ServerExtendedAuditingPolicy) ToServerExtendedAuditingPolicyOutputWithC
 // ServerExtendedAuditingPolicyArrayInput is an input type that accepts ServerExtendedAuditingPolicyArray and ServerExtendedAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerExtendedAuditingPolicyArrayInput` via:
 //
-//          ServerExtendedAuditingPolicyArray{ ServerExtendedAuditingPolicyArgs{...} }
+//	ServerExtendedAuditingPolicyArray{ ServerExtendedAuditingPolicyArgs{...} }
 type ServerExtendedAuditingPolicyArrayInput interface {
 	pulumi.Input
 
@@ -397,7 +405,7 @@ func (i ServerExtendedAuditingPolicyArray) ToServerExtendedAuditingPolicyArrayOu
 // ServerExtendedAuditingPolicyMapInput is an input type that accepts ServerExtendedAuditingPolicyMap and ServerExtendedAuditingPolicyMapOutput values.
 // You can construct a concrete instance of `ServerExtendedAuditingPolicyMapInput` via:
 //
-//          ServerExtendedAuditingPolicyMap{ "key": ServerExtendedAuditingPolicyArgs{...} }
+//	ServerExtendedAuditingPolicyMap{ "key": ServerExtendedAuditingPolicyArgs{...} }
 type ServerExtendedAuditingPolicyMapInput interface {
 	pulumi.Input
 

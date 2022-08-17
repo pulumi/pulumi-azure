@@ -19,44 +19,43 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SecurityRules = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
-    ///                 {
-    ///                     Name = "test123",
-    ///                     Priority = 100,
-    ///                     Direction = "Inbound",
-    ///                     Access = "Allow",
-    ///                     Protocol = "Tcp",
-    ///                     SourcePortRange = "*",
-    ///                     DestinationPortRange = "*",
-    ///                     SourceAddressPrefix = "*",
-    ///                     DestinationAddressPrefix = "*",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SecurityRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "test123",
+    ///                 Priority = 100,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "*",
+    ///                 SourceAddressPrefix = "*",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +67,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkSecurityGroup:NetworkSecurityGroup")]
-    public partial class NetworkSecurityGroup : Pulumi.CustomResource
+    public partial class NetworkSecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -144,7 +143,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -191,9 +190,10 @@ namespace Pulumi.Azure.Network
         public NetworkSecurityGroupArgs()
         {
         }
+        public static new NetworkSecurityGroupArgs Empty => new NetworkSecurityGroupArgs();
     }
 
-    public sealed class NetworkSecurityGroupState : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -240,5 +240,6 @@ namespace Pulumi.Azure.Network
         public NetworkSecurityGroupState()
         {
         }
+        public static new NetworkSecurityGroupState Empty => new NetworkSecurityGroupState();
     }
 }

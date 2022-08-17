@@ -11,6 +11,9 @@ from .. import _utilities
 
 __all__ = [
     'ReplicatedVMManagedDiskArgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionArgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs',
     'ReplicatedVMNetworkInterfaceArgs',
 ]
 
@@ -22,6 +25,7 @@ class ReplicatedVMManagedDiskArgs:
                  target_disk_type: pulumi.Input[str],
                  target_replica_disk_type: pulumi.Input[str],
                  target_resource_group_id: pulumi.Input[str],
+                 target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
                  target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] disk_id: Id of disk that should be replicated.
@@ -29,6 +33,7 @@ class ReplicatedVMManagedDiskArgs:
         :param pulumi.Input[str] target_disk_type: What type should the disk be when a failover is done.
         :param pulumi.Input[str] target_replica_disk_type: What type should the disk be that holds the replication data.
         :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done.
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with.
         """
         pulumi.set(__self__, "disk_id", disk_id)
@@ -36,6 +41,8 @@ class ReplicatedVMManagedDiskArgs:
         pulumi.set(__self__, "target_disk_type", target_disk_type)
         pulumi.set(__self__, "target_replica_disk_type", target_replica_disk_type)
         pulumi.set(__self__, "target_resource_group_id", target_resource_group_id)
+        if target_disk_encryption is not None:
+            pulumi.set(__self__, "target_disk_encryption", target_disk_encryption)
         if target_disk_encryption_set_id is not None:
             pulumi.set(__self__, "target_disk_encryption_set_id", target_disk_encryption_set_id)
 
@@ -100,6 +107,18 @@ class ReplicatedVMManagedDiskArgs:
         pulumi.set(self, "target_resource_group_id", value)
 
     @property
+    @pulumi.getter(name="targetDiskEncryption")
+    def target_disk_encryption(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]:
+        """
+        A `target_disk_encryption` block as defined below.
+        """
+        return pulumi.get(self, "target_disk_encryption")
+
+    @target_disk_encryption.setter
+    def target_disk_encryption(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]):
+        pulumi.set(self, "target_disk_encryption", value)
+
+    @property
     @pulumi.getter(name="targetDiskEncryptionSetId")
     def target_disk_encryption_set_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -110,6 +129,118 @@ class ReplicatedVMManagedDiskArgs:
     @target_disk_encryption_set_id.setter
     def target_disk_encryption_set_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "target_disk_encryption_set_id", value)
+
+
+@pulumi.input_type
+class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
+                 key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None):
+        """
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
+        """
+        pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+
+    @property
+    @pulumi.getter(name="diskEncryptionKey")
+    def disk_encryption_key(self) -> pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs']:
+        """
+        A `disk_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "disk_encryption_key")
+
+    @disk_encryption_key.setter
+    def disk_encryption_key(self, value: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs']):
+        pulumi.set(self, "disk_encryption_key", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]:
+        """
+        A `key_encryption_key` block as defined below.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
+
+
+@pulumi.input_type
+class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
+    def __init__(__self__, *,
+                 secret_url: pulumi.Input[str],
+                 vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] secret_url: The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "secret_url", secret_url)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter(name="secretUrl")
+    def secret_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "secret_url")
+
+    @secret_url.setter
+    def secret_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_url", value)
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vault_id")
+
+    @vault_id.setter
+    def vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_id", value)
+
+
+@pulumi.input_type
+class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
+    def __init__(__self__, *,
+                 key_url: pulumi.Input[str],
+                 vault_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key_url: The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] vault_id: The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "key_url", key_url)
+        pulumi.set(__self__, "vault_id", vault_id)
+
+    @property
+    @pulumi.getter(name="keyUrl")
+    def key_url(self) -> pulumi.Input[str]:
+        """
+        The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "key_url")
+
+    @key_url.setter
+    def key_url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_url", value)
+
+    @property
+    @pulumi.getter(name="vaultId")
+    def vault_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault. This can be found as `id` on the `keyvault.KeyVault` resource. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "vault_id")
+
+    @vault_id.setter
+    def vault_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vault_id", value)
 
 
 @pulumi.input_type

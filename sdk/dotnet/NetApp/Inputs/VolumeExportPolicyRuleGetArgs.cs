@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class VolumeExportPolicyRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class VolumeExportPolicyRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedClients", required: true)]
         private InputList<string>? _allowedClients;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public VolumeExportPolicyRuleGetArgs()
         {
         }
+        public static new VolumeExportPolicyRuleGetArgs Empty => new VolumeExportPolicyRuleGetArgs();
     }
 }

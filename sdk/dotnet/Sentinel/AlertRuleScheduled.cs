@@ -15,50 +15,51 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleAlertRuleScheduled = new Azure.Sentinel.AlertRuleScheduled("exampleAlertRuleScheduled", new Azure.Sentinel.AlertRuleScheduledArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///             DisplayName = "example",
-    ///             Severity = "High",
-    ///             Query = @"AzureActivity |
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAlertRuleScheduled = new Azure.Sentinel.AlertRuleScheduled("exampleAlertRuleScheduled", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         DisplayName = "example",
+    ///         Severity = "High",
+    ///         Query = @"AzureActivity |
     ///   where OperationName == ""Create or Update Virtual Machine"" or OperationName ==""Create Deployment"" |
     ///   where ActivityStatus == ""Succeeded"" |
     ///   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
     /// ",
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/alertRuleScheduled:AlertRuleScheduled")]
-    public partial class AlertRuleScheduled : Pulumi.CustomResource
+    public partial class AlertRuleScheduled : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `alert_details_override` block as defined below.
@@ -242,7 +243,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class AlertRuleScheduledArgs : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledArgs : global::Pulumi.ResourceArgs
     {
         [Input("alertDetailsOverrides")]
         private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideArgs>? _alertDetailsOverrides;
@@ -397,9 +398,10 @@ namespace Pulumi.Azure.Sentinel
         public AlertRuleScheduledArgs()
         {
         }
+        public static new AlertRuleScheduledArgs Empty => new AlertRuleScheduledArgs();
     }
 
-    public sealed class AlertRuleScheduledState : Pulumi.ResourceArgs
+    public sealed class AlertRuleScheduledState : global::Pulumi.ResourceArgs
     {
         [Input("alertDetailsOverrides")]
         private InputList<Inputs.AlertRuleScheduledAlertDetailsOverrideGetArgs>? _alertDetailsOverrides;
@@ -554,5 +556,6 @@ namespace Pulumi.Azure.Sentinel
         public AlertRuleScheduledState()
         {
         }
+        public static new AlertRuleScheduledState Empty => new AlertRuleScheduledState();
     }
 }

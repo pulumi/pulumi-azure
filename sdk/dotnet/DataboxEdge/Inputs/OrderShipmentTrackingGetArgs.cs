@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataboxEdge.Inputs
 {
 
-    public sealed class OrderShipmentTrackingGetArgs : Pulumi.ResourceArgs
+    public sealed class OrderShipmentTrackingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the carrier used in the delivery.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataboxEdge.Inputs
         public OrderShipmentTrackingGetArgs()
         {
         }
+        public static new OrderShipmentTrackingGetArgs Empty => new OrderShipmentTrackingGetArgs();
     }
 }

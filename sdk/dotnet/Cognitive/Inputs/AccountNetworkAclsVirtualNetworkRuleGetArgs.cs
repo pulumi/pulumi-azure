@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive.Inputs
 {
 
-    public sealed class AccountNetworkAclsVirtualNetworkRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountNetworkAclsVirtualNetworkRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether ignore missing vnet service endpoint or not. Default to `false`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public AccountNetworkAclsVirtualNetworkRuleGetArgs()
         {
         }
+        public static new AccountNetworkAclsVirtualNetworkRuleGetArgs Empty => new AccountNetworkAclsVirtualNetworkRuleGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DomainServices.Inputs
 {
 
-    public sealed class ServiceNotificationsGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceNotificationsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalRecipients")]
         private InputList<string>? _additionalRecipients;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DomainServices.Inputs
         public ServiceNotificationsGetArgs()
         {
         }
+        public static new ServiceNotificationsGetArgs Empty => new ServiceNotificationsGetArgs();
     }
 }

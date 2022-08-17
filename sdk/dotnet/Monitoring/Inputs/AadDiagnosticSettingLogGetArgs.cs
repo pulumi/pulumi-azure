@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AadDiagnosticSettingLogGetArgs : Pulumi.ResourceArgs
+    public sealed class AadDiagnosticSettingLogGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The log category for the Azure Active Directory Diagnostic.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AadDiagnosticSettingLogGetArgs()
         {
         }
+        public static new AadDiagnosticSettingLogGetArgs Empty => new AadDiagnosticSettingLogGetArgs();
     }
 }

@@ -15,52 +15,52 @@ namespace Pulumi.Azure.TrafficManager
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         Keepers = 
     ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "azi_id", 1 },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new Azure.Network.TrafficManagerProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             TrafficRoutingMethod = "Weighted",
-    ///             DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
-    ///             {
-    ///                 RelativeName = server.Hex,
-    ///                 Ttl = 100,
-    ///             },
-    ///             MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
-    ///             {
-    ///                 Protocol = "HTTP",
-    ///                 Port = 80,
-    ///                 Path = "/",
-    ///                 IntervalInSeconds = 30,
-    ///                 TimeoutInSeconds = 9,
-    ///                 ToleratedNumberOfFailures = 3,
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         TrafficRoutingMethod = "Weighted",
+    ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
+    ///         {
+    ///             RelativeName = server.Hex,
+    ///             Ttl = 100,
+    ///         },
+    ///         MonitorConfig = new Azure.Network.Inputs.TrafficManagerProfileMonitorConfigArgs
+    ///         {
+    ///             Protocol = "HTTP",
+    ///             Port = 80,
+    ///             Path = "/",
+    ///             IntervalInSeconds = 30,
+    ///             TimeoutInSeconds = 9,
+    ///             ToleratedNumberOfFailures = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +73,7 @@ namespace Pulumi.Azure.TrafficManager
     /// </summary>
     [Obsolete(@"azure.trafficmanager.Profile has been deprecated in favor of azure.network.TrafficManagerProfile")]
     [AzureResourceType("azure:trafficmanager/profile:Profile")]
-    public partial class Profile : Pulumi.CustomResource
+    public partial class Profile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
@@ -179,7 +179,7 @@ namespace Pulumi.Azure.TrafficManager
         }
     }
 
-    public sealed class ProfileArgs : Pulumi.ResourceArgs
+    public sealed class ProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.TrafficManager
         public ProfileArgs()
         {
         }
+        public static new ProfileArgs Empty => new ProfileArgs();
     }
 
-    public sealed class ProfileState : Pulumi.ResourceArgs
+    public sealed class ProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// This block specifies the DNS configuration of the Profile, it supports the fields documented below.
@@ -317,5 +318,6 @@ namespace Pulumi.Azure.TrafficManager
         public ProfileState()
         {
         }
+        public static new ProfileState Empty => new ProfileState();
     }
 }

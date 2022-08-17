@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")]
-    public partial class ManagedInstanceFailoverGroup : Pulumi.CustomResource
+    public partial class ManagedInstanceFailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ManagedInstanceFailoverGroupArgs : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceFailoverGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -154,9 +154,10 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceFailoverGroupArgs()
         {
         }
+        public static new ManagedInstanceFailoverGroupArgs Empty => new ManagedInstanceFailoverGroupArgs();
     }
 
-    public sealed class ManagedInstanceFailoverGroupState : Pulumi.ResourceArgs
+    public sealed class ManagedInstanceFailoverGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
@@ -215,5 +216,6 @@ namespace Pulumi.Azure.MSSql
         public ManagedInstanceFailoverGroupState()
         {
         }
+        public static new ManagedInstanceFailoverGroupState Empty => new ManagedInstanceFailoverGroupState();
     }
 }

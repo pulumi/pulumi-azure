@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/siterecovery"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("East US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-// 			Location:          example.Location,
-// 			ResourceGroupName: example.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
-// 			ResourceGroupName:                               example.Name,
-// 			RecoveryVaultName:                               vault.Name,
-// 			RecoveryPointRetentionInMinutes:                 24 * 60,
-// 			ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("East US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
+//				ResourceGroupName:                               example.Name,
+//				RecoveryVaultName:                               vault.Name,
+//				RecoveryPointRetentionInMinutes:                 24 * 60,
+//				ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -60,7 +63,9 @@ import (
 // Site Recovery Replication Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:siterecovery/replicationPolicy:ReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
+//
+//	$ pulumi import azure:siterecovery/replicationPolicy:ReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
+//
 // ```
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *ReplicationPolicy) ToReplicationPolicyOutputWithContext(ctx context.Con
 // ReplicationPolicyArrayInput is an input type that accepts ReplicationPolicyArray and ReplicationPolicyArrayOutput values.
 // You can construct a concrete instance of `ReplicationPolicyArrayInput` via:
 //
-//          ReplicationPolicyArray{ ReplicationPolicyArgs{...} }
+//	ReplicationPolicyArray{ ReplicationPolicyArgs{...} }
 type ReplicationPolicyArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i ReplicationPolicyArray) ToReplicationPolicyArrayOutputWithContext(ctx co
 // ReplicationPolicyMapInput is an input type that accepts ReplicationPolicyMap and ReplicationPolicyMapOutput values.
 // You can construct a concrete instance of `ReplicationPolicyMapInput` via:
 //
-//          ReplicationPolicyMap{ "key": ReplicationPolicyArgs{...} }
+//	ReplicationPolicyMap{ "key": ReplicationPolicyArgs{...} }
 type ReplicationPolicyMapInput interface {
 	pulumi.Input
 

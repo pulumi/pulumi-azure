@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class GetAccountSASServicesArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountSASServicesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Should permission be granted to `blob` services within this storage account?
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public GetAccountSASServicesArgs()
         {
         }
+        public static new GetAccountSASServicesArgs Empty => new GetAccountSASServicesArgs();
     }
 }

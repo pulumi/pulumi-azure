@@ -27,140 +27,143 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			PartitionCount:    pulumi.Int(2),
-// 			MessageRetention:  pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			NamespaceName:     exampleEventHubNamespace.Name,
-// 			EventhubName:      exampleEventHub.Name,
-// 			Send:              pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 			Endpoints: iot.IoTHubEndpointArray{
-// 				&iot.IoTHubEndpointArgs{
-// 					Type:                    pulumi.String("AzureIotHub.StorageContainer"),
-// 					ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
-// 					Name:                    pulumi.String("export"),
-// 					BatchFrequencyInSeconds: pulumi.Int(60),
-// 					MaxChunkSizeInBytes:     pulumi.Int(10485760),
-// 					ContainerName:           exampleContainer.Name,
-// 					Encoding:                pulumi.String("Avro"),
-// 					FileNameFormat:          pulumi.String("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"),
-// 				},
-// 				&iot.IoTHubEndpointArgs{
-// 					Type:             pulumi.String("AzureIotHub.EventHub"),
-// 					ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
-// 					Name:             pulumi.String("export2"),
-// 				},
-// 			},
-// 			Routes: iot.IoTHubRouteArray{
-// 				&iot.IoTHubRouteArgs{
-// 					Name:      pulumi.String("export"),
-// 					Source:    pulumi.String("DeviceMessages"),
-// 					Condition: pulumi.String("true"),
-// 					EndpointNames: pulumi.StringArray{
-// 						pulumi.String("export"),
-// 					},
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 				&iot.IoTHubRouteArgs{
-// 					Name:      pulumi.String("export2"),
-// 					Source:    pulumi.String("DeviceMessages"),
-// 					Condition: pulumi.String("true"),
-// 					EndpointNames: pulumi.StringArray{
-// 						pulumi.String("export2"),
-// 					},
-// 					Enabled: pulumi.Bool(true),
-// 				},
-// 			},
-// 			Enrichments: iot.IoTHubEnrichmentArray{
-// 				&iot.IoTHubEnrichmentArgs{
-// 					Key:   pulumi.String("tenant"),
-// 					Value: pulumi.String(fmt.Sprintf("$twin.tags.Tenant")),
-// 					EndpointNames: pulumi.StringArray{
-// 						pulumi.String("export"),
-// 						pulumi.String("export2"),
-// 					},
-// 				},
-// 			},
-// 			CloudToDevice: &iot.IoTHubCloudToDeviceArgs{
-// 				MaxDeliveryCount: pulumi.Int(30),
-// 				DefaultTtl:       pulumi.String("PT1H"),
-// 				Feedbacks: iot.IoTHubCloudToDeviceFeedbackArray{
-// 					&iot.IoTHubCloudToDeviceFeedbackArgs{
-// 						TimeToLive:       pulumi.String("PT1H10M"),
-// 						MaxDeliveryCount: pulumi.Int(15),
-// 						LockDuration:     pulumi.String("PT30S"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"purpose": pulumi.String("testing"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				PartitionCount:    pulumi.Int(2),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				Send:              pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Endpoints: iot.IoTHubEndpointArray{
+//					&iot.IoTHubEndpointArgs{
+//						Type:                    pulumi.String("AzureIotHub.StorageContainer"),
+//						ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
+//						Name:                    pulumi.String("export"),
+//						BatchFrequencyInSeconds: pulumi.Int(60),
+//						MaxChunkSizeInBytes:     pulumi.Int(10485760),
+//						ContainerName:           exampleContainer.Name,
+//						Encoding:                pulumi.String("Avro"),
+//						FileNameFormat:          pulumi.String("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"),
+//					},
+//					&iot.IoTHubEndpointArgs{
+//						Type:             pulumi.String("AzureIotHub.EventHub"),
+//						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
+//						Name:             pulumi.String("export2"),
+//					},
+//				},
+//				Routes: iot.IoTHubRouteArray{
+//					&iot.IoTHubRouteArgs{
+//						Name:      pulumi.String("export"),
+//						Source:    pulumi.String("DeviceMessages"),
+//						Condition: pulumi.String("true"),
+//						EndpointNames: pulumi.StringArray{
+//							pulumi.String("export"),
+//						},
+//						Enabled: pulumi.Bool(true),
+//					},
+//					&iot.IoTHubRouteArgs{
+//						Name:      pulumi.String("export2"),
+//						Source:    pulumi.String("DeviceMessages"),
+//						Condition: pulumi.String("true"),
+//						EndpointNames: pulumi.StringArray{
+//							pulumi.String("export2"),
+//						},
+//						Enabled: pulumi.Bool(true),
+//					},
+//				},
+//				Enrichments: iot.IoTHubEnrichmentArray{
+//					&iot.IoTHubEnrichmentArgs{
+//						Key:   pulumi.String("tenant"),
+//						Value: pulumi.String(fmt.Sprintf("$twin.tags.Tenant")),
+//						EndpointNames: pulumi.StringArray{
+//							pulumi.String("export"),
+//							pulumi.String("export2"),
+//						},
+//					},
+//				},
+//				CloudToDevice: &iot.IoTHubCloudToDeviceArgs{
+//					MaxDeliveryCount: pulumi.Int(30),
+//					DefaultTtl:       pulumi.String("PT1H"),
+//					Feedbacks: iot.IoTHubCloudToDeviceFeedbackArray{
+//						&iot.IoTHubCloudToDeviceFeedbackArgs{
+//							TimeToLive:       pulumi.String("PT1H10M"),
+//							MaxDeliveryCount: pulumi.Int(15),
+//							LockDuration:     pulumi.String("PT30S"),
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"purpose": pulumi.String("testing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -168,7 +171,9 @@ import (
 // IoTHubs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/ioTHub:IoTHub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1
+//
+//	$ pulumi import azure:iot/ioTHub:IoTHub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1
+//
 // ```
 type IoTHub struct {
 	pulumi.CustomResourceState
@@ -470,7 +475,7 @@ func (i *IoTHub) ToIoTHubOutputWithContext(ctx context.Context) IoTHubOutput {
 // IoTHubArrayInput is an input type that accepts IoTHubArray and IoTHubArrayOutput values.
 // You can construct a concrete instance of `IoTHubArrayInput` via:
 //
-//          IoTHubArray{ IoTHubArgs{...} }
+//	IoTHubArray{ IoTHubArgs{...} }
 type IoTHubArrayInput interface {
 	pulumi.Input
 
@@ -495,7 +500,7 @@ func (i IoTHubArray) ToIoTHubArrayOutputWithContext(ctx context.Context) IoTHubA
 // IoTHubMapInput is an input type that accepts IoTHubMap and IoTHubMapOutput values.
 // You can construct a concrete instance of `IoTHubMapInput` via:
 //
-//          IoTHubMap{ "key": IoTHubArgs{...} }
+//	IoTHubMap{ "key": IoTHubArgs{...} }
 type IoTHubMapInput interface {
 	pulumi.Input
 

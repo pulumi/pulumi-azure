@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterLinuxProfileSshKeyArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterLinuxProfileSshKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Public SSH Key used to access the cluster. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterLinuxProfileSshKeyArgs()
         {
         }
+        public static new KubernetesClusterLinuxProfileSshKeyArgs Empty => new KubernetesClusterLinuxProfileSshKeyArgs();
     }
 }

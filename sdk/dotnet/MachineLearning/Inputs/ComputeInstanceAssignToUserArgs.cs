@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MachineLearning.Inputs
 {
 
-    public sealed class ComputeInstanceAssignToUserArgs : Pulumi.ResourceArgs
+    public sealed class ComputeInstanceAssignToUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// User’s AAD Object Id.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MachineLearning.Inputs
         public ComputeInstanceAssignToUserArgs()
         {
         }
+        public static new ComputeInstanceAssignToUserArgs Empty => new ComputeInstanceAssignToUserArgs();
     }
 }

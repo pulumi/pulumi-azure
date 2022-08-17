@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class GetShareAclAccessPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetShareAclAccessPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public GetShareAclAccessPolicyArgs()
         {
         }
+        public static new GetShareAclAccessPolicyArgs Empty => new GetShareAclAccessPolicyArgs();
     }
 }

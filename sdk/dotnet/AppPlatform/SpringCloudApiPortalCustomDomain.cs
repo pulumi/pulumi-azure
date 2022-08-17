@@ -12,45 +12,49 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages a Spring Cloud API Portal Domain.
     /// 
+    /// &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "E0",
-    ///         });
-    ///         var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new Azure.AppPlatform.SpringCloudGatewayArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///         });
-    ///         var exampleSpringCloudApiPortal = new Azure.AppPlatform.SpringCloudApiPortal("exampleSpringCloudApiPortal", new Azure.AppPlatform.SpringCloudApiPortalArgs
-    ///         {
-    ///             SpringCloudServiceId = exampleSpringCloudService.Id,
-    ///             GatewayIds = 
-    ///             {
-    ///                 exampleSpringCloudGateway.Id,
-    ///             },
-    ///         });
-    ///         var exampleSpringCloudApiPortalCustomDomain = new Azure.AppPlatform.SpringCloudApiPortalCustomDomain("exampleSpringCloudApiPortalCustomDomain", new Azure.AppPlatform.SpringCloudApiPortalCustomDomainArgs
-    ///         {
-    ///             SpringCloudApiPortalId = exampleSpringCloudApiPortal.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "E0",
+    ///     });
+    /// 
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApiPortal = new Azure.AppPlatform.SpringCloudApiPortal("exampleSpringCloudApiPortal", new()
+    ///     {
+    ///         SpringCloudServiceId = exampleSpringCloudService.Id,
+    ///         GatewayIds = new[]
+    ///         {
+    ///             exampleSpringCloudGateway.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApiPortalCustomDomain = new Azure.AppPlatform.SpringCloudApiPortalCustomDomain("exampleSpringCloudApiPortalCustomDomain", new()
+    ///     {
+    ///         SpringCloudApiPortalId = exampleSpringCloudApiPortal.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +66,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudApiPortalCustomDomain:SpringCloudApiPortalCustomDomain")]
-    public partial class SpringCloudApiPortalCustomDomain : Pulumi.CustomResource
+    public partial class SpringCloudApiPortalCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
@@ -126,7 +130,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudApiPortalCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudApiPortalCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
@@ -149,9 +153,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudApiPortalCustomDomainArgs()
         {
         }
+        public static new SpringCloudApiPortalCustomDomainArgs Empty => new SpringCloudApiPortalCustomDomainArgs();
     }
 
-    public sealed class SpringCloudApiPortalCustomDomainState : Pulumi.ResourceArgs
+    public sealed class SpringCloudApiPortalCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Spring Cloud API Portal Domain. Changing this forces a new Spring Cloud API Portal Domain to be created.
@@ -174,5 +179,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudApiPortalCustomDomainState()
         {
         }
+        public static new SpringCloudApiPortalCustomDomainState Empty => new SpringCloudApiPortalCustomDomainState();
     }
 }

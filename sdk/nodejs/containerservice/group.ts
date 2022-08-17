@@ -96,7 +96,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly dnsConfig!: pulumi.Output<outputs.containerservice.GroupDnsConfig | undefined>;
     /**
-     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
      */
     public readonly dnsNameLabel!: pulumi.Output<string | undefined>;
     /**
@@ -112,7 +112,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.containerservice.GroupIdentity | undefined>;
     /**
-     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerservice.GroupImageRegistryCredential[] | undefined>;
     /**
@@ -140,7 +140,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Network profile ID for deploying to virtual network.
+     * Network profile ID for deploying to a virtual network.
      */
     public readonly networkProfileId!: pulumi.Output<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface GroupState {
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
-     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
@@ -261,7 +261,7 @@ export interface GroupState {
      */
     identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
-     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
@@ -289,7 +289,7 @@ export interface GroupState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Network profile ID for deploying to virtual network.
+     * Network profile ID for deploying to a virtual network.
      */
     networkProfileId?: pulumi.Input<string>;
     /**
@@ -327,7 +327,7 @@ export interface GroupArgs {
      */
     dnsConfig?: pulumi.Input<inputs.containerservice.GroupDnsConfig>;
     /**
-     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * The DNS label/name for the container group's IP. Changing this forces a new resource to be created.
      */
     dnsNameLabel?: pulumi.Input<string>;
     /**
@@ -339,7 +339,7 @@ export interface GroupArgs {
      */
     identity?: pulumi.Input<inputs.containerservice.GroupIdentity>;
     /**
-     * A `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
+     * An `imageRegistryCredential` block as documented below. Changing this forces a new resource to be created.
      */
     imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerservice.GroupImageRegistryCredential>[]>;
     /**
@@ -363,7 +363,7 @@ export interface GroupArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Network profile ID for deploying to virtual network.
+     * Network profile ID for deploying to a virtual network.
      */
     networkProfileId?: pulumi.Input<string>;
     /**

@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Hpc
     /// ```
     /// </summary>
     [AzureResourceType("azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget")]
-    public partial class CacheBlobNfsTarget : Pulumi.CustomResource
+    public partial class CacheBlobNfsTarget : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -113,7 +113,7 @@ namespace Pulumi.Azure.Hpc
         }
     }
 
-    public sealed class CacheBlobNfsTargetArgs : Pulumi.ResourceArgs
+    public sealed class CacheBlobNfsTargetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -160,9 +160,10 @@ namespace Pulumi.Azure.Hpc
         public CacheBlobNfsTargetArgs()
         {
         }
+        public static new CacheBlobNfsTargetArgs Empty => new CacheBlobNfsTargetArgs();
     }
 
-    public sealed class CacheBlobNfsTargetState : Pulumi.ResourceArgs
+    public sealed class CacheBlobNfsTargetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the access policy applied to this target. Defaults to `default`.
@@ -209,5 +210,6 @@ namespace Pulumi.Azure.Hpc
         public CacheBlobNfsTargetState()
         {
         }
+        public static new CacheBlobNfsTargetState Empty => new CacheBlobNfsTargetState();
     }
 }

@@ -19,25 +19,24 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetEventHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetEventHub.InvokeAsync(new Azure.EventHub.GetEventHubArgs
-        ///         {
-        ///             Name = "search-eventhub",
-        ///             ResourceGroupName = "search-service",
-        ///             NamespaceName = "search-eventhubns",
-        ///         }));
-        ///         this.EventhubId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhub",
+        ///         ResourceGroupName = "search-service",
+        ///         NamespaceName = "search-eventhubns",
+        ///     });
         /// 
-        ///     [Output("eventhubId")]
-        ///     public Output&lt;string&gt; EventhubId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubId"] = example.Apply(getEventHubResult =&gt; getEventHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.EventHub
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.EventHub.GetEventHub.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.EventHub.GetEventHub.InvokeAsync(new Azure.EventHub.GetEventHubArgs
-        ///         {
-        ///             Name = "search-eventhub",
-        ///             ResourceGroupName = "search-service",
-        ///             NamespaceName = "search-eventhubns",
-        ///         }));
-        ///         this.EventhubId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhub",
+        ///         ResourceGroupName = "search-service",
+        ///         NamespaceName = "search-eventhubns",
+        ///     });
         /// 
-        ///     [Output("eventhubId")]
-        ///     public Output&lt;string&gt; EventhubId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["eventhubId"] = example.Apply(getEventHubResult =&gt; getEventHubResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.EventHub
     }
 
 
-    public sealed class GetEventHubArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this EventHub.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.EventHub
         public GetEventHubArgs()
         {
         }
+        public static new GetEventHubArgs Empty => new GetEventHubArgs();
     }
 
-    public sealed class GetEventHubInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEventHubInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this EventHub.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.EventHub
         public GetEventHubInvokeArgs()
         {
         }
+        public static new GetEventHubInvokeArgs Empty => new GetEventHubInvokeArgs();
     }
 
 

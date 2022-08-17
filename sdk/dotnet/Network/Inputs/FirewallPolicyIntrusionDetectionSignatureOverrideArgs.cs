@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyIntrusionDetectionSignatureOverrideArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionSignatureOverrideArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// 12-digit number (id) which identifies your signature.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyIntrusionDetectionSignatureOverrideArgs()
         {
         }
+        public static new FirewallPolicyIntrusionDetectionSignatureOverrideArgs Empty => new FirewallPolicyIntrusionDetectionSignatureOverrideArgs();
     }
 }

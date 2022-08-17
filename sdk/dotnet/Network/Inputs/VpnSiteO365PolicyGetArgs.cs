@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnSiteO365PolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class VpnSiteO365PolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `traffic_category` block as defined above.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnSiteO365PolicyGetArgs()
         {
         }
+        public static new VpnSiteO365PolicyGetArgs Empty => new VpnSiteO365PolicyGetArgs();
     }
 }

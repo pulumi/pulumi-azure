@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyInsightsGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyInsightsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the default Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to, when there is no location matches in the `log_analytics_workspace`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyInsightsGetArgs()
         {
         }
+        public static new FirewallPolicyInsightsGetArgs Empty => new FirewallPolicyInsightsGetArgs();
     }
 }

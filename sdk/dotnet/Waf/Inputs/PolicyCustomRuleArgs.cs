@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyCustomRuleArgs : Pulumi.ResourceArgs
+    public sealed class PolicyCustomRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of action.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyCustomRuleArgs()
         {
         }
+        public static new PolicyCustomRuleArgs Empty => new PolicyCustomRuleArgs();
     }
 }

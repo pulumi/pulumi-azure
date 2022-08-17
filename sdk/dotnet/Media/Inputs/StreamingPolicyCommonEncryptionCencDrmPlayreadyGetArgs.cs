@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingPolicyCommonEncryptionCencDrmPlayreadyGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyCommonEncryptionCencDrmPlayreadyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Custom attributes for PlayReady. Changing this forces a new Streaming Policy to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingPolicyCommonEncryptionCencDrmPlayreadyGetArgs()
         {
         }
+        public static new StreamingPolicyCommonEncryptionCencDrmPlayreadyGetArgs Empty => new StreamingPolicyCommonEncryptionCencDrmPlayreadyGetArgs();
     }
 }

@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/desktopvirtualization"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
-// 			Location:               exampleResourceGroup.Location,
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			FriendlyName:           pulumi.String("pooleddepthfirst"),
-// 			ValidateEnvironment:    pulumi.Bool(true),
-// 			StartVmOnConnect:       pulumi.Bool(true),
-// 			CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
-// 			Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
-// 			Type:                   pulumi.String("Pooled"),
-// 			MaximumSessionsAllowed: pulumi.Int(50),
-// 			LoadBalancerType:       pulumi.String("DepthFirst"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				FriendlyName:           pulumi.String("pooleddepthfirst"),
+//				ValidateEnvironment:    pulumi.Bool(true),
+//				StartVmOnConnect:       pulumi.Bool(true),
+//				CustomRdpProperties:    pulumi.String("audiocapturemode:i:1;audiomode:i:0;"),
+//				Description:            pulumi.String("Acceptance Test: A pooled host pool - pooleddepthfirst"),
+//				Type:                   pulumi.String("Pooled"),
+//				MaximumSessionsAllowed: pulumi.Int(50),
+//				LoadBalancerType:       pulumi.String("DepthFirst"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Virtual Desktop Host Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
+//
+//	$ pulumi import azure:desktopvirtualization/hostPool:HostPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/hostpools/myhostpool
+//
 // ```
 type HostPool struct {
 	pulumi.CustomResourceState
@@ -334,7 +339,7 @@ func (i *HostPool) ToHostPoolOutputWithContext(ctx context.Context) HostPoolOutp
 // HostPoolArrayInput is an input type that accepts HostPoolArray and HostPoolArrayOutput values.
 // You can construct a concrete instance of `HostPoolArrayInput` via:
 //
-//          HostPoolArray{ HostPoolArgs{...} }
+//	HostPoolArray{ HostPoolArgs{...} }
 type HostPoolArrayInput interface {
 	pulumi.Input
 
@@ -359,7 +364,7 @@ func (i HostPoolArray) ToHostPoolArrayOutputWithContext(ctx context.Context) Hos
 // HostPoolMapInput is an input type that accepts HostPoolMap and HostPoolMapOutput values.
 // You can construct a concrete instance of `HostPoolMapInput` via:
 //
-//          HostPoolMap{ "key": HostPoolArgs{...} }
+//	HostPoolMap{ "key": HostPoolArgs{...} }
 type HostPoolMapInput interface {
 	pulumi.Input
 

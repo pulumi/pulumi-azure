@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/proximity"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/proximity"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := proximity.LookupPlacementGroup(ctx, &proximity.LookupPlacementGroupArgs{
-// 			Name:              "tf-appsecuritygroup",
-// 			ResourceGroupName: "my-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("proximityPlacementGroupId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := proximity.LookupPlacementGroup(ctx, &proximity.LookupPlacementGroupArgs{
+//				Name:              "tf-appsecuritygroup",
+//				ResourceGroupName: "my-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("proximityPlacementGroupId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPlacementGroup(ctx *pulumi.Context, args *LookupPlacementGroupArgs, opts ...pulumi.InvokeOption) (*LookupPlacementGroupResult, error) {
 	var rv LookupPlacementGroupResult

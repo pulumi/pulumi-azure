@@ -19,49 +19,52 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "search-api",
-// 			ApiManagementName: "search-api-management",
-// 			ResourceGroupName: "search-service",
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
-// 			OperationId:       pulumi.String("user-delete"),
-// 			ApiName:           pulumi.String(exampleApi.Name),
-// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
-// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			DisplayName:       pulumi.String("Delete User Operation"),
-// 			Method:            pulumi.String("DELETE"),
-// 			UrlTemplate:       pulumi.String("/users/{id}/delete"),
-// 			Description:       pulumi.String("This can only be done by the logged in user."),
-// 			Responses: apimanagement.ApiOperationResponseArray{
-// 				&apimanagement.ApiOperationResponseArgs{
-// 					StatusCode: pulumi.Int(200),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiOperationTag(ctx, "exampleApiOperationTag", &apimanagement.ApiOperationTagArgs{
-// 			ApiOperationId: exampleApiOperation.ID(),
-// 			DisplayName:    pulumi.String("example-Tag"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "search-api",
+//				ApiManagementName: "search-api-management",
+//				ResourceGroupName: "search-service",
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+//				OperationId:       pulumi.String("user-delete"),
+//				ApiName:           pulumi.String(exampleApi.Name),
+//				ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+//				ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+//				DisplayName:       pulumi.String("Delete User Operation"),
+//				Method:            pulumi.String("DELETE"),
+//				UrlTemplate:       pulumi.String("/users/{id}/delete"),
+//				Description:       pulumi.String("This can only be done by the logged in user."),
+//				Responses: apimanagement.ApiOperationResponseArray{
+//					&apimanagement.ApiOperationResponseArgs{
+//						StatusCode: pulumi.Int(200),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiOperationTag(ctx, "exampleApiOperationTag", &apimanagement.ApiOperationTagArgs{
+//				ApiOperationId: exampleApiOperation.ID(),
+//				DisplayName:    pulumi.String("example-Tag"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // API Management API Operation Tags can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiOperationTag:ApiOperationTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/operations/operation1/tags/tag1
+//
+//	$ pulumi import azure:apimanagement/apiOperationTag:ApiOperationTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/operations/operation1/tags/tag1
+//
 // ```
 type ApiOperationTag struct {
 	pulumi.CustomResourceState
@@ -183,7 +188,7 @@ func (i *ApiOperationTag) ToApiOperationTagOutputWithContext(ctx context.Context
 // ApiOperationTagArrayInput is an input type that accepts ApiOperationTagArray and ApiOperationTagArrayOutput values.
 // You can construct a concrete instance of `ApiOperationTagArrayInput` via:
 //
-//          ApiOperationTagArray{ ApiOperationTagArgs{...} }
+//	ApiOperationTagArray{ ApiOperationTagArgs{...} }
 type ApiOperationTagArrayInput interface {
 	pulumi.Input
 
@@ -208,7 +213,7 @@ func (i ApiOperationTagArray) ToApiOperationTagArrayOutputWithContext(ctx contex
 // ApiOperationTagMapInput is an input type that accepts ApiOperationTagMap and ApiOperationTagMapOutput values.
 // You can construct a concrete instance of `ApiOperationTagMapInput` via:
 //
-//          ApiOperationTagMap{ "key": ApiOperationTagArgs{...} }
+//	ApiOperationTagMap{ "key": ApiOperationTagArgs{...} }
 type ApiOperationTagMapInput interface {
 	pulumi.Input
 

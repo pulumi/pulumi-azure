@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayBgpSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayBgpSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Autonomous System Number (ASN) to use as part of the BGP.
@@ -40,5 +40,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayBgpSettingsGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayBgpSettingsGetArgs Empty => new VirtualNetworkGatewayBgpSettingsGetArgs();
     }
 }

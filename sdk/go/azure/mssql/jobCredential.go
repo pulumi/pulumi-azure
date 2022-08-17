@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("northeurope"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			Version:                    pulumi.String("12.0"),
-// 			AdministratorLogin:         pulumi.String("4dm1n157r470r"),
-// 			AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
-// 			ServerId:  exampleServer.ID(),
-// 			Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
-// 			SkuName:   pulumi.String("S1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJobAgent, err := mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
-// 			Location:   exampleResourceGroup.Location,
-// 			DatabaseId: exampleDatabase.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = mssql.NewJobCredential(ctx, "exampleJobCredential", &mssql.JobCredentialArgs{
-// 			JobAgentId: exampleJobAgent.ID(),
-// 			Username:   pulumi.String("my-username"),
-// 			Password:   pulumi.String("MyP4ssw0rd!!!"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("northeurope"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				Version:                    pulumi.String("12.0"),
+//				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
+//				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//				ServerId:  exampleServer.ID(),
+//				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
+//				SkuName:   pulumi.String("S1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJobAgent, err := mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
+//				Location:   exampleResourceGroup.Location,
+//				DatabaseId: exampleDatabase.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = mssql.NewJobCredential(ctx, "exampleJobCredential", &mssql.JobCredentialArgs{
+//				JobAgentId: exampleJobAgent.ID(),
+//				Username:   pulumi.String("my-username"),
+//				Password:   pulumi.String("MyP4ssw0rd!!!"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // Elastic Job Credentials can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
+//
+//	$ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
+//
 // ```
 type JobCredential struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *JobCredential) ToJobCredentialOutputWithContext(ctx context.Context) Jo
 // JobCredentialArrayInput is an input type that accepts JobCredentialArray and JobCredentialArrayOutput values.
 // You can construct a concrete instance of `JobCredentialArrayInput` via:
 //
-//          JobCredentialArray{ JobCredentialArgs{...} }
+//	JobCredentialArray{ JobCredentialArgs{...} }
 type JobCredentialArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i JobCredentialArray) ToJobCredentialArrayOutputWithContext(ctx context.Co
 // JobCredentialMapInput is an input type that accepts JobCredentialMap and JobCredentialMapOutput values.
 // You can construct a concrete instance of `JobCredentialMapInput` via:
 //
-//          JobCredentialMap{ "key": JobCredentialArgs{...} }
+//	JobCredentialMap{ "key": JobCredentialArgs{...} }
 type JobCredentialMapInput interface {
 	pulumi.Input
 

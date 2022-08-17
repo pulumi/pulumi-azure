@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetStorageProfileImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetStorageProfileImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the (custom) image to use to create the virtual
@@ -46,5 +46,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetStorageProfileImageReferenceGetArgs()
         {
         }
+        public static new ScaleSetStorageProfileImageReferenceGetArgs Empty => new ScaleSetStorageProfileImageReferenceGetArgs();
     }
 }

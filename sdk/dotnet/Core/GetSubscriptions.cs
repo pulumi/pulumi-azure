@@ -19,23 +19,20 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var available = Output.Create(Azure.Core.GetSubscriptions.InvokeAsync());
-        ///         this.AvailableSubscriptions = available.Apply(available =&gt; available.Subscriptions);
-        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions?[0]?.DisplayName);
-        ///     }
+        ///     var available = Azure.Core.GetSubscriptions.Invoke();
         /// 
-        ///     [Output("availableSubscriptions")]
-        ///     public Output&lt;string&gt; AvailableSubscriptions { get; set; }
-        ///     [Output("firstAvailableSubscriptionDisplayName")]
-        ///     public Output&lt;string&gt; FirstAvailableSubscriptionDisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availableSubscriptions"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions),
+        ///         ["firstAvailableSubscriptionDisplayName"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions[0]?.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,23 +48,20 @@ namespace Pulumi.Azure.Core
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var available = Output.Create(Azure.Core.GetSubscriptions.InvokeAsync());
-        ///         this.AvailableSubscriptions = available.Apply(available =&gt; available.Subscriptions);
-        ///         this.FirstAvailableSubscriptionDisplayName = available.Apply(available =&gt; available.Subscriptions?[0]?.DisplayName);
-        ///     }
+        ///     var available = Azure.Core.GetSubscriptions.Invoke();
         /// 
-        ///     [Output("availableSubscriptions")]
-        ///     public Output&lt;string&gt; AvailableSubscriptions { get; set; }
-        ///     [Output("firstAvailableSubscriptionDisplayName")]
-        ///     public Output&lt;string&gt; FirstAvailableSubscriptionDisplayName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["availableSubscriptions"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions),
+        ///         ["firstAvailableSubscriptionDisplayName"] = available.Apply(getSubscriptionsResult =&gt; getSubscriptionsResult.Subscriptions[0]?.DisplayName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +71,7 @@ namespace Pulumi.Azure.Core
     }
 
 
-    public sealed class GetSubscriptionsArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
@@ -94,9 +88,10 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionsArgs()
         {
         }
+        public static new GetSubscriptionsArgs Empty => new GetSubscriptionsArgs();
     }
 
-    public sealed class GetSubscriptionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetSubscriptionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A case-insensitive value which must be contained within the `display_name` field, used to filter the results
@@ -113,6 +108,7 @@ namespace Pulumi.Azure.Core
         public GetSubscriptionsInvokeArgs()
         {
         }
+        public static new GetSubscriptionsInvokeArgs Empty => new GetSubscriptionsInvokeArgs();
     }
 
 

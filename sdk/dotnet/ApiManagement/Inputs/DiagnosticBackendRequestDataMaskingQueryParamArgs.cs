@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class DiagnosticBackendRequestDataMaskingQueryParamArgs : Pulumi.ResourceArgs
+    public sealed class DiagnosticBackendRequestDataMaskingQueryParamArgs : global::Pulumi.ResourceArgs
     {
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public DiagnosticBackendRequestDataMaskingQueryParamArgs()
         {
         }
+        public static new DiagnosticBackendRequestDataMaskingQueryParamArgs Empty => new DiagnosticBackendRequestDataMaskingQueryParamArgs();
     }
 }

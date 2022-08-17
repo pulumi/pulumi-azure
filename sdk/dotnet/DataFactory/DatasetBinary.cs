@@ -15,44 +15,45 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new Azure.DataFactory.LinkedServiceSftpArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             AuthenticationType = "Basic",
-    ///             Host = "http://www.bing.com",
-    ///             Port = 22,
-    ///             Username = "foo",
-    ///             Password = "bar",
-    ///         });
-    ///         var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("exampleDatasetBinary", new Azure.DataFactory.DatasetBinaryArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceSftp.Name,
-    ///             SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
-    ///             {
-    ///                 Path = "/test/",
-    ///                 Filename = "**",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceSftp = new Azure.DataFactory.LinkedServiceSftp("exampleLinkedServiceSftp", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AuthenticationType = "Basic",
+    ///         Host = "http://www.bing.com",
+    ///         Port = 22,
+    ///         Username = "foo",
+    ///         Password = "bar",
+    ///     });
+    /// 
+    ///     var exampleDatasetBinary = new Azure.DataFactory.DatasetBinary("exampleDatasetBinary", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceSftp.Name,
+    ///         SftpServerLocation = new Azure.DataFactory.Inputs.DatasetBinarySftpServerLocationArgs
+    ///         {
+    ///             Path = "/test/",
+    ///             Filename = "**",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetBinary:DatasetBinary")]
-    public partial class DatasetBinary : Pulumi.CustomResource
+    public partial class DatasetBinary : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Binary Dataset.
@@ -183,7 +184,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetBinaryArgs : Pulumi.ResourceArgs
+    public sealed class DatasetBinaryArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -279,9 +280,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetBinaryArgs()
         {
         }
+        public static new DatasetBinaryArgs Empty => new DatasetBinaryArgs();
     }
 
-    public sealed class DatasetBinaryState : Pulumi.ResourceArgs
+    public sealed class DatasetBinaryState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -377,5 +379,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetBinaryState()
         {
         }
+        public static new DatasetBinaryState Empty => new DatasetBinaryState();
     }
 }

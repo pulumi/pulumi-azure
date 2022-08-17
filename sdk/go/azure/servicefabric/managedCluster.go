@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicefabric"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicefabric"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := servicefabric.NewManagedCluster(ctx, "example", &servicefabric.ManagedClusterArgs{
-// 			ClientConnectionPort: pulumi.Int(12345),
-// 			HttpGatewayPort:      pulumi.Int(4567),
-// 			LbRules: servicefabric.ManagedClusterLbRuleArray{
-// 				&servicefabric.ManagedClusterLbRuleArgs{
-// 					BackendPort:      pulumi.Int(38080),
-// 					FrontendPort:     pulumi.Int(80),
-// 					ProbeProtocol:    pulumi.String("http"),
-// 					ProbeRequestPath: pulumi.String("/test"),
-// 					Protocol:         pulumi.String("tcp"),
-// 				},
-// 			},
-// 			Location: pulumi.String("West Europe"),
-// 			NodeTypes: servicefabric.ManagedClusterNodeTypeArray{
-// 				&servicefabric.ManagedClusterNodeTypeArgs{
-// 					ApplicationPortRange: pulumi.String("30000-49000"),
-// 					DataDiskSizeGb:       pulumi.Int(130),
-// 					EphemeralPortRange:   pulumi.String("10000-20000"),
-// 					Name:                 pulumi.String("test1"),
-// 					Primary:              pulumi.Bool(true),
-// 					VmImageOffer:         pulumi.String("WindowsServer"),
-// 					VmImagePublisher:     pulumi.String("MicrosoftWindowsServer"),
-// 					VmImageSku:           pulumi.String("2019-Datacenter-with-Containers"),
-// 					VmImageVersion:       pulumi.String("latest"),
-// 					VmInstanceCount:      pulumi.Int(5),
-// 					VmSize:               pulumi.String("Standard_DS1_v2"),
-// 				},
-// 			},
-// 			ResourceGroupName: pulumi.String("example"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := servicefabric.NewManagedCluster(ctx, "example", &servicefabric.ManagedClusterArgs{
+//				ClientConnectionPort: pulumi.Int(12345),
+//				HttpGatewayPort:      pulumi.Int(4567),
+//				LbRules: servicefabric.ManagedClusterLbRuleArray{
+//					&servicefabric.ManagedClusterLbRuleArgs{
+//						BackendPort:      pulumi.Int(38080),
+//						FrontendPort:     pulumi.Int(80),
+//						ProbeProtocol:    pulumi.String("http"),
+//						ProbeRequestPath: pulumi.String("/test"),
+//						Protocol:         pulumi.String("tcp"),
+//					},
+//				},
+//				Location: pulumi.String("West Europe"),
+//				NodeTypes: servicefabric.ManagedClusterNodeTypeArray{
+//					&servicefabric.ManagedClusterNodeTypeArgs{
+//						ApplicationPortRange: pulumi.String("30000-49000"),
+//						DataDiskSizeGb:       pulumi.Int(130),
+//						EphemeralPortRange:   pulumi.String("10000-20000"),
+//						Name:                 pulumi.String("test1"),
+//						Primary:              pulumi.Bool(true),
+//						VmImageOffer:         pulumi.String("WindowsServer"),
+//						VmImagePublisher:     pulumi.String("MicrosoftWindowsServer"),
+//						VmImageSku:           pulumi.String("2019-Datacenter-with-Containers"),
+//						VmImageVersion:       pulumi.String("latest"),
+//						VmInstanceCount:      pulumi.Int(5),
+//						VmSize:               pulumi.String("Standard_DS1_v2"),
+//					},
+//				},
+//				ResourceGroupName: pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -68,7 +71,9 @@ import (
 // Resource Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicefabric/managedCluster:ManagedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ServiceFabric/managedClusters/clusterName1
+//
+//	$ pulumi import azure:servicefabric/managedCluster:ManagedCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.ServiceFabric/managedClusters/clusterName1
+//
 // ```
 type ManagedCluster struct {
 	pulumi.CustomResourceState
@@ -328,7 +333,7 @@ func (i *ManagedCluster) ToManagedClusterOutputWithContext(ctx context.Context) 
 // ManagedClusterArrayInput is an input type that accepts ManagedClusterArray and ManagedClusterArrayOutput values.
 // You can construct a concrete instance of `ManagedClusterArrayInput` via:
 //
-//          ManagedClusterArray{ ManagedClusterArgs{...} }
+//	ManagedClusterArray{ ManagedClusterArgs{...} }
 type ManagedClusterArrayInput interface {
 	pulumi.Input
 
@@ -353,7 +358,7 @@ func (i ManagedClusterArray) ToManagedClusterArrayOutputWithContext(ctx context.
 // ManagedClusterMapInput is an input type that accepts ManagedClusterMap and ManagedClusterMapOutput values.
 // You can construct a concrete instance of `ManagedClusterMapInput` via:
 //
-//          ManagedClusterMap{ "key": ManagedClusterArgs{...} }
+//	ManagedClusterMap{ "key": ManagedClusterArgs{...} }
 type ManagedClusterMapInput interface {
 	pulumi.Input
 

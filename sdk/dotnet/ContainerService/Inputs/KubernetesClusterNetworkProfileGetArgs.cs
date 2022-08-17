@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterNetworkProfileGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterNetworkProfileGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterNetworkProfileGetArgs()
         {
         }
+        public static new KubernetesClusterNetworkProfileGetArgs Empty => new KubernetesClusterNetworkProfileGetArgs();
     }
 }

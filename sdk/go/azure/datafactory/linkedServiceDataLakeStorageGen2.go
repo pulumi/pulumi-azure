@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewLinkedServiceDataLakeStorageGen2(ctx, "exampleLinkedServiceDataLakeStorageGen2", &datafactory.LinkedServiceDataLakeStorageGen2Args{
-// 			DataFactoryId:       exampleFactory.ID(),
-// 			ServicePrincipalId:  pulumi.String(current.ClientId),
-// 			ServicePrincipalKey: pulumi.String("exampleKey"),
-// 			Tenant:              pulumi.String("11111111-1111-1111-1111-111111111111"),
-// 			Url:                 pulumi.String("https://datalakestoragegen2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceDataLakeStorageGen2(ctx, "exampleLinkedServiceDataLakeStorageGen2", &datafactory.LinkedServiceDataLakeStorageGen2Args{
+//				DataFactoryId:       exampleFactory.ID(),
+//				ServicePrincipalId:  pulumi.String(current.ClientId),
+//				ServicePrincipalKey: pulumi.String("exampleKey"),
+//				Tenant:              pulumi.String("11111111-1111-1111-1111-111111111111"),
+//				Url:                 pulumi.String("https://datalakestoragegen2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
+//	$ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+//
 // ```
 type LinkedServiceDataLakeStorageGen2 struct {
 	pulumi.CustomResourceState
@@ -282,7 +287,7 @@ func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2Out
 // LinkedServiceDataLakeStorageGen2ArrayInput is an input type that accepts LinkedServiceDataLakeStorageGen2Array and LinkedServiceDataLakeStorageGen2ArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceDataLakeStorageGen2ArrayInput` via:
 //
-//          LinkedServiceDataLakeStorageGen2Array{ LinkedServiceDataLakeStorageGen2Args{...} }
+//	LinkedServiceDataLakeStorageGen2Array{ LinkedServiceDataLakeStorageGen2Args{...} }
 type LinkedServiceDataLakeStorageGen2ArrayInput interface {
 	pulumi.Input
 
@@ -307,7 +312,7 @@ func (i LinkedServiceDataLakeStorageGen2Array) ToLinkedServiceDataLakeStorageGen
 // LinkedServiceDataLakeStorageGen2MapInput is an input type that accepts LinkedServiceDataLakeStorageGen2Map and LinkedServiceDataLakeStorageGen2MapOutput values.
 // You can construct a concrete instance of `LinkedServiceDataLakeStorageGen2MapInput` via:
 //
-//          LinkedServiceDataLakeStorageGen2Map{ "key": LinkedServiceDataLakeStorageGen2Args{...} }
+//	LinkedServiceDataLakeStorageGen2Map{ "key": LinkedServiceDataLakeStorageGen2Args{...} }
 type LinkedServiceDataLakeStorageGen2MapInput interface {
 	pulumi.Input
 

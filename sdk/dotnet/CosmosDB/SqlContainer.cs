@@ -15,68 +15,68 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new Azure.CosmosDB.SqlDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///         });
-    ///         var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new Azure.CosmosDB.SqlContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleSqlDatabase.Name,
-    ///             PartitionKeyPath = "/definition/id",
-    ///             PartitionKeyVersion = 1,
-    ///             Throughput = 400,
-    ///             IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
-    ///             {
-    ///                 IndexingMode = "consistent",
-    ///                 IncludedPaths = 
-    ///                 {
-    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
-    ///                     {
-    ///                         Path = "/*",
-    ///                     },
-    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
-    ///                     {
-    ///                         Path = "/included/?",
-    ///                     },
-    ///                 },
-    ///                 ExcludedPaths = 
-    ///                 {
-    ///                     new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
-    ///                     {
-    ///                         Path = "/excluded/?",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             UniqueKeys = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.SqlContainerUniqueKeyArgs
-    ///                 {
-    ///                     Paths = 
-    ///                     {
-    ///                         "/definition/idlong",
-    ///                         "/definition/idshort",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///     });
+    /// 
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleSqlDatabase.Name,
+    ///         PartitionKeyPath = "/definition/id",
+    ///         PartitionKeyVersion = 1,
+    ///         Throughput = 400,
+    ///         IndexingPolicy = new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyArgs
+    ///         {
+    ///             IndexingMode = "consistent",
+    ///             IncludedPaths = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                 {
+    ///                     Path = "/*",
+    ///                 },
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyIncludedPathArgs
+    ///                 {
+    ///                     Path = "/included/?",
+    ///                 },
+    ///             },
+    ///             ExcludedPaths = new[]
+    ///             {
+    ///                 new Azure.CosmosDB.Inputs.SqlContainerIndexingPolicyExcludedPathArgs
+    ///                 {
+    ///                     Path = "/excluded/?",
+    ///                 },
+    ///             },
+    ///         },
+    ///         UniqueKeys = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.SqlContainerUniqueKeyArgs
+    ///             {
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/definition/idlong",
+    ///                     "/definition/idshort",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -88,7 +88,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/sqlContainer:SqlContainer")]
-    public partial class SqlContainer : Pulumi.CustomResource
+    public partial class SqlContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
@@ -212,7 +212,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class SqlContainerArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
@@ -301,9 +301,10 @@ namespace Pulumi.Azure.CosmosDB
         public SqlContainerArgs()
         {
         }
+        public static new SqlContainerArgs Empty => new SqlContainerArgs();
     }
 
-    public sealed class SqlContainerState : Pulumi.ResourceArgs
+    public sealed class SqlContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
@@ -392,5 +393,6 @@ namespace Pulumi.Azure.CosmosDB
         public SqlContainerState()
         {
         }
+        public static new SqlContainerState Empty => new SqlContainerState();
     }
 }

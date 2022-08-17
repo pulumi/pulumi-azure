@@ -24,6 +24,7 @@ class ARecordArgs:
         """
         The set of arguments for constructing a ARecord resource.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS A Record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of IPv4 Addresses. Conflicts with `target_resource_id`.
@@ -57,6 +58,9 @@ class ARecordArgs:
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -143,6 +147,7 @@ class _ARecordState:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
@@ -237,6 +242,9 @@ class _ARecordState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -319,6 +327,7 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
@@ -446,6 +455,7 @@ class ARecord(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -513,6 +523,9 @@ class ARecord(pulumi.CustomResource):
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @property

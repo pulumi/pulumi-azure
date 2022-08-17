@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class TriggerRecurrenceScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class TriggerRecurrenceScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("atTheseHours")]
         private InputList<int>? _atTheseHours;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public TriggerRecurrenceScheduleGetArgs()
         {
         }
+        public static new TriggerRecurrenceScheduleGetArgs Empty => new TriggerRecurrenceScheduleGetArgs();
     }
 }

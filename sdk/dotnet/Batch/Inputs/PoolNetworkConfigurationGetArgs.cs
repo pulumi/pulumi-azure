@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolNetworkConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class PoolNetworkConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpointConfigurations")]
         private InputList<Inputs.PoolNetworkConfigurationEndpointConfigurationGetArgs>? _endpointConfigurations;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolNetworkConfigurationGetArgs()
         {
         }
+        public static new PoolNetworkConfigurationGetArgs Empty => new PoolNetworkConfigurationGetArgs();
     }
 }

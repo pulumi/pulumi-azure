@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/marketplace"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/marketplace"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
-// 			Offer:     pulumi.String("waf"),
-// 			Plan:      pulumi.String("hourly"),
-// 			Publisher: pulumi.String("barracudanetworks"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := marketplace.NewAgreement(ctx, "barracuda", &marketplace.AgreementArgs{
+//				Offer:     pulumi.String("waf"),
+//				Plan:      pulumi.String("hourly"),
+//				Publisher: pulumi.String("barracudanetworks"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // Marketplace Agreement can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
+//
+//	$ pulumi import azure:marketplace/agreement:Agreement example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.MarketplaceOrdering/agreements/publisher1/offers/offer1/plans/plan1
+//
 // ```
 type Agreement struct {
 	pulumi.CustomResourceState
@@ -166,7 +171,7 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 // AgreementArrayInput is an input type that accepts AgreementArray and AgreementArrayOutput values.
 // You can construct a concrete instance of `AgreementArrayInput` via:
 //
-//          AgreementArray{ AgreementArgs{...} }
+//	AgreementArray{ AgreementArgs{...} }
 type AgreementArrayInput interface {
 	pulumi.Input
 
@@ -191,7 +196,7 @@ func (i AgreementArray) ToAgreementArrayOutputWithContext(ctx context.Context) A
 // AgreementMapInput is an input type that accepts AgreementMap and AgreementMapOutput values.
 // You can construct a concrete instance of `AgreementMapInput` via:
 //
-//          AgreementMap{ "key": AgreementArgs{...} }
+//	AgreementMap{ "key": AgreementArgs{...} }
 type AgreementMapInput interface {
 	pulumi.Input
 

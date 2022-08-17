@@ -17,47 +17,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dns.NewSrvRecord(ctx, "exampleSrvRecord", &dns.SrvRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Records: dns.SrvRecordRecordArray{
-// 				&dns.SrvRecordRecordArgs{
-// 					Priority: pulumi.Int(1),
-// 					Weight:   pulumi.Int(5),
-// 					Port:     pulumi.Int(8080),
-// 					Target:   pulumi.String("target1.contoso.com"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Environment": pulumi.String("Production"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewSrvRecord(ctx, "exampleSrvRecord", &dns.SrvRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Records: dns.SrvRecordRecordArray{
+//					&dns.SrvRecordRecordArgs{
+//						Priority: pulumi.Int(1),
+//						Weight:   pulumi.Int(5),
+//						Port:     pulumi.Int(8080),
+//						Target:   pulumi.String("target1.contoso.com"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // SRV records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dns/srvRecord:SrvRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/SRV/myrecord1
+//
+//	$ pulumi import azure:dns/srvRecord:SrvRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnszones/zone1/SRV/myrecord1
+//
 // ```
 type SrvRecord struct {
 	pulumi.CustomResourceState
@@ -221,7 +226,7 @@ func (i *SrvRecord) ToSrvRecordOutputWithContext(ctx context.Context) SrvRecordO
 // SrvRecordArrayInput is an input type that accepts SrvRecordArray and SrvRecordArrayOutput values.
 // You can construct a concrete instance of `SrvRecordArrayInput` via:
 //
-//          SrvRecordArray{ SrvRecordArgs{...} }
+//	SrvRecordArray{ SrvRecordArgs{...} }
 type SrvRecordArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (i SrvRecordArray) ToSrvRecordArrayOutputWithContext(ctx context.Context) S
 // SrvRecordMapInput is an input type that accepts SrvRecordMap and SrvRecordMapOutput values.
 // You can construct a concrete instance of `SrvRecordMapInput` via:
 //
-//          SrvRecordMap{ "key": SrvRecordArgs{...} }
+//	SrvRecordMap{ "key": SrvRecordArgs{...} }
 type SrvRecordMapInput interface {
 	pulumi.Input
 

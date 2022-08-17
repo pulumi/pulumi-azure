@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ServiceSecurityArgs : Pulumi.ResourceArgs
+    public sealed class ServiceSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
@@ -105,5 +105,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ServiceSecurityArgs()
         {
         }
+        public static new ServiceSecurityArgs Empty => new ServiceSecurityArgs();
     }
 }

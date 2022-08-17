@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetWindowsWebApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetWindowsWebApp.InvokeAsync(new Azure.AppService.GetWindowsWebAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWindowsWebAppResult =&gt; getWindowsWebAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetWindowsWebApp.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetWindowsWebApp.InvokeAsync(new Azure.AppService.GetWindowsWebAppArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getWindowsWebAppResult =&gt; getWindowsWebAppResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetWindowsWebAppArgs : Pulumi.InvokeArgs
+    public sealed class GetWindowsWebAppArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Windows Web App.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetWindowsWebAppArgs()
         {
         }
+        public static new GetWindowsWebAppArgs Empty => new GetWindowsWebAppArgs();
     }
 
-    public sealed class GetWindowsWebAppInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWindowsWebAppInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Windows Web App.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetWindowsWebAppInvokeArgs()
         {
         }
+        public static new GetWindowsWebAppInvokeArgs Empty => new GetWindowsWebAppInvokeArgs();
     }
 
 

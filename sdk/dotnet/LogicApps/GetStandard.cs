@@ -19,24 +19,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetStandard.InvokeAsync(new Azure.LogicApps.GetStandardArgs
-        ///         {
-        ///             Name = "logicappstd",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "logicappstd",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getStandardResult =&gt; getStandardResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.LogicApps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.LogicApps.GetStandard.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.LogicApps.GetStandard.InvokeAsync(new Azure.LogicApps.GetStandardArgs
-        ///         {
-        ///             Name = "logicappstd",
-        ///             ResourceGroupName = "example-rg",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "logicappstd",
+        ///         ResourceGroupName = "example-rg",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getStandardResult =&gt; getStandardResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.LogicApps
     }
 
 
-    public sealed class GetStandardArgs : Pulumi.InvokeArgs
+    public sealed class GetStandardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Logic App.
@@ -107,9 +105,10 @@ namespace Pulumi.Azure.LogicApps
         public GetStandardArgs()
         {
         }
+        public static new GetStandardArgs Empty => new GetStandardArgs();
     }
 
-    public sealed class GetStandardInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetStandardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Logic App.
@@ -137,6 +136,7 @@ namespace Pulumi.Azure.LogicApps
         public GetStandardInvokeArgs()
         {
         }
+        public static new GetStandardInvokeArgs Empty => new GetStandardInvokeArgs();
     }
 
 

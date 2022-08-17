@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSlotBackupScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSlotBackupScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// How often the backup should be executed (e.g. for weekly backup, this should be set to `7` and `frequency_unit` should be set to `Day`).
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSlotBackupScheduleGetArgs()
         {
         }
+        public static new WindowsFunctionAppSlotBackupScheduleGetArgs Empty => new WindowsFunctionAppSlotBackupScheduleGetArgs();
     }
 }

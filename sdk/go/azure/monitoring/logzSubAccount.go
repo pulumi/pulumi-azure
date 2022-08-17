@@ -19,61 +19,64 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Plan: &monitoring.LogzMonitorPlanArgs{
-// 				BillingCycle:  pulumi.String("MONTHLY"),
-// 				EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
-// 				PlanId:        pulumi.String("100gb14days"),
-// 				UsageType:     pulumi.String("COMMITTED"),
-// 			},
-// 			User: &monitoring.LogzMonitorUserArgs{
-// 				Email:       pulumi.String("user@example.com"),
-// 				FirstName:   pulumi.String("Example"),
-// 				LastName:    pulumi.String("User"),
-// 				PhoneNumber: pulumi.String("+12313803556"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = monitoring.NewLogzSubAccount(ctx, "exampleLogzSubAccount", &monitoring.LogzSubAccountArgs{
-// 			LogzMonitorId: exampleLogzMonitor.ID(),
-// 			User: &monitoring.LogzSubAccountUserArgs{
-// 				Email: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-// 					return user.Email, nil
-// 				}).(pulumi.StringOutput),
-// 				FirstName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-// 					return user.FirstName, nil
-// 				}).(pulumi.StringOutput),
-// 				LastName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-// 					return user.LastName, nil
-// 				}).(pulumi.StringOutput),
-// 				PhoneNumber: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
-// 					return user.PhoneNumber, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Plan: &monitoring.LogzMonitorPlanArgs{
+//					BillingCycle:  pulumi.String("MONTHLY"),
+//					EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
+//					PlanId:        pulumi.String("100gb14days"),
+//					UsageType:     pulumi.String("COMMITTED"),
+//				},
+//				User: &monitoring.LogzMonitorUserArgs{
+//					Email:       pulumi.String("user@example.com"),
+//					FirstName:   pulumi.String("Example"),
+//					LastName:    pulumi.String("User"),
+//					PhoneNumber: pulumi.String("+12313803556"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewLogzSubAccount(ctx, "exampleLogzSubAccount", &monitoring.LogzSubAccountArgs{
+//				LogzMonitorId: exampleLogzMonitor.ID(),
+//				User: &monitoring.LogzSubAccountUserArgs{
+//					Email: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
+//						return user.Email, nil
+//					}).(pulumi.StringOutput),
+//					FirstName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
+//						return user.FirstName, nil
+//					}).(pulumi.StringOutput),
+//					LastName: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
+//						return user.LastName, nil
+//					}).(pulumi.StringOutput),
+//					PhoneNumber: exampleLogzMonitor.User.ApplyT(func(user monitoring.LogzMonitorUser) (string, error) {
+//						return user.PhoneNumber, nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -81,7 +84,9 @@ import (
 // logz SubAccounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:monitoring/logzSubAccount:LogzSubAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/accounts/subAccount1
+//
+//	$ pulumi import azure:monitoring/logzSubAccount:LogzSubAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/accounts/subAccount1
+//
 // ```
 type LogzSubAccount struct {
 	pulumi.CustomResourceState
@@ -215,7 +220,7 @@ func (i *LogzSubAccount) ToLogzSubAccountOutputWithContext(ctx context.Context) 
 // LogzSubAccountArrayInput is an input type that accepts LogzSubAccountArray and LogzSubAccountArrayOutput values.
 // You can construct a concrete instance of `LogzSubAccountArrayInput` via:
 //
-//          LogzSubAccountArray{ LogzSubAccountArgs{...} }
+//	LogzSubAccountArray{ LogzSubAccountArgs{...} }
 type LogzSubAccountArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +245,7 @@ func (i LogzSubAccountArray) ToLogzSubAccountArrayOutputWithContext(ctx context.
 // LogzSubAccountMapInput is an input type that accepts LogzSubAccountMap and LogzSubAccountMapOutput values.
 // You can construct a concrete instance of `LogzSubAccountMapInput` via:
 //
-//          LogzSubAccountMap{ "key": LogzSubAccountArgs{...} }
+//	LogzSubAccountMap{ "key": LogzSubAccountArgs{...} }
 type LogzSubAccountMapInput interface {
 	pulumi.Input
 

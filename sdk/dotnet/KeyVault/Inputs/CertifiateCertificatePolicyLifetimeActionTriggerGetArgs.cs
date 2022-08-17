@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertifiateCertificatePolicyLifetimeActionTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class CertifiateCertificatePolicyLifetimeActionTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of days before the Certificate expires that the action associated with this Trigger should run. Changing this forces a new resource to be created. Conflicts with `lifetime_percentage`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertifiateCertificatePolicyLifetimeActionTriggerGetArgs()
         {
         }
+        public static new CertifiateCertificatePolicyLifetimeActionTriggerGetArgs Empty => new CertifiateCertificatePolicyLifetimeActionTriggerGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class WindowsVirtualMachineAdditionalCapabilitiesGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsVirtualMachineAdditionalCapabilitiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public WindowsVirtualMachineAdditionalCapabilitiesGetArgs()
         {
         }
+        public static new WindowsVirtualMachineAdditionalCapabilitiesGetArgs Empty => new WindowsVirtualMachineAdditionalCapabilitiesGetArgs();
     }
 }

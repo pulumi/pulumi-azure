@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class TableAclArgs : Pulumi.ResourceArgs
+    public sealed class TableAclArgs : global::Pulumi.ResourceArgs
     {
         [Input("accessPolicies")]
         private InputList<Inputs.TableAclAccessPolicyArgs>? _accessPolicies;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public TableAclArgs()
         {
         }
+        public static new TableAclArgs Empty => new TableAclArgs();
     }
 }

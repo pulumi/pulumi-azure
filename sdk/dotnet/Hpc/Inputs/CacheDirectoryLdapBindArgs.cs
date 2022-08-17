@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Hpc.Inputs
 {
 
-    public sealed class CacheDirectoryLdapBindArgs : Pulumi.ResourceArgs
+    public sealed class CacheDirectoryLdapBindArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Bind Distinguished Name (DN) identity to be used in the secure LDAP connection.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Hpc.Inputs
         public CacheDirectoryLdapBindArgs()
         {
         }
+        public static new CacheDirectoryLdapBindArgs Empty => new CacheDirectoryLdapBindArgs();
     }
 }

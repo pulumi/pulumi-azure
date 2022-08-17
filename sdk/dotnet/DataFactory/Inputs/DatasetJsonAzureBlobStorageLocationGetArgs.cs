@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class DatasetJsonAzureBlobStorageLocationGetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetJsonAzureBlobStorageLocationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The container on the Azure Blob Storage Account hosting the file.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public DatasetJsonAzureBlobStorageLocationGetArgs()
         {
         }
+        public static new DatasetJsonAzureBlobStorageLocationGetArgs Empty => new DatasetJsonAzureBlobStorageLocationGetArgs();
     }
 }

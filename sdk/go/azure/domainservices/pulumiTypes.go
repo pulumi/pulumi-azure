@@ -28,7 +28,7 @@ type ServiceInitialReplicaSet struct {
 // ServiceInitialReplicaSetInput is an input type that accepts ServiceInitialReplicaSetArgs and ServiceInitialReplicaSetOutput values.
 // You can construct a concrete instance of `ServiceInitialReplicaSetInput` via:
 //
-//          ServiceInitialReplicaSetArgs{...}
+//	ServiceInitialReplicaSetArgs{...}
 type ServiceInitialReplicaSetInput interface {
 	pulumi.Input
 
@@ -74,11 +74,11 @@ func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetPtrOutputWithCon
 // ServiceInitialReplicaSetPtrInput is an input type that accepts ServiceInitialReplicaSetArgs, ServiceInitialReplicaSetPtr and ServiceInitialReplicaSetPtrOutput values.
 // You can construct a concrete instance of `ServiceInitialReplicaSetPtrInput` via:
 //
-//          ServiceInitialReplicaSetArgs{...}
+//	        ServiceInitialReplicaSetArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceInitialReplicaSetPtrInput interface {
 	pulumi.Input
 
@@ -254,7 +254,7 @@ type ServiceNotifications struct {
 // ServiceNotificationsInput is an input type that accepts ServiceNotificationsArgs and ServiceNotificationsOutput values.
 // You can construct a concrete instance of `ServiceNotificationsInput` via:
 //
-//          ServiceNotificationsArgs{...}
+//	ServiceNotificationsArgs{...}
 type ServiceNotificationsInput interface {
 	pulumi.Input
 
@@ -294,11 +294,11 @@ func (i ServiceNotificationsArgs) ToServiceNotificationsPtrOutputWithContext(ctx
 // ServiceNotificationsPtrInput is an input type that accepts ServiceNotificationsArgs, ServiceNotificationsPtr and ServiceNotificationsPtrOutput values.
 // You can construct a concrete instance of `ServiceNotificationsPtrInput` via:
 //
-//          ServiceNotificationsArgs{...}
+//	        ServiceNotificationsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceNotificationsPtrInput interface {
 	pulumi.Input
 
@@ -434,7 +434,7 @@ type ServiceSecureLdap struct {
 // ServiceSecureLdapInput is an input type that accepts ServiceSecureLdapArgs and ServiceSecureLdapOutput values.
 // You can construct a concrete instance of `ServiceSecureLdapInput` via:
 //
-//          ServiceSecureLdapArgs{...}
+//	ServiceSecureLdapArgs{...}
 type ServiceSecureLdapInput interface {
 	pulumi.Input
 
@@ -479,11 +479,11 @@ func (i ServiceSecureLdapArgs) ToServiceSecureLdapPtrOutputWithContext(ctx conte
 // ServiceSecureLdapPtrInput is an input type that accepts ServiceSecureLdapArgs, ServiceSecureLdapPtr and ServiceSecureLdapPtrOutput values.
 // You can construct a concrete instance of `ServiceSecureLdapPtrInput` via:
 //
-//          ServiceSecureLdapArgs{...}
+//	        ServiceSecureLdapArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSecureLdapPtrInput interface {
 	pulumi.Input
 
@@ -672,7 +672,7 @@ type ServiceSecurity struct {
 // ServiceSecurityInput is an input type that accepts ServiceSecurityArgs and ServiceSecurityOutput values.
 // You can construct a concrete instance of `ServiceSecurityInput` via:
 //
-//          ServiceSecurityArgs{...}
+//	ServiceSecurityArgs{...}
 type ServiceSecurityInput interface {
 	pulumi.Input
 
@@ -716,11 +716,11 @@ func (i ServiceSecurityArgs) ToServiceSecurityPtrOutputWithContext(ctx context.C
 // ServiceSecurityPtrInput is an input type that accepts ServiceSecurityArgs, ServiceSecurityPtr and ServiceSecurityPtrOutput values.
 // You can construct a concrete instance of `ServiceSecurityPtrInput` via:
 //
-//          ServiceSecurityArgs{...}
+//	        ServiceSecurityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceSecurityPtrInput interface {
 	pulumi.Input
 
@@ -881,7 +881,7 @@ type GetServiceNotification struct {
 // GetServiceNotificationInput is an input type that accepts GetServiceNotificationArgs and GetServiceNotificationOutput values.
 // You can construct a concrete instance of `GetServiceNotificationInput` via:
 //
-//          GetServiceNotificationArgs{...}
+//	GetServiceNotificationArgs{...}
 type GetServiceNotificationInput interface {
 	pulumi.Input
 
@@ -913,7 +913,7 @@ func (i GetServiceNotificationArgs) ToGetServiceNotificationOutputWithContext(ct
 // GetServiceNotificationArrayInput is an input type that accepts GetServiceNotificationArray and GetServiceNotificationArrayOutput values.
 // You can construct a concrete instance of `GetServiceNotificationArrayInput` via:
 //
-//          GetServiceNotificationArray{ GetServiceNotificationArgs{...} }
+//	GetServiceNotificationArray{ GetServiceNotificationArgs{...} }
 type GetServiceNotificationArrayInput interface {
 	pulumi.Input
 
@@ -1002,7 +1002,7 @@ type GetServiceReplicaSet struct {
 // GetServiceReplicaSetInput is an input type that accepts GetServiceReplicaSetArgs and GetServiceReplicaSetOutput values.
 // You can construct a concrete instance of `GetServiceReplicaSetInput` via:
 //
-//          GetServiceReplicaSetArgs{...}
+//	GetServiceReplicaSetArgs{...}
 type GetServiceReplicaSetInput interface {
 	pulumi.Input
 
@@ -1040,7 +1040,7 @@ func (i GetServiceReplicaSetArgs) ToGetServiceReplicaSetOutputWithContext(ctx co
 // GetServiceReplicaSetArrayInput is an input type that accepts GetServiceReplicaSetArray and GetServiceReplicaSetArrayOutput values.
 // You can construct a concrete instance of `GetServiceReplicaSetArrayInput` via:
 //
-//          GetServiceReplicaSetArray{ GetServiceReplicaSetArgs{...} }
+//	GetServiceReplicaSetArray{ GetServiceReplicaSetArgs{...} }
 type GetServiceReplicaSetArrayInput interface {
 	pulumi.Input
 
@@ -1139,7 +1139,7 @@ type GetServiceSecureLdap struct {
 // GetServiceSecureLdapInput is an input type that accepts GetServiceSecureLdapArgs and GetServiceSecureLdapOutput values.
 // You can construct a concrete instance of `GetServiceSecureLdapInput` via:
 //
-//          GetServiceSecureLdapArgs{...}
+//	GetServiceSecureLdapArgs{...}
 type GetServiceSecureLdapInput interface {
 	pulumi.Input
 
@@ -1172,7 +1172,7 @@ func (i GetServiceSecureLdapArgs) ToGetServiceSecureLdapOutputWithContext(ctx co
 // GetServiceSecureLdapArrayInput is an input type that accepts GetServiceSecureLdapArray and GetServiceSecureLdapArrayOutput values.
 // You can construct a concrete instance of `GetServiceSecureLdapArrayInput` via:
 //
-//          GetServiceSecureLdapArray{ GetServiceSecureLdapArgs{...} }
+//	GetServiceSecureLdapArray{ GetServiceSecureLdapArgs{...} }
 type GetServiceSecureLdapArrayInput interface {
 	pulumi.Input
 
@@ -1266,7 +1266,7 @@ type GetServiceSecurity struct {
 // GetServiceSecurityInput is an input type that accepts GetServiceSecurityArgs and GetServiceSecurityOutput values.
 // You can construct a concrete instance of `GetServiceSecurityInput` via:
 //
-//          GetServiceSecurityArgs{...}
+//	GetServiceSecurityArgs{...}
 type GetServiceSecurityInput interface {
 	pulumi.Input
 
@@ -1302,7 +1302,7 @@ func (i GetServiceSecurityArgs) ToGetServiceSecurityOutputWithContext(ctx contex
 // GetServiceSecurityArrayInput is an input type that accepts GetServiceSecurityArray and GetServiceSecurityArrayOutput values.
 // You can construct a concrete instance of `GetServiceSecurityArrayInput` via:
 //
-//          GetServiceSecurityArray{ GetServiceSecurityArgs{...} }
+//	GetServiceSecurityArray{ GetServiceSecurityArgs{...} }
 type GetServiceSecurityArrayInput interface {
 	pulumi.Input
 

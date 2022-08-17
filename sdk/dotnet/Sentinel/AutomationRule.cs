@@ -15,53 +15,54 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "west europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var sentinel = new Azure.OperationalInsights.AnalyticsSolution("sentinel", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleAutomationRule = new Azure.Sentinel.AutomationRule("exampleAutomationRule", new Azure.Sentinel.AutomationRuleArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = sentinel.WorkspaceResourceId,
-    ///             DisplayName = "automation_rule1",
-    ///             Order = 1,
-    ///             ActionIncidents = 
-    ///             {
-    ///                 new Azure.Sentinel.Inputs.AutomationRuleActionIncidentArgs
-    ///                 {
-    ///                     Order = 1,
-    ///                     Status = "Active",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "west europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var sentinel = new Azure.OperationalInsights.AnalyticsSolution("sentinel", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAutomationRule = new Azure.Sentinel.AutomationRule("exampleAutomationRule", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = sentinel.WorkspaceResourceId,
+    ///         DisplayName = "automation_rule1",
+    ///         Order = 1,
+    ///         ActionIncidents = new[]
+    ///         {
+    ///             new Azure.Sentinel.Inputs.AutomationRuleActionIncidentArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 Status = "Active",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -73,7 +74,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/automationRule:AutomationRule")]
-    public partial class AutomationRule : Pulumi.CustomResource
+    public partial class AutomationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `action_incident` blocks as defined below.
@@ -154,7 +155,7 @@ namespace Pulumi.Azure.Sentinel
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:sentinel/authomationRule:AuthomationRule"},
+                    new global::Pulumi.Alias { Type = "azure:sentinel/authomationRule:AuthomationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -177,7 +178,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class AutomationRuleArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
         [Input("actionIncidents")]
         private InputList<Inputs.AutomationRuleActionIncidentArgs>? _actionIncidents;
@@ -254,9 +255,10 @@ namespace Pulumi.Azure.Sentinel
         public AutomationRuleArgs()
         {
         }
+        public static new AutomationRuleArgs Empty => new AutomationRuleArgs();
     }
 
-    public sealed class AutomationRuleState : Pulumi.ResourceArgs
+    public sealed class AutomationRuleState : global::Pulumi.ResourceArgs
     {
         [Input("actionIncidents")]
         private InputList<Inputs.AutomationRuleActionIncidentGetArgs>? _actionIncidents;
@@ -333,5 +335,6 @@ namespace Pulumi.Azure.Sentinel
         public AutomationRuleState()
         {
         }
+        public static new AutomationRuleState Empty => new AutomationRuleState();
     }
 }

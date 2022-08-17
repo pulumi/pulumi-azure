@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyIntrusionDetectionTrafficBypassArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyIntrusionDetectionTrafficBypassArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description for this bypass traffic setting.
@@ -93,5 +93,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyIntrusionDetectionTrafficBypassArgs()
         {
         }
+        public static new FirewallPolicyIntrusionDetectionTrafficBypassArgs Empty => new FirewallPolicyIntrusionDetectionTrafficBypassArgs();
     }
 }

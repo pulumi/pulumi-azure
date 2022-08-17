@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// single IP address that is part of the `azure.network.VirtualNetworkGateway` ip_configuration (first one)
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs Empty => new VirtualNetworkGatewayConnectionCustomBgpAddressesGetArgs();
     }
 }

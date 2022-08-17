@@ -15,33 +15,34 @@ namespace Pulumi.Azure.Stack
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleApplication = AzureAD.GetApplication.Invoke(new()
     ///     {
-    ///         var exampleApplication = Output.Create(AzureAD.GetApplication.InvokeAsync(new AzureAD.GetApplicationArgs
-    ///         {
-    ///             DisplayName = "Allowed resource types",
-    ///         }));
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleHciCluster = new Azure.Stack.HciCluster("exampleHciCluster", new Azure.Stack.HciClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ClientId = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.ApplicationId),
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///         });
-    ///     }
+    ///         DisplayName = "Allowed resource types",
+    ///     });
     /// 
-    /// }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleHciCluster = new Azure.Stack.HciCluster("exampleHciCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ClientId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +54,7 @@ namespace Pulumi.Azure.Stack
     /// ```
     /// </summary>
     [AzureResourceType("azure:stack/hciCluster:HciCluster")]
-    public partial class HciCluster : Pulumi.CustomResource
+    public partial class HciCluster : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -135,7 +136,7 @@ namespace Pulumi.Azure.Stack
         }
     }
 
-    public sealed class HciClusterArgs : Pulumi.ResourceArgs
+    public sealed class HciClusterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -182,9 +183,10 @@ namespace Pulumi.Azure.Stack
         public HciClusterArgs()
         {
         }
+        public static new HciClusterArgs Empty => new HciClusterArgs();
     }
 
-    public sealed class HciClusterState : Pulumi.ResourceArgs
+    public sealed class HciClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created.
@@ -231,5 +233,6 @@ namespace Pulumi.Azure.Stack
         public HciClusterState()
         {
         }
+        public static new HciClusterState Empty => new HciClusterState();
     }
 }

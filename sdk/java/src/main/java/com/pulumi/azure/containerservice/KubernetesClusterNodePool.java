@@ -23,6 +23,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages a Node Pool within a Kubernetes Cluster
+ * 
+ * &gt; **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+ * 
  * ## Example Usage
  * 
  * This example provisions a basic Kubernetes Node Pool.

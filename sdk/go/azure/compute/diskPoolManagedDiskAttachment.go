@@ -26,7 +26,9 @@ import (
 // Disks Pool Managed Disk Attachments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+//
+//	$ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+//
 // ```
 type DiskPoolManagedDiskAttachment struct {
 	pulumi.CustomResourceState
@@ -130,7 +132,7 @@ func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentOutputWit
 // DiskPoolManagedDiskAttachmentArrayInput is an input type that accepts DiskPoolManagedDiskAttachmentArray and DiskPoolManagedDiskAttachmentArrayOutput values.
 // You can construct a concrete instance of `DiskPoolManagedDiskAttachmentArrayInput` via:
 //
-//          DiskPoolManagedDiskAttachmentArray{ DiskPoolManagedDiskAttachmentArgs{...} }
+//	DiskPoolManagedDiskAttachmentArray{ DiskPoolManagedDiskAttachmentArgs{...} }
 type DiskPoolManagedDiskAttachmentArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +157,7 @@ func (i DiskPoolManagedDiskAttachmentArray) ToDiskPoolManagedDiskAttachmentArray
 // DiskPoolManagedDiskAttachmentMapInput is an input type that accepts DiskPoolManagedDiskAttachmentMap and DiskPoolManagedDiskAttachmentMapOutput values.
 // You can construct a concrete instance of `DiskPoolManagedDiskAttachmentMapInput` via:
 //
-//          DiskPoolManagedDiskAttachmentMap{ "key": DiskPoolManagedDiskAttachmentArgs{...} }
+//	DiskPoolManagedDiskAttachmentMap{ "key": DiskPoolManagedDiskAttachmentArgs{...} }
 type DiskPoolManagedDiskAttachmentMapInput interface {
 	pulumi.Input
 

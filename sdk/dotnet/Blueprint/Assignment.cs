@@ -19,97 +19,98 @@ namespace Pulumi.Azure.Blueprint
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleDefinition = Azure.Blueprint.GetDefinition.Invoke(new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleSubscription = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleDefinition = exampleSubscription.Apply(exampleSubscription =&gt; Output.Create(Azure.Blueprint.GetDefinition.InvokeAsync(new Azure.Blueprint.GetDefinitionArgs
+    ///         Name = "exampleBlueprint",
+    ///         ScopeId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///     });
+    /// 
+    ///     var examplePublishedVersion = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+    ///     {
+    ///         ScopeId = exampleDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.ScopeId),
+    ///         BlueprintName = exampleDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.Name),
+    ///         Version = "v1.0.0",
+    ///     });
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         Tags = 
     ///         {
-    ///             Name = "exampleBlueprint",
-    ///             ScopeId = exampleSubscription.Id,
-    ///         })));
-    ///         var examplePublishedVersion = Output.Tuple(exampleDefinition, exampleDefinition).Apply(values =&gt;
+    ///             { "Environment", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var @operator = new Azure.Authorization.Assignment("operator", new()
+    ///     {
+    ///         Scope = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         RoleDefinitionName = "Blueprint Operator",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var owner = new Azure.Authorization.Assignment("owner", new()
+    ///     {
+    ///         Scope = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         RoleDefinitionName = "Owner",
+    ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Blueprint.Assignment("exampleAssignment", new()
+    ///     {
+    ///         TargetSubscriptionId = exampleSubscription.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         VersionId = examplePublishedVersion.Apply(getPublishedVersionResult =&gt; getPublishedVersionResult.Id),
+    ///         Location = exampleResourceGroup.Location,
+    ///         LockMode = "AllResourcesDoNotDelete",
+    ///         LockExcludePrincipals = new[]
     ///         {
-    ///             var exampleDefinition = values.Item1;
-    ///             var exampleDefinition1 = values.Item2;
-    ///             return Output.Create(Azure.Blueprint.GetPublishedVersion.InvokeAsync(new Azure.Blueprint.GetPublishedVersionArgs
+    ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         },
+    ///         Identity = new Azure.Blueprint.Inputs.AssignmentIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             IdentityIds = new[]
     ///             {
-    ///                 ScopeId = exampleDefinition.ScopeId,
-    ///                 BlueprintName = exampleDefinition1.Name,
-    ///                 Version = "v1.0.0",
-    ///             }));
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "example" },
+    ///                 exampleUserAssignedIdentity.Id,
     ///             },
-    ///         });
-    ///         var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new Azure.Authorization.UserAssignedIdentityArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var @operator = new Azure.Authorization.Assignment("operator", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             RoleDefinitionName = "Blueprint Operator",
-    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-    ///         });
-    ///         var owner = new Azure.Authorization.Assignment("owner", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             RoleDefinitionName = "Owner",
-    ///             PrincipalId = exampleUserAssignedIdentity.PrincipalId,
-    ///         });
-    ///         var exampleAssignment = new Azure.Blueprint.Assignment("exampleAssignment", new Azure.Blueprint.AssignmentArgs
-    ///         {
-    ///             TargetSubscriptionId = exampleSubscription.Apply(exampleSubscription =&gt; exampleSubscription.Id),
-    ///             VersionId = examplePublishedVersion.Apply(examplePublishedVersion =&gt; examplePublishedVersion.Id),
-    ///             Location = exampleResourceGroup.Location,
-    ///             LockMode = "AllResourcesDoNotDelete",
-    ///             LockExcludePrincipals = 
-    ///             {
-    ///                 current.Apply(current =&gt; current.ObjectId),
-    ///             },
-    ///             Identity = new Azure.Blueprint.Inputs.AssignmentIdentityArgs
-    ///             {
-    ///                 Type = "UserAssigned",
-    ///                 IdentityIds = 
-    ///                 {
-    ///                     exampleUserAssignedIdentity.Id,
-    ///                 },
-    ///             },
-    ///             ResourceGroups = @"    {
+    ///         },
+    ///         ResourceGroups = @"    {
     ///       ""ResourceGroup"": {
     ///         ""name"": ""exampleRG-bp""
     ///       }
     ///     }
     /// ",
-    ///             ParameterValues = @"    {
+    ///         ParameterValues = @"    {
     ///       ""allowedlocationsforresourcegroups_listOfAllowedLocations"": {
     ///         ""value"": [""westus"", ""westus2"", ""eastus"", ""centralus"", ""centraluseuap"", ""southcentralus"", ""northcentralus"", ""westcentralus"", ""eastus2"", ""eastus2euap"", ""brazilsouth"", ""brazilus"", ""northeurope"", ""westeurope"", ""eastasia"", ""southeastasia"", ""japanwest"", ""japaneast"", ""koreacentral"", ""koreasouth"", ""indiasouth"", ""indiawest"", ""indiacentral"", ""australiaeast"", ""australiasoutheast"", ""canadacentral"", ""canadaeast"", ""uknorth"", ""uksouth2"", ""uksouth"", ""ukwest"", ""francecentral"", ""francesouth"", ""australiacentral"", ""australiacentral2"", ""uaecentral"", ""uaenorth"", ""southafricanorth"", ""southafricawest"", ""switzerlandnorth"", ""switzerlandwest"", ""germanynorth"", ""germanywestcentral"", ""norwayeast"", ""norwaywest""]
     ///       }
     ///     }
     /// ",
-    ///         }, new CustomResourceOptions
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 @operator,
-    ///                 owner,
-    ///             },
-    ///         });
-    ///     }
+    ///             @operator,
+    ///             owner,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -121,7 +122,7 @@ namespace Pulumi.Azure.Blueprint
     /// ```
     /// </summary>
     [AzureResourceType("azure:blueprint/assignment:Assignment")]
-    public partial class Assignment : Pulumi.CustomResource
+    public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the blueprint assigned
@@ -251,7 +252,7 @@ namespace Pulumi.Azure.Blueprint
         }
     }
 
-    public sealed class AssignmentArgs : Pulumi.ResourceArgs
+    public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -328,9 +329,10 @@ namespace Pulumi.Azure.Blueprint
         public AssignmentArgs()
         {
         }
+        public static new AssignmentArgs Empty => new AssignmentArgs();
     }
 
-    public sealed class AssignmentState : Pulumi.ResourceArgs
+    public sealed class AssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the blueprint assigned
@@ -431,5 +433,6 @@ namespace Pulumi.Azure.Blueprint
         public AssignmentState()
         {
         }
+        public static new AssignmentState Empty => new AssignmentState();
     }
 }

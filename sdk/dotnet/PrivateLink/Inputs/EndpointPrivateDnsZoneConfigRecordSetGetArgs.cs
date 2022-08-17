@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateLink.Inputs
 {
 
-    public sealed class EndpointPrivateDnsZoneConfigRecordSetGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointPrivateDnsZoneConfigRecordSetGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified domain name to the `private_dns_zone`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public EndpointPrivateDnsZoneConfigRecordSetGetArgs()
         {
         }
+        public static new EndpointPrivateDnsZoneConfigRecordSetGetArgs Empty => new EndpointPrivateDnsZoneConfigRecordSetGetArgs();
     }
 }

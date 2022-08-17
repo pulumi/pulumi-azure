@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ScheduledQueryRulesLogCriteriaArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesLogCriteriaArgs : global::Pulumi.ResourceArgs
     {
         [Input("dimensions", required: true)]
         private InputList<Inputs.ScheduledQueryRulesLogCriteriaDimensionArgs>? _dimensions;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ScheduledQueryRulesLogCriteriaArgs()
         {
         }
+        public static new ScheduledQueryRulesLogCriteriaArgs Empty => new ScheduledQueryRulesLogCriteriaArgs();
     }
 }

@@ -12,6 +12,7 @@ export * from "./dataSourceWindowsEvent";
 export * from "./dataSourceWindowsPerformanceCounter";
 export * from "./linkedService";
 export * from "./linkedStorageAccount";
+export * from "./queryPack";
 export * from "./savedSearch";
 export * from "./storageInsights";
 
@@ -23,6 +24,7 @@ import { DataSourceWindowsEvent } from "./dataSourceWindowsEvent";
 import { DataSourceWindowsPerformanceCounter } from "./dataSourceWindowsPerformanceCounter";
 import { LinkedService } from "./linkedService";
 import { LinkedStorageAccount } from "./linkedStorageAccount";
+import { QueryPack } from "./queryPack";
 import { SavedSearch } from "./savedSearch";
 import { StorageInsights } from "./storageInsights";
 
@@ -44,6 +46,8 @@ const _module = {
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount":
                 return new LinkedStorageAccount(name, <any>undefined, { urn })
+            case "azure:loganalytics/queryPack:QueryPack":
+                return new QueryPack(name, <any>undefined, { urn })
             case "azure:loganalytics/savedSearch:SavedSearch":
                 return new SavedSearch(name, <any>undefined, { urn })
             case "azure:loganalytics/storageInsights:StorageInsights":
@@ -60,5 +64,6 @@ pulumi.runtime.registerResourceModule("azure", "loganalytics/dataSourceWindowsEv
 pulumi.runtime.registerResourceModule("azure", "loganalytics/dataSourceWindowsPerformanceCounter", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/linkedService", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/linkedStorageAccount", _module)
+pulumi.runtime.registerResourceModule("azure", "loganalytics/queryPack", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/savedSearch", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/storageInsights", _module)

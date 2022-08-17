@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", new Azure.Network.ApplicationSecurityGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "Hello", "World" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Hello", "World" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/applicationSecurityGroup:ApplicationSecurityGroup")]
-    public partial class ApplicationSecurityGroup : Pulumi.CustomResource
+    public partial class ApplicationSecurityGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -119,7 +118,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ApplicationSecurityGroupArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationSecurityGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -154,9 +153,10 @@ namespace Pulumi.Azure.Network
         public ApplicationSecurityGroupArgs()
         {
         }
+        public static new ApplicationSecurityGroupArgs Empty => new ApplicationSecurityGroupArgs();
     }
 
-    public sealed class ApplicationSecurityGroupState : Pulumi.ResourceArgs
+    public sealed class ApplicationSecurityGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -191,5 +191,6 @@ namespace Pulumi.Azure.Network
         public ApplicationSecurityGroupState()
         {
         }
+        public static new ApplicationSecurityGroupState Empty => new ApplicationSecurityGroupState();
     }
 }

@@ -15,59 +15,59 @@ namespace Pulumi.Azure.DataProtection
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new Azure.DataProtection.BackupVaultArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DatastoreType = "VaultStore",
-    ///             Redundancy = "LocallyRedundant",
-    ///         });
-    ///         var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("exampleBackupPolicyDisk", new Azure.DataProtection.BackupPolicyDiskArgs
-    ///         {
-    ///             VaultId = exampleBackupVault.Id,
-    ///             BackupRepeatingTimeIntervals = 
-    ///             {
-    ///                 "R/2021-05-19T06:33:16+00:00/PT4H",
-    ///             },
-    ///             DefaultRetentionDuration = "P7D",
-    ///             RetentionRules = 
-    ///             {
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
-    ///                 {
-    ///                     Name = "Daily",
-    ///                     Duration = "P7D",
-    ///                     Priority = 25,
-    ///                     Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
-    ///                     {
-    ///                         AbsoluteCriteria = "FirstOfDay",
-    ///                     },
-    ///                 },
-    ///                 new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
-    ///                 {
-    ///                     Name = "Weekly",
-    ///                     Duration = "P7D",
-    ///                     Priority = 20,
-    ///                     Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
-    ///                     {
-    ///                         AbsoluteCriteria = "FirstOfWeek",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DatastoreType = "VaultStore",
+    ///         Redundancy = "LocallyRedundant",
+    ///     });
+    /// 
+    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("exampleBackupPolicyDisk", new()
+    ///     {
+    ///         VaultId = exampleBackupVault.Id,
+    ///         BackupRepeatingTimeIntervals = new[]
+    ///         {
+    ///             "R/2021-05-19T06:33:16+00:00/PT4H",
+    ///         },
+    ///         DefaultRetentionDuration = "P7D",
+    ///         RetentionRules = new[]
+    ///         {
+    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
+    ///             {
+    ///                 Name = "Daily",
+    ///                 Duration = "P7D",
+    ///                 Priority = 25,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfDay",
+    ///                 },
+    ///             },
+    ///             new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleArgs
+    ///             {
+    ///                 Name = "Weekly",
+    ///                 Duration = "P7D",
+    ///                 Priority = 20,
+    ///                 Criteria = new Azure.DataProtection.Inputs.BackupPolicyDiskRetentionRuleCriteriaArgs
+    ///                 {
+    ///                     AbsoluteCriteria = "FirstOfWeek",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.DataProtection
     /// ```
     /// </summary>
     [AzureResourceType("azure:dataprotection/backupPolicyDisk:BackupPolicyDisk")]
-    public partial class BackupPolicyDisk : Pulumi.CustomResource
+    public partial class BackupPolicyDisk : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
@@ -155,7 +155,7 @@ namespace Pulumi.Azure.DataProtection
         }
     }
 
-    public sealed class BackupPolicyDiskArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyDiskArgs : global::Pulumi.ResourceArgs
     {
         [Input("backupRepeatingTimeIntervals", required: true)]
         private InputList<string>? _backupRepeatingTimeIntervals;
@@ -202,9 +202,10 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyDiskArgs()
         {
         }
+        public static new BackupPolicyDiskArgs Empty => new BackupPolicyDiskArgs();
     }
 
-    public sealed class BackupPolicyDiskState : Pulumi.ResourceArgs
+    public sealed class BackupPolicyDiskState : global::Pulumi.ResourceArgs
     {
         [Input("backupRepeatingTimeIntervals")]
         private InputList<string>? _backupRepeatingTimeIntervals;
@@ -251,5 +252,6 @@ namespace Pulumi.Azure.DataProtection
         public BackupPolicyDiskState()
         {
         }
+        public static new BackupPolicyDiskState Empty => new BackupPolicyDiskState();
     }
 }

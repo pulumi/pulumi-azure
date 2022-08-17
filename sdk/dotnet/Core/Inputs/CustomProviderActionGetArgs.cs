@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Core.Inputs
 {
 
-    public sealed class CustomProviderActionGetArgs : Pulumi.ResourceArgs
+    public sealed class CustomProviderActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the endpoint of the action.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Core.Inputs
         public CustomProviderActionGetArgs()
         {
         }
+        public static new CustomProviderActionGetArgs Empty => new CustomProviderActionGetArgs();
     }
 }

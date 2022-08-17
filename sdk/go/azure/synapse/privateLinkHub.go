@@ -19,22 +19,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := synapse.NewPrivateLinkHub(ctx, "example", &synapse.PrivateLinkHubArgs{
-// 			Location:          pulumi.String("West Europe"),
-// 			ResourceGroupName: pulumi.String("example-rg"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := synapse.NewPrivateLinkHub(ctx, "example", &synapse.PrivateLinkHubArgs{
+//				Location:          pulumi.String("West Europe"),
+//				ResourceGroupName: pulumi.String("example-rg"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -42,7 +45,9 @@ import (
 // Synapse Private Link Hub can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
+//
+//	$ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
+//
 // ```
 type PrivateLinkHub struct {
 	pulumi.CustomResourceState
@@ -163,7 +168,7 @@ func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) 
 // PrivateLinkHubArrayInput is an input type that accepts PrivateLinkHubArray and PrivateLinkHubArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkHubArrayInput` via:
 //
-//          PrivateLinkHubArray{ PrivateLinkHubArgs{...} }
+//	PrivateLinkHubArray{ PrivateLinkHubArgs{...} }
 type PrivateLinkHubArrayInput interface {
 	pulumi.Input
 
@@ -188,7 +193,7 @@ func (i PrivateLinkHubArray) ToPrivateLinkHubArrayOutputWithContext(ctx context.
 // PrivateLinkHubMapInput is an input type that accepts PrivateLinkHubMap and PrivateLinkHubMapOutput values.
 // You can construct a concrete instance of `PrivateLinkHubMapInput` via:
 //
-//          PrivateLinkHubMap{ "key": PrivateLinkHubArgs{...} }
+//	PrivateLinkHubMap{ "key": PrivateLinkHubArgs{...} }
 type PrivateLinkHubMapInput interface {
 	pulumi.Input
 

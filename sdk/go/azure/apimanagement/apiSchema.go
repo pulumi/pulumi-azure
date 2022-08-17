@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
-// 			Name:              "search-api",
-// 			ApiManagementName: "search-api-management",
-// 			ResourceGroupName: "search-service",
-// 			Revision:          "2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apimanagement.NewApiSchema(ctx, "exampleApiSchema", &apimanagement.ApiSchemaArgs{
-// 			ApiName:           pulumi.String(exampleApi.Name),
-// 			ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
-// 			ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
-// 			SchemaId:          pulumi.String("example-schema"),
-// 			ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
-// 			Value:             readFileOrPanic("api_management_api_schema.xml"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//				Name:              "search-api",
+//				ApiManagementName: "search-api-management",
+//				ResourceGroupName: "search-service",
+//				Revision:          "2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiSchema(ctx, "exampleApiSchema", &apimanagement.ApiSchemaArgs{
+//				ApiName:           pulumi.String(exampleApi.Name),
+//				ApiManagementName: pulumi.String(exampleApi.ApiManagementName),
+//				ResourceGroupName: pulumi.String(exampleApi.ResourceGroupName),
+//				SchemaId:          pulumi.String("example-schema"),
+//				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
+//				Value:             readFileOrPanic("api_management_api_schema.xml"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // API Management API Schema's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:apimanagement/apiSchema:ApiSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/schemas/schema1
+//
+//	$ pulumi import azure:apimanagement/apiSchema:ApiSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/schemas/schema1
+//
 // ```
 type ApiSchema struct {
 	pulumi.CustomResourceState
@@ -221,7 +226,7 @@ func (i *ApiSchema) ToApiSchemaOutputWithContext(ctx context.Context) ApiSchemaO
 // ApiSchemaArrayInput is an input type that accepts ApiSchemaArray and ApiSchemaArrayOutput values.
 // You can construct a concrete instance of `ApiSchemaArrayInput` via:
 //
-//          ApiSchemaArray{ ApiSchemaArgs{...} }
+//	ApiSchemaArray{ ApiSchemaArgs{...} }
 type ApiSchemaArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (i ApiSchemaArray) ToApiSchemaArrayOutputWithContext(ctx context.Context) A
 // ApiSchemaMapInput is an input type that accepts ApiSchemaMap and ApiSchemaMapOutput values.
 // You can construct a concrete instance of `ApiSchemaMapInput` via:
 //
-//          ApiSchemaMap{ "key": ApiSchemaArgs{...} }
+//	ApiSchemaMap{ "key": ApiSchemaArgs{...} }
 type ApiSchemaMapInput interface {
 	pulumi.Input
 

@@ -15,70 +15,74 @@ namespace Pulumi.Azure.Kusto
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var cluster = new Azure.Kusto.Cluster("cluster", new Azure.Kusto.ClusterArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
-    ///             {
-    ///                 Name = "Standard_D13_v2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var database = new Azure.Kusto.Database("database", new Azure.Kusto.DatabaseArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             ClusterName = cluster.Name,
-    ///             HotCachePeriod = "P7D",
-    ///             SoftDeletePeriod = "P31D",
-    ///         });
-    ///         var eventhubNs = new Azure.EventHub.EventHubNamespace("eventhubNs", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var eventhub = new Azure.EventHub.EventHub("eventhub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = eventhubNs.Name,
-    ///             ResourceGroupName = example.Name,
-    ///             PartitionCount = 1,
-    ///             MessageRetention = 1,
-    ///         });
-    ///         var consumerGroup = new Azure.EventHub.ConsumerGroup("consumerGroup", new Azure.EventHub.ConsumerGroupArgs
-    ///         {
-    ///             NamespaceName = eventhubNs.Name,
-    ///             EventhubName = eventhub.Name,
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///         var eventhubConnection = new Azure.Kusto.EventhubDataConnection("eventhubConnection", new Azure.Kusto.EventhubDataConnectionArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             ClusterName = cluster.Name,
-    ///             DatabaseName = database.Name,
-    ///             EventhubId = eventhub.Id,
-    ///             ConsumerGroup = consumerGroup.Name,
-    ///             TableName = "my-table",
-    ///             MappingRuleName = "my-table-mapping",
-    ///             DataFormat = "JSON",
-    ///         });
-    ///         //(Optional)
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var cluster = new Azure.Kusto.Cluster("cluster", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Name = "Standard_D13_v2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var database = new Azure.Kusto.Database("database", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterName = cluster.Name,
+    ///         HotCachePeriod = "P7D",
+    ///         SoftDeletePeriod = "P31D",
+    ///     });
+    /// 
+    ///     var eventhubNs = new Azure.EventHub.EventHubNamespace("eventhubNs", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var eventhub = new Azure.EventHub.EventHub("eventhub", new()
+    ///     {
+    ///         NamespaceName = eventhubNs.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         PartitionCount = 1,
+    ///         MessageRetention = 1,
+    ///     });
+    /// 
+    ///     var consumerGroup = new Azure.EventHub.ConsumerGroup("consumerGroup", new()
+    ///     {
+    ///         NamespaceName = eventhubNs.Name,
+    ///         EventhubName = eventhub.Name,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var eventhubConnection = new Azure.Kusto.EventhubDataConnection("eventhubConnection", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         ClusterName = cluster.Name,
+    ///         DatabaseName = database.Name,
+    ///         EventhubId = eventhub.Id,
+    ///         ConsumerGroup = consumerGroup.Name,
+    ///         TableName = "my-table",
+    ///         MappingRuleName = "my-table-mapping",
+    ///         DataFormat = "JSON",
+    ///     });
+    /// 
+    ///     //(Optional)
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +94,7 @@ namespace Pulumi.Azure.Kusto
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/eventhubDataConnection:EventhubDataConnection")]
-    public partial class EventhubDataConnection : Pulumi.CustomResource
+    public partial class EventhubDataConnection : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -220,7 +224,7 @@ namespace Pulumi.Azure.Kusto
         }
     }
 
-    public sealed class EventhubDataConnectionArgs : Pulumi.ResourceArgs
+    public sealed class EventhubDataConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -315,9 +319,10 @@ namespace Pulumi.Azure.Kusto
         public EventhubDataConnectionArgs()
         {
         }
+        public static new EventhubDataConnectionArgs Empty => new EventhubDataConnectionArgs();
     }
 
-    public sealed class EventhubDataConnectionState : Pulumi.ResourceArgs
+    public sealed class EventhubDataConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -412,5 +417,6 @@ namespace Pulumi.Azure.Kusto
         public EventhubDataConnectionState()
         {
         }
+        public static new EventhubDataConnectionState Empty => new EventhubDataConnectionState();
     }
 }

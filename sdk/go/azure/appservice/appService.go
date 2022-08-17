@@ -19,55 +19,58 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("Standard"),
-// 				Size: pulumi.String("S1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AppServicePlanId:  examplePlan.ID(),
-// 			SiteConfig: &appservice.AppServiceSiteConfigArgs{
-// 				DotnetFrameworkVersion: pulumi.String("v4.0"),
-// 				ScmType:                pulumi.String("LocalGit"),
-// 			},
-// 			AppSettings: pulumi.StringMap{
-// 				"SOME_KEY": pulumi.String("some-value"),
-// 			},
-// 			ConnectionStrings: appservice.AppServiceConnectionStringArray{
-// 				&appservice.AppServiceConnectionStringArgs{
-// 					Name:  pulumi.String("Database"),
-// 					Type:  pulumi.String("SQLServer"),
-// 					Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AppServicePlanId:  examplePlan.ID(),
+//				SiteConfig: &appservice.AppServiceSiteConfigArgs{
+//					DotnetFrameworkVersion: pulumi.String("v4.0"),
+//					ScmType:                pulumi.String("LocalGit"),
+//				},
+//				AppSettings: pulumi.StringMap{
+//					"SOME_KEY": pulumi.String("some-value"),
+//				},
+//				ConnectionStrings: appservice.AppServiceConnectionStringArray{
+//					&appservice.AppServiceConnectionStringArgs{
+//						Name:  pulumi.String("Database"),
+//						Type:  pulumi.String("SQLServer"),
+//						Value: pulumi.String("Server=some-server.mydomain.com;Integrated Security=SSPI"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -75,7 +78,9 @@ import (
 // App Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
+//
+//	$ pulumi import azure:appservice/appService:AppService instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1
+//
 // ```
 type AppService struct {
 	pulumi.CustomResourceState
@@ -401,7 +406,7 @@ func (i *AppService) ToAppServiceOutputWithContext(ctx context.Context) AppServi
 // AppServiceArrayInput is an input type that accepts AppServiceArray and AppServiceArrayOutput values.
 // You can construct a concrete instance of `AppServiceArrayInput` via:
 //
-//          AppServiceArray{ AppServiceArgs{...} }
+//	AppServiceArray{ AppServiceArgs{...} }
 type AppServiceArrayInput interface {
 	pulumi.Input
 
@@ -426,7 +431,7 @@ func (i AppServiceArray) ToAppServiceArrayOutputWithContext(ctx context.Context)
 // AppServiceMapInput is an input type that accepts AppServiceMap and AppServiceMapOutput values.
 // You can construct a concrete instance of `AppServiceMapInput` via:
 //
-//          AppServiceMap{ "key": AppServiceArgs{...} }
+//	AppServiceMap{ "key": AppServiceArgs{...} }
 type AppServiceMapInput interface {
 	pulumi.Input
 

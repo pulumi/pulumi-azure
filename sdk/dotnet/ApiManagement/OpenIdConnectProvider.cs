@@ -15,37 +15,37 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@exmaple.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleOpenIdConnectProvider = new Azure.ApiManagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", new Azure.ApiManagement.OpenIdConnectProviderArgs
-    ///         {
-    ///             ApiManagementName = exampleService.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ClientId = "00001111-2222-3333-4444-555566667777",
-    ///             ClientSecret = "00001111-423egvwdcsjx-00001111",
-    ///             DisplayName = "Example Provider",
-    ///             MetadataEndpoint = "https://example.com/example",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@exmaple.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleOpenIdConnectProvider = new Azure.ApiManagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", new()
+    ///     {
+    ///         ApiManagementName = exampleService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ClientId = "00001111-2222-3333-4444-555566667777",
+    ///         ClientSecret = "00001111-423egvwdcsjx-00001111",
+    ///         DisplayName = "Example Provider",
+    ///         MetadataEndpoint = "https://example.com/example",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider")]
-    public partial class OpenIdConnectProvider : Pulumi.CustomResource
+    public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
@@ -151,7 +151,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class OpenIdConnectProviderArgs : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
@@ -204,9 +204,10 @@ namespace Pulumi.Azure.ApiManagement
         public OpenIdConnectProviderArgs()
         {
         }
+        public static new OpenIdConnectProviderArgs Empty => new OpenIdConnectProviderArgs();
     }
 
-    public sealed class OpenIdConnectProviderState : Pulumi.ResourceArgs
+    public sealed class OpenIdConnectProviderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service in which this OpenID Connect Provider should be created. Changing this forces a new resource to be created.
@@ -259,5 +260,6 @@ namespace Pulumi.Azure.ApiManagement
         public OpenIdConnectProviderState()
         {
         }
+        public static new OpenIdConnectProviderState Empty => new OpenIdConnectProviderState();
     }
 }

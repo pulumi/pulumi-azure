@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterRolesArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterRolesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `edge_node` block as defined below.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterRolesArgs()
         {
         }
+        public static new HadoopClusterRolesArgs Empty => new HadoopClusterRolesArgs();
     }
 }

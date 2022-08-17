@@ -19,29 +19,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -49,7 +52,9 @@ import (
 // Network Watchers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
+//
+//	$ pulumi import azure:network/networkWatcher:NetworkWatcher watcher1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1
+//
 // ```
 type NetworkWatcher struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *NetworkWatcher) ToNetworkWatcherOutputWithContext(ctx context.Context) 
 // NetworkWatcherArrayInput is an input type that accepts NetworkWatcherArray and NetworkWatcherArrayOutput values.
 // You can construct a concrete instance of `NetworkWatcherArrayInput` via:
 //
-//          NetworkWatcherArray{ NetworkWatcherArgs{...} }
+//	NetworkWatcherArray{ NetworkWatcherArgs{...} }
 type NetworkWatcherArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i NetworkWatcherArray) ToNetworkWatcherArrayOutputWithContext(ctx context.
 // NetworkWatcherMapInput is an input type that accepts NetworkWatcherMap and NetworkWatcherMapOutput values.
 // You can construct a concrete instance of `NetworkWatcherMapInput` via:
 //
-//          NetworkWatcherMap{ "key": NetworkWatcherArgs{...} }
+//	NetworkWatcherMap{ "key": NetworkWatcherArgs{...} }
 type NetworkWatcherMapInput interface {
 	pulumi.Input
 

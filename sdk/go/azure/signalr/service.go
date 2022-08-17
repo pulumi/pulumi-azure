@@ -19,58 +19,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West US"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &signalr.ServiceSkuArgs{
-// 				Name:     pulumi.String("Free_F1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 			Cors: signalr.ServiceCorArray{
-// 				&signalr.ServiceCorArgs{
-// 					AllowedOrigins: pulumi.StringArray{
-// 						pulumi.String("http://www.example.com"),
-// 					},
-// 				},
-// 			},
-// 			ConnectivityLogsEnabled: pulumi.Bool(true),
-// 			MessagingLogsEnabled:    pulumi.Bool(true),
-// 			ServiceMode:             pulumi.String("Default"),
-// 			UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
-// 				&signalr.ServiceUpstreamEndpointArgs{
-// 					CategoryPatterns: pulumi.StringArray{
-// 						pulumi.String("connections"),
-// 						pulumi.String("messages"),
-// 					},
-// 					EventPatterns: pulumi.StringArray{
-// 						pulumi.String("*"),
-// 					},
-// 					HubPatterns: pulumi.StringArray{
-// 						pulumi.String("hub1"),
-// 					},
-// 					UrlTemplate: pulumi.String("http://foo.com"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &signalr.ServiceSkuArgs{
+//					Name:     pulumi.String("Free_F1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Cors: signalr.ServiceCorArray{
+//					&signalr.ServiceCorArgs{
+//						AllowedOrigins: pulumi.StringArray{
+//							pulumi.String("http://www.example.com"),
+//						},
+//					},
+//				},
+//				ConnectivityLogsEnabled: pulumi.Bool(true),
+//				MessagingLogsEnabled:    pulumi.Bool(true),
+//				ServiceMode:             pulumi.String("Default"),
+//				UpstreamEndpoints: signalr.ServiceUpstreamEndpointArray{
+//					&signalr.ServiceUpstreamEndpointArgs{
+//						CategoryPatterns: pulumi.StringArray{
+//							pulumi.String("connections"),
+//							pulumi.String("messages"),
+//						},
+//						EventPatterns: pulumi.StringArray{
+//							pulumi.String("*"),
+//						},
+//						HubPatterns: pulumi.StringArray{
+//							pulumi.String("hub1"),
+//						},
+//						UrlTemplate: pulumi.String("http://foo.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -78,7 +81,9 @@ import (
 // SignalR services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:signalr/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/terraform-signalr/providers/Microsoft.SignalRService/signalR/tfex-signalr
+//
+//	$ pulumi import azure:signalr/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/terraform-signalr/providers/Microsoft.SignalRService/signalR/tfex-signalr
+//
 // ```
 type Service struct {
 	pulumi.CustomResourceState
@@ -340,7 +345,7 @@ func (i *Service) ToServiceOutputWithContext(ctx context.Context) ServiceOutput 
 // ServiceArrayInput is an input type that accepts ServiceArray and ServiceArrayOutput values.
 // You can construct a concrete instance of `ServiceArrayInput` via:
 //
-//          ServiceArray{ ServiceArgs{...} }
+//	ServiceArray{ ServiceArgs{...} }
 type ServiceArrayInput interface {
 	pulumi.Input
 
@@ -365,7 +370,7 @@ func (i ServiceArray) ToServiceArrayOutputWithContext(ctx context.Context) Servi
 // ServiceMapInput is an input type that accepts ServiceMap and ServiceMapOutput values.
 // You can construct a concrete instance of `ServiceMapInput` via:
 //
-//          ServiceMap{ "key": ServiceArgs{...} }
+//	ServiceMap{ "key": ServiceArgs{...} }
 type ServiceMapInput interface {
 	pulumi.Input
 

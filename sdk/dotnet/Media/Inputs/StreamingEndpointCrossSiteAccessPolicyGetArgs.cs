@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingEndpointCrossSiteAccessPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingEndpointCrossSiteAccessPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The content of clientaccesspolicy.xml used by Silverlight.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingEndpointCrossSiteAccessPolicyGetArgs()
         {
         }
+        public static new StreamingEndpointCrossSiteAccessPolicyGetArgs Empty => new StreamingEndpointCrossSiteAccessPolicyGetArgs();
     }
 }

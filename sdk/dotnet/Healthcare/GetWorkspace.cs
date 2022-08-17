@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetWorkspace.InvokeAsync(new Azure.Healthcare.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-healthcare_service",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.HealthcareWorkspaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_service",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("healthcareWorkspaceId")]
-        ///     public Output&lt;string&gt; HealthcareWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["healthcareWorkspaceId"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Healthcare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Healthcare.GetWorkspace.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Healthcare.GetWorkspace.InvokeAsync(new Azure.Healthcare.GetWorkspaceArgs
-        ///         {
-        ///             Name = "example-healthcare_service",
-        ///             ResourceGroupName = "example-resources",
-        ///         }));
-        ///         this.HealthcareWorkspaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-healthcare_service",
+        ///         ResourceGroupName = "example-resources",
+        ///     });
         /// 
-        ///     [Output("healthcareWorkspaceId")]
-        ///     public Output&lt;string&gt; HealthcareWorkspaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["healthcareWorkspaceId"] = example.Apply(getWorkspaceResult =&gt; getWorkspaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Healthcare
     }
 
 
-    public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Healthcare Workspace.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Healthcare
         public GetWorkspaceArgs()
         {
         }
+        public static new GetWorkspaceArgs Empty => new GetWorkspaceArgs();
     }
 
-    public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Healthcare Workspace.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Healthcare
         public GetWorkspaceInvokeArgs()
         {
         }
+        public static new GetWorkspaceInvokeArgs Empty => new GetWorkspaceInvokeArgs();
     }
 
 

@@ -15,70 +15,67 @@ namespace Pulumi.Azure.AppInsights
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         this.InstrumentationKey = exampleInsights.InstrumentationKey;
-    ///         this.AppId = exampleInsights.AppId;
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    ///     [Output("instrumentationKey")]
-    ///     public Output&lt;string&gt; InstrumentationKey { get; set; }
-    ///     [Output("appId")]
-    ///     public Output&lt;string&gt; AppId { get; set; }
-    /// }
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["instrumentationKey"] = exampleInsights.InstrumentationKey,
+    ///         ["appId"] = exampleInsights.AppId,
+    ///     };
+    /// });
     /// ```
     /// ### Workspace Mode
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///             RetentionInDays = 30,
-    ///         });
-    ///         var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new Azure.AppInsights.InsightsArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceId = exampleAnalyticsWorkspace.Id,
-    ///             ApplicationType = "web",
-    ///         });
-    ///         this.InstrumentationKey = exampleInsights.InstrumentationKey;
-    ///         this.AppId = exampleInsights.AppId;
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    ///     [Output("instrumentationKey")]
-    ///     public Output&lt;string&gt; InstrumentationKey { get; set; }
-    ///     [Output("appId")]
-    ///     public Output&lt;string&gt; AppId { get; set; }
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///         RetentionInDays = 30,
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["instrumentationKey"] = exampleInsights.InstrumentationKey,
+    ///         ["appId"] = exampleInsights.AppId,
+    ///     };
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -90,7 +87,7 @@ namespace Pulumi.Azure.AppInsights
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/insights:Insights")]
-    public partial class Insights : Pulumi.CustomResource
+    public partial class Insights : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The App ID associated with this Application Insights component.
@@ -243,7 +240,7 @@ namespace Pulumi.Azure.AppInsights
         }
     }
 
-    public sealed class InsightsArgs : Pulumi.ResourceArgs
+    public sealed class InsightsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
@@ -343,9 +340,10 @@ namespace Pulumi.Azure.AppInsights
         public InsightsArgs()
         {
         }
+        public static new InsightsArgs Empty => new InsightsArgs();
     }
 
-    public sealed class InsightsState : Pulumi.ResourceArgs
+    public sealed class InsightsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The App ID associated with this Application Insights component.
@@ -463,5 +461,6 @@ namespace Pulumi.Azure.AppInsights
         public InsightsState()
         {
         }
+        public static new InsightsState Empty => new InsightsState();
     }
 }

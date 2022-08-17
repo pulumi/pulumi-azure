@@ -18,38 +18,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-// 			Name:              "mykeyvault",
-// 			ResourceGroupName: "some-resource-group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
-// 			Name:       "some-key",
-// 			KeyVaultId: exampleKeyVault.Id,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.GetEncryptedValue(ctx, &keyvault.GetEncryptedValueArgs{
-// 			KeyVaultKeyId:  azurerm_key_vault_key.Test.Id,
-// 			Algorithm:      "RSA1_5",
-// 			PlainTextValue: pulumi.StringRef("some-encrypted-value"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              "mykeyvault",
+//				ResourceGroupName: "some-resource-group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+//				Name:       "some-key",
+//				KeyVaultId: exampleKeyVault.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.GetEncryptedValue(ctx, &keyvault.GetEncryptedValueArgs{
+//				KeyVaultKeyId:  azurerm_key_vault_key.Test.Id,
+//				Algorithm:      "RSA1_5",
+//				PlainTextValue: pulumi.StringRef("some-encrypted-value"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data)
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetEncryptedValue(ctx *pulumi.Context, args *GetEncryptedValueArgs, opts ...pulumi.InvokeOption) (*GetEncryptedValueResult, error) {
 	var rv GetEncryptedValueResult

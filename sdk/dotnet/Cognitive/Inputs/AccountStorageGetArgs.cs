@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cognitive.Inputs
 {
 
-    public sealed class AccountStorageGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountStorageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The client ID of the managed identity associated with the storage resource.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Cognitive.Inputs
         public AccountStorageGetArgs()
         {
         }
+        public static new AccountStorageGetArgs Empty => new AccountStorageGetArgs();
     }
 }

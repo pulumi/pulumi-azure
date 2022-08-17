@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkInterface.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkInterface.InvokeAsync(new Azure.Network.GetNetworkInterfaceArgs
-        ///         {
-        ///             Name = "acctest-nic",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.NetworkInterfaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "acctest-nic",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("networkInterfaceId")]
-        ///     public Output&lt;string&gt; NetworkInterfaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkInterfaceId"] = example.Apply(getNetworkInterfaceResult =&gt; getNetworkInterfaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkInterface.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkInterface.InvokeAsync(new Azure.Network.GetNetworkInterfaceArgs
-        ///         {
-        ///             Name = "acctest-nic",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.NetworkInterfaceId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "acctest-nic",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("networkInterfaceId")]
-        ///     public Output&lt;string&gt; NetworkInterfaceId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkInterfaceId"] = example.Apply(getNetworkInterfaceResult =&gt; getNetworkInterfaceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetNetworkInterfaceArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Network Interface.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetNetworkInterfaceArgs()
         {
         }
+        public static new GetNetworkInterfaceArgs Empty => new GetNetworkInterfaceArgs();
     }
 
-    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkInterfaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Network Interface.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetNetworkInterfaceInvokeArgs()
         {
         }
+        public static new GetNetworkInterfaceInvokeArgs Empty => new GetNetworkInterfaceInvokeArgs();
     }
 
 

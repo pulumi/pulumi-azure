@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable a configuration for non-DRM keys.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionArgs Empty => new ContentKeyPolicyPolicyOptionArgs();
     }
 }

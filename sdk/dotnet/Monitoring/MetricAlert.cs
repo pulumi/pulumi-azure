@@ -15,79 +15,80 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var toMonitor = new Azure.Storage.Account("toMonitor", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var main = new Azure.Monitoring.ActionGroup("main", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "exampleact",
+    ///         WebhookReceivers = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var toMonitor = new Azure.Storage.Account("toMonitor", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var main = new Azure.Monitoring.ActionGroup("main", new Azure.Monitoring.ActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "exampleact",
-    ///             WebhookReceivers = 
+    ///             new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
     ///             {
-    ///                 new Azure.Monitoring.Inputs.ActionGroupWebhookReceiverArgs
-    ///                 {
-    ///                     Name = "callmyapi",
-    ///                     ServiceUri = "http://example.com/alert",
-    ///                 },
+    ///                 Name = "callmyapi",
+    ///                 ServiceUri = "http://example.com/alert",
     ///             },
-    ///         });
-    ///         var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new Azure.Monitoring.MetricAlertArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Scopes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Scopes = 
+    ///             toMonitor.Id,
+    ///         },
+    ///         Description = "Action will be triggered when Transactions count is greater than 50.",
+    ///         Criterias = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
     ///             {
-    ///                 toMonitor.Id,
-    ///             },
-    ///             Description = "Action will be triggered when Transactions count is greater than 50.",
-    ///             Criterias = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.MetricAlertCriteriaArgs
+    ///                 MetricNamespace = "Microsoft.Storage/storageAccounts",
+    ///                 MetricName = "Transactions",
+    ///                 Aggregation = "Total",
+    ///                 Operator = "GreaterThan",
+    ///                 Threshold = 50,
+    ///                 Dimensions = new[]
     ///                 {
-    ///                     MetricNamespace = "Microsoft.Storage/storageAccounts",
-    ///                     MetricName = "Transactions",
-    ///                     Aggregation = "Total",
-    ///                     Operator = "GreaterThan",
-    ///                     Threshold = 50,
-    ///                     Dimensions = 
+    ///                     new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs
     ///                     {
-    ///                         new Azure.Monitoring.Inputs.MetricAlertCriteriaDimensionArgs
+    ///                         Name = "ApiName",
+    ///                         Operator = "Include",
+    ///                         Values = new[]
     ///                         {
-    ///                             Name = "ApiName",
-    ///                             Operator = "Include",
-    ///                             Values = 
-    ///                             {
-    ///                                 "*",
-    ///                             },
+    ///                             "*",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             Actions = 
+    ///         },
+    ///         Actions = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.MetricAlertActionArgs
     ///             {
-    ///                 new Azure.Monitoring.Inputs.MetricAlertActionArgs
-    ///                 {
-    ///                     ActionGroupId = main.Id,
-    ///                 },
+    ///                 ActionGroupId = main.Id,
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -99,7 +100,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/metricAlert:MetricAlert")]
-    public partial class MetricAlert : Pulumi.CustomResource
+    public partial class MetricAlert : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `action` blocks as defined below.
@@ -241,7 +242,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class MetricAlertArgs : Pulumi.ResourceArgs
+    public sealed class MetricAlertArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.MetricAlertActionArgs>? _actions;
@@ -366,9 +367,10 @@ namespace Pulumi.Azure.Monitoring
         public MetricAlertArgs()
         {
         }
+        public static new MetricAlertArgs Empty => new MetricAlertArgs();
     }
 
-    public sealed class MetricAlertState : Pulumi.ResourceArgs
+    public sealed class MetricAlertState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.MetricAlertActionGetArgs>? _actions;
@@ -493,5 +495,6 @@ namespace Pulumi.Azure.Monitoring
         public MetricAlertState()
         {
         }
+        public static new MetricAlertState Empty => new MetricAlertState();
     }
 }

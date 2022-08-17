@@ -19,99 +19,102 @@ import (
 // package main
 //
 // import (
-// 	"encoding/json"
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/json"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		tmpJSON0, err := json.Marshal(map[string]string{
-// 			"version": "Notebook/1.0",
-// 			"items": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"type": 1,
-// 					"content": map[string]interface{}{
-// 						"json": "## New workbook\n---\n\nWelcome to your new workbook.",
-// 					},
-// 					"name": "text - 2",
-// 				},
-// 			},
-// 			"styleSettings":        nil,
-// 			fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json0 := string(tmpJSON0)
-// 		tmpJSON1, err := json.Marshal(map[string]interface{}{
-// 			"ar": []map[string]interface{}{
-// 				map[string]interface{}{
-// 					"galleries": []map[string]interface{}{
-// 						map[string]interface{}{
-// 							"name":         "test",
-// 							"category":     "Failures",
-// 							"type":         "tsg",
-// 							"resourceType": "microsoft.insights/components",
-// 							"order":        100,
-// 						},
-// 					},
-// 					"templateData": map[string]string{
-// 						"version": "Notebook/1.0",
-// 						"items": []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"type": 1,
-// 								"content": map[string]interface{}{
-// 									"json": "## New workbook\n---\n\nWelcome to your new workbook.",
-// 								},
-// 								"name": "text - 2",
-// 							},
-// 						},
-// 						"styleSettings":        nil,
-// 						fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		json1 := string(tmpJSON1)
-// 		_, err = appinsights.NewWorkbookTemplate(ctx, "exampleWorkbookTemplate", &appinsights.WorkbookTemplateArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          pulumi.String("West Europe"),
-// 			Author:            pulumi.String("test author"),
-// 			Priority:          pulumi.Int(1),
-// 			Galleries: appinsights.WorkbookTemplateGalleryArray{
-// 				&appinsights.WorkbookTemplateGalleryArgs{
-// 					Category:     pulumi.String("workbook"),
-// 					Name:         pulumi.String("test"),
-// 					Order:        pulumi.Int(100),
-// 					ResourceType: pulumi.String("microsoft.insights/components"),
-// 					Type:         pulumi.String("tsg"),
-// 				},
-// 			},
-// 			TemplateData: pulumi.String(json0),
-// 			Localized:    pulumi.String(json1),
-// 			Tags: pulumi.StringMap{
-// 				"key": pulumi.String("value"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			tmpJSON0, err := json.Marshal(map[string]string{
+//				"version": "Notebook/1.0",
+//				"items": []map[string]interface{}{
+//					map[string]interface{}{
+//						"type": 1,
+//						"content": map[string]interface{}{
+//							"json": "## New workbook\n---\n\nWelcome to your new workbook.",
+//						},
+//						"name": "text - 2",
+//					},
+//				},
+//				"styleSettings":        nil,
+//				fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"ar": []map[string]interface{}{
+//					map[string]interface{}{
+//						"galleries": []map[string]interface{}{
+//							map[string]interface{}{
+//								"name":         "test",
+//								"category":     "Failures",
+//								"type":         "tsg",
+//								"resourceType": "microsoft.insights/components",
+//								"order":        100,
+//							},
+//						},
+//						"templateData": map[string]string{
+//							"version": "Notebook/1.0",
+//							"items": []map[string]interface{}{
+//								map[string]interface{}{
+//									"type": 1,
+//									"content": map[string]interface{}{
+//										"json": "## New workbook\n---\n\nWelcome to your new workbook.",
+//									},
+//									"name": "text - 2",
+//								},
+//							},
+//							"styleSettings":        nil,
+//							fmt.Sprintf("$schema"): "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json1 := string(tmpJSON1)
+//			_, err = appinsights.NewWorkbookTemplate(ctx, "exampleWorkbookTemplate", &appinsights.WorkbookTemplateArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          pulumi.String("West Europe"),
+//				Author:            pulumi.String("test author"),
+//				Priority:          pulumi.Int(1),
+//				Galleries: appinsights.WorkbookTemplateGalleryArray{
+//					&appinsights.WorkbookTemplateGalleryArgs{
+//						Category:     pulumi.String("workbook"),
+//						Name:         pulumi.String("test"),
+//						Order:        pulumi.Int(100),
+//						ResourceType: pulumi.String("microsoft.insights/components"),
+//						Type:         pulumi.String("tsg"),
+//					},
+//				},
+//				TemplateData: pulumi.String(json0),
+//				Localized:    pulumi.String(json1),
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -119,7 +122,9 @@ import (
 // Application Insights Workbook Template can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooktemplates/resource1
+//
+//	$ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooktemplates/resource1
+//
 // ```
 type WorkbookTemplate struct {
 	pulumi.CustomResourceState
@@ -296,7 +301,7 @@ func (i *WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Conte
 // WorkbookTemplateArrayInput is an input type that accepts WorkbookTemplateArray and WorkbookTemplateArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateArrayInput` via:
 //
-//          WorkbookTemplateArray{ WorkbookTemplateArgs{...} }
+//	WorkbookTemplateArray{ WorkbookTemplateArgs{...} }
 type WorkbookTemplateArrayInput interface {
 	pulumi.Input
 
@@ -321,7 +326,7 @@ func (i WorkbookTemplateArray) ToWorkbookTemplateArrayOutputWithContext(ctx cont
 // WorkbookTemplateMapInput is an input type that accepts WorkbookTemplateMap and WorkbookTemplateMapOutput values.
 // You can construct a concrete instance of `WorkbookTemplateMapInput` via:
 //
-//          WorkbookTemplateMap{ "key": WorkbookTemplateArgs{...} }
+//	WorkbookTemplateMap{ "key": WorkbookTemplateArgs{...} }
 type WorkbookTemplateMapInput interface {
 	pulumi.Input
 

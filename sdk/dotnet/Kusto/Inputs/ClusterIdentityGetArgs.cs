@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto.Inputs
 {
 
-    public sealed class ClusterIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds")]
         private InputList<string>? _identityIds;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Kusto.Inputs
         public ClusterIdentityGetArgs()
         {
         }
+        public static new ClusterIdentityGetArgs Empty => new ClusterIdentityGetArgs();
     }
 }

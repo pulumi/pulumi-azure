@@ -15,47 +15,49 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new Azure.StreamAnalytics.GetJobInvokeArgs
-    ///         {
-    ///             Name = "example-job",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleTable = new Azure.Storage.Table("exampleTable", new Azure.Storage.TableArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///         });
-    ///         var exampleOutputTable = new Azure.StreamAnalytics.OutputTable("exampleOutputTable", new Azure.StreamAnalytics.OutputTableArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Apply(exampleJob =&gt; exampleJob.Name),
-    ///             ResourceGroupName = exampleJob.Apply(exampleJob =&gt; exampleJob.ResourceGroupName),
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///             Table = exampleTable.Name,
-    ///             PartitionKey = "foo",
-    ///             RowKey = "bar",
-    ///             BatchSize = 100,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     {
+    ///         Name = "example-job",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleTable = new Azure.Storage.Table("exampleTable", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///     });
+    /// 
+    ///     var exampleOutputTable = new Azure.StreamAnalytics.OutputTable("exampleOutputTable", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///         Table = exampleTable.Name,
+    ///         PartitionKey = "foo",
+    ///         RowKey = "bar",
+    ///         BatchSize = 100,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +69,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputTable:OutputTable")]
-    public partial class OutputTable : Pulumi.CustomResource
+    public partial class OutputTable : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The number of records for a batch operation. Must be between `1` and `100`.
@@ -173,7 +175,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class OutputTableArgs : Pulumi.ResourceArgs
+    public sealed class OutputTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of records for a batch operation. Must be between `1` and `100`.
@@ -244,9 +246,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputTableArgs()
         {
         }
+        public static new OutputTableArgs Empty => new OutputTableArgs();
     }
 
-    public sealed class OutputTableState : Pulumi.ResourceArgs
+    public sealed class OutputTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of records for a batch operation. Must be between `1` and `100`.
@@ -317,5 +320,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public OutputTableState()
         {
         }
+        public static new OutputTableState Empty => new OutputTableState();
     }
 }

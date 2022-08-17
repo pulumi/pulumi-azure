@@ -15,85 +15,88 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Capacity = 2,
+    ///     });
+    /// 
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PartitionCount = 2,
+    ///         MessageRetention = 2,
+    ///     });
+    /// 
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     {
+    ///         NamespaceName = exampleEventHubNamespace.Name,
+    ///         EventhubName = exampleEventHub.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    ///     var exampleAutomation = new Azure.SecurityCenter.Automation("exampleAutomation", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Actions = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Capacity = 2,
-    ///         });
-    ///         var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new Azure.EventHub.EventHubArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PartitionCount = 2,
-    ///             MessageRetention = 2,
-    ///         });
-    ///         var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new Azure.EventHub.AuthorizationRuleArgs
-    ///         {
-    ///             NamespaceName = exampleEventHubNamespace.Name,
-    ///             EventhubName = exampleEventHub.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Listen = true,
-    ///             Send = false,
-    ///             Manage = false,
-    ///         });
-    ///         var exampleAutomation = new Azure.SecurityCenter.Automation("exampleAutomation", new Azure.SecurityCenter.AutomationArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Actions = 
+    ///             new Azure.SecurityCenter.Inputs.AutomationActionArgs
     ///             {
-    ///                 new Azure.SecurityCenter.Inputs.AutomationActionArgs
-    ///                 {
-    ///                     Type = "EventHub",
-    ///                     ResourceId = exampleEventHub.Id,
-    ///                     ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
-    ///                 },
+    ///                 Type = "EventHub",
+    ///                 ResourceId = exampleEventHub.Id,
+    ///                 ConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///             },
-    ///             Sources = 
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.SecurityCenter.Inputs.AutomationSourceArgs
     ///             {
-    ///                 new Azure.SecurityCenter.Inputs.AutomationSourceArgs
+    ///                 EventSource = "Alerts",
+    ///                 RuleSets = new[]
     ///                 {
-    ///                     EventSource = "Alerts",
-    ///                     RuleSets = 
+    ///                     new Azure.SecurityCenter.Inputs.AutomationSourceRuleSetArgs
     ///                     {
-    ///                         new Azure.SecurityCenter.Inputs.AutomationSourceRuleSetArgs
+    ///                         Rules = new[]
     ///                         {
-    ///                             Rules = 
+    ///                             new Azure.SecurityCenter.Inputs.AutomationSourceRuleSetRuleArgs
     ///                             {
-    ///                                 new Azure.SecurityCenter.Inputs.AutomationSourceRuleSetRuleArgs
-    ///                                 {
-    ///                                     PropertyPath = "properties.metadata.severity",
-    ///                                     Operator = "Equals",
-    ///                                     ExpectedValue = "High",
-    ///                                     PropertyType = "String",
-    ///                                 },
+    ///                                 PropertyPath = "properties.metadata.severity",
+    ///                                 Operator = "Equals",
+    ///                                 ExpectedValue = "High",
+    ///                                 PropertyType = "String",
     ///                             },
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             Scopes = 
-    ///             {
-    ///                 current.Apply(current =&gt; $"/subscriptions/{current.SubscriptionId}"),
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             $"/subscriptions/{current.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId)}",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -105,7 +108,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/automation:Automation")]
-    public partial class Automation : Pulumi.CustomResource
+    public partial class Automation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
@@ -205,7 +208,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class AutomationArgs : Pulumi.ResourceArgs
+    public sealed class AutomationArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<Inputs.AutomationActionArgs>? _actions;
@@ -288,9 +291,10 @@ namespace Pulumi.Azure.SecurityCenter
         public AutomationArgs()
         {
         }
+        public static new AutomationArgs Empty => new AutomationArgs();
     }
 
-    public sealed class AutomationState : Pulumi.ResourceArgs
+    public sealed class AutomationState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.AutomationActionGetArgs>? _actions;
@@ -373,5 +377,6 @@ namespace Pulumi.Azure.SecurityCenter
         public AutomationState()
         {
         }
+        public static new AutomationState Empty => new AutomationState();
     }
 }

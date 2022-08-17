@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating whether test devices can use the license.
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs Empty => new ContentKeyPolicyPolicyOptionPlayreadyConfigurationLicenseArgs();
     }
 }

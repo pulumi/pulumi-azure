@@ -21,7 +21,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceAzureSearch:LinkedServiceAzureSearch")]
-    public partial class LinkedServiceAzureSearch : Pulumi.CustomResource
+    public partial class LinkedServiceAzureSearch : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceAzureSearchArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureSearchArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -206,9 +206,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureSearchArgs()
         {
         }
+        public static new LinkedServiceAzureSearchArgs Empty => new LinkedServiceAzureSearchArgs();
     }
 
-    public sealed class LinkedServiceAzureSearchState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureSearchState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -292,5 +293,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceAzureSearchState()
         {
         }
+        public static new LinkedServiceAzureSearchState Empty => new LinkedServiceAzureSearchState();
     }
 }

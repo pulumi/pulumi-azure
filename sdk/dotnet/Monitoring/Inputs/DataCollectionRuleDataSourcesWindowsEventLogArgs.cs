@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDataSourcesWindowsEventLogArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataSourcesWindowsEventLogArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDataSourcesWindowsEventLogArgs()
         {
         }
+        public static new DataCollectionRuleDataSourcesWindowsEventLogArgs Empty => new DataCollectionRuleDataSourcesWindowsEventLogArgs();
     }
 }

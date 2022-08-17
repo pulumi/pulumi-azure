@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateLink.Inputs
 {
 
-    public sealed class EndpointNetworkInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class EndpointNetworkInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Private DNS Zone Config.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public EndpointNetworkInterfaceArgs()
         {
         }
+        public static new EndpointNetworkInterfaceArgs Empty => new EndpointNetworkInterfaceArgs();
     }
 }

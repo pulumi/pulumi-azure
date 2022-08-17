@@ -170,7 +170,7 @@ func (i *ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput 
 // ZipBlobArrayInput is an input type that accepts ZipBlobArray and ZipBlobArrayOutput values.
 // You can construct a concrete instance of `ZipBlobArrayInput` via:
 //
-//          ZipBlobArray{ ZipBlobArgs{...} }
+//	ZipBlobArray{ ZipBlobArgs{...} }
 type ZipBlobArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ func (i ZipBlobArray) ToZipBlobArrayOutputWithContext(ctx context.Context) ZipBl
 // ZipBlobMapInput is an input type that accepts ZipBlobMap and ZipBlobMapOutput values.
 // You can construct a concrete instance of `ZipBlobMapInput` via:
 //
-//          ZipBlobMap{ "key": ZipBlobArgs{...} }
+//	ZipBlobMap{ "key": ZipBlobArgs{...} }
 type ZipBlobMapInput interface {
 	pulumi.Input
 

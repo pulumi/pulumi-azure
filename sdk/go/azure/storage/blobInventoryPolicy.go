@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 			BlobProperties: &storage.AccountBlobPropertiesArgs{
-// 				VersioningEnabled: pulumi.Bool(true),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-// 			StorageAccountName:  exampleAccount.Name,
-// 			ContainerAccessType: pulumi.String("private"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = storage.NewBlobInventoryPolicy(ctx, "exampleBlobInventoryPolicy", &storage.BlobInventoryPolicyArgs{
-// 			StorageAccountId: exampleAccount.ID(),
-// 			Rules: storage.BlobInventoryPolicyRuleArray{
-// 				&storage.BlobInventoryPolicyRuleArgs{
-// 					Name:                 pulumi.String("rule1"),
-// 					StorageContainerName: exampleContainer.Name,
-// 					Format:               pulumi.String("Csv"),
-// 					Schedule:             pulumi.String("Daily"),
-// 					Scope:                pulumi.String("Container"),
-// 					SchemaFields: pulumi.StringArray{
-// 						pulumi.String("Name"),
-// 						pulumi.String("Last-Modified"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				BlobProperties: &storage.AccountBlobPropertiesArgs{
+//					VersioningEnabled: pulumi.Bool(true),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.NewBlobInventoryPolicy(ctx, "exampleBlobInventoryPolicy", &storage.BlobInventoryPolicyArgs{
+//				StorageAccountId: exampleAccount.ID(),
+//				Rules: storage.BlobInventoryPolicyRuleArray{
+//					&storage.BlobInventoryPolicyRuleArgs{
+//						Name:                 pulumi.String("rule1"),
+//						StorageContainerName: exampleContainer.Name,
+//						Format:               pulumi.String("Csv"),
+//						Schedule:             pulumi.String("Daily"),
+//						Scope:                pulumi.String("Container"),
+//						SchemaFields: pulumi.StringArray{
+//							pulumi.String("Name"),
+//							pulumi.String("Last-Modified"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +83,9 @@ import (
 // Storage Blob Inventory Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
+//
+//	$ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
+//
 // ```
 type BlobInventoryPolicy struct {
 	pulumi.CustomResourceState
@@ -184,7 +189,7 @@ func (i *BlobInventoryPolicy) ToBlobInventoryPolicyOutputWithContext(ctx context
 // BlobInventoryPolicyArrayInput is an input type that accepts BlobInventoryPolicyArray and BlobInventoryPolicyArrayOutput values.
 // You can construct a concrete instance of `BlobInventoryPolicyArrayInput` via:
 //
-//          BlobInventoryPolicyArray{ BlobInventoryPolicyArgs{...} }
+//	BlobInventoryPolicyArray{ BlobInventoryPolicyArgs{...} }
 type BlobInventoryPolicyArrayInput interface {
 	pulumi.Input
 
@@ -209,7 +214,7 @@ func (i BlobInventoryPolicyArray) ToBlobInventoryPolicyArrayOutputWithContext(ct
 // BlobInventoryPolicyMapInput is an input type that accepts BlobInventoryPolicyMap and BlobInventoryPolicyMapOutput values.
 // You can construct a concrete instance of `BlobInventoryPolicyMapInput` via:
 //
-//          BlobInventoryPolicyMap{ "key": BlobInventoryPolicyArgs{...} }
+//	BlobInventoryPolicyMap{ "key": BlobInventoryPolicyArgs{...} }
 type BlobInventoryPolicyMapInput interface {
 	pulumi.Input
 

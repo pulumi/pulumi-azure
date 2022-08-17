@@ -19,25 +19,24 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MSSql.GetElasticPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetElasticPool.InvokeAsync(new Azure.MSSql.GetElasticPoolArgs
-        ///         {
-        ///             Name = "mssqlelasticpoolname",
-        ///             ResourceGroupName = "example-resources",
-        ///             ServerName = "example-sql-server",
-        ///         }));
-        ///         this.ElasticpoolId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "mssqlelasticpoolname",
+        ///         ResourceGroupName = "example-resources",
+        ///         ServerName = "example-sql-server",
+        ///     });
         /// 
-        ///     [Output("elasticpoolId")]
-        ///     public Output&lt;string&gt; ElasticpoolId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticpoolId"] = example.Apply(getElasticPoolResult =&gt; getElasticPoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.MSSql
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.MSSql.GetElasticPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.MSSql.GetElasticPool.InvokeAsync(new Azure.MSSql.GetElasticPoolArgs
-        ///         {
-        ///             Name = "mssqlelasticpoolname",
-        ///             ResourceGroupName = "example-resources",
-        ///             ServerName = "example-sql-server",
-        ///         }));
-        ///         this.ElasticpoolId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "mssqlelasticpoolname",
+        ///         ResourceGroupName = "example-resources",
+        ///         ServerName = "example-sql-server",
+        ///     });
         /// 
-        ///     [Output("elasticpoolId")]
-        ///     public Output&lt;string&gt; ElasticpoolId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["elasticpoolId"] = example.Apply(getElasticPoolResult =&gt; getElasticPoolResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.MSSql
     }
 
 
-    public sealed class GetElasticPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the elastic pool.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.MSSql
         public GetElasticPoolArgs()
         {
         }
+        public static new GetElasticPoolArgs Empty => new GetElasticPoolArgs();
     }
 
-    public sealed class GetElasticPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetElasticPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the elastic pool.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.MSSql
         public GetElasticPoolInvokeArgs()
         {
         }
+        public static new GetElasticPoolInvokeArgs Empty => new GetElasticPoolInvokeArgs();
     }
 
 

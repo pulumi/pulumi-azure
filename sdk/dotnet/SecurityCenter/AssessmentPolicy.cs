@@ -15,22 +15,20 @@ namespace Pulumi.Azure.SecurityCenter
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.SecurityCenter.AssessmentPolicy("example", new()
     ///     {
-    ///         var example = new Azure.SecurityCenter.AssessmentPolicy("example", new Azure.SecurityCenter.AssessmentPolicyArgs
-    ///         {
-    ///             Description = "Test Description",
-    ///             DisplayName = "Test Display Name",
-    ///             Severity = "Medium",
-    ///         });
-    ///     }
+    ///         Description = "Test Description",
+    ///         DisplayName = "Test Display Name",
+    ///         Severity = "Medium",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/assessmentPolicy:AssessmentPolicy")]
-    public partial class AssessmentPolicy : Pulumi.CustomResource
+    public partial class AssessmentPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of the categories of resource that is at risk when the Security Center Assessment is unhealthy. Possible values are `Unknown`, `Compute`, `Data`, `IdentityAndAccess`, `IoT` and `Networking`.
@@ -142,7 +140,7 @@ namespace Pulumi.Azure.SecurityCenter
         }
     }
 
-    public sealed class AssessmentPolicyArgs : Pulumi.ResourceArgs
+    public sealed class AssessmentPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<string>? _categories;
@@ -207,9 +205,10 @@ namespace Pulumi.Azure.SecurityCenter
         public AssessmentPolicyArgs()
         {
         }
+        public static new AssessmentPolicyArgs Empty => new AssessmentPolicyArgs();
     }
 
-    public sealed class AssessmentPolicyState : Pulumi.ResourceArgs
+    public sealed class AssessmentPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("categories")]
         private InputList<string>? _categories;
@@ -280,5 +279,6 @@ namespace Pulumi.Azure.SecurityCenter
         public AssessmentPolicyState()
         {
         }
+        public static new AssessmentPolicyState Empty => new AssessmentPolicyState();
     }
 }

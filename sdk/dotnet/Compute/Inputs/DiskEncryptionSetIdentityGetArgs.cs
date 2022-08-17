@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class DiskEncryptionSetIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class DiskEncryptionSetIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The (Client) ID of the Service Principal.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public DiskEncryptionSetIdentityGetArgs()
         {
         }
+        public static new DiskEncryptionSetIdentityGetArgs Empty => new DiskEncryptionSetIdentityGetArgs();
     }
 }

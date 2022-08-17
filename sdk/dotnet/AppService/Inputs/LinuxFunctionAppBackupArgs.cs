@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppBackupArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should this backup job be enabled?
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppBackupArgs()
         {
         }
+        public static new LinuxFunctionAppBackupArgs Empty => new LinuxFunctionAppBackupArgs();
     }
 }

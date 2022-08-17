@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkSecurityGroupSecurityRuleArgs : Pulumi.ResourceArgs
+    public sealed class NetworkSecurityGroupSecurityRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -147,5 +147,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkSecurityGroupSecurityRuleArgs()
         {
         }
+        public static new NetworkSecurityGroupSecurityRuleArgs Empty => new NetworkSecurityGroupSecurityRuleArgs();
     }
 }

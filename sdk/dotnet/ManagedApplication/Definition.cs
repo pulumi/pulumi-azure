@@ -15,38 +15,38 @@ namespace Pulumi.Azure.ManagedApplication
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new Azure.ManagedApplication.DefinitionArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             LockLevel = "ReadOnly",
-    ///             PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
-    ///             DisplayName = "TestManagedApplicationDefinition",
-    ///             Description = "Test Managed Application Definition",
-    ///             Authorizations = 
-    ///             {
-    ///                 new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
-    ///                 {
-    ///                     ServicePrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///                     RoleDefinitionId = "a094b430-dad3-424d-ae58-13f72fd72591",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         LockLevel = "ReadOnly",
+    ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
+    ///         DisplayName = "TestManagedApplicationDefinition",
+    ///         Description = "Test Managed Application Definition",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
+    ///             {
+    ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 RoleDefinitionId = "a094b430-dad3-424d-ae58-13f72fd72591",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.ManagedApplication
     /// ```
     /// </summary>
     [AzureResourceType("azure:managedapplication/definition:Definition")]
-    public partial class Definition : Pulumi.CustomResource
+    public partial class Definition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// One or more `authorization` block defined below.
@@ -176,7 +176,7 @@ namespace Pulumi.Azure.ManagedApplication
         }
     }
 
-    public sealed class DefinitionArgs : Pulumi.ResourceArgs
+    public sealed class DefinitionArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorizations")]
         private InputList<Inputs.DefinitionAuthorizationArgs>? _authorizations;
@@ -265,9 +265,10 @@ namespace Pulumi.Azure.ManagedApplication
         public DefinitionArgs()
         {
         }
+        public static new DefinitionArgs Empty => new DefinitionArgs();
     }
 
-    public sealed class DefinitionState : Pulumi.ResourceArgs
+    public sealed class DefinitionState : global::Pulumi.ResourceArgs
     {
         [Input("authorizations")]
         private InputList<Inputs.DefinitionAuthorizationGetArgs>? _authorizations;
@@ -356,5 +357,6 @@ namespace Pulumi.Azure.ManagedApplication
         public DefinitionState()
         {
         }
+        public static new DefinitionState Empty => new DefinitionState();
     }
 }

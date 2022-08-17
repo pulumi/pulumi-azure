@@ -19,45 +19,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("standard"),
-// 			TenantId:          pulumi.String(current.TenantId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewCertificateIssuer(ctx, "exampleCertificateIssuer", &keyvault.CertificateIssuerArgs{
-// 			OrgId:        pulumi.String("ExampleOrgName"),
-// 			KeyVaultId:   exampleKeyVault.ID(),
-// 			ProviderName: pulumi.String("DigiCert"),
-// 			AccountId:    pulumi.String("0000"),
-// 			Password:     pulumi.String("example-password"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("standard"),
+//				TenantId:          pulumi.String(current.TenantId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewCertificateIssuer(ctx, "exampleCertificateIssuer", &keyvault.CertificateIssuerArgs{
+//				OrgId:        pulumi.String("ExampleOrgName"),
+//				KeyVaultId:   exampleKeyVault.ID(),
+//				ProviderName: pulumi.String("DigiCert"),
+//				AccountId:    pulumi.String("0000"),
+//				Password:     pulumi.String("example-password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +68,9 @@ import (
 // Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
+//
+//	$ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
+//
 // ```
 type CertificateIssuer struct {
 	pulumi.CustomResourceState
@@ -219,7 +224,7 @@ func (i *CertificateIssuer) ToCertificateIssuerOutputWithContext(ctx context.Con
 // CertificateIssuerArrayInput is an input type that accepts CertificateIssuerArray and CertificateIssuerArrayOutput values.
 // You can construct a concrete instance of `CertificateIssuerArrayInput` via:
 //
-//          CertificateIssuerArray{ CertificateIssuerArgs{...} }
+//	CertificateIssuerArray{ CertificateIssuerArgs{...} }
 type CertificateIssuerArrayInput interface {
 	pulumi.Input
 
@@ -244,7 +249,7 @@ func (i CertificateIssuerArray) ToCertificateIssuerArrayOutputWithContext(ctx co
 // CertificateIssuerMapInput is an input type that accepts CertificateIssuerMap and CertificateIssuerMapOutput values.
 // You can construct a concrete instance of `CertificateIssuerMapInput` via:
 //
-//          CertificateIssuerMap{ "key": CertificateIssuerArgs{...} }
+//	CertificateIssuerMap{ "key": CertificateIssuerArgs{...} }
 type CertificateIssuerMapInput interface {
 	pulumi.Input
 

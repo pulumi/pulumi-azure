@@ -21,120 +21,123 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:                 exampleResourceGroup.Location,
-// 			ResourceGroupName:        exampleResourceGroup.Name,
-// 			TenantId:                 pulumi.String(current.TenantId),
-// 			SkuName:                  pulumi.String("premium"),
-// 			EnabledForDiskEncryption: pulumi.Bool(true),
-// 			PurgeProtectionEnabled:   pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId:   pulumi.String(current.TenantId),
-// 			ObjectId:   pulumi.String(current.ObjectId),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Create"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Get"),
-// 				pulumi.String("Purge"),
-// 				pulumi.String("Recover"),
-// 				pulumi.String("Update"),
-// 				pulumi.String("List"),
-// 				pulumi.String("Decrypt"),
-// 				pulumi.String("Sign"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			KeyType:    pulumi.String("RSA"),
-// 			KeySize:    pulumi.Int(2048),
-// 			KeyOpts: pulumi.StringArray{
-// 				pulumi.String("decrypt"),
-// 				pulumi.String("encrypt"),
-// 				pulumi.String("sign"),
-// 				pulumi.String("unwrapKey"),
-// 				pulumi.String("verify"),
-// 				pulumi.String("wrapKey"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			example_user,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleDiskEncryptionSet, err := compute.NewDiskEncryptionSet(ctx, "exampleDiskEncryptionSet", &compute.DiskEncryptionSetArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			KeyVaultKeyId:     exampleKey.ID(),
-// 			Identity: &compute.DiskEncryptionSetIdentityArgs{
-// 				Type: pulumi.String("SystemAssigned"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewAccessPolicy(ctx, "example-diskAccessPolicy", &keyvault.AccessPolicyArgs{
-// 			KeyVaultId: exampleKeyVault.ID(),
-// 			TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
-// 				return identity.TenantId, nil
-// 			}).(pulumi.StringOutput),
-// 			ObjectId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
-// 				return identity.PrincipalId, nil
-// 			}).(pulumi.StringOutput),
-// 			KeyPermissions: pulumi.StringArray{
-// 				pulumi.String("Create"),
-// 				pulumi.String("Delete"),
-// 				pulumi.String("Get"),
-// 				pulumi.String("Purge"),
-// 				pulumi.String("Recover"),
-// 				pulumi.String("Update"),
-// 				pulumi.String("List"),
-// 				pulumi.String("Decrypt"),
-// 				pulumi.String("Sign"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = authorization.NewAssignment(ctx, "example-diskAssignment", &authorization.AssignmentArgs{
-// 			Scope:              exampleKeyVault.ID(),
-// 			RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
-// 			PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
-// 				return identity.PrincipalId, nil
-// 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				EnabledForDiskEncryption: pulumi.Bool(true),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-user", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				example_user,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			exampleDiskEncryptionSet, err := compute.NewDiskEncryptionSet(ctx, "exampleDiskEncryptionSet", &compute.DiskEncryptionSetArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				KeyVaultKeyId:     exampleKey.ID(),
+//				Identity: &compute.DiskEncryptionSetIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewAccessPolicy(ctx, "example-diskAccessPolicy", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
+//					return identity.TenantId, nil
+//				}).(pulumi.StringOutput),
+//				ObjectId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
+//					return identity.PrincipalId, nil
+//				}).(pulumi.StringOutput),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("Update"),
+//					pulumi.String("List"),
+//					pulumi.String("Decrypt"),
+//					pulumi.String("Sign"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = authorization.NewAssignment(ctx, "example-diskAssignment", &authorization.AssignmentArgs{
+//				Scope:              exampleKeyVault.ID(),
+//				RoleDefinitionName: pulumi.String("Key Vault Crypto Service Encryption User"),
+//				PrincipalId: exampleDiskEncryptionSet.Identity.ApplyT(func(identity compute.DiskEncryptionSetIdentity) (string, error) {
+//					return identity.PrincipalId, nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -142,7 +145,9 @@ import (
 // Disk Encryption Sets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+//
+//	$ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+//
 // ```
 type DiskEncryptionSet struct {
 	pulumi.CustomResourceState
@@ -309,7 +314,7 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 // DiskEncryptionSetArrayInput is an input type that accepts DiskEncryptionSetArray and DiskEncryptionSetArrayOutput values.
 // You can construct a concrete instance of `DiskEncryptionSetArrayInput` via:
 //
-//          DiskEncryptionSetArray{ DiskEncryptionSetArgs{...} }
+//	DiskEncryptionSetArray{ DiskEncryptionSetArgs{...} }
 type DiskEncryptionSetArrayInput interface {
 	pulumi.Input
 
@@ -334,7 +339,7 @@ func (i DiskEncryptionSetArray) ToDiskEncryptionSetArrayOutputWithContext(ctx co
 // DiskEncryptionSetMapInput is an input type that accepts DiskEncryptionSetMap and DiskEncryptionSetMapOutput values.
 // You can construct a concrete instance of `DiskEncryptionSetMapInput` via:
 //
-//          DiskEncryptionSetMap{ "key": DiskEncryptionSetArgs{...} }
+//	DiskEncryptionSetMap{ "key": DiskEncryptionSetArgs{...} }
 type DiskEncryptionSetMapInput interface {
 	pulumi.Input
 

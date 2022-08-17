@@ -3,15 +3,19 @@
 
 package com.pulumi.azure.hdinsight.outputs;
 
+import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeHttpsEndpoint;
 import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeInstallScriptAction;
+import com.pulumi.azure.hdinsight.outputs.HadoopClusterRolesEdgeNodeUninstallScriptAction;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class HadoopClusterRolesEdgeNode {
+    private final @Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints;
     /**
      * @return A `install_script_action` block as defined below.
      * 
@@ -22,6 +26,7 @@ public final class HadoopClusterRolesEdgeNode {
      * 
      */
     private final Integer targetInstanceCount;
+    private final @Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions;
     /**
      * @return The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
      * 
@@ -30,14 +35,21 @@ public final class HadoopClusterRolesEdgeNode {
 
     @CustomType.Constructor
     private HadoopClusterRolesEdgeNode(
+        @CustomType.Parameter("httpsEndpoints") @Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints,
         @CustomType.Parameter("installScriptActions") List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions,
         @CustomType.Parameter("targetInstanceCount") Integer targetInstanceCount,
+        @CustomType.Parameter("uninstallScriptActions") @Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions,
         @CustomType.Parameter("vmSize") String vmSize) {
+        this.httpsEndpoints = httpsEndpoints;
         this.installScriptActions = installScriptActions;
         this.targetInstanceCount = targetInstanceCount;
+        this.uninstallScriptActions = uninstallScriptActions;
         this.vmSize = vmSize;
     }
 
+    public List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints() {
+        return this.httpsEndpoints == null ? List.of() : this.httpsEndpoints;
+    }
     /**
      * @return A `install_script_action` block as defined below.
      * 
@@ -51,6 +63,9 @@ public final class HadoopClusterRolesEdgeNode {
      */
     public Integer targetInstanceCount() {
         return this.targetInstanceCount;
+    }
+    public List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions() {
+        return this.uninstallScriptActions == null ? List.of() : this.uninstallScriptActions;
     }
     /**
      * @return The Size of the Virtual Machine which should be used as the Edge Nodes. Changing this forces a new resource to be created.
@@ -69,8 +84,10 @@ public final class HadoopClusterRolesEdgeNode {
     }
 
     public static final class Builder {
+        private @Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints;
         private List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions;
         private Integer targetInstanceCount;
+        private @Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions;
         private String vmSize;
 
         public Builder() {
@@ -79,11 +96,20 @@ public final class HadoopClusterRolesEdgeNode {
 
         public Builder(HadoopClusterRolesEdgeNode defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.httpsEndpoints = defaults.httpsEndpoints;
     	      this.installScriptActions = defaults.installScriptActions;
     	      this.targetInstanceCount = defaults.targetInstanceCount;
+    	      this.uninstallScriptActions = defaults.uninstallScriptActions;
     	      this.vmSize = defaults.vmSize;
         }
 
+        public Builder httpsEndpoints(@Nullable List<HadoopClusterRolesEdgeNodeHttpsEndpoint> httpsEndpoints) {
+            this.httpsEndpoints = httpsEndpoints;
+            return this;
+        }
+        public Builder httpsEndpoints(HadoopClusterRolesEdgeNodeHttpsEndpoint... httpsEndpoints) {
+            return httpsEndpoints(List.of(httpsEndpoints));
+        }
         public Builder installScriptActions(List<HadoopClusterRolesEdgeNodeInstallScriptAction> installScriptActions) {
             this.installScriptActions = Objects.requireNonNull(installScriptActions);
             return this;
@@ -95,11 +121,18 @@ public final class HadoopClusterRolesEdgeNode {
             this.targetInstanceCount = Objects.requireNonNull(targetInstanceCount);
             return this;
         }
+        public Builder uninstallScriptActions(@Nullable List<HadoopClusterRolesEdgeNodeUninstallScriptAction> uninstallScriptActions) {
+            this.uninstallScriptActions = uninstallScriptActions;
+            return this;
+        }
+        public Builder uninstallScriptActions(HadoopClusterRolesEdgeNodeUninstallScriptAction... uninstallScriptActions) {
+            return uninstallScriptActions(List.of(uninstallScriptActions));
+        }
         public Builder vmSize(String vmSize) {
             this.vmSize = Objects.requireNonNull(vmSize);
             return this;
         }        public HadoopClusterRolesEdgeNode build() {
-            return new HadoopClusterRolesEdgeNode(installScriptActions, targetInstanceCount, vmSize);
+            return new HadoopClusterRolesEdgeNode(httpsEndpoints, installScriptActions, targetInstanceCount, uninstallScriptActions, vmSize);
         }
     }
 }

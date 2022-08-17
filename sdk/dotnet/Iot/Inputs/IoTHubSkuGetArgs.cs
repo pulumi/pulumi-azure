@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Iot.Inputs
 {
 
-    public sealed class IoTHubSkuGetArgs : Pulumi.ResourceArgs
+    public sealed class IoTHubSkuGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of provisioned IoT Hub units.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Iot.Inputs
         public IoTHubSkuGetArgs()
         {
         }
+        public static new IoTHubSkuGetArgs Empty => new IoTHubSkuGetArgs();
     }
 }

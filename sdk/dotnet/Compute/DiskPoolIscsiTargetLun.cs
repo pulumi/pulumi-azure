@@ -20,119 +20,125 @@ namespace Pulumi.Azure.Compute
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.0.0/24",
+    ///         },
+    ///         Delegations = new[]
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
     ///             {
-    ///                 "10.0.0.0/24",
-    ///             },
-    ///             Delegations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.SubnetDelegationArgs
+    ///                 Name = "diskspool",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
     ///                 {
-    ///                     Name = "diskspool",
-    ///                     ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                     Actions = new[]
     ///                     {
-    ///                         Actions = 
-    ///                         {
-    ///                             "Microsoft.Network/virtualNetworks/read",
-    ///                         },
-    ///                         Name = "Microsoft.StoragePool/diskPools",
+    ///                         "Microsoft.Network/virtualNetworks/read",
     ///                     },
+    ///                     Name = "Microsoft.StoragePool/diskPools",
     ///                 },
     ///             },
-    ///         });
-    ///         var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new Azure.Compute.DiskPoolArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SubnetId = exampleSubnet.Id,
-    ///             Zones = 
-    ///             {
-    ///                 "1",
-    ///             },
-    ///             SkuName = "Basic_B1",
-    ///         });
-    ///         var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new Azure.Compute.ManagedDiskArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CreateOption = "Empty",
-    ///             StorageAccountType = "Premium_LRS",
-    ///             DiskSizeGb = 4,
-    ///             MaxShares = 2,
-    ///             Zone = "1",
-    ///         });
-    ///         var exampleServicePrincipal = Output.Create(AzureAD.GetServicePrincipal.InvokeAsync(new AzureAD.GetServicePrincipalArgs
-    ///         {
-    ///             DisplayName = "StoragePool Resource Provider",
-    ///         }));
-    ///         var roles = 
-    ///         {
-    ///             "Disk Pool Operator",
-    ///             "Virtual Machine Contributor",
-    ///         };
-    ///         var exampleAssignment = new List&lt;Azure.Authorization.Assignment&gt;();
-    ///         for (var rangeIndex = 0; rangeIndex &lt; roles.Length; rangeIndex++)
-    ///         {
-    ///             var range = new { Value = rangeIndex };
-    ///             exampleAssignment.Add(new Azure.Authorization.Assignment($"exampleAssignment-{range.Value}", new Azure.Authorization.AssignmentArgs
-    ///             {
-    ///                 PrincipalId = exampleServicePrincipal.Apply(exampleServicePrincipal =&gt; exampleServicePrincipal.Id),
-    ///                 RoleDefinitionName = roles[range.Value],
-    ///                 Scope = exampleManagedDisk.Id,
-    ///             }));
-    ///         }
-    ///         var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", new Azure.Compute.DiskPoolManagedDiskAttachmentArgs
-    ///         {
-    ///             DiskPoolId = exampleDiskPool.Id,
-    ///             ManagedDiskId = exampleManagedDisk.Id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///             },
-    ///         });
-    ///         var exampleDiskPoolIscsiTarget = new Azure.Compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", new Azure.Compute.DiskPoolIscsiTargetArgs
-    ///         {
-    ///             AclMode = "Dynamic",
-    ///             DisksPoolId = exampleDiskPool.Id,
-    ///             TargetIqn = "iqn.2021-11.com.microsoft:test",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleDiskPoolManagedDiskAttachment,
-    ///             },
-    ///         });
-    ///         var exampleDiskPoolIscsiTargetLun = new Azure.Compute.DiskPoolIscsiTargetLun("exampleDiskPoolIscsiTargetLun", new Azure.Compute.DiskPoolIscsiTargetLunArgs
-    ///         {
-    ///             IscsiTargetId = exampleDiskPoolIscsiTarget.Id,
-    ///             DiskPoolManagedDiskAttachmentId = exampleDiskPoolManagedDiskAttachment.Id,
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SubnetId = exampleSubnet.Id,
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///         SkuName = "Basic_B1",
+    ///     });
+    /// 
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CreateOption = "Empty",
+    ///         StorageAccountType = "Premium_LRS",
+    ///         DiskSizeGb = 4,
+    ///         MaxShares = 2,
+    ///         Zone = "1",
+    ///     });
+    /// 
+    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "StoragePool Resource Provider",
+    ///     });
+    /// 
+    ///     var roles = new[]
+    ///     {
+    ///         "Disk Pool Operator",
+    ///         "Virtual Machine Contributor",
+    ///     };
+    /// 
+    ///     var exampleAssignment = new List&lt;Azure.Authorization.Assignment&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; roles.Length; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleAssignment.Add(new Azure.Authorization.Assignment($"exampleAssignment-{range.Value}", new()
+    ///         {
+    ///             PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///             RoleDefinitionName = roles[range.Value],
+    ///             Scope = exampleManagedDisk.Id,
+    ///         }));
+    ///     }
+    ///     var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", new()
+    ///     {
+    ///         DiskPoolId = exampleDiskPool.Id,
+    ///         ManagedDiskId = exampleManagedDisk.Id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiskPoolIscsiTarget = new Azure.Compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", new()
+    ///     {
+    ///         AclMode = "Dynamic",
+    ///         DisksPoolId = exampleDiskPool.Id,
+    ///         TargetIqn = "iqn.2021-11.com.microsoft:test",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleDiskPoolManagedDiskAttachment,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDiskPoolIscsiTargetLun = new Azure.Compute.DiskPoolIscsiTargetLun("exampleDiskPoolIscsiTargetLun", new()
+    ///     {
+    ///         IscsiTargetId = exampleDiskPoolIscsiTarget.Id,
+    ///         DiskPoolManagedDiskAttachmentId = exampleDiskPoolManagedDiskAttachment.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -144,7 +150,7 @@ namespace Pulumi.Azure.Compute
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun")]
-    public partial class DiskPoolIscsiTargetLun : Pulumi.CustomResource
+    public partial class DiskPoolIscsiTargetLun : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the `azure.compute.DiskPoolManagedDiskAttachment`. Changing this forces a new iSCSI Target LUN to be created.
@@ -214,7 +220,7 @@ namespace Pulumi.Azure.Compute
         }
     }
 
-    public sealed class DiskPoolIscsiTargetLunArgs : Pulumi.ResourceArgs
+    public sealed class DiskPoolIscsiTargetLunArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the `azure.compute.DiskPoolManagedDiskAttachment`. Changing this forces a new iSCSI Target LUN to be created.
@@ -237,9 +243,10 @@ namespace Pulumi.Azure.Compute
         public DiskPoolIscsiTargetLunArgs()
         {
         }
+        public static new DiskPoolIscsiTargetLunArgs Empty => new DiskPoolIscsiTargetLunArgs();
     }
 
-    public sealed class DiskPoolIscsiTargetLunState : Pulumi.ResourceArgs
+    public sealed class DiskPoolIscsiTargetLunState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the `azure.compute.DiskPoolManagedDiskAttachment`. Changing this forces a new iSCSI Target LUN to be created.
@@ -268,5 +275,6 @@ namespace Pulumi.Azure.Compute
         public DiskPoolIscsiTargetLunState()
         {
         }
+        public static new DiskPoolIscsiTargetLunState Empty => new DiskPoolIscsiTargetLunState();
     }
 }

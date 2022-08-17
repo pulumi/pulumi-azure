@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class InteractiveQueryClusterRolesZookeeperNodeArgs : Pulumi.ResourceArgs
+    public sealed class InteractiveQueryClusterRolesZookeeperNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Password associated with the local administrator for the Zookeeper Nodes. Changing this forces a new resource to be created.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public InteractiveQueryClusterRolesZookeeperNodeArgs()
         {
         }
+        public static new InteractiveQueryClusterRolesZookeeperNodeArgs Empty => new InteractiveQueryClusterRolesZookeeperNodeArgs();
     }
 }

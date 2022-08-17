@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolStartTaskArgs : Pulumi.ResourceArgs
+    public sealed class PoolStartTaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The command line executed by the start task.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolStartTaskArgs()
         {
         }
+        public static new PoolStartTaskArgs Empty => new PoolStartTaskArgs();
     }
 }

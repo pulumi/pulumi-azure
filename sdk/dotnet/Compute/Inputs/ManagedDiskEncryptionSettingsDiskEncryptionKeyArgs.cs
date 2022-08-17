@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs : Pulumi.ResourceArgs
+    public sealed class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as `id` on the `azure.keyvault.Secret` resource.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs()
         {
         }
+        public static new ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs Empty => new ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs();
     }
 }

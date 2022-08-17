@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class GremlinGraphConflictResolutionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class GremlinGraphConflictResolutionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The conflict resolution path in the case of LastWriterWins mode.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public GremlinGraphConflictResolutionPolicyGetArgs()
         {
         }
+        public static new GremlinGraphConflictResolutionPolicyGetArgs Empty => new GremlinGraphConflictResolutionPolicyGetArgs();
     }
 }

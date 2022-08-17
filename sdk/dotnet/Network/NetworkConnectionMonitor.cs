@@ -17,178 +17,184 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new Azure.Network.NetworkWatcherArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new Azure.Network.NetworkInterfaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IpConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
-    ///                 {
-    ///                     Name = "testconfiguration1",
-    ///                     SubnetId = exampleSubnet.Id,
-    ///                     PrivateIpAddressAllocation = "Dynamic",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new Azure.Compute.VirtualMachineArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NetworkInterfaceIds = 
-    ///             {
-    ///                 exampleNetworkInterface.Id,
-    ///             },
-    ///             VmSize = "Standard_D2s_v3",
-    ///             StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
-    ///             {
-    ///                 Publisher = "Canonical",
-    ///                 Offer = "UbuntuServer",
-    ///                 Sku = "16.04-LTS",
-    ///                 Version = "latest",
-    ///             },
-    ///             StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
-    ///             {
-    ///                 Name = "osdisk-example01",
-    ///                 Caching = "ReadWrite",
-    ///                 CreateOption = "FromImage",
-    ///                 ManagedDiskType = "Standard_LRS",
-    ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
-    ///             {
-    ///                 ComputerName = "hostnametest01",
-    ///                 AdminUsername = "testadmin",
-    ///                 AdminPassword = "Password1234!",
-    ///             },
-    ///             OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
-    ///             {
-    ///                 DisablePasswordAuthentication = false,
-    ///             },
-    ///         });
-    ///         var exampleExtension = new Azure.Compute.Extension("exampleExtension", new Azure.Compute.ExtensionArgs
-    ///         {
-    ///             VirtualMachineId = exampleVirtualMachine.Id,
-    ///             Publisher = "Microsoft.Azure.NetworkWatcher",
-    ///             Type = "NetworkWatcherAgentLinux",
-    ///             TypeHandlerVersion = "1.4",
-    ///             AutoUpgradeMinorVersion = true,
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleNetworkConnectionMonitor = new Azure.Network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor", new Azure.Network.NetworkConnectionMonitorArgs
-    ///         {
-    ///             NetworkWatcherId = exampleNetworkWatcher.Id,
-    ///             Location = exampleNetworkWatcher.Location,
-    ///             Endpoints = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
-    ///                 {
-    ///                     Name = "source",
-    ///                     TargetResourceId = exampleVirtualMachine.Id,
-    ///                     Filter = new Azure.Network.Inputs.NetworkConnectionMonitorEndpointFilterArgs
-    ///                     {
-    ///                         Items = 
-    ///                         {
-    ///                             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointFilterItemArgs
-    ///                             {
-    ///                                 Address = exampleVirtualMachine.Id,
-    ///                                 Type = "AgentAddress",
-    ///                             },
-    ///                         },
-    ///                         Type = "Include",
-    ///                     },
-    ///                 },
-    ///                 new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
-    ///                 {
-    ///                     Name = "destination",
-    ///                     Address = "mycompany.io",
-    ///                 },
-    ///             },
-    ///             TestConfigurations = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationArgs
-    ///                 {
-    ///                     Name = "tcpName",
-    ///                     Protocol = "Tcp",
-    ///                     TestFrequencyInSeconds = 60,
-    ///                     TcpConfiguration = new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
-    ///                     {
-    ///                         Port = 80,
-    ///                     },
-    ///                 },
-    ///             },
-    ///             TestGroups = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkConnectionMonitorTestGroupArgs
-    ///                 {
-    ///                     Name = "exampletg",
-    ///                     DestinationEndpoints = 
-    ///                     {
-    ///                         "destination",
-    ///                     },
-    ///                     SourceEndpoints = 
-    ///                     {
-    ///                         "source",
-    ///                     },
-    ///                     TestConfigurationNames = 
-    ///                     {
-    ///                         "tcpName",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Notes = "examplenote",
-    ///             OutputWorkspaceResourceIds = 
-    ///             {
-    ///                 exampleAnalyticsWorkspace.Id,
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleExtension,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "testconfiguration1",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         VmSize = "Standard_D2s_v3",
+    ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "UbuntuServer",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "latest",
+    ///         },
+    ///         StorageOsDisk = new Azure.Compute.Inputs.VirtualMachineStorageOsDiskArgs
+    ///         {
+    ///             Name = "osdisk-example01",
+    ///             Caching = "ReadWrite",
+    ///             CreateOption = "FromImage",
+    ///             ManagedDiskType = "Standard_LRS",
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.VirtualMachineOsProfileArgs
+    ///         {
+    ///             ComputerName = "hostnametest01",
+    ///             AdminUsername = "testadmin",
+    ///             AdminPassword = "Password1234!",
+    ///         },
+    ///         OsProfileLinuxConfig = new Azure.Compute.Inputs.VirtualMachineOsProfileLinuxConfigArgs
+    ///         {
+    ///             DisablePasswordAuthentication = false,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     {
+    ///         VirtualMachineId = exampleVirtualMachine.Id,
+    ///         Publisher = "Microsoft.Azure.NetworkWatcher",
+    ///         Type = "NetworkWatcherAgentLinux",
+    ///         TypeHandlerVersion = "1.4",
+    ///         AutoUpgradeMinorVersion = true,
+    ///     });
+    /// 
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleNetworkConnectionMonitor = new Azure.Network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor", new()
+    ///     {
+    ///         NetworkWatcherId = exampleNetworkWatcher.Id,
+    ///         Location = exampleNetworkWatcher.Location,
+    ///         Endpoints = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Name = "source",
+    ///                 TargetResourceId = exampleVirtualMachine.Id,
+    ///                 Filter = new Azure.Network.Inputs.NetworkConnectionMonitorEndpointFilterArgs
+    ///                 {
+    ///                     Items = new[]
+    ///                     {
+    ///                         new Azure.Network.Inputs.NetworkConnectionMonitorEndpointFilterItemArgs
+    ///                         {
+    ///                             Address = exampleVirtualMachine.Id,
+    ///                             Type = "AgentAddress",
+    ///                         },
+    ///                     },
+    ///                     Type = "Include",
+    ///                 },
+    ///             },
+    ///             new Azure.Network.Inputs.NetworkConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Name = "destination",
+    ///                 Address = "mycompany.io",
+    ///             },
+    ///         },
+    ///         TestConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationArgs
+    ///             {
+    ///                 Name = "tcpName",
+    ///                 Protocol = "Tcp",
+    ///                 TestFrequencyInSeconds = 60,
+    ///                 TcpConfiguration = new Azure.Network.Inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                 },
+    ///             },
+    ///         },
+    ///         TestGroups = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkConnectionMonitorTestGroupArgs
+    ///             {
+    ///                 Name = "exampletg",
+    ///                 DestinationEndpoints = new[]
+    ///                 {
+    ///                     "destination",
+    ///                 },
+    ///                 SourceEndpoints = new[]
+    ///                 {
+    ///                     "source",
+    ///                 },
+    ///                 TestConfigurationNames = new[]
+    ///                 {
+    ///                     "tcpName",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notes = "examplenote",
+    ///         OutputWorkspaceResourceIds = new[]
+    ///         {
+    ///             exampleAnalyticsWorkspace.Id,
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleExtension,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -200,7 +206,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/networkConnectionMonitor:NetworkConnectionMonitor")]
-    public partial class NetworkConnectionMonitor : Pulumi.CustomResource
+    public partial class NetworkConnectionMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `endpoint` block as defined below.
@@ -300,7 +306,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class NetworkConnectionMonitorArgs : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorArgs : global::Pulumi.ResourceArgs
     {
         [Input("endpoints", required: true)]
         private InputList<Inputs.NetworkConnectionMonitorEndpointArgs>? _endpoints;
@@ -389,9 +395,10 @@ namespace Pulumi.Azure.Network
         public NetworkConnectionMonitorArgs()
         {
         }
+        public static new NetworkConnectionMonitorArgs Empty => new NetworkConnectionMonitorArgs();
     }
 
-    public sealed class NetworkConnectionMonitorState : Pulumi.ResourceArgs
+    public sealed class NetworkConnectionMonitorState : global::Pulumi.ResourceArgs
     {
         [Input("endpoints")]
         private InputList<Inputs.NetworkConnectionMonitorEndpointGetArgs>? _endpoints;
@@ -480,5 +487,6 @@ namespace Pulumi.Azure.Network
         public NetworkConnectionMonitorState()
         {
         }
+        public static new NetworkConnectionMonitorState Empty => new NetworkConnectionMonitorState();
     }
 }

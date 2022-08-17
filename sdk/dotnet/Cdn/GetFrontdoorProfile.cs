@@ -19,21 +19,19 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorProfile.InvokeAsync(new Azure.Cdn.GetFrontdoorProfileArgs
-        ///         {
-        ///             Name = "existing-cdn-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,21 +47,19 @@ namespace Pulumi.Azure.Cdn
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Cdn.GetFrontdoorProfile.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Cdn.GetFrontdoorProfile.InvokeAsync(new Azure.Cdn.GetFrontdoorProfileArgs
-        ///         {
-        ///             Name = "existing-cdn-profile",
-        ///             ResourceGroupName = "existing-resources",
-        ///         }));
-        ///     }
+        ///         Name = "existing-cdn-profile",
+        ///         ResourceGroupName = "existing-resources",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.Azure.Cdn
     }
 
 
-    public sealed class GetFrontdoorProfileArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorProfileArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Profile.
@@ -90,9 +86,10 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorProfileArgs()
         {
         }
+        public static new GetFrontdoorProfileArgs Empty => new GetFrontdoorProfileArgs();
     }
 
-    public sealed class GetFrontdoorProfileInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetFrontdoorProfileInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Profile.
@@ -109,6 +106,7 @@ namespace Pulumi.Azure.Cdn
         public GetFrontdoorProfileInvokeArgs()
         {
         }
+        public static new GetFrontdoorProfileInvokeArgs Empty => new GetFrontdoorProfileInvokeArgs();
     }
 
 

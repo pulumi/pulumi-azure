@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/netapp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := netapp.LookupPool(ctx, &netapp.LookupPoolArgs{
-// 			ResourceGroupName: "acctestRG",
-// 			AccountName:       "acctestnetappaccount",
-// 			Name:              "acctestnetapppool",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("netappPoolId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := netapp.LookupPool(ctx, &netapp.LookupPoolArgs{
+//				ResourceGroupName: "acctestRG",
+//				AccountName:       "acctestnetappaccount",
+//				Name:              "acctestnetapppool",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("netappPoolId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult

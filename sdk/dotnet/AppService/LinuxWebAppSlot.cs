@@ -15,39 +15,40 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new Azure.AppService.ServicePlanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             OsType = "Linux",
-    ///             SkuName = "P1v2",
-    ///         });
-    ///         var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new Azure.AppService.LinuxWebAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleServicePlan.Location,
-    ///             ServicePlanId = exampleServicePlan.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///         var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("exampleLinuxWebAppSlot", new Azure.AppService.LinuxWebAppSlotArgs
-    ///         {
-    ///             AppServiceId = exampleLinuxWebApp.Id,
-    ///             SiteConfig = ,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         OsType = "Linux",
+    ///         SkuName = "P1v2",
+    ///     });
+    /// 
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleServicePlan.Location,
+    ///         ServicePlanId = exampleServicePlan.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    ///     var exampleLinuxWebAppSlot = new Azure.AppService.LinuxWebAppSlot("exampleLinuxWebAppSlot", new()
+    ///     {
+    ///         AppServiceId = exampleLinuxWebApp.Id,
+    ///         SiteConfig = ,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +60,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/linuxWebAppSlot:LinuxWebAppSlot")]
-    public partial class LinuxWebAppSlot : Pulumi.CustomResource
+    public partial class LinuxWebAppSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `app_metadata` block as defined below.
@@ -218,7 +219,7 @@ namespace Pulumi.Azure.AppService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// </summary>
         [Output("virtualNetworkSubnetId")]
         public Output<string?> VirtualNetworkSubnetId { get; private set; } = null!;
@@ -273,7 +274,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class LinuxWebAppSlotArgs : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Linux Web App this Deployment Slot will be part of. Changing this forces a new Linux Web App to be created.
@@ -402,7 +403,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -416,9 +417,10 @@ namespace Pulumi.Azure.AppService
         public LinuxWebAppSlotArgs()
         {
         }
+        public static new LinuxWebAppSlotArgs Empty => new LinuxWebAppSlotArgs();
     }
 
-    public sealed class LinuxWebAppSlotState : Pulumi.ResourceArgs
+    public sealed class LinuxWebAppSlotState : global::Pulumi.ResourceArgs
     {
         [Input("appMetadata")]
         private InputMap<string>? _appMetadata;
@@ -625,7 +627,7 @@ namespace Pulumi.Azure.AppService
         }
 
         /// <summary>
-        /// The subnet id which the web app will be vNet Integrated with. Changing this forces a new Linux Function App to be created.
+        /// The subnet id which will be used by this Web App Slot for [regional virtual network integration](https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration#regional-virtual-network-integration).
         /// </summary>
         [Input("virtualNetworkSubnetId")]
         public Input<string>? VirtualNetworkSubnetId { get; set; }
@@ -639,5 +641,6 @@ namespace Pulumi.Azure.AppService
         public LinuxWebAppSlotState()
         {
         }
+        public static new LinuxWebAppSlotState Empty => new LinuxWebAppSlotState();
     }
 }

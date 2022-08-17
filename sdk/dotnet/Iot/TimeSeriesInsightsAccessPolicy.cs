@@ -15,36 +15,36 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new Azure.Iot.TimeSeriesInsightsStandardEnvironmentArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "S1_1",
-    ///             DataRetentionTime = "P30D",
-    ///         });
-    ///         var exampleTimeSeriesInsightsAccessPolicy = new Azure.Iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy", new Azure.Iot.TimeSeriesInsightsAccessPolicyArgs
-    ///         {
-    ///             TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Name,
-    ///             PrincipalObjectId = "aGUID",
-    ///             Roles = 
-    ///             {
-    ///                 "Reader",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "S1_1",
+    ///         DataRetentionTime = "P30D",
+    ///     });
+    /// 
+    ///     var exampleTimeSeriesInsightsAccessPolicy = new Azure.Iot.TimeSeriesInsightsAccessPolicy("exampleTimeSeriesInsightsAccessPolicy", new()
+    ///     {
+    ///         TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Name,
+    ///         PrincipalObjectId = "aGUID",
+    ///         Roles = new[]
+    ///         {
+    ///             "Reader",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy")]
-    public partial class TimeSeriesInsightsAccessPolicy : Pulumi.CustomResource
+    public partial class TimeSeriesInsightsAccessPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The description of the Azure IoT Time Series Insights Access Policy.
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class TimeSeriesInsightsAccessPolicyArgs : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsAccessPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Azure IoT Time Series Insights Access Policy.
@@ -173,9 +173,10 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsAccessPolicyArgs()
         {
         }
+        public static new TimeSeriesInsightsAccessPolicyArgs Empty => new TimeSeriesInsightsAccessPolicyArgs();
     }
 
-    public sealed class TimeSeriesInsightsAccessPolicyState : Pulumi.ResourceArgs
+    public sealed class TimeSeriesInsightsAccessPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The description of the Azure IoT Time Series Insights Access Policy.
@@ -216,5 +217,6 @@ namespace Pulumi.Azure.Iot
         public TimeSeriesInsightsAccessPolicyState()
         {
         }
+        public static new TimeSeriesInsightsAccessPolicyState Empty => new TimeSeriesInsightsAccessPolicyState();
     }
 }

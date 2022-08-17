@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			OfferType:         pulumi.String("Standard"),
-// 			Kind:              pulumi.String("GlobalDocumentDB"),
-// 			ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
-// 				ConsistencyLevel: pulumi.String("BoundedStaleness"),
-// 			},
-// 			GeoLocations: cosmosdb.AccountGeoLocationArray{
-// 				&cosmosdb.AccountGeoLocationArgs{
-// 					Location:         exampleResourceGroup.Location,
-// 					FailoverPriority: pulumi.Int(0),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewNotebookWorkspace(ctx, "exampleNotebookWorkspace", &cosmosdb.NotebookWorkspaceArgs{
-// 			ResourceGroupName: exampleAccount.ResourceGroupName,
-// 			AccountName:       exampleAccount.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				OfferType:         pulumi.String("Standard"),
+//				Kind:              pulumi.String("GlobalDocumentDB"),
+//				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
+//					ConsistencyLevel: pulumi.String("BoundedStaleness"),
+//				},
+//				GeoLocations: cosmosdb.AccountGeoLocationArray{
+//					&cosmosdb.AccountGeoLocationArgs{
+//						Location:         exampleResourceGroup.Location,
+//						FailoverPriority: pulumi.Int(0),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewNotebookWorkspace(ctx, "exampleNotebookWorkspace", &cosmosdb.NotebookWorkspaceArgs{
+//				ResourceGroupName: exampleAccount.ResourceGroupName,
+//				AccountName:       exampleAccount.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // =SQL Notebook Workspaces can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
+//
+//	$ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
+//
 // ```
 type NotebookWorkspace struct {
 	pulumi.CustomResourceState
@@ -187,7 +192,7 @@ func (i *NotebookWorkspace) ToNotebookWorkspaceOutputWithContext(ctx context.Con
 // NotebookWorkspaceArrayInput is an input type that accepts NotebookWorkspaceArray and NotebookWorkspaceArrayOutput values.
 // You can construct a concrete instance of `NotebookWorkspaceArrayInput` via:
 //
-//          NotebookWorkspaceArray{ NotebookWorkspaceArgs{...} }
+//	NotebookWorkspaceArray{ NotebookWorkspaceArgs{...} }
 type NotebookWorkspaceArrayInput interface {
 	pulumi.Input
 
@@ -212,7 +217,7 @@ func (i NotebookWorkspaceArray) ToNotebookWorkspaceArrayOutputWithContext(ctx co
 // NotebookWorkspaceMapInput is an input type that accepts NotebookWorkspaceMap and NotebookWorkspaceMapOutput values.
 // You can construct a concrete instance of `NotebookWorkspaceMapInput` via:
 //
-//          NotebookWorkspaceMap{ "key": NotebookWorkspaceArgs{...} }
+//	NotebookWorkspaceMap{ "key": NotebookWorkspaceArgs{...} }
 type NotebookWorkspaceMapInput interface {
 	pulumi.Input
 

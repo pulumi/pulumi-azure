@@ -15,47 +15,49 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///         });
-    ///         var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new Azure.Network.VirtualWanArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new Azure.Network.VirtualHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             VirtualWanId = exampleVirtualWan.Id,
-    ///             AddressPrefix = "10.0.1.0/24",
-    ///         });
-    ///         var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new Azure.Network.VpnGatewayArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualHubId = exampleVirtualHub.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         VirtualWanId = exampleVirtualWan.Id,
+    ///         AddressPrefix = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualHubId = exampleVirtualHub.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -67,7 +69,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/vpnGateway:VpnGateway")]
-    public partial class VpnGateway : Pulumi.CustomResource
+    public partial class VpnGateway : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
@@ -168,7 +170,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VpnGatewayArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
@@ -234,9 +236,10 @@ namespace Pulumi.Azure.Network
         public VpnGatewayArgs()
         {
         }
+        public static new VpnGatewayArgs Empty => new VpnGatewayArgs();
     }
 
-    public sealed class VpnGatewayState : Pulumi.ResourceArgs
+    public sealed class VpnGatewayState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is BGP route translation for NAT on this VPN Gateway enabled? Defaults to `false`.
@@ -302,5 +305,6 @@ namespace Pulumi.Azure.Network
         public VpnGatewayState()
         {
         }
+        public static new VpnGatewayState Empty => new VpnGatewayState();
     }
 }

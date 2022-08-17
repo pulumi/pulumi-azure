@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateLink.Inputs
 {
 
-    public sealed class EndpointPrivateServiceConnectionGetArgs : Pulumi.ResourceArgs
+    public sealed class EndpointPrivateServiceConnectionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.PrivateLink.Inputs
         public EndpointPrivateServiceConnectionGetArgs()
         {
         }
+        public static new EndpointPrivateServiceConnectionGetArgs Empty => new EndpointPrivateServiceConnectionGetArgs();
     }
 }

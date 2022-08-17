@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/privatedns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = privatedns.NewCnameRecord(ctx, "exampleCnameRecord", &privatedns.CnameRecordArgs{
-// 			ZoneName:          exampleZone.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Ttl:               pulumi.Int(300),
-// 			Record:            pulumi.String("contoso.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = privatedns.NewCnameRecord(ctx, "exampleCnameRecord", &privatedns.CnameRecordArgs{
+//				ZoneName:          exampleZone.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Ttl:               pulumi.Int(300),
+//				Record:            pulumi.String("contoso.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Private DNS CName Records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
+//
+//	$ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
+//
 // ```
 type CnameRecord struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *CnameRecord) ToCnameRecordOutputWithContext(ctx context.Context) CnameR
 // CnameRecordArrayInput is an input type that accepts CnameRecordArray and CnameRecordArrayOutput values.
 // You can construct a concrete instance of `CnameRecordArrayInput` via:
 //
-//          CnameRecordArray{ CnameRecordArgs{...} }
+//	CnameRecordArray{ CnameRecordArgs{...} }
 type CnameRecordArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i CnameRecordArray) ToCnameRecordArrayOutputWithContext(ctx context.Contex
 // CnameRecordMapInput is an input type that accepts CnameRecordMap and CnameRecordMapOutput values.
 // You can construct a concrete instance of `CnameRecordMapInput` via:
 //
-//          CnameRecordMap{ "key": CnameRecordArgs{...} }
+//	CnameRecordMap{ "key": CnameRecordArgs{...} }
 type CnameRecordMapInput interface {
 	pulumi.Input
 

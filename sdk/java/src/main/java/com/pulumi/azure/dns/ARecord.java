@@ -211,9 +211,17 @@ public class ARecord extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> targetResourceId() {
         return Codegen.optional(this.targetResourceId);
     }
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Export(name="ttl", type=Integer.class, parameters={})
     private Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }

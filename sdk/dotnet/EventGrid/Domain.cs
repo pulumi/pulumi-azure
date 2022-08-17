@@ -15,29 +15,28 @@ namespace Pulumi.Azure.EventGrid
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new Azure.EventGrid.DomainArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleDomain = new Azure.EventGrid.Domain("exampleDomain", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventgrid/domain:Domain")]
-    public partial class Domain : Pulumi.CustomResource
+    public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
@@ -172,7 +171,7 @@ namespace Pulumi.Azure.EventGrid
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:eventhub/domain:Domain"},
+                    new global::Pulumi.Alias { Type = "azure:eventhub/domain:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,7 +194,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
-    public sealed class DomainArgs : Pulumi.ResourceArgs
+    public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
@@ -290,9 +289,10 @@ namespace Pulumi.Azure.EventGrid
         public DomainArgs()
         {
         }
+        public static new DomainArgs Empty => new DomainArgs();
     }
 
-    public sealed class DomainState : Pulumi.ResourceArgs
+    public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to create the domain topic when the first event subscription at the scope of the domain topic is created. Defaults to `true`.
@@ -405,5 +405,6 @@ namespace Pulumi.Azure.EventGrid
         public DomainState()
         {
         }
+        public static new DomainState Empty => new DomainState();
     }
 }

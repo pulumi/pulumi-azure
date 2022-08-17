@@ -13,56 +13,58 @@ namespace Pulumi.Azure.Sql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var vnet = new Azure.Network.VirtualNetwork("vnet", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             Location = example.Location,
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///         var subnet = new Azure.Network.Subnet("subnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             VirtualNetworkName = vnet.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Sql",
-    ///             },
-    ///         });
-    ///         var sqlserver = new Azure.Sql.SqlServer("sqlserver", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new Azure.Sql.VirtualNetworkRuleArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             ServerName = sqlserver.Name,
-    ///             SubnetId = subnet.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var vnet = new Azure.Network.VirtualNetwork("vnet", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var subnet = new Azure.Network.Subnet("subnet", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = vnet.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///         },
+    ///     });
+    /// 
+    ///     var sqlserver = new Azure.Sql.SqlServer("sqlserver", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         ServerName = sqlserver.Name,
+    ///         SubnetId = subnet.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +76,7 @@ namespace Pulumi.Azure.Sql
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/virtualNetworkRule:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
@@ -150,7 +152,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
@@ -185,9 +187,10 @@ namespace Pulumi.Azure.Sql
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 
-    public sealed class VirtualNetworkRuleState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Create the virtual network rule before the subnet has the virtual network service endpoint enabled. The default value is false.
@@ -222,5 +225,6 @@ namespace Pulumi.Azure.Sql
         public VirtualNetworkRuleState()
         {
         }
+        public static new VirtualNetworkRuleState Empty => new VirtualNetworkRuleState();
     }
 }

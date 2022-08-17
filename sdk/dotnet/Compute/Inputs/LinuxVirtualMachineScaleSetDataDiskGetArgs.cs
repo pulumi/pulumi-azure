@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class LinuxVirtualMachineScaleSetDataDiskGetArgs : Pulumi.ResourceArgs
+    public sealed class LinuxVirtualMachineScaleSetDataDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public LinuxVirtualMachineScaleSetDataDiskGetArgs()
         {
         }
+        public static new LinuxVirtualMachineScaleSetDataDiskGetArgs Empty => new LinuxVirtualMachineScaleSetDataDiskGetArgs();
     }
 }

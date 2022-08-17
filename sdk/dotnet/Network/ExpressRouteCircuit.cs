@@ -15,37 +15,36 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new Azure.Network.ExpressRouteCircuitArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             ServiceProviderName = "Equinix",
-    ///             PeeringLocation = "Silicon Valley",
-    ///             BandwidthInMbps = 50,
-    ///             Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Family = "MeteredData",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         ServiceProviderName = "Equinix",
+    ///         PeeringLocation = "Silicon Valley",
+    ///         BandwidthInMbps = 50,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +56,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRouteCircuit:ExpressRouteCircuit")]
-    public partial class ExpressRouteCircuit : Pulumi.CustomResource
+    public partial class ExpressRouteCircuit : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -181,7 +180,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class ExpressRouteCircuitArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -258,9 +257,10 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitArgs()
         {
         }
+        public static new ExpressRouteCircuitArgs Empty => new ExpressRouteCircuitArgs();
     }
 
-    public sealed class ExpressRouteCircuitState : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -349,5 +349,6 @@ namespace Pulumi.Azure.Network
         public ExpressRouteCircuitState()
         {
         }
+        public static new ExpressRouteCircuitState Empty => new ExpressRouteCircuitState();
     }
 }

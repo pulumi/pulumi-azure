@@ -15,46 +15,46 @@ namespace Pulumi.Azure.DataShare
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.DataShare.Account("exampleAccount", new Azure.DataShare.AccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///         var exampleShare = new Azure.DataShare.Share("exampleShare", new Azure.DataShare.ShareArgs
-    ///         {
-    ///             AccountId = exampleAccount.Id,
-    ///             Kind = "CopyBased",
-    ///             Description = "example desc",
-    ///             Terms = "example terms",
-    ///             SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
-    ///             {
-    ///                 Name = "example-ss",
-    ///                 Recurrence = "Day",
-    ///                 StartTime = "2020-04-17T04:47:52.9614956Z",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     {
+    ///         AccountId = exampleAccount.Id,
+    ///         Kind = "CopyBased",
+    ///         Description = "example desc",
+    ///         Terms = "example terms",
+    ///         SnapshotSchedule = new Azure.DataShare.Inputs.ShareSnapshotScheduleArgs
+    ///         {
+    ///             Name = "example-ss",
+    ///             Recurrence = "Day",
+    ///             StartTime = "2020-04-17T04:47:52.9614956Z",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.DataShare
     /// ```
     /// </summary>
     [AzureResourceType("azure:datashare/share:Share")]
-    public partial class Share : Pulumi.CustomResource
+    public partial class Share : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.DataShare
         }
     }
 
-    public sealed class ShareArgs : Pulumi.ResourceArgs
+    public sealed class ShareArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
@@ -189,9 +189,10 @@ namespace Pulumi.Azure.DataShare
         public ShareArgs()
         {
         }
+        public static new ShareArgs Empty => new ShareArgs();
     }
 
-    public sealed class ShareState : Pulumi.ResourceArgs
+    public sealed class ShareState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Data Share account in which the Data Share is created. Changing this forces a new Data Share to be created.
@@ -232,5 +233,6 @@ namespace Pulumi.Azure.DataShare
         public ShareState()
         {
         }
+        public static new ShareState Empty => new ShareState();
     }
 }

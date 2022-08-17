@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("offer", required: true)]
         public Input<string> Offer { get; set; } = null!;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs()
         {
         }
+        public static new OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs Empty => new OrchestratedVirtualMachineScaleSetSourceImageReferenceGetArgs();
     }
 }

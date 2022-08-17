@@ -15,41 +15,42 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new Azure.ServiceBus.NamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///             Tags = 
-    ///             {
-    ///                 { "source", "example" },
-    ///             },
-    ///         });
-    ///         var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new Azure.ServiceBus.TopicArgs
-    ///         {
-    ///             NamespaceId = exampleNamespace.Id,
-    ///         });
-    ///         var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new Azure.ServiceBus.TopicAuthorizationRuleArgs
-    ///         {
-    ///             TopicId = exampleTopic.Id,
-    ///             Listen = true,
-    ///             Send = false,
-    ///             Manage = false,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "source", "example" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     {
+    ///         NamespaceId = exampleNamespace.Id,
+    ///     });
+    /// 
+    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new()
+    ///     {
+    ///         TopicId = exampleTopic.Id,
+    ///         Listen = true,
+    ///         Send = false,
+    ///         Manage = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.EventHub
     /// </summary>
     [Obsolete(@"azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule")]
     [AzureResourceType("azure:eventhub/topicAuthorizationRule:TopicAuthorizationRule")]
-    public partial class TopicAuthorizationRule : Pulumi.CustomResource
+    public partial class TopicAuthorizationRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -174,7 +175,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class TopicAuthorizationRuleArgs : Pulumi.ResourceArgs
+    public sealed class TopicAuthorizationRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -209,9 +210,10 @@ namespace Pulumi.Azure.EventHub
         public TopicAuthorizationRuleArgs()
         {
         }
+        public static new TopicAuthorizationRuleArgs Empty => new TopicAuthorizationRuleArgs();
     }
 
-    public sealed class TopicAuthorizationRuleState : Pulumi.ResourceArgs
+    public sealed class TopicAuthorizationRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Grants listen access to this this Authorization Rule. Defaults to `false`.
@@ -282,5 +284,6 @@ namespace Pulumi.Azure.EventHub
         public TopicAuthorizationRuleState()
         {
         }
+        public static new TopicAuthorizationRuleState Empty => new TopicAuthorizationRuleState();
     }
 }

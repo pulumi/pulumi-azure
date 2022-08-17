@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRouteCircuitSkuGetArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteCircuitSkuGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The billing mode for bandwidth. Possible values are `MeteredData` or `UnlimitedData`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRouteCircuitSkuGetArgs()
         {
         }
+        public static new ExpressRouteCircuitSkuGetArgs Empty => new ExpressRouteCircuitSkuGetArgs();
     }
 }

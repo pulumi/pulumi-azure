@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataProtection.Inputs
 {
 
-    public sealed class BackupPolicyDiskRetentionRuleArgs : Pulumi.ResourceArgs
+    public sealed class BackupPolicyDiskRetentionRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataProtection.Inputs
         public BackupPolicyDiskRetentionRuleArgs()
         {
         }
+        public static new BackupPolicyDiskRetentionRuleArgs Empty => new BackupPolicyDiskRetentionRuleArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyManagedRulesGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyManagedRulesGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("exclusions")]
         private InputList<Inputs.PolicyManagedRulesExclusionGetArgs>? _exclusions;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyManagedRulesGetArgs()
         {
         }
+        public static new PolicyManagedRulesGetArgs Empty => new PolicyManagedRulesGetArgs();
     }
 }

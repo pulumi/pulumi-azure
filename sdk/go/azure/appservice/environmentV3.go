@@ -16,7 +16,9 @@ import (
 // A 3rd Generation (v3) App Service Environment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/environmentV3:EnvironmentV3 myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
+//
+//	$ pulumi import azure:appservice/environmentV3:EnvironmentV3 myAppServiceEnv /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Web/hostingEnvironments/myAppServiceEnv
+//
 // ```
 type EnvironmentV3 struct {
 	pulumi.CustomResourceState
@@ -244,7 +246,7 @@ func (i *EnvironmentV3) ToEnvironmentV3OutputWithContext(ctx context.Context) En
 // EnvironmentV3ArrayInput is an input type that accepts EnvironmentV3Array and EnvironmentV3ArrayOutput values.
 // You can construct a concrete instance of `EnvironmentV3ArrayInput` via:
 //
-//          EnvironmentV3Array{ EnvironmentV3Args{...} }
+//	EnvironmentV3Array{ EnvironmentV3Args{...} }
 type EnvironmentV3ArrayInput interface {
 	pulumi.Input
 
@@ -269,7 +271,7 @@ func (i EnvironmentV3Array) ToEnvironmentV3ArrayOutputWithContext(ctx context.Co
 // EnvironmentV3MapInput is an input type that accepts EnvironmentV3Map and EnvironmentV3MapOutput values.
 // You can construct a concrete instance of `EnvironmentV3MapInput` via:
 //
-//          EnvironmentV3Map{ "key": EnvironmentV3Args{...} }
+//	EnvironmentV3Map{ "key": EnvironmentV3Args{...} }
 type EnvironmentV3MapInput interface {
 	pulumi.Input
 

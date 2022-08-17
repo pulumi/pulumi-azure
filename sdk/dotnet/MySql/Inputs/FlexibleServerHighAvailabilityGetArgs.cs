@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MySql.Inputs
 {
 
-    public sealed class FlexibleServerHighAvailabilityGetArgs : Pulumi.ResourceArgs
+    public sealed class FlexibleServerHighAvailabilityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The high availability mode for the MySQL Flexible Server. Possibles values are `SameZone` and `ZoneRedundant`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.MySql.Inputs
         public FlexibleServerHighAvailabilityGetArgs()
         {
         }
+        public static new FlexibleServerHighAvailabilityGetArgs Empty => new FlexibleServerHighAvailabilityGetArgs();
     }
 }

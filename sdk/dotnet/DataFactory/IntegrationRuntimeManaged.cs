@@ -17,31 +17,31 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleIntegrationRuntimeManaged = new Azure.DataFactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", new Azure.DataFactory.IntegrationRuntimeManagedArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             NodeSize = "Standard_D8_v3",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeManaged = new Azure.DataFactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NodeSize = "Standard_D8_v3",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged")]
-    public partial class IntegrationRuntimeManaged : Pulumi.CustomResource
+    public partial class IntegrationRuntimeManaged : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class IntegrationRuntimeManagedArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeManagedArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -248,9 +248,10 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeManagedArgs()
         {
         }
+        public static new IntegrationRuntimeManagedArgs Empty => new IntegrationRuntimeManagedArgs();
     }
 
-    public sealed class IntegrationRuntimeManagedState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeManagedState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -327,5 +328,6 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeManagedState()
         {
         }
+        public static new IntegrationRuntimeManagedState Empty => new IntegrationRuntimeManagedState();
     }
 }

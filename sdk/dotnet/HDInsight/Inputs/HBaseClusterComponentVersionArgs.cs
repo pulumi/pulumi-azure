@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterComponentVersionArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterComponentVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of HBase which should be used for this HDInsight HBase Cluster. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterComponentVersionArgs()
         {
         }
+        public static new HBaseClusterComponentVersionArgs Empty => new HBaseClusterComponentVersionArgs();
     }
 }

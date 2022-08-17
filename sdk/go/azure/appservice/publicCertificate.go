@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku: &appservice.PlanSkuArgs{
-// 				Tier: pulumi.String("Standard"),
-// 				Size: pulumi.String("S1"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AppServicePlanId:  examplePlan.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appservice.NewPublicCertificate(ctx, "examplePublicCertificate", &appservice.PublicCertificateArgs{
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			AppServiceName:      exampleAppService.Name,
-// 			CertificateName:     pulumi.String("example-public-certificate"),
-// 			CertificateLocation: pulumi.String("Unknown"),
-// 			Blob:                filebase64OrPanic("app_service_public_certificate.cer"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Standard"),
+//					Size: pulumi.String("S1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AppServicePlanId:  examplePlan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewPublicCertificate(ctx, "examplePublicCertificate", &appservice.PublicCertificateArgs{
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				AppServiceName:      exampleAppService.Name,
+//				CertificateName:     pulumi.String("example-public-certificate"),
+//				CertificateLocation: pulumi.String("Unknown"),
+//				Blob:                filebase64OrPanic("app_service_public_certificate.cer"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // App Service Public Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
+//
+//	$ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
+//
 // ```
 type PublicCertificate struct {
 	pulumi.CustomResourceState
@@ -231,7 +236,7 @@ func (i *PublicCertificate) ToPublicCertificateOutputWithContext(ctx context.Con
 // PublicCertificateArrayInput is an input type that accepts PublicCertificateArray and PublicCertificateArrayOutput values.
 // You can construct a concrete instance of `PublicCertificateArrayInput` via:
 //
-//          PublicCertificateArray{ PublicCertificateArgs{...} }
+//	PublicCertificateArray{ PublicCertificateArgs{...} }
 type PublicCertificateArrayInput interface {
 	pulumi.Input
 
@@ -256,7 +261,7 @@ func (i PublicCertificateArray) ToPublicCertificateArrayOutputWithContext(ctx co
 // PublicCertificateMapInput is an input type that accepts PublicCertificateMap and PublicCertificateMapOutput values.
 // You can construct a concrete instance of `PublicCertificateMapInput` via:
 //
-//          PublicCertificateMap{ "key": PublicCertificateArgs{...} }
+//	PublicCertificateMap{ "key": PublicCertificateArgs{...} }
 type PublicCertificateMapInput interface {
 	pulumi.Input
 

@@ -19,111 +19,113 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-    ///         {
-    ///             Name = "mykeyvault",
-    ///             ResourceGroupName = "some-resource-group",
-    ///         }));
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "pub1",
-    ///             PublisherEmail = "pub1@email.com",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new Azure.KeyVault.CertificateArgs
-    ///         {
-    ///             KeyVaultId = exampleKeyVault.Apply(exampleKeyVault =&gt; exampleKeyVault.Id),
-    ///             CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
-    ///             {
-    ///                 IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
-    ///                 {
-    ///                     Name = "Self",
-    ///                 },
-    ///                 KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
-    ///                 {
-    ///                     Exportable = true,
-    ///                     KeySize = 2048,
-    ///                     KeyType = "RSA",
-    ///                     ReuseKey = true,
-    ///                 },
-    ///                 LifetimeActions = 
-    ///                 {
-    ///                     new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
-    ///                     {
-    ///                         Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
-    ///                         {
-    ///                             ActionType = "AutoRenew",
-    ///                         },
-    ///                         Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
-    ///                         {
-    ///                             DaysBeforeExpiry = 30,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
-    ///                 {
-    ///                     ContentType = "application/x-pkcs12",
-    ///                 },
-    ///                 X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
-    ///                 {
-    ///                     KeyUsages = 
-    ///                     {
-    ///                         "cRLSign",
-    ///                         "dataEncipherment",
-    ///                         "digitalSignature",
-    ///                         "keyAgreement",
-    ///                         "keyCertSign",
-    ///                         "keyEncipherment",
-    ///                     },
-    ///                     Subject = "CN=api.example.com",
-    ///                     ValidityInMonths = 12,
-    ///                     SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
-    ///                     {
-    ///                         DnsNames = 
-    ///                         {
-    ///                             "api.example.com",
-    ///                             "portal.example.com",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("exampleCustomDomain", new Azure.ApiManagement.CustomDomainArgs
-    ///         {
-    ///             ApiManagementId = exampleService.Id,
-    ///             Gateways = 
-    ///             {
-    ///                 new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
-    ///                 {
-    ///                     HostName = "api.example.com",
-    ///                     KeyVaultId = exampleCertificate.SecretId,
-    ///                 },
-    ///             },
-    ///             DeveloperPortals = 
-    ///             {
-    ///                 new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
-    ///                 {
-    ///                     HostName = "portal.example.com",
-    ///                     KeyVaultId = exampleCertificate.SecretId,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     {
+    ///         Name = "mykeyvault",
+    ///         ResourceGroupName = "some-resource-group",
+    ///     });
+    /// 
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "pub1",
+    ///         PublisherEmail = "pub1@email.com",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+    ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
+    ///         {
+    ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
+    ///             {
+    ///                 Name = "Self",
+    ///             },
+    ///             KeyProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyKeyPropertiesArgs
+    ///             {
+    ///                 Exportable = true,
+    ///                 KeySize = 2048,
+    ///                 KeyType = "RSA",
+    ///                 ReuseKey = true,
+    ///             },
+    ///             LifetimeActions = new[]
+    ///             {
+    ///                 new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionArgs
+    ///                 {
+    ///                     Action = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionActionArgs
+    ///                     {
+    ///                         ActionType = "AutoRenew",
+    ///                     },
+    ///                     Trigger = new Azure.KeyVault.Inputs.CertificateCertificatePolicyLifetimeActionTriggerArgs
+    ///                     {
+    ///                         DaysBeforeExpiry = 30,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SecretProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicySecretPropertiesArgs
+    ///             {
+    ///                 ContentType = "application/x-pkcs12",
+    ///             },
+    ///             X509CertificateProperties = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesArgs
+    ///             {
+    ///                 KeyUsages = new[]
+    ///                 {
+    ///                     "cRLSign",
+    ///                     "dataEncipherment",
+    ///                     "digitalSignature",
+    ///                     "keyAgreement",
+    ///                     "keyCertSign",
+    ///                     "keyEncipherment",
+    ///                 },
+    ///                 Subject = "CN=api.example.com",
+    ///                 ValidityInMonths = 12,
+    ///                 SubjectAlternativeNames = new Azure.KeyVault.Inputs.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs
+    ///                 {
+    ///                     DnsNames = new[]
+    ///                     {
+    ///                         "api.example.com",
+    ///                         "portal.example.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("exampleCustomDomain", new()
+    ///     {
+    ///         ApiManagementId = exampleService.Id,
+    ///         Gateways = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.CustomDomainGatewayArgs
+    ///             {
+    ///                 HostName = "api.example.com",
+    ///                 KeyVaultId = exampleCertificate.SecretId,
+    ///             },
+    ///         },
+    ///         DeveloperPortals = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.CustomDomainDeveloperPortalArgs
+    ///             {
+    ///                 HostName = "portal.example.com",
+    ///                 KeyVaultId = exampleCertificate.SecretId,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -135,7 +137,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/customDomain:CustomDomain")]
-    public partial class CustomDomain : Pulumi.CustomResource
+    public partial class CustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
@@ -217,7 +219,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class CustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class CustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
@@ -288,9 +290,10 @@ namespace Pulumi.Azure.ApiManagement
         public CustomDomainArgs()
         {
         }
+        public static new CustomDomainArgs Empty => new CustomDomainArgs();
     }
 
-    public sealed class CustomDomainState : Pulumi.ResourceArgs
+    public sealed class CustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the API Management service for which to configure Custom Domains. Changing this forces a new API Management Custom Domain resource to be created.
@@ -361,5 +364,6 @@ namespace Pulumi.Azure.ApiManagement
         public CustomDomainState()
         {
         }
+        public static new CustomDomainState Empty => new CustomDomainState();
     }
 }

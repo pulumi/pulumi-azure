@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Automation.Inputs
 {
 
-    public sealed class RunBookPublishContentLinkGetArgs : Pulumi.ResourceArgs
+    public sealed class RunBookPublishContentLinkGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("hash")]
         public Input<Inputs.RunBookPublishContentLinkHashGetArgs>? Hash { get; set; }
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Automation.Inputs
         public RunBookPublishContentLinkGetArgs()
         {
         }
+        public static new RunBookPublishContentLinkGetArgs Empty => new RunBookPublishContentLinkGetArgs();
     }
 }

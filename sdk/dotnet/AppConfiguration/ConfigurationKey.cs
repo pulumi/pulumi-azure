@@ -18,122 +18,128 @@ namespace Pulumi.Azure.AppConfiguration
     /// ### `Kv` Type
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new Azure.AppConfiguration.ConfigurationStoreArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = appconf.Id,
-    ///             RoleDefinitionName = "App Configuration Data Owner",
-    ///             PrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///         });
-    ///         var test = new Azure.AppConfiguration.ConfigurationKey("test", new Azure.AppConfiguration.ConfigurationKeyArgs
-    ///         {
-    ///             ConfigurationStoreId = appconf.Id,
-    ///             Key = "appConfKey1",
-    ///             Label = "somelabel",
-    ///             Value = "a test",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 appconfDataowner,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     {
+    ///         Scope = appconf.Id,
+    ///         RoleDefinitionName = "App Configuration Data Owner",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var test = new Azure.AppConfiguration.ConfigurationKey("test", new()
+    ///     {
+    ///         ConfigurationStoreId = appconf.Id,
+    ///         Key = "appConfKey1",
+    ///         Label = "somelabel",
+    ///         Value = "a test",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             appconfDataowner,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### `Vault` Type
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var kv = new Azure.KeyVault.KeyVault("kv", new()
+    ///     {
+    ///         Location = azurerm_resource_group.Test.Location,
+    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///         SoftDeleteRetentionDays = 7,
+    ///         AccessPolicies = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new Azure.AppConfiguration.ConfigurationStoreArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///         });
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var kv = new Azure.KeyVault.KeyVault("kv", new Azure.KeyVault.KeyVaultArgs
-    ///         {
-    ///             Location = azurerm_resource_group.Test.Location,
-    ///             ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             SkuName = "premium",
-    ///             SoftDeleteRetentionDays = 7,
-    ///             AccessPolicies = 
+    ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
+    ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 KeyPermissions = new[]
     ///                 {
-    ///                     TenantId = current.Apply(current =&gt; current.TenantId),
-    ///                     ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///                     KeyPermissions = 
-    ///                     {
-    ///                         "Create",
-    ///                         "Get",
-    ///                     },
-    ///                     SecretPermissions = 
-    ///                     {
-    ///                         "Set",
-    ///                         "Get",
-    ///                         "Delete",
-    ///                         "Purge",
-    ///                         "Recover",
-    ///                     },
+    ///                     "Create",
+    ///                     "Get",
+    ///                 },
+    ///                 SecretPermissions = new[]
+    ///                 {
+    ///                     "Set",
+    ///                     "Get",
+    ///                     "Delete",
+    ///                     "Purge",
+    ///                     "Recover",
     ///                 },
     ///             },
-    ///         });
-    ///         var kvs = new Azure.KeyVault.Secret("kvs", new Azure.KeyVault.SecretArgs
-    ///         {
-    ///             Value = "szechuan",
-    ///             KeyVaultId = kv.Id,
-    ///         });
-    ///         var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = appconf.Id,
-    ///             RoleDefinitionName = "App Configuration Data Owner",
-    ///             PrincipalId = current.Apply(current =&gt; current.ObjectId),
-    ///         });
-    ///         var test = new Azure.AppConfiguration.ConfigurationKey("test", new Azure.AppConfiguration.ConfigurationKeyArgs
-    ///         {
-    ///             ConfigurationStoreId = azurerm_app_configuration.Test.Id,
-    ///             Key = "key1",
-    ///             Type = "vault",
-    ///             Label = "label1",
-    ///             VaultKeyReference = kvs.VersionlessId,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 appconfDataowner,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var kvs = new Azure.KeyVault.Secret("kvs", new()
+    ///     {
+    ///         Value = "szechuan",
+    ///         KeyVaultId = kv.Id,
+    ///     });
+    /// 
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     {
+    ///         Scope = appconf.Id,
+    ///         RoleDefinitionName = "App Configuration Data Owner",
+    ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    ///     var test = new Azure.AppConfiguration.ConfigurationKey("test", new()
+    ///     {
+    ///         ConfigurationStoreId = azurerm_app_configuration.Test.Id,
+    ///         Key = "key1",
+    ///         Type = "vault",
+    ///         Label = "label1",
+    ///         VaultKeyReference = kvs.VersionlessId,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             appconfDataowner,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -151,7 +157,7 @@ namespace Pulumi.Azure.AppConfiguration
     /// ```
     /// </summary>
     [AzureResourceType("azure:appconfiguration/configurationKey:ConfigurationKey")]
-    public partial class ConfigurationKey : Pulumi.CustomResource
+    public partial class ConfigurationKey : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -257,7 +263,7 @@ namespace Pulumi.Azure.AppConfiguration
         }
     }
 
-    public sealed class ConfigurationKeyArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -328,9 +334,10 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationKeyArgs()
         {
         }
+        public static new ConfigurationKeyArgs Empty => new ConfigurationKeyArgs();
     }
 
-    public sealed class ConfigurationKeyState : Pulumi.ResourceArgs
+    public sealed class ConfigurationKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the id of the App Configuration. Changing this forces a new resource to be created.
@@ -401,5 +408,6 @@ namespace Pulumi.Azure.AppConfiguration
         public ConfigurationKeyState()
         {
         }
+        public static new ConfigurationKeyState Empty => new ConfigurationKeyState();
     }
 }

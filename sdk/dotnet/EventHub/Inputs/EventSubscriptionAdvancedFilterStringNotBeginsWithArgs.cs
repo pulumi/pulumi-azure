@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.EventHub.Inputs
 {
 
-    public sealed class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs : Pulumi.ResourceArgs
+    public sealed class EventSubscriptionAdvancedFilterStringNotBeginsWithArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.EventHub.Inputs
         public EventSubscriptionAdvancedFilterStringNotBeginsWithArgs()
         {
         }
+        public static new EventSubscriptionAdvancedFilterStringNotBeginsWithArgs Empty => new EventSubscriptionAdvancedFilterStringNotBeginsWithArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class WorkspaceGithubRepoArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceGithubRepoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the GitHub account name.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public WorkspaceGithubRepoArgs()
         {
         }
+        public static new WorkspaceGithubRepoArgs Empty => new WorkspaceGithubRepoArgs();
     }
 }

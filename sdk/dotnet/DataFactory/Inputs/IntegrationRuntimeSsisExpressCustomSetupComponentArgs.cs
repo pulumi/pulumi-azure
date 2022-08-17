@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisExpressCustomSetupComponentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `key_vault_secret_reference` block as defined below.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public IntegrationRuntimeSsisExpressCustomSetupComponentArgs()
         {
         }
+        public static new IntegrationRuntimeSsisExpressCustomSetupComponentArgs Empty => new IntegrationRuntimeSsisExpressCustomSetupComponentArgs();
     }
 }

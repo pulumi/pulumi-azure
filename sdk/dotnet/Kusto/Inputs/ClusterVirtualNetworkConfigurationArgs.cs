@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Kusto.Inputs
 {
 
-    public sealed class ClusterVirtualNetworkConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ClusterVirtualNetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Data management's service public IP address resource id.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Kusto.Inputs
         public ClusterVirtualNetworkConfigurationArgs()
         {
         }
+        public static new ClusterVirtualNetworkConfigurationArgs Empty => new ClusterVirtualNetworkConfigurationArgs();
     }
 }

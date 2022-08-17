@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiOperationResponseGetArgs : Pulumi.ResourceArgs
+    public sealed class ApiOperationResponseGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description of the HTTP Response, which may include HTML tags.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiOperationResponseGetArgs()
         {
         }
+        public static new ApiOperationResponseGetArgs Empty => new ApiOperationResponseGetArgs();
     }
 }

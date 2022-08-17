@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ObjectReplicationRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class ObjectReplicationRuleGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
@@ -48,5 +48,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ObjectReplicationRuleGetArgs()
         {
         }
+        public static new ObjectReplicationRuleGetArgs Empty => new ObjectReplicationRuleGetArgs();
     }
 }

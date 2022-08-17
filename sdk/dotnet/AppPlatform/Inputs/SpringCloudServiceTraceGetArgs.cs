@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppPlatform.Inputs
 {
 
-    public sealed class SpringCloudServiceTraceGetArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudServiceTraceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection string used for Application Insights.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         public SpringCloudServiceTraceGetArgs()
         {
         }
+        public static new SpringCloudServiceTraceGetArgs Empty => new SpringCloudServiceTraceGetArgs();
     }
 }

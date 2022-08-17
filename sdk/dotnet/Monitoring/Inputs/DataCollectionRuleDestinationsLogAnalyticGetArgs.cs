@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDestinationsLogAnalyticGetArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDestinationsLogAnalyticGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDestinationsLogAnalyticGetArgs()
         {
         }
+        public static new DataCollectionRuleDestinationsLogAnalyticGetArgs Empty => new DataCollectionRuleDestinationsLogAnalyticGetArgs();
     }
 }

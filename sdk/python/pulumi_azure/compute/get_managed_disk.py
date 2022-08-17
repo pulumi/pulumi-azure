@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetManagedDiskResult',
@@ -21,7 +22,7 @@ class GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
-    def __init__(__self__, create_option=None, disk_access_id=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, id=None, image_reference_id=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
+    def __init__(__self__, create_option=None, disk_access_id=None, disk_encryption_set_id=None, disk_iops_read_write=None, disk_mbps_read_write=None, disk_size_gb=None, encryption_settings=None, id=None, image_reference_id=None, name=None, network_access_policy=None, os_type=None, resource_group_name=None, source_resource_id=None, source_uri=None, storage_account_id=None, storage_account_type=None, tags=None, zones=None):
         if create_option and not isinstance(create_option, str):
             raise TypeError("Expected argument 'create_option' to be a str")
         pulumi.set(__self__, "create_option", create_option)
@@ -40,6 +41,9 @@ class GetManagedDiskResult:
         if disk_size_gb and not isinstance(disk_size_gb, int):
             raise TypeError("Expected argument 'disk_size_gb' to be a int")
         pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption_settings and not isinstance(encryption_settings, list):
+            raise TypeError("Expected argument 'encryption_settings' to be a list")
+        pulumi.set(__self__, "encryption_settings", encryption_settings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -121,6 +125,14 @@ class GetManagedDiskResult:
         The size of the Managed Disk in gigabytes.
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="encryptionSettings")
+    def encryption_settings(self) -> Sequence['outputs.GetManagedDiskEncryptionSettingResult']:
+        """
+        A `encryption_settings` block as defined below.
+        """
+        return pulumi.get(self, "encryption_settings")
 
     @property
     @pulumi.getter
@@ -225,6 +237,7 @@ class AwaitableGetManagedDiskResult(GetManagedDiskResult):
             disk_iops_read_write=self.disk_iops_read_write,
             disk_mbps_read_write=self.disk_mbps_read_write,
             disk_size_gb=self.disk_size_gb,
+            encryption_settings=self.encryption_settings,
             id=self.id,
             image_reference_id=self.image_reference_id,
             name=self.name,
@@ -273,6 +286,7 @@ def get_managed_disk(name: Optional[str] = None,
         disk_iops_read_write=__ret__.disk_iops_read_write,
         disk_mbps_read_write=__ret__.disk_mbps_read_write,
         disk_size_gb=__ret__.disk_size_gb,
+        encryption_settings=__ret__.encryption_settings,
         id=__ret__.id,
         image_reference_id=__ret__.image_reference_id,
         name=__ret__.name,

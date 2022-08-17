@@ -19,45 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewTriggerCustom(ctx, "exampleTriggerCustom", &logicapps.TriggerCustomArgs{
-// 			LogicAppId: exampleWorkflow.ID(),
-// 			Body: pulumi.String(fmt.Sprintf(`{
-//   "recurrence": {
-//     "frequency": "Day",
-//     "interval": 1
-//   },
-//   "type": "Recurrence"
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewTriggerCustom(ctx, "exampleTriggerCustom", &logicapps.TriggerCustomArgs{
+//				LogicAppId: exampleWorkflow.ID(),
+//				Body: pulumi.String(fmt.Sprintf(`{
+//	  "recurrence": {
+//	    "frequency": "Day",
+//	    "interval": 1
+//	  },
+//	  "type": "Recurrence"
+//	}
+//
 // `)),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -65,7 +70,9 @@ import (
 // Logic App Custom Triggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
+//
+//	$ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
+//
 // ```
 type TriggerCustom struct {
 	pulumi.CustomResourceState
@@ -179,7 +186,7 @@ func (i *TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) Tr
 // TriggerCustomArrayInput is an input type that accepts TriggerCustomArray and TriggerCustomArrayOutput values.
 // You can construct a concrete instance of `TriggerCustomArrayInput` via:
 //
-//          TriggerCustomArray{ TriggerCustomArgs{...} }
+//	TriggerCustomArray{ TriggerCustomArgs{...} }
 type TriggerCustomArrayInput interface {
 	pulumi.Input
 
@@ -204,7 +211,7 @@ func (i TriggerCustomArray) ToTriggerCustomArrayOutputWithContext(ctx context.Co
 // TriggerCustomMapInput is an input type that accepts TriggerCustomMap and TriggerCustomMapOutput values.
 // You can construct a concrete instance of `TriggerCustomMapInput` via:
 //
-//          TriggerCustomMap{ "key": TriggerCustomArgs{...} }
+//	TriggerCustomMap{ "key": TriggerCustomArgs{...} }
 type TriggerCustomMapInput interface {
 	pulumi.Input
 

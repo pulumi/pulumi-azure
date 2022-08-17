@@ -19,76 +19,79 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Tags: pulumi.StringMap{
-// 				"Sydney": pulumi.String("Australia"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
-// 			LabName:           exampleLab.Name,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Subnet: &devtest.VirtualNetworkSubnetArgs{
-// 				UsePublicIpAddress:          pulumi.String("Allow"),
-// 				UseInVirtualMachineCreation: pulumi.String("Allow"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = devtest.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &devtest.LinuxVirtualMachineArgs{
-// 			LabName:             exampleLab.Name,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Location:            exampleResourceGroup.Location,
-// 			Size:                pulumi.String("Standard_DS2"),
-// 			Username:            pulumi.String("exampleuser99"),
-// 			SshKey:              readFileOrPanic("~/.ssh/id_rsa.pub"),
-// 			LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-// 			LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
-// 				return subnet.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			StorageType: pulumi.String("Premium"),
-// 			Notes:       pulumi.String("Some notes about this Virtual Machine."),
-// 			GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{
-// 				Offer:     pulumi.String("UbuntuServer"),
-// 				Publisher: pulumi.String("Canonical"),
-// 				Sku:       pulumi.String("18.04-LTS"),
-// 				Version:   pulumi.String("latest"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Tags: pulumi.StringMap{
+//					"Sydney": pulumi.String("Australia"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+//				LabName:           exampleLab.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Subnet: &devtest.VirtualNetworkSubnetArgs{
+//					UsePublicIpAddress:          pulumi.String("Allow"),
+//					UseInVirtualMachineCreation: pulumi.String("Allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &devtest.LinuxVirtualMachineArgs{
+//				LabName:             exampleLab.Name,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            exampleResourceGroup.Location,
+//				Size:                pulumi.String("Standard_DS2"),
+//				Username:            pulumi.String("exampleuser99"),
+//				SshKey:              readFileOrPanic("~/.ssh/id_rsa.pub"),
+//				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
+//				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (string, error) {
+//					return subnet.Name, nil
+//				}).(pulumi.StringOutput),
+//				StorageType: pulumi.String("Premium"),
+//				Notes:       pulumi.String("Some notes about this Virtual Machine."),
+//				GalleryImageReference: &devtest.LinuxVirtualMachineGalleryImageReferenceArgs{
+//					Offer:     pulumi.String("UbuntuServer"),
+//					Publisher: pulumi.String("Canonical"),
+//					Sku:       pulumi.String("18.04-LTS"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -96,7 +99,9 @@ import (
 // Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+//
+//	$ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualmachines/machine1
+//
 // ```
 type LinuxVirtualMachine struct {
 	pulumi.CustomResourceState
@@ -380,7 +385,7 @@ func (i *LinuxVirtualMachine) ToLinuxVirtualMachineOutputWithContext(ctx context
 // LinuxVirtualMachineArrayInput is an input type that accepts LinuxVirtualMachineArray and LinuxVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineArrayInput` via:
 //
-//          LinuxVirtualMachineArray{ LinuxVirtualMachineArgs{...} }
+//	LinuxVirtualMachineArray{ LinuxVirtualMachineArgs{...} }
 type LinuxVirtualMachineArrayInput interface {
 	pulumi.Input
 
@@ -405,7 +410,7 @@ func (i LinuxVirtualMachineArray) ToLinuxVirtualMachineArrayOutputWithContext(ct
 // LinuxVirtualMachineMapInput is an input type that accepts LinuxVirtualMachineMap and LinuxVirtualMachineMapOutput values.
 // You can construct a concrete instance of `LinuxVirtualMachineMapInput` via:
 //
-//          LinuxVirtualMachineMap{ "key": LinuxVirtualMachineArgs{...} }
+//	LinuxVirtualMachineMap{ "key": LinuxVirtualMachineArgs{...} }
 type LinuxVirtualMachineMapInput interface {
 	pulumi.Input
 

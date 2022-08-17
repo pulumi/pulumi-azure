@@ -19,37 +19,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewActionHttp(ctx, "exampleActionHttp", &logicapps.ActionHttpArgs{
-// 			LogicAppId: exampleWorkflow.ID(),
-// 			Method:     pulumi.String("GET"),
-// 			Uri:        pulumi.String("http://example.com/some-webhook"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkflow, err := logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewActionHttp(ctx, "exampleActionHttp", &logicapps.ActionHttpArgs{
+//				LogicAppId: exampleWorkflow.ID(),
+//				Method:     pulumi.String("GET"),
+//				Uri:        pulumi.String("http://example.com/some-webhook"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -57,7 +60,9 @@ import (
 // Logic App HTTP Actions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
+//
+//	$ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
+//
 // ```
 type ActionHttp struct {
 	pulumi.CustomResourceState
@@ -214,7 +219,7 @@ func (i *ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHt
 // ActionHttpArrayInput is an input type that accepts ActionHttpArray and ActionHttpArrayOutput values.
 // You can construct a concrete instance of `ActionHttpArrayInput` via:
 //
-//          ActionHttpArray{ ActionHttpArgs{...} }
+//	ActionHttpArray{ ActionHttpArgs{...} }
 type ActionHttpArrayInput interface {
 	pulumi.Input
 
@@ -239,7 +244,7 @@ func (i ActionHttpArray) ToActionHttpArrayOutputWithContext(ctx context.Context)
 // ActionHttpMapInput is an input type that accepts ActionHttpMap and ActionHttpMapOutput values.
 // You can construct a concrete instance of `ActionHttpMapInput` via:
 //
-//          ActionHttpMap{ "key": ActionHttpArgs{...} }
+//	ActionHttpMap{ "key": ActionHttpArgs{...} }
 type ActionHttpMapInput interface {
 	pulumi.Input
 

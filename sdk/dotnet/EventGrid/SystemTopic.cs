@@ -15,38 +15,38 @@ namespace Pulumi.Azure.EventGrid
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "staging" },
-    ///             },
-    ///         });
-    ///         var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new Azure.EventGrid.SystemTopicArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             SourceArmResourceId = exampleAccount.Id,
-    ///             TopicType = "Microsoft.Storage.StorageAccounts",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "staging" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         SourceArmResourceId = exampleAccount.Id,
+    ///         TopicType = "Microsoft.Storage.StorageAccounts",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.EventGrid
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventgrid/systemTopic:SystemTopic")]
-    public partial class SystemTopic : Pulumi.CustomResource
+    public partial class SystemTopic : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -152,7 +152,7 @@ namespace Pulumi.Azure.EventGrid
         }
     }
 
-    public sealed class SystemTopicArgs : Pulumi.ResourceArgs
+    public sealed class SystemTopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -205,9 +205,10 @@ namespace Pulumi.Azure.EventGrid
         public SystemTopicArgs()
         {
         }
+        public static new SystemTopicArgs Empty => new SystemTopicArgs();
     }
 
-    public sealed class SystemTopicState : Pulumi.ResourceArgs
+    public sealed class SystemTopicState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `identity` block as defined below.
@@ -266,5 +267,6 @@ namespace Pulumi.Azure.EventGrid
         public SystemTopicState()
         {
         }
+        public static new SystemTopicState Empty => new SystemTopicState();
     }
 }

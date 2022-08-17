@@ -145,14 +145,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
      */
     @Export(name="sizeGb", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> sizeGb;
 
     /**
-     * @return The capacity of the Log Analytics Cluster specified in GB/day. Defaults to 1000.
+     * @return The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`.
      * 
      */
     public Output<Optional<Integer>> sizeGb() {

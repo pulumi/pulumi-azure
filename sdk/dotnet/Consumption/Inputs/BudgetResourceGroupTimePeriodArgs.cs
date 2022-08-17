@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Consumption.Inputs
 {
 
-    public sealed class BudgetResourceGroupTimePeriodArgs : Pulumi.ResourceArgs
+    public sealed class BudgetResourceGroupTimePeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The end date for the budget. If not set this will be 10 years after the start date.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Consumption.Inputs
         public BudgetResourceGroupTimePeriodArgs()
         {
         }
+        public static new BudgetResourceGroupTimePeriodArgs Empty => new BudgetResourceGroupTimePeriodArgs();
     }
 }

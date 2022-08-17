@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("localAddressCidrs", required: true)]
         private InputList<string>? _localAddressCidrs;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs Empty => new VirtualNetworkGatewayConnectionTrafficSelectorPolicyGetArgs();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "mykeyvault",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         this.VaultUri = example.Apply(example =&gt; example.VaultUri);
-        ///     }
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("vaultUri")]
-        ///     public Output&lt;string&gt; VaultUri { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vaultUri"] = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.VaultUri),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "mykeyvault",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         this.VaultUri = example.Apply(example =&gt; example.VaultUri);
-        ///     }
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("vaultUri")]
-        ///     public Output&lt;string&gt; VaultUri { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["vaultUri"] = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.VaultUri),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetKeyVaultArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyVaultArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Key Vault.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.KeyVault
         public GetKeyVaultArgs()
         {
         }
+        public static new GetKeyVaultArgs Empty => new GetKeyVaultArgs();
     }
 
-    public sealed class GetKeyVaultInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetKeyVaultInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Key Vault.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.KeyVault
         public GetKeyVaultInvokeArgs()
         {
         }
+        public static new GetKeyVaultInvokeArgs Empty => new GetKeyVaultInvokeArgs();
     }
 
 

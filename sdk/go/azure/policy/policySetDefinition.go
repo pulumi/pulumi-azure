@@ -21,42 +21,46 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/policy"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
-// 			DisplayName: pulumi.String("Test Policy Set"),
-// 			Parameters: pulumi.String(fmt.Sprintf(`    {
-//         "allowedLocations": {
-//             "type": "Array",
-//             "metadata": {
-//                 "description": "The list of allowed locations for resources.",
-//                 "displayName": "Allowed locations",
-//                 "strongType": "location"
-//             }
-//         }
-//     }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
+//				DisplayName: pulumi.String("Test Policy Set"),
+//				Parameters: pulumi.String(fmt.Sprintf(`    {
+//	        "allowedLocations": {
+//	            "type": "Array",
+//	            "metadata": {
+//	                "description": "The list of allowed locations for resources.",
+//	                "displayName": "Allowed locations",
+//	                "strongType": "location"
+//	            }
+//	        }
+//	    }
 //
 // `)),
-// 			PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
-// 				&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
-// 					ParameterValues:    pulumi.String(fmt.Sprintf("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n    \n")),
-// 					PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
-// 				},
-// 			},
-// 			PolicyType: pulumi.String("Custom"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//				PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
+//					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
+//						ParameterValues:    pulumi.String(fmt.Sprintf("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n    \n")),
+//						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
+//					},
+//				},
+//				PolicyType: pulumi.String("Custom"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -64,13 +68,17 @@ import (
 // Policy Set Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+//
+//	$ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+//
+//	$ pulumi import azure:policy/policySetDefinition:PolicySetDefinition example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.Authorization/policySetDefinitions/testPolicySet
+//
 // ```
 type PolicySetDefinition struct {
 	pulumi.CustomResourceState
@@ -247,7 +255,7 @@ func (i *PolicySetDefinition) ToPolicySetDefinitionOutputWithContext(ctx context
 // PolicySetDefinitionArrayInput is an input type that accepts PolicySetDefinitionArray and PolicySetDefinitionArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionArrayInput` via:
 //
-//          PolicySetDefinitionArray{ PolicySetDefinitionArgs{...} }
+//	PolicySetDefinitionArray{ PolicySetDefinitionArgs{...} }
 type PolicySetDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -272,7 +280,7 @@ func (i PolicySetDefinitionArray) ToPolicySetDefinitionArrayOutputWithContext(ct
 // PolicySetDefinitionMapInput is an input type that accepts PolicySetDefinitionMap and PolicySetDefinitionMapOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionMapInput` via:
 //
-//          PolicySetDefinitionMap{ "key": PolicySetDefinitionArgs{...} }
+//	PolicySetDefinitionMap{ "key": PolicySetDefinitionArgs{...} }
 type PolicySetDefinitionMapInput interface {
 	pulumi.Input
 

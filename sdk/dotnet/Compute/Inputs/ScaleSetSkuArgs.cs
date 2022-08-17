@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetSkuArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of virtual machines in the scale set.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetSkuArgs()
         {
         }
+        public static new ScaleSetSkuArgs Empty => new ScaleSetSkuArgs();
     }
 }

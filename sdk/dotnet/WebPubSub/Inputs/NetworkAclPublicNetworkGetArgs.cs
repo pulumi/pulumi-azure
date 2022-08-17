@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.WebPubSub.Inputs
 {
 
-    public sealed class NetworkAclPublicNetworkGetArgs : Pulumi.ResourceArgs
+    public sealed class NetworkAclPublicNetworkGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedRequestTypes")]
         private InputList<string>? _allowedRequestTypes;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.WebPubSub.Inputs
         public NetworkAclPublicNetworkGetArgs()
         {
         }
+        public static new NetworkAclPublicNetworkGetArgs Empty => new NetworkAclPublicNetworkGetArgs();
     }
 }

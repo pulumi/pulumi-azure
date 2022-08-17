@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
-// 			Name: "example-resources",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
-// 			Name:              "example-job",
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewOutputPowerbi(ctx, "exampleOutputPowerbi", &streamanalytics.OutputPowerbiArgs{
-// 			StreamAnalyticsJobId: pulumi.String(exampleJob.Id),
-// 			Dataset:              pulumi.String("example-dataset"),
-// 			Table:                pulumi.String("example-table"),
-// 			GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			GroupName:            pulumi.String("some-group-name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//				Name: "example-resources",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+//				Name:              "example-job",
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewOutputPowerbi(ctx, "exampleOutputPowerbi", &streamanalytics.OutputPowerbiArgs{
+//				StreamAnalyticsJobId: pulumi.String(exampleJob.Id),
+//				Dataset:              pulumi.String("example-dataset"),
+//				Table:                pulumi.String("example-table"),
+//				GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				GroupName:            pulumi.String("some-group-name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,7 +62,9 @@ import (
 // Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
+//	$ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/outputs/output1
+//
 // ```
 type OutputPowerbi struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *OutputPowerbi) ToOutputPowerbiOutputWithContext(ctx context.Context) Ou
 // OutputPowerbiArrayInput is an input type that accepts OutputPowerbiArray and OutputPowerbiArrayOutput values.
 // You can construct a concrete instance of `OutputPowerbiArrayInput` via:
 //
-//          OutputPowerbiArray{ OutputPowerbiArgs{...} }
+//	OutputPowerbiArray{ OutputPowerbiArgs{...} }
 type OutputPowerbiArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i OutputPowerbiArray) ToOutputPowerbiArrayOutputWithContext(ctx context.Co
 // OutputPowerbiMapInput is an input type that accepts OutputPowerbiMap and OutputPowerbiMapOutput values.
 // You can construct a concrete instance of `OutputPowerbiMapInput` via:
 //
-//          OutputPowerbiMap{ "key": OutputPowerbiArgs{...} }
+//	OutputPowerbiMap{ "key": OutputPowerbiArgs{...} }
 type OutputPowerbiMapInput interface {
 	pulumi.Input
 

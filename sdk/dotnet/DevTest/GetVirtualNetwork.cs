@@ -19,25 +19,24 @@ namespace Pulumi.Azure.DevTest
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DevTest.GetVirtualNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DevTest.GetVirtualNetwork.InvokeAsync(new Azure.DevTest.GetVirtualNetworkArgs
-        ///         {
-        ///             Name = "example-network",
-        ///             LabName = "examplelab",
-        ///             ResourceGroupName = "example-resource",
-        ///         }));
-        ///         this.LabSubnetName = example.Apply(example =&gt; example.AllowedSubnets?[0]?.LabSubnetName);
-        ///     }
+        ///         Name = "example-network",
+        ///         LabName = "examplelab",
+        ///         ResourceGroupName = "example-resource",
+        ///     });
         /// 
-        ///     [Output("labSubnetName")]
-        ///     public Output&lt;string&gt; LabSubnetName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["labSubnetName"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.AllowedSubnets[0]?.LabSubnetName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,25 +52,24 @@ namespace Pulumi.Azure.DevTest
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DevTest.GetVirtualNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DevTest.GetVirtualNetwork.InvokeAsync(new Azure.DevTest.GetVirtualNetworkArgs
-        ///         {
-        ///             Name = "example-network",
-        ///             LabName = "examplelab",
-        ///             ResourceGroupName = "example-resource",
-        ///         }));
-        ///         this.LabSubnetName = example.Apply(example =&gt; example.AllowedSubnets?[0]?.LabSubnetName);
-        ///     }
+        ///         Name = "example-network",
+        ///         LabName = "examplelab",
+        ///         ResourceGroupName = "example-resource",
+        ///     });
         /// 
-        ///     [Output("labSubnetName")]
-        ///     public Output&lt;string&gt; LabSubnetName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["labSubnetName"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.AllowedSubnets[0]?.LabSubnetName),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.Azure.DevTest
     }
 
 
-    public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dev Test Lab.
@@ -104,9 +102,10 @@ namespace Pulumi.Azure.DevTest
         public GetVirtualNetworkArgs()
         {
         }
+        public static new GetVirtualNetworkArgs Empty => new GetVirtualNetworkArgs();
     }
 
-    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Dev Test Lab.
@@ -129,6 +128,7 @@ namespace Pulumi.Azure.DevTest
         public GetVirtualNetworkInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkInvokeArgs Empty => new GetVirtualNetworkInvokeArgs();
     }
 
 

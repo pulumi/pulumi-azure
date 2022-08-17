@@ -15,42 +15,43 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new Azure.DataFactory.LinkedServiceWebArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             AuthenticationType = "Anonymous",
-    ///             Url = "https://www.bing.com",
-    ///         });
-    ///         var exampleDatasetParquet = new Azure.DataFactory.DatasetParquet("exampleDatasetParquet", new Azure.DataFactory.DatasetParquetArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             LinkedServiceName = exampleLinkedServiceWeb.Name,
-    ///             HttpServerLocation = new Azure.DataFactory.Inputs.DatasetParquetHttpServerLocationArgs
-    ///             {
-    ///                 RelativeUrl = "http://www.bing.com",
-    ///                 Path = "foo/bar/",
-    ///                 Filename = "fizz.txt",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceWeb = new Azure.DataFactory.LinkedServiceWeb("exampleLinkedServiceWeb", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         AuthenticationType = "Anonymous",
+    ///         Url = "https://www.bing.com",
+    ///     });
+    /// 
+    ///     var exampleDatasetParquet = new Azure.DataFactory.DatasetParquet("exampleDatasetParquet", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         LinkedServiceName = exampleLinkedServiceWeb.Name,
+    ///         HttpServerLocation = new Azure.DataFactory.Inputs.DatasetParquetHttpServerLocationArgs
+    ///         {
+    ///             RelativeUrl = "http://www.bing.com",
+    ///             Path = "foo/bar/",
+    ///             Filename = "fizz.txt",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetParquet:DatasetParquet")]
-    public partial class DatasetParquet : Pulumi.CustomResource
+    public partial class DatasetParquet : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Dataset.
@@ -183,7 +184,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class DatasetParquetArgs : Pulumi.ResourceArgs
+    public sealed class DatasetParquetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -287,9 +288,10 @@ namespace Pulumi.Azure.DataFactory
         public DatasetParquetArgs()
         {
         }
+        public static new DatasetParquetArgs Empty => new DatasetParquetArgs();
     }
 
-    public sealed class DatasetParquetState : Pulumi.ResourceArgs
+    public sealed class DatasetParquetState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -393,5 +395,6 @@ namespace Pulumi.Azure.DataFactory
         public DatasetParquetState()
         {
         }
+        public static new DatasetParquetState Empty => new DatasetParquetState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Synapse.Inputs
 {
 
-    public sealed class WorkspaceIdentityArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Synapse.Inputs
         public WorkspaceIdentityArgs()
         {
         }
+        public static new WorkspaceIdentityArgs Empty => new WorkspaceIdentityArgs();
     }
 }

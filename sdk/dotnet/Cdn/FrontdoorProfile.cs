@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new Azure.Cdn.FrontdoorProfileArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "Standard_AzureFrontDoor",
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/frontdoorProfile:FrontdoorProfile")]
-    public partial class FrontdoorProfile : Pulumi.CustomResource
+    public partial class FrontdoorProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
@@ -131,7 +130,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class FrontdoorProfileArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
@@ -172,9 +171,10 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorProfileArgs()
         {
         }
+        public static new FrontdoorProfileArgs Empty => new FrontdoorProfileArgs();
     }
 
-    public sealed class FrontdoorProfileState : Pulumi.ResourceArgs
+    public sealed class FrontdoorProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the FrontDoor Profile. Changing this forces a new resource to be created.
@@ -221,5 +221,6 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorProfileState()
         {
         }
+        public static new FrontdoorProfileState Empty => new FrontdoorProfileState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class StreamingPolicyNoEncryptionEnabledProtocolsGetArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyNoEncryptionEnabledProtocolsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable DASH protocol or not. Changing this forces a new Streaming Policy to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Media.Inputs
         public StreamingPolicyNoEncryptionEnabledProtocolsGetArgs()
         {
         }
+        public static new StreamingPolicyNoEncryptionEnabledProtocolsGetArgs Empty => new StreamingPolicyNoEncryptionEnabledProtocolsGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs : Pulumi.ResourceArgs
+    public sealed class PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("addressPrefixes", required: true)]
         private InputList<string>? _addressPrefixes;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs()
         {
         }
+        public static new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs Empty => new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPoolArgs();
     }
 }

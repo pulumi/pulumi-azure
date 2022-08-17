@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Dns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Dns.GetZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Dns.GetZone.InvokeAsync(new Azure.Dns.GetZoneArgs
-        ///         {
-        ///             Name = "search-eventhubns",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.DnsZoneId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhubns",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("dnsZoneId")]
-        ///     public Output&lt;string&gt; DnsZoneId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsZoneId"] = example.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Dns
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Dns.GetZone.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Dns.GetZone.InvokeAsync(new Azure.Dns.GetZoneArgs
-        ///         {
-        ///             Name = "search-eventhubns",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.DnsZoneId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-eventhubns",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("dnsZoneId")]
-        ///     public Output&lt;string&gt; DnsZoneId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["dnsZoneId"] = example.Apply(getZoneResult =&gt; getZoneResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Dns
     }
 
 
-    public sealed class GetZoneArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS Zone.
@@ -98,9 +96,10 @@ namespace Pulumi.Azure.Dns
         public GetZoneArgs()
         {
         }
+        public static new GetZoneArgs Empty => new GetZoneArgs();
     }
 
-    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the DNS Zone.
@@ -119,6 +118,7 @@ namespace Pulumi.Azure.Dns
         public GetZoneInvokeArgs()
         {
         }
+        public static new GetZoneInvokeArgs Empty => new GetZoneInvokeArgs();
     }
 
 

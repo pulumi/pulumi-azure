@@ -20,43 +20,42 @@ namespace Pulumi.Azure.Core
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "westus",
-    ///         });
-    ///         var examplePolicyDefintion = Output.Create(Azure.Policy.GetPolicyDefintion.InvokeAsync(new Azure.Policy.GetPolicyDefintionArgs
-    ///         {
-    ///             DisplayName = "Allowed locations",
-    ///         }));
-    ///         var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new Azure.Core.ResourceGroupPolicyAssignmentArgs
-    ///         {
-    ///             ResourceGroupId = exampleResourceGroup.Id,
-    ///             PolicyDefinitionId = examplePolicyDefintion.Apply(examplePolicyDefintion =&gt; examplePolicyDefintion.Id),
-    ///             Parameters = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "listOfAllowedLocations", new Dictionary&lt;string, object?&gt;
-    ///                 {
-    ///                     { "value", new[]
-    ///                         {
-    ///                             location,
-    ///                         }
-    ///                      },
-    ///                 } },
-    ///             })),
-    ///         });
-    ///         var exampleResourceGroupPolicyExemption = new Azure.Core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", new Azure.Core.ResourceGroupPolicyExemptionArgs
-    ///         {
-    ///             ResourceGroupId = exampleResourceGroup.Id,
-    ///             PolicyAssignmentId = exampleResourceGroupPolicyAssignment.Id,
-    ///             ExemptionCategory = "Mitigated",
-    ///         });
-    ///     }
+    ///         Location = "westus",
+    ///     });
     /// 
-    /// }
+    ///     var examplePolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
+    ///     {
+    ///         DisplayName = "Allowed locations",
+    ///     });
+    /// 
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         PolicyDefinitionId = examplePolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+    ///         Parameters = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["value"] = new[]
+    ///                 {
+    ///                     location,
+    ///                 },
+    ///             },
+    ///         })),
+    ///     });
+    /// 
+    ///     var exampleResourceGroupPolicyExemption = new Azure.Core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", new()
+    ///     {
+    ///         ResourceGroupId = exampleResourceGroup.Id,
+    ///         PolicyAssignmentId = exampleResourceGroupPolicyAssignment.Id,
+    ///         ExemptionCategory = "Mitigated",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -68,7 +67,7 @@ namespace Pulumi.Azure.Core
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption")]
-    public partial class ResourceGroupPolicyExemption : Pulumi.CustomResource
+    public partial class ResourceGroupPolicyExemption : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -168,7 +167,7 @@ namespace Pulumi.Azure.Core
         }
     }
 
-    public sealed class ResourceGroupPolicyExemptionArgs : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -233,9 +232,10 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyExemptionArgs()
         {
         }
+        public static new ResourceGroupPolicyExemptionArgs Empty => new ResourceGroupPolicyExemptionArgs();
     }
 
-    public sealed class ResourceGroupPolicyExemptionState : Pulumi.ResourceArgs
+    public sealed class ResourceGroupPolicyExemptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description to use for this Policy Exemption.
@@ -300,5 +300,6 @@ namespace Pulumi.Azure.Core
         public ResourceGroupPolicyExemptionState()
         {
         }
+        public static new ResourceGroupPolicyExemptionState Empty => new ResourceGroupPolicyExemptionState();
     }
 }

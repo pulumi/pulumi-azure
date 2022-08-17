@@ -38,6 +38,7 @@ import * as utilities from "../utilities";
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "123.0.0.0/30",
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
+ *     ipv4Enabled: true,
  *     vlanId: 300,
  *     microsoftPeeringConfig: {
  *         advertisedPublicPrefixes: ["123.1.0.0/24"],
@@ -45,9 +46,48 @@ import * as utilities from "../utilities";
  *     ipv6: {
  *         primaryPeerAddressPrefix: "2002:db01::/126",
  *         secondaryPeerAddressPrefix: "2003:db01::/126",
+ *         enabled: true,
  *         microsoftPeering: {
  *             advertisedPublicPrefixes: ["2002:db01::/126"],
  *         },
+ *     },
+ * });
+ * ```
+ * ### Creating Azure Private Peering)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     serviceProviderName: "Equinix",
+ *     peeringLocation: "Silicon Valley",
+ *     bandwidthInMbps: 50,
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
+ *     allowClassicOperations: false,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ *     peeringType: "AzurePrivatePeering",
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     peerAsn: 100,
+ *     primaryPeerAddressPrefix: "123.0.0.0/30",
+ *     secondaryPeerAddressPrefix: "123.0.0.4/30",
+ *     ipv4Enabled: true,
+ *     vlanId: 300,
+ *     ipv6: {
+ *         primaryPeerAddressPrefix: "2002:db01::/126",
+ *         secondaryPeerAddressPrefix: "2003:db01::/126",
+ *         enabled: true,
  *     },
  * });
  * ```
@@ -96,12 +136,17 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
      * The name of the ExpressRoute Circuit in which to create the Peering.
      */
     public readonly expressRouteCircuitName!: pulumi.Output<string>;
+    public /*out*/ readonly gatewayManagerEtag!: pulumi.Output<string>;
+    /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     */
+    public readonly ipv4Enabled!: pulumi.Output<boolean | undefined>;
     /**
      * A `ipv6` block as defined below.
      */
     public readonly ipv6!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringIpv6 | undefined>;
     /**
-     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
      */
     public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig | undefined>;
     /**
@@ -119,7 +164,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * A subnet for the primary link.
      */
-    public readonly primaryPeerAddressPrefix!: pulumi.Output<string>;
+    public readonly primaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
      */
@@ -135,7 +180,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * A subnet for the secondary link.
      */
-    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string>;
+    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
     /**
      * The shared key. Can be a maximum of 25 characters.
      */
@@ -160,6 +205,8 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             const state = argsOrState as ExpressRouteCircuitPeeringState | undefined;
             resourceInputs["azureAsn"] = state ? state.azureAsn : undefined;
             resourceInputs["expressRouteCircuitName"] = state ? state.expressRouteCircuitName : undefined;
+            resourceInputs["gatewayManagerEtag"] = state ? state.gatewayManagerEtag : undefined;
+            resourceInputs["ipv4Enabled"] = state ? state.ipv4Enabled : undefined;
             resourceInputs["ipv6"] = state ? state.ipv6 : undefined;
             resourceInputs["microsoftPeeringConfig"] = state ? state.microsoftPeeringConfig : undefined;
             resourceInputs["peerAsn"] = state ? state.peerAsn : undefined;
@@ -180,19 +227,14 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             if ((!args || args.peeringType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'peeringType'");
             }
-            if ((!args || args.primaryPeerAddressPrefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'primaryPeerAddressPrefix'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
-            }
-            if ((!args || args.secondaryPeerAddressPrefix === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'secondaryPeerAddressPrefix'");
             }
             if ((!args || args.vlanId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
             resourceInputs["expressRouteCircuitName"] = args ? args.expressRouteCircuitName : undefined;
+            resourceInputs["ipv4Enabled"] = args ? args.ipv4Enabled : undefined;
             resourceInputs["ipv6"] = args ? args.ipv6 : undefined;
             resourceInputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
             resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
@@ -204,6 +246,7 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
             resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
             resourceInputs["vlanId"] = args ? args.vlanId : undefined;
             resourceInputs["azureAsn"] = undefined /*out*/;
+            resourceInputs["gatewayManagerEtag"] = undefined /*out*/;
             resourceInputs["primaryAzurePort"] = undefined /*out*/;
             resourceInputs["secondaryAzurePort"] = undefined /*out*/;
         }
@@ -224,12 +267,17 @@ export interface ExpressRouteCircuitPeeringState {
      * The name of the ExpressRoute Circuit in which to create the Peering.
      */
     expressRouteCircuitName?: pulumi.Input<string>;
+    gatewayManagerEtag?: pulumi.Input<string>;
+    /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     */
+    ipv4Enabled?: pulumi.Input<boolean>;
     /**
      * A `ipv6` block as defined below.
      */
     ipv6?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringIpv6>;
     /**
-     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
      */
     microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig>;
     /**
@@ -283,11 +331,15 @@ export interface ExpressRouteCircuitPeeringArgs {
      */
     expressRouteCircuitName: pulumi.Input<string>;
     /**
+     * A boolean value indicating whether the IPv4 peering is enabled. Defaults to `true`.
+     */
+    ipv4Enabled?: pulumi.Input<boolean>;
+    /**
      * A `ipv6` block as defined below.
      */
     ipv6?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringIpv6>;
     /**
-     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering`.
+     * A `microsoftPeeringConfig` block as defined below. Required when `peeringType` is set to `MicrosoftPeering` and config for IPv4.
      */
     microsoftPeeringConfig?: pulumi.Input<inputs.network.ExpressRouteCircuitPeeringMicrosoftPeeringConfig>;
     /**
@@ -301,7 +353,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * A subnet for the primary link.
      */
-    primaryPeerAddressPrefix: pulumi.Input<string>;
+    primaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created.
      */
@@ -313,7 +365,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     /**
      * A subnet for the secondary link.
      */
-    secondaryPeerAddressPrefix: pulumi.Input<string>;
+    secondaryPeerAddressPrefix?: pulumi.Input<string>;
     /**
      * The shared key. Can be a maximum of 25 characters.
      */

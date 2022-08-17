@@ -15,34 +15,34 @@ namespace Pulumi.Azure.AppPlatform
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new Azure.AppPlatform.SpringCloudServiceArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new Azure.AppPlatform.SpringCloudAppArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServiceName = exampleSpringCloudService.Name,
-    ///             Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///         Identity = new Azure.AppPlatform.Inputs.SpringCloudAppIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -54,7 +54,7 @@ namespace Pulumi.Azure.AppPlatform
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudApp:SpringCloudApp")]
-    public partial class SpringCloudApp : Pulumi.CustomResource
+    public partial class SpringCloudApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -172,7 +172,7 @@ namespace Pulumi.Azure.AppPlatform
         }
     }
 
-    public sealed class SpringCloudAppArgs : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -243,9 +243,10 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppArgs()
         {
         }
+        public static new SpringCloudAppArgs Empty => new SpringCloudAppArgs();
     }
 
-    public sealed class SpringCloudAppState : Pulumi.ResourceArgs
+    public sealed class SpringCloudAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A JSON object that contains the addon configurations of the Spring Cloud Service.
@@ -328,5 +329,6 @@ namespace Pulumi.Azure.AppPlatform
         public SpringCloudAppState()
         {
         }
+        public static new SpringCloudAppState Empty => new SpringCloudAppState();
     }
 }

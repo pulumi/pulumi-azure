@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterRolesWorkerNodeArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterRolesWorkerNodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `autoscale` block as defined below.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterRolesWorkerNodeArgs()
         {
         }
+        public static new HBaseClusterRolesWorkerNodeArgs Empty => new HBaseClusterRolesWorkerNodeArgs();
     }
 }

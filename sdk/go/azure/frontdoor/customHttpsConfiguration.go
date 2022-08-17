@@ -16,7 +16,9 @@ import (
 // Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.
 //
 // ```sh
-//  $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
+//
+//	$ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
+//
 // ```
 type CustomHttpsConfiguration struct {
 	pulumi.CustomResourceState
@@ -130,7 +132,7 @@ func (i *CustomHttpsConfiguration) ToCustomHttpsConfigurationOutputWithContext(c
 // CustomHttpsConfigurationArrayInput is an input type that accepts CustomHttpsConfigurationArray and CustomHttpsConfigurationArrayOutput values.
 // You can construct a concrete instance of `CustomHttpsConfigurationArrayInput` via:
 //
-//          CustomHttpsConfigurationArray{ CustomHttpsConfigurationArgs{...} }
+//	CustomHttpsConfigurationArray{ CustomHttpsConfigurationArgs{...} }
 type CustomHttpsConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -155,7 +157,7 @@ func (i CustomHttpsConfigurationArray) ToCustomHttpsConfigurationArrayOutputWith
 // CustomHttpsConfigurationMapInput is an input type that accepts CustomHttpsConfigurationMap and CustomHttpsConfigurationMapOutput values.
 // You can construct a concrete instance of `CustomHttpsConfigurationMapInput` via:
 //
-//          CustomHttpsConfigurationMap{ "key": CustomHttpsConfigurationArgs{...} }
+//	CustomHttpsConfigurationMap{ "key": CustomHttpsConfigurationArgs{...} }
 type CustomHttpsConfigurationMapInput interface {
 	pulumi.Input
 

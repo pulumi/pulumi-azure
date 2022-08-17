@@ -70,14 +70,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="dnsNameLabel")
     private @Nullable Output<String> dnsNameLabel;
 
     /**
-     * @return The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+     * @return The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> dnsNameLabel() {
@@ -115,14 +115,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="imageRegistryCredentials")
     private @Nullable Output<List<GroupImageRegistryCredentialArgs>> imageRegistryCredentials;
 
     /**
-     * @return A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+     * @return An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<List<GroupImageRegistryCredentialArgs>>> imageRegistryCredentials() {
@@ -205,14 +205,14 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Network profile ID for deploying to virtual network.
+     * Network profile ID for deploying to a virtual network.
      * 
      */
     @Import(name="networkProfileId")
     private @Nullable Output<String> networkProfileId;
 
     /**
-     * @return Network profile ID for deploying to virtual network.
+     * @return Network profile ID for deploying to a virtual network.
      * 
      */
     public Optional<Output<String>> networkProfileId() {
@@ -393,7 +393,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsNameLabel The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+         * @param dnsNameLabel The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -404,7 +404,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dnsNameLabel The DNS label/name for the container groups IP. Changing this forces a new resource to be created.
+         * @param dnsNameLabel The DNS label/name for the container group&#39;s IP. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageRegistryCredentials A `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
+         * @param imageRegistryCredentials An `image_registry_credential` block as documented below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -612,7 +612,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfileId Network profile ID for deploying to virtual network.
+         * @param networkProfileId Network profile ID for deploying to a virtual network.
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfileId Network profile ID for deploying to virtual network.
+         * @param networkProfileId Network profile ID for deploying to a virtual network.
          * 
          * @return builder
          * 

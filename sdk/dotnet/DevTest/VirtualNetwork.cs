@@ -15,39 +15,39 @@ namespace Pulumi.Azure.DevTest
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleLab = new Azure.DevTest.Lab("exampleLab", new Azure.DevTest.LabArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Tags = 
-    ///             {
-    ///                 { "Sydney", "Australia" },
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new Azure.DevTest.VirtualNetworkArgs
-    ///         {
-    ///             LabName = exampleLab.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
-    ///             {
-    ///                 UsePublicIpAddress = "Allow",
-    ///                 UseInVirtualMachineCreation = "Allow",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "Sydney", "Australia" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         LabName = exampleLab.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
+    ///         {
+    ///             UsePublicIpAddress = "Allow",
+    ///             UseInVirtualMachineCreation = "Allow",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.DevTest
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/virtualNetwork:VirtualNetwork")]
-    public partial class VirtualNetwork : Pulumi.CustomResource
+    public partial class VirtualNetwork : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Virtual Network.
@@ -147,7 +147,7 @@ namespace Pulumi.Azure.DevTest
         }
     }
 
-    public sealed class VirtualNetworkArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Virtual Network.
@@ -194,9 +194,10 @@ namespace Pulumi.Azure.DevTest
         public VirtualNetworkArgs()
         {
         }
+        public static new VirtualNetworkArgs Empty => new VirtualNetworkArgs();
     }
 
-    public sealed class VirtualNetworkState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Virtual Network.
@@ -249,5 +250,6 @@ namespace Pulumi.Azure.DevTest
         public VirtualNetworkState()
         {
         }
+        public static new VirtualNetworkState Empty => new VirtualNetworkState();
     }
 }

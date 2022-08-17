@@ -15,46 +15,46 @@ namespace Pulumi.Azure.CosmosDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
-    ///         var exampleAccount = Output.Create(Azure.CosmosDB.GetAccount.InvokeAsync(new Azure.CosmosDB.GetAccountArgs
-    ///         {
-    ///             Name = "tfex-cosmosdb-account",
-    ///             ResourceGroupName = "tfex-cosmosdb-account-rg",
-    ///         }));
-    ///         var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new Azure.CosmosDB.MongoDatabaseArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///         });
-    ///         var exampleMongoCollection = new Azure.CosmosDB.MongoCollection("exampleMongoCollection", new Azure.CosmosDB.MongoCollectionArgs
-    ///         {
-    ///             ResourceGroupName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.ResourceGroupName),
-    ///             AccountName = exampleAccount.Apply(exampleAccount =&gt; exampleAccount.Name),
-    ///             DatabaseName = exampleMongoDatabase.Name,
-    ///             DefaultTtlSeconds = 777,
-    ///             ShardKey = "uniqueKey",
-    ///             Throughput = 400,
-    ///             Indices = 
-    ///             {
-    ///                 new Azure.CosmosDB.Inputs.MongoCollectionIndexArgs
-    ///                 {
-    ///                     Keys = 
-    ///                     {
-    ///                         "_id",
-    ///                     },
-    ///                     Unique = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
+    ///     });
     /// 
-    /// }
+    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///     });
+    /// 
+    ///     var exampleMongoCollection = new Azure.CosmosDB.MongoCollection("exampleMongoCollection", new()
+    ///     {
+    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         DatabaseName = exampleMongoDatabase.Name,
+    ///         DefaultTtlSeconds = 777,
+    ///         ShardKey = "uniqueKey",
+    ///         Throughput = 400,
+    ///         Indices = new[]
+    ///         {
+    ///             new Azure.CosmosDB.Inputs.MongoCollectionIndexArgs
+    ///             {
+    ///                 Keys = new[]
+    ///                 {
+    ///                     "_id",
+    ///                 },
+    ///                 Unique = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.CosmosDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:cosmosdb/mongoCollection:MongoCollection")]
-    public partial class MongoCollection : Pulumi.CustomResource
+    public partial class MongoCollection : global::Pulumi.CustomResource
     {
         [Output("accountName")]
         public Output<string> AccountName { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.CosmosDB
         }
     }
 
-    public sealed class MongoCollectionArgs : Pulumi.ResourceArgs
+    public sealed class MongoCollectionArgs : global::Pulumi.ResourceArgs
     {
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -226,9 +226,10 @@ namespace Pulumi.Azure.CosmosDB
         public MongoCollectionArgs()
         {
         }
+        public static new MongoCollectionArgs Empty => new MongoCollectionArgs();
     }
 
-    public sealed class MongoCollectionState : Pulumi.ResourceArgs
+    public sealed class MongoCollectionState : global::Pulumi.ResourceArgs
     {
         [Input("accountName")]
         public Input<string>? AccountName { get; set; }
@@ -299,5 +300,6 @@ namespace Pulumi.Azure.CosmosDB
         public MongoCollectionState()
         {
         }
+        public static new MongoCollectionState Empty => new MongoCollectionState();
     }
 }

@@ -19,78 +19,81 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = backup.NewPolicyVM(ctx, "examplePolicyVM", &backup.PolicyVMArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			RecoveryVaultName: exampleVault.Name,
-// 			Timezone:          pulumi.String("UTC"),
-// 			Backup: &backup.PolicyVMBackupArgs{
-// 				Frequency: pulumi.String("Daily"),
-// 				Time:      pulumi.String("23:00"),
-// 			},
-// 			RetentionDaily: &backup.PolicyVMRetentionDailyArgs{
-// 				Count: pulumi.Int(10),
-// 			},
-// 			RetentionWeekly: &backup.PolicyVMRetentionWeeklyArgs{
-// 				Count: pulumi.Int(42),
-// 				Weekdays: pulumi.StringArray{
-// 					pulumi.String("Sunday"),
-// 					pulumi.String("Wednesday"),
-// 					pulumi.String("Friday"),
-// 					pulumi.String("Saturday"),
-// 				},
-// 			},
-// 			RetentionMonthly: &backup.PolicyVMRetentionMonthlyArgs{
-// 				Count: pulumi.Int(7),
-// 				Weekdays: pulumi.StringArray{
-// 					pulumi.String("Sunday"),
-// 					pulumi.String("Wednesday"),
-// 				},
-// 				Weeks: pulumi.StringArray{
-// 					pulumi.String("First"),
-// 					pulumi.String("Last"),
-// 				},
-// 			},
-// 			RetentionYearly: &backup.PolicyVMRetentionYearlyArgs{
-// 				Count: pulumi.Int(77),
-// 				Weekdays: pulumi.StringArray{
-// 					pulumi.String("Sunday"),
-// 				},
-// 				Weeks: pulumi.StringArray{
-// 					pulumi.String("Last"),
-// 				},
-// 				Months: pulumi.StringArray{
-// 					pulumi.String("January"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = backup.NewPolicyVM(ctx, "examplePolicyVM", &backup.PolicyVMArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				RecoveryVaultName: exampleVault.Name,
+//				Timezone:          pulumi.String("UTC"),
+//				Backup: &backup.PolicyVMBackupArgs{
+//					Frequency: pulumi.String("Daily"),
+//					Time:      pulumi.String("23:00"),
+//				},
+//				RetentionDaily: &backup.PolicyVMRetentionDailyArgs{
+//					Count: pulumi.Int(10),
+//				},
+//				RetentionWeekly: &backup.PolicyVMRetentionWeeklyArgs{
+//					Count: pulumi.Int(42),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//						pulumi.String("Wednesday"),
+//						pulumi.String("Friday"),
+//						pulumi.String("Saturday"),
+//					},
+//				},
+//				RetentionMonthly: &backup.PolicyVMRetentionMonthlyArgs{
+//					Count: pulumi.Int(7),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//						pulumi.String("Wednesday"),
+//					},
+//					Weeks: pulumi.StringArray{
+//						pulumi.String("First"),
+//						pulumi.String("Last"),
+//					},
+//				},
+//				RetentionYearly: &backup.PolicyVMRetentionYearlyArgs{
+//					Count: pulumi.Int(77),
+//					Weekdays: pulumi.StringArray{
+//						pulumi.String("Sunday"),
+//					},
+//					Weeks: pulumi.StringArray{
+//						pulumi.String("Last"),
+//					},
+//					Months: pulumi.StringArray{
+//						pulumi.String("January"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -98,7 +101,9 @@ import (
 // VM Backup Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
+//
+//	$ pulumi import azure:backup/policyVM:PolicyVM policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/example-recovery-vault/backupPolicies/policy1
+//
 // ```
 type PolicyVM struct {
 	pulumi.CustomResourceState
@@ -295,7 +300,7 @@ func (i *PolicyVM) ToPolicyVMOutputWithContext(ctx context.Context) PolicyVMOutp
 // PolicyVMArrayInput is an input type that accepts PolicyVMArray and PolicyVMArrayOutput values.
 // You can construct a concrete instance of `PolicyVMArrayInput` via:
 //
-//          PolicyVMArray{ PolicyVMArgs{...} }
+//	PolicyVMArray{ PolicyVMArgs{...} }
 type PolicyVMArrayInput interface {
 	pulumi.Input
 
@@ -320,7 +325,7 @@ func (i PolicyVMArray) ToPolicyVMArrayOutputWithContext(ctx context.Context) Pol
 // PolicyVMMapInput is an input type that accepts PolicyVMMap and PolicyVMMapOutput values.
 // You can construct a concrete instance of `PolicyVMMapInput` via:
 //
-//          PolicyVMMap{ "key": PolicyVMArgs{...} }
+//	PolicyVMMap{ "key": PolicyVMArgs{...} }
 type PolicyVMMapInput interface {
 	pulumi.Input
 

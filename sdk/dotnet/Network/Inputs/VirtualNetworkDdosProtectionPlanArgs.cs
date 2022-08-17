@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkDdosProtectionPlanArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkDdosProtectionPlanArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable/disable DDoS Protection Plan on Virtual Network.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkDdosProtectionPlanArgs()
         {
         }
+        public static new VirtualNetworkDdosProtectionPlanArgs Empty => new VirtualNetworkDdosProtectionPlanArgs();
     }
 }

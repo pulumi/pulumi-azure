@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SlotAuthSettingsTwitterGetArgs : Pulumi.ResourceArgs
+    public sealed class SlotAuthSettingsTwitterGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("consumerKey", required: true)]
         public Input<string> ConsumerKey { get; set; } = null!;
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SlotAuthSettingsTwitterGetArgs()
         {
         }
+        public static new SlotAuthSettingsTwitterGetArgs Empty => new SlotAuthSettingsTwitterGetArgs();
     }
 }

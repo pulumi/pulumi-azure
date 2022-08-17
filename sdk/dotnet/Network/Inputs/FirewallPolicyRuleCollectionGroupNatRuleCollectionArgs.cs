@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs : Pulumi.ResourceArgs
+    public sealed class FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The action to take for the NAT rules in this collection. Currently, the only possible value is `Dnat`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs()
         {
         }
+        public static new FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs Empty => new FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs();
     }
 }

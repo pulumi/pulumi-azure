@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cdn
     /// ```
     /// </summary>
     [AzureResourceType("azure:cdn/frontdoorOrigin:FrontdoorOrigin")]
-    public partial class FrontdoorOrigin : Pulumi.CustomResource
+    public partial class FrontdoorOrigin : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Cdn
         }
     }
 
-    public sealed class FrontdoorOriginArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
@@ -202,9 +202,10 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorOriginArgs()
         {
         }
+        public static new FrontdoorOriginArgs Empty => new FrontdoorOriginArgs();
     }
 
-    public sealed class FrontdoorOriginState : Pulumi.ResourceArgs
+    public sealed class FrontdoorOriginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the CDN FrontDoor Origin Group within which this CDN FrontDoor Origin should exist. Changing this forces a new CDN FrontDoor Origin to be created.
@@ -275,5 +276,6 @@ namespace Pulumi.Azure.Cdn
         public FrontdoorOriginState()
         {
         }
+        public static new FrontdoorOriginState Empty => new FrontdoorOriginState();
     }
 }

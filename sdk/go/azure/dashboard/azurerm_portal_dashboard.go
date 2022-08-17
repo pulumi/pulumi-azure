@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/portal"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
-// 			Name:              pulumi.StringRef("existing-dashboard"),
-// 			ResourceGroupName: "dashboard-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", data.Azurerm_dashboard.Example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := portal.LookupDashboard(ctx, &portal.LookupDashboardArgs{
+//				Name:              pulumi.StringRef("existing-dashboard"),
+//				ResourceGroupName: "dashboard-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", data.Azurerm_dashboard.Example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // Deprecated: azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard

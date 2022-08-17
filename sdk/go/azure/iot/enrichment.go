@@ -20,7 +20,9 @@ import (
 // IoTHub Enrichment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+//
+//	$ pulumi import azure:iot/enrichment:Enrichment enrichment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/IotHubs/hub1/Enrichments/enrichment1
+//
 // ```
 type Enrichment struct {
 	pulumi.CustomResourceState
@@ -153,7 +155,7 @@ func (i *Enrichment) ToEnrichmentOutputWithContext(ctx context.Context) Enrichme
 // EnrichmentArrayInput is an input type that accepts EnrichmentArray and EnrichmentArrayOutput values.
 // You can construct a concrete instance of `EnrichmentArrayInput` via:
 //
-//          EnrichmentArray{ EnrichmentArgs{...} }
+//	EnrichmentArray{ EnrichmentArgs{...} }
 type EnrichmentArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +180,7 @@ func (i EnrichmentArray) ToEnrichmentArrayOutputWithContext(ctx context.Context)
 // EnrichmentMapInput is an input type that accepts EnrichmentMap and EnrichmentMapOutput values.
 // You can construct a concrete instance of `EnrichmentMapInput` via:
 //
-//          EnrichmentMap{ "key": EnrichmentArgs{...} }
+//	EnrichmentMap{ "key": EnrichmentArgs{...} }
 type EnrichmentMapInput interface {
 	pulumi.Input
 

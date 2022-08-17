@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "packerimages",
-        ///             ResourceGroupName = "packer-storage",
-        ///         }));
-        ///         this.StorageAccountTier = example.Apply(example =&gt; example.AccountTier);
-        ///     }
+        ///         Name = "packerimages",
+        ///         ResourceGroupName = "packer-storage",
+        ///     });
         /// 
-        ///     [Output("storageAccountTier")]
-        ///     public Output&lt;string&gt; StorageAccountTier { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["storageAccountTier"] = example.Apply(getAccountResult =&gt; getAccountResult.AccountTier),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Storage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Storage.GetAccount.InvokeAsync(new Azure.Storage.GetAccountArgs
-        ///         {
-        ///             Name = "packerimages",
-        ///             ResourceGroupName = "packer-storage",
-        ///         }));
-        ///         this.StorageAccountTier = example.Apply(example =&gt; example.AccountTier);
-        ///     }
+        ///         Name = "packerimages",
+        ///         ResourceGroupName = "packer-storage",
+        ///     });
         /// 
-        ///     [Output("storageAccountTier")]
-        ///     public Output&lt;string&gt; StorageAccountTier { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["storageAccountTier"] = example.Apply(getAccountResult =&gt; getAccountResult.AccountTier),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Storage
     }
 
 
-    public sealed class GetAccountArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The minimum supported TLS version for this storage account.
@@ -102,9 +100,10 @@ namespace Pulumi.Azure.Storage
         public GetAccountArgs()
         {
         }
+        public static new GetAccountArgs Empty => new GetAccountArgs();
     }
 
-    public sealed class GetAccountInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAccountInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The minimum supported TLS version for this storage account.
@@ -127,6 +126,7 @@ namespace Pulumi.Azure.Storage
         public GetAccountInvokeArgs()
         {
         }
+        public static new GetAccountInvokeArgs Empty => new GetAccountInvokeArgs();
     }
 
 

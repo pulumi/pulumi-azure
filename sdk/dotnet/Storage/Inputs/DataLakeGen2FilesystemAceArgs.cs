@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class DataLakeGen2FilesystemAceArgs : Pulumi.ResourceArgs
+    public sealed class DataLakeGen2FilesystemAceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Object ID of the Azure Active Directory User or Group that the entry relates to. Only valid for `user` or `group` entries.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public DataLakeGen2FilesystemAceArgs()
         {
         }
+        public static new DataLakeGen2FilesystemAceArgs Empty => new DataLakeGen2FilesystemAceArgs();
     }
 }

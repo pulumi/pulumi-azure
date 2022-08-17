@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterSecurityProfileArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterSecurityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The resource ID of the Azure Active Directory Domain Service. Changing this forces a new resource to be created.
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterSecurityProfileArgs()
         {
         }
+        public static new HBaseClusterSecurityProfileArgs Empty => new HBaseClusterSecurityProfileArgs();
     }
 }

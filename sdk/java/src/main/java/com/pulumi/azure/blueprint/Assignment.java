@@ -24,6 +24,110 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Azure Blueprint Assignments can only be applied to Subscriptions.  Assignments to Management Groups is not currently supported by the service or by this provider.
  * 
  * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.consumption.inputs.GetBudgetSubscriptionArgs;
+ * import com.pulumi.azure.blueprint.BlueprintFunctions;
+ * import com.pulumi.azure.blueprint.inputs.GetDefinitionArgs;
+ * import com.pulumi.azure.blueprint.inputs.GetPublishedVersionArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.blueprint.Assignment;
+ * import com.pulumi.azure.blueprint.AssignmentArgs;
+ * import com.pulumi.azure.blueprint.inputs.AssignmentIdentityArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         final var exampleSubscription = CoreFunctions.getSubscription();
+ * 
+ *         final var exampleDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
+ *             .name(&#34;exampleBlueprint&#34;)
+ *             .scopeId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .build());
+ * 
+ *         final var examplePublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
+ *             .scopeId(exampleDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.scopeId()))
+ *             .blueprintName(exampleDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.name()))
+ *             .version(&#34;v1.0.0&#34;)
+ *             .build());
+ * 
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .location(&#34;West Europe&#34;)
+ *             .tags(Map.of(&#34;Environment&#34;, &#34;example&#34;))
+ *             .build());
+ * 
+ *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(exampleResourceGroup.location())
+ *             .build());
+ * 
+ *         var operator = new Assignment(&#34;operator&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .roleDefinitionName(&#34;Blueprint Operator&#34;)
+ *             .principalId(exampleUserAssignedIdentity.principalId())
+ *             .build());
+ * 
+ *         var owner = new Assignment(&#34;owner&#34;, AssignmentArgs.builder()        
+ *             .scope(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .roleDefinitionName(&#34;Owner&#34;)
+ *             .principalId(exampleUserAssignedIdentity.principalId())
+ *             .build());
+ * 
+ *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
+ *             .targetSubscriptionId(exampleSubscription.applyValue(getBudgetSubscriptionResult -&gt; getBudgetSubscriptionResult.id()))
+ *             .versionId(examplePublishedVersion.applyValue(getPublishedVersionResult -&gt; getPublishedVersionResult.id()))
+ *             .location(exampleResourceGroup.location())
+ *             .lockMode(&#34;AllResourcesDoNotDelete&#34;)
+ *             .lockExcludePrincipals(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .identity(AssignmentIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(exampleUserAssignedIdentity.id())
+ *                 .build())
+ *             .resourceGroups(&#34;&#34;&#34;
+ *     {
+ *       &#34;ResourceGroup&#34;: {
+ *         &#34;name&#34;: &#34;exampleRG-bp&#34;
+ *       }
+ *     }
+ *             &#34;&#34;&#34;)
+ *             .parameterValues(&#34;&#34;&#34;
+ *     {
+ *       &#34;allowedlocationsforresourcegroups_listOfAllowedLocations&#34;: {
+ *         &#34;value&#34;: [&#34;westus&#34;, &#34;westus2&#34;, &#34;eastus&#34;, &#34;centralus&#34;, &#34;centraluseuap&#34;, &#34;southcentralus&#34;, &#34;northcentralus&#34;, &#34;westcentralus&#34;, &#34;eastus2&#34;, &#34;eastus2euap&#34;, &#34;brazilsouth&#34;, &#34;brazilus&#34;, &#34;northeurope&#34;, &#34;westeurope&#34;, &#34;eastasia&#34;, &#34;southeastasia&#34;, &#34;japanwest&#34;, &#34;japaneast&#34;, &#34;koreacentral&#34;, &#34;koreasouth&#34;, &#34;indiasouth&#34;, &#34;indiawest&#34;, &#34;indiacentral&#34;, &#34;australiaeast&#34;, &#34;australiasoutheast&#34;, &#34;canadacentral&#34;, &#34;canadaeast&#34;, &#34;uknorth&#34;, &#34;uksouth2&#34;, &#34;uksouth&#34;, &#34;ukwest&#34;, &#34;francecentral&#34;, &#34;francesouth&#34;, &#34;australiacentral&#34;, &#34;australiacentral2&#34;, &#34;uaecentral&#34;, &#34;uaenorth&#34;, &#34;southafricanorth&#34;, &#34;southafricawest&#34;, &#34;switzerlandnorth&#34;, &#34;switzerlandwest&#34;, &#34;germanynorth&#34;, &#34;germanywestcentral&#34;, &#34;norwayeast&#34;, &#34;norwaywest&#34;]
+ *       }
+ *     }
+ *             &#34;&#34;&#34;)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     operator,
+ *                     owner)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 

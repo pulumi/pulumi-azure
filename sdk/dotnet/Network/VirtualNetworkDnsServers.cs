@@ -13,47 +13,47 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Subnets = 
-    ///             {
-    ///                 new Azure.Network.Inputs.VirtualNetworkSubnetArgs
-    ///                 {
-    ///                     Name = "subnet1",
-    ///                     AddressPrefix = "10.0.1.0/24",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", new Azure.Network.VirtualNetworkDnsServersArgs
-    ///         {
-    ///             VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///             DnsServers = 
-    ///             {
-    ///                 "10.7.7.2",
-    ///                 "10.7.7.7",
-    ///                 "10.7.7.1",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Subnets = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
+    ///             {
+    ///                 Name = "subnet1",
+    ///                 AddressPrefix = "10.0.1.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", new()
+    ///     {
+    ///         VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///         DnsServers = new[]
+    ///         {
+    ///             "10.7.7.2",
+    ///             "10.7.7.7",
+    ///             "10.7.7.1",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/virtualNetworkDnsServers:VirtualNetworkDnsServers")]
-    public partial class VirtualNetworkDnsServers : Pulumi.CustomResource
+    public partial class VirtualNetworkDnsServers : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of IP addresses of DNS servers
@@ -123,7 +123,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class VirtualNetworkDnsServersArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkDnsServersArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -146,9 +146,10 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkDnsServersArgs()
         {
         }
+        public static new VirtualNetworkDnsServersArgs Empty => new VirtualNetworkDnsServersArgs();
     }
 
-    public sealed class VirtualNetworkDnsServersState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkDnsServersState : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers")]
         private InputList<string>? _dnsServers;
@@ -171,5 +172,6 @@ namespace Pulumi.Azure.Network
         public VirtualNetworkDnsServersState()
         {
         }
+        public static new VirtualNetworkDnsServersState Empty => new VirtualNetworkDnsServersState();
     }
 }

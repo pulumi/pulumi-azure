@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupImageRegistryCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class GroupImageRegistryCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The password with which to connect to the registry. Changing this forces a new resource to be created.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupImageRegistryCredentialGetArgs()
         {
         }
+        public static new GroupImageRegistryCredentialGetArgs Empty => new GroupImageRegistryCredentialGetArgs();
     }
 }

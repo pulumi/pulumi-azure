@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql.Inputs
 {
 
-    public sealed class SqlServerThreatDetectionPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlServerThreatDetectionPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("disabledAlerts")]
         private InputList<string>? _disabledAlerts;
@@ -69,5 +69,6 @@ namespace Pulumi.Azure.Sql.Inputs
         public SqlServerThreatDetectionPolicyGetArgs()
         {
         }
+        public static new SqlServerThreatDetectionPolicyGetArgs Empty => new SqlServerThreatDetectionPolicyGetArgs();
     }
 }

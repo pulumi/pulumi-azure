@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Avs
     }
 
 
-    public sealed class GetPrivateCloudArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateCloudArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this VMware Private Cloud.
@@ -36,9 +36,10 @@ namespace Pulumi.Azure.Avs
         public GetPrivateCloudArgs()
         {
         }
+        public static new GetPrivateCloudArgs Empty => new GetPrivateCloudArgs();
     }
 
-    public sealed class GetPrivateCloudInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPrivateCloudInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this VMware Private Cloud.
@@ -55,6 +56,7 @@ namespace Pulumi.Azure.Avs
         public GetPrivateCloudInvokeArgs()
         {
         }
+        public static new GetPrivateCloudInvokeArgs Empty => new GetPrivateCloudInvokeArgs();
     }
 
 

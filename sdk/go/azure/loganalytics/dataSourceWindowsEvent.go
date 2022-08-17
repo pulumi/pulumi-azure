@@ -19,42 +19,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/loganalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("PerGB2018"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = loganalytics.NewDataSourceWindowsEvent(ctx, "exampleDataSourceWindowsEvent", &loganalytics.DataSourceWindowsEventArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			WorkspaceName:     exampleAnalyticsWorkspace.Name,
-// 			EventLogName:      pulumi.String("Application"),
-// 			EventTypes: pulumi.StringArray{
-// 				pulumi.String("Error"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("PerGB2018"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = loganalytics.NewDataSourceWindowsEvent(ctx, "exampleDataSourceWindowsEvent", &loganalytics.DataSourceWindowsEventArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				WorkspaceName:     exampleAnalyticsWorkspace.Name,
+//				EventLogName:      pulumi.String("Application"),
+//				EventTypes: pulumi.StringArray{
+//					pulumi.String("Error"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -62,7 +65,9 @@ import (
 // Log Analytics Windows Event DataSources can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+//
+//	$ pulumi import azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/datasources/datasource1
+//
 // ```
 type DataSourceWindowsEvent struct {
 	pulumi.CustomResourceState
@@ -202,7 +207,7 @@ func (i *DataSourceWindowsEvent) ToDataSourceWindowsEventOutputWithContext(ctx c
 // DataSourceWindowsEventArrayInput is an input type that accepts DataSourceWindowsEventArray and DataSourceWindowsEventArrayOutput values.
 // You can construct a concrete instance of `DataSourceWindowsEventArrayInput` via:
 //
-//          DataSourceWindowsEventArray{ DataSourceWindowsEventArgs{...} }
+//	DataSourceWindowsEventArray{ DataSourceWindowsEventArgs{...} }
 type DataSourceWindowsEventArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +232,7 @@ func (i DataSourceWindowsEventArray) ToDataSourceWindowsEventArrayOutputWithCont
 // DataSourceWindowsEventMapInput is an input type that accepts DataSourceWindowsEventMap and DataSourceWindowsEventMapOutput values.
 // You can construct a concrete instance of `DataSourceWindowsEventMapInput` via:
 //
-//          DataSourceWindowsEventMap{ "key": DataSourceWindowsEventArgs{...} }
+//	DataSourceWindowsEventMap{ "key": DataSourceWindowsEventArgs{...} }
 type DataSourceWindowsEventMapInput interface {
 	pulumi.Input
 

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Spring Cloud Deployment with a Java runtime.
  * 
+ * &gt; **NOTE:** This resource is applicable only for Spring Cloud Service with basic and standard tier.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

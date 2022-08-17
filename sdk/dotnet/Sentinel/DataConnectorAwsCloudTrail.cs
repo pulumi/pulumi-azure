@@ -15,44 +15,45 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleDataConnectorAwsCloudTrail = new Azure.Sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail", new Azure.Sentinel.DataConnectorAwsCloudTrailArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///             AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDataConnectorAwsCloudTrail = new Azure.Sentinel.DataConnectorAwsCloudTrail("exampleDataConnectorAwsCloudTrail", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         AwsRoleArn = "arn:aws:iam::000000000000:role/role1",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +65,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/dataConnectorAwsCloudTrail:DataConnectorAwsCloudTrail")]
-    public partial class DataConnectorAwsCloudTrail : Pulumi.CustomResource
+    public partial class DataConnectorAwsCloudTrail : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
@@ -128,7 +129,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class DataConnectorAwsCloudTrailArgs : Pulumi.ResourceArgs
+    public sealed class DataConnectorAwsCloudTrailArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
@@ -151,9 +152,10 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAwsCloudTrailArgs()
         {
         }
+        public static new DataConnectorAwsCloudTrailArgs Empty => new DataConnectorAwsCloudTrailArgs();
     }
 
-    public sealed class DataConnectorAwsCloudTrailState : Pulumi.ResourceArgs
+    public sealed class DataConnectorAwsCloudTrailState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ARN of the AWS CloudTrail role, which is connected to this AWS CloudTrail Data Connector.
@@ -176,5 +178,6 @@ namespace Pulumi.Azure.Sentinel
         public DataConnectorAwsCloudTrailState()
         {
         }
+        public static new DataConnectorAwsCloudTrailState Empty => new DataConnectorAwsCloudTrailState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class ContentKeyPolicyPolicyOptionTokenRestrictionGetArgs : Pulumi.ResourceArgs
+    public sealed class ContentKeyPolicyPolicyOptionTokenRestrictionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The audience for the token.
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.Media.Inputs
         public ContentKeyPolicyPolicyOptionTokenRestrictionGetArgs()
         {
         }
+        public static new ContentKeyPolicyPolicyOptionTokenRestrictionGetArgs Empty => new ContentKeyPolicyPolicyOptionTokenRestrictionGetArgs();
     }
 }

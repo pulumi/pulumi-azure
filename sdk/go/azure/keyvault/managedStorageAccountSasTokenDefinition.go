@@ -19,113 +19,116 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			Location:               exampleResourceGroup.Location,
-// 			AccountTier:            pulumi.String("Standard"),
-// 			AccountReplicationType: pulumi.String("LRS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
-// 			ConnectionString: exampleAccount.PrimaryConnectionString,
-// 			HttpsOnly:        pulumi.Bool(true),
-// 			ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
-// 				Service:   pulumi.Bool(true),
-// 				Container: pulumi.Bool(false),
-// 				Object:    pulumi.Bool(false),
-// 			},
-// 			Services: &storage.GetAccountSASServicesArgs{
-// 				Blob:  pulumi.Bool(true),
-// 				Queue: pulumi.Bool(false),
-// 				Table: pulumi.Bool(false),
-// 				File:  pulumi.Bool(false),
-// 			},
-// 			Start:  pulumi.String("2021-04-30T00:00:00Z"),
-// 			Expiry: pulumi.String("2023-04-30T00:00:00Z"),
-// 			Permissions: &storage.GetAccountSASPermissionsArgs{
-// 				Read:    pulumi.Bool(true),
-// 				Write:   pulumi.Bool(true),
-// 				Delete:  pulumi.Bool(false),
-// 				List:    pulumi.Bool(false),
-// 				Add:     pulumi.Bool(true),
-// 				Create:  pulumi.Bool(true),
-// 				Update:  pulumi.Bool(false),
-// 				Process: pulumi.Bool(false),
-// 			},
-// 		}, nil)
-// 		exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-// 			SkuName:           pulumi.String("standard"),
-// 			AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
-// 				&keyvault.KeyVaultAccessPolicyArgs{
-// 					TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
-// 					ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
-// 					SecretPermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("Delete"),
-// 					},
-// 					StoragePermissions: pulumi.StringArray{
-// 						pulumi.String("Get"),
-// 						pulumi.String("List"),
-// 						pulumi.String("Set"),
-// 						pulumi.String("SetSAS"),
-// 						pulumi.String("GetSAS"),
-// 						pulumi.String("DeleteSAS"),
-// 						pulumi.String("Update"),
-// 						pulumi.String("RegenerateKey"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewManagedStorageAccount(ctx, "test", &keyvault.ManagedStorageAccountArgs{
-// 			KeyVaultId:                 exampleKeyVault.ID(),
-// 			StorageAccountId:           exampleAccount.ID(),
-// 			StorageAccountKey:          pulumi.String("key1"),
-// 			RegenerateKeyAutomatically: pulumi.Bool(false),
-// 			RegenerationPeriod:         pulumi.String("P1D"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "exampleManagedStorageAccountSasTokenDefinition", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
-// 			ValidityPeriod:          pulumi.String("P1D"),
-// 			ManagedStorageAccountId: pulumi.Any(azurerm_key_vault_managed_storage_account.Example.Id),
-// 			SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (string, error) {
-// 				return exampleAccountSAS.Sas, nil
-// 			}).(pulumi.StringOutput),
-// 			SasType: pulumi.String("account"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Location:               exampleResourceGroup.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+//				ConnectionString: exampleAccount.PrimaryConnectionString,
+//				HttpsOnly:        pulumi.Bool(true),
+//				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
+//					Service:   pulumi.Bool(true),
+//					Container: pulumi.Bool(false),
+//					Object:    pulumi.Bool(false),
+//				},
+//				Services: &storage.GetAccountSASServicesArgs{
+//					Blob:  pulumi.Bool(true),
+//					Queue: pulumi.Bool(false),
+//					Table: pulumi.Bool(false),
+//					File:  pulumi.Bool(false),
+//				},
+//				Start:  pulumi.String("2021-04-30T00:00:00Z"),
+//				Expiry: pulumi.String("2023-04-30T00:00:00Z"),
+//				Permissions: &storage.GetAccountSASPermissionsArgs{
+//					Read:    pulumi.Bool(true),
+//					Write:   pulumi.Bool(true),
+//					Delete:  pulumi.Bool(false),
+//					List:    pulumi.Bool(false),
+//					Add:     pulumi.Bool(true),
+//					Create:  pulumi.Bool(true),
+//					Update:  pulumi.Bool(false),
+//					Process: pulumi.Bool(false),
+//				},
+//			}, nil)
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				TenantId:          pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+//				SkuName:           pulumi.String("standard"),
+//				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
+//					&keyvault.KeyVaultAccessPolicyArgs{
+//						TenantId: pulumi.Any(data.Azurerm_client_config.Current.Tenant_id),
+//						ObjectId: pulumi.Any(data.Azurerm_client_config.Current.Object_id),
+//						SecretPermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("Delete"),
+//						},
+//						StoragePermissions: pulumi.StringArray{
+//							pulumi.String("Get"),
+//							pulumi.String("List"),
+//							pulumi.String("Set"),
+//							pulumi.String("SetSAS"),
+//							pulumi.String("GetSAS"),
+//							pulumi.String("DeleteSAS"),
+//							pulumi.String("Update"),
+//							pulumi.String("RegenerateKey"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedStorageAccount(ctx, "test", &keyvault.ManagedStorageAccountArgs{
+//				KeyVaultId:                 exampleKeyVault.ID(),
+//				StorageAccountId:           exampleAccount.ID(),
+//				StorageAccountKey:          pulumi.String("key1"),
+//				RegenerateKeyAutomatically: pulumi.Bool(false),
+//				RegenerationPeriod:         pulumi.String("P1D"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "exampleManagedStorageAccountSasTokenDefinition", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
+//				ValidityPeriod:          pulumi.String("P1D"),
+//				ManagedStorageAccountId: pulumi.Any(azurerm_key_vault_managed_storage_account.Example.Id),
+//				SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (string, error) {
+//					return exampleAccountSAS.Sas, nil
+//				}).(pulumi.StringOutput),
+//				SasType: pulumi.String("account"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -133,7 +136,9 @@ import (
 // Key Vaults can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
+//
+//	$ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
+//
 // ```
 type ManagedStorageAccountSasTokenDefinition struct {
 	pulumi.CustomResourceState
@@ -289,7 +294,7 @@ func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasToke
 // ManagedStorageAccountSasTokenDefinitionArrayInput is an input type that accepts ManagedStorageAccountSasTokenDefinitionArray and ManagedStorageAccountSasTokenDefinitionArrayOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountSasTokenDefinitionArrayInput` via:
 //
-//          ManagedStorageAccountSasTokenDefinitionArray{ ManagedStorageAccountSasTokenDefinitionArgs{...} }
+//	ManagedStorageAccountSasTokenDefinitionArray{ ManagedStorageAccountSasTokenDefinitionArgs{...} }
 type ManagedStorageAccountSasTokenDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -314,7 +319,7 @@ func (i ManagedStorageAccountSasTokenDefinitionArray) ToManagedStorageAccountSas
 // ManagedStorageAccountSasTokenDefinitionMapInput is an input type that accepts ManagedStorageAccountSasTokenDefinitionMap and ManagedStorageAccountSasTokenDefinitionMapOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountSasTokenDefinitionMapInput` via:
 //
-//          ManagedStorageAccountSasTokenDefinitionMap{ "key": ManagedStorageAccountSasTokenDefinitionArgs{...} }
+//	ManagedStorageAccountSasTokenDefinitionMap{ "key": ManagedStorageAccountSasTokenDefinitionArgs{...} }
 type ManagedStorageAccountSasTokenDefinitionMapInput interface {
 	pulumi.Input
 

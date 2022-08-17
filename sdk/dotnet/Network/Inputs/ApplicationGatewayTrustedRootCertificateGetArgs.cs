@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayTrustedRootCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayTrustedRootCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayTrustedRootCertificateGetArgs()
         {
         }
+        public static new ApplicationGatewayTrustedRootCertificateGetArgs Empty => new ApplicationGatewayTrustedRootCertificateGetArgs();
     }
 }

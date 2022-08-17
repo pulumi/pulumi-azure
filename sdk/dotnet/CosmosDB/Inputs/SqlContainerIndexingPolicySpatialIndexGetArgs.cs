@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerIndexingPolicySpatialIndexGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerIndexingPolicySpatialIndexGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path for which the indexing behaviour applies to. According to the service design, all spatial types including `LineString`, `MultiPolygon`, `Point`, and `Polygon` will be applied to the path.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerIndexingPolicySpatialIndexGetArgs()
         {
         }
+        public static new SqlContainerIndexingPolicySpatialIndexGetArgs Empty => new SqlContainerIndexingPolicySpatialIndexGetArgs();
     }
 }

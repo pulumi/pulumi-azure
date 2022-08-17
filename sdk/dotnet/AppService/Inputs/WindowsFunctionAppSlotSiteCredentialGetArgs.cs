@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class WindowsFunctionAppSlotSiteCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class WindowsFunctionAppSlotSiteCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Site Credentials Username used for publishing.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public WindowsFunctionAppSlotSiteCredentialGetArgs()
         {
         }
+        public static new WindowsFunctionAppSlotSiteCredentialGetArgs Empty => new WindowsFunctionAppSlotSiteCredentialGetArgs();
     }
 }

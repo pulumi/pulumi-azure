@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesLogAnalyticsWorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesLogAnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         [Input("permanentlyDeleteOnDestroy")]
         public Input<bool>? PermanentlyDeleteOnDestroy { get; set; }
@@ -18,5 +18,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesLogAnalyticsWorkspaceArgs()
         {
         }
+        public static new ProviderFeaturesLogAnalyticsWorkspaceArgs Empty => new ProviderFeaturesLogAnalyticsWorkspaceArgs();
     }
 }

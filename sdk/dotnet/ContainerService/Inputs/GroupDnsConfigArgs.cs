@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class GroupDnsConfigArgs : Pulumi.ResourceArgs
+    public sealed class GroupDnsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("nameservers", required: true)]
         private InputList<string>? _nameservers;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public GroupDnsConfigArgs()
         {
         }
+        public static new GroupDnsConfigArgs Empty => new GroupDnsConfigArgs();
     }
 }

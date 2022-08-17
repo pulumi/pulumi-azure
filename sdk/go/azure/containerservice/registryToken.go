@@ -17,58 +17,61 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku:               pulumi.String("Premium"),
-// 			AdminEnabled:      pulumi.Bool(false),
-// 			Georeplications: containerservice.RegistryGeoreplicationArray{
-// 				&containerservice.RegistryGeoreplicationArgs{
-// 					Location: pulumi.String("East US"),
-// 				},
-// 				&containerservice.RegistryGeoreplicationArgs{
-// 					Location: pulumi.String("West Europe"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
-// 			ContainerRegistryName: exampleRegistry.Name,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			Actions: pulumi.StringArray{
-// 				pulumi.String("repositories/repo1/content/read"),
-// 				pulumi.String("repositories/repo1/content/write"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
-// 			ContainerRegistryName: exampleRegistry.Name,
-// 			ResourceGroupName:     exampleResourceGroup.Name,
-// 			ScopeMapId:            exampleRegistryScopeMap.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku:               pulumi.String("Premium"),
+//				AdminEnabled:      pulumi.Bool(false),
+//				Georeplications: containerservice.RegistryGeoreplicationArray{
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location: pulumi.String("East US"),
+//					},
+//					&containerservice.RegistryGeoreplicationArgs{
+//						Location: pulumi.String("West Europe"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				Actions: pulumi.StringArray{
+//					pulumi.String("repositories/repo1/content/read"),
+//					pulumi.String("repositories/repo1/content/write"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
+//				ContainerRegistryName: exampleRegistry.Name,
+//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -76,7 +79,9 @@ import (
 // Container Registries can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
+//
+//	$ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
+//
 // ```
 type RegistryToken struct {
 	pulumi.CustomResourceState
@@ -213,7 +218,7 @@ func (i *RegistryToken) ToRegistryTokenOutputWithContext(ctx context.Context) Re
 // RegistryTokenArrayInput is an input type that accepts RegistryTokenArray and RegistryTokenArrayOutput values.
 // You can construct a concrete instance of `RegistryTokenArrayInput` via:
 //
-//          RegistryTokenArray{ RegistryTokenArgs{...} }
+//	RegistryTokenArray{ RegistryTokenArgs{...} }
 type RegistryTokenArrayInput interface {
 	pulumi.Input
 
@@ -238,7 +243,7 @@ func (i RegistryTokenArray) ToRegistryTokenArrayOutputWithContext(ctx context.Co
 // RegistryTokenMapInput is an input type that accepts RegistryTokenMap and RegistryTokenMapOutput values.
 // You can construct a concrete instance of `RegistryTokenMapInput` via:
 //
-//          RegistryTokenMap{ "key": RegistryTokenArgs{...} }
+//	RegistryTokenMap{ "key": RegistryTokenArgs{...} }
 type RegistryTokenMapInput interface {
 	pulumi.Input
 

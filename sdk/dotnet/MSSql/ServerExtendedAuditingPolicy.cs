@@ -15,162 +15,171 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "AdminPassword123!",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new Azure.MSSql.ServerExtendedAuditingPolicyArgs
-    ///         {
-    ///             ServerId = exampleServer.Id,
-    ///             StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///             StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
-    ///             StorageAccountAccessKeyIsSecondary = false,
-    ///             RetentionInDays = 6,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new()
+    ///     {
+    ///         ServerId = exampleServer.Id,
+    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageAccountAccessKeyIsSecondary = false,
+    ///         RetentionInDays = 6,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With Storage Account Behind VNet And Firewall
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var primary = Output.Create(Azure.Core.GetSubscription.InvokeAsync());
-    ///         var exampleClientConfig = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Sql",
-    ///                 "Microsoft.Storage",
-    ///             },
-    ///             EnforcePrivateLinkEndpointNetworkPolicies = true,
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "AdminPassword123!",
-    ///             MinimumTlsVersion = "1.2",
-    ///             Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new Azure.Authorization.AssignmentArgs
-    ///         {
-    ///             Scope = primary.Apply(primary =&gt; primary.Id),
-    ///             RoleDefinitionName = "Storage Blob Data Contributor",
-    ///             PrincipalId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
-    ///         });
-    ///         var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new Azure.Sql.VirtualNetworkRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             SubnetId = exampleSubnet.Id,
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new Azure.Sql.FirewallRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             StartIpAddress = "0.0.0.0",
-    ///             EndIpAddress = "0.0.0.0",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             AllowNestedItemsToBePublic = false,
-    ///             NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
-    ///             {
-    ///                 DefaultAction = "Deny",
-    ///                 IpRules = 
-    ///                 {
-    ///                     "127.0.0.1",
-    ///                 },
-    ///                 VirtualNetworkSubnetIds = 
-    ///                 {
-    ///                     exampleSubnet.Id,
-    ///                 },
-    ///                 Bypasses = 
-    ///                 {
-    ///                     "AzureServices",
-    ///                 },
-    ///             },
-    ///             Identity = new Azure.Storage.Inputs.AccountIdentityArgs
-    ///             {
-    ///                 Type = "SystemAssigned",
-    ///             },
-    ///         });
-    ///         var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new Azure.MSSql.ServerExtendedAuditingPolicyArgs
-    ///         {
-    ///             StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
-    ///             ServerId = exampleServer.Id,
-    ///             RetentionInDays = 6,
-    ///             LogMonitoringEnabled = false,
-    ///             StorageAccountSubscriptionId = azurerm_subscription.Primary.Subscription_id,
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleAssignment,
-    ///                 exampleAccount,
-    ///             },
-    ///         });
-    ///     }
+    ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    /// }
+    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///             "Microsoft.Storage",
+    ///         },
+    ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///         MinimumTlsVersion = "1.2",
+    ///         Identity = new Azure.MSSql.Inputs.ServerIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     {
+    ///         Scope = primary.Apply(getBudgetSubscriptionResult =&gt; getBudgetSubscriptionResult.Id),
+    ///         RoleDefinitionName = "Storage Blob Data Contributor",
+    ///         PrincipalId = exampleServer.Identity.Apply(identity =&gt; identity?.PrincipalId),
+    ///     });
+    /// 
+    ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         SubnetId = exampleSubnet.Id,
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Sql.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         StartIpAddress = "0.0.0.0",
+    ///         EndIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         AllowNestedItemsToBePublic = false,
+    ///         NetworkRules = new Azure.Storage.Inputs.AccountNetworkRulesArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             IpRules = new[]
+    ///             {
+    ///                 "127.0.0.1",
+    ///             },
+    ///             VirtualNetworkSubnetIds = new[]
+    ///             {
+    ///                 exampleSubnet.Id,
+    ///             },
+    ///             Bypasses = new[]
+    ///             {
+    ///                 "AzureServices",
+    ///             },
+    ///         },
+    ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServerExtendedAuditingPolicy = new Azure.MSSql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", new()
+    ///     {
+    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         ServerId = exampleServer.Id,
+    ///         RetentionInDays = 6,
+    ///         LogMonitoringEnabled = false,
+    ///         StorageAccountSubscriptionId = azurerm_subscription.Primary.Subscription_id,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleAssignment,
+    ///             exampleAccount,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -182,7 +191,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/serverExtendedAuditingPolicy:ServerExtendedAuditingPolicy")]
-    public partial class ServerExtendedAuditingPolicy : Pulumi.CustomResource
+    public partial class ServerExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -276,7 +285,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ServerExtendedAuditingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ServerExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -329,9 +338,10 @@ namespace Pulumi.Azure.MSSql
         public ServerExtendedAuditingPolicyArgs()
         {
         }
+        public static new ServerExtendedAuditingPolicyArgs Empty => new ServerExtendedAuditingPolicyArgs();
     }
 
-    public sealed class ServerExtendedAuditingPolicyState : Pulumi.ResourceArgs
+    public sealed class ServerExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
@@ -384,5 +394,6 @@ namespace Pulumi.Azure.MSSql
         public ServerExtendedAuditingPolicyState()
         {
         }
+        public static new ServerExtendedAuditingPolicyState Empty => new ServerExtendedAuditingPolicyState();
     }
 }

@@ -15,76 +15,77 @@ namespace Pulumi.Azure.Media
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "GRS",
-    ///         });
-    ///         var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new Azure.Media.ServiceAccountArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StorageAccounts = 
-    ///             {
-    ///                 new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
-    ///                 {
-    ///                     Id = exampleAccount.Id,
-    ///                     IsPrimary = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleStreamingPolicy = new Azure.Media.StreamingPolicy("exampleStreamingPolicy", new Azure.Media.StreamingPolicyArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             MediaServicesAccountName = exampleServiceAccount.Name,
-    ///             CommonEncryptionCenc = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencArgs
-    ///             {
-    ///                 EnabledProtocols = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs
-    ///                 {
-    ///                     Download = false,
-    ///                     Dash = true,
-    ///                     Hls = false,
-    ///                     SmoothStreaming = false,
-    ///                 },
-    ///                 DrmPlayready = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs
-    ///                 {
-    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
-    ///                     CustomAttributes = "PlayReady CustomAttributes",
-    ///                 },
-    ///                 DrmWidevineCustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId}",
-    ///             },
-    ///             CommonEncryptionCbcs = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsArgs
-    ///             {
-    ///                 EnabledProtocols = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs
-    ///                 {
-    ///                     Download = false,
-    ///                     Dash = true,
-    ///                     Hls = false,
-    ///                     SmoothStreaming = false,
-    ///                 },
-    ///                 DrmFairplay = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs
-    ///                 {
-    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
-    ///                     AllowPersistentLicense = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
+    ///             {
+    ///                 Id = exampleAccount.Id,
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleStreamingPolicy = new Azure.Media.StreamingPolicy("exampleStreamingPolicy", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         MediaServicesAccountName = exampleServiceAccount.Name,
+    ///         CommonEncryptionCenc = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencArgs
+    ///         {
+    ///             EnabledProtocols = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencEnabledProtocolsArgs
+    ///             {
+    ///                 Download = false,
+    ///                 Dash = true,
+    ///                 Hls = false,
+    ///                 SmoothStreaming = false,
+    ///             },
+    ///             DrmPlayready = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCencDrmPlayreadyArgs
+    ///             {
+    ///                 CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+    ///                 CustomAttributes = "PlayReady CustomAttributes",
+    ///             },
+    ///             DrmWidevineCustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId}",
+    ///         },
+    ///         CommonEncryptionCbcs = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsArgs
+    ///         {
+    ///             EnabledProtocols = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsEnabledProtocolsArgs
+    ///             {
+    ///                 Download = false,
+    ///                 Dash = true,
+    ///                 Hls = false,
+    ///                 SmoothStreaming = false,
+    ///             },
+    ///             DrmFairplay = new Azure.Media.Inputs.StreamingPolicyCommonEncryptionCbcsDrmFairplayArgs
+    ///             {
+    ///                 CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+    ///                 AllowPersistentLicense = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -96,7 +97,7 @@ namespace Pulumi.Azure.Media
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/streamingPolicy:StreamingPolicy")]
-    public partial class StreamingPolicy : Pulumi.CustomResource
+    public partial class StreamingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -184,7 +185,7 @@ namespace Pulumi.Azure.Media
         }
     }
 
-    public sealed class StreamingPolicyArgs : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -231,9 +232,10 @@ namespace Pulumi.Azure.Media
         public StreamingPolicyArgs()
         {
         }
+        public static new StreamingPolicyArgs Empty => new StreamingPolicyArgs();
     }
 
-    public sealed class StreamingPolicyState : Pulumi.ResourceArgs
+    public sealed class StreamingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `common_encryption_cbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -280,5 +282,6 @@ namespace Pulumi.Azure.Media
         public StreamingPolicyState()
         {
         }
+        public static new StreamingPolicyState Empty => new StreamingPolicyState();
     }
 }

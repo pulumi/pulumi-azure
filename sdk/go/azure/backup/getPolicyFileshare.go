@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/backup"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := backup.GetPolicyFileshare(ctx, &backup.GetPolicyFileshareArgs{
-// 			Name:              "policy",
-// 			RecoveryVaultName: "recovery_vault",
-// 			ResourceGroupName: "resource_group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := backup.GetPolicyFileshare(ctx, &backup.GetPolicyFileshareArgs{
+//				Name:              "policy",
+//				RecoveryVaultName: "recovery_vault",
+//				ResourceGroupName: "resource_group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetPolicyFileshare(ctx *pulumi.Context, args *GetPolicyFileshareArgs, opts ...pulumi.InvokeOption) (*GetPolicyFileshareResult, error) {
 	var rv GetPolicyFileshareResult

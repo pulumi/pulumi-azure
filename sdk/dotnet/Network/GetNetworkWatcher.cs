@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkWatcher.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkWatcher.InvokeAsync(new Azure.Network.GetNetworkWatcherArgs
-        ///         {
-        ///             Name = azurerm_network_watcher.Example.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.NetworkWatcherId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_network_watcher.Example.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("networkWatcherId")]
-        ///     public Output&lt;string&gt; NetworkWatcherId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkWatcherId"] = example.Apply(getNetworkWatcherResult =&gt; getNetworkWatcherResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetNetworkWatcher.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetNetworkWatcher.InvokeAsync(new Azure.Network.GetNetworkWatcherArgs
-        ///         {
-        ///             Name = azurerm_network_watcher.Example.Name,
-        ///             ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         }));
-        ///         this.NetworkWatcherId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = azurerm_network_watcher.Example.Name,
+        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///     });
         /// 
-        ///     [Output("networkWatcherId")]
-        ///     public Output&lt;string&gt; NetworkWatcherId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["networkWatcherId"] = example.Apply(getNetworkWatcherResult =&gt; getNetworkWatcherResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetNetworkWatcherArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkWatcherArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Network Watcher.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetNetworkWatcherArgs()
         {
         }
+        public static new GetNetworkWatcherArgs Empty => new GetNetworkWatcherArgs();
     }
 
-    public sealed class GetNetworkWatcherInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNetworkWatcherInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the Name of the Network Watcher.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetNetworkWatcherInvokeArgs()
         {
         }
+        public static new GetNetworkWatcherInvokeArgs Empty => new GetNetworkWatcherInvokeArgs();
     }
 
 

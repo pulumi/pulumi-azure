@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class DataCollectionRuleDataSourcesSyslogArgs : Pulumi.ResourceArgs
+    public sealed class DataCollectionRuleDataSourcesSyslogArgs : global::Pulumi.ResourceArgs
     {
         [Input("facilityNames", required: true)]
         private InputList<string>? _facilityNames;
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public DataCollectionRuleDataSourcesSyslogArgs()
         {
         }
+        public static new DataCollectionRuleDataSourcesSyslogArgs Empty => new DataCollectionRuleDataSourcesSyslogArgs();
     }
 }

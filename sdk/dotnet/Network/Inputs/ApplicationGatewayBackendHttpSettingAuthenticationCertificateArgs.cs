@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Rewrite Rule Set
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs()
         {
         }
+        public static new ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs Empty => new ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs();
     }
 }

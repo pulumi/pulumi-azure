@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorBackendPoolHealthProbeGetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorBackendPoolHealthProbeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is this health probe enabled? Defaults to `true`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorBackendPoolHealthProbeGetArgs()
         {
         }
+        public static new FrontdoorBackendPoolHealthProbeGetArgs Empty => new FrontdoorBackendPoolHealthProbeGetArgs();
     }
 }

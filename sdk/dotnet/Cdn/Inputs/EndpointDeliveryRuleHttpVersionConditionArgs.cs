@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Cdn.Inputs
 {
 
-    public sealed class EndpointDeliveryRuleHttpVersionConditionArgs : Pulumi.ResourceArgs
+    public sealed class EndpointDeliveryRuleHttpVersionConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("matchValues", required: true)]
         private InputList<string>? _matchValues;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Cdn.Inputs
         public EndpointDeliveryRuleHttpVersionConditionArgs()
         {
         }
+        public static new EndpointDeliveryRuleHttpVersionConditionArgs Empty => new EndpointDeliveryRuleHttpVersionConditionArgs();
     }
 }

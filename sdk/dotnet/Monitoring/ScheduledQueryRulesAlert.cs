@@ -17,11 +17,11 @@ namespace Pulumi.Azure.Monitoring
     /// Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledqueryrules/myrulename
+    ///  $ pulumi import azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert")]
-    public partial class ScheduledQueryRulesAlert : Pulumi.CustomResource
+    public partial class ScheduledQueryRulesAlert : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `action` block as defined below.
@@ -96,6 +96,9 @@ namespace Pulumi.Azure.Monitoring
         [Output("severity")]
         public Output<int?> Severity { get; private set; } = null!;
 
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -161,7 +164,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class ScheduledQueryRulesAlertArgs : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesAlertArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `action` block as defined below.
@@ -244,6 +247,10 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -271,9 +278,10 @@ namespace Pulumi.Azure.Monitoring
         public ScheduledQueryRulesAlertArgs()
         {
         }
+        public static new ScheduledQueryRulesAlertArgs Empty => new ScheduledQueryRulesAlertArgs();
     }
 
-    public sealed class ScheduledQueryRulesAlertState : Pulumi.ResourceArgs
+    public sealed class ScheduledQueryRulesAlertState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `action` block as defined below.
@@ -356,6 +364,10 @@ namespace Pulumi.Azure.Monitoring
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -383,5 +395,6 @@ namespace Pulumi.Azure.Monitoring
         public ScheduledQueryRulesAlertState()
         {
         }
+        public static new ScheduledQueryRulesAlertState Empty => new ScheduledQueryRulesAlertState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class ActionGroupVoiceReceiverGetArgs : Pulumi.ResourceArgs
+    public sealed class ActionGroupVoiceReceiverGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The country code of the voice receiver.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public ActionGroupVoiceReceiverGetArgs()
         {
         }
+        public static new ActionGroupVoiceReceiverGetArgs Empty => new ActionGroupVoiceReceiverGetArgs();
     }
 }

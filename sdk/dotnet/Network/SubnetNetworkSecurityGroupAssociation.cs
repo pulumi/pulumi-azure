@@ -15,63 +15,65 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new Azure.Network.NetworkSecurityGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SecurityRules = 
-    ///             {
-    ///                 new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
-    ///                 {
-    ///                     Name = "test123",
-    ///                     Priority = 100,
-    ///                     Direction = "Inbound",
-    ///                     Access = "Allow",
-    ///                     Protocol = "Tcp",
-    ///                     SourcePortRange = "*",
-    ///                     DestinationPortRange = "*",
-    ///                     SourceAddressPrefix = "*",
-    ///                     DestinationAddressPrefix = "*",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new Azure.Network.SubnetNetworkSecurityGroupAssociationArgs
-    ///         {
-    ///             SubnetId = exampleSubnet.Id,
-    ///             NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SecurityRules = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
+    ///             {
+    ///                 Name = "test123",
+    ///                 Priority = 100,
+    ///                 Direction = "Inbound",
+    ///                 Access = "Allow",
+    ///                 Protocol = "Tcp",
+    ///                 SourcePortRange = "*",
+    ///                 DestinationPortRange = "*",
+    ///                 SourceAddressPrefix = "*",
+    ///                 DestinationAddressPrefix = "*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new()
+    ///     {
+    ///         SubnetId = exampleSubnet.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -83,7 +85,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/subnetNetworkSecurityGroupAssociation:SubnetNetworkSecurityGroupAssociation")]
-    public partial class SubnetNetworkSecurityGroupAssociation : Pulumi.CustomResource
+    public partial class SubnetNetworkSecurityGroupAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -141,7 +143,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class SubnetNetworkSecurityGroupAssociationArgs : Pulumi.ResourceArgs
+    public sealed class SubnetNetworkSecurityGroupAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -158,9 +160,10 @@ namespace Pulumi.Azure.Network
         public SubnetNetworkSecurityGroupAssociationArgs()
         {
         }
+        public static new SubnetNetworkSecurityGroupAssociationArgs Empty => new SubnetNetworkSecurityGroupAssociationArgs();
     }
 
-    public sealed class SubnetNetworkSecurityGroupAssociationState : Pulumi.ResourceArgs
+    public sealed class SubnetNetworkSecurityGroupAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -177,5 +180,6 @@ namespace Pulumi.Azure.Network
         public SubnetNetworkSecurityGroupAssociationState()
         {
         }
+        public static new SubnetNetworkSecurityGroupAssociationState Empty => new SubnetNetworkSecurityGroupAssociationState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Inputs
 {
 
-    public sealed class ProviderFeaturesArgs : Pulumi.ResourceArgs
+    public sealed class ProviderFeaturesArgs : global::Pulumi.ResourceArgs
     {
         [Input("apiManagement")]
         public Input<Inputs.ProviderFeaturesApiManagementArgs>? ApiManagement { get; set; }
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Inputs
         public ProviderFeaturesArgs()
         {
         }
+        public static new ProviderFeaturesArgs Empty => new ProviderFeaturesArgs();
     }
 }

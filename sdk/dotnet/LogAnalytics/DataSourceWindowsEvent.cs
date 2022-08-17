@@ -15,36 +15,36 @@ namespace Pulumi.Azure.LogAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleDataSourceWindowsEvent = new Azure.LogAnalytics.DataSourceWindowsEvent("exampleDataSourceWindowsEvent", new Azure.LogAnalytics.DataSourceWindowsEventArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             EventLogName = "Application",
-    ///             EventTypes = 
-    ///             {
-    ///                 "Error",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleDataSourceWindowsEvent = new Azure.LogAnalytics.DataSourceWindowsEvent("exampleDataSourceWindowsEvent", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         EventLogName = "Application",
+    ///         EventTypes = new[]
+    ///         {
+    ///             "Error",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -56,7 +56,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/dataSourceWindowsEvent:DataSourceWindowsEvent")]
-    public partial class DataSourceWindowsEvent : Pulumi.CustomResource
+    public partial class DataSourceWindowsEvent : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Windows Event Log to collect events from.
@@ -132,7 +132,7 @@ namespace Pulumi.Azure.LogAnalytics
         }
     }
 
-    public sealed class DataSourceWindowsEventArgs : Pulumi.ResourceArgs
+    public sealed class DataSourceWindowsEventArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Windows Event Log to collect events from.
@@ -173,9 +173,10 @@ namespace Pulumi.Azure.LogAnalytics
         public DataSourceWindowsEventArgs()
         {
         }
+        public static new DataSourceWindowsEventArgs Empty => new DataSourceWindowsEventArgs();
     }
 
-    public sealed class DataSourceWindowsEventState : Pulumi.ResourceArgs
+    public sealed class DataSourceWindowsEventState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Windows Event Log to collect events from.
@@ -216,5 +217,6 @@ namespace Pulumi.Azure.LogAnalytics
         public DataSourceWindowsEventState()
         {
         }
+        public static new DataSourceWindowsEventState Empty => new DataSourceWindowsEventState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateDns.Inputs
 {
 
-    public sealed class MxRecordRecordGetArgs : Pulumi.ResourceArgs
+    public sealed class MxRecordRecordGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the exchange to MX record points to.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.PrivateDns.Inputs
         public MxRecordRecordGetArgs()
         {
         }
+        public static new MxRecordRecordGetArgs Empty => new MxRecordRecordGetArgs();
     }
 }

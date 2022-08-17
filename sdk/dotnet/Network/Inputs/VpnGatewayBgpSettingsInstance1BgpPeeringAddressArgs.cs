@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs : Pulumi.ResourceArgs
+    public sealed class VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs : global::Pulumi.ResourceArgs
     {
         [Input("customIps", required: true)]
         private InputList<string>? _customIps;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs()
         {
         }
+        public static new VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs Empty => new VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs();
     }
 }

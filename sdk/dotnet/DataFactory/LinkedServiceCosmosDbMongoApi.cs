@@ -17,31 +17,31 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleLinkedServiceCosmosDbMongoApi = new Azure.DataFactory.LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", new Azure.DataFactory.LinkedServiceCosmosDbMongoApiArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             ConnectionString = "mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
-    ///             Database = "foo",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleLinkedServiceCosmosDbMongoApi = new Azure.DataFactory.LinkedServiceCosmosDbMongoApi("exampleLinkedServiceCosmosDbMongoApi", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         ConnectionString = "mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true",
+    ///         Database = "foo",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/linkedServiceCosmosDbMongoApi:LinkedServiceCosmosDbMongoApi")]
-    public partial class LinkedServiceCosmosDbMongoApi : Pulumi.CustomResource
+    public partial class LinkedServiceCosmosDbMongoApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A map of additional properties to associate with the Data Factory Linked Service.
@@ -160,7 +160,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class LinkedServiceCosmosDbMongoApiArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceCosmosDbMongoApiArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -244,9 +244,10 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceCosmosDbMongoApiArgs()
         {
         }
+        public static new LinkedServiceCosmosDbMongoApiArgs Empty => new LinkedServiceCosmosDbMongoApiArgs();
     }
 
-    public sealed class LinkedServiceCosmosDbMongoApiState : Pulumi.ResourceArgs
+    public sealed class LinkedServiceCosmosDbMongoApiState : global::Pulumi.ResourceArgs
     {
         [Input("additionalProperties")]
         private InputMap<string>? _additionalProperties;
@@ -330,5 +331,6 @@ namespace Pulumi.Azure.DataFactory
         public LinkedServiceCosmosDbMongoApiState()
         {
         }
+        public static new LinkedServiceCosmosDbMongoApiState Empty => new LinkedServiceCosmosDbMongoApiState();
     }
 }

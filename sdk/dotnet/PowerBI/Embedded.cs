@@ -15,30 +15,29 @@ namespace Pulumi.Azure.PowerBI
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleEmbedded = new Azure.PowerBI.Embedded("exampleEmbedded", new Azure.PowerBI.EmbeddedArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "A1",
-    ///             Administrators = 
-    ///             {
-    ///                 "azsdktest@microsoft.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEmbedded = new Azure.PowerBI.Embedded("exampleEmbedded", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "A1",
+    ///         Administrators = new[]
+    ///         {
+    ///             "azsdktest@microsoft.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +49,7 @@ namespace Pulumi.Azure.PowerBI
     /// ```
     /// </summary>
     [AzureResourceType("azure:powerbi/embedded:Embedded")]
-    public partial class Embedded : Pulumi.CustomResource
+    public partial class Embedded : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
@@ -138,7 +137,7 @@ namespace Pulumi.Azure.PowerBI
         }
     }
 
-    public sealed class EmbeddedArgs : Pulumi.ResourceArgs
+    public sealed class EmbeddedArgs : global::Pulumi.ResourceArgs
     {
         [Input("administrators", required: true)]
         private InputList<string>? _administrators;
@@ -197,9 +196,10 @@ namespace Pulumi.Azure.PowerBI
         public EmbeddedArgs()
         {
         }
+        public static new EmbeddedArgs Empty => new EmbeddedArgs();
     }
 
-    public sealed class EmbeddedState : Pulumi.ResourceArgs
+    public sealed class EmbeddedState : global::Pulumi.ResourceArgs
     {
         [Input("administrators")]
         private InputList<string>? _administrators;
@@ -258,5 +258,6 @@ namespace Pulumi.Azure.PowerBI
         public EmbeddedState()
         {
         }
+        public static new EmbeddedState Empty => new EmbeddedState();
     }
 }

@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetServicePlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetServicePlan.InvokeAsync(new Azure.AppService.GetServicePlanArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePlanResult =&gt; getServicePlanResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppService
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppService.GetServicePlan.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppService.GetServicePlan.InvokeAsync(new Azure.AppService.GetServicePlanArgs
-        ///         {
-        ///             Name = "existing",
-        ///             ResourceGroupName = "existing",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getServicePlanResult =&gt; getServicePlanResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppService
     }
 
 
-    public sealed class GetServicePlanArgs : Pulumi.InvokeArgs
+    public sealed class GetServicePlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Service Plan.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppService
         public GetServicePlanArgs()
         {
         }
+        public static new GetServicePlanArgs Empty => new GetServicePlanArgs();
     }
 
-    public sealed class GetServicePlanInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServicePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Service Plan.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppService
         public GetServicePlanInvokeArgs()
         {
         }
+        public static new GetServicePlanInvokeArgs Empty => new GetServicePlanInvokeArgs();
     }
 
 

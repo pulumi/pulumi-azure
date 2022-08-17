@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class FactoryGlobalParameterGetArgs : Pulumi.ResourceArgs
+    public sealed class FactoryGlobalParameterGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the global parameter name.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public FactoryGlobalParameterGetArgs()
         {
         }
+        public static new FactoryGlobalParameterGetArgs Empty => new FactoryGlobalParameterGetArgs();
     }
 }

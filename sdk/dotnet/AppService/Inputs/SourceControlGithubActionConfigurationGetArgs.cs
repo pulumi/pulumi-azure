@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class SourceControlGithubActionConfigurationGetArgs : Pulumi.ResourceArgs
+    public sealed class SourceControlGithubActionConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `code_configuration` block as defined above.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public SourceControlGithubActionConfigurationGetArgs()
         {
         }
+        public static new SourceControlGithubActionConfigurationGetArgs Empty => new SourceControlGithubActionConfigurationGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class LinkedServiceAzureDatabricksInstancePoolArgs : Pulumi.ResourceArgs
+    public sealed class LinkedServiceAzureDatabricksInstancePoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Spark version of a the cluster.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public LinkedServiceAzureDatabricksInstancePoolArgs()
         {
         }
+        public static new LinkedServiceAzureDatabricksInstancePoolArgs Empty => new LinkedServiceAzureDatabricksInstancePoolArgs();
     }
 }

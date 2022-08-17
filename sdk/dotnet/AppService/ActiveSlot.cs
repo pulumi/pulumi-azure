@@ -13,47 +13,40 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleSlot = new Azure.AppService.Slot("exampleSlot", new Azure.AppService.SlotArgs
-    ///         {
-    ///         });
-    ///         // ...
-    ///         var exampleActiveSlot = new Azure.AppService.ActiveSlot("exampleActiveSlot", new Azure.AppService.ActiveSlotArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServiceName = exampleAppService.Name,
-    ///             AppServiceSlotName = exampleSlot.Name,
-    ///         });
-    ///     }
+    ///     var server = new Random.RandomId("server");
     /// 
-    /// }
+    ///     // ...
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup");
+    /// 
+    ///     // ...
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan");
+    /// 
+    ///     // ...
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService");
+    /// 
+    ///     // ...
+    ///     var exampleSlot = new Azure.AppService.Slot("exampleSlot");
+    /// 
+    ///     // ...
+    ///     var exampleActiveSlot = new Azure.AppService.ActiveSlot("exampleActiveSlot", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         AppServiceSlotName = exampleSlot.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/activeSlot:ActiveSlot")]
-    public partial class ActiveSlot : Pulumi.CustomResource
+    public partial class ActiveSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
@@ -117,7 +110,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class ActiveSlotArgs : Pulumi.ResourceArgs
+    public sealed class ActiveSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
@@ -140,9 +133,10 @@ namespace Pulumi.Azure.AppService
         public ActiveSlotArgs()
         {
         }
+        public static new ActiveSlotArgs Empty => new ActiveSlotArgs();
     }
 
-    public sealed class ActiveSlotState : Pulumi.ResourceArgs
+    public sealed class ActiveSlotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service within which the Slot exists.  Changing this forces a new resource to be created.
@@ -165,5 +159,6 @@ namespace Pulumi.Azure.AppService
         public ActiveSlotState()
         {
         }
+        public static new ActiveSlotState Empty => new ActiveSlotState();
     }
 }

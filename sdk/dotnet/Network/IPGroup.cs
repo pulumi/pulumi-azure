@@ -15,35 +15,34 @@ namespace Pulumi.Azure.Network
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new Azure.Network.IPGroupArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Cidrs = 
-    ///             {
-    ///                 "192.168.0.1",
-    ///                 "172.16.240.0/20",
-    ///                 "10.48.0.0/12",
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIPGroup = new Azure.Network.IPGroup("exampleIPGroup", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Cidrs = new[]
+    ///         {
+    ///             "192.168.0.1",
+    ///             "172.16.240.0/20",
+    ///             "10.48.0.0/12",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +54,7 @@ namespace Pulumi.Azure.Network
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/iPGroup:IPGroup")]
-    public partial class IPGroup : Pulumi.CustomResource
+    public partial class IPGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of CIDRs or IP addresses.
@@ -131,7 +130,7 @@ namespace Pulumi.Azure.Network
         }
     }
 
-    public sealed class IPGroupArgs : Pulumi.ResourceArgs
+    public sealed class IPGroupArgs : global::Pulumi.ResourceArgs
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
@@ -178,9 +177,10 @@ namespace Pulumi.Azure.Network
         public IPGroupArgs()
         {
         }
+        public static new IPGroupArgs Empty => new IPGroupArgs();
     }
 
-    public sealed class IPGroupState : Pulumi.ResourceArgs
+    public sealed class IPGroupState : global::Pulumi.ResourceArgs
     {
         [Input("cidrs")]
         private InputList<string>? _cidrs;
@@ -227,5 +227,6 @@ namespace Pulumi.Azure.Network
         public IPGroupState()
         {
         }
+        public static new IPGroupState Empty => new IPGroupState();
     }
 }

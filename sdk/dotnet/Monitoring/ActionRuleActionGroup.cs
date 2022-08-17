@@ -15,42 +15,42 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new Azure.Monitoring.ActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ShortName = "example",
-    ///         });
-    ///         var exampleActionRuleActionGroup = new Azure.Monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup", new Azure.Monitoring.ActionRuleActionGroupArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ActionGroupId = exampleActionGroup.Id,
-    ///             Scope = new Azure.Monitoring.Inputs.ActionRuleActionGroupScopeArgs
-    ///             {
-    ///                 Type = "ResourceGroup",
-    ///                 ResourceIds = 
-    ///                 {
-    ///                     exampleResourceGroup.Id,
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ShortName = "example",
+    ///     });
+    /// 
+    ///     var exampleActionRuleActionGroup = new Azure.Monitoring.ActionRuleActionGroup("exampleActionRuleActionGroup", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ActionGroupId = exampleActionGroup.Id,
+    ///         Scope = new Azure.Monitoring.Inputs.ActionRuleActionGroupScopeArgs
+    ///         {
+    ///             Type = "ResourceGroup",
+    ///             ResourceIds = new[]
+    ///             {
+    ///                 exampleResourceGroup.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/actionRuleActionGroup:ActionRuleActionGroup")]
-    public partial class ActionRuleActionGroup : Pulumi.CustomResource
+    public partial class ActionRuleActionGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the resource id of monitor action group.
@@ -156,7 +156,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class ActionRuleActionGroupArgs : Pulumi.ResourceArgs
+    public sealed class ActionRuleActionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the resource id of monitor action group.
@@ -215,9 +215,10 @@ namespace Pulumi.Azure.Monitoring
         public ActionRuleActionGroupArgs()
         {
         }
+        public static new ActionRuleActionGroupArgs Empty => new ActionRuleActionGroupArgs();
     }
 
-    public sealed class ActionRuleActionGroupState : Pulumi.ResourceArgs
+    public sealed class ActionRuleActionGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the resource id of monitor action group.
@@ -276,5 +277,6 @@ namespace Pulumi.Azure.Monitoring
         public ActionRuleActionGroupState()
         {
         }
+        public static new ActionRuleActionGroupState Empty => new ActionRuleActionGroupState();
     }
 }

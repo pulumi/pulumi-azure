@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class SqlContainerUniqueKeyGetArgs : Pulumi.ResourceArgs
+    public sealed class SqlContainerUniqueKeyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("paths", required: true)]
         private InputList<string>? _paths;
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public SqlContainerUniqueKeyGetArgs()
         {
         }
+        public static new SqlContainerUniqueKeyGetArgs Empty => new SqlContainerUniqueKeyGetArgs();
     }
 }

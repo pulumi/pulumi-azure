@@ -15,54 +15,56 @@ namespace Pulumi.Azure.Sentinel
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new Azure.OperationalInsights.AnalyticsWorkspaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "PerGB2018",
-    ///         });
-    ///         var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new Azure.OperationalInsights.AnalyticsSolutionArgs
-    ///         {
-    ///             SolutionName = "SecurityInsights",
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
-    ///             WorkspaceName = exampleAnalyticsWorkspace.Name,
-    ///             Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
-    ///             {
-    ///                 Publisher = "Microsoft",
-    ///                 Product = "OMSGallery/SecurityInsights",
-    ///             },
-    ///         });
-    ///         var exampleWatchlist = new Azure.Sentinel.Watchlist("exampleWatchlist", new Azure.Sentinel.WatchlistArgs
-    ///         {
-    ///             LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///             DisplayName = "example-wl",
-    ///             ItemSearchKey = "Key",
-    ///         });
-    ///         var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("exampleWatchlistItem", new Azure.Sentinel.WatchlistItemArgs
-    ///         {
-    ///             WatchlistId = exampleWatchlist.Id,
-    ///             Properties = 
-    ///             {
-    ///                 { "k1", "v1" },
-    ///                 { "k2", "v2" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "PerGB2018",
+    ///     });
+    /// 
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     {
+    ///         SolutionName = "SecurityInsights",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
+    ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
+    ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
+    ///         {
+    ///             Publisher = "Microsoft",
+    ///             Product = "OMSGallery/SecurityInsights",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleWatchlist = new Azure.Sentinel.Watchlist("exampleWatchlist", new()
+    ///     {
+    ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
+    ///         DisplayName = "example-wl",
+    ///         ItemSearchKey = "Key",
+    ///     });
+    /// 
+    ///     var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("exampleWatchlistItem", new()
+    ///     {
+    ///         WatchlistId = exampleWatchlist.Id,
+    ///         Properties = 
+    ///         {
+    ///             { "k1", "v1" },
+    ///             { "k2", "v2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -74,7 +76,7 @@ namespace Pulumi.Azure.Sentinel
     /// ```
     /// </summary>
     [AzureResourceType("azure:sentinel/watchlistItem:WatchlistItem")]
-    public partial class WatchlistItem : Pulumi.CustomResource
+    public partial class WatchlistItem : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -138,7 +140,7 @@ namespace Pulumi.Azure.Sentinel
         }
     }
 
-    public sealed class WatchlistItemArgs : Pulumi.ResourceArgs
+    public sealed class WatchlistItemArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -167,9 +169,10 @@ namespace Pulumi.Azure.Sentinel
         public WatchlistItemArgs()
         {
         }
+        public static new WatchlistItemArgs Empty => new WatchlistItemArgs();
     }
 
-    public sealed class WatchlistItemState : Pulumi.ResourceArgs
+    public sealed class WatchlistItemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name in UUID format which should be used for this Sentinel Watchlist Item. Changing this forces a new Sentinel Watchlist Item to be created.
@@ -198,5 +201,6 @@ namespace Pulumi.Azure.Sentinel
         public WatchlistItemState()
         {
         }
+        public static new WatchlistItemState Empty => new WatchlistItemState();
     }
 }

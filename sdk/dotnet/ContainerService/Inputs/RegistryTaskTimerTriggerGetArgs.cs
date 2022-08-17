@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskTimerTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskTimerTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Should the trigger be enabled? Defaults to `true`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskTimerTriggerGetArgs()
         {
         }
+        public static new RegistryTaskTimerTriggerGetArgs Empty => new RegistryTaskTimerTriggerGetArgs();
     }
 }

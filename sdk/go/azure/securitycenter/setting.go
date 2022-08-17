@@ -23,22 +23,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := securitycenter.NewSetting(ctx, "example", &securitycenter.SettingArgs{
-// 			Enabled:     pulumi.Bool(true),
-// 			SettingName: pulumi.String("MCAS"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securitycenter.NewSetting(ctx, "example", &securitycenter.SettingArgs{
+//				Enabled:     pulumi.Bool(true),
+//				SettingName: pulumi.String("MCAS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // The setting can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
+//
+//	$ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
+//
 // ```
 type Setting struct {
 	pulumi.CustomResourceState
@@ -150,7 +155,7 @@ func (i *Setting) ToSettingOutputWithContext(ctx context.Context) SettingOutput 
 // SettingArrayInput is an input type that accepts SettingArray and SettingArrayOutput values.
 // You can construct a concrete instance of `SettingArrayInput` via:
 //
-//          SettingArray{ SettingArgs{...} }
+//	SettingArray{ SettingArgs{...} }
 type SettingArrayInput interface {
 	pulumi.Input
 
@@ -175,7 +180,7 @@ func (i SettingArray) ToSettingArrayOutputWithContext(ctx context.Context) Setti
 // SettingMapInput is an input type that accepts SettingMap and SettingMapOutput values.
 // You can construct a concrete instance of `SettingMapInput` via:
 //
-//          SettingMap{ "key": SettingArgs{...} }
+//	SettingMap{ "key": SettingArgs{...} }
 type SettingMapInput interface {
 	pulumi.Input
 

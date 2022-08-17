@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ConfidentialLedger.Inputs
 {
 
-    public sealed class LedgerCertificateBasedSecurityPrincipalGetArgs : Pulumi.ResourceArgs
+    public sealed class LedgerCertificateBasedSecurityPrincipalGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ConfidentialLedger.Inputs
         public LedgerCertificateBasedSecurityPrincipalGetArgs()
         {
         }
+        public static new LedgerCertificateBasedSecurityPrincipalGetArgs Empty => new LedgerCertificateBasedSecurityPrincipalGetArgs();
     }
 }

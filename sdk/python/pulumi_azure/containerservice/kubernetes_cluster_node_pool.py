@@ -1247,6 +1247,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
+        Manages a Node Pool within a Kubernetes Cluster
+
+        > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+
         ## Example Usage
 
         This example provisions a basic Kubernetes Node Pool.
@@ -1332,6 +1336,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  args: KubernetesClusterNodePoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages a Node Pool within a Kubernetes Cluster
+
+        > **NOTE:** Multiple Node Pools are only supported when the Kubernetes Cluster is using Virtual Machine Scale Sets.
+
         ## Example Usage
 
         This example provisions a basic Kubernetes Node Pool.

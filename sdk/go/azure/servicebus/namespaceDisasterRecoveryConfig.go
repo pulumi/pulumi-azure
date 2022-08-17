@@ -21,47 +21,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/servicebus"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		primary, err := servicebus.NewNamespace(ctx, "primary", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Premium"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Sku:               pulumi.String("Premium"),
-// 			Capacity:          pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
-// 			PrimaryNamespaceId: primary.ID(),
-// 			PartnerNamespaceId: secondary.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			primary, err := servicebus.NewNamespace(ctx, "primary", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Premium"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Premium"),
+//				Capacity:          pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
+//				PrimaryNamespaceId: primary.ID(),
+//				PartnerNamespaceId: secondary.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -69,7 +72,9 @@ import (
 // Service Bus DR configs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
+//
+//	$ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
+//
 // ```
 type NamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigOutpu
 // NamespaceDisasterRecoveryConfigArrayInput is an input type that accepts NamespaceDisasterRecoveryConfigArray and NamespaceDisasterRecoveryConfigArrayOutput values.
 // You can construct a concrete instance of `NamespaceDisasterRecoveryConfigArrayInput` via:
 //
-//          NamespaceDisasterRecoveryConfigArray{ NamespaceDisasterRecoveryConfigArgs{...} }
+//	NamespaceDisasterRecoveryConfigArray{ NamespaceDisasterRecoveryConfigArgs{...} }
 type NamespaceDisasterRecoveryConfigArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i NamespaceDisasterRecoveryConfigArray) ToNamespaceDisasterRecoveryConfigA
 // NamespaceDisasterRecoveryConfigMapInput is an input type that accepts NamespaceDisasterRecoveryConfigMap and NamespaceDisasterRecoveryConfigMapOutput values.
 // You can construct a concrete instance of `NamespaceDisasterRecoveryConfigMapInput` via:
 //
-//          NamespaceDisasterRecoveryConfigMap{ "key": NamespaceDisasterRecoveryConfigArgs{...} }
+//	NamespaceDisasterRecoveryConfigMap{ "key": NamespaceDisasterRecoveryConfigArgs{...} }
 type NamespaceDisasterRecoveryConfigMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class KafkaClusterMetastoresGetArgs : Pulumi.ResourceArgs
+    public sealed class KafkaClusterMetastoresGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `ambari` block as defined below.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public KafkaClusterMetastoresGetArgs()
         {
         }
+        public static new KafkaClusterMetastoresGetArgs Empty => new KafkaClusterMetastoresGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskSourceTriggerArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskSourceTriggerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `authentication` block as defined above.
@@ -63,5 +63,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskSourceTriggerArgs()
         {
         }
+        public static new RegistryTaskSourceTriggerArgs Empty => new RegistryTaskSourceTriggerArgs();
     }
 }

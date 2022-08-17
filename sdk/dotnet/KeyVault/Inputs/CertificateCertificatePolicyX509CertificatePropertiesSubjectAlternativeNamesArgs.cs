@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs : Pulumi.ResourceArgs
+    public sealed class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsNames")]
         private InputList<string>? _dnsNames;
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs()
         {
         }
+        public static new CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs Empty => new CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs();
     }
 }

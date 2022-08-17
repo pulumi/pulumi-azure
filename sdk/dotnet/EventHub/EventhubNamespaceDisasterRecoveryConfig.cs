@@ -15,38 +15,39 @@ namespace Pulumi.Azure.EventHub
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var primary = new Azure.EventHub.EventHubNamespace("primary", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var secondary = new Azure.EventHub.EventHubNamespace("secondary", new Azure.EventHub.EventHubNamespaceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = "Standard",
-    ///         });
-    ///         var exampleEventhubNamespaceDisasterRecoveryConfig = new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfigArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             NamespaceName = primary.Name,
-    ///             PartnerNamespaceId = secondary.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var primary = new Azure.EventHub.EventHubNamespace("primary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var secondary = new Azure.EventHub.EventHubNamespace("secondary", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleEventhubNamespaceDisasterRecoveryConfig = new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         NamespaceName = primary.Name,
+    ///         PartnerNamespaceId = secondary.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -58,7 +59,7 @@ namespace Pulumi.Azure.EventHub
     /// ```
     /// </summary>
     [AzureResourceType("azure:eventhub/eventhubNamespaceDisasterRecoveryConfig:EventhubNamespaceDisasterRecoveryConfig")]
-    public partial class EventhubNamespaceDisasterRecoveryConfig : Pulumi.CustomResource
+    public partial class EventhubNamespaceDisasterRecoveryConfig : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
@@ -128,7 +129,7 @@ namespace Pulumi.Azure.EventHub
         }
     }
 
-    public sealed class EventhubNamespaceDisasterRecoveryConfigArgs : Pulumi.ResourceArgs
+    public sealed class EventhubNamespaceDisasterRecoveryConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
@@ -157,9 +158,10 @@ namespace Pulumi.Azure.EventHub
         public EventhubNamespaceDisasterRecoveryConfigArgs()
         {
         }
+        public static new EventhubNamespaceDisasterRecoveryConfigArgs Empty => new EventhubNamespaceDisasterRecoveryConfigArgs();
     }
 
-    public sealed class EventhubNamespaceDisasterRecoveryConfigState : Pulumi.ResourceArgs
+    public sealed class EventhubNamespaceDisasterRecoveryConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
@@ -188,5 +190,6 @@ namespace Pulumi.Azure.EventHub
         public EventhubNamespaceDisasterRecoveryConfigState()
         {
         }
+        public static new EventhubNamespaceDisasterRecoveryConfigState Empty => new EventhubNamespaceDisasterRecoveryConfigState();
     }
 }

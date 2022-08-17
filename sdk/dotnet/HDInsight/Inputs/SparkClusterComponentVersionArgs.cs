@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class SparkClusterComponentVersionArgs : Pulumi.ResourceArgs
+    public sealed class SparkClusterComponentVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of Spark which should be used for this HDInsight Spark Cluster. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public SparkClusterComponentVersionArgs()
         {
         }
+        public static new SparkClusterComponentVersionArgs Empty => new SparkClusterComponentVersionArgs();
     }
 }

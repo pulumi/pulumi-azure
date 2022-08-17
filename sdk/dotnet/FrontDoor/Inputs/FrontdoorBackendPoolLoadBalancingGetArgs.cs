@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.FrontDoor.Inputs
 {
 
-    public sealed class FrontdoorBackendPoolLoadBalancingGetArgs : Pulumi.ResourceArgs
+    public sealed class FrontdoorBackendPoolLoadBalancingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The additional latency in milliseconds for probes to fall into the lowest latency bucket. Defaults to `0`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.FrontDoor.Inputs
         public FrontdoorBackendPoolLoadBalancingGetArgs()
         {
         }
+        public static new FrontdoorBackendPoolLoadBalancingGetArgs Empty => new FrontdoorBackendPoolLoadBalancingGetArgs();
     }
 }

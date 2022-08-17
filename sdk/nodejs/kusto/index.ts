@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./attachedDatabaseConfiguration";
 export * from "./cluster";
 export * from "./clusterCustomerManagedKey";
+export * from "./clusterManagedPrivateEndpoint";
 export * from "./clusterPrincipalAssignment";
 export * from "./database";
 export * from "./databasePrincipalAssignment";
@@ -22,6 +23,7 @@ export * from "./script";
 import { AttachedDatabaseConfiguration } from "./attachedDatabaseConfiguration";
 import { Cluster } from "./cluster";
 import { ClusterCustomerManagedKey } from "./clusterCustomerManagedKey";
+import { ClusterManagedPrivateEndpoint } from "./clusterManagedPrivateEndpoint";
 import { ClusterPrincipalAssignment } from "./clusterPrincipalAssignment";
 import { Database } from "./database";
 import { DatabasePrincipalAssignment } from "./databasePrincipalAssignment";
@@ -40,6 +42,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure:kusto/clusterCustomerManagedKey:ClusterCustomerManagedKey":
                 return new ClusterCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint":
+                return new ClusterManagedPrivateEndpoint(name, <any>undefined, { urn })
             case "azure:kusto/clusterPrincipalAssignment:ClusterPrincipalAssignment":
                 return new ClusterPrincipalAssignment(name, <any>undefined, { urn })
             case "azure:kusto/database:Database":
@@ -62,6 +66,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "kusto/attachedDatabaseConfiguration", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/cluster", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "kusto/clusterManagedPrivateEndpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/clusterPrincipalAssignment", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/database", _module)
 pulumi.runtime.registerResourceModule("azure", "kusto/databasePrincipalAssignment", _module)

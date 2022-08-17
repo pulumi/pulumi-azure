@@ -19,24 +19,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetDataLakeGen2.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetDataLakeGen2.InvokeAsync(new Azure.DataShare.GetDatasetDataLakeGen2Args
-        ///         {
-        ///             Name = "example-dsdlg2ds",
-        ///             ShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dsdlg2ds",
+        ///         ShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetDataLakeGen2Result =&gt; getDatasetDataLakeGen2Result.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.DataShare
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.DataShare.GetDatasetDataLakeGen2.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.DataShare.GetDatasetDataLakeGen2.InvokeAsync(new Azure.DataShare.GetDatasetDataLakeGen2Args
-        ///         {
-        ///             Name = "example-dsdlg2ds",
-        ///             ShareId = "example-share-id",
-        ///         }));
-        ///         this.Id = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "example-dsdlg2ds",
+        ///         ShareId = "example-share-id",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getDatasetDataLakeGen2Result =&gt; getDatasetDataLakeGen2Result.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.DataShare
     }
 
 
-    public sealed class GetDatasetDataLakeGen2Args : Pulumi.InvokeArgs
+    public sealed class GetDatasetDataLakeGen2Args : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Data Lake Gen2 Dataset.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetDataLakeGen2Args()
         {
         }
+        public static new GetDatasetDataLakeGen2Args Empty => new GetDatasetDataLakeGen2Args();
     }
 
-    public sealed class GetDatasetDataLakeGen2InvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDatasetDataLakeGen2InvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Data Share Data Lake Gen2 Dataset.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.DataShare
         public GetDatasetDataLakeGen2InvokeArgs()
         {
         }
+        public static new GetDatasetDataLakeGen2InvokeArgs Empty => new GetDatasetDataLakeGen2InvokeArgs();
     }
 
 

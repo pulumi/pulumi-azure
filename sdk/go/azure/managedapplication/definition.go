@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/managedapplication"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/managedapplication"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = managedapplication.NewDefinition(ctx, "exampleDefinition", &managedapplication.DefinitionArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			LockLevel:         pulumi.String("ReadOnly"),
-// 			PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
-// 			DisplayName:       pulumi.String("TestManagedApplicationDefinition"),
-// 			Description:       pulumi.String("Test Managed Application Definition"),
-// 			Authorizations: managedapplication.DefinitionAuthorizationArray{
-// 				&managedapplication.DefinitionAuthorizationArgs{
-// 					ServicePrincipalId: pulumi.String(current.ObjectId),
-// 					RoleDefinitionId:   pulumi.String("a094b430-dad3-424d-ae58-13f72fd72591"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = managedapplication.NewDefinition(ctx, "exampleDefinition", &managedapplication.DefinitionArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				LockLevel:         pulumi.String("ReadOnly"),
+//				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
+//				DisplayName:       pulumi.String("TestManagedApplicationDefinition"),
+//				Description:       pulumi.String("Test Managed Application Definition"),
+//				Authorizations: managedapplication.DefinitionAuthorizationArray{
+//					&managedapplication.DefinitionAuthorizationArgs{
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
+//						RoleDefinitionId:   pulumi.String("a094b430-dad3-424d-ae58-13f72fd72591"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Managed Application Definition can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
+//
+//	$ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
+//
 // ```
 type Definition struct {
 	pulumi.CustomResourceState
@@ -270,7 +275,7 @@ func (i *Definition) ToDefinitionOutputWithContext(ctx context.Context) Definiti
 // DefinitionArrayInput is an input type that accepts DefinitionArray and DefinitionArrayOutput values.
 // You can construct a concrete instance of `DefinitionArrayInput` via:
 //
-//          DefinitionArray{ DefinitionArgs{...} }
+//	DefinitionArray{ DefinitionArgs{...} }
 type DefinitionArrayInput interface {
 	pulumi.Input
 
@@ -295,7 +300,7 @@ func (i DefinitionArray) ToDefinitionArrayOutputWithContext(ctx context.Context)
 // DefinitionMapInput is an input type that accepts DefinitionMap and DefinitionMapOutput values.
 // You can construct a concrete instance of `DefinitionMapInput` via:
 //
-//          DefinitionMap{ "key": DefinitionArgs{...} }
+//	DefinitionMap{ "key": DefinitionArgs{...} }
 type DefinitionMapInput interface {
 	pulumi.Input
 

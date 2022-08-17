@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.AppService.Inputs
 {
 
-    public sealed class LinuxFunctionAppSiteCredentialArgs : Pulumi.ResourceArgs
+    public sealed class LinuxFunctionAppSiteCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.AppService.Inputs
         public LinuxFunctionAppSiteCredentialArgs()
         {
         }
+        public static new LinuxFunctionAppSiteCredentialArgs Empty => new LinuxFunctionAppSiteCredentialArgs();
     }
 }

@@ -15,40 +15,40 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleSecuritySolution = new Azure.Iot.SecuritySolution("exampleSecuritySolution", new Azure.Iot.SecuritySolutionArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             DisplayName = "Iot Security Solution",
-    ///             IothubIds = 
-    ///             {
-    ///                 exampleIoTHub.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSecuritySolution = new Azure.Iot.SecuritySolution("exampleSecuritySolution", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         DisplayName = "Iot Security Solution",
+    ///         IothubIds = new[]
+    ///         {
+    ///             exampleIoTHub.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/securitySolution:SecuritySolution")]
-    public partial class SecuritySolution : Pulumi.CustomResource
+    public partial class SecuritySolution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `additional_workspace` block as defined below.
@@ -196,7 +196,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class SecuritySolutionArgs : Pulumi.ResourceArgs
+    public sealed class SecuritySolutionArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalWorkspaces")]
         private InputList<Inputs.SecuritySolutionAdditionalWorkspaceArgs>? _additionalWorkspaces;
@@ -327,9 +327,10 @@ namespace Pulumi.Azure.Iot
         public SecuritySolutionArgs()
         {
         }
+        public static new SecuritySolutionArgs Empty => new SecuritySolutionArgs();
     }
 
-    public sealed class SecuritySolutionState : Pulumi.ResourceArgs
+    public sealed class SecuritySolutionState : global::Pulumi.ResourceArgs
     {
         [Input("additionalWorkspaces")]
         private InputList<Inputs.SecuritySolutionAdditionalWorkspaceGetArgs>? _additionalWorkspaces;
@@ -460,5 +461,6 @@ namespace Pulumi.Azure.Iot
         public SecuritySolutionState()
         {
         }
+        public static new SecuritySolutionState Empty => new SecuritySolutionState();
     }
 }

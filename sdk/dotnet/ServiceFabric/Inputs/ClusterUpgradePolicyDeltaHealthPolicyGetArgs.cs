@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterUpgradePolicyDeltaHealthPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterUpgradePolicyDeltaHealthPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterUpgradePolicyDeltaHealthPolicyGetArgs()
         {
         }
+        public static new ClusterUpgradePolicyDeltaHealthPolicyGetArgs Empty => new ClusterUpgradePolicyDeltaHealthPolicyGetArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class RegistryTaskAgentSettingGetArgs : Pulumi.ResourceArgs
+    public sealed class RegistryTaskAgentSettingGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of cores required for the Container Registry Task.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public RegistryTaskAgentSettingGetArgs()
         {
         }
+        public static new RegistryTaskAgentSettingGetArgs Empty => new RegistryTaskAgentSettingGetArgs();
     }
 }

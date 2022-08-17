@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
-// 			ResourceGroupName: example.Name,
-// 			Location:          example.Location,
-// 			VpnAuthenticationTypes: pulumi.StringArray{
-// 				pulumi.String("Certificate"),
-// 			},
-// 			ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
-// 				&network.VpnServerConfigurationClientRootCertificateArgs{
-// 					Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
-// 					PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				VpnAuthenticationTypes: pulumi.StringArray{
+//					pulumi.String("Certificate"),
+//				},
+//				ClientRootCertificates: network.VpnServerConfigurationClientRootCertificateArray{
+//					&network.VpnServerConfigurationClientRootCertificateArgs{
+//						Name: pulumi.String("DigiCert-Federated-ID-Root-CA"),
+//						PublicCertData: pulumi.String(fmt.Sprintf(`MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+//
 // MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
 // d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
 // Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
@@ -64,15 +67,17 @@ import (
 // WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
 // M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
 // `)),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -80,7 +85,9 @@ import (
 // VPN Server Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
+//
+//	$ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
+//
 // ```
 type VpnServerConfiguration struct {
 	pulumi.CustomResourceState
@@ -274,7 +281,7 @@ func (i *VpnServerConfiguration) ToVpnServerConfigurationOutputWithContext(ctx c
 // VpnServerConfigurationArrayInput is an input type that accepts VpnServerConfigurationArray and VpnServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationArrayInput` via:
 //
-//          VpnServerConfigurationArray{ VpnServerConfigurationArgs{...} }
+//	VpnServerConfigurationArray{ VpnServerConfigurationArgs{...} }
 type VpnServerConfigurationArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +306,7 @@ func (i VpnServerConfigurationArray) ToVpnServerConfigurationArrayOutputWithCont
 // VpnServerConfigurationMapInput is an input type that accepts VpnServerConfigurationMap and VpnServerConfigurationMapOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationMapInput` via:
 //
-//          VpnServerConfigurationMap{ "key": VpnServerConfigurationArgs{...} }
+//	VpnServerConfigurationMap{ "key": VpnServerConfigurationArgs{...} }
 type VpnServerConfigurationMapInput interface {
 	pulumi.Input
 

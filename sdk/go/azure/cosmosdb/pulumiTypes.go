@@ -18,7 +18,7 @@ type AccountAnalyticalStorage struct {
 // AccountAnalyticalStorageInput is an input type that accepts AccountAnalyticalStorageArgs and AccountAnalyticalStorageOutput values.
 // You can construct a concrete instance of `AccountAnalyticalStorageInput` via:
 //
-//          AccountAnalyticalStorageArgs{...}
+//	AccountAnalyticalStorageArgs{...}
 type AccountAnalyticalStorageInput interface {
 	pulumi.Input
 
@@ -54,11 +54,11 @@ func (i AccountAnalyticalStorageArgs) ToAccountAnalyticalStoragePtrOutputWithCon
 // AccountAnalyticalStoragePtrInput is an input type that accepts AccountAnalyticalStorageArgs, AccountAnalyticalStoragePtr and AccountAnalyticalStoragePtrOutput values.
 // You can construct a concrete instance of `AccountAnalyticalStoragePtrInput` via:
 //
-//          AccountAnalyticalStorageArgs{...}
+//	        AccountAnalyticalStorageArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountAnalyticalStoragePtrInput interface {
 	pulumi.Input
 
@@ -161,7 +161,7 @@ type AccountBackup struct {
 // AccountBackupInput is an input type that accepts AccountBackupArgs and AccountBackupOutput values.
 // You can construct a concrete instance of `AccountBackupInput` via:
 //
-//          AccountBackupArgs{...}
+//	AccountBackupArgs{...}
 type AccountBackupInput interface {
 	pulumi.Input
 
@@ -203,11 +203,11 @@ func (i AccountBackupArgs) ToAccountBackupPtrOutputWithContext(ctx context.Conte
 // AccountBackupPtrInput is an input type that accepts AccountBackupArgs, AccountBackupPtr and AccountBackupPtrOutput values.
 // You can construct a concrete instance of `AccountBackupPtrInput` via:
 //
-//          AccountBackupArgs{...}
+//	        AccountBackupArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountBackupPtrInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ type AccountCapability struct {
 // AccountCapabilityInput is an input type that accepts AccountCapabilityArgs and AccountCapabilityOutput values.
 // You can construct a concrete instance of `AccountCapabilityInput` via:
 //
-//          AccountCapabilityArgs{...}
+//	AccountCapabilityArgs{...}
 type AccountCapabilityInput interface {
 	pulumi.Input
 
@@ -377,7 +377,7 @@ func (i AccountCapabilityArgs) ToAccountCapabilityOutputWithContext(ctx context.
 // AccountCapabilityArrayInput is an input type that accepts AccountCapabilityArray and AccountCapabilityArrayOutput values.
 // You can construct a concrete instance of `AccountCapabilityArrayInput` via:
 //
-//          AccountCapabilityArray{ AccountCapabilityArgs{...} }
+//	AccountCapabilityArray{ AccountCapabilityArgs{...} }
 type AccountCapabilityArrayInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ type AccountCapacity struct {
 // AccountCapacityInput is an input type that accepts AccountCapacityArgs and AccountCapacityOutput values.
 // You can construct a concrete instance of `AccountCapacityInput` via:
 //
-//          AccountCapacityArgs{...}
+//	AccountCapacityArgs{...}
 type AccountCapacityInput interface {
 	pulumi.Input
 
@@ -482,11 +482,11 @@ func (i AccountCapacityArgs) ToAccountCapacityPtrOutputWithContext(ctx context.C
 // AccountCapacityPtrInput is an input type that accepts AccountCapacityArgs, AccountCapacityPtr and AccountCapacityPtrOutput values.
 // You can construct a concrete instance of `AccountCapacityPtrInput` via:
 //
-//          AccountCapacityArgs{...}
+//	        AccountCapacityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountCapacityPtrInput interface {
 	pulumi.Input
 
@@ -587,7 +587,7 @@ type AccountConsistencyPolicy struct {
 // AccountConsistencyPolicyInput is an input type that accepts AccountConsistencyPolicyArgs and AccountConsistencyPolicyOutput values.
 // You can construct a concrete instance of `AccountConsistencyPolicyInput` via:
 //
-//          AccountConsistencyPolicyArgs{...}
+//	AccountConsistencyPolicyArgs{...}
 type AccountConsistencyPolicyInput interface {
 	pulumi.Input
 
@@ -627,11 +627,11 @@ func (i AccountConsistencyPolicyArgs) ToAccountConsistencyPolicyPtrOutputWithCon
 // AccountConsistencyPolicyPtrInput is an input type that accepts AccountConsistencyPolicyArgs, AccountConsistencyPolicyPtr and AccountConsistencyPolicyPtrOutput values.
 // You can construct a concrete instance of `AccountConsistencyPolicyPtrInput` via:
 //
-//          AccountConsistencyPolicyArgs{...}
+//	        AccountConsistencyPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountConsistencyPolicyPtrInput interface {
 	pulumi.Input
 
@@ -766,7 +766,7 @@ type AccountCorsRule struct {
 // AccountCorsRuleInput is an input type that accepts AccountCorsRuleArgs and AccountCorsRuleOutput values.
 // You can construct a concrete instance of `AccountCorsRuleInput` via:
 //
-//          AccountCorsRuleArgs{...}
+//	AccountCorsRuleArgs{...}
 type AccountCorsRuleInput interface {
 	pulumi.Input
 
@@ -810,11 +810,11 @@ func (i AccountCorsRuleArgs) ToAccountCorsRulePtrOutputWithContext(ctx context.C
 // AccountCorsRulePtrInput is an input type that accepts AccountCorsRuleArgs, AccountCorsRulePtr and AccountCorsRulePtrOutput values.
 // You can construct a concrete instance of `AccountCorsRulePtrInput` via:
 //
-//          AccountCorsRuleArgs{...}
+//	        AccountCorsRuleArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountCorsRulePtrInput interface {
 	pulumi.Input
 
@@ -977,7 +977,7 @@ type AccountGeoLocation struct {
 // AccountGeoLocationInput is an input type that accepts AccountGeoLocationArgs and AccountGeoLocationOutput values.
 // You can construct a concrete instance of `AccountGeoLocationInput` via:
 //
-//          AccountGeoLocationArgs{...}
+//	AccountGeoLocationArgs{...}
 type AccountGeoLocationInput interface {
 	pulumi.Input
 
@@ -1011,7 +1011,7 @@ func (i AccountGeoLocationArgs) ToAccountGeoLocationOutputWithContext(ctx contex
 // AccountGeoLocationArrayInput is an input type that accepts AccountGeoLocationArray and AccountGeoLocationArrayOutput values.
 // You can construct a concrete instance of `AccountGeoLocationArrayInput` via:
 //
-//          AccountGeoLocationArray{ AccountGeoLocationArgs{...} }
+//	AccountGeoLocationArray{ AccountGeoLocationArgs{...} }
 type AccountGeoLocationArrayInput interface {
 	pulumi.Input
 
@@ -1099,7 +1099,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-//          AccountIdentityArgs{...}
+//	AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -1139,11 +1139,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-//          AccountIdentityArgs{...}
+//	        AccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1274,7 +1274,7 @@ type AccountRestore struct {
 // AccountRestoreInput is an input type that accepts AccountRestoreArgs and AccountRestoreOutput values.
 // You can construct a concrete instance of `AccountRestoreInput` via:
 //
-//          AccountRestoreArgs{...}
+//	AccountRestoreArgs{...}
 type AccountRestoreInput interface {
 	pulumi.Input
 
@@ -1314,11 +1314,11 @@ func (i AccountRestoreArgs) ToAccountRestorePtrOutputWithContext(ctx context.Con
 // AccountRestorePtrInput is an input type that accepts AccountRestoreArgs, AccountRestorePtr and AccountRestorePtrOutput values.
 // You can construct a concrete instance of `AccountRestorePtrInput` via:
 //
-//          AccountRestoreArgs{...}
+//	        AccountRestoreArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountRestorePtrInput interface {
 	pulumi.Input
 
@@ -1447,7 +1447,7 @@ type AccountRestoreDatabase struct {
 // AccountRestoreDatabaseInput is an input type that accepts AccountRestoreDatabaseArgs and AccountRestoreDatabaseOutput values.
 // You can construct a concrete instance of `AccountRestoreDatabaseInput` via:
 //
-//          AccountRestoreDatabaseArgs{...}
+//	AccountRestoreDatabaseArgs{...}
 type AccountRestoreDatabaseInput interface {
 	pulumi.Input
 
@@ -1477,7 +1477,7 @@ func (i AccountRestoreDatabaseArgs) ToAccountRestoreDatabaseOutputWithContext(ct
 // AccountRestoreDatabaseArrayInput is an input type that accepts AccountRestoreDatabaseArray and AccountRestoreDatabaseArrayOutput values.
 // You can construct a concrete instance of `AccountRestoreDatabaseArrayInput` via:
 //
-//          AccountRestoreDatabaseArray{ AccountRestoreDatabaseArgs{...} }
+//	AccountRestoreDatabaseArray{ AccountRestoreDatabaseArgs{...} }
 type AccountRestoreDatabaseArrayInput interface {
 	pulumi.Input
 
@@ -1553,7 +1553,7 @@ type AccountVirtualNetworkRule struct {
 // AccountVirtualNetworkRuleInput is an input type that accepts AccountVirtualNetworkRuleArgs and AccountVirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `AccountVirtualNetworkRuleInput` via:
 //
-//          AccountVirtualNetworkRuleArgs{...}
+//	AccountVirtualNetworkRuleArgs{...}
 type AccountVirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -1583,7 +1583,7 @@ func (i AccountVirtualNetworkRuleArgs) ToAccountVirtualNetworkRuleOutputWithCont
 // AccountVirtualNetworkRuleArrayInput is an input type that accepts AccountVirtualNetworkRuleArray and AccountVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `AccountVirtualNetworkRuleArrayInput` via:
 //
-//          AccountVirtualNetworkRuleArray{ AccountVirtualNetworkRuleArgs{...} }
+//	AccountVirtualNetworkRuleArray{ AccountVirtualNetworkRuleArgs{...} }
 type AccountVirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -1659,7 +1659,7 @@ type CassandraClusterIdentity struct {
 // CassandraClusterIdentityInput is an input type that accepts CassandraClusterIdentityArgs and CassandraClusterIdentityOutput values.
 // You can construct a concrete instance of `CassandraClusterIdentityInput` via:
 //
-//          CassandraClusterIdentityArgs{...}
+//	CassandraClusterIdentityArgs{...}
 type CassandraClusterIdentityInput interface {
 	pulumi.Input
 
@@ -1697,11 +1697,11 @@ func (i CassandraClusterIdentityArgs) ToCassandraClusterIdentityPtrOutputWithCon
 // CassandraClusterIdentityPtrInput is an input type that accepts CassandraClusterIdentityArgs, CassandraClusterIdentityPtr and CassandraClusterIdentityPtrOutput values.
 // You can construct a concrete instance of `CassandraClusterIdentityPtrInput` via:
 //
-//          CassandraClusterIdentityArgs{...}
+//	        CassandraClusterIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CassandraClusterIdentityPtrInput interface {
 	pulumi.Input
 
@@ -1824,7 +1824,7 @@ type CassandraKeyspaceAutoscaleSettings struct {
 // CassandraKeyspaceAutoscaleSettingsInput is an input type that accepts CassandraKeyspaceAutoscaleSettingsArgs and CassandraKeyspaceAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `CassandraKeyspaceAutoscaleSettingsInput` via:
 //
-//          CassandraKeyspaceAutoscaleSettingsArgs{...}
+//	CassandraKeyspaceAutoscaleSettingsArgs{...}
 type CassandraKeyspaceAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -1860,11 +1860,11 @@ func (i CassandraKeyspaceAutoscaleSettingsArgs) ToCassandraKeyspaceAutoscaleSett
 // CassandraKeyspaceAutoscaleSettingsPtrInput is an input type that accepts CassandraKeyspaceAutoscaleSettingsArgs, CassandraKeyspaceAutoscaleSettingsPtr and CassandraKeyspaceAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `CassandraKeyspaceAutoscaleSettingsPtrInput` via:
 //
-//          CassandraKeyspaceAutoscaleSettingsArgs{...}
+//	        CassandraKeyspaceAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CassandraKeyspaceAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -1961,7 +1961,7 @@ type CassandraTableAutoscaleSettings struct {
 // CassandraTableAutoscaleSettingsInput is an input type that accepts CassandraTableAutoscaleSettingsArgs and CassandraTableAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `CassandraTableAutoscaleSettingsInput` via:
 //
-//          CassandraTableAutoscaleSettingsArgs{...}
+//	CassandraTableAutoscaleSettingsArgs{...}
 type CassandraTableAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -1997,11 +1997,11 @@ func (i CassandraTableAutoscaleSettingsArgs) ToCassandraTableAutoscaleSettingsPt
 // CassandraTableAutoscaleSettingsPtrInput is an input type that accepts CassandraTableAutoscaleSettingsArgs, CassandraTableAutoscaleSettingsPtr and CassandraTableAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `CassandraTableAutoscaleSettingsPtrInput` via:
 //
-//          CassandraTableAutoscaleSettingsArgs{...}
+//	        CassandraTableAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CassandraTableAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2102,7 +2102,7 @@ type CassandraTableSchema struct {
 // CassandraTableSchemaInput is an input type that accepts CassandraTableSchemaArgs and CassandraTableSchemaOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaInput` via:
 //
-//          CassandraTableSchemaArgs{...}
+//	CassandraTableSchemaArgs{...}
 type CassandraTableSchemaInput interface {
 	pulumi.Input
 
@@ -2142,11 +2142,11 @@ func (i CassandraTableSchemaArgs) ToCassandraTableSchemaPtrOutputWithContext(ctx
 // CassandraTableSchemaPtrInput is an input type that accepts CassandraTableSchemaArgs, CassandraTableSchemaPtr and CassandraTableSchemaPtrOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaPtrInput` via:
 //
-//          CassandraTableSchemaArgs{...}
+//	        CassandraTableSchemaArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type CassandraTableSchemaPtrInput interface {
 	pulumi.Input
 
@@ -2275,7 +2275,7 @@ type CassandraTableSchemaClusterKey struct {
 // CassandraTableSchemaClusterKeyInput is an input type that accepts CassandraTableSchemaClusterKeyArgs and CassandraTableSchemaClusterKeyOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaClusterKeyInput` via:
 //
-//          CassandraTableSchemaClusterKeyArgs{...}
+//	CassandraTableSchemaClusterKeyArgs{...}
 type CassandraTableSchemaClusterKeyInput interface {
 	pulumi.Input
 
@@ -2305,7 +2305,7 @@ func (i CassandraTableSchemaClusterKeyArgs) ToCassandraTableSchemaClusterKeyOutp
 // CassandraTableSchemaClusterKeyArrayInput is an input type that accepts CassandraTableSchemaClusterKeyArray and CassandraTableSchemaClusterKeyArrayOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaClusterKeyArrayInput` via:
 //
-//          CassandraTableSchemaClusterKeyArray{ CassandraTableSchemaClusterKeyArgs{...} }
+//	CassandraTableSchemaClusterKeyArray{ CassandraTableSchemaClusterKeyArgs{...} }
 type CassandraTableSchemaClusterKeyArrayInput interface {
 	pulumi.Input
 
@@ -2381,7 +2381,7 @@ type CassandraTableSchemaColumn struct {
 // CassandraTableSchemaColumnInput is an input type that accepts CassandraTableSchemaColumnArgs and CassandraTableSchemaColumnOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaColumnInput` via:
 //
-//          CassandraTableSchemaColumnArgs{...}
+//	CassandraTableSchemaColumnArgs{...}
 type CassandraTableSchemaColumnInput interface {
 	pulumi.Input
 
@@ -2411,7 +2411,7 @@ func (i CassandraTableSchemaColumnArgs) ToCassandraTableSchemaColumnOutputWithCo
 // CassandraTableSchemaColumnArrayInput is an input type that accepts CassandraTableSchemaColumnArray and CassandraTableSchemaColumnArrayOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaColumnArrayInput` via:
 //
-//          CassandraTableSchemaColumnArray{ CassandraTableSchemaColumnArgs{...} }
+//	CassandraTableSchemaColumnArray{ CassandraTableSchemaColumnArgs{...} }
 type CassandraTableSchemaColumnArrayInput interface {
 	pulumi.Input
 
@@ -2485,7 +2485,7 @@ type CassandraTableSchemaPartitionKey struct {
 // CassandraTableSchemaPartitionKeyInput is an input type that accepts CassandraTableSchemaPartitionKeyArgs and CassandraTableSchemaPartitionKeyOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaPartitionKeyInput` via:
 //
-//          CassandraTableSchemaPartitionKeyArgs{...}
+//	CassandraTableSchemaPartitionKeyArgs{...}
 type CassandraTableSchemaPartitionKeyInput interface {
 	pulumi.Input
 
@@ -2513,7 +2513,7 @@ func (i CassandraTableSchemaPartitionKeyArgs) ToCassandraTableSchemaPartitionKey
 // CassandraTableSchemaPartitionKeyArrayInput is an input type that accepts CassandraTableSchemaPartitionKeyArray and CassandraTableSchemaPartitionKeyArrayOutput values.
 // You can construct a concrete instance of `CassandraTableSchemaPartitionKeyArrayInput` via:
 //
-//          CassandraTableSchemaPartitionKeyArray{ CassandraTableSchemaPartitionKeyArgs{...} }
+//	CassandraTableSchemaPartitionKeyArray{ CassandraTableSchemaPartitionKeyArgs{...} }
 type CassandraTableSchemaPartitionKeyArrayInput interface {
 	pulumi.Input
 
@@ -2582,7 +2582,7 @@ type GremlinDatabaseAutoscaleSettings struct {
 // GremlinDatabaseAutoscaleSettingsInput is an input type that accepts GremlinDatabaseAutoscaleSettingsArgs and GremlinDatabaseAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `GremlinDatabaseAutoscaleSettingsInput` via:
 //
-//          GremlinDatabaseAutoscaleSettingsArgs{...}
+//	GremlinDatabaseAutoscaleSettingsArgs{...}
 type GremlinDatabaseAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -2618,11 +2618,11 @@ func (i GremlinDatabaseAutoscaleSettingsArgs) ToGremlinDatabaseAutoscaleSettings
 // GremlinDatabaseAutoscaleSettingsPtrInput is an input type that accepts GremlinDatabaseAutoscaleSettingsArgs, GremlinDatabaseAutoscaleSettingsPtr and GremlinDatabaseAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `GremlinDatabaseAutoscaleSettingsPtrInput` via:
 //
-//          GremlinDatabaseAutoscaleSettingsArgs{...}
+//	        GremlinDatabaseAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GremlinDatabaseAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2719,7 +2719,7 @@ type GremlinGraphAutoscaleSettings struct {
 // GremlinGraphAutoscaleSettingsInput is an input type that accepts GremlinGraphAutoscaleSettingsArgs and GremlinGraphAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `GremlinGraphAutoscaleSettingsInput` via:
 //
-//          GremlinGraphAutoscaleSettingsArgs{...}
+//	GremlinGraphAutoscaleSettingsArgs{...}
 type GremlinGraphAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -2755,11 +2755,11 @@ func (i GremlinGraphAutoscaleSettingsArgs) ToGremlinGraphAutoscaleSettingsPtrOut
 // GremlinGraphAutoscaleSettingsPtrInput is an input type that accepts GremlinGraphAutoscaleSettingsArgs, GremlinGraphAutoscaleSettingsPtr and GremlinGraphAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `GremlinGraphAutoscaleSettingsPtrInput` via:
 //
-//          GremlinGraphAutoscaleSettingsArgs{...}
+//	        GremlinGraphAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GremlinGraphAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -2860,7 +2860,7 @@ type GremlinGraphConflictResolutionPolicy struct {
 // GremlinGraphConflictResolutionPolicyInput is an input type that accepts GremlinGraphConflictResolutionPolicyArgs and GremlinGraphConflictResolutionPolicyOutput values.
 // You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyInput` via:
 //
-//          GremlinGraphConflictResolutionPolicyArgs{...}
+//	GremlinGraphConflictResolutionPolicyArgs{...}
 type GremlinGraphConflictResolutionPolicyInput interface {
 	pulumi.Input
 
@@ -2900,11 +2900,11 @@ func (i GremlinGraphConflictResolutionPolicyArgs) ToGremlinGraphConflictResoluti
 // GremlinGraphConflictResolutionPolicyPtrInput is an input type that accepts GremlinGraphConflictResolutionPolicyArgs, GremlinGraphConflictResolutionPolicyPtr and GremlinGraphConflictResolutionPolicyPtrOutput values.
 // You can construct a concrete instance of `GremlinGraphConflictResolutionPolicyPtrInput` via:
 //
-//          GremlinGraphConflictResolutionPolicyArgs{...}
+//	        GremlinGraphConflictResolutionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GremlinGraphConflictResolutionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3041,7 +3041,7 @@ type GremlinGraphIndexPolicy struct {
 // GremlinGraphIndexPolicyInput is an input type that accepts GremlinGraphIndexPolicyArgs and GremlinGraphIndexPolicyOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyInput` via:
 //
-//          GremlinGraphIndexPolicyArgs{...}
+//	GremlinGraphIndexPolicyArgs{...}
 type GremlinGraphIndexPolicyInput interface {
 	pulumi.Input
 
@@ -3087,11 +3087,11 @@ func (i GremlinGraphIndexPolicyArgs) ToGremlinGraphIndexPolicyPtrOutputWithConte
 // GremlinGraphIndexPolicyPtrInput is an input type that accepts GremlinGraphIndexPolicyArgs, GremlinGraphIndexPolicyPtr and GremlinGraphIndexPolicyPtrOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyPtrInput` via:
 //
-//          GremlinGraphIndexPolicyArgs{...}
+//	        GremlinGraphIndexPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GremlinGraphIndexPolicyPtrInput interface {
 	pulumi.Input
 
@@ -3263,7 +3263,7 @@ type GremlinGraphIndexPolicyCompositeIndex struct {
 // GremlinGraphIndexPolicyCompositeIndexInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexArgs and GremlinGraphIndexPolicyCompositeIndexOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexInput` via:
 //
-//          GremlinGraphIndexPolicyCompositeIndexArgs{...}
+//	GremlinGraphIndexPolicyCompositeIndexArgs{...}
 type GremlinGraphIndexPolicyCompositeIndexInput interface {
 	pulumi.Input
 
@@ -3291,7 +3291,7 @@ func (i GremlinGraphIndexPolicyCompositeIndexArgs) ToGremlinGraphIndexPolicyComp
 // GremlinGraphIndexPolicyCompositeIndexArrayInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexArray and GremlinGraphIndexPolicyCompositeIndexArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexArrayInput` via:
 //
-//          GremlinGraphIndexPolicyCompositeIndexArray{ GremlinGraphIndexPolicyCompositeIndexArgs{...} }
+//	GremlinGraphIndexPolicyCompositeIndexArray{ GremlinGraphIndexPolicyCompositeIndexArgs{...} }
 type GremlinGraphIndexPolicyCompositeIndexArrayInput interface {
 	pulumi.Input
 
@@ -3364,7 +3364,7 @@ type GremlinGraphIndexPolicyCompositeIndexIndex struct {
 // GremlinGraphIndexPolicyCompositeIndexIndexInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexIndexArgs and GremlinGraphIndexPolicyCompositeIndexIndexOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexIndexInput` via:
 //
-//          GremlinGraphIndexPolicyCompositeIndexIndexArgs{...}
+//	GremlinGraphIndexPolicyCompositeIndexIndexArgs{...}
 type GremlinGraphIndexPolicyCompositeIndexIndexInput interface {
 	pulumi.Input
 
@@ -3394,7 +3394,7 @@ func (i GremlinGraphIndexPolicyCompositeIndexIndexArgs) ToGremlinGraphIndexPolic
 // GremlinGraphIndexPolicyCompositeIndexIndexArrayInput is an input type that accepts GremlinGraphIndexPolicyCompositeIndexIndexArray and GremlinGraphIndexPolicyCompositeIndexIndexArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicyCompositeIndexIndexArrayInput` via:
 //
-//          GremlinGraphIndexPolicyCompositeIndexIndexArray{ GremlinGraphIndexPolicyCompositeIndexIndexArgs{...} }
+//	GremlinGraphIndexPolicyCompositeIndexIndexArray{ GremlinGraphIndexPolicyCompositeIndexIndexArgs{...} }
 type GremlinGraphIndexPolicyCompositeIndexIndexArrayInput interface {
 	pulumi.Input
 
@@ -3469,7 +3469,7 @@ type GremlinGraphIndexPolicySpatialIndex struct {
 // GremlinGraphIndexPolicySpatialIndexInput is an input type that accepts GremlinGraphIndexPolicySpatialIndexArgs and GremlinGraphIndexPolicySpatialIndexOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicySpatialIndexInput` via:
 //
-//          GremlinGraphIndexPolicySpatialIndexArgs{...}
+//	GremlinGraphIndexPolicySpatialIndexArgs{...}
 type GremlinGraphIndexPolicySpatialIndexInput interface {
 	pulumi.Input
 
@@ -3498,7 +3498,7 @@ func (i GremlinGraphIndexPolicySpatialIndexArgs) ToGremlinGraphIndexPolicySpatia
 // GremlinGraphIndexPolicySpatialIndexArrayInput is an input type that accepts GremlinGraphIndexPolicySpatialIndexArray and GremlinGraphIndexPolicySpatialIndexArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphIndexPolicySpatialIndexArrayInput` via:
 //
-//          GremlinGraphIndexPolicySpatialIndexArray{ GremlinGraphIndexPolicySpatialIndexArgs{...} }
+//	GremlinGraphIndexPolicySpatialIndexArray{ GremlinGraphIndexPolicySpatialIndexArgs{...} }
 type GremlinGraphIndexPolicySpatialIndexArrayInput interface {
 	pulumi.Input
 
@@ -3571,7 +3571,7 @@ type GremlinGraphUniqueKey struct {
 // GremlinGraphUniqueKeyInput is an input type that accepts GremlinGraphUniqueKeyArgs and GremlinGraphUniqueKeyOutput values.
 // You can construct a concrete instance of `GremlinGraphUniqueKeyInput` via:
 //
-//          GremlinGraphUniqueKeyArgs{...}
+//	GremlinGraphUniqueKeyArgs{...}
 type GremlinGraphUniqueKeyInput interface {
 	pulumi.Input
 
@@ -3599,7 +3599,7 @@ func (i GremlinGraphUniqueKeyArgs) ToGremlinGraphUniqueKeyOutputWithContext(ctx 
 // GremlinGraphUniqueKeyArrayInput is an input type that accepts GremlinGraphUniqueKeyArray and GremlinGraphUniqueKeyArrayOutput values.
 // You can construct a concrete instance of `GremlinGraphUniqueKeyArrayInput` via:
 //
-//          GremlinGraphUniqueKeyArray{ GremlinGraphUniqueKeyArgs{...} }
+//	GremlinGraphUniqueKeyArray{ GremlinGraphUniqueKeyArgs{...} }
 type GremlinGraphUniqueKeyArrayInput interface {
 	pulumi.Input
 
@@ -3668,7 +3668,7 @@ type MongoCollectionAutoscaleSettings struct {
 // MongoCollectionAutoscaleSettingsInput is an input type that accepts MongoCollectionAutoscaleSettingsArgs and MongoCollectionAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `MongoCollectionAutoscaleSettingsInput` via:
 //
-//          MongoCollectionAutoscaleSettingsArgs{...}
+//	MongoCollectionAutoscaleSettingsArgs{...}
 type MongoCollectionAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -3704,11 +3704,11 @@ func (i MongoCollectionAutoscaleSettingsArgs) ToMongoCollectionAutoscaleSettings
 // MongoCollectionAutoscaleSettingsPtrInput is an input type that accepts MongoCollectionAutoscaleSettingsArgs, MongoCollectionAutoscaleSettingsPtr and MongoCollectionAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `MongoCollectionAutoscaleSettingsPtrInput` via:
 //
-//          MongoCollectionAutoscaleSettingsArgs{...}
+//	        MongoCollectionAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MongoCollectionAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -3807,7 +3807,7 @@ type MongoCollectionIndex struct {
 // MongoCollectionIndexInput is an input type that accepts MongoCollectionIndexArgs and MongoCollectionIndexOutput values.
 // You can construct a concrete instance of `MongoCollectionIndexInput` via:
 //
-//          MongoCollectionIndexArgs{...}
+//	MongoCollectionIndexArgs{...}
 type MongoCollectionIndexInput interface {
 	pulumi.Input
 
@@ -3837,7 +3837,7 @@ func (i MongoCollectionIndexArgs) ToMongoCollectionIndexOutputWithContext(ctx co
 // MongoCollectionIndexArrayInput is an input type that accepts MongoCollectionIndexArray and MongoCollectionIndexArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionIndexArrayInput` via:
 //
-//          MongoCollectionIndexArray{ MongoCollectionIndexArgs{...} }
+//	MongoCollectionIndexArray{ MongoCollectionIndexArgs{...} }
 type MongoCollectionIndexArrayInput interface {
 	pulumi.Input
 
@@ -3913,7 +3913,7 @@ type MongoCollectionSystemIndex struct {
 // MongoCollectionSystemIndexInput is an input type that accepts MongoCollectionSystemIndexArgs and MongoCollectionSystemIndexOutput values.
 // You can construct a concrete instance of `MongoCollectionSystemIndexInput` via:
 //
-//          MongoCollectionSystemIndexArgs{...}
+//	MongoCollectionSystemIndexArgs{...}
 type MongoCollectionSystemIndexInput interface {
 	pulumi.Input
 
@@ -3943,7 +3943,7 @@ func (i MongoCollectionSystemIndexArgs) ToMongoCollectionSystemIndexOutputWithCo
 // MongoCollectionSystemIndexArrayInput is an input type that accepts MongoCollectionSystemIndexArray and MongoCollectionSystemIndexArrayOutput values.
 // You can construct a concrete instance of `MongoCollectionSystemIndexArrayInput` via:
 //
-//          MongoCollectionSystemIndexArray{ MongoCollectionSystemIndexArgs{...} }
+//	MongoCollectionSystemIndexArray{ MongoCollectionSystemIndexArgs{...} }
 type MongoCollectionSystemIndexArrayInput interface {
 	pulumi.Input
 
@@ -4017,7 +4017,7 @@ type MongoDatabaseAutoscaleSettings struct {
 // MongoDatabaseAutoscaleSettingsInput is an input type that accepts MongoDatabaseAutoscaleSettingsArgs and MongoDatabaseAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `MongoDatabaseAutoscaleSettingsInput` via:
 //
-//          MongoDatabaseAutoscaleSettingsArgs{...}
+//	MongoDatabaseAutoscaleSettingsArgs{...}
 type MongoDatabaseAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -4053,11 +4053,11 @@ func (i MongoDatabaseAutoscaleSettingsArgs) ToMongoDatabaseAutoscaleSettingsPtrO
 // MongoDatabaseAutoscaleSettingsPtrInput is an input type that accepts MongoDatabaseAutoscaleSettingsArgs, MongoDatabaseAutoscaleSettingsPtr and MongoDatabaseAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `MongoDatabaseAutoscaleSettingsPtrInput` via:
 //
-//          MongoDatabaseAutoscaleSettingsArgs{...}
+//	        MongoDatabaseAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type MongoDatabaseAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4154,7 +4154,7 @@ type SqlContainerAutoscaleSettings struct {
 // SqlContainerAutoscaleSettingsInput is an input type that accepts SqlContainerAutoscaleSettingsArgs and SqlContainerAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `SqlContainerAutoscaleSettingsInput` via:
 //
-//          SqlContainerAutoscaleSettingsArgs{...}
+//	SqlContainerAutoscaleSettingsArgs{...}
 type SqlContainerAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -4190,11 +4190,11 @@ func (i SqlContainerAutoscaleSettingsArgs) ToSqlContainerAutoscaleSettingsPtrOut
 // SqlContainerAutoscaleSettingsPtrInput is an input type that accepts SqlContainerAutoscaleSettingsArgs, SqlContainerAutoscaleSettingsPtr and SqlContainerAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `SqlContainerAutoscaleSettingsPtrInput` via:
 //
-//          SqlContainerAutoscaleSettingsArgs{...}
+//	        SqlContainerAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlContainerAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -4295,7 +4295,7 @@ type SqlContainerConflictResolutionPolicy struct {
 // SqlContainerConflictResolutionPolicyInput is an input type that accepts SqlContainerConflictResolutionPolicyArgs and SqlContainerConflictResolutionPolicyOutput values.
 // You can construct a concrete instance of `SqlContainerConflictResolutionPolicyInput` via:
 //
-//          SqlContainerConflictResolutionPolicyArgs{...}
+//	SqlContainerConflictResolutionPolicyArgs{...}
 type SqlContainerConflictResolutionPolicyInput interface {
 	pulumi.Input
 
@@ -4335,11 +4335,11 @@ func (i SqlContainerConflictResolutionPolicyArgs) ToSqlContainerConflictResoluti
 // SqlContainerConflictResolutionPolicyPtrInput is an input type that accepts SqlContainerConflictResolutionPolicyArgs, SqlContainerConflictResolutionPolicyPtr and SqlContainerConflictResolutionPolicyPtrOutput values.
 // You can construct a concrete instance of `SqlContainerConflictResolutionPolicyPtrInput` via:
 //
-//          SqlContainerConflictResolutionPolicyArgs{...}
+//	        SqlContainerConflictResolutionPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlContainerConflictResolutionPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4474,7 +4474,7 @@ type SqlContainerIndexingPolicy struct {
 // SqlContainerIndexingPolicyInput is an input type that accepts SqlContainerIndexingPolicyArgs and SqlContainerIndexingPolicyOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyInput` via:
 //
-//          SqlContainerIndexingPolicyArgs{...}
+//	SqlContainerIndexingPolicyArgs{...}
 type SqlContainerIndexingPolicyInput interface {
 	pulumi.Input
 
@@ -4518,11 +4518,11 @@ func (i SqlContainerIndexingPolicyArgs) ToSqlContainerIndexingPolicyPtrOutputWit
 // SqlContainerIndexingPolicyPtrInput is an input type that accepts SqlContainerIndexingPolicyArgs, SqlContainerIndexingPolicyPtr and SqlContainerIndexingPolicyPtrOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyPtrInput` via:
 //
-//          SqlContainerIndexingPolicyArgs{...}
+//	        SqlContainerIndexingPolicyArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlContainerIndexingPolicyPtrInput interface {
 	pulumi.Input
 
@@ -4681,7 +4681,7 @@ type SqlContainerIndexingPolicyCompositeIndex struct {
 // SqlContainerIndexingPolicyCompositeIndexInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexArgs and SqlContainerIndexingPolicyCompositeIndexOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexInput` via:
 //
-//          SqlContainerIndexingPolicyCompositeIndexArgs{...}
+//	SqlContainerIndexingPolicyCompositeIndexArgs{...}
 type SqlContainerIndexingPolicyCompositeIndexInput interface {
 	pulumi.Input
 
@@ -4709,7 +4709,7 @@ func (i SqlContainerIndexingPolicyCompositeIndexArgs) ToSqlContainerIndexingPoli
 // SqlContainerIndexingPolicyCompositeIndexArrayInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexArray and SqlContainerIndexingPolicyCompositeIndexArrayOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexArrayInput` via:
 //
-//          SqlContainerIndexingPolicyCompositeIndexArray{ SqlContainerIndexingPolicyCompositeIndexArgs{...} }
+//	SqlContainerIndexingPolicyCompositeIndexArray{ SqlContainerIndexingPolicyCompositeIndexArgs{...} }
 type SqlContainerIndexingPolicyCompositeIndexArrayInput interface {
 	pulumi.Input
 
@@ -4782,7 +4782,7 @@ type SqlContainerIndexingPolicyCompositeIndexIndex struct {
 // SqlContainerIndexingPolicyCompositeIndexIndexInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexIndexArgs and SqlContainerIndexingPolicyCompositeIndexIndexOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexIndexInput` via:
 //
-//          SqlContainerIndexingPolicyCompositeIndexIndexArgs{...}
+//	SqlContainerIndexingPolicyCompositeIndexIndexArgs{...}
 type SqlContainerIndexingPolicyCompositeIndexIndexInput interface {
 	pulumi.Input
 
@@ -4812,7 +4812,7 @@ func (i SqlContainerIndexingPolicyCompositeIndexIndexArgs) ToSqlContainerIndexin
 // SqlContainerIndexingPolicyCompositeIndexIndexArrayInput is an input type that accepts SqlContainerIndexingPolicyCompositeIndexIndexArray and SqlContainerIndexingPolicyCompositeIndexIndexArrayOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyCompositeIndexIndexArrayInput` via:
 //
-//          SqlContainerIndexingPolicyCompositeIndexIndexArray{ SqlContainerIndexingPolicyCompositeIndexIndexArgs{...} }
+//	SqlContainerIndexingPolicyCompositeIndexIndexArray{ SqlContainerIndexingPolicyCompositeIndexIndexArgs{...} }
 type SqlContainerIndexingPolicyCompositeIndexIndexArrayInput interface {
 	pulumi.Input
 
@@ -4886,7 +4886,7 @@ type SqlContainerIndexingPolicyExcludedPath struct {
 // SqlContainerIndexingPolicyExcludedPathInput is an input type that accepts SqlContainerIndexingPolicyExcludedPathArgs and SqlContainerIndexingPolicyExcludedPathOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyExcludedPathInput` via:
 //
-//          SqlContainerIndexingPolicyExcludedPathArgs{...}
+//	SqlContainerIndexingPolicyExcludedPathArgs{...}
 type SqlContainerIndexingPolicyExcludedPathInput interface {
 	pulumi.Input
 
@@ -4914,7 +4914,7 @@ func (i SqlContainerIndexingPolicyExcludedPathArgs) ToSqlContainerIndexingPolicy
 // SqlContainerIndexingPolicyExcludedPathArrayInput is an input type that accepts SqlContainerIndexingPolicyExcludedPathArray and SqlContainerIndexingPolicyExcludedPathArrayOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyExcludedPathArrayInput` via:
 //
-//          SqlContainerIndexingPolicyExcludedPathArray{ SqlContainerIndexingPolicyExcludedPathArgs{...} }
+//	SqlContainerIndexingPolicyExcludedPathArray{ SqlContainerIndexingPolicyExcludedPathArgs{...} }
 type SqlContainerIndexingPolicyExcludedPathArrayInput interface {
 	pulumi.Input
 
@@ -4983,7 +4983,7 @@ type SqlContainerIndexingPolicyIncludedPath struct {
 // SqlContainerIndexingPolicyIncludedPathInput is an input type that accepts SqlContainerIndexingPolicyIncludedPathArgs and SqlContainerIndexingPolicyIncludedPathOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyIncludedPathInput` via:
 //
-//          SqlContainerIndexingPolicyIncludedPathArgs{...}
+//	SqlContainerIndexingPolicyIncludedPathArgs{...}
 type SqlContainerIndexingPolicyIncludedPathInput interface {
 	pulumi.Input
 
@@ -5011,7 +5011,7 @@ func (i SqlContainerIndexingPolicyIncludedPathArgs) ToSqlContainerIndexingPolicy
 // SqlContainerIndexingPolicyIncludedPathArrayInput is an input type that accepts SqlContainerIndexingPolicyIncludedPathArray and SqlContainerIndexingPolicyIncludedPathArrayOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicyIncludedPathArrayInput` via:
 //
-//          SqlContainerIndexingPolicyIncludedPathArray{ SqlContainerIndexingPolicyIncludedPathArgs{...} }
+//	SqlContainerIndexingPolicyIncludedPathArray{ SqlContainerIndexingPolicyIncludedPathArgs{...} }
 type SqlContainerIndexingPolicyIncludedPathArrayInput interface {
 	pulumi.Input
 
@@ -5082,7 +5082,7 @@ type SqlContainerIndexingPolicySpatialIndex struct {
 // SqlContainerIndexingPolicySpatialIndexInput is an input type that accepts SqlContainerIndexingPolicySpatialIndexArgs and SqlContainerIndexingPolicySpatialIndexOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicySpatialIndexInput` via:
 //
-//          SqlContainerIndexingPolicySpatialIndexArgs{...}
+//	SqlContainerIndexingPolicySpatialIndexArgs{...}
 type SqlContainerIndexingPolicySpatialIndexInput interface {
 	pulumi.Input
 
@@ -5112,7 +5112,7 @@ func (i SqlContainerIndexingPolicySpatialIndexArgs) ToSqlContainerIndexingPolicy
 // SqlContainerIndexingPolicySpatialIndexArrayInput is an input type that accepts SqlContainerIndexingPolicySpatialIndexArray and SqlContainerIndexingPolicySpatialIndexArrayOutput values.
 // You can construct a concrete instance of `SqlContainerIndexingPolicySpatialIndexArrayInput` via:
 //
-//          SqlContainerIndexingPolicySpatialIndexArray{ SqlContainerIndexingPolicySpatialIndexArgs{...} }
+//	SqlContainerIndexingPolicySpatialIndexArray{ SqlContainerIndexingPolicySpatialIndexArgs{...} }
 type SqlContainerIndexingPolicySpatialIndexArrayInput interface {
 	pulumi.Input
 
@@ -5186,7 +5186,7 @@ type SqlContainerUniqueKey struct {
 // SqlContainerUniqueKeyInput is an input type that accepts SqlContainerUniqueKeyArgs and SqlContainerUniqueKeyOutput values.
 // You can construct a concrete instance of `SqlContainerUniqueKeyInput` via:
 //
-//          SqlContainerUniqueKeyArgs{...}
+//	SqlContainerUniqueKeyArgs{...}
 type SqlContainerUniqueKeyInput interface {
 	pulumi.Input
 
@@ -5214,7 +5214,7 @@ func (i SqlContainerUniqueKeyArgs) ToSqlContainerUniqueKeyOutputWithContext(ctx 
 // SqlContainerUniqueKeyArrayInput is an input type that accepts SqlContainerUniqueKeyArray and SqlContainerUniqueKeyArrayOutput values.
 // You can construct a concrete instance of `SqlContainerUniqueKeyArrayInput` via:
 //
-//          SqlContainerUniqueKeyArray{ SqlContainerUniqueKeyArgs{...} }
+//	SqlContainerUniqueKeyArray{ SqlContainerUniqueKeyArgs{...} }
 type SqlContainerUniqueKeyArrayInput interface {
 	pulumi.Input
 
@@ -5283,7 +5283,7 @@ type SqlDatabaseAutoscaleSettings struct {
 // SqlDatabaseAutoscaleSettingsInput is an input type that accepts SqlDatabaseAutoscaleSettingsArgs and SqlDatabaseAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `SqlDatabaseAutoscaleSettingsInput` via:
 //
-//          SqlDatabaseAutoscaleSettingsArgs{...}
+//	SqlDatabaseAutoscaleSettingsArgs{...}
 type SqlDatabaseAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -5319,11 +5319,11 @@ func (i SqlDatabaseAutoscaleSettingsArgs) ToSqlDatabaseAutoscaleSettingsPtrOutpu
 // SqlDatabaseAutoscaleSettingsPtrInput is an input type that accepts SqlDatabaseAutoscaleSettingsArgs, SqlDatabaseAutoscaleSettingsPtr and SqlDatabaseAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `SqlDatabaseAutoscaleSettingsPtrInput` via:
 //
-//          SqlDatabaseAutoscaleSettingsArgs{...}
+//	        SqlDatabaseAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type SqlDatabaseAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5420,7 +5420,7 @@ type SqlRoleDefinitionPermission struct {
 // SqlRoleDefinitionPermissionInput is an input type that accepts SqlRoleDefinitionPermissionArgs and SqlRoleDefinitionPermissionOutput values.
 // You can construct a concrete instance of `SqlRoleDefinitionPermissionInput` via:
 //
-//          SqlRoleDefinitionPermissionArgs{...}
+//	SqlRoleDefinitionPermissionArgs{...}
 type SqlRoleDefinitionPermissionInput interface {
 	pulumi.Input
 
@@ -5448,7 +5448,7 @@ func (i SqlRoleDefinitionPermissionArgs) ToSqlRoleDefinitionPermissionOutputWith
 // SqlRoleDefinitionPermissionArrayInput is an input type that accepts SqlRoleDefinitionPermissionArray and SqlRoleDefinitionPermissionArrayOutput values.
 // You can construct a concrete instance of `SqlRoleDefinitionPermissionArrayInput` via:
 //
-//          SqlRoleDefinitionPermissionArray{ SqlRoleDefinitionPermissionArgs{...} }
+//	SqlRoleDefinitionPermissionArray{ SqlRoleDefinitionPermissionArgs{...} }
 type SqlRoleDefinitionPermissionArrayInput interface {
 	pulumi.Input
 
@@ -5517,7 +5517,7 @@ type TableAutoscaleSettings struct {
 // TableAutoscaleSettingsInput is an input type that accepts TableAutoscaleSettingsArgs and TableAutoscaleSettingsOutput values.
 // You can construct a concrete instance of `TableAutoscaleSettingsInput` via:
 //
-//          TableAutoscaleSettingsArgs{...}
+//	TableAutoscaleSettingsArgs{...}
 type TableAutoscaleSettingsInput interface {
 	pulumi.Input
 
@@ -5553,11 +5553,11 @@ func (i TableAutoscaleSettingsArgs) ToTableAutoscaleSettingsPtrOutputWithContext
 // TableAutoscaleSettingsPtrInput is an input type that accepts TableAutoscaleSettingsArgs, TableAutoscaleSettingsPtr and TableAutoscaleSettingsPtrOutput values.
 // You can construct a concrete instance of `TableAutoscaleSettingsPtrInput` via:
 //
-//          TableAutoscaleSettingsArgs{...}
+//	        TableAutoscaleSettingsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type TableAutoscaleSettingsPtrInput interface {
 	pulumi.Input
 
@@ -5654,7 +5654,7 @@ type GetAccountCapability struct {
 // GetAccountCapabilityInput is an input type that accepts GetAccountCapabilityArgs and GetAccountCapabilityOutput values.
 // You can construct a concrete instance of `GetAccountCapabilityInput` via:
 //
-//          GetAccountCapabilityArgs{...}
+//	GetAccountCapabilityArgs{...}
 type GetAccountCapabilityInput interface {
 	pulumi.Input
 
@@ -5682,7 +5682,7 @@ func (i GetAccountCapabilityArgs) ToGetAccountCapabilityOutputWithContext(ctx co
 // GetAccountCapabilityArrayInput is an input type that accepts GetAccountCapabilityArray and GetAccountCapabilityArrayOutput values.
 // You can construct a concrete instance of `GetAccountCapabilityArrayInput` via:
 //
-//          GetAccountCapabilityArray{ GetAccountCapabilityArgs{...} }
+//	GetAccountCapabilityArray{ GetAccountCapabilityArgs{...} }
 type GetAccountCapabilityArrayInput interface {
 	pulumi.Input
 
@@ -5755,7 +5755,7 @@ type GetAccountConsistencyPolicy struct {
 // GetAccountConsistencyPolicyInput is an input type that accepts GetAccountConsistencyPolicyArgs and GetAccountConsistencyPolicyOutput values.
 // You can construct a concrete instance of `GetAccountConsistencyPolicyInput` via:
 //
-//          GetAccountConsistencyPolicyArgs{...}
+//	GetAccountConsistencyPolicyArgs{...}
 type GetAccountConsistencyPolicyInput interface {
 	pulumi.Input
 
@@ -5787,7 +5787,7 @@ func (i GetAccountConsistencyPolicyArgs) ToGetAccountConsistencyPolicyOutputWith
 // GetAccountConsistencyPolicyArrayInput is an input type that accepts GetAccountConsistencyPolicyArray and GetAccountConsistencyPolicyArrayOutput values.
 // You can construct a concrete instance of `GetAccountConsistencyPolicyArrayInput` via:
 //
-//          GetAccountConsistencyPolicyArray{ GetAccountConsistencyPolicyArgs{...} }
+//	GetAccountConsistencyPolicyArray{ GetAccountConsistencyPolicyArgs{...} }
 type GetAccountConsistencyPolicyArrayInput interface {
 	pulumi.Input
 
@@ -5869,7 +5869,7 @@ type GetAccountGeoLocation struct {
 // GetAccountGeoLocationInput is an input type that accepts GetAccountGeoLocationArgs and GetAccountGeoLocationOutput values.
 // You can construct a concrete instance of `GetAccountGeoLocationInput` via:
 //
-//          GetAccountGeoLocationArgs{...}
+//	GetAccountGeoLocationArgs{...}
 type GetAccountGeoLocationInput interface {
 	pulumi.Input
 
@@ -5900,7 +5900,7 @@ func (i GetAccountGeoLocationArgs) ToGetAccountGeoLocationOutputWithContext(ctx 
 // GetAccountGeoLocationArrayInput is an input type that accepts GetAccountGeoLocationArray and GetAccountGeoLocationArrayOutput values.
 // You can construct a concrete instance of `GetAccountGeoLocationArrayInput` via:
 //
-//          GetAccountGeoLocationArray{ GetAccountGeoLocationArgs{...} }
+//	GetAccountGeoLocationArray{ GetAccountGeoLocationArgs{...} }
 type GetAccountGeoLocationArrayInput interface {
 	pulumi.Input
 
@@ -5978,7 +5978,7 @@ type GetAccountVirtualNetworkRule struct {
 // GetAccountVirtualNetworkRuleInput is an input type that accepts GetAccountVirtualNetworkRuleArgs and GetAccountVirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `GetAccountVirtualNetworkRuleInput` via:
 //
-//          GetAccountVirtualNetworkRuleArgs{...}
+//	GetAccountVirtualNetworkRuleArgs{...}
 type GetAccountVirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -6006,7 +6006,7 @@ func (i GetAccountVirtualNetworkRuleArgs) ToGetAccountVirtualNetworkRuleOutputWi
 // GetAccountVirtualNetworkRuleArrayInput is an input type that accepts GetAccountVirtualNetworkRuleArray and GetAccountVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `GetAccountVirtualNetworkRuleArrayInput` via:
 //
-//          GetAccountVirtualNetworkRuleArray{ GetAccountVirtualNetworkRuleArgs{...} }
+//	GetAccountVirtualNetworkRuleArray{ GetAccountVirtualNetworkRuleArgs{...} }
 type GetAccountVirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -6083,7 +6083,7 @@ type GetRestorableDatabaseAccountsAccount struct {
 // GetRestorableDatabaseAccountsAccountInput is an input type that accepts GetRestorableDatabaseAccountsAccountArgs and GetRestorableDatabaseAccountsAccountOutput values.
 // You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountInput` via:
 //
-//          GetRestorableDatabaseAccountsAccountArgs{...}
+//	GetRestorableDatabaseAccountsAccountArgs{...}
 type GetRestorableDatabaseAccountsAccountInput interface {
 	pulumi.Input
 
@@ -6119,7 +6119,7 @@ func (i GetRestorableDatabaseAccountsAccountArgs) ToGetRestorableDatabaseAccount
 // GetRestorableDatabaseAccountsAccountArrayInput is an input type that accepts GetRestorableDatabaseAccountsAccountArray and GetRestorableDatabaseAccountsAccountArrayOutput values.
 // You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountArrayInput` via:
 //
-//          GetRestorableDatabaseAccountsAccountArray{ GetRestorableDatabaseAccountsAccountArgs{...} }
+//	GetRestorableDatabaseAccountsAccountArray{ GetRestorableDatabaseAccountsAccountArgs{...} }
 type GetRestorableDatabaseAccountsAccountArrayInput interface {
 	pulumi.Input
 
@@ -6216,7 +6216,7 @@ type GetRestorableDatabaseAccountsAccountRestorableLocation struct {
 // GetRestorableDatabaseAccountsAccountRestorableLocationInput is an input type that accepts GetRestorableDatabaseAccountsAccountRestorableLocationArgs and GetRestorableDatabaseAccountsAccountRestorableLocationOutput values.
 // You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountRestorableLocationInput` via:
 //
-//          GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...}
+//	GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...}
 type GetRestorableDatabaseAccountsAccountRestorableLocationInput interface {
 	pulumi.Input
 
@@ -6250,7 +6250,7 @@ func (i GetRestorableDatabaseAccountsAccountRestorableLocationArgs) ToGetRestora
 // GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput is an input type that accepts GetRestorableDatabaseAccountsAccountRestorableLocationArray and GetRestorableDatabaseAccountsAccountRestorableLocationArrayOutput values.
 // You can construct a concrete instance of `GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput` via:
 //
-//          GetRestorableDatabaseAccountsAccountRestorableLocationArray{ GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...} }
+//	GetRestorableDatabaseAccountsAccountRestorableLocationArray{ GetRestorableDatabaseAccountsAccountRestorableLocationArgs{...} }
 type GetRestorableDatabaseAccountsAccountRestorableLocationArrayInput interface {
 	pulumi.Input
 

@@ -13,37 +13,38 @@ namespace Pulumi.Azure.Sql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var current = Output.Create(Azure.Core.GetClientConfig.InvokeAsync());
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new Azure.Sql.SqlServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "4dm1n157r470r",
-    ///             AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
-    ///         });
-    ///         var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new Azure.Sql.ActiveDirectoryAdministratorArgs
-    ///         {
-    ///             ServerName = exampleSqlServer.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Login = "sqladmin",
-    ///             TenantId = current.Apply(current =&gt; current.TenantId),
-    ///             ObjectId = current.Apply(current =&gt; current.ObjectId),
-    ///         });
-    ///     }
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "4dm1n157r470r",
+    ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
+    ///     });
+    /// 
+    ///     var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new()
+    ///     {
+    ///         ServerName = exampleSqlServer.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Login = "sqladmin",
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -55,7 +56,7 @@ namespace Pulumi.Azure.Sql
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator")]
-    public partial class ActiveDirectoryAdministrator : Pulumi.CustomResource
+    public partial class ActiveDirectoryAdministrator : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
@@ -137,7 +138,7 @@ namespace Pulumi.Azure.Sql
         }
     }
 
-    public sealed class ActiveDirectoryAdministratorArgs : Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryAdministratorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
@@ -178,9 +179,10 @@ namespace Pulumi.Azure.Sql
         public ActiveDirectoryAdministratorArgs()
         {
         }
+        public static new ActiveDirectoryAdministratorArgs Empty => new ActiveDirectoryAdministratorArgs();
     }
 
-    public sealed class ActiveDirectoryAdministratorState : Pulumi.ResourceArgs
+    public sealed class ActiveDirectoryAdministratorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
@@ -221,5 +223,6 @@ namespace Pulumi.Azure.Sql
         public ActiveDirectoryAdministratorState()
         {
         }
+        public static new ActiveDirectoryAdministratorState Empty => new ActiveDirectoryAdministratorState();
     }
 }

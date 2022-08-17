@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataBricks.Inputs
 {
 
-    public sealed class WorkspaceStorageAccountIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceStorageAccountIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.DataBricks.Inputs
         public WorkspaceStorageAccountIdentityGetArgs()
         {
         }
+        public static new WorkspaceStorageAccountIdentityGetArgs Empty => new WorkspaceStorageAccountIdentityGetArgs();
     }
 }

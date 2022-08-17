@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			AllocationMethod:  pulumi.String("Static"),
-// 			Sku:               pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = network.NewNatGatewayPublicIpAssociation(ctx, "exampleNatGatewayPublicIpAssociation", &network.NatGatewayPublicIpAssociationArgs{
-// 			NatGatewayId:      exampleNatGateway.ID(),
-// 			PublicIpAddressId: examplePublicIp.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AllocationMethod:  pulumi.String("Static"),
+//				Sku:               pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNatGateway, err := network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNatGatewayPublicIpAssociation(ctx, "exampleNatGatewayPublicIpAssociation", &network.NatGatewayPublicIpAssociationArgs{
+//				NatGatewayId:      exampleNatGateway.ID(),
+//				PublicIpAddressId: examplePublicIp.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -66,7 +69,9 @@ import (
 // Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
+//
+//	$ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
+//
 // ```
 type NatGatewayPublicIpAssociation struct {
 	pulumi.CustomResourceState
@@ -170,7 +175,7 @@ func (i *NatGatewayPublicIpAssociation) ToNatGatewayPublicIpAssociationOutputWit
 // NatGatewayPublicIpAssociationArrayInput is an input type that accepts NatGatewayPublicIpAssociationArray and NatGatewayPublicIpAssociationArrayOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpAssociationArrayInput` via:
 //
-//          NatGatewayPublicIpAssociationArray{ NatGatewayPublicIpAssociationArgs{...} }
+//	NatGatewayPublicIpAssociationArray{ NatGatewayPublicIpAssociationArgs{...} }
 type NatGatewayPublicIpAssociationArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +200,7 @@ func (i NatGatewayPublicIpAssociationArray) ToNatGatewayPublicIpAssociationArray
 // NatGatewayPublicIpAssociationMapInput is an input type that accepts NatGatewayPublicIpAssociationMap and NatGatewayPublicIpAssociationMapOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpAssociationMapInput` via:
 //
-//          NatGatewayPublicIpAssociationMap{ "key": NatGatewayPublicIpAssociationArgs{...} }
+//	NatGatewayPublicIpAssociationMap{ "key": NatGatewayPublicIpAssociationArgs{...} }
 type NatGatewayPublicIpAssociationMapInput interface {
 	pulumi.Input
 

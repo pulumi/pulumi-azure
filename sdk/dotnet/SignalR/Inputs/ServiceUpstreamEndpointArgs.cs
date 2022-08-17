@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SignalR.Inputs
 {
 
-    public sealed class ServiceUpstreamEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ServiceUpstreamEndpointArgs : global::Pulumi.ResourceArgs
     {
         [Input("categoryPatterns", required: true)]
         private InputList<string>? _categoryPatterns;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.SignalR.Inputs
         public ServiceUpstreamEndpointArgs()
         {
         }
+        public static new ServiceUpstreamEndpointArgs Empty => new ServiceUpstreamEndpointArgs();
     }
 }

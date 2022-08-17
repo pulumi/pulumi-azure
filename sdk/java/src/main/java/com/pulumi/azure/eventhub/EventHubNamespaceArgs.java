@@ -81,6 +81,21 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Is SAS authentication enabled for the EventHub Namespace?
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Is SAS authentication enabled for the EventHub Namespace?
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -111,6 +126,21 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    @Import(name="minimumTlsVersion")
+    private @Nullable Output<String> minimumTlsVersion;
+
+    /**
+     * @return The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+     * 
+     */
+    public Optional<Output<String>> minimumTlsVersion() {
+        return Optional.ofNullable(this.minimumTlsVersion);
+    }
+
+    /**
      * Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
      * 
      */
@@ -138,6 +168,21 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<EventHubNamespaceNetworkRulesetsArgs>> networkRulesets() {
         return Optional.ofNullable(this.networkRulesets);
+    }
+
+    /**
+     * Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
     /**
@@ -207,10 +252,13 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         this.capacity = $.capacity;
         this.dedicatedClusterId = $.dedicatedClusterId;
         this.identity = $.identity;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.maximumThroughputUnits = $.maximumThroughputUnits;
+        this.minimumTlsVersion = $.minimumTlsVersion;
         this.name = $.name;
         this.networkRulesets = $.networkRulesets;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
         this.tags = $.tags;
@@ -320,6 +368,27 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled Is SAS authentication enabled for the EventHub Namespace?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
+        }
+
+        /**
          * @param location Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -362,6 +431,27 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param minimumTlsVersion The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
+            $.minimumTlsVersion = minimumTlsVersion;
+            return this;
+        }
+
+        /**
+         * @param minimumTlsVersion The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsVersion(String minimumTlsVersion) {
+            return minimumTlsVersion(Output.of(minimumTlsVersion));
+        }
+
+        /**
          * @param name Specifies the name of the EventHub Namespace resource. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -401,6 +491,27 @@ public final class EventHubNamespaceArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder networkRulesets(EventHubNamespaceNetworkRulesetsArgs networkRulesets) {
             return networkRulesets(Output.of(networkRulesets));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Is public network access enabled for the EventHub Namespace? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

@@ -19,35 +19,36 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "mykeyvault",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         var exampleKey = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
-        ///         {
-        ///             Name = "some-key",
-        ///             KeyVaultId = exampleKeyVault.Id,
-        ///         })));
-        ///         var encrypted = Output.Create(Azure.KeyVault.GetEncryptedValue.InvokeAsync(new Azure.KeyVault.GetEncryptedValueArgs
-        ///         {
-        ///             KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
-        ///             Algorithm = "RSA1_5",
-        ///             PlainTextValue = "some-encrypted-value",
-        ///         }));
-        ///         this.Id = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data;
-        ///     }
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
+        ///     {
+        ///         Name = "some-key",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     var encrypted = Azure.KeyVault.GetEncryptedValue.Invoke(new()
+        ///     {
+        ///         KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
+        ///         Algorithm = "RSA1_5",
+        ///         PlainTextValue = "some-encrypted-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,35 +64,36 @@ namespace Pulumi.Azure.KeyVault
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         var exampleKeyVault = Output.Create(Azure.KeyVault.GetKeyVault.InvokeAsync(new Azure.KeyVault.GetKeyVaultArgs
-        ///         {
-        ///             Name = "mykeyvault",
-        ///             ResourceGroupName = "some-resource-group",
-        ///         }));
-        ///         var exampleKey = exampleKeyVault.Apply(exampleKeyVault =&gt; Output.Create(Azure.KeyVault.GetKey.InvokeAsync(new Azure.KeyVault.GetKeyArgs
-        ///         {
-        ///             Name = "some-key",
-        ///             KeyVaultId = exampleKeyVault.Id,
-        ///         })));
-        ///         var encrypted = Output.Create(Azure.KeyVault.GetEncryptedValue.InvokeAsync(new Azure.KeyVault.GetEncryptedValueArgs
-        ///         {
-        ///             KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
-        ///             Algorithm = "RSA1_5",
-        ///             PlainTextValue = "some-encrypted-value",
-        ///         }));
-        ///         this.Id = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data;
-        ///     }
+        ///         Name = "mykeyvault",
+        ///         ResourceGroupName = "some-resource-group",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
+        ///     {
+        ///         Name = "some-key",
+        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///     });
+        /// 
+        ///     var encrypted = Azure.KeyVault.GetEncryptedValue.Invoke(new()
+        ///     {
+        ///         KeyVaultKeyId = azurerm_key_vault_key.Test.Id,
+        ///         Algorithm = "RSA1_5",
+        ///         PlainTextValue = "some-encrypted-value",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = data.Azurerm_key_vault_encrypted_value.Example.Encrypted_data,
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,7 +103,7 @@ namespace Pulumi.Azure.KeyVault
     }
 
 
-    public sealed class GetEncryptedValueArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptedValueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.
@@ -130,9 +132,10 @@ namespace Pulumi.Azure.KeyVault
         public GetEncryptedValueArgs()
         {
         }
+        public static new GetEncryptedValueArgs Empty => new GetEncryptedValueArgs();
     }
 
-    public sealed class GetEncryptedValueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetEncryptedValueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Algorithm which should be used to Decrypt/Encrypt this Value. Possible values are `RSA1_5`, `RSA-OAEP` and `RSA-OAEP-256`.
@@ -161,6 +164,7 @@ namespace Pulumi.Azure.KeyVault
         public GetEncryptedValueInvokeArgs()
         {
         }
+        public static new GetEncryptedValueInvokeArgs Empty => new GetEncryptedValueInvokeArgs();
     }
 
 

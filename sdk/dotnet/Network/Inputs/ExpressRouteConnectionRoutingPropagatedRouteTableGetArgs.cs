@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("labels")]
         private InputList<string>? _labels;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs()
         {
         }
+        public static new ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs Empty => new ExpressRouteConnectionRoutingPropagatedRouteTableGetArgs();
     }
 }

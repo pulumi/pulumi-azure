@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class ApiDiagnosticBackendResponseDataMaskingHeaderArgs : Pulumi.ResourceArgs
+    public sealed class ApiDiagnosticBackendResponseDataMaskingHeaderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The data masking mode. Possible values are `Mask` and `Hide` for `query_params`. The only possible value is `Mask` for `headers`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public ApiDiagnosticBackendResponseDataMaskingHeaderArgs()
         {
         }
+        public static new ApiDiagnosticBackendResponseDataMaskingHeaderArgs Empty => new ApiDiagnosticBackendResponseDataMaskingHeaderArgs();
     }
 }

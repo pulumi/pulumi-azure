@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			SkuName:           pulumi.String("Standard"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = logicapps.NewIntegrationAccountPartner(ctx, "exampleIntegrationAccountPartner", &logicapps.IntegrationAccountPartnerArgs{
-// 			ResourceGroupName:      exampleResourceGroup.Name,
-// 			IntegrationAccountName: exampleIntegrationAccount.Name,
-// 			BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
-// 				&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
-// 					Qualifier: pulumi.String("ZZ"),
-// 					Value:     pulumi.String("AA"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountPartner(ctx, "exampleIntegrationAccountPartner", &logicapps.IntegrationAccountPartnerArgs{
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				IntegrationAccountName: exampleIntegrationAccount.Name,
+//				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
+//					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
+//						Qualifier: pulumi.String("ZZ"),
+//						Value:     pulumi.String("AA"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -63,7 +66,9 @@ import (
 // Logic App Integration Account Partners can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
+//
+//	$ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
+//
 // ```
 type IntegrationAccountPartner struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *IntegrationAccountPartner) ToIntegrationAccountPartnerOutputWithContext
 // IntegrationAccountPartnerArrayInput is an input type that accepts IntegrationAccountPartnerArray and IntegrationAccountPartnerArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerArrayInput` via:
 //
-//          IntegrationAccountPartnerArray{ IntegrationAccountPartnerArgs{...} }
+//	IntegrationAccountPartnerArray{ IntegrationAccountPartnerArgs{...} }
 type IntegrationAccountPartnerArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i IntegrationAccountPartnerArray) ToIntegrationAccountPartnerArrayOutputWi
 // IntegrationAccountPartnerMapInput is an input type that accepts IntegrationAccountPartnerMap and IntegrationAccountPartnerMapOutput values.
 // You can construct a concrete instance of `IntegrationAccountPartnerMapInput` via:
 //
-//          IntegrationAccountPartnerMap{ "key": IntegrationAccountPartnerArgs{...} }
+//	IntegrationAccountPartnerMap{ "key": IntegrationAccountPartnerArgs{...} }
 type IntegrationAccountPartnerMapInput interface {
 	pulumi.Input
 

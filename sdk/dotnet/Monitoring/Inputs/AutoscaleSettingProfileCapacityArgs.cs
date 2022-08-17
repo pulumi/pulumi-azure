@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Monitoring.Inputs
 {
 
-    public sealed class AutoscaleSettingProfileCapacityArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingProfileCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The number of instances that are available for scaling if metrics are not available for evaluation. The default is only used if the current instance count is lower than the default. Valid values are between `0` and `1000`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Monitoring.Inputs
         public AutoscaleSettingProfileCapacityArgs()
         {
         }
+        public static new AutoscaleSettingProfileCapacityArgs Empty => new AutoscaleSettingProfileCapacityArgs();
     }
 }

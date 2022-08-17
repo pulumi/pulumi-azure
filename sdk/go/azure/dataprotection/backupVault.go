@@ -19,31 +19,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dataprotection"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			DatastoreType:     pulumi.String("VaultStore"),
-// 			Redundancy:        pulumi.String("LocallyRedundant"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				DatastoreType:     pulumi.String("VaultStore"),
+//				Redundancy:        pulumi.String("LocallyRedundant"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -51,7 +54,9 @@ import (
 // Backup Vaults can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
+//
+//	$ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
+//
 // ```
 type BackupVault struct {
 	pulumi.CustomResourceState
@@ -208,7 +213,7 @@ func (i *BackupVault) ToBackupVaultOutputWithContext(ctx context.Context) Backup
 // BackupVaultArrayInput is an input type that accepts BackupVaultArray and BackupVaultArrayOutput values.
 // You can construct a concrete instance of `BackupVaultArrayInput` via:
 //
-//          BackupVaultArray{ BackupVaultArgs{...} }
+//	BackupVaultArray{ BackupVaultArgs{...} }
 type BackupVaultArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i BackupVaultArray) ToBackupVaultArrayOutputWithContext(ctx context.Contex
 // BackupVaultMapInput is an input type that accepts BackupVaultMap and BackupVaultMapOutput values.
 // You can construct a concrete instance of `BackupVaultMapInput` via:
 //
-//          BackupVaultMap{ "key": BackupVaultArgs{...} }
+//	BackupVaultMap{ "key": BackupVaultArgs{...} }
 type BackupVaultMapInput interface {
 	pulumi.Input
 

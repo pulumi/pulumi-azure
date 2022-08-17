@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Purview.Inputs
 {
 
-    public sealed class AccountManagedResourceArgs : Pulumi.ResourceArgs
+    public sealed class AccountManagedResourceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the managed event hub namespace.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Purview.Inputs
         public AccountManagedResourceArgs()
         {
         }
+        public static new AccountManagedResourceArgs Empty => new AccountManagedResourceArgs();
     }
 }

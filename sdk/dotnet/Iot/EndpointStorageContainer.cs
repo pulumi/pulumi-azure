@@ -17,53 +17,55 @@ namespace Pulumi.Azure.Iot
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new Azure.Iot.IoTHubArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
-    ///             {
-    ///                 Name = "S1",
-    ///                 Capacity = 1,
-    ///             },
-    ///         });
-    ///         var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("exampleEndpointStorageContainer", new Azure.Iot.EndpointStorageContainerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             IothubId = exampleIoTHub.Id,
-    ///             ContainerName = "acctestcont",
-    ///             ConnectionString = exampleAccount.PrimaryBlobConnectionString,
-    ///             FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
-    ///             BatchFrequencyInSeconds = 60,
-    ///             MaxChunkSizeInBytes = 10485760,
-    ///             Encoding = "JSON",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("exampleEndpointStorageContainer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         ContainerName = "acctestcont",
+    ///         ConnectionString = exampleAccount.PrimaryBlobConnectionString,
+    ///         FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+    ///         BatchFrequencyInSeconds = 60,
+    ///         MaxChunkSizeInBytes = 10485760,
+    ///         Encoding = "JSON",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -75,7 +77,7 @@ namespace Pulumi.Azure.Iot
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/endpointStorageContainer:EndpointStorageContainer")]
-    public partial class EndpointStorageContainer : Pulumi.CustomResource
+    public partial class EndpointStorageContainer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -193,7 +195,7 @@ namespace Pulumi.Azure.Iot
         }
     }
 
-    public sealed class EndpointStorageContainerArgs : Pulumi.ResourceArgs
+    public sealed class EndpointStorageContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -270,9 +272,10 @@ namespace Pulumi.Azure.Iot
         public EndpointStorageContainerArgs()
         {
         }
+        public static new EndpointStorageContainerArgs Empty => new EndpointStorageContainerArgs();
     }
 
-    public sealed class EndpointStorageContainerState : Pulumi.ResourceArgs
+    public sealed class EndpointStorageContainerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type used to authenticate against the storage endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -349,5 +352,6 @@ namespace Pulumi.Azure.Iot
         public EndpointStorageContainerState()
         {
         }
+        public static new EndpointStorageContainerState Empty => new EndpointStorageContainerState();
     }
 }

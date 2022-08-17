@@ -19,24 +19,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkId")]
-        ///     public Output&lt;string&gt; VirtualNetworkId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkId"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.Network
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.Network.GetVirtualNetwork.InvokeAsync(new Azure.Network.GetVirtualNetworkArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.VirtualNetworkId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("virtualNetworkId")]
-        ///     public Output&lt;string&gt; VirtualNetworkId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["virtualNetworkId"] = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.Network
     }
 
 
-    public sealed class GetVirtualNetworkArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.Network
         public GetVirtualNetworkArgs()
         {
         }
+        public static new GetVirtualNetworkArgs Empty => new GetVirtualNetworkArgs();
     }
 
-    public sealed class GetVirtualNetworkInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVirtualNetworkInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Virtual Network.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.Network
         public GetVirtualNetworkInvokeArgs()
         {
         }
+        public static new GetVirtualNetworkInvokeArgs Empty => new GetVirtualNetworkInvokeArgs();
     }
 
 

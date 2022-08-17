@@ -15,42 +15,43 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "StorageV2",
-    ///             IsHnsEnabled = true,
-    ///         });
-    ///         var exampleCluster = new Azure.StreamAnalytics.Cluster("exampleCluster", new Azure.StreamAnalytics.ClusterArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             StreamingCapacity = 36,
-    ///         });
-    ///         var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new Azure.StreamAnalytics.ManagedPrivateEndpointArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StreamAnalyticsClusterName = exampleCluster.Name,
-    ///             TargetResourceId = exampleAccount.Id,
-    ///             SubresourceName = "blob",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("exampleCluster", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         StreamingCapacity = 36,
+    ///     });
+    /// 
+    ///     var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StreamAnalyticsClusterName = exampleCluster.Name,
+    ///         TargetResourceId = exampleAccount.Id,
+    ///         SubresourceName = "blob",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint")]
-    public partial class ManagedPrivateEndpoint : Pulumi.CustomResource
+    public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -138,7 +139,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class ManagedPrivateEndpointArgs : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -173,9 +174,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public ManagedPrivateEndpointArgs()
         {
         }
+        public static new ManagedPrivateEndpointArgs Empty => new ManagedPrivateEndpointArgs();
     }
 
-    public sealed class ManagedPrivateEndpointState : Pulumi.ResourceArgs
+    public sealed class ManagedPrivateEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name which should be used for this Stream Analytics Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -210,5 +212,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public ManagedPrivateEndpointState()
         {
         }
+        public static new ManagedPrivateEndpointState Empty => new ManagedPrivateEndpointState();
     }
 }

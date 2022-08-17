@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SecurityCenter.Inputs
 {
 
-    public sealed class AutomationSourceRuleSetRuleArgs : Pulumi.ResourceArgs
+    public sealed class AutomationSourceRuleSetRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A value that will be compared with the value in `property_path`.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         public AutomationSourceRuleSetRuleArgs()
         {
         }
+        public static new AutomationSourceRuleSetRuleArgs Empty => new AutomationSourceRuleSetRuleArgs();
     }
 }

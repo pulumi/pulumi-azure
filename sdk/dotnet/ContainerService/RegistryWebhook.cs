@@ -15,44 +15,44 @@ namespace Pulumi.Azure.ContainerService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var acr = new Azure.ContainerService.Registry("acr", new Azure.ContainerService.RegistryArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             Location = example.Location,
-    ///             Sku = "Standard",
-    ///             AdminEnabled = false,
-    ///         });
-    ///         var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new Azure.ContainerService.RegistryWebhookArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///             RegistryName = acr.Name,
-    ///             Location = example.Location,
-    ///             ServiceUri = "https://mywebhookreceiver.example/mytag",
-    ///             Status = "enabled",
-    ///             Scope = "mytag:*",
-    ///             Actions = 
-    ///             {
-    ///                 "push",
-    ///             },
-    ///             CustomHeaders = 
-    ///             {
-    ///                 { "Content-Type", "application/json" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var acr = new Azure.ContainerService.Registry("acr", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = "Standard",
+    ///         AdminEnabled = false,
+    ///     });
+    /// 
+    ///     var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         RegistryName = acr.Name,
+    ///         Location = example.Location,
+    ///         ServiceUri = "https://mywebhookreceiver.example/mytag",
+    ///         Status = "enabled",
+    ///         Scope = "mytag:*",
+    ///         Actions = new[]
+    ///         {
+    ///             "push",
+    ///         },
+    ///         CustomHeaders = 
+    ///         {
+    ///             { "Content-Type", "application/json" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -64,7 +64,7 @@ namespace Pulumi.Azure.ContainerService
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryWebhook:RegistryWebhook")]
-    public partial class RegistryWebhook : Pulumi.CustomResource
+    public partial class RegistryWebhook : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.ContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azure:containerservice/registryWebook:RegistryWebook"},
+                    new global::Pulumi.Alias { Type = "azure:containerservice/registryWebook:RegistryWebook"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.ContainerService
         }
     }
 
-    public sealed class RegistryWebhookArgs : Pulumi.ResourceArgs
+    public sealed class RegistryWebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
@@ -250,9 +250,10 @@ namespace Pulumi.Azure.ContainerService
         public RegistryWebhookArgs()
         {
         }
+        public static new RegistryWebhookArgs Empty => new RegistryWebhookArgs();
     }
 
-    public sealed class RegistryWebhookState : Pulumi.ResourceArgs
+    public sealed class RegistryWebhookState : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<string>? _actions;
@@ -331,5 +332,6 @@ namespace Pulumi.Azure.ContainerService
         public RegistryWebhookState()
         {
         }
+        public static new RegistryWebhookState Empty => new RegistryWebhookState();
     }
 }

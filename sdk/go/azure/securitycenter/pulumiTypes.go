@@ -22,7 +22,7 @@ type AssessmentStatus struct {
 // AssessmentStatusInput is an input type that accepts AssessmentStatusArgs and AssessmentStatusOutput values.
 // You can construct a concrete instance of `AssessmentStatusInput` via:
 //
-//          AssessmentStatusArgs{...}
+//	AssessmentStatusArgs{...}
 type AssessmentStatusInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutputWithContext(ctx context
 // AssessmentStatusPtrInput is an input type that accepts AssessmentStatusArgs, AssessmentStatusPtr and AssessmentStatusPtrOutput values.
 // You can construct a concrete instance of `AssessmentStatusPtrInput` via:
 //
-//          AssessmentStatusArgs{...}
+//	        AssessmentStatusArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AssessmentStatusPtrInput interface {
 	pulumi.Input
 
@@ -199,7 +199,7 @@ type AutomationAction struct {
 // AutomationActionInput is an input type that accepts AutomationActionArgs and AutomationActionOutput values.
 // You can construct a concrete instance of `AutomationActionInput` via:
 //
-//          AutomationActionArgs{...}
+//	AutomationActionArgs{...}
 type AutomationActionInput interface {
 	pulumi.Input
 
@@ -233,7 +233,7 @@ func (i AutomationActionArgs) ToAutomationActionOutputWithContext(ctx context.Co
 // AutomationActionArrayInput is an input type that accepts AutomationActionArray and AutomationActionArrayOutput values.
 // You can construct a concrete instance of `AutomationActionArrayInput` via:
 //
-//          AutomationActionArray{ AutomationActionArgs{...} }
+//	AutomationActionArray{ AutomationActionArgs{...} }
 type AutomationActionArrayInput interface {
 	pulumi.Input
 
@@ -319,7 +319,7 @@ type AutomationSource struct {
 // AutomationSourceInput is an input type that accepts AutomationSourceArgs and AutomationSourceOutput values.
 // You can construct a concrete instance of `AutomationSourceInput` via:
 //
-//          AutomationSourceArgs{...}
+//	AutomationSourceArgs{...}
 type AutomationSourceInput interface {
 	pulumi.Input
 
@@ -349,7 +349,7 @@ func (i AutomationSourceArgs) ToAutomationSourceOutputWithContext(ctx context.Co
 // AutomationSourceArrayInput is an input type that accepts AutomationSourceArray and AutomationSourceArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceArrayInput` via:
 //
-//          AutomationSourceArray{ AutomationSourceArgs{...} }
+//	AutomationSourceArray{ AutomationSourceArgs{...} }
 type AutomationSourceArrayInput interface {
 	pulumi.Input
 
@@ -423,7 +423,7 @@ type AutomationSourceRuleSet struct {
 // AutomationSourceRuleSetInput is an input type that accepts AutomationSourceRuleSetArgs and AutomationSourceRuleSetOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetInput` via:
 //
-//          AutomationSourceRuleSetArgs{...}
+//	AutomationSourceRuleSetArgs{...}
 type AutomationSourceRuleSetInput interface {
 	pulumi.Input
 
@@ -451,7 +451,7 @@ func (i AutomationSourceRuleSetArgs) ToAutomationSourceRuleSetOutputWithContext(
 // AutomationSourceRuleSetArrayInput is an input type that accepts AutomationSourceRuleSetArray and AutomationSourceRuleSetArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetArrayInput` via:
 //
-//          AutomationSourceRuleSetArray{ AutomationSourceRuleSetArgs{...} }
+//	AutomationSourceRuleSetArray{ AutomationSourceRuleSetArgs{...} }
 type AutomationSourceRuleSetArrayInput interface {
 	pulumi.Input
 
@@ -526,7 +526,7 @@ type AutomationSourceRuleSetRule struct {
 // AutomationSourceRuleSetRuleInput is an input type that accepts AutomationSourceRuleSetRuleArgs and AutomationSourceRuleSetRuleOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetRuleInput` via:
 //
-//          AutomationSourceRuleSetRuleArgs{...}
+//	AutomationSourceRuleSetRuleArgs{...}
 type AutomationSourceRuleSetRuleInput interface {
 	pulumi.Input
 
@@ -560,7 +560,7 @@ func (i AutomationSourceRuleSetRuleArgs) ToAutomationSourceRuleSetRuleOutputWith
 // AutomationSourceRuleSetRuleArrayInput is an input type that accepts AutomationSourceRuleSetRuleArray and AutomationSourceRuleSetRuleArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetRuleArrayInput` via:
 //
-//          AutomationSourceRuleSetRuleArray{ AutomationSourceRuleSetRuleArgs{...} }
+//	AutomationSourceRuleSetRuleArray{ AutomationSourceRuleSetRuleArgs{...} }
 type AutomationSourceRuleSetRuleArrayInput interface {
 	pulumi.Input
 

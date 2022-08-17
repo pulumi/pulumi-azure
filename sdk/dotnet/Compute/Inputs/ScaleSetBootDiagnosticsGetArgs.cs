@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class ScaleSetBootDiagnosticsGetArgs : Pulumi.ResourceArgs
+    public sealed class ScaleSetBootDiagnosticsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public ScaleSetBootDiagnosticsGetArgs()
         {
         }
+        public static new ScaleSetBootDiagnosticsGetArgs Empty => new ScaleSetBootDiagnosticsGetArgs();
     }
 }

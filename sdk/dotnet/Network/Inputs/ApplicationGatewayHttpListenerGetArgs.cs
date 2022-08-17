@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewayHttpListenerGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewayHttpListenerGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("customErrorConfigurations")]
         private InputList<Inputs.ApplicationGatewayHttpListenerCustomErrorConfigurationGetArgs>? _customErrorConfigurations;
@@ -123,5 +123,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewayHttpListenerGetArgs()
         {
         }
+        public static new ApplicationGatewayHttpListenerGetArgs Empty => new ApplicationGatewayHttpListenerGetArgs();
     }
 }

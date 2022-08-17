@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Batch.Inputs
 {
 
-    public sealed class PoolAutoScaleArgs : Pulumi.ResourceArgs
+    public sealed class PoolAutoScaleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The interval to wait before evaluating if the pool needs to be scaled. Defaults to `PT15M`.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Batch.Inputs
         public PoolAutoScaleArgs()
         {
         }
+        public static new PoolAutoScaleArgs Empty => new PoolAutoScaleArgs();
     }
 }

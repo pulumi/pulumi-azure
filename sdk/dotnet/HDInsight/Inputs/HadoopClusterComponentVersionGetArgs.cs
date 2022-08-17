@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HadoopClusterComponentVersionGetArgs : Pulumi.ResourceArgs
+    public sealed class HadoopClusterComponentVersionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HadoopClusterComponentVersionGetArgs()
         {
         }
+        public static new HadoopClusterComponentVersionGetArgs Empty => new HadoopClusterComponentVersionGetArgs();
     }
 }

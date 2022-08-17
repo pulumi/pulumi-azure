@@ -19,82 +19,85 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		readTelemetry, err := appinsights.NewApiKey(ctx, "readTelemetry", &appinsights.ApiKeyArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			ReadPermissions: pulumi.StringArray{
-// 				pulumi.String("aggregate"),
-// 				pulumi.String("api"),
-// 				pulumi.String("draft"),
-// 				pulumi.String("extendqueries"),
-// 				pulumi.String("search"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		writeAnnotations, err := appinsights.NewApiKey(ctx, "writeAnnotations", &appinsights.ApiKeyArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			WritePermissions: pulumi.StringArray{
-// 				pulumi.String("annotations"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		authenticateSdkControlChannelApiKey, err := appinsights.NewApiKey(ctx, "authenticateSdkControlChannelApiKey", &appinsights.ApiKeyArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			ReadPermissions: pulumi.StringArray{
-// 				pulumi.String("agentconfig"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		fullPermissions, err := appinsights.NewApiKey(ctx, "fullPermissions", &appinsights.ApiKeyArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			ReadPermissions: pulumi.StringArray{
-// 				pulumi.String("agentconfig"),
-// 				pulumi.String("aggregate"),
-// 				pulumi.String("api"),
-// 				pulumi.String("draft"),
-// 				pulumi.String("extendqueries"),
-// 				pulumi.String("search"),
-// 			},
-// 			WritePermissions: pulumi.StringArray{
-// 				pulumi.String("annotations"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("readTelemetryApiKey", readTelemetry.ApiKey)
-// 		ctx.Export("writeAnnotationsApiKey", writeAnnotations.ApiKey)
-// 		ctx.Export("authenticateSdkControlChannel", authenticateSdkControlChannelApiKey.ApiKey)
-// 		ctx.Export("fullPermissionsApiKey", fullPermissions.ApiKey)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			readTelemetry, err := appinsights.NewApiKey(ctx, "readTelemetry", &appinsights.ApiKeyArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				ReadPermissions: pulumi.StringArray{
+//					pulumi.String("aggregate"),
+//					pulumi.String("api"),
+//					pulumi.String("draft"),
+//					pulumi.String("extendqueries"),
+//					pulumi.String("search"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			writeAnnotations, err := appinsights.NewApiKey(ctx, "writeAnnotations", &appinsights.ApiKeyArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				WritePermissions: pulumi.StringArray{
+//					pulumi.String("annotations"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			authenticateSdkControlChannelApiKey, err := appinsights.NewApiKey(ctx, "authenticateSdkControlChannelApiKey", &appinsights.ApiKeyArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				ReadPermissions: pulumi.StringArray{
+//					pulumi.String("agentconfig"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			fullPermissions, err := appinsights.NewApiKey(ctx, "fullPermissions", &appinsights.ApiKeyArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				ReadPermissions: pulumi.StringArray{
+//					pulumi.String("agentconfig"),
+//					pulumi.String("aggregate"),
+//					pulumi.String("api"),
+//					pulumi.String("draft"),
+//					pulumi.String("extendqueries"),
+//					pulumi.String("search"),
+//				},
+//				WritePermissions: pulumi.StringArray{
+//					pulumi.String("annotations"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("readTelemetryApiKey", readTelemetry.ApiKey)
+//			ctx.Export("writeAnnotationsApiKey", writeAnnotations.ApiKey)
+//			ctx.Export("authenticateSdkControlChannel", authenticateSdkControlChannelApiKey.ApiKey)
+//			ctx.Export("fullPermissionsApiKey", fullPermissions.ApiKey)
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -102,7 +105,9 @@ import (
 // Application Insights API keys can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1/apiKeys/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azure:appinsights/apiKey:ApiKey my_key /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1/apiKeys/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState
@@ -234,7 +239,7 @@ func (i *ApiKey) ToApiKeyOutputWithContext(ctx context.Context) ApiKeyOutput {
 // ApiKeyArrayInput is an input type that accepts ApiKeyArray and ApiKeyArrayOutput values.
 // You can construct a concrete instance of `ApiKeyArrayInput` via:
 //
-//          ApiKeyArray{ ApiKeyArgs{...} }
+//	ApiKeyArray{ ApiKeyArgs{...} }
 type ApiKeyArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +264,7 @@ func (i ApiKeyArray) ToApiKeyArrayOutputWithContext(ctx context.Context) ApiKeyA
 // ApiKeyMapInput is an input type that accepts ApiKeyMap and ApiKeyMapOutput values.
 // You can construct a concrete instance of `ApiKeyMapInput` via:
 //
-//          ApiKeyMap{ "key": ApiKeyArgs{...} }
+//	ApiKeyMap{ "key": ApiKeyArgs{...} }
 type ApiKeyMapInput interface {
 	pulumi.Input
 

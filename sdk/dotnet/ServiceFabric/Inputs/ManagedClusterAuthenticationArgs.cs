@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ManagedClusterAuthenticationArgs : Pulumi.ResourceArgs
+    public sealed class ManagedClusterAuthenticationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `active_directory` block as defined above.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ManagedClusterAuthenticationArgs()
         {
         }
+        public static new ManagedClusterAuthenticationArgs Empty => new ManagedClusterAuthenticationArgs();
     }
 }

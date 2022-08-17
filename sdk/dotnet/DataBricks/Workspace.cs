@@ -19,7 +19,7 @@ namespace Pulumi.Azure.DataBricks
     /// ```
     /// </summary>
     [AzureResourceType("azure:databricks/workspace:Workspace")]
-    public partial class Workspace : Pulumi.CustomResource
+    public partial class Workspace : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `custom_parameters` block as documented below.
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.DataBricks
         }
     }
 
-    public sealed class WorkspaceArgs : Pulumi.ResourceArgs
+    public sealed class WorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `custom_parameters` block as documented below.
@@ -256,9 +256,10 @@ namespace Pulumi.Azure.DataBricks
         public WorkspaceArgs()
         {
         }
+        public static new WorkspaceArgs Empty => new WorkspaceArgs();
     }
 
-    public sealed class WorkspaceState : Pulumi.ResourceArgs
+    public sealed class WorkspaceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `custom_parameters` block as documented below.
@@ -377,5 +378,6 @@ namespace Pulumi.Azure.DataBricks
         public WorkspaceState()
         {
         }
+        public static new WorkspaceState Empty => new WorkspaceState();
     }
 }

@@ -15,320 +15,324 @@ namespace Pulumi.Azure.Monitoring
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
     ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         UpgradePolicyMode = "Manual",
+    ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
+    ///             CreateOption = "FromImage",
+    ///         },
+    ///         NetworkProfiles = new[]
     ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             UpgradePolicyMode = "Manual",
-    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
     ///             {
-    ///                 CreateOption = "FromImage",
-    ///             },
-    ///             NetworkProfiles = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///                 Name = "TestNetworkProfile",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
     ///                 {
-    ///                     Name = "TestNetworkProfile",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
     ///                     {
-    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
-    ///                         {
-    ///                             Name = "TestIPConfiguration",
-    ///                             Primary = true,
-    ///                             SubnetId = exampleSubnet.Id,
-    ///                         },
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
     ///                     },
     ///                 },
     ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
-    ///             {
-    ///                 ComputerNamePrefix = "testvm",
-    ///                 AdminUsername = "myadmin",
-    ///             },
-    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
-    ///             {
-    ///                 Name = "Standard_F2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
     ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             TargetResourceId = exampleScaleSet.Id,
-    ///             Profiles = 
+    ///             ComputerNamePrefix = "testvm",
+    ///             AdminUsername = "myadmin",
+    ///         },
+    ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///         {
+    ///             Name = "Standard_F2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         TargetResourceId = exampleScaleSet.Id,
+    ///         Profiles = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
     ///             {
-    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///                 Name = "defaultProfile",
+    ///                 Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
     ///                 {
-    ///                     Name = "defaultProfile",
-    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                     Default = 1,
+    ///                     Minimum = 1,
+    ///                     Maximum = 10,
+    ///                 },
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
     ///                     {
-    ///                         Default = 1,
-    ///                         Minimum = 1,
-    ///                         Maximum = 10,
-    ///                     },
-    ///                     Rules = 
-    ///                     {
-    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
     ///                         {
-    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceId = exampleScaleSet.Id,
+    ///                             TimeGrain = "PT1M",
+    ///                             Statistic = "Average",
+    ///                             TimeWindow = "PT5M",
+    ///                             TimeAggregation = "Average",
+    ///                             Operator = "GreaterThan",
+    ///                             Threshold = 75,
+    ///                             MetricNamespace = "microsoft.compute/virtualmachinescalesets",
+    ///                             Dimensions = new[]
     ///                             {
-    ///                                 MetricName = "Percentage CPU",
-    ///                                 MetricResourceId = exampleScaleSet.Id,
-    ///                                 TimeGrain = "PT1M",
-    ///                                 Statistic = "Average",
-    ///                                 TimeWindow = "PT5M",
-    ///                                 TimeAggregation = "Average",
-    ///                                 Operator = "GreaterThan",
-    ///                                 Threshold = 75,
-    ///                                 MetricNamespace = "microsoft.compute/virtualmachinescalesets",
-    ///                                 Dimensions = 
+    ///                                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs
     ///                                 {
-    ///                                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerDimensionArgs
+    ///                                     Name = "AppName",
+    ///                                     Operator = "Equals",
+    ///                                     Values = new[]
     ///                                     {
-    ///                                         Name = "AppName",
-    ///                                         Operator = "Equals",
-    ///                                         Values = 
-    ///                                         {
-    ///                                             "App1",
-    ///                                         },
+    ///                                         "App1",
     ///                                     },
     ///                                 },
     ///                             },
-    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
-    ///                             {
-    ///                                 Direction = "Increase",
-    ///                                 Type = "ChangeCount",
-    ///                                 Value = 1,
-    ///                                 Cooldown = "PT1M",
-    ///                             },
     ///                         },
-    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
     ///                         {
-    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
-    ///                             {
-    ///                                 MetricName = "Percentage CPU",
-    ///                                 MetricResourceId = exampleScaleSet.Id,
-    ///                                 TimeGrain = "PT1M",
-    ///                                 Statistic = "Average",
-    ///                                 TimeWindow = "PT5M",
-    ///                                 TimeAggregation = "Average",
-    ///                                 Operator = "LessThan",
-    ///                                 Threshold = 25,
-    ///                             },
-    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
-    ///                             {
-    ///                                 Direction = "Decrease",
-    ///                                 Type = "ChangeCount",
-    ///                                 Value = 1,
-    ///                                 Cooldown = "PT1M",
-    ///                             },
+    ///                             Direction = "Increase",
+    ///                             Type = "ChangeCount",
+    ///                             Value = 1,
+    ///                             Cooldown = "PT1M",
+    ///                         },
+    ///                     },
+    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         {
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceId = exampleScaleSet.Id,
+    ///                             TimeGrain = "PT1M",
+    ///                             Statistic = "Average",
+    ///                             TimeWindow = "PT5M",
+    ///                             TimeAggregation = "Average",
+    ///                             Operator = "LessThan",
+    ///                             Threshold = 25,
+    ///                         },
+    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                         {
+    ///                             Direction = "Decrease",
+    ///                             Type = "ChangeCount",
+    ///                             Value = 1,
+    ///                             Cooldown = "PT1M",
     ///                         },
     ///                     },
     ///                 },
     ///             },
-    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         },
+    ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         {
+    ///             Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
     ///             {
-    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///                 SendToSubscriptionAdministrator = true,
+    ///                 SendToSubscriptionCoAdministrator = true,
+    ///                 CustomEmails = new[]
     ///                 {
-    ///                     SendToSubscriptionAdministrator = true,
-    ///                     SendToSubscriptionCoAdministrator = true,
-    ///                     CustomEmails = 
-    ///                     {
-    ///                         "admin@contoso.com",
-    ///                     },
+    ///                     "admin@contoso.com",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### For Fixed Dates)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.0.0.0/16",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.0.2.0/24",
-    ///             },
-    ///         });
-    ///         var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new Azure.Compute.ScaleSetArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             UpgradePolicyMode = "Manual",
-    ///             StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
-    ///             {
-    ///                 CreateOption = "FromImage",
-    ///             },
-    ///             NetworkProfiles = 
-    ///             {
-    ///                 new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
-    ///                 {
-    ///                     Name = "TestNetworkProfile",
-    ///                     Primary = true,
-    ///                     IpConfigurations = 
-    ///                     {
-    ///                         new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
-    ///                         {
-    ///                             Name = "TestIPConfiguration",
-    ///                             Primary = true,
-    ///                             SubnetId = exampleSubnet.Id,
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///             OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
-    ///             {
-    ///                 ComputerNamePrefix = "testvm",
-    ///                 AdminUsername = "myadmin",
-    ///             },
-    ///             Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
-    ///             {
-    ///                 Name = "Standard_F2",
-    ///                 Capacity = 2,
-    ///             },
-    ///         });
-    ///         var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new Azure.Monitoring.AutoscaleSettingArgs
-    ///         {
-    ///             Enabled = true,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             TargetResourceId = exampleScaleSet.Id,
-    ///             Profiles = 
-    ///             {
-    ///                 new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
-    ///                 {
-    ///                     Name = "forJuly",
-    ///                     Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
-    ///                     {
-    ///                         Default = 1,
-    ///                         Minimum = 1,
-    ///                         Maximum = 10,
-    ///                     },
-    ///                     Rules = 
-    ///                     {
-    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
-    ///                         {
-    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
-    ///                             {
-    ///                                 MetricName = "Percentage CPU",
-    ///                                 MetricResourceId = exampleScaleSet.Id,
-    ///                                 TimeGrain = "PT1M",
-    ///                                 Statistic = "Average",
-    ///                                 TimeWindow = "PT5M",
-    ///                                 TimeAggregation = "Average",
-    ///                                 Operator = "GreaterThan",
-    ///                                 Threshold = 90,
-    ///                             },
-    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
-    ///                             {
-    ///                                 Direction = "Increase",
-    ///                                 Type = "ChangeCount",
-    ///                                 Value = 2,
-    ///                                 Cooldown = "PT1M",
-    ///                             },
-    ///                         },
-    ///                         new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
-    ///                         {
-    ///                             MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
-    ///                             {
-    ///                                 MetricName = "Percentage CPU",
-    ///                                 MetricResourceId = exampleScaleSet.Id,
-    ///                                 TimeGrain = "PT1M",
-    ///                                 Statistic = "Average",
-    ///                                 TimeWindow = "PT5M",
-    ///                                 TimeAggregation = "Average",
-    ///                                 Operator = "LessThan",
-    ///                                 Threshold = 10,
-    ///                             },
-    ///                             ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
-    ///                             {
-    ///                                 Direction = "Decrease",
-    ///                                 Type = "ChangeCount",
-    ///                                 Value = 2,
-    ///                                 Cooldown = "PT1M",
-    ///                             },
-    ///                         },
-    ///                     },
-    ///                     FixedDate = new Azure.Monitoring.Inputs.AutoscaleSettingProfileFixedDateArgs
-    ///                     {
-    ///                         Timezone = "Pacific Standard Time",
-    ///                         Start = "2020-07-01T00:00:00Z",
-    ///                         End = "2020-07-31T23:59:59Z",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
-    ///             {
-    ///                 Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
-    ///                 {
-    ///                     SendToSubscriptionAdministrator = true,
-    ///                     SendToSubscriptionCoAdministrator = true,
-    ///                     CustomEmails = 
-    ///                     {
-    ///                         "admin@contoso.com",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         UpgradePolicyMode = "Manual",
+    ///         StorageProfileOsDisk = new Azure.Compute.Inputs.ScaleSetStorageProfileOsDiskArgs
+    ///         {
+    ///             CreateOption = "FromImage",
+    ///         },
+    ///         NetworkProfiles = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.ScaleSetNetworkProfileArgs
+    ///             {
+    ///                 Name = "TestNetworkProfile",
+    ///                 Primary = true,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.Compute.Inputs.ScaleSetNetworkProfileIpConfigurationArgs
+    ///                     {
+    ///                         Name = "TestIPConfiguration",
+    ///                         Primary = true,
+    ///                         SubnetId = exampleSubnet.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new Azure.Compute.Inputs.ScaleSetOsProfileArgs
+    ///         {
+    ///             ComputerNamePrefix = "testvm",
+    ///             AdminUsername = "myadmin",
+    ///         },
+    ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
+    ///         {
+    ///             Name = "Standard_F2",
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAutoscaleSetting = new Azure.Monitoring.AutoscaleSetting("exampleAutoscaleSetting", new()
+    ///     {
+    ///         Enabled = true,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         TargetResourceId = exampleScaleSet.Id,
+    ///         Profiles = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.AutoscaleSettingProfileArgs
+    ///             {
+    ///                 Name = "forJuly",
+    ///                 Capacity = new Azure.Monitoring.Inputs.AutoscaleSettingProfileCapacityArgs
+    ///                 {
+    ///                     Default = 1,
+    ///                     Minimum = 1,
+    ///                     Maximum = 10,
+    ///                 },
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         {
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceId = exampleScaleSet.Id,
+    ///                             TimeGrain = "PT1M",
+    ///                             Statistic = "Average",
+    ///                             TimeWindow = "PT5M",
+    ///                             TimeAggregation = "Average",
+    ///                             Operator = "GreaterThan",
+    ///                             Threshold = 90,
+    ///                         },
+    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                         {
+    ///                             Direction = "Increase",
+    ///                             Type = "ChangeCount",
+    ///                             Value = 2,
+    ///                             Cooldown = "PT1M",
+    ///                         },
+    ///                     },
+    ///                     new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleArgs
+    ///                     {
+    ///                         MetricTrigger = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleMetricTriggerArgs
+    ///                         {
+    ///                             MetricName = "Percentage CPU",
+    ///                             MetricResourceId = exampleScaleSet.Id,
+    ///                             TimeGrain = "PT1M",
+    ///                             Statistic = "Average",
+    ///                             TimeWindow = "PT5M",
+    ///                             TimeAggregation = "Average",
+    ///                             Operator = "LessThan",
+    ///                             Threshold = 10,
+    ///                         },
+    ///                         ScaleAction = new Azure.Monitoring.Inputs.AutoscaleSettingProfileRuleScaleActionArgs
+    ///                         {
+    ///                             Direction = "Decrease",
+    ///                             Type = "ChangeCount",
+    ///                             Value = 2,
+    ///                             Cooldown = "PT1M",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 FixedDate = new Azure.Monitoring.Inputs.AutoscaleSettingProfileFixedDateArgs
+    ///                 {
+    ///                     Timezone = "Pacific Standard Time",
+    ///                     Start = "2020-07-01T00:00:00Z",
+    ///                     End = "2020-07-31T23:59:59Z",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notification = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationArgs
+    ///         {
+    ///             Email = new Azure.Monitoring.Inputs.AutoscaleSettingNotificationEmailArgs
+    ///             {
+    ///                 SendToSubscriptionAdministrator = true,
+    ///                 SendToSubscriptionCoAdministrator = true,
+    ///                 CustomEmails = new[]
+    ///                 {
+    ///                     "admin@contoso.com",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -340,7 +344,7 @@ namespace Pulumi.Azure.Monitoring
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/autoscaleSetting:AutoscaleSetting")]
-    public partial class AutoscaleSetting : Pulumi.CustomResource
+    public partial class AutoscaleSetting : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
@@ -434,7 +438,7 @@ namespace Pulumi.Azure.Monitoring
         }
     }
 
-    public sealed class AutoscaleSettingArgs : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
@@ -499,9 +503,10 @@ namespace Pulumi.Azure.Monitoring
         public AutoscaleSettingArgs()
         {
         }
+        public static new AutoscaleSettingArgs Empty => new AutoscaleSettingArgs();
     }
 
-    public sealed class AutoscaleSettingState : Pulumi.ResourceArgs
+    public sealed class AutoscaleSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
@@ -566,5 +571,6 @@ namespace Pulumi.Azure.Monitoring
         public AutoscaleSettingState()
         {
         }
+        public static new AutoscaleSettingState Empty => new AutoscaleSettingState();
     }
 }

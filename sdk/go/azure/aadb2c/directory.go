@@ -19,26 +19,29 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/aadb2c"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/aadb2c"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := aadb2c.NewDirectory(ctx, "example", &aadb2c.DirectoryArgs{
-// 			CountryCode:           pulumi.String("US"),
-// 			DataResidencyLocation: pulumi.String("United States"),
-// 			DisplayName:           pulumi.String("example-b2c-tenant"),
-// 			DomainName:            pulumi.String("exampleb2ctenant.onmicrosoft.com"),
-// 			ResourceGroupName:     pulumi.String("example-rg"),
-// 			SkuName:               pulumi.String("PremiumP1"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := aadb2c.NewDirectory(ctx, "example", &aadb2c.DirectoryArgs{
+//				CountryCode:           pulumi.String("US"),
+//				DataResidencyLocation: pulumi.String("United States"),
+//				DisplayName:           pulumi.String("example-b2c-tenant"),
+//				DomainName:            pulumi.String("exampleb2ctenant.onmicrosoft.com"),
+//				ResourceGroupName:     pulumi.String("example-rg"),
+//				SkuName:               pulumi.String("PremiumP1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -46,7 +49,9 @@ import (
 // AAD B2C Directories can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:aadb2c/directory:Directory example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.AzureActiveDirectory/b2cDirectories/directory-name
+//
+//	$ pulumi import azure:aadb2c/directory:Directory example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.AzureActiveDirectory/b2cDirectories/directory-name
+//
 // ```
 type Directory struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *Directory) ToDirectoryOutputWithContext(ctx context.Context) DirectoryO
 // DirectoryArrayInput is an input type that accepts DirectoryArray and DirectoryArrayOutput values.
 // You can construct a concrete instance of `DirectoryArrayInput` via:
 //
-//          DirectoryArray{ DirectoryArgs{...} }
+//	DirectoryArray{ DirectoryArgs{...} }
 type DirectoryArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i DirectoryArray) ToDirectoryArrayOutputWithContext(ctx context.Context) D
 // DirectoryMapInput is an input type that accepts DirectoryMap and DirectoryMapOutput values.
 // You can construct a concrete instance of `DirectoryMapInput` via:
 //
-//          DirectoryMap{ "key": DirectoryArgs{...} }
+//	DirectoryMap{ "key": DirectoryArgs{...} }
 type DirectoryMapInput interface {
 	pulumi.Input
 

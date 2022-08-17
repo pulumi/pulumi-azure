@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.PrivateDns.Inputs
 {
 
-    public sealed class LinkServiceNatIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class LinkServiceNatIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.PrivateDns.Inputs
         public LinkServiceNatIpConfigurationArgs()
         {
         }
+        public static new LinkServiceNatIpConfigurationArgs Empty => new LinkServiceNatIpConfigurationArgs();
     }
 }

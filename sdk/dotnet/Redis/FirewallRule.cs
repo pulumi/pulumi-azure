@@ -15,51 +15,52 @@ namespace Pulumi.Azure.Redis
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using Random = Pulumi.Random;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var server = new Random.RandomId("server", new()
     ///     {
-    ///         var server = new Random.RandomId("server", new Random.RandomIdArgs
+    ///         Keepers = 
     ///         {
-    ///             Keepers = 
-    ///             {
-    ///                 { "azi_id", 1 },
-    ///             },
-    ///             ByteLength = 8,
-    ///         });
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleCache = new Azure.Redis.Cache("exampleCache", new Azure.Redis.CacheArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Capacity = 1,
-    ///             Family = "P",
-    ///             SkuName = "Premium",
-    ///             EnableNonSslPort = false,
-    ///             RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
-    ///             {
-    ///                 MaxmemoryReserved = 2,
-    ///                 MaxmemoryDelta = 2,
-    ///                 MaxmemoryPolicy = "allkeys-lru",
-    ///             },
-    ///         });
-    ///         var exampleFirewallRule = new Azure.Redis.FirewallRule("exampleFirewallRule", new Azure.Redis.FirewallRuleArgs
-    ///         {
-    ///             RedisCacheName = exampleCache.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             StartIp = "1.2.3.4",
-    ///             EndIp = "2.3.4.5",
-    ///         });
-    ///     }
+    ///             { "azi_id", 1 },
+    ///         },
+    ///         ByteLength = 8,
+    ///     });
     /// 
-    /// }
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Capacity = 1,
+    ///         Family = "P",
+    ///         SkuName = "Premium",
+    ///         EnableNonSslPort = false,
+    ///         RedisConfiguration = new Azure.Redis.Inputs.CacheRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryReserved = 2,
+    ///             MaxmemoryDelta = 2,
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("exampleFirewallRule", new()
+    ///     {
+    ///         RedisCacheName = exampleCache.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         StartIp = "1.2.3.4",
+    ///         EndIp = "2.3.4.5",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +72,7 @@ namespace Pulumi.Azure.Redis
     /// ```
     /// </summary>
     [AzureResourceType("azure:redis/firewallRule:FirewallRule")]
-    public partial class FirewallRule : Pulumi.CustomResource
+    public partial class FirewallRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The highest IP address included in the range.
@@ -147,7 +148,7 @@ namespace Pulumi.Azure.Redis
         }
     }
 
-    public sealed class FirewallRuleArgs : Pulumi.ResourceArgs
+    public sealed class FirewallRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The highest IP address included in the range.
@@ -182,9 +183,10 @@ namespace Pulumi.Azure.Redis
         public FirewallRuleArgs()
         {
         }
+        public static new FirewallRuleArgs Empty => new FirewallRuleArgs();
     }
 
-    public sealed class FirewallRuleState : Pulumi.ResourceArgs
+    public sealed class FirewallRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The highest IP address included in the range.
@@ -219,5 +221,6 @@ namespace Pulumi.Azure.Redis
         public FirewallRuleState()
         {
         }
+        public static new FirewallRuleState Empty => new FirewallRuleState();
     }
 }

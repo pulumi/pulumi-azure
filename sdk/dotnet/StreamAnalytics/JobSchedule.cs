@@ -15,105 +15,110 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     {
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         Type = "Block",
+    ///         Source = new FileAsset("example.csv"),
+    ///     });
+    /// 
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         CompatibilityLevel = "1.2",
+    ///         DataLocale = "en-GB",
+    ///         EventsLateArrivalMaxDelayInSeconds = 60,
+    ///         EventsOutOfOrderMaxDelayInSeconds = 50,
+    ///         EventsOutOfOrderPolicy = "Adjust",
+    ///         OutputErrorPolicy = "Drop",
+    ///         StreamingUnits = 3,
+    ///         Tags = 
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///         });
-    ///         var exampleContainer = new Azure.Storage.Container("exampleContainer", new Azure.Storage.ContainerArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             ContainerAccessType = "private",
-    ///         });
-    ///         var exampleBlob = new Azure.Storage.Blob("exampleBlob", new Azure.Storage.BlobArgs
-    ///         {
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             Type = "Block",
-    ///             Source = new FileAsset("example.csv"),
-    ///         });
-    ///         var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new Azure.StreamAnalytics.JobArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             CompatibilityLevel = "1.2",
-    ///             DataLocale = "en-GB",
-    ///             EventsLateArrivalMaxDelayInSeconds = 60,
-    ///             EventsOutOfOrderMaxDelayInSeconds = 50,
-    ///             EventsOutOfOrderPolicy = "Adjust",
-    ///             OutputErrorPolicy = "Drop",
-    ///             StreamingUnits = 3,
-    ///             Tags = 
-    ///             {
-    ///                 { "environment", "Example" },
-    ///             },
-    ///             TransformationQuery = @"    SELECT *
+    ///             { "environment", "Example" },
+    ///         },
+    ///         TransformationQuery = @"    SELECT *
     ///     INTO [exampleoutput]
     ///     FROM [exampleinput]
     /// ",
-    ///         });
-    ///         var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("exampleStreamInputBlob", new Azure.StreamAnalytics.StreamInputBlobArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Name,
-    ///             ResourceGroupName = exampleJob.ResourceGroupName,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             PathPattern = "",
-    ///             DateFormat = "yyyy/MM/dd",
-    ///             TimeFormat = "HH",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.StreamInputBlobSerializationArgs
-    ///             {
-    ///                 Type = "Csv",
-    ///                 Encoding = "UTF8",
-    ///                 FieldDelimiter = ",",
-    ///             },
-    ///         });
-    ///         var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("exampleOutputBlob", new Azure.StreamAnalytics.OutputBlobArgs
-    ///         {
-    ///             StreamAnalyticsJobName = exampleJob.Name,
-    ///             ResourceGroupName = exampleJob.ResourceGroupName,
-    ///             StorageAccountName = exampleAccount.Name,
-    ///             StorageAccountKey = exampleAccount.PrimaryAccessKey,
-    ///             StorageContainerName = exampleContainer.Name,
-    ///             PathPattern = "example-{date}-{time}",
-    ///             DateFormat = "yyyy-MM-dd",
-    ///             TimeFormat = "HH",
-    ///             Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
-    ///             {
-    ///                 Type = "Avro",
-    ///             },
-    ///         });
-    ///         var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("exampleJobSchedule", new Azure.StreamAnalytics.JobScheduleArgs
-    ///         {
-    ///             StreamAnalyticsJobId = exampleJob.Id,
-    ///             StartMode = "CustomTime",
-    ///             StartTime = "2022-09-21T00:00:00Z",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 exampleJob,
-    ///                 exampleStreamInputBlob,
-    ///                 exampleOutputBlob,
-    ///             },
-    ///         });
-    ///     }
+    ///     });
     /// 
-    /// }
+    ///     var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("exampleStreamInputBlob", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Name,
+    ///         ResourceGroupName = exampleJob.ResourceGroupName,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         PathPattern = "",
+    ///         DateFormat = "yyyy/MM/dd",
+    ///         TimeFormat = "HH",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.StreamInputBlobSerializationArgs
+    ///         {
+    ///             Type = "Csv",
+    ///             Encoding = "UTF8",
+    ///             FieldDelimiter = ",",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("exampleOutputBlob", new()
+    ///     {
+    ///         StreamAnalyticsJobName = exampleJob.Name,
+    ///         ResourceGroupName = exampleJob.ResourceGroupName,
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
+    ///         StorageContainerName = exampleContainer.Name,
+    ///         PathPattern = "example-{date}-{time}",
+    ///         DateFormat = "yyyy-MM-dd",
+    ///         TimeFormat = "HH",
+    ///         Serialization = new Azure.StreamAnalytics.Inputs.OutputBlobSerializationArgs
+    ///         {
+    ///             Type = "Avro",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("exampleJobSchedule", new()
+    ///     {
+    ///         StreamAnalyticsJobId = exampleJob.Id,
+    ///         StartMode = "CustomTime",
+    ///         StartTime = "2022-09-21T00:00:00Z",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             exampleJob,
+    ///             exampleStreamInputBlob,
+    ///             exampleOutputBlob,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -125,7 +130,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/jobSchedule:JobSchedule")]
-    public partial class JobSchedule : Pulumi.CustomResource
+    public partial class JobSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The time at which the Stream Analytics job last produced an output.
@@ -195,7 +200,7 @@ namespace Pulumi.Azure.StreamAnalytics
         }
     }
 
-    public sealed class JobScheduleArgs : Pulumi.ResourceArgs
+    public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The starting mode of the Stream Analytics Job. Possible values are `JobStartTime`, `CustomTime` and `LastOutputEventTime`.
@@ -218,9 +223,10 @@ namespace Pulumi.Azure.StreamAnalytics
         public JobScheduleArgs()
         {
         }
+        public static new JobScheduleArgs Empty => new JobScheduleArgs();
     }
 
-    public sealed class JobScheduleState : Pulumi.ResourceArgs
+    public sealed class JobScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The time at which the Stream Analytics job last produced an output.
@@ -249,5 +255,6 @@ namespace Pulumi.Azure.StreamAnalytics
         public JobScheduleState()
         {
         }
+        public static new JobScheduleState Empty => new JobScheduleState();
     }
 }

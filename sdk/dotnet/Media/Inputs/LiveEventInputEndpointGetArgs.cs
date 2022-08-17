@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class LiveEventInputEndpointGetArgs : Pulumi.ResourceArgs
+    public sealed class LiveEventInputEndpointGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.Media.Inputs
         public LiveEventInputEndpointGetArgs()
         {
         }
+        public static new LiveEventInputEndpointGetArgs Empty => new LiveEventInputEndpointGetArgs();
     }
 }

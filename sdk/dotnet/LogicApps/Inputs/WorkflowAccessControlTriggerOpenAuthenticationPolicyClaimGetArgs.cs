@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.LogicApps.Inputs
 {
 
-    public sealed class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs : Pulumi.ResourceArgs
+    public sealed class WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the OAuth policy claim for the Logic App Workflow.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.LogicApps.Inputs
         public WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs()
         {
         }
+        public static new WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs Empty => new WorkflowAccessControlTriggerOpenAuthenticationPolicyClaimGetArgs();
     }
 }

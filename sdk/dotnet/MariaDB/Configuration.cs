@@ -15,37 +15,37 @@ namespace Pulumi.Azure.MariaDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             SkuName = "B_Gen5_2",
-    ///             SslEnforcementEnabled = true,
-    ///             AdministratorLogin = "mariadbadmin",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Version = "10.2",
-    ///         });
-    ///         var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new Azure.MariaDB.ConfigurationArgs
-    ///         {
-    ///             Name = "interactive_timeout",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             Value = "600",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MariaDB.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         SkuName = "B_Gen5_2",
+    ///         SslEnforcementEnabled = true,
+    ///         AdministratorLogin = "mariadbadmin",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "10.2",
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new()
+    ///     {
+    ///         Name = "interactive_timeout",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         Value = "600",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +57,7 @@ namespace Pulumi.Azure.MariaDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:mariadb/configuration:Configuration")]
-    public partial class Configuration : Pulumi.CustomResource
+    public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
@@ -127,7 +127,7 @@ namespace Pulumi.Azure.MariaDB
         }
     }
 
-    public sealed class ConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
@@ -156,9 +156,10 @@ namespace Pulumi.Azure.MariaDB
         public ConfigurationArgs()
         {
         }
+        public static new ConfigurationArgs Empty => new ConfigurationArgs();
     }
 
-    public sealed class ConfigurationState : Pulumi.ResourceArgs
+    public sealed class ConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the name of the MariaDB Configuration, which needs [to be a valid MariaDB configuration name](https://mariadb.com/kb/en/library/server-system-variables/). Changing this forces a new resource to be created.
@@ -187,5 +188,6 @@ namespace Pulumi.Azure.MariaDB
         public ConfigurationState()
         {
         }
+        public static new ConfigurationState Empty => new ConfigurationState();
     }
 }

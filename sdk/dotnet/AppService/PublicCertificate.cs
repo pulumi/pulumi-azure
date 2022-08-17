@@ -16,49 +16,50 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var examplePlan = new Azure.AppService.Plan("examplePlan", new Azure.AppService.PlanArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///             {
-    ///                 Tier = "Standard",
-    ///                 Size = "S1",
-    ///             },
-    ///         });
-    ///         var exampleAppService = new Azure.AppService.AppService("exampleAppService", new Azure.AppService.AppServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServicePlanId = examplePlan.Id,
-    ///         });
-    ///         var examplePublicCertificate = new Azure.AppService.PublicCertificate("examplePublicCertificate", new Azure.AppService.PublicCertificateArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AppServiceName = exampleAppService.Name,
-    ///             CertificateName = "example-public-certificate",
-    ///             CertificateLocation = "Unknown",
-    ///             Blob = ReadFileBase64("app_service_public_certificate.cer"),
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Size = "S1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var examplePublicCertificate = new Azure.AppService.PublicCertificate("examplePublicCertificate", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServiceName = exampleAppService.Name,
+    ///         CertificateName = "example-public-certificate",
+    ///         CertificateLocation = "Unknown",
+    ///         Blob = ReadFileBase64("app_service_public_certificate.cer"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -70,7 +71,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/publicCertificate:PublicCertificate")]
-    public partial class PublicCertificate : Pulumi.CustomResource
+    public partial class PublicCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
@@ -152,7 +153,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class PublicCertificateArgs : Pulumi.ResourceArgs
+    public sealed class PublicCertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
@@ -187,9 +188,10 @@ namespace Pulumi.Azure.AppService
         public PublicCertificateArgs()
         {
         }
+        public static new PublicCertificateArgs Empty => new PublicCertificateArgs();
     }
 
-    public sealed class PublicCertificateState : Pulumi.ResourceArgs
+    public sealed class PublicCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the App Service. Changing this forces a new App Service Public Certificate to be created.
@@ -230,5 +232,6 @@ namespace Pulumi.Azure.AppService
         public PublicCertificateState()
         {
         }
+        public static new PublicCertificateState Empty => new PublicCertificateState();
     }
 }

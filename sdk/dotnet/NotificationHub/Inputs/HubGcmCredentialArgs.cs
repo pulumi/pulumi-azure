@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NotificationHub.Inputs
 {
 
-    public sealed class HubGcmCredentialArgs : Pulumi.ResourceArgs
+    public sealed class HubGcmCredentialArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The API Key associated with the Google Cloud Messaging service.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.NotificationHub.Inputs
         public HubGcmCredentialArgs()
         {
         }
+        public static new HubGcmCredentialArgs Empty => new HubGcmCredentialArgs();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ApplicationGatewaySslPolicyGetArgs : Pulumi.ResourceArgs
+    public sealed class ApplicationGatewaySslPolicyGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("cipherSuites")]
         private InputList<string>? _cipherSuites;
@@ -58,5 +58,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ApplicationGatewaySslPolicyGetArgs()
         {
         }
+        public static new ApplicationGatewaySslPolicyGetArgs Empty => new ApplicationGatewaySslPolicyGetArgs();
     }
 }

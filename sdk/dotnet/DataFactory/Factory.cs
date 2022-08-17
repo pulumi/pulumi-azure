@@ -15,25 +15,24 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -45,7 +44,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/factory:Factory")]
-    public partial class Factory : Pulumi.CustomResource
+    public partial class Factory : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
@@ -166,7 +165,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class FactoryArgs : Pulumi.ResourceArgs
+    public sealed class FactoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
@@ -258,9 +257,10 @@ namespace Pulumi.Azure.DataFactory
         public FactoryArgs()
         {
         }
+        public static new FactoryArgs Empty => new FactoryArgs();
     }
 
-    public sealed class FactoryState : Pulumi.ResourceArgs
+    public sealed class FactoryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
@@ -352,5 +352,6 @@ namespace Pulumi.Azure.DataFactory
         public FactoryState()
         {
         }
+        public static new FactoryState Empty => new FactoryState();
     }
 }

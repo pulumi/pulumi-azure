@@ -15,31 +15,31 @@ namespace Pulumi.Azure.DataFactory
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new Azure.DataFactory.FactoryArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleIntegrationRuntimeSsis = new Azure.DataFactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", new Azure.DataFactory.IntegrationRuntimeSsisArgs
-    ///         {
-    ///             DataFactoryId = exampleFactory.Id,
-    ///             Location = exampleResourceGroup.Location,
-    ///             NodeSize = "Standard_D8_v3",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleIntegrationRuntimeSsis = new Azure.DataFactory.IntegrationRuntimeSsis("exampleIntegrationRuntimeSsis", new()
+    ///     {
+    ///         DataFactoryId = exampleFactory.Id,
+    ///         Location = exampleResourceGroup.Location,
+    ///         NodeSize = "Standard_D8_v3",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -51,7 +51,7 @@ namespace Pulumi.Azure.DataFactory
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis")]
-    public partial class IntegrationRuntimeSsis : Pulumi.CustomResource
+    public partial class IntegrationRuntimeSsis : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -187,7 +187,7 @@ namespace Pulumi.Azure.DataFactory
         }
     }
 
-    public sealed class IntegrationRuntimeSsisArgs : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -288,9 +288,10 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeSsisArgs()
         {
         }
+        public static new IntegrationRuntimeSsisArgs Empty => new IntegrationRuntimeSsisArgs();
     }
 
-    public sealed class IntegrationRuntimeSsisState : Pulumi.ResourceArgs
+    public sealed class IntegrationRuntimeSsisState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A `catalog_info` block as defined below.
@@ -391,5 +392,6 @@ namespace Pulumi.Azure.DataFactory
         public IntegrationRuntimeSsisState()
         {
         }
+        public static new IntegrationRuntimeSsisState Empty => new IntegrationRuntimeSsisState();
     }
 }

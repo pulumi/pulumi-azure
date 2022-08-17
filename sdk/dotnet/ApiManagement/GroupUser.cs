@@ -15,29 +15,28 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleUser = Azure.ApiManagement.GetUser.Invoke(new()
     ///     {
-    ///         var exampleUser = Output.Create(Azure.ApiManagement.GetUser.InvokeAsync(new Azure.ApiManagement.GetUserArgs
-    ///         {
-    ///             UserId = "my-user",
-    ///             ApiManagementName = "example-apim",
-    ///             ResourceGroupName = "search-service",
-    ///         }));
-    ///         var exampleGroupUser = new Azure.ApiManagement.GroupUser("exampleGroupUser", new Azure.ApiManagement.GroupUserArgs
-    ///         {
-    ///             UserId = exampleUser.Apply(exampleUser =&gt; exampleUser.Id),
-    ///             GroupName = "example-group",
-    ///             ResourceGroupName = exampleUser.Apply(exampleUser =&gt; exampleUser.ResourceGroupName),
-    ///             ApiManagementName = exampleUser.Apply(exampleUser =&gt; exampleUser.ApiManagementName),
-    ///         });
-    ///     }
+    ///         UserId = "my-user",
+    ///         ApiManagementName = "example-apim",
+    ///         ResourceGroupName = "search-service",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGroupUser = new Azure.ApiManagement.GroupUser("exampleGroupUser", new()
+    ///     {
+    ///         UserId = exampleUser.Apply(getUserResult =&gt; getUserResult.Id),
+    ///         GroupName = "example-group",
+    ///         ResourceGroupName = exampleUser.Apply(getUserResult =&gt; getUserResult.ResourceGroupName),
+    ///         ApiManagementName = exampleUser.Apply(getUserResult =&gt; getUserResult.ApiManagementName),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/groupUser:GroupUser")]
-    public partial class GroupUser : Pulumi.CustomResource
+    public partial class GroupUser : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -119,7 +118,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class GroupUserArgs : Pulumi.ResourceArgs
+    public sealed class GroupUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -148,9 +147,10 @@ namespace Pulumi.Azure.ApiManagement
         public GroupUserArgs()
         {
         }
+        public static new GroupUserArgs Empty => new GroupUserArgs();
     }
 
-    public sealed class GroupUserState : Pulumi.ResourceArgs
+    public sealed class GroupUserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -179,5 +179,6 @@ namespace Pulumi.Azure.ApiManagement
         public GroupUserState()
         {
         }
+        public static new GroupUserState Empty => new GroupUserState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ManagementPolicyRuleActionsVersionGetArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleActionsVersionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The age in days after creation to tier blob version to archive storage. Must be between 0 and 99999.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ManagementPolicyRuleActionsVersionGetArgs()
         {
         }
+        public static new ManagementPolicyRuleActionsVersionGetArgs Empty => new ManagementPolicyRuleActionsVersionGetArgs();
     }
 }

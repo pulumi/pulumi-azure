@@ -15,32 +15,32 @@ namespace Pulumi.Azure.MSSql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MSSql.Server("exampleServer", new Azure.MSSql.ServerArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Version = "12.0",
-    ///             AdministratorLogin = "missadministrator",
-    ///             AdministratorLoginPassword = "AdminPassword123!",
-    ///         });
-    ///         var exampleServerDnsAlias = new Azure.MSSql.ServerDnsAlias("exampleServerDnsAlias", new Azure.MSSql.ServerDnsAliasArgs
-    ///         {
-    ///             MssqlServerId = exampleServer.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Version = "12.0",
+    ///         AdministratorLogin = "missadministrator",
+    ///         AdministratorLoginPassword = "AdminPassword123!",
+    ///     });
+    /// 
+    ///     var exampleServerDnsAlias = new Azure.MSSql.ServerDnsAlias("exampleServerDnsAlias", new()
+    ///     {
+    ///         MssqlServerId = exampleServer.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +52,7 @@ namespace Pulumi.Azure.MSSql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/serverDnsAlias:ServerDnsAlias")]
-    public partial class ServerDnsAlias : Pulumi.CustomResource
+    public partial class ServerDnsAlias : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The fully qualified DNS record for alias.
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.MSSql
         }
     }
 
-    public sealed class ServerDnsAliasArgs : Pulumi.ResourceArgs
+    public sealed class ServerDnsAliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the mssql server. Changing this forces a new MSSQL Server DNS Alias to be created.
@@ -133,9 +133,10 @@ namespace Pulumi.Azure.MSSql
         public ServerDnsAliasArgs()
         {
         }
+        public static new ServerDnsAliasArgs Empty => new ServerDnsAliasArgs();
     }
 
-    public sealed class ServerDnsAliasState : Pulumi.ResourceArgs
+    public sealed class ServerDnsAliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The fully qualified DNS record for alias.
@@ -158,5 +159,6 @@ namespace Pulumi.Azure.MSSql
         public ServerDnsAliasState()
         {
         }
+        public static new ServerDnsAliasState Empty => new ServerDnsAliasState();
     }
 }

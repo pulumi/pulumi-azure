@@ -17,53 +17,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/sql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
-// 			ResourceGroupName:          exampleResourceGroup.Name,
-// 			Location:                   exampleResourceGroup.Location,
-// 			AdministratorLogin:         pulumi.String("mradministrator"),
-// 			AdministratorLoginPassword: pulumi.String("thisIsDog11"),
-// 			LicenseType:                pulumi.String("BasePrice"),
-// 			SubnetId:                   pulumi.Any(azurerm_subnet.Example.Id),
-// 			SkuName:                    pulumi.String("GP_Gen5"),
-// 			Vcores:                     pulumi.Int(4),
-// 			StorageSizeInGb:            pulumi.Int(32),
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			azurerm_subnet_network_security_group_association.Example,
-// 			azurerm_subnet_route_table_association.Example,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		current, err := core.GetClientConfig(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
-// 			ManagedInstanceName: exampleManagedInstance.Name,
-// 			ResourceGroupName:   exampleResourceGroup.Name,
-// 			Login:               pulumi.String("sqladmin"),
-// 			TenantId:            pulumi.String(current.TenantId),
-// 			ObjectId:            pulumi.String(current.ObjectId),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
+//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Location:                   exampleResourceGroup.Location,
+//				AdministratorLogin:         pulumi.String("mradministrator"),
+//				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
+//				LicenseType:                pulumi.String("BasePrice"),
+//				SubnetId:                   pulumi.Any(azurerm_subnet.Example.Id),
+//				SkuName:                    pulumi.String("GP_Gen5"),
+//				Vcores:                     pulumi.Int(4),
+//				StorageSizeInGb:            pulumi.Int(32),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				azurerm_subnet_network_security_group_association.Example,
+//				azurerm_subnet_route_table_association.Example,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
+//				ManagedInstanceName: exampleManagedInstance.Name,
+//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Login:               pulumi.String("sqladmin"),
+//				TenantId:            pulumi.String(current.TenantId),
+//				ObjectId:            pulumi.String(current.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -71,7 +74,9 @@ import (
 // A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
+//
+//	$ pulumi import azure:sql/managedInstanceActiveDirectoryAdministrator:ManagedInstanceActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/mymanagedinstance/administrators/activeDirectory
+//
 // ```
 type ManagedInstanceActiveDirectoryAdministrator struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *ManagedInstanceActiveDirectoryAdministrator) ToManagedInstanceActiveDir
 // ManagedInstanceActiveDirectoryAdministratorArrayInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorArray and ManagedInstanceActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `ManagedInstanceActiveDirectoryAdministratorArrayInput` via:
 //
-//          ManagedInstanceActiveDirectoryAdministratorArray{ ManagedInstanceActiveDirectoryAdministratorArgs{...} }
+//	ManagedInstanceActiveDirectoryAdministratorArray{ ManagedInstanceActiveDirectoryAdministratorArgs{...} }
 type ManagedInstanceActiveDirectoryAdministratorArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i ManagedInstanceActiveDirectoryAdministratorArray) ToManagedInstanceActiv
 // ManagedInstanceActiveDirectoryAdministratorMapInput is an input type that accepts ManagedInstanceActiveDirectoryAdministratorMap and ManagedInstanceActiveDirectoryAdministratorMapOutput values.
 // You can construct a concrete instance of `ManagedInstanceActiveDirectoryAdministratorMapInput` via:
 //
-//          ManagedInstanceActiveDirectoryAdministratorMap{ "key": ManagedInstanceActiveDirectoryAdministratorArgs{...} }
+//	ManagedInstanceActiveDirectoryAdministratorMap{ "key": ManagedInstanceActiveDirectoryAdministratorArgs{...} }
 type ManagedInstanceActiveDirectoryAdministratorMapInput interface {
 	pulumi.Input
 

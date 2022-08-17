@@ -19,62 +19,65 @@ import (
 // package main
 //
 // import (
-// 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
-// 			Name:              pulumi.String("example-job"),
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		}, nil)
-// 		exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			Location:          exampleResourceGroup.Location,
-// 			Sku: &iot.IoTHubSkuArgs{
-// 				Name:     pulumi.String("S1"),
-// 				Capacity: pulumi.Int(1),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = streamanalytics.NewStreamInputIotHub(ctx, "exampleStreamInputIotHub", &streamanalytics.StreamInputIotHubArgs{
-// 			StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.Name, nil
-// 			}).(pulumi.StringOutput),
-// 			ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
-// 				return exampleJob.ResourceGroupName, nil
-// 			}).(pulumi.StringOutput),
-// 			Endpoint:                  pulumi.String("messages/events"),
-// 			EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("$Default")),
-// 			IothubNamespace:           exampleIoTHub.Name,
-// 			SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
-// 				return sharedAccessPolicies[0].PrimaryKey, nil
-// 			}).(pulumi.StringOutput),
-// 			SharedAccessPolicyName: pulumi.String("iothubowner"),
-// 			Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
-// 				Type:     pulumi.String("Json"),
-// 				Encoding: pulumi.String("UTF8"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//				Name:              pulumi.String("example-job"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = streamanalytics.NewStreamInputIotHub(ctx, "exampleStreamInputIotHub", &streamanalytics.StreamInputIotHubArgs{
+//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.Name, nil
+//				}).(pulumi.StringOutput),
+//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (string, error) {
+//					return exampleJob.ResourceGroupName, nil
+//				}).(pulumi.StringOutput),
+//				Endpoint:                  pulumi.String("messages/events"),
+//				EventhubConsumerGroupName: pulumi.String(fmt.Sprintf("$Default")),
+//				IothubNamespace:           exampleIoTHub.Name,
+//				SharedAccessPolicyKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (string, error) {
+//					return sharedAccessPolicies[0].PrimaryKey, nil
+//				}).(pulumi.StringOutput),
+//				SharedAccessPolicyName: pulumi.String("iothubowner"),
+//				Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{
+//					Type:     pulumi.String("Json"),
+//					Encoding: pulumi.String("UTF8"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -82,7 +85,9 @@ import (
 // Stream Analytics Stream Input IoTHub's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
+//	$ pulumi import azure:streamanalytics/streamInputIotHub:StreamInputIotHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.StreamAnalytics/streamingjobs/job1/inputs/input1
+//
 // ```
 type StreamInputIotHub struct {
 	pulumi.CustomResourceState
@@ -274,7 +279,7 @@ func (i *StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Con
 // StreamInputIotHubArrayInput is an input type that accepts StreamInputIotHubArray and StreamInputIotHubArrayOutput values.
 // You can construct a concrete instance of `StreamInputIotHubArrayInput` via:
 //
-//          StreamInputIotHubArray{ StreamInputIotHubArgs{...} }
+//	StreamInputIotHubArray{ StreamInputIotHubArgs{...} }
 type StreamInputIotHubArrayInput interface {
 	pulumi.Input
 
@@ -299,7 +304,7 @@ func (i StreamInputIotHubArray) ToStreamInputIotHubArrayOutputWithContext(ctx co
 // StreamInputIotHubMapInput is an input type that accepts StreamInputIotHubMap and StreamInputIotHubMapOutput values.
 // You can construct a concrete instance of `StreamInputIotHubMapInput` via:
 //
-//          StreamInputIotHubMap{ "key": StreamInputIotHubArgs{...} }
+//	StreamInputIotHubMap{ "key": StreamInputIotHubArgs{...} }
 type StreamInputIotHubMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class NetworkPacketCaptureStorageLocationArgs : Pulumi.ResourceArgs
+    public sealed class NetworkPacketCaptureStorageLocationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public NetworkPacketCaptureStorageLocationArgs()
         {
         }
+        public static new NetworkPacketCaptureStorageLocationArgs Empty => new NetworkPacketCaptureStorageLocationArgs();
     }
 }

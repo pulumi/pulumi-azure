@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DevTest.Inputs
 {
 
-    public sealed class GlobalVMShutdownScheduleNotificationSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class GlobalVMShutdownScheduleNotificationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// E-mail address to which the notification will be sent.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.DevTest.Inputs
         public GlobalVMShutdownScheduleNotificationSettingsGetArgs()
         {
         }
+        public static new GlobalVMShutdownScheduleNotificationSettingsGetArgs Empty => new GlobalVMShutdownScheduleNotificationSettingsGetArgs();
     }
 }

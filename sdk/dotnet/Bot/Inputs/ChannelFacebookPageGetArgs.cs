@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Bot.Inputs
 {
 
-    public sealed class ChannelFacebookPageGetArgs : Pulumi.ResourceArgs
+    public sealed class ChannelFacebookPageGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Facebook Page Access Token for the Facebook Channel.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Bot.Inputs
         public ChannelFacebookPageGetArgs()
         {
         }
+        public static new ChannelFacebookPageGetArgs Empty => new ChannelFacebookPageGetArgs();
     }
 }

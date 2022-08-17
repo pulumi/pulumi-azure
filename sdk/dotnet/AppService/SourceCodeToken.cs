@@ -13,21 +13,19 @@ namespace Pulumi.Azure.AppService
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.AppService.SourceCodeToken("example", new()
     ///     {
-    ///         var example = new Azure.AppService.SourceCodeToken("example", new Azure.AppService.SourceCodeTokenArgs
-    ///         {
-    ///             Token = "7e57735e77e577e57",
-    ///             Type = "GitHub",
-    ///         });
-    ///     }
+    ///         Token = "7e57735e77e577e57",
+    ///         Type = "GitHub",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -39,7 +37,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/sourceCodeToken:SourceCodeToken")]
-    public partial class SourceCodeToken : Pulumi.CustomResource
+    public partial class SourceCodeToken : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The OAuth access token.
@@ -103,7 +101,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class SourceCodeTokenArgs : Pulumi.ResourceArgs
+    public sealed class SourceCodeTokenArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth access token.
@@ -126,9 +124,10 @@ namespace Pulumi.Azure.AppService
         public SourceCodeTokenArgs()
         {
         }
+        public static new SourceCodeTokenArgs Empty => new SourceCodeTokenArgs();
     }
 
-    public sealed class SourceCodeTokenState : Pulumi.ResourceArgs
+    public sealed class SourceCodeTokenState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The OAuth access token.
@@ -151,5 +150,6 @@ namespace Pulumi.Azure.AppService
         public SourceCodeTokenState()
         {
         }
+        public static new SourceCodeTokenState Empty => new SourceCodeTokenState();
     }
 }

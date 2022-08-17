@@ -15,29 +15,28 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleSync = new Azure.Storage.Sync("exampleSync", new Azure.Storage.SyncArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             Tags = 
-    ///             {
-    ///                 { "foo", "bar" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleSync = new Azure.Storage.Sync("exampleSync", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -49,7 +48,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/sync:Sync")]
-    public partial class Sync : Pulumi.CustomResource
+    public partial class Sync : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
@@ -125,7 +124,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class SyncArgs : Pulumi.ResourceArgs
+    public sealed class SyncArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
@@ -166,9 +165,10 @@ namespace Pulumi.Azure.Storage
         public SyncArgs()
         {
         }
+        public static new SyncArgs Empty => new SyncArgs();
     }
 
-    public sealed class SyncState : Pulumi.ResourceArgs
+    public sealed class SyncState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Incoming traffic policy. Possible values are `AllowAllTraffic` and `AllowVirtualNetworksOnly`.
@@ -209,5 +209,6 @@ namespace Pulumi.Azure.Storage
         public SyncState()
         {
         }
+        public static new SyncState Empty => new SyncState();
     }
 }

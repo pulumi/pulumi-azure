@@ -19,24 +19,23 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.ApiManagementId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("apiManagementId")]
-        ///     public Output&lt;string&gt; ApiManagementId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.ApiManagement
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-        ///         {
-        ///             Name = "search-api",
-        ///             ResourceGroupName = "search-service",
-        ///         }));
-        ///         this.ApiManagementId = example.Apply(example =&gt; example.Id);
-        ///     }
+        ///         Name = "search-api",
+        ///         ResourceGroupName = "search-service",
+        ///     });
         /// 
-        ///     [Output("apiManagementId")]
-        ///     public Output&lt;string&gt; ApiManagementId { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["apiManagementId"] = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.ApiManagement
     }
 
 
-    public sealed class GetServiceArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management service.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.ApiManagement
         public GetServiceArgs()
         {
         }
+        public static new GetServiceArgs Empty => new GetServiceArgs();
     }
 
-    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetServiceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the API Management service.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.ApiManagement
         public GetServiceInvokeArgs()
         {
         }
+        public static new GetServiceInvokeArgs Empty => new GetServiceInvokeArgs();
     }
 
 

@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := automation.NewJobSchedule(ctx, "example", &automation.JobScheduleArgs{
-// 			AutomationAccountName: pulumi.String("tf-automation-account"),
-// 			Parameters: pulumi.StringMap{
-// 				"resourcegroup": pulumi.String("tf-rgr-vm"),
-// 				"vmname":        pulumi.String("TF-VM-01"),
-// 			},
-// 			ResourceGroupName: pulumi.String("tf-rgr-automation"),
-// 			RunbookName:       pulumi.String("Get-VirtualMachine"),
-// 			ScheduleName:      pulumi.String("hour"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := automation.NewJobSchedule(ctx, "example", &automation.JobScheduleArgs{
+//				AutomationAccountName: pulumi.String("tf-automation-account"),
+//				Parameters: pulumi.StringMap{
+//					"resourcegroup": pulumi.String("tf-rgr-vm"),
+//					"vmname":        pulumi.String("TF-VM-01"),
+//				},
+//				ResourceGroupName: pulumi.String("tf-rgr-automation"),
+//				RunbookName:       pulumi.String("Get-VirtualMachine"),
+//				ScheduleName:      pulumi.String("hour"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // Automation Job Schedules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+//
+//	$ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+//
 // ```
 type JobSchedule struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobSch
 // JobScheduleArrayInput is an input type that accepts JobScheduleArray and JobScheduleArrayOutput values.
 // You can construct a concrete instance of `JobScheduleArrayInput` via:
 //
-//          JobScheduleArray{ JobScheduleArgs{...} }
+//	JobScheduleArray{ JobScheduleArgs{...} }
 type JobScheduleArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i JobScheduleArray) ToJobScheduleArrayOutputWithContext(ctx context.Contex
 // JobScheduleMapInput is an input type that accepts JobScheduleMap and JobScheduleMapOutput values.
 // You can construct a concrete instance of `JobScheduleMapInput` via:
 //
-//          JobScheduleMap{ "key": JobScheduleArgs{...} }
+//	JobScheduleMap{ "key": JobScheduleArgs{...} }
 type JobScheduleMapInput interface {
 	pulumi.Input
 

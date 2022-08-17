@@ -15,39 +15,39 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleService = new Azure.ApiManagement.Service("exampleService", new Azure.ApiManagement.ServiceArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             PublisherName = "My Company",
-    ///             PublisherEmail = "company@mycompany.io",
-    ///             SkuName = "Developer_1",
-    ///         });
-    ///         var exampleIdentityProviderAad = new Azure.ApiManagement.IdentityProviderAad("exampleIdentityProviderAad", new Azure.ApiManagement.IdentityProviderAadArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ApiManagementName = exampleService.Name,
-    ///             ClientId = "00000000-0000-0000-0000-000000000000",
-    ///             ClientSecret = "00000000000000000000000000000000",
-    ///             AllowedTenants = 
-    ///             {
-    ///                 "00000000-0000-0000-0000-000000000000",
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         PublisherName = "My Company",
+    ///         PublisherEmail = "company@mycompany.io",
+    ///         SkuName = "Developer_1",
+    ///     });
+    /// 
+    ///     var exampleIdentityProviderAad = new Azure.ApiManagement.IdentityProviderAad("exampleIdentityProviderAad", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ApiManagementName = exampleService.Name,
+    ///         ClientId = "00000000-0000-0000-0000-000000000000",
+    ///         ClientSecret = "00000000000000000000000000000000",
+    ///         AllowedTenants = new[]
+    ///         {
+    ///             "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -59,7 +59,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderAad:IdentityProviderAad")]
-    public partial class IdentityProviderAad : Pulumi.CustomResource
+    public partial class IdentityProviderAad : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of allowed AAD Tenants.
@@ -141,7 +141,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class IdentityProviderAadArgs : Pulumi.ResourceArgs
+    public sealed class IdentityProviderAadArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedTenants", required: true)]
         private InputList<string>? _allowedTenants;
@@ -188,9 +188,10 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderAadArgs()
         {
         }
+        public static new IdentityProviderAadArgs Empty => new IdentityProviderAadArgs();
     }
 
-    public sealed class IdentityProviderAadState : Pulumi.ResourceArgs
+    public sealed class IdentityProviderAadState : global::Pulumi.ResourceArgs
     {
         [Input("allowedTenants")]
         private InputList<string>? _allowedTenants;
@@ -237,5 +238,6 @@ namespace Pulumi.Azure.ApiManagement
         public IdentityProviderAadState()
         {
         }
+        public static new IdentityProviderAadState Empty => new IdentityProviderAadState();
     }
 }

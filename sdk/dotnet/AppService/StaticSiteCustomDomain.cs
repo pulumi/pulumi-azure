@@ -14,43 +14,44 @@ namespace Pulumi.Azure.AppService
     /// ### CNAME validation
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleStaticSite = new Azure.AppService.StaticSite("exampleStaticSite", new Azure.AppService.StaticSiteArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///         });
-    ///         var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new Azure.Dns.CNameRecordArgs
-    ///         {
-    ///             ZoneName = "contoso.com",
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Record = exampleStaticSite.DefaultHostName,
-    ///         });
-    ///         var exampleStaticSiteCustomDomain = new Azure.AppService.StaticSiteCustomDomain("exampleStaticSiteCustomDomain", new Azure.AppService.StaticSiteCustomDomainArgs
-    ///         {
-    ///             StaticSiteId = exampleStaticSite.Id,
-    ///             DomainName = Output.Tuple(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).Apply(values =&gt;
-    ///             {
-    ///                 var name = values.Item1;
-    ///                 var zoneName = values.Item2;
-    ///                 return $"{name}.{zoneName}";
-    ///             }),
-    ///             ValidationType = "cname-delegation",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleStaticSite = new Azure.AppService.StaticSite("exampleStaticSite", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new()
+    ///     {
+    ///         ZoneName = "contoso.com",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Record = exampleStaticSite.DefaultHostName,
+    ///     });
+    /// 
+    ///     var exampleStaticSiteCustomDomain = new Azure.AppService.StaticSiteCustomDomain("exampleStaticSiteCustomDomain", new()
+    ///     {
+    ///         StaticSiteId = exampleStaticSite.Id,
+    ///         DomainName = Output.Tuple(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).Apply(values =&gt;
+    ///         {
+    ///             var name = values.Item1;
+    ///             var zoneName = values.Item2;
+    ///             return $"{name}.{zoneName}";
+    ///         }),
+    ///         ValidationType = "cname-delegation",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.Azure.AppService
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain")]
-    public partial class StaticSiteCustomDomain : Pulumi.CustomResource
+    public partial class StaticSiteCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -132,7 +133,7 @@ namespace Pulumi.Azure.AppService
         }
     }
 
-    public sealed class StaticSiteCustomDomainArgs : Pulumi.ResourceArgs
+    public sealed class StaticSiteCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -155,9 +156,10 @@ namespace Pulumi.Azure.AppService
         public StaticSiteCustomDomainArgs()
         {
         }
+        public static new StaticSiteCustomDomainArgs Empty => new StaticSiteCustomDomainArgs();
     }
 
-    public sealed class StaticSiteCustomDomainState : Pulumi.ResourceArgs
+    public sealed class StaticSiteCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -186,5 +188,6 @@ namespace Pulumi.Azure.AppService
         public StaticSiteCustomDomainState()
         {
         }
+        public static new StaticSiteCustomDomainState Empty => new StaticSiteCustomDomainState();
     }
 }

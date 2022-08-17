@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ServiceFabric.Inputs
 {
 
-    public sealed class ClusterClientCertificateCommonNameGetArgs : Pulumi.ResourceArgs
+    public sealed class ClusterClientCertificateCommonNameGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The common or subject name of the certificate.
@@ -30,5 +30,6 @@ namespace Pulumi.Azure.ServiceFabric.Inputs
         public ClusterClientCertificateCommonNameGetArgs()
         {
         }
+        public static new ClusterClientCertificateCommonNameGetArgs Empty => new ClusterClientCertificateCommonNameGetArgs();
     }
 }

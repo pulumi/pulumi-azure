@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class CassandraTableSchemaPartitionKeyArgs : Pulumi.ResourceArgs
+    public sealed class CassandraTableSchemaPartitionKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the column to partition by.
@@ -21,5 +21,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public CassandraTableSchemaPartitionKeyArgs()
         {
         }
+        public static new CassandraTableSchemaPartitionKeyArgs Empty => new CassandraTableSchemaPartitionKeyArgs();
     }
 }

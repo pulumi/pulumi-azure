@@ -15,51 +15,42 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
-    ///         var exampleService = Output.Create(Azure.ApiManagement.GetService.InvokeAsync(new Azure.ApiManagement.GetServiceArgs
-    ///         {
-    ///             Name = "example-api",
-    ///             ResourceGroupName = "example-resources",
-    ///         }));
-    ///         var exampleApi = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
-    ///         {
-    ///             var exampleService = values.Item1;
-    ///             var exampleService1 = values.Item2;
-    ///             return Output.Create(Azure.ApiManagement.GetApi.InvokeAsync(new Azure.ApiManagement.GetApiArgs
-    ///             {
-    ///                 Name = "search-api",
-    ///                 ApiManagementName = exampleService.Name,
-    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
-    ///                 Revision = "2",
-    ///             }));
-    ///         });
-    ///         var exampleProduct = Output.Tuple(exampleService, exampleService).Apply(values =&gt;
-    ///         {
-    ///             var exampleService = values.Item1;
-    ///             var exampleService1 = values.Item2;
-    ///             return Output.Create(Azure.ApiManagement.GetProduct.InvokeAsync(new Azure.ApiManagement.GetProductArgs
-    ///             {
-    ///                 ProductId = "my-product",
-    ///                 ApiManagementName = exampleService.Name,
-    ///                 ResourceGroupName = exampleService1.ResourceGroupName,
-    ///             }));
-    ///         });
-    ///         var exampleProductApi = new Azure.ApiManagement.ProductApi("exampleProductApi", new Azure.ApiManagement.ProductApiArgs
-    ///         {
-    ///             ApiName = exampleApi.Apply(exampleApi =&gt; exampleApi.Name),
-    ///             ProductId = exampleProduct.Apply(exampleProduct =&gt; exampleProduct.ProductId),
-    ///             ApiManagementName = exampleService.Apply(exampleService =&gt; exampleService.Name),
-    ///             ResourceGroupName = exampleService.Apply(exampleService =&gt; exampleService.ResourceGroupName),
-    ///         });
-    ///     }
+    ///         Name = "example-api",
+    ///         ResourceGroupName = "example-resources",
+    ///     });
     /// 
-    /// }
+    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     {
+    ///         Name = "search-api",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         Revision = "2",
+    ///     });
+    /// 
+    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     {
+    ///         ProductId = "my-product",
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    ///     var exampleProductApi = new Azure.ApiManagement.ProductApi("exampleProductApi", new()
+    ///     {
+    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
+    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -71,7 +62,7 @@ namespace Pulumi.Azure.ApiManagement
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/productApi:ProductApi")]
-    public partial class ProductApi : Pulumi.CustomResource
+    public partial class ProductApi : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -141,7 +132,7 @@ namespace Pulumi.Azure.ApiManagement
         }
     }
 
-    public sealed class ProductApiArgs : Pulumi.ResourceArgs
+    public sealed class ProductApiArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -170,9 +161,10 @@ namespace Pulumi.Azure.ApiManagement
         public ProductApiArgs()
         {
         }
+        public static new ProductApiArgs Empty => new ProductApiArgs();
     }
 
-    public sealed class ProductApiState : Pulumi.ResourceArgs
+    public sealed class ProductApiState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the API Management Service. Changing this forces a new resource to be created.
@@ -201,5 +193,6 @@ namespace Pulumi.Azure.ApiManagement
         public ProductApiState()
         {
         }
+        public static new ProductApiState Empty => new ProductApiState();
     }
 }

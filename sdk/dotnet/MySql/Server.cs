@@ -15,37 +15,36 @@ namespace Pulumi.Azure.MySql
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleServer = new Azure.MySql.Server("exampleServer", new Azure.MySql.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "mysqladminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             SkuName = "B_Gen5_2",
-    ///             StorageMb = 5120,
-    ///             Version = "5.7",
-    ///             AutoGrowEnabled = true,
-    ///             BackupRetentionDays = 7,
-    ///             GeoRedundantBackupEnabled = false,
-    ///             InfrastructureEncryptionEnabled = false,
-    ///             PublicNetworkAccessEnabled = true,
-    ///             SslEnforcementEnabled = true,
-    ///             SslMinimalTlsVersionEnforced = "TLS1_2",
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mysqladminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         SkuName = "B_Gen5_2",
+    ///         StorageMb = 5120,
+    ///         Version = "5.7",
+    ///         AutoGrowEnabled = true,
+    ///         BackupRetentionDays = 7,
+    ///         GeoRedundantBackupEnabled = false,
+    ///         InfrastructureEncryptionEnabled = false,
+    ///         PublicNetworkAccessEnabled = true,
+    ///         SslEnforcementEnabled = true,
+    ///         SslMinimalTlsVersionEnforced = "TLS1_2",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -57,7 +56,7 @@ namespace Pulumi.Azure.MySql
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/server:Server")]
-    public partial class Server : Pulumi.CustomResource
+    public partial class Server : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Administrator login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -235,7 +234,7 @@ namespace Pulumi.Azure.MySql
         }
     }
 
-    public sealed class ServerArgs : Pulumi.ResourceArgs
+    public sealed class ServerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -372,9 +371,10 @@ namespace Pulumi.Azure.MySql
         public ServerArgs()
         {
         }
+        public static new ServerArgs Empty => new ServerArgs();
     }
 
-    public sealed class ServerState : Pulumi.ResourceArgs
+    public sealed class ServerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Administrator login for the MySQL Server. Required when `create_mode` is `Default`. Changing this forces a new resource to be created.
@@ -517,5 +517,6 @@ namespace Pulumi.Azure.MySql
         public ServerState()
         {
         }
+        public static new ServerState Empty => new ServerState();
     }
 }

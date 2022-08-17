@@ -17,58 +17,60 @@ namespace Pulumi.Azure.MariaDB
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new Azure.Network.VirtualNetworkArgs
-    ///         {
-    ///             AddressSpaces = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var @internal = new Azure.Network.Subnet("internal", new Azure.Network.SubnetArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///             AddressPrefixes = 
-    ///             {
-    ///                 "10.7.29.0/29",
-    ///             },
-    ///             ServiceEndpoints = 
-    ///             {
-    ///                 "Microsoft.Sql",
-    ///             },
-    ///         });
-    ///         var exampleServer = new Azure.MariaDB.Server("exampleServer", new Azure.MariaDB.ServerArgs
-    ///         {
-    ///             Location = exampleResourceGroup.Location,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             AdministratorLogin = "mariadbadminun",
-    ///             AdministratorLoginPassword = "H@Sh1CoR3!",
-    ///             Version = "10.2",
-    ///             SslEnforcementEnabled = true,
-    ///             SkuName = "GP_Gen5_2",
-    ///         });
-    ///         var exampleVirtualNetworkRule = new Azure.MariaDB.VirtualNetworkRule("exampleVirtualNetworkRule", new Azure.MariaDB.VirtualNetworkRuleArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             ServerName = exampleServer.Name,
-    ///             SubnetId = @internal.Id,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     {
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var @internal = new Azure.Network.Subnet("internal", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.7.29.0/29",
+    ///         },
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             "Microsoft.Sql",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServer = new Azure.MariaDB.Server("exampleServer", new()
+    ///     {
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AdministratorLogin = "mariadbadminun",
+    ///         AdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Version = "10.2",
+    ///         SslEnforcementEnabled = true,
+    ///         SkuName = "GP_Gen5_2",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkRule = new Azure.MariaDB.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServerName = exampleServer.Name,
+    ///         SubnetId = @internal.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -80,7 +82,7 @@ namespace Pulumi.Azure.MariaDB
     /// ```
     /// </summary>
     [AzureResourceType("azure:mariadb/virtualNetworkRule:VirtualNetworkRule")]
-    public partial class VirtualNetworkRule : Pulumi.CustomResource
+    public partial class VirtualNetworkRule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
@@ -150,7 +152,7 @@ namespace Pulumi.Azure.MariaDB
         }
     }
 
-    public sealed class VirtualNetworkRuleArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
@@ -179,9 +181,10 @@ namespace Pulumi.Azure.MariaDB
         public VirtualNetworkRuleArgs()
         {
         }
+        public static new VirtualNetworkRuleArgs Empty => new VirtualNetworkRuleArgs();
     }
 
-    public sealed class VirtualNetworkRuleState : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the MariaDB Virtual Network Rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created.
@@ -210,5 +213,6 @@ namespace Pulumi.Azure.MariaDB
         public VirtualNetworkRuleState()
         {
         }
+        public static new VirtualNetworkRuleState Empty => new VirtualNetworkRuleState();
     }
 }

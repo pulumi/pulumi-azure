@@ -74,6 +74,8 @@ if typing.TYPE_CHECKING:
     databoxedge = __databoxedge
     import pulumi_azure.databricks as __databricks
     databricks = __databricks
+    import pulumi_azure.datadog as __datadog
+    datadog = __datadog
     import pulumi_azure.datafactory as __datafactory
     datafactory = __datafactory
     import pulumi_azure.dataprotection as __dataprotection
@@ -255,6 +257,7 @@ else:
     databasemigration = _utilities.lazy_import('pulumi_azure.databasemigration')
     databoxedge = _utilities.lazy_import('pulumi_azure.databoxedge')
     databricks = _utilities.lazy_import('pulumi_azure.databricks')
+    datadog = _utilities.lazy_import('pulumi_azure.datadog')
     datafactory = _utilities.lazy_import('pulumi_azure.datafactory')
     dataprotection = _utilities.lazy_import('pulumi_azure.dataprotection')
     datashare = _utilities.lazy_import('pulumi_azure.datashare')
@@ -2463,6 +2466,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datadog/monitor",
+  "fqn": "pulumi_azure.datadog",
+  "classes": {
+   "azure:datadog/monitor:Monitor": "Monitor"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/customDataset",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -3863,6 +3874,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "kusto/clusterManagedPrivateEndpoint",
+  "fqn": "pulumi_azure.kusto",
+  "classes": {
+   "azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint": "ClusterManagedPrivateEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "kusto/clusterPrincipalAssignment",
   "fqn": "pulumi_azure.kusto",
   "classes": {
@@ -4059,6 +4078,14 @@ _utilities.register(
   "fqn": "pulumi_azure.loganalytics",
   "classes": {
    "azure:loganalytics/linkedStorageAccount:LinkedStorageAccount": "LinkedStorageAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "loganalytics/queryPack",
+  "fqn": "pulumi_azure.loganalytics",
+  "classes": {
+   "azure:loganalytics/queryPack:QueryPack": "QueryPack"
   }
  },
  {
@@ -4591,6 +4618,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "monitoring/dataCollectionEndpoint",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/dataCollectionEndpoint:DataCollectionEndpoint": "DataCollectionEndpoint"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "monitoring/dataCollectionRule",
   "fqn": "pulumi_azure.monitoring",
   "classes": {
@@ -4627,6 +4662,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/logzSubAccount:LogzSubAccount": "LogzSubAccount"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/logzSubAccountTagRule",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/logzSubAccountTagRule:LogzSubAccountTagRule": "LogzSubAccountTagRule"
   }
  },
  {
@@ -6283,6 +6326,14 @@ _utilities.register(
   "fqn": "pulumi_azure.signalr",
   "classes": {
    "azure:signalr/serviceNetworkAcl:ServiceNetworkAcl": "ServiceNetworkAcl"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "signalr/sharedPrivateLinkResource",
+  "fqn": "pulumi_azure.signalr",
+  "classes": {
+   "azure:signalr/sharedPrivateLinkResource:SharedPrivateLinkResource": "SharedPrivateLinkResource"
   }
  },
  {

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.KeyVault.Inputs
 {
 
-    public sealed class CertificateCertificateAttributeGetArgs : Pulumi.ResourceArgs
+    public sealed class CertificateCertificateAttributeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The create time of the Key Vault Certificate.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.KeyVault.Inputs
         public CertificateCertificateAttributeGetArgs()
         {
         }
+        public static new CertificateCertificateAttributeGetArgs Empty => new CertificateCertificateAttributeGetArgs();
     }
 }

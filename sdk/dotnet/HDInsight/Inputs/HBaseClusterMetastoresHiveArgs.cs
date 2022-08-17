@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.HDInsight.Inputs
 {
 
-    public sealed class HBaseClusterMetastoresHiveArgs : Pulumi.ResourceArgs
+    public sealed class HBaseClusterMetastoresHiveArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The external Hive metastore's existing SQL database.  Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public HBaseClusterMetastoresHiveArgs()
         {
         }
+        public static new HBaseClusterMetastoresHiveArgs Empty => new HBaseClusterMetastoresHiveArgs();
     }
 }

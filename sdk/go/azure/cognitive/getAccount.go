@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cognitive"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := cognitive.LookupAccount(ctx, &cognitive.LookupAccountArgs{
-// 			Name:              "example-account",
-// 			ResourceGroupName: "cognitive_account_rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("primaryAccessKey", test.PrimaryAccessKey)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := cognitive.LookupAccount(ctx, &cognitive.LookupAccountArgs{
+//				Name:              "example-account",
+//				ResourceGroupName: "cognitive_account_rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("primaryAccessKey", test.PrimaryAccessKey)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult

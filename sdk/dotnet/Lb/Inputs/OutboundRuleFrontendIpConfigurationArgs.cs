@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Lb.Inputs
 {
 
-    public sealed class OutboundRuleFrontendIpConfigurationArgs : Pulumi.ResourceArgs
+    public sealed class OutboundRuleFrontendIpConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Load Balancer Outbound Rule.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Lb.Inputs
         public OutboundRuleFrontendIpConfigurationArgs()
         {
         }
+        public static new OutboundRuleFrontendIpConfigurationArgs Empty => new OutboundRuleFrontendIpConfigurationArgs();
     }
 }

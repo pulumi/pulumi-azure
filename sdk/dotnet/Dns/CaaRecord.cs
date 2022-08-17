@@ -13,61 +13,61 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleZone = new Azure.Dns.Zone("exampleZone", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///         });
-    ///         var exampleCaaRecord = new Azure.Dns.CaaRecord("exampleCaaRecord", new Azure.Dns.CaaRecordArgs
-    ///         {
-    ///             ZoneName = exampleZone.Name,
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Ttl = 300,
-    ///             Records = 
-    ///             {
-    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
-    ///                 {
-    ///                     Flags = 0,
-    ///                     Tag = "issue",
-    ///                     Value = "example.com",
-    ///                 },
-    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
-    ///                 {
-    ///                     Flags = 0,
-    ///                     Tag = "issue",
-    ///                     Value = "example.net",
-    ///                 },
-    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
-    ///                 {
-    ///                     Flags = 0,
-    ///                     Tag = "issuewild",
-    ///                     Value = ";",
-    ///                 },
-    ///                 new Azure.Dns.Inputs.CaaRecordRecordArgs
-    ///                 {
-    ///                     Flags = 0,
-    ///                     Tag = "iodef",
-    ///                     Value = "mailto:user@nonexisting.tld",
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "Environment", "Production" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleCaaRecord = new Azure.Dns.CaaRecord("exampleCaaRecord", new()
+    ///     {
+    ///         ZoneName = exampleZone.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             {
+    ///                 Flags = 0,
+    ///                 Tag = "issue",
+    ///                 Value = "example.com",
+    ///             },
+    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             {
+    ///                 Flags = 0,
+    ///                 Tag = "issue",
+    ///                 Value = "example.net",
+    ///             },
+    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             {
+    ///                 Flags = 0,
+    ///                 Tag = "issuewild",
+    ///                 Value = ";",
+    ///             },
+    ///             new Azure.Dns.Inputs.CaaRecordRecordArgs
+    ///             {
+    ///                 Flags = 0,
+    ///                 Tag = "iodef",
+    ///                 Value = "mailto:user@nonexisting.tld",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/caaRecord:CaaRecord")]
-    public partial class CaaRecord : Pulumi.CustomResource
+    public partial class CaaRecord : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The FQDN of the DNS CAA Record.
@@ -167,7 +167,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class CaaRecordArgs : Pulumi.ResourceArgs
+    public sealed class CaaRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS CAA Record. If you are creating the record in the apex of the zone use `"@"` as the name.
@@ -220,9 +220,10 @@ namespace Pulumi.Azure.Dns
         public CaaRecordArgs()
         {
         }
+        public static new CaaRecordArgs Empty => new CaaRecordArgs();
     }
 
-    public sealed class CaaRecordState : Pulumi.ResourceArgs
+    public sealed class CaaRecordState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN of the DNS CAA Record.
@@ -281,5 +282,6 @@ namespace Pulumi.Azure.Dns
         public CaaRecordState()
         {
         }
+        public static new CaaRecordState Empty => new CaaRecordState();
     }
 }

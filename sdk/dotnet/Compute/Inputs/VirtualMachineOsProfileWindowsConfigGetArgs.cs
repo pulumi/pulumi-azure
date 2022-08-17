@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineOsProfileWindowsConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineOsProfileWindowsConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("additionalUnattendConfigs")]
         private InputList<Inputs.VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigGetArgs>? _additionalUnattendConfigs;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineOsProfileWindowsConfigGetArgs()
         {
         }
+        public static new VirtualMachineOsProfileWindowsConfigGetArgs Empty => new VirtualMachineOsProfileWindowsConfigGetArgs();
     }
 }

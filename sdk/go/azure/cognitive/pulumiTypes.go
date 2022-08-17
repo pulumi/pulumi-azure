@@ -24,7 +24,7 @@ type AccountIdentity struct {
 // AccountIdentityInput is an input type that accepts AccountIdentityArgs and AccountIdentityOutput values.
 // You can construct a concrete instance of `AccountIdentityInput` via:
 //
-//          AccountIdentityArgs{...}
+//	AccountIdentityArgs{...}
 type AccountIdentityInput interface {
 	pulumi.Input
 
@@ -66,11 +66,11 @@ func (i AccountIdentityArgs) ToAccountIdentityPtrOutputWithContext(ctx context.C
 // AccountIdentityPtrInput is an input type that accepts AccountIdentityArgs, AccountIdentityPtr and AccountIdentityPtrOutput values.
 // You can construct a concrete instance of `AccountIdentityPtrInput` via:
 //
-//          AccountIdentityArgs{...}
+//	        AccountIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountIdentityPtrInput interface {
 	pulumi.Input
 
@@ -216,7 +216,7 @@ type AccountNetworkAcls struct {
 // AccountNetworkAclsInput is an input type that accepts AccountNetworkAclsArgs and AccountNetworkAclsOutput values.
 // You can construct a concrete instance of `AccountNetworkAclsInput` via:
 //
-//          AccountNetworkAclsArgs{...}
+//	AccountNetworkAclsArgs{...}
 type AccountNetworkAclsInput interface {
 	pulumi.Input
 
@@ -256,11 +256,11 @@ func (i AccountNetworkAclsArgs) ToAccountNetworkAclsPtrOutputWithContext(ctx con
 // AccountNetworkAclsPtrInput is an input type that accepts AccountNetworkAclsArgs, AccountNetworkAclsPtr and AccountNetworkAclsPtrOutput values.
 // You can construct a concrete instance of `AccountNetworkAclsPtrInput` via:
 //
-//          AccountNetworkAclsArgs{...}
+//	        AccountNetworkAclsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AccountNetworkAclsPtrInput interface {
 	pulumi.Input
 
@@ -389,7 +389,7 @@ type AccountNetworkAclsVirtualNetworkRule struct {
 // AccountNetworkAclsVirtualNetworkRuleInput is an input type that accepts AccountNetworkAclsVirtualNetworkRuleArgs and AccountNetworkAclsVirtualNetworkRuleOutput values.
 // You can construct a concrete instance of `AccountNetworkAclsVirtualNetworkRuleInput` via:
 //
-//          AccountNetworkAclsVirtualNetworkRuleArgs{...}
+//	AccountNetworkAclsVirtualNetworkRuleArgs{...}
 type AccountNetworkAclsVirtualNetworkRuleInput interface {
 	pulumi.Input
 
@@ -419,7 +419,7 @@ func (i AccountNetworkAclsVirtualNetworkRuleArgs) ToAccountNetworkAclsVirtualNet
 // AccountNetworkAclsVirtualNetworkRuleArrayInput is an input type that accepts AccountNetworkAclsVirtualNetworkRuleArray and AccountNetworkAclsVirtualNetworkRuleArrayOutput values.
 // You can construct a concrete instance of `AccountNetworkAclsVirtualNetworkRuleArrayInput` via:
 //
-//          AccountNetworkAclsVirtualNetworkRuleArray{ AccountNetworkAclsVirtualNetworkRuleArgs{...} }
+//	AccountNetworkAclsVirtualNetworkRuleArray{ AccountNetworkAclsVirtualNetworkRuleArgs{...} }
 type AccountNetworkAclsVirtualNetworkRuleArrayInput interface {
 	pulumi.Input
 
@@ -495,7 +495,7 @@ type AccountStorage struct {
 // AccountStorageInput is an input type that accepts AccountStorageArgs and AccountStorageOutput values.
 // You can construct a concrete instance of `AccountStorageInput` via:
 //
-//          AccountStorageArgs{...}
+//	AccountStorageArgs{...}
 type AccountStorageInput interface {
 	pulumi.Input
 
@@ -525,7 +525,7 @@ func (i AccountStorageArgs) ToAccountStorageOutputWithContext(ctx context.Contex
 // AccountStorageArrayInput is an input type that accepts AccountStorageArray and AccountStorageArrayOutput values.
 // You can construct a concrete instance of `AccountStorageArrayInput` via:
 //
-//          AccountStorageArray{ AccountStorageArgs{...} }
+//	AccountStorageArray{ AccountStorageArgs{...} }
 type AccountStorageArrayInput interface {
 	pulumi.Input
 

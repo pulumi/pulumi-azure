@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterNodePoolKubeletConfigGetArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterNodePoolKubeletConfigGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedUnsafeSysctls")]
         private InputList<string>? _allowedUnsafeSysctls;
@@ -81,5 +81,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterNodePoolKubeletConfigGetArgs()
         {
         }
+        public static new KubernetesClusterNodePoolKubeletConfigGetArgs Empty => new KubernetesClusterNodePoolKubeletConfigGetArgs();
     }
 }

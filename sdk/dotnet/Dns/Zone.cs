@@ -15,24 +15,23 @@ namespace Pulumi.Azure.Dns
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         var example = new Azure.Core.ResourceGroup("example", new Azure.Core.ResourceGroupArgs
-    ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var example_public = new Azure.Dns.Zone("example-public", new Azure.Dns.ZoneArgs
-    ///         {
-    ///             ResourceGroupName = example.Name,
-    ///         });
-    ///     }
+    ///         Location = "West Europe",
+    ///     });
     /// 
-    /// }
+    ///     var example_public = new Azure.Dns.Zone("example-public", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -44,7 +43,7 @@ namespace Pulumi.Azure.Dns
     /// ```
     /// </summary>
     [AzureResourceType("azure:dns/zone:Zone")]
-    public partial class Zone : Pulumi.CustomResource
+    public partial class Zone : global::Pulumi.CustomResource
     {
         /// <summary>
         /// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
@@ -132,7 +131,7 @@ namespace Pulumi.Azure.Dns
         }
     }
 
-    public sealed class ZoneArgs : Pulumi.ResourceArgs
+    public sealed class ZoneArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the DNS Zone. Must be a valid domain name.
@@ -167,9 +166,10 @@ namespace Pulumi.Azure.Dns
         public ZoneArgs()
         {
         }
+        public static new ZoneArgs Empty => new ZoneArgs();
     }
 
-    public sealed class ZoneState : Pulumi.ResourceArgs
+    public sealed class ZoneState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// (Optional) Maximum number of Records in the zone. Defaults to `1000`.
@@ -228,5 +228,6 @@ namespace Pulumi.Azure.Dns
         public ZoneState()
         {
         }
+        public static new ZoneState Empty => new ZoneState();
     }
 }

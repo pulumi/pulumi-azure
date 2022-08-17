@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Storage.Inputs
 {
 
-    public sealed class ManagementPolicyRuleActionsBaseBlobArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyRuleActionsBaseBlobArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The age in days after last access time to delete the blob. Must be between `0` and `99999`.
@@ -51,5 +51,6 @@ namespace Pulumi.Azure.Storage.Inputs
         public ManagementPolicyRuleActionsBaseBlobArgs()
         {
         }
+        public static new ManagementPolicyRuleActionsBaseBlobArgs Empty => new ManagementPolicyRuleActionsBaseBlobArgs();
     }
 }

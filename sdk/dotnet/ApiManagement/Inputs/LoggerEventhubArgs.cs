@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ApiManagement.Inputs
 {
 
-    public sealed class LoggerEventhubArgs : Pulumi.ResourceArgs
+    public sealed class LoggerEventhubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The connection string of an EventHub Namespace.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         public LoggerEventhubArgs()
         {
         }
+        public static new LoggerEventhubArgs Empty => new LoggerEventhubArgs();
     }
 }

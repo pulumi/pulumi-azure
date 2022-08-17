@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.CosmosDB.Inputs
 {
 
-    public sealed class AccountRestoreArgs : Pulumi.ResourceArgs
+    public sealed class AccountRestoreArgs : global::Pulumi.ResourceArgs
     {
         [Input("databases")]
         private InputList<Inputs.AccountRestoreDatabaseArgs>? _databases;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         public AccountRestoreArgs()
         {
         }
+        public static new AccountRestoreArgs Empty => new AccountRestoreArgs();
     }
 }

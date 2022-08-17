@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineKeyVaultCredentialGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineKeyVaultCredentialGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Azure Key Vault url. Changing this forces a new resource to be created.
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineKeyVaultCredentialGetArgs()
         {
         }
+        public static new VirtualMachineKeyVaultCredentialGetArgs Empty => new VirtualMachineKeyVaultCredentialGetArgs();
     }
 }

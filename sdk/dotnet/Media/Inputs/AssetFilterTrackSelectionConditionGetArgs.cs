@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Media.Inputs
 {
 
-    public sealed class AssetFilterTrackSelectionConditionGetArgs : Pulumi.ResourceArgs
+    public sealed class AssetFilterTrackSelectionConditionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Media.Inputs
         public AssetFilterTrackSelectionConditionGetArgs()
         {
         }
+        public static new AssetFilterTrackSelectionConditionGetArgs Empty => new AssetFilterTrackSelectionConditionGetArgs();
     }
 }

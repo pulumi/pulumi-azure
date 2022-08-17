@@ -19,24 +19,23 @@ namespace Pulumi.Azure.AppInsights
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppInsights.GetInsights.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppInsights.GetInsights.InvokeAsync(new Azure.AppInsights.GetInsightsArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.ApplicationInsightsInstrumentationKey = example.Apply(example =&gt; example.InstrumentationKey);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("applicationInsightsInstrumentationKey")]
-        ///     public Output&lt;string&gt; ApplicationInsightsInstrumentationKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["applicationInsightsInstrumentationKey"] = example.Apply(getInsightsResult =&gt; getInsightsResult.InstrumentationKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,24 +51,23 @@ namespace Pulumi.Azure.AppInsights
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using Azure = Pulumi.Azure;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = Azure.AppInsights.GetInsights.Invoke(new()
         ///     {
-        ///         var example = Output.Create(Azure.AppInsights.GetInsights.InvokeAsync(new Azure.AppInsights.GetInsightsArgs
-        ///         {
-        ///             Name = "production",
-        ///             ResourceGroupName = "networking",
-        ///         }));
-        ///         this.ApplicationInsightsInstrumentationKey = example.Apply(example =&gt; example.InstrumentationKey);
-        ///     }
+        ///         Name = "production",
+        ///         ResourceGroupName = "networking",
+        ///     });
         /// 
-        ///     [Output("applicationInsightsInstrumentationKey")]
-        ///     public Output&lt;string&gt; ApplicationInsightsInstrumentationKey { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["applicationInsightsInstrumentationKey"] = example.Apply(getInsightsResult =&gt; getInsightsResult.InstrumentationKey),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.Azure.AppInsights
     }
 
 
-    public sealed class GetInsightsArgs : Pulumi.InvokeArgs
+    public sealed class GetInsightsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Application Insights component.
@@ -96,9 +94,10 @@ namespace Pulumi.Azure.AppInsights
         public GetInsightsArgs()
         {
         }
+        public static new GetInsightsArgs Empty => new GetInsightsArgs();
     }
 
-    public sealed class GetInsightsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetInsightsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies the name of the Application Insights component.
@@ -115,6 +114,7 @@ namespace Pulumi.Azure.AppInsights
         public GetInsightsInvokeArgs()
         {
         }
+        public static new GetInsightsInvokeArgs Empty => new GetInsightsInvokeArgs();
     }
 
 

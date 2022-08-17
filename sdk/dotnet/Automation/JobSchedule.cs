@@ -17,28 +17,26 @@ namespace Pulumi.Azure.Automation
     /// This is an example of just the Job Schedule.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new Azure.Automation.JobSchedule("example", new()
     ///     {
-    ///         var example = new Azure.Automation.JobSchedule("example", new Azure.Automation.JobScheduleArgs
+    ///         AutomationAccountName = "tf-automation-account",
+    ///         Parameters = 
     ///         {
-    ///             AutomationAccountName = "tf-automation-account",
-    ///             Parameters = 
-    ///             {
-    ///                 { "resourcegroup", "tf-rgr-vm" },
-    ///                 { "vmname", "TF-VM-01" },
-    ///             },
-    ///             ResourceGroupName = "tf-rgr-automation",
-    ///             RunbookName = "Get-VirtualMachine",
-    ///             ScheduleName = "hour",
-    ///         });
-    ///     }
+    ///             { "resourcegroup", "tf-rgr-vm" },
+    ///             { "vmname", "TF-VM-01" },
+    ///         },
+    ///         ResourceGroupName = "tf-rgr-automation",
+    ///         RunbookName = "Get-VirtualMachine",
+    ///         ScheduleName = "hour",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.Azure.Automation
     /// ```
     /// </summary>
     [AzureResourceType("azure:automation/jobSchedule:JobSchedule")]
-    public partial class JobSchedule : Pulumi.CustomResource
+    public partial class JobSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
@@ -138,7 +136,7 @@ namespace Pulumi.Azure.Automation
         }
     }
 
-    public sealed class JobScheduleArgs : Pulumi.ResourceArgs
+    public sealed class JobScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
@@ -191,9 +189,10 @@ namespace Pulumi.Azure.Automation
         public JobScheduleArgs()
         {
         }
+        public static new JobScheduleArgs Empty => new JobScheduleArgs();
     }
 
-    public sealed class JobScheduleState : Pulumi.ResourceArgs
+    public sealed class JobScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the Automation Account in which the Job Schedule is created. Changing this forces a new resource to be created.
@@ -246,5 +245,6 @@ namespace Pulumi.Azure.Automation
         public JobScheduleState()
         {
         }
+        public static new JobScheduleState Empty => new JobScheduleState();
     }
 }

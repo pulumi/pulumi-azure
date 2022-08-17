@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
-// 			DataFactoryId:      exampleFactory.ID(),
-// 			AuthenticationType: pulumi.String("Anonymous"),
-// 			Url:                pulumi.String("https://www.bing.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewDatasetHttp(ctx, "exampleDatasetHttp", &datafactory.DatasetHttpArgs{
-// 			DataFactoryId:     exampleFactory.ID(),
-// 			LinkedServiceName: exampleLinkedServiceWeb.Name,
-// 			RelativeUrl:       pulumi.String("http://www.bing.com"),
-// 			RequestBody:       pulumi.String("foo=bar"),
-// 			RequestMethod:     pulumi.String("POST"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinkedServiceWeb, err := datafactory.NewLinkedServiceWeb(ctx, "exampleLinkedServiceWeb", &datafactory.LinkedServiceWebArgs{
+//				DataFactoryId:      exampleFactory.ID(),
+//				AuthenticationType: pulumi.String("Anonymous"),
+//				Url:                pulumi.String("https://www.bing.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewDatasetHttp(ctx, "exampleDatasetHttp", &datafactory.DatasetHttpArgs{
+//				DataFactoryId:     exampleFactory.ID(),
+//				LinkedServiceName: exampleLinkedServiceWeb.Name,
+//				RelativeUrl:       pulumi.String("http://www.bing.com"),
+//				RequestBody:       pulumi.String("foo=bar"),
+//				RequestMethod:     pulumi.String("POST"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -67,7 +70,9 @@ import (
 // Data Factory Datasets can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/datasetHttp:DatasetHttp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
+//	$ pulumi import azure:datafactory/datasetHttp:DatasetHttp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+//
 // ```
 type DatasetHttp struct {
 	pulumi.CustomResourceState
@@ -271,7 +276,7 @@ func (i *DatasetHttp) ToDatasetHttpOutputWithContext(ctx context.Context) Datase
 // DatasetHttpArrayInput is an input type that accepts DatasetHttpArray and DatasetHttpArrayOutput values.
 // You can construct a concrete instance of `DatasetHttpArrayInput` via:
 //
-//          DatasetHttpArray{ DatasetHttpArgs{...} }
+//	DatasetHttpArray{ DatasetHttpArgs{...} }
 type DatasetHttpArrayInput interface {
 	pulumi.Input
 
@@ -296,7 +301,7 @@ func (i DatasetHttpArray) ToDatasetHttpArrayOutputWithContext(ctx context.Contex
 // DatasetHttpMapInput is an input type that accepts DatasetHttpMap and DatasetHttpMapOutput values.
 // You can construct a concrete instance of `DatasetHttpMapInput` via:
 //
-//          DatasetHttpMap{ "key": DatasetHttpArgs{...} }
+//	DatasetHttpMap{ "key": DatasetHttpArgs{...} }
 type DatasetHttpMapInput interface {
 	pulumi.Input
 

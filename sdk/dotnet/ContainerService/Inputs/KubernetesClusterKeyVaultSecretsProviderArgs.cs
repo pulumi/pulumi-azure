@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ContainerService.Inputs
 {
 
-    public sealed class KubernetesClusterKeyVaultSecretsProviderArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesClusterKeyVaultSecretsProviderArgs : global::Pulumi.ResourceArgs
     {
         [Input("secretIdentities")]
         private InputList<Inputs.KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs>? _secretIdentities;
@@ -39,5 +39,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         public KubernetesClusterKeyVaultSecretsProviderArgs()
         {
         }
+        public static new KubernetesClusterKeyVaultSecretsProviderArgs Empty => new KubernetesClusterKeyVaultSecretsProviderArgs();
     }
 }

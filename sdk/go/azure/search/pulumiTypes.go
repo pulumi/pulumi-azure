@@ -22,7 +22,7 @@ type ServiceIdentity struct {
 // ServiceIdentityInput is an input type that accepts ServiceIdentityArgs and ServiceIdentityOutput values.
 // You can construct a concrete instance of `ServiceIdentityInput` via:
 //
-//          ServiceIdentityArgs{...}
+//	ServiceIdentityArgs{...}
 type ServiceIdentityInput interface {
 	pulumi.Input
 
@@ -62,11 +62,11 @@ func (i ServiceIdentityArgs) ToServiceIdentityPtrOutputWithContext(ctx context.C
 // ServiceIdentityPtrInput is an input type that accepts ServiceIdentityArgs, ServiceIdentityPtr and ServiceIdentityPtrOutput values.
 // You can construct a concrete instance of `ServiceIdentityPtrInput` via:
 //
-//          ServiceIdentityArgs{...}
+//	        ServiceIdentityArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type ServiceIdentityPtrInput interface {
 	pulumi.Input
 
@@ -195,7 +195,7 @@ type ServiceQueryKey struct {
 // ServiceQueryKeyInput is an input type that accepts ServiceQueryKeyArgs and ServiceQueryKeyOutput values.
 // You can construct a concrete instance of `ServiceQueryKeyInput` via:
 //
-//          ServiceQueryKeyArgs{...}
+//	ServiceQueryKeyArgs{...}
 type ServiceQueryKeyInput interface {
 	pulumi.Input
 
@@ -225,7 +225,7 @@ func (i ServiceQueryKeyArgs) ToServiceQueryKeyOutputWithContext(ctx context.Cont
 // ServiceQueryKeyArrayInput is an input type that accepts ServiceQueryKeyArray and ServiceQueryKeyArrayOutput values.
 // You can construct a concrete instance of `ServiceQueryKeyArrayInput` via:
 //
-//          ServiceQueryKeyArray{ ServiceQueryKeyArgs{...} }
+//	ServiceQueryKeyArray{ ServiceQueryKeyArgs{...} }
 type ServiceQueryKeyArrayInput interface {
 	pulumi.Input
 
@@ -303,7 +303,7 @@ type GetServiceIdentity struct {
 // GetServiceIdentityInput is an input type that accepts GetServiceIdentityArgs and GetServiceIdentityOutput values.
 // You can construct a concrete instance of `GetServiceIdentityInput` via:
 //
-//          GetServiceIdentityArgs{...}
+//	GetServiceIdentityArgs{...}
 type GetServiceIdentityInput interface {
 	pulumi.Input
 
@@ -335,7 +335,7 @@ func (i GetServiceIdentityArgs) ToGetServiceIdentityOutputWithContext(ctx contex
 // GetServiceIdentityArrayInput is an input type that accepts GetServiceIdentityArray and GetServiceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetServiceIdentityArrayInput` via:
 //
-//          GetServiceIdentityArray{ GetServiceIdentityArgs{...} }
+//	GetServiceIdentityArray{ GetServiceIdentityArgs{...} }
 type GetServiceIdentityArrayInput interface {
 	pulumi.Input
 
@@ -416,7 +416,7 @@ type GetServiceQueryKey struct {
 // GetServiceQueryKeyInput is an input type that accepts GetServiceQueryKeyArgs and GetServiceQueryKeyOutput values.
 // You can construct a concrete instance of `GetServiceQueryKeyInput` via:
 //
-//          GetServiceQueryKeyArgs{...}
+//	GetServiceQueryKeyArgs{...}
 type GetServiceQueryKeyInput interface {
 	pulumi.Input
 
@@ -446,7 +446,7 @@ func (i GetServiceQueryKeyArgs) ToGetServiceQueryKeyOutputWithContext(ctx contex
 // GetServiceQueryKeyArrayInput is an input type that accepts GetServiceQueryKeyArray and GetServiceQueryKeyArrayOutput values.
 // You can construct a concrete instance of `GetServiceQueryKeyArrayInput` via:
 //
-//          GetServiceQueryKeyArray{ GetServiceQueryKeyArgs{...} }
+//	GetServiceQueryKeyArray{ GetServiceQueryKeyArgs{...} }
 type GetServiceQueryKeyArrayInput interface {
 	pulumi.Input
 

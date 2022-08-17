@@ -19,39 +19,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 			ApplicationType:   pulumi.String("web"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = appinsights.NewAnalyticsItem(ctx, "exampleAnalyticsItem", &appinsights.AnalyticsItemArgs{
-// 			ApplicationInsightsId: exampleInsights.ID(),
-// 			Content:               pulumi.String("requests //simple example query"),
-// 			Scope:                 pulumi.String("shared"),
-// 			Type:                  pulumi.String("query"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appinsights.NewAnalyticsItem(ctx, "exampleAnalyticsItem", &appinsights.AnalyticsItemArgs{
+//				ApplicationInsightsId: exampleInsights.ID(),
+//				Content:               pulumi.String("requests //simple example query"),
+//				Scope:                 pulumi.String("shared"),
+//				Type:                  pulumi.String("query"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -59,10 +62,12 @@ import (
 // Application Insights Analytics Items can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:appinsights/analyticsItem:AnalyticsItem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/analyticsItems/11111111-1111-1111-1111-111111111111
+//
+//	$ pulumi import azure:appinsights/analyticsItem:AnalyticsItem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/mycomponent1/analyticsItems/11111111-1111-1111-1111-111111111111
+//
 // ```
 //
-//  To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
+//	To find the Analytics Item ID you can query the REST API using the [`az rest` CLI command](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest), e.g. az rest --method GET --uri "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.insights/components/appinsightstest/analyticsItems?api-version=2015-05-01"
 type AnalyticsItem struct {
 	pulumi.CustomResourceState
 
@@ -229,7 +234,7 @@ func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) An
 // AnalyticsItemArrayInput is an input type that accepts AnalyticsItemArray and AnalyticsItemArrayOutput values.
 // You can construct a concrete instance of `AnalyticsItemArrayInput` via:
 //
-//          AnalyticsItemArray{ AnalyticsItemArgs{...} }
+//	AnalyticsItemArray{ AnalyticsItemArgs{...} }
 type AnalyticsItemArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +259,7 @@ func (i AnalyticsItemArray) ToAnalyticsItemArrayOutputWithContext(ctx context.Co
 // AnalyticsItemMapInput is an input type that accepts AnalyticsItemMap and AnalyticsItemMapOutput values.
 // You can construct a concrete instance of `AnalyticsItemMapInput` via:
 //
-//          AnalyticsItemMap{ "key": AnalyticsItemArgs{...} }
+//	AnalyticsItemMap{ "key": AnalyticsItemArgs{...} }
 type AnalyticsItemMapInput interface {
 	pulumi.Input
 

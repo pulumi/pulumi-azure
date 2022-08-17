@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sql.Inputs
 {
 
-    public sealed class FailoverGroupPartnerServerGetArgs : Pulumi.ResourceArgs
+    public sealed class FailoverGroupPartnerServerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// the SQL server ID
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Sql.Inputs
         public FailoverGroupPartnerServerGetArgs()
         {
         }
+        public static new FailoverGroupPartnerServerGetArgs Empty => new FailoverGroupPartnerServerGetArgs();
     }
 }

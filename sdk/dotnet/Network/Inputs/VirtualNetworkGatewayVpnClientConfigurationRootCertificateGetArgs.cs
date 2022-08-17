@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A user-defined name of the IP configuration. Defaults to
@@ -32,5 +32,6 @@ namespace Pulumi.Azure.Network.Inputs
         public VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs()
         {
         }
+        public static new VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs Empty => new VirtualNetworkGatewayVpnClientConfigurationRootCertificateGetArgs();
     }
 }

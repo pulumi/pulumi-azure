@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/mssql"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := mssql.LookupElasticPool(ctx, &mssql.LookupElasticPoolArgs{
-// 			Name:              "mssqlelasticpoolname",
-// 			ResourceGroupName: "example-resources",
-// 			ServerName:        "example-sql-server",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("elasticpoolId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := mssql.LookupElasticPool(ctx, &mssql.LookupElasticPoolArgs{
+//				Name:              "mssqlelasticpoolname",
+//				ResourceGroupName: "example-resources",
+//				ServerName:        "example-sql-server",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("elasticpoolId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupElasticPool(ctx *pulumi.Context, args *LookupElasticPoolArgs, opts ...pulumi.InvokeOption) (*LookupElasticPoolResult, error) {
 	var rv LookupElasticPoolResult

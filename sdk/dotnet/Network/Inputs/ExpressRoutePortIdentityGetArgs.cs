@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class ExpressRoutePortIdentityGetArgs : Pulumi.ResourceArgs
+    public sealed class ExpressRoutePortIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("identityIds", required: true)]
         private InputList<string>? _identityIds;
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Network.Inputs
         public ExpressRoutePortIdentityGetArgs()
         {
         }
+        public static new ExpressRoutePortIdentityGetArgs Empty => new ExpressRoutePortIdentityGetArgs();
     }
 }

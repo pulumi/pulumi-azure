@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.OperationalInsights.Inputs
 {
 
-    public sealed class AnalyticsSolutionPlanGetArgs : Pulumi.ResourceArgs
+    public sealed class AnalyticsSolutionPlanGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -36,5 +36,6 @@ namespace Pulumi.Azure.OperationalInsights.Inputs
         public AnalyticsSolutionPlanGetArgs()
         {
         }
+        public static new AnalyticsSolutionPlanGetArgs Empty => new AnalyticsSolutionPlanGetArgs();
     }
 }

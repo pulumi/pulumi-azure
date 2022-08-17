@@ -15,111 +15,111 @@ namespace Pulumi.Azure.Storage
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
     ///     {
-    ///         var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new Azure.Core.ResourceGroupArgs
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     {
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "BlobStorage",
+    ///     });
+    /// 
+    ///     var exampleManagementPolicy = new Azure.Storage.ManagementPolicy("exampleManagementPolicy", new()
+    ///     {
+    ///         StorageAccountId = exampleAccount.Id,
+    ///         Rules = new[]
     ///         {
-    ///             Location = "West Europe",
-    ///         });
-    ///         var exampleAccount = new Azure.Storage.Account("exampleAccount", new Azure.Storage.AccountArgs
-    ///         {
-    ///             ResourceGroupName = exampleResourceGroup.Name,
-    ///             Location = exampleResourceGroup.Location,
-    ///             AccountTier = "Standard",
-    ///             AccountReplicationType = "LRS",
-    ///             AccountKind = "BlobStorage",
-    ///         });
-    ///         var exampleManagementPolicy = new Azure.Storage.ManagementPolicy("exampleManagementPolicy", new Azure.Storage.ManagementPolicyArgs
-    ///         {
-    ///             StorageAccountId = exampleAccount.Id,
-    ///             Rules = 
+    ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
     ///             {
-    ///                 new Azure.Storage.Inputs.ManagementPolicyRuleArgs
+    ///                 Name = "rule1",
+    ///                 Enabled = true,
+    ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
     ///                 {
-    ///                     Name = "rule1",
-    ///                     Enabled = true,
-    ///                     Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
+    ///                     PrefixMatches = new[]
     ///                     {
-    ///                         PrefixMatches = 
-    ///                         {
-    ///                             "container1/prefix1",
-    ///                         },
-    ///                         BlobTypes = 
-    ///                         {
-    ///                             "blockBlob",
-    ///                         },
-    ///                         MatchBlobIndexTags = 
-    ///                         {
-    ///                             new Azure.Storage.Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs
-    ///                             {
-    ///                                 Name = "tag1",
-    ///                                 Operation = "==",
-    ///                                 Value = "val1",
-    ///                             },
-    ///                         },
+    ///                         "container1/prefix1",
     ///                     },
-    ///                     Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
+    ///                     BlobTypes = new[]
     ///                     {
-    ///                         BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
+    ///                         "blockBlob",
+    ///                     },
+    ///                     MatchBlobIndexTags = new[]
+    ///                     {
+    ///                         new Azure.Storage.Inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs
     ///                         {
-    ///                             TierToCoolAfterDaysSinceModificationGreaterThan = 10,
-    ///                             TierToArchiveAfterDaysSinceModificationGreaterThan = 50,
-    ///                             DeleteAfterDaysSinceModificationGreaterThan = 100,
-    ///                         },
-    ///                         Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
-    ///                         {
-    ///                             DeleteAfterDaysSinceCreationGreaterThan = 30,
+    ///                             Name = "tag1",
+    ///                             Operation = "==",
+    ///                             Value = "val1",
     ///                         },
     ///                     },
     ///                 },
-    ///                 new Azure.Storage.Inputs.ManagementPolicyRuleArgs
+    ///                 Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
     ///                 {
-    ///                     Name = "rule2",
-    ///                     Enabled = false,
-    ///                     Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
+    ///                     BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
     ///                     {
-    ///                         PrefixMatches = 
-    ///                         {
-    ///                             "container2/prefix1",
-    ///                             "container2/prefix2",
-    ///                         },
-    ///                         BlobTypes = 
-    ///                         {
-    ///                             "blockBlob",
-    ///                         },
+    ///                         TierToCoolAfterDaysSinceModificationGreaterThan = 10,
+    ///                         TierToArchiveAfterDaysSinceModificationGreaterThan = 50,
+    ///                         DeleteAfterDaysSinceModificationGreaterThan = 100,
     ///                     },
-    ///                     Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
+    ///                     Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
     ///                     {
-    ///                         BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
-    ///                         {
-    ///                             TierToCoolAfterDaysSinceModificationGreaterThan = 11,
-    ///                             TierToArchiveAfterDaysSinceModificationGreaterThan = 51,
-    ///                             DeleteAfterDaysSinceModificationGreaterThan = 101,
-    ///                         },
-    ///                         Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
-    ///                         {
-    ///                             ChangeTierToArchiveAfterDaysSinceCreation = 90,
-    ///                             ChangeTierToCoolAfterDaysSinceCreation = 23,
-    ///                             DeleteAfterDaysSinceCreationGreaterThan = 31,
-    ///                         },
-    ///                         Version = new Azure.Storage.Inputs.ManagementPolicyRuleActionsVersionArgs
-    ///                         {
-    ///                             ChangeTierToArchiveAfterDaysSinceCreation = 9,
-    ///                             ChangeTierToCoolAfterDaysSinceCreation = 90,
-    ///                             DeleteAfterDaysSinceCreation = 3,
-    ///                         },
+    ///                         DeleteAfterDaysSinceCreationGreaterThan = 30,
     ///                     },
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///             new Azure.Storage.Inputs.ManagementPolicyRuleArgs
+    ///             {
+    ///                 Name = "rule2",
+    ///                 Enabled = false,
+    ///                 Filters = new Azure.Storage.Inputs.ManagementPolicyRuleFiltersArgs
+    ///                 {
+    ///                     PrefixMatches = new[]
+    ///                     {
+    ///                         "container2/prefix1",
+    ///                         "container2/prefix2",
+    ///                     },
+    ///                     BlobTypes = new[]
+    ///                     {
+    ///                         "blockBlob",
+    ///                     },
+    ///                 },
+    ///                 Actions = new Azure.Storage.Inputs.ManagementPolicyRuleActionsArgs
+    ///                 {
+    ///                     BaseBlob = new Azure.Storage.Inputs.ManagementPolicyRuleActionsBaseBlobArgs
+    ///                     {
+    ///                         TierToCoolAfterDaysSinceModificationGreaterThan = 11,
+    ///                         TierToArchiveAfterDaysSinceModificationGreaterThan = 51,
+    ///                         DeleteAfterDaysSinceModificationGreaterThan = 101,
+    ///                     },
+    ///                     Snapshot = new Azure.Storage.Inputs.ManagementPolicyRuleActionsSnapshotArgs
+    ///                     {
+    ///                         ChangeTierToArchiveAfterDaysSinceCreation = 90,
+    ///                         ChangeTierToCoolAfterDaysSinceCreation = 23,
+    ///                         DeleteAfterDaysSinceCreationGreaterThan = 31,
+    ///                     },
+    ///                     Version = new Azure.Storage.Inputs.ManagementPolicyRuleActionsVersionArgs
+    ///                     {
+    ///                         ChangeTierToArchiveAfterDaysSinceCreation = 9,
+    ///                         ChangeTierToCoolAfterDaysSinceCreation = 90,
+    ///                         DeleteAfterDaysSinceCreation = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -131,7 +131,7 @@ namespace Pulumi.Azure.Storage
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/managementPolicy:ManagementPolicy")]
-    public partial class ManagementPolicy : Pulumi.CustomResource
+    public partial class ManagementPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A `rule` block as documented below.
@@ -189,7 +189,7 @@ namespace Pulumi.Azure.Storage
         }
     }
 
-    public sealed class ManagementPolicyArgs : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.ManagementPolicyRuleArgs>? _rules;
@@ -212,9 +212,10 @@ namespace Pulumi.Azure.Storage
         public ManagementPolicyArgs()
         {
         }
+        public static new ManagementPolicyArgs Empty => new ManagementPolicyArgs();
     }
 
-    public sealed class ManagementPolicyState : Pulumi.ResourceArgs
+    public sealed class ManagementPolicyState : global::Pulumi.ResourceArgs
     {
         [Input("rules")]
         private InputList<Inputs.ManagementPolicyRuleGetArgs>? _rules;
@@ -237,5 +238,6 @@ namespace Pulumi.Azure.Storage
         public ManagementPolicyState()
         {
         }
+        public static new ManagementPolicyState Empty => new ManagementPolicyState();
     }
 }

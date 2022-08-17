@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.DataFactory.Inputs
 {
 
-    public sealed class TriggerScheduleScheduleGetArgs : Pulumi.ResourceArgs
+    public sealed class TriggerScheduleScheduleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("daysOfMonths")]
         private InputList<int>? _daysOfMonths;
@@ -75,5 +75,6 @@ namespace Pulumi.Azure.DataFactory.Inputs
         public TriggerScheduleScheduleGetArgs()
         {
         }
+        public static new TriggerScheduleScheduleGetArgs Empty => new TriggerScheduleScheduleGetArgs();
     }
 }

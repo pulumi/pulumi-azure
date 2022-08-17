@@ -40,7 +40,7 @@ type WorkspaceCustomParameters struct {
 // WorkspaceCustomParametersInput is an input type that accepts WorkspaceCustomParametersArgs and WorkspaceCustomParametersOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersInput` via:
 //
-//          WorkspaceCustomParametersArgs{...}
+//	WorkspaceCustomParametersArgs{...}
 type WorkspaceCustomParametersInput interface {
 	pulumi.Input
 
@@ -98,11 +98,11 @@ func (i WorkspaceCustomParametersArgs) ToWorkspaceCustomParametersPtrOutputWithC
 // WorkspaceCustomParametersPtrInput is an input type that accepts WorkspaceCustomParametersArgs, WorkspaceCustomParametersPtr and WorkspaceCustomParametersPtrOutput values.
 // You can construct a concrete instance of `WorkspaceCustomParametersPtrInput` via:
 //
-//          WorkspaceCustomParametersArgs{...}
+//	        WorkspaceCustomParametersArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type WorkspaceCustomParametersPtrInput interface {
 	pulumi.Input
 
@@ -368,7 +368,7 @@ type WorkspaceStorageAccountIdentity struct {
 // WorkspaceStorageAccountIdentityInput is an input type that accepts WorkspaceStorageAccountIdentityArgs and WorkspaceStorageAccountIdentityOutput values.
 // You can construct a concrete instance of `WorkspaceStorageAccountIdentityInput` via:
 //
-//          WorkspaceStorageAccountIdentityArgs{...}
+//	WorkspaceStorageAccountIdentityArgs{...}
 type WorkspaceStorageAccountIdentityInput interface {
 	pulumi.Input
 
@@ -400,7 +400,7 @@ func (i WorkspaceStorageAccountIdentityArgs) ToWorkspaceStorageAccountIdentityOu
 // WorkspaceStorageAccountIdentityArrayInput is an input type that accepts WorkspaceStorageAccountIdentityArray and WorkspaceStorageAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `WorkspaceStorageAccountIdentityArrayInput` via:
 //
-//          WorkspaceStorageAccountIdentityArray{ WorkspaceStorageAccountIdentityArgs{...} }
+//	WorkspaceStorageAccountIdentityArray{ WorkspaceStorageAccountIdentityArgs{...} }
 type WorkspaceStorageAccountIdentityArrayInput interface {
 	pulumi.Input
 
@@ -487,7 +487,7 @@ type GetWorkspacePrivateEndpointConnectionConnection struct {
 // GetWorkspacePrivateEndpointConnectionConnectionInput is an input type that accepts GetWorkspacePrivateEndpointConnectionConnectionArgs and GetWorkspacePrivateEndpointConnectionConnectionOutput values.
 // You can construct a concrete instance of `GetWorkspacePrivateEndpointConnectionConnectionInput` via:
 //
-//          GetWorkspacePrivateEndpointConnectionConnectionArgs{...}
+//	GetWorkspacePrivateEndpointConnectionConnectionArgs{...}
 type GetWorkspacePrivateEndpointConnectionConnectionInput interface {
 	pulumi.Input
 
@@ -523,7 +523,7 @@ func (i GetWorkspacePrivateEndpointConnectionConnectionArgs) ToGetWorkspacePriva
 // GetWorkspacePrivateEndpointConnectionConnectionArrayInput is an input type that accepts GetWorkspacePrivateEndpointConnectionConnectionArray and GetWorkspacePrivateEndpointConnectionConnectionArrayOutput values.
 // You can construct a concrete instance of `GetWorkspacePrivateEndpointConnectionConnectionArrayInput` via:
 //
-//          GetWorkspacePrivateEndpointConnectionConnectionArray{ GetWorkspacePrivateEndpointConnectionConnectionArgs{...} }
+//	GetWorkspacePrivateEndpointConnectionConnectionArray{ GetWorkspacePrivateEndpointConnectionConnectionArgs{...} }
 type GetWorkspacePrivateEndpointConnectionConnectionArrayInput interface {
 	pulumi.Input
 

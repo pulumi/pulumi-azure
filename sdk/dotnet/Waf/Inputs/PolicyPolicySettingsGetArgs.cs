@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Waf.Inputs
 {
 
-    public sealed class PolicyPolicySettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyPolicySettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Waf.Inputs
         public PolicyPolicySettingsGetArgs()
         {
         }
+        public static new PolicyPolicySettingsGetArgs Empty => new PolicyPolicySettingsGetArgs();
     }
 }

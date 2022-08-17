@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
-// 			Location: pulumi.String("West Europe"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-// 			Location:          exampleResourceGroup.Location,
-// 			ResourceGroupName: exampleResourceGroup.Name,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = datafactory.NewIntegrationRuntimeRule(ctx, "exampleIntegrationRuntimeRule", &datafactory.IntegrationRuntimeRuleArgs{
-// 			DataFactoryId: exampleFactory.ID(),
-// 			Location:      exampleResourceGroup.Location,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewIntegrationRuntimeRule(ctx, "exampleIntegrationRuntimeRule", &datafactory.IntegrationRuntimeRuleArgs{
+//				DataFactoryId: exampleFactory.ID(),
+//				Location:      exampleResourceGroup.Location,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -56,7 +59,9 @@ import (
 // Data Factory Azure Integration Runtimes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+//
+//	$ pulumi import azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+//
 // ```
 type IntegrationRuntimeRule struct {
 	pulumi.CustomResourceState
@@ -227,7 +232,7 @@ func (i *IntegrationRuntimeRule) ToIntegrationRuntimeRuleOutputWithContext(ctx c
 // IntegrationRuntimeRuleArrayInput is an input type that accepts IntegrationRuntimeRuleArray and IntegrationRuntimeRuleArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeRuleArrayInput` via:
 //
-//          IntegrationRuntimeRuleArray{ IntegrationRuntimeRuleArgs{...} }
+//	IntegrationRuntimeRuleArray{ IntegrationRuntimeRuleArgs{...} }
 type IntegrationRuntimeRuleArrayInput interface {
 	pulumi.Input
 
@@ -252,7 +257,7 @@ func (i IntegrationRuntimeRuleArray) ToIntegrationRuntimeRuleArrayOutputWithCont
 // IntegrationRuntimeRuleMapInput is an input type that accepts IntegrationRuntimeRuleMap and IntegrationRuntimeRuleMapOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeRuleMapInput` via:
 //
-//          IntegrationRuntimeRuleMap{ "key": IntegrationRuntimeRuleArgs{...} }
+//	IntegrationRuntimeRuleMap{ "key": IntegrationRuntimeRuleArgs{...} }
 type IntegrationRuntimeRuleMapInput interface {
 	pulumi.Input
 

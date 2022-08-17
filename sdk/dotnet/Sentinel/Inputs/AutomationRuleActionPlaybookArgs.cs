@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Sentinel.Inputs
 {
 
-    public sealed class AutomationRuleActionPlaybookArgs : Pulumi.ResourceArgs
+    public sealed class AutomationRuleActionPlaybookArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the Logic App that defines the playbook's logic.
@@ -33,5 +33,6 @@ namespace Pulumi.Azure.Sentinel.Inputs
         public AutomationRuleActionPlaybookArgs()
         {
         }
+        public static new AutomationRuleActionPlaybookArgs Empty => new AutomationRuleActionPlaybookArgs();
     }
 }

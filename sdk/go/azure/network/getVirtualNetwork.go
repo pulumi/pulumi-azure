@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
-// 			Name:              "production",
-// 			ResourceGroupName: "networking",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("virtualNetworkId", example.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//				Name:              "production",
+//				ResourceGroupName: "networking",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("virtualNetworkId", example.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult

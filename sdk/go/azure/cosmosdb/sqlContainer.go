@@ -19,64 +19,67 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
-// 			Name:              "tfex-cosmosdb-account",
-// 			ResourceGroupName: "tfex-cosmosdb-account-rg",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-// 			ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:       pulumi.String(exampleAccount.Name),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-// 			ResourceGroupName:   pulumi.String(exampleAccount.ResourceGroupName),
-// 			AccountName:         pulumi.String(exampleAccount.Name),
-// 			DatabaseName:        exampleSqlDatabase.Name,
-// 			PartitionKeyPath:    pulumi.String("/definition/id"),
-// 			PartitionKeyVersion: pulumi.Int(1),
-// 			Throughput:          pulumi.Int(400),
-// 			IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
-// 				IndexingMode: pulumi.String("consistent"),
-// 				IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
-// 					&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
-// 						Path: pulumi.String("/*"),
-// 					},
-// 					&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
-// 						Path: pulumi.String("/included/?"),
-// 					},
-// 				},
-// 				ExcludedPaths: cosmosdb.SqlContainerIndexingPolicyExcludedPathArray{
-// 					&cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs{
-// 						Path: pulumi.String("/excluded/?"),
-// 					},
-// 				},
-// 			},
-// 			UniqueKeys: cosmosdb.SqlContainerUniqueKeyArray{
-// 				&cosmosdb.SqlContainerUniqueKeyArgs{
-// 					Paths: pulumi.StringArray{
-// 						pulumi.String("/definition/idlong"),
-// 						pulumi.String("/definition/idshort"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//				Name:              "tfex-cosmosdb-account",
+//				ResourceGroupName: "tfex-cosmosdb-account-rg",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//				ResourceGroupName: pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:       pulumi.String(exampleAccount.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//				ResourceGroupName:   pulumi.String(exampleAccount.ResourceGroupName),
+//				AccountName:         pulumi.String(exampleAccount.Name),
+//				DatabaseName:        exampleSqlDatabase.Name,
+//				PartitionKeyPath:    pulumi.String("/definition/id"),
+//				PartitionKeyVersion: pulumi.Int(1),
+//				Throughput:          pulumi.Int(400),
+//				IndexingPolicy: &cosmosdb.SqlContainerIndexingPolicyArgs{
+//					IndexingMode: pulumi.String("consistent"),
+//					IncludedPaths: cosmosdb.SqlContainerIndexingPolicyIncludedPathArray{
+//						&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
+//							Path: pulumi.String("/*"),
+//						},
+//						&cosmosdb.SqlContainerIndexingPolicyIncludedPathArgs{
+//							Path: pulumi.String("/included/?"),
+//						},
+//					},
+//					ExcludedPaths: cosmosdb.SqlContainerIndexingPolicyExcludedPathArray{
+//						&cosmosdb.SqlContainerIndexingPolicyExcludedPathArgs{
+//							Path: pulumi.String("/excluded/?"),
+//						},
+//					},
+//				},
+//				UniqueKeys: cosmosdb.SqlContainerUniqueKeyArray{
+//					&cosmosdb.SqlContainerUniqueKeyArgs{
+//						Paths: pulumi.StringArray{
+//							pulumi.String("/definition/idlong"),
+//							pulumi.String("/definition/idshort"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -84,7 +87,9 @@ import (
 // Cosmos SQL Containers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//  $ pulumi import azure:cosmosdb/sqlContainer:SqlContainer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1
+//
+//	$ pulumi import azure:cosmosdb/sqlContainer:SqlContainer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/sqlDatabases/database1/containers/container1
+//
 // ```
 type SqlContainer struct {
 	pulumi.CustomResourceState
@@ -304,7 +309,7 @@ func (i *SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlC
 // SqlContainerArrayInput is an input type that accepts SqlContainerArray and SqlContainerArrayOutput values.
 // You can construct a concrete instance of `SqlContainerArrayInput` via:
 //
-//          SqlContainerArray{ SqlContainerArgs{...} }
+//	SqlContainerArray{ SqlContainerArgs{...} }
 type SqlContainerArrayInput interface {
 	pulumi.Input
 
@@ -329,7 +334,7 @@ func (i SqlContainerArray) ToSqlContainerArrayOutputWithContext(ctx context.Cont
 // SqlContainerMapInput is an input type that accepts SqlContainerMap and SqlContainerMapOutput values.
 // You can construct a concrete instance of `SqlContainerMapInput` via:
 //
-//          SqlContainerMap{ "key": SqlContainerArgs{...} }
+//	SqlContainerMap{ "key": SqlContainerArgs{...} }
 type SqlContainerMapInput interface {
 	pulumi.Input
 

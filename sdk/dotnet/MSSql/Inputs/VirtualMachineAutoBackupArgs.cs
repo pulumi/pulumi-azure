@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.MSSql.Inputs
 {
 
-    public sealed class VirtualMachineAutoBackupArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineAutoBackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enable or disable encryption for backups. Defaults to `false`.
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.MSSql.Inputs
         public VirtualMachineAutoBackupArgs()
         {
         }
+        public static new VirtualMachineAutoBackupArgs Empty => new VirtualMachineAutoBackupArgs();
     }
 }

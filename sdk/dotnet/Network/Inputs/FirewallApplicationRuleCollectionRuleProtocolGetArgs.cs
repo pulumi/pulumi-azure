@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Network.Inputs
 {
 
-    public sealed class FirewallApplicationRuleCollectionRuleProtocolGetArgs : Pulumi.ResourceArgs
+    public sealed class FirewallApplicationRuleCollectionRuleProtocolGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specify a port for the connection.
@@ -27,5 +27,6 @@ namespace Pulumi.Azure.Network.Inputs
         public FirewallApplicationRuleCollectionRuleProtocolGetArgs()
         {
         }
+        public static new FirewallApplicationRuleCollectionRuleProtocolGetArgs Empty => new FirewallApplicationRuleCollectionRuleProtocolGetArgs();
     }
 }

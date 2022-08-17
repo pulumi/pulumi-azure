@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.Compute.Inputs
 {
 
-    public sealed class VirtualMachineStorageImageReferenceGetArgs : Pulumi.ResourceArgs
+    public sealed class VirtualMachineStorageImageReferenceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
@@ -45,5 +45,6 @@ namespace Pulumi.Azure.Compute.Inputs
         public VirtualMachineStorageImageReferenceGetArgs()
         {
         }
+        public static new VirtualMachineStorageImageReferenceGetArgs Empty => new VirtualMachineStorageImageReferenceGetArgs();
     }
 }

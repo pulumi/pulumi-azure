@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.NetApp.Inputs
 {
 
-    public sealed class AccountActiveDirectoryGetArgs : Pulumi.ResourceArgs
+    public sealed class AccountActiveDirectoryGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("dnsServers", required: true)]
         private InputList<string>? _dnsServers;
@@ -57,5 +57,6 @@ namespace Pulumi.Azure.NetApp.Inputs
         public AccountActiveDirectoryGetArgs()
         {
         }
+        public static new AccountActiveDirectoryGetArgs Empty => new AccountActiveDirectoryGetArgs();
     }
 }
