@@ -6,13 +6,16 @@ package com.pulumi.azure.automation;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.automation.AccountArgs;
 import com.pulumi.azure.automation.inputs.AccountState;
+import com.pulumi.azure.automation.outputs.AccountEncryption;
 import com.pulumi.azure.automation.outputs.AccountIdentity;
+import com.pulumi.azure.automation.outputs.AccountPrivateEndpointConnection;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -113,6 +116,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.dscServerEndpoint;
     }
     /**
+     * An `encryption` block as defined below.
+     * 
+     */
+    @Export(name="encryptions", type=List.class, parameters={AccountEncryption.class})
+    private Output<List<AccountEncryption>> encryptions;
+
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    public Output<List<AccountEncryption>> encryptions() {
+        return this.encryptions;
+    }
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -125,6 +142,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<AccountIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * Whether requests using non-AAD authentication are blocked.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Whether requests using non-AAD authentication are blocked.
+     * 
+     */
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -153,6 +184,12 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    @Export(name="privateEndpointConnections", type=List.class, parameters={AccountPrivateEndpointConnection.class})
+    private Output<List<AccountPrivateEndpointConnection>> privateEndpointConnections;
+
+    public Output<List<AccountPrivateEndpointConnection>> privateEndpointConnections() {
+        return this.privateEndpointConnections;
     }
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.

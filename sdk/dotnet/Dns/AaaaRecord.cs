@@ -122,11 +122,14 @@ namespace Pulumi.Azure.Dns
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string?> TargetResourceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Output("ttl")]
         public Output<int> Ttl { get; private set; } = null!;
 
@@ -219,11 +222,14 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Input("ttl", required: true)]
         public Input<int> Ttl { get; set; } = null!;
 
@@ -284,11 +290,14 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
 
+        /// <summary>
+        /// The Time To Live (TTL) of the DNS record in seconds.
+        /// </summary>
         [Input("ttl")]
         public Input<int>? Ttl { get; set; }
 

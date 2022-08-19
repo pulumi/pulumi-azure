@@ -21,6 +21,7 @@ __all__ = [
     'ApplicationGatewayFrontendIpConfiguration',
     'ApplicationGatewayFrontendPort',
     'ApplicationGatewayGatewayIpConfiguration',
+    'ApplicationGatewayGlobal',
     'ApplicationGatewayHttpListener',
     'ApplicationGatewayHttpListenerCustomErrorConfiguration',
     'ApplicationGatewayIdentity',
@@ -936,6 +937,54 @@ class ApplicationGatewayGatewayIpConfiguration(dict):
 
 
 @pulumi.output_type
+class ApplicationGatewayGlobal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestBufferingEnabled":
+            suggest = "request_buffering_enabled"
+        elif key == "responseBufferingEnabled":
+            suggest = "response_buffering_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayGlobal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayGlobal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayGlobal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_buffering_enabled: bool,
+                 response_buffering_enabled: bool):
+        """
+        :param bool request_buffering_enabled: Whether Application Gateway's Request buffer is enabled.
+        :param bool response_buffering_enabled: Whether Application Gateway's Response buffer is enabled.
+        """
+        pulumi.set(__self__, "request_buffering_enabled", request_buffering_enabled)
+        pulumi.set(__self__, "response_buffering_enabled", response_buffering_enabled)
+
+    @property
+    @pulumi.getter(name="requestBufferingEnabled")
+    def request_buffering_enabled(self) -> bool:
+        """
+        Whether Application Gateway's Request buffer is enabled.
+        """
+        return pulumi.get(self, "request_buffering_enabled")
+
+    @property
+    @pulumi.getter(name="responseBufferingEnabled")
+    def response_buffering_enabled(self) -> bool:
+        """
+        Whether Application Gateway's Response buffer is enabled.
+        """
+        return pulumi.get(self, "response_buffering_enabled")
+
+
+@pulumi.output_type
 class ApplicationGatewayHttpListener(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1636,22 +1685,15 @@ class ApplicationGatewayProbeMatch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 body: str,
-                 status_codes: Sequence[str]):
+                 status_codes: Sequence[str],
+                 body: Optional[str] = None):
         """
-        :param str body: A snippet from the Response Body which must be present in the Response.
         :param Sequence[str] status_codes: A list of allowed status codes for this Health Probe.
+        :param str body: A snippet from the Response Body which must be present in the Response.
         """
-        pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "status_codes", status_codes)
-
-    @property
-    @pulumi.getter
-    def body(self) -> str:
-        """
-        A snippet from the Response Body which must be present in the Response.
-        """
-        return pulumi.get(self, "body")
+        if body is not None:
+            pulumi.set(__self__, "body", body)
 
     @property
     @pulumi.getter(name="statusCodes")
@@ -1660,6 +1702,14 @@ class ApplicationGatewayProbeMatch(dict):
         A list of allowed status codes for this Health Probe.
         """
         return pulumi.get(self, "status_codes")
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        A snippet from the Response Body which must be present in the Response.
+        """
+        return pulumi.get(self, "body")
 
 
 @pulumi.output_type
@@ -2366,20 +2416,32 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleUrl(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 components: Optional[str] = None,
                  path: Optional[str] = None,
                  query_string: Optional[str] = None,
                  reroute: Optional[bool] = None):
         """
+        :param str components: The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
         :param str path: The URL path to rewrite.
         :param str query_string: The query string to rewrite.
         :param bool reroute: Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
         """
+        if components is not None:
+            pulumi.set(__self__, "components", components)
         if path is not None:
             pulumi.set(__self__, "path", path)
         if query_string is not None:
             pulumi.set(__self__, "query_string", query_string)
         if reroute is not None:
             pulumi.set(__self__, "reroute", reroute)
+
+    @property
+    @pulumi.getter
+    def components(self) -> Optional[str]:
+        """
+        The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+        """
+        return pulumi.get(self, "components")
 
     @property
     @pulumi.getter
@@ -3321,7 +3383,7 @@ class ApplicationGatewayWafConfiguration(dict):
                  request_body_check: Optional[bool] = None,
                  rule_set_type: Optional[str] = None):
         """
-        :param bool enabled: Is the Web Application Firewall be enabled?
+        :param bool enabled: Is the Web Application Firewall enabled?
         :param str firewall_mode: The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
         :param str rule_set_version: The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
         :param Sequence['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs'] disabled_rule_groups: one or more `disabled_rule_group` blocks as defined below.
@@ -3351,7 +3413,7 @@ class ApplicationGatewayWafConfiguration(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Is the Web Application Firewall be enabled?
+        Is the Web Application Firewall enabled?
         """
         return pulumi.get(self, "enabled")
 
@@ -5019,7 +5081,9 @@ class FirewallPolicyIntrusionDetection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "signatureOverrides":
+        if key == "privateRanges":
+            suggest = "private_ranges"
+        elif key == "signatureOverrides":
             suggest = "signature_overrides"
         elif key == "trafficBypasses":
             suggest = "traffic_bypasses"
@@ -5037,15 +5101,19 @@ class FirewallPolicyIntrusionDetection(dict):
 
     def __init__(__self__, *,
                  mode: Optional[str] = None,
+                 private_ranges: Optional[Sequence[str]] = None,
                  signature_overrides: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionSignatureOverride']] = None,
                  traffic_bypasses: Optional[Sequence['outputs.FirewallPolicyIntrusionDetectionTrafficBypass']] = None):
         """
         :param str mode: In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
+        :param Sequence[str] private_ranges: A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
         :param Sequence['FirewallPolicyIntrusionDetectionSignatureOverrideArgs'] signature_overrides: One or more `signature_overrides` blocks as defined below.
         :param Sequence['FirewallPolicyIntrusionDetectionTrafficBypassArgs'] traffic_bypasses: One or more `traffic_bypass` blocks as defined below.
         """
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if private_ranges is not None:
+            pulumi.set(__self__, "private_ranges", private_ranges)
         if signature_overrides is not None:
             pulumi.set(__self__, "signature_overrides", signature_overrides)
         if traffic_bypasses is not None:
@@ -5058,6 +5126,14 @@ class FirewallPolicyIntrusionDetection(dict):
         In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
         """
         return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="privateRanges")
+    def private_ranges(self) -> Optional[Sequence[str]]:
+        """
+        A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+        """
+        return pulumi.get(self, "private_ranges")
 
     @property
     @pulumi.getter(name="signatureOverrides")

@@ -39,7 +39,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				SubDomain:         pulumi.String("example-iotcentral-app-subdomain"),
 //				DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
-//				Sku:               pulumi.String("S1"),
+//				Sku:               pulumi.String("ST1"),
 //				Template:          pulumi.String("iotc-default@1.0.0"),
 //				Tags: pulumi.StringMap{
 //					"Foo": pulumi.String("Bar"),

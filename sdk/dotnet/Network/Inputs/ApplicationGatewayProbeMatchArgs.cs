@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Network.Inputs
         /// <summary>
         /// A snippet from the Response Body which must be present in the Response.
         /// </summary>
-        [Input("body", required: true)]
-        public Input<string> Body { get; set; } = null!;
+        [Input("body")]
+        public Input<string>? Body { get; set; }
 
         [Input("statusCodes", required: true)]
         private InputList<string>? _statusCodes;

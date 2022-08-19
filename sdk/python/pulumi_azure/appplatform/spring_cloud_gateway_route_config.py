@@ -18,18 +18,22 @@ class SpringCloudGatewayRouteConfigArgs:
     def __init__(__self__, *,
                  spring_cloud_gateway_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
+                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SpringCloudGatewayRouteConfig resource.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
+        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         """
         pulumi.set(__self__, "spring_cloud_gateway_id", spring_cloud_gateway_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if open_api is not None:
+            pulumi.set(__self__, "open_api", open_api)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if spring_cloud_app_id is not None:
@@ -60,6 +64,18 @@ class SpringCloudGatewayRouteConfigArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="openApi")
+    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]:
+        """
+        One or more `open_api` blocks as defined below.
+        """
+        return pulumi.get(self, "open_api")
+
+    @open_api.setter
+    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]):
+        pulumi.set(self, "open_api", value)
+
+    @property
     @pulumi.getter
     def routes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]]:
         """
@@ -88,18 +104,22 @@ class SpringCloudGatewayRouteConfigArgs:
 class _SpringCloudGatewayRouteConfigState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_api: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudGatewayRouteConfig resources.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
+        :param pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs'] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['SpringCloudGatewayRouteConfigRouteArgs']]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if open_api is not None:
+            pulumi.set(__self__, "open_api", open_api)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if spring_cloud_app_id is not None:
@@ -118,6 +138,18 @@ class _SpringCloudGatewayRouteConfigState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="openApi")
+    def open_api(self) -> Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]:
+        """
+        One or more `open_api` blocks as defined below.
+        """
+        return pulumi.get(self, "open_api")
+
+    @open_api.setter
+    def open_api(self, value: Optional[pulumi.Input['SpringCloudGatewayRouteConfigOpenApiArgs']]):
+        pulumi.set(self, "open_api", value)
 
     @property
     @pulumi.getter
@@ -162,6 +194,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -219,6 +252,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -295,6 +329,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None,
@@ -308,6 +343,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             __props__ = SpringCloudGatewayRouteConfigArgs.__new__(SpringCloudGatewayRouteConfigArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["open_api"] = open_api
             __props__.__dict__["routes"] = routes
             __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
             if spring_cloud_gateway_id is None and not opts.urn:
@@ -324,6 +360,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
+            open_api: Optional[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]]] = None,
             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
             spring_cloud_gateway_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudGatewayRouteConfig':
@@ -335,6 +372,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigOpenApiArgs']] open_api: One or more `open_api` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudGatewayRouteConfigRouteArgs']]]] routes: One or more `route` blocks as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud App.
         :param pulumi.Input[str] spring_cloud_gateway_id: The ID of the Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway Route Config to be created.
@@ -344,6 +382,7 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         __props__ = _SpringCloudGatewayRouteConfigState.__new__(_SpringCloudGatewayRouteConfigState)
 
         __props__.__dict__["name"] = name
+        __props__.__dict__["open_api"] = open_api
         __props__.__dict__["routes"] = routes
         __props__.__dict__["spring_cloud_app_id"] = spring_cloud_app_id
         __props__.__dict__["spring_cloud_gateway_id"] = spring_cloud_gateway_id
@@ -356,6 +395,14 @@ class SpringCloudGatewayRouteConfig(pulumi.CustomResource):
         The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="openApi")
+    def open_api(self) -> pulumi.Output[Optional['outputs.SpringCloudGatewayRouteConfigOpenApi']]:
+        """
+        One or more `open_api` blocks as defined below.
+        """
+        return pulumi.get(self, "open_api")
 
     @property
     @pulumi.getter

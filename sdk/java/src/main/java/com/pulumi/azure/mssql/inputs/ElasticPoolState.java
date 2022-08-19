@@ -52,6 +52,21 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+     * 
+     */
+    @Import(name="maintenanceConfigurationName")
+    private @Nullable Output<String> maintenanceConfigurationName;
+
+    /**
+     * @return The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+     * 
+     */
+    public Optional<Output<String>> maintenanceConfigurationName() {
+        return Optional.ofNullable(this.maintenanceConfigurationName);
+    }
+
+    /**
      * The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
      * 
      */
@@ -191,6 +206,7 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
     private ElasticPoolState(ElasticPoolState $) {
         this.licenseType = $.licenseType;
         this.location = $.location;
+        this.maintenanceConfigurationName = $.maintenanceConfigurationName;
         this.maxSizeBytes = $.maxSizeBytes;
         this.maxSizeGb = $.maxSizeGb;
         this.name = $.name;
@@ -260,6 +276,27 @@ public final class ElasticPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceConfigurationName(@Nullable Output<String> maintenanceConfigurationName) {
+            $.maintenanceConfigurationName = maintenanceConfigurationName;
+            return this;
+        }
+
+        /**
+         * @param maintenanceConfigurationName The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maintenanceConfigurationName(String maintenanceConfigurationName) {
+            return maintenanceConfigurationName(Output.of(maintenanceConfigurationName));
         }
 
         /**

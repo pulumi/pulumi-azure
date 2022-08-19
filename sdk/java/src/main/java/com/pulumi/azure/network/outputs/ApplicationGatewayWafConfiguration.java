@@ -22,7 +22,7 @@ public final class ApplicationGatewayWafConfiguration {
      */
     private final @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
     /**
-     * @return Is the Web Application Firewall be enabled?
+     * @return Is the Web Application Firewall enabled?
      * 
      */
     private final Boolean enabled;
@@ -92,7 +92,7 @@ public final class ApplicationGatewayWafConfiguration {
         return this.disabledRuleGroups == null ? List.of() : this.disabledRuleGroups;
     }
     /**
-     * @return Is the Web Application Firewall be enabled?
+     * @return Is the Web Application Firewall enabled?
      * 
      */
     public Boolean enabled() {

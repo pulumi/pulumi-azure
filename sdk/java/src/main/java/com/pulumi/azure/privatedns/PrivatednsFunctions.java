@@ -4,9 +4,33 @@
 package com.pulumi.azure.privatedns;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.privatedns.inputs.GetAAAARecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetAAAARecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetARecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetARecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetCnameRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetCnameRecordPlainArgs;
 import com.pulumi.azure.privatedns.inputs.GetDnsZoneArgs;
 import com.pulumi.azure.privatedns.inputs.GetDnsZonePlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetMxRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetMxRecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetPtrRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetPtrRecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetSoaRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetSoaRecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetSrvRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetSrvRecordPlainArgs;
+import com.pulumi.azure.privatedns.inputs.GetTxtRecordArgs;
+import com.pulumi.azure.privatedns.inputs.GetTxtRecordPlainArgs;
+import com.pulumi.azure.privatedns.outputs.GetAAAARecordResult;
+import com.pulumi.azure.privatedns.outputs.GetARecordResult;
+import com.pulumi.azure.privatedns.outputs.GetCnameRecordResult;
 import com.pulumi.azure.privatedns.outputs.GetDnsZoneResult;
+import com.pulumi.azure.privatedns.outputs.GetMxRecordResult;
+import com.pulumi.azure.privatedns.outputs.GetPtrRecordResult;
+import com.pulumi.azure.privatedns.outputs.GetSoaRecordResult;
+import com.pulumi.azure.privatedns.outputs.GetSrvRecordResult;
+import com.pulumi.azure.privatedns.outputs.GetTxtRecordResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -14,6 +38,454 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class PrivatednsFunctions {
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.AAAARecord;
+     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
+        return getAAAARecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.AAAARecord;
+     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
+        return getAAAARecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.AAAARecord;
+     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.AAAARecord;
+     * import com.pulumi.azure.privatedns.AAAARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
+        return getARecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
+        return getARecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PrivatednsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = PrivatednsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.CnameRecord;
+     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
+        return getCnameRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.CnameRecord;
+     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
+        return getCnameRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.CnameRecord;
+     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.CnameRecord;
+     * import com.pulumi.azure.privatedns.CnameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Private DNS Zone.
      * 
@@ -169,5 +641,609 @@ public final class PrivatednsFunctions {
      */
     public static CompletableFuture<GetDnsZoneResult> getDnsZonePlain(GetDnsZonePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getDnsZone:getDnsZone", TypeShape.of(GetDnsZoneResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.MxRecord;
+     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
+        return getMxRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.MxRecord;
+     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
+        return getMxRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.MxRecord;
+     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.MxRecord;
+     * import com.pulumi.azure.privatedns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PTRRecord;
+     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
+        return getPtrRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PTRRecord;
+     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
+        return getPtrRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PTRRecord;
+     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.PTRRecord;
+     * import com.pulumi.azure.privatedns.PTRRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
+        return getSoaRecord(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
+        return getSoaRecordPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.SRVRecord;
+     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
+        return getSrvRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.SRVRecord;
+     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
+        return getSrvRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.SRVRecord;
+     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.SRVRecord;
+     * import com.pulumi.azure.privatedns.SRVRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.TxtRecord;
+     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
+        return getTxtRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.TxtRecord;
+     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
+        return getTxtRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.TxtRecord;
+     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:privatedns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.privatedns.TxtRecord;
+     * import com.pulumi.azure.privatedns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:privatedns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
     }
 }

@@ -71,7 +71,7 @@ export interface GetZoneResult {
     readonly numberOfRecordSets: number;
     readonly resourceGroupName: string;
     /**
-     * A mapping of tags to assign to the EventHub Namespace.
+     * A mapping of tags assigned to the DNS Zone.
      */
     readonly tags: {[key: string]: string};
 }

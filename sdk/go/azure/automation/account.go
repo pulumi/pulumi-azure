@@ -69,12 +69,17 @@ type Account struct {
 	DscSecondaryAccessKey pulumi.StringOutput `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringOutput `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayOutput `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrOutput `pulumi:"identity"`
+	// Whether requests using non-AAD authentication are blocked.
+	LocalAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                       pulumi.StringOutput                         `pulumi:"name"`
+	PrivateEndpointConnections AccountPrivateEndpointConnectionArrayOutput `pulumi:"privateEndpointConnections"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
@@ -126,12 +131,17 @@ type accountState struct {
 	DscSecondaryAccessKey *string `pulumi:"dscSecondaryAccessKey"`
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint *string `pulumi:"dscServerEndpoint"`
+	// An `encryption` block as defined below.
+	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// Whether requests using non-AAD authentication are blocked.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                       *string                            `pulumi:"name"`
+	PrivateEndpointConnections []AccountPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
@@ -149,12 +159,17 @@ type AccountState struct {
 	DscSecondaryAccessKey pulumi.StringPtrInput
 	// The DSC Server Endpoint associated with this Automation Account.
 	DscServerEndpoint pulumi.StringPtrInput
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// Whether requests using non-AAD authentication are blocked.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PrivateEndpointConnections AccountPrivateEndpointConnectionArrayInput
 	// Whether public network access is allowed for the container registry. Defaults to `true`.
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which the Automation Account is created. Changing this forces a new resource to be created.
@@ -170,8 +185,12 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// An `encryption` block as defined below.
+	Encryptions []AccountEncryption `pulumi:"encryptions"`
 	// An `identity` block as defined below.
 	Identity *AccountIdentity `pulumi:"identity"`
+	// Whether requests using non-AAD authentication are blocked.
+	LocalAuthenticationEnabled *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
@@ -188,8 +207,12 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// An `encryption` block as defined below.
+	Encryptions AccountEncryptionArrayInput
 	// An `identity` block as defined below.
 	Identity AccountIdentityPtrInput
+	// Whether requests using non-AAD authentication are blocked.
+	LocalAuthenticationEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
@@ -306,9 +329,19 @@ func (o AccountOutput) DscServerEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.DscServerEndpoint }).(pulumi.StringOutput)
 }
 
+// An `encryption` block as defined below.
+func (o AccountOutput) Encryptions() AccountEncryptionArrayOutput {
+	return o.ApplyT(func(v *Account) AccountEncryptionArrayOutput { return v.Encryptions }).(AccountEncryptionArrayOutput)
+}
+
 // An `identity` block as defined below.
 func (o AccountOutput) Identity() AccountIdentityPtrOutput {
 	return o.ApplyT(func(v *Account) AccountIdentityPtrOutput { return v.Identity }).(AccountIdentityPtrOutput)
+}
+
+// Whether requests using non-AAD authentication are blocked.
+func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -319,6 +352,10 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 // Specifies the name of the Automation Account. Changing this forces a new resource to be created.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AccountOutput) PrivateEndpointConnections() AccountPrivateEndpointConnectionArrayOutput {
+	return o.ApplyT(func(v *Account) AccountPrivateEndpointConnectionArrayOutput { return v.PrivateEndpointConnections }).(AccountPrivateEndpointConnectionArrayOutput)
 }
 
 // Whether public network access is allowed for the container registry. Defaults to `true`.

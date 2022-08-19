@@ -18,6 +18,18 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("mode")]
         public Input<string>? Mode { get; set; }
 
+        [Input("privateRanges")]
+        private InputList<string>? _privateRanges;
+
+        /// <summary>
+        /// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+        /// </summary>
+        public InputList<string> PrivateRanges
+        {
+            get => _privateRanges ?? (_privateRanges = new InputList<string>());
+            set => _privateRanges = value;
+        }
+
         [Input("signatureOverrides")]
         private InputList<Inputs.FirewallPolicyIntrusionDetectionSignatureOverrideArgs>? _signatureOverrides;
 

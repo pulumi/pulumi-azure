@@ -16,6 +16,8 @@ __all__ = [
     'PolicyCustomRuleMatchConditionMatchVariable',
     'PolicyManagedRules',
     'PolicyManagedRulesExclusion',
+    'PolicyManagedRulesExclusionExcludedRuleSet',
+    'PolicyManagedRulesExclusionExcludedRuleSetRuleGroup',
     'PolicyManagedRulesManagedRuleSet',
     'PolicyManagedRulesManagedRuleSetRuleGroupOverride',
     'PolicyPolicySettings',
@@ -291,6 +293,8 @@ class PolicyManagedRulesExclusion(dict):
             suggest = "match_variable"
         elif key == "selectorMatchOperator":
             suggest = "selector_match_operator"
+        elif key == "excludedRuleSet":
+            suggest = "excluded_rule_set"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesExclusion. Access the value via the '{suggest}' property getter instead.")
@@ -306,15 +310,19 @@ class PolicyManagedRulesExclusion(dict):
     def __init__(__self__, *,
                  match_variable: str,
                  selector: str,
-                 selector_match_operator: str):
+                 selector_match_operator: str,
+                 excluded_rule_set: Optional['outputs.PolicyManagedRulesExclusionExcludedRuleSet'] = None):
         """
         :param str match_variable: The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
         :param str selector: Describes field of the matchVariable collection.
         :param str selector_match_operator: Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
+        :param 'PolicyManagedRulesExclusionExcludedRuleSetArgs' excluded_rule_set: One or more `excluded_rule_set` block defined below.
         """
         pulumi.set(__self__, "match_variable", match_variable)
         pulumi.set(__self__, "selector", selector)
         pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+        if excluded_rule_set is not None:
+            pulumi.set(__self__, "excluded_rule_set", excluded_rule_set)
 
     @property
     @pulumi.getter(name="matchVariable")
@@ -339,6 +347,123 @@ class PolicyManagedRulesExclusion(dict):
         Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
         """
         return pulumi.get(self, "selector_match_operator")
+
+    @property
+    @pulumi.getter(name="excludedRuleSet")
+    def excluded_rule_set(self) -> Optional['outputs.PolicyManagedRulesExclusionExcludedRuleSet']:
+        """
+        One or more `excluded_rule_set` block defined below.
+        """
+        return pulumi.get(self, "excluded_rule_set")
+
+
+@pulumi.output_type
+class PolicyManagedRulesExclusionExcludedRuleSet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroups":
+            suggest = "rule_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesExclusionExcludedRuleSet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRulesExclusionExcludedRuleSet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRulesExclusionExcludedRuleSet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_groups: Optional[Sequence['outputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup']] = None,
+                 type: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        :param Sequence['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs'] rule_groups: One or more `rule_group` block defined below.
+        :param str type: The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+        :param str version: The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+        """
+        if rule_groups is not None:
+            pulumi.set(__self__, "rule_groups", rule_groups)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> Optional[Sequence['outputs.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup']]:
+        """
+        One or more `rule_group` block defined below.
+        """
+        return pulumi.get(self, "rule_groups")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PolicyManagedRulesExclusionExcludedRuleSetRuleGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+        elif key == "excludedRules":
+            suggest = "excluded_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyManagedRulesExclusionExcludedRuleSetRuleGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyManagedRulesExclusionExcludedRuleSetRuleGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyManagedRulesExclusionExcludedRuleSetRuleGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 excluded_rules: Optional[Sequence[str]] = None):
+        """
+        :param str rule_group_name: The name of rule group for exclusion.
+        :param Sequence[str] excluded_rules: One or more Rule IDs for exclusion.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if excluded_rules is not None:
+            pulumi.set(__self__, "excluded_rules", excluded_rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        The name of rule group for exclusion.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter(name="excludedRules")
+    def excluded_rules(self) -> Optional[Sequence[str]]:
+        """
+        One or more Rule IDs for exclusion.
+        """
+        return pulumi.get(self, "excluded_rules")
 
 
 @pulumi.output_type

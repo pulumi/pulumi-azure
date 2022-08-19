@@ -186,8 +186,12 @@ func (o EndpointCustomDomainCdnManagedHttpsPtrOutput) TlsVersion() pulumi.String
 }
 
 type EndpointCustomDomainUserManagedHttps struct {
-	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
-	KeyVaultCertificateId string `pulumi:"keyVaultCertificateId"`
+	// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+	//
+	// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
+	KeyVaultCertificateId *string `pulumi:"keyVaultCertificateId"`
+	// The ID of the Key Vault Secret that contains the HTTPS certificate.
+	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion *string `pulumi:"tlsVersion"`
 }
@@ -204,8 +208,12 @@ type EndpointCustomDomainUserManagedHttpsInput interface {
 }
 
 type EndpointCustomDomainUserManagedHttpsArgs struct {
-	// The ID of the Key Vault Certificate that contains the HTTPS certificate.
-	KeyVaultCertificateId pulumi.StringInput `pulumi:"keyVaultCertificateId"`
+	// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+	//
+	// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
+	KeyVaultCertificateId pulumi.StringPtrInput `pulumi:"keyVaultCertificateId"`
+	// The ID of the Key Vault Secret that contains the HTTPS certificate.
+	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
 	TlsVersion pulumi.StringPtrInput `pulumi:"tlsVersion"`
 }
@@ -287,9 +295,16 @@ func (o EndpointCustomDomainUserManagedHttpsOutput) ToEndpointCustomDomainUserMa
 	}).(EndpointCustomDomainUserManagedHttpsPtrOutput)
 }
 
-// The ID of the Key Vault Certificate that contains the HTTPS certificate.
-func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) string { return v.KeyVaultCertificateId }).(pulumi.StringOutput)
+// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+//
+// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
+func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.KeyVaultCertificateId }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the HTTPS certificate.
+func (o EndpointCustomDomainUserManagedHttpsOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointCustomDomainUserManagedHttps) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
 
 // The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
@@ -321,13 +336,25 @@ func (o EndpointCustomDomainUserManagedHttpsPtrOutput) Elem() EndpointCustomDoma
 	}).(EndpointCustomDomainUserManagedHttpsOutput)
 }
 
-// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+//
+// Deprecated: This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
 func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultCertificateId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.KeyVaultCertificateId
+		return v.KeyVaultCertificateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Secret that contains the HTTPS certificate.
+func (o EndpointCustomDomainUserManagedHttpsPtrOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointCustomDomainUserManagedHttps) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultSecretId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4932,6 +4959,1037 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 	}).(EndpointOriginOutput)
 }
 
+type FrontdoorFirewallPolicyCustomRule struct {
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action string `pulumi:"action"`
+	// Is the rule is enabled or disabled? Defaults to `true`.
+	Enabled *bool `pulumi:"enabled"`
+	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
+	MatchConditions []FrontdoorFirewallPolicyCustomRuleMatchCondition `pulumi:"matchConditions"`
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name string `pulumi:"name"`
+	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+	Priority *int `pulumi:"priority"`
+	// The rate limit duration in minutes. Defaults to `1`.
+	RateLimitDurationInMinutes *int `pulumi:"rateLimitDurationInMinutes"`
+	// The rate limit threshold. Defaults to `10`.
+	RateLimitThreshold *int `pulumi:"rateLimitThreshold"`
+	// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+	Type string `pulumi:"type"`
+}
+
+// FrontdoorFirewallPolicyCustomRuleInput is an input type that accepts FrontdoorFirewallPolicyCustomRuleArgs and FrontdoorFirewallPolicyCustomRuleOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyCustomRuleInput` via:
+//
+//	FrontdoorFirewallPolicyCustomRuleArgs{...}
+type FrontdoorFirewallPolicyCustomRuleInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyCustomRuleOutput() FrontdoorFirewallPolicyCustomRuleOutput
+	ToFrontdoorFirewallPolicyCustomRuleOutputWithContext(context.Context) FrontdoorFirewallPolicyCustomRuleOutput
+}
+
+type FrontdoorFirewallPolicyCustomRuleArgs struct {
+	// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Is the rule is enabled or disabled? Defaults to `true`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
+	MatchConditions FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput `pulumi:"matchConditions"`
+	// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+	Priority pulumi.IntPtrInput `pulumi:"priority"`
+	// The rate limit duration in minutes. Defaults to `1`.
+	RateLimitDurationInMinutes pulumi.IntPtrInput `pulumi:"rateLimitDurationInMinutes"`
+	// The rate limit threshold. Defaults to `10`.
+	RateLimitThreshold pulumi.IntPtrInput `pulumi:"rateLimitThreshold"`
+	// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FrontdoorFirewallPolicyCustomRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyCustomRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleArgs) ToFrontdoorFirewallPolicyCustomRuleOutput() FrontdoorFirewallPolicyCustomRuleOutput {
+	return i.ToFrontdoorFirewallPolicyCustomRuleOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleArgs) ToFrontdoorFirewallPolicyCustomRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyCustomRuleOutput)
+}
+
+// FrontdoorFirewallPolicyCustomRuleArrayInput is an input type that accepts FrontdoorFirewallPolicyCustomRuleArray and FrontdoorFirewallPolicyCustomRuleArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyCustomRuleArrayInput` via:
+//
+//	FrontdoorFirewallPolicyCustomRuleArray{ FrontdoorFirewallPolicyCustomRuleArgs{...} }
+type FrontdoorFirewallPolicyCustomRuleArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyCustomRuleArrayOutput() FrontdoorFirewallPolicyCustomRuleArrayOutput
+	ToFrontdoorFirewallPolicyCustomRuleArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyCustomRuleArrayOutput
+}
+
+type FrontdoorFirewallPolicyCustomRuleArray []FrontdoorFirewallPolicyCustomRuleInput
+
+func (FrontdoorFirewallPolicyCustomRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyCustomRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleArray) ToFrontdoorFirewallPolicyCustomRuleArrayOutput() FrontdoorFirewallPolicyCustomRuleArrayOutput {
+	return i.ToFrontdoorFirewallPolicyCustomRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleArray) ToFrontdoorFirewallPolicyCustomRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyCustomRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyCustomRuleOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyCustomRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyCustomRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleOutput) ToFrontdoorFirewallPolicyCustomRuleOutput() FrontdoorFirewallPolicyCustomRuleOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleOutput) ToFrontdoorFirewallPolicyCustomRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleOutput {
+	return o
+}
+
+// The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Is the rule is enabled or disabled? Defaults to `true`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) MatchConditions() FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) []FrontdoorFirewallPolicyCustomRuleMatchCondition {
+		return v.MatchConditions
+	}).(FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput)
+}
+
+// Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) Priority() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) *int { return v.Priority }).(pulumi.IntPtrOutput)
+}
+
+// The rate limit duration in minutes. Defaults to `1`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) RateLimitDurationInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) *int { return v.RateLimitDurationInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The rate limit threshold. Defaults to `10`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) RateLimitThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) *int { return v.RateLimitThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+func (o FrontdoorFirewallPolicyCustomRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyCustomRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyCustomRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyCustomRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleArrayOutput) ToFrontdoorFirewallPolicyCustomRuleArrayOutput() FrontdoorFirewallPolicyCustomRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleArrayOutput) ToFrontdoorFirewallPolicyCustomRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyCustomRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyCustomRule {
+		return vs[0].([]FrontdoorFirewallPolicyCustomRule)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyCustomRuleOutput)
+}
+
+type FrontdoorFirewallPolicyCustomRuleMatchCondition struct {
+	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
+	MatchValues []string `pulumi:"matchValues"`
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Should the result of the condition be negated.
+	NegationCondition *bool `pulumi:"negationCondition"`
+	// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+	Operator string `pulumi:"operator"`
+	// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+	Selector *string `pulumi:"selector"`
+	// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+	Transforms []string `pulumi:"transforms"`
+}
+
+// FrontdoorFirewallPolicyCustomRuleMatchConditionInput is an input type that accepts FrontdoorFirewallPolicyCustomRuleMatchConditionArgs and FrontdoorFirewallPolicyCustomRuleMatchConditionOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyCustomRuleMatchConditionInput` via:
+//
+//	FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{...}
+type FrontdoorFirewallPolicyCustomRuleMatchConditionInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionOutput
+	ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutputWithContext(context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionOutput
+}
+
+type FrontdoorFirewallPolicyCustomRuleMatchConditionArgs struct {
+	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
+	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
+	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Should the result of the condition be negated.
+	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
+	// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+	Selector pulumi.StringPtrInput `pulumi:"selector"`
+	// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+	Transforms pulumi.StringArrayInput `pulumi:"transforms"`
+}
+
+func (FrontdoorFirewallPolicyCustomRuleMatchConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleMatchConditionArgs) ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionOutput {
+	return i.ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleMatchConditionArgs) ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput)
+}
+
+// FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput is an input type that accepts FrontdoorFirewallPolicyCustomRuleMatchConditionArray and FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput` via:
+//
+//	FrontdoorFirewallPolicyCustomRuleMatchConditionArray{ FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{...} }
+type FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput
+	ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput
+}
+
+type FrontdoorFirewallPolicyCustomRuleMatchConditionArray []FrontdoorFirewallPolicyCustomRuleMatchConditionInput
+
+func (FrontdoorFirewallPolicyCustomRuleMatchConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleMatchConditionArray) ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput {
+	return i.ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyCustomRuleMatchConditionArray) ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput)
+}
+
+type FrontdoorFirewallPolicyCustomRuleMatchConditionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) ToFrontdoorFirewallPolicyCustomRuleMatchConditionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionOutput {
+	return o
+}
+
+// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) []string { return v.MatchValues }).(pulumi.StringArrayOutput)
+}
+
+// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Should the result of the condition be negated.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) NegationCondition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) *bool { return v.NegationCondition }).(pulumi.BoolPtrOutput)
+}
+
+// Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) Selector() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) *string { return v.Selector }).(pulumi.StringPtrOutput)
+}
+
+// Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) Transforms() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) []string { return v.Transforms }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyCustomRuleMatchCondition)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput() FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) ToFrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyCustomRuleMatchConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyCustomRuleMatchCondition {
+		return vs[0].([]FrontdoorFirewallPolicyCustomRuleMatchCondition)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRule struct {
+	// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action string `pulumi:"action"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions []FrontdoorFirewallPolicyManagedRuleExclusion `pulumi:"exclusions"`
+	// One or more `override` blocks as defined below.
+	Overrides []FrontdoorFirewallPolicyManagedRuleOverride `pulumi:"overrides"`
+	// The name of the managed rule to use with this resource.
+	Type string `pulumi:"type"`
+	// The version on the managed rule to use with this resource.
+	Version string `pulumi:"version"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleArgs and FrontdoorFirewallPolicyManagedRuleOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleArgs{...}
+type FrontdoorFirewallPolicyManagedRuleInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOutput() FrontdoorFirewallPolicyManagedRuleOutput
+	ToFrontdoorFirewallPolicyManagedRuleOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleArgs struct {
+	// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions FrontdoorFirewallPolicyManagedRuleExclusionArrayInput `pulumi:"exclusions"`
+	// One or more `override` blocks as defined below.
+	Overrides FrontdoorFirewallPolicyManagedRuleOverrideArrayInput `pulumi:"overrides"`
+	// The name of the managed rule to use with this resource.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The version on the managed rule to use with this resource.
+	Version pulumi.StringInput `pulumi:"version"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleArgs) ToFrontdoorFirewallPolicyManagedRuleOutput() FrontdoorFirewallPolicyManagedRuleOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleArgs) ToFrontdoorFirewallPolicyManagedRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleArray and FrontdoorFirewallPolicyManagedRuleArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleArray{ FrontdoorFirewallPolicyManagedRuleArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleArray []FrontdoorFirewallPolicyManagedRuleInput
+
+func (FrontdoorFirewallPolicyManagedRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleArray) ToFrontdoorFirewallPolicyManagedRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleArray) ToFrontdoorFirewallPolicyManagedRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOutput) ToFrontdoorFirewallPolicyManagedRuleOutput() FrontdoorFirewallPolicyManagedRuleOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOutput) ToFrontdoorFirewallPolicyManagedRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOutput {
+	return o
+}
+
+// The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+func (o FrontdoorFirewallPolicyManagedRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// One or more `exclusion` blocks as defined below.
+func (o FrontdoorFirewallPolicyManagedRuleOutput) Exclusions() FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) []FrontdoorFirewallPolicyManagedRuleExclusion {
+		return v.Exclusions
+	}).(FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput)
+}
+
+// One or more `override` blocks as defined below.
+func (o FrontdoorFirewallPolicyManagedRuleOutput) Overrides() FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) []FrontdoorFirewallPolicyManagedRuleOverride {
+		return v.Overrides
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput)
+}
+
+// The name of the managed rule to use with this resource.
+func (o FrontdoorFirewallPolicyManagedRuleOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The version on the managed rule to use with this resource.
+func (o FrontdoorFirewallPolicyManagedRuleOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRule) string { return v.Version }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) ToFrontdoorFirewallPolicyManagedRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) ToFrontdoorFirewallPolicyManagedRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRule {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRule)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector string `pulumi:"selector"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleExclusionInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleExclusionArgs and FrontdoorFirewallPolicyManagedRuleExclusionOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleExclusionInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleExclusionArgs{...}
+type FrontdoorFirewallPolicyManagedRuleExclusionInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleExclusionOutput
+	ToFrontdoorFirewallPolicyManagedRuleExclusionOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleExclusionOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector pulumi.StringInput `pulumi:"selector"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleExclusionOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleExclusionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleExclusionOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleExclusionArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleExclusionArray and FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleExclusionArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleExclusionArray{ FrontdoorFirewallPolicyManagedRuleExclusionArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleExclusionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleExclusionArray []FrontdoorFirewallPolicyManagedRuleExclusionInput
+
+func (FrontdoorFirewallPolicyManagedRuleExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleExclusionArray) ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleExclusionArray) ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleExclusionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleExclusionOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleExclusionOutput {
+	return o
+}
+
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+func (o FrontdoorFirewallPolicyManagedRuleExclusionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRuleExclusion {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRuleExclusion)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleExclusionOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverride struct {
+	// One or more `exclusion` blocks as defined below.
+	Exclusions []FrontdoorFirewallPolicyManagedRuleOverrideExclusion `pulumi:"exclusions"`
+	// The managed rule group to override.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+	// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+	Rules []FrontdoorFirewallPolicyManagedRuleOverrideRule `pulumi:"rules"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideArgs and FrontdoorFirewallPolicyManagedRuleOverrideOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideArgs{...}
+type FrontdoorFirewallPolicyManagedRuleOverrideInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideOutput() FrontdoorFirewallPolicyManagedRuleOverrideOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideArgs struct {
+	// One or more `exclusion` blocks as defined below.
+	Exclusions FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayInput `pulumi:"exclusions"`
+	// The managed rule group to override.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+	// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+	Rules FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayInput `pulumi:"rules"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverride)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideOutput() FrontdoorFirewallPolicyManagedRuleOverrideOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideArray and FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideArray{ FrontdoorFirewallPolicyManagedRuleOverrideArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleOverrideArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideArray []FrontdoorFirewallPolicyManagedRuleOverrideInput
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverride)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideArray) ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideArray) ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverride)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideOutput() FrontdoorFirewallPolicyManagedRuleOverrideOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideOutput {
+	return o
+}
+
+// One or more `exclusion` blocks as defined below.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideOutput) Exclusions() FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverride) []FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
+		return v.Exclusions
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput)
+}
+
+// The managed rule group to override.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+// One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideOutput) Rules() FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverride) []FrontdoorFirewallPolicyManagedRuleOverrideRule {
+		return v.Rules
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverride)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleOverrideOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRuleOverride {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRuleOverride)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector string `pulumi:"selector"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs and FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs{...}
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector pulumi.StringInput `pulumi:"selector"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray and FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray{ FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray []FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput {
+	return o
+}
+
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideExclusion) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRuleOverrideExclusion)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRule struct {
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action string `pulumi:"action"`
+	// Is the managed rule override enabled or disabled. Defaults to `false`
+	Enabled *bool `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions []FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion `pulumi:"exclusions"`
+	// Identifier for the managed rule.
+	RuleId string `pulumi:"ruleId"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideRuleInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs and FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideRuleInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{...}
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs struct {
+	// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// Is the managed rule override enabled or disabled. Defaults to `false`
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// One or more `exclusion` blocks as defined below.
+	Exclusions FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayInput `pulumi:"exclusions"`
+	// Identifier for the managed rule.
+	RuleId pulumi.StringInput `pulumi:"ruleId"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideRuleArray and FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{ FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleArray []FrontdoorFirewallPolicyManagedRuleOverrideRuleInput
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleArray) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleArray) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput {
+	return o
+}
+
+// The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// Is the managed rule override enabled or disabled. Defaults to `false`
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// One or more `exclusion` blocks as defined below.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) Exclusions() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) []FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
+		return v.Exclusions
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
+}
+
+// Identifier for the managed rule.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput) RuleId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRule) string { return v.RuleId }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideRule)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRuleOverrideRule {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRuleOverrideRule)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable string `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator string `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector string `pulumi:"selector"`
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs and FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs{...}
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs struct {
+	// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
+	// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+	Selector pulumi.StringInput `pulumi:"selector"`
+}
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput)
+}
+
+// FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayInput is an input type that accepts FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray and FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput values.
+// You can construct a concrete instance of `FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayInput` via:
+//
+//	FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray{ FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs{...} }
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput
+	ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray []FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
+	return i.ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput {
+	return o
+}
+
+// The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) MatchVariable() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
+}
+
+// Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// Selector for the value in the `matchVariable` attribute this exclusion applies to.
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput) Selector() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion) string { return v.Selector }).(pulumi.StringOutput)
+}
+
+type FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion)(nil)).Elem()
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput() FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) ToFrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutputWithContext(ctx context.Context) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput {
+	return o
+}
+
+func (o FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput) Index(i pulumi.IntInput) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
+		return vs[0].([]FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion)[vs[1].(int)]
+	}).(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput)
+}
+
 type FrontdoorOriginGroupHealthProbe struct {
 	// Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
 	IntervalInSeconds int `pulumi:"intervalInSeconds"`
@@ -5495,6 +6553,569 @@ func (o FrontdoorOriginPrivateLinkPtrOutput) TargetType() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type FrontdoorSecurityPolicySecurityPolicies struct {
+	// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewall `pulumi:"firewall"`
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesArgs and FrontdoorSecurityPolicySecurityPoliciesOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesInput` via:
+//
+//	FrontdoorSecurityPolicySecurityPoliciesArgs{...}
+type FrontdoorSecurityPolicySecurityPoliciesInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesOutput() FrontdoorSecurityPolicySecurityPoliciesOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesOutput
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesArgs struct {
+	// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewallInput `pulumi:"firewall"`
+}
+
+func (FrontdoorSecurityPolicySecurityPoliciesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPolicies)(nil)).Elem()
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesArgs) ToFrontdoorSecurityPolicySecurityPoliciesOutput() FrontdoorSecurityPolicySecurityPoliciesOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesArgs) ToFrontdoorSecurityPolicySecurityPoliciesOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesOutput)
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesArgs) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutput() FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesArgs) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesOutput).ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(ctx)
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesPtrInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesArgs, FrontdoorSecurityPolicySecurityPoliciesPtr and FrontdoorSecurityPolicySecurityPoliciesPtrOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesPtrInput` via:
+//
+//	        FrontdoorSecurityPolicySecurityPoliciesArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorSecurityPolicySecurityPoliciesPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesPtrOutput() FrontdoorSecurityPolicySecurityPoliciesPtrOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesPtrOutput
+}
+
+type frontdoorSecurityPolicySecurityPoliciesPtrType FrontdoorSecurityPolicySecurityPoliciesArgs
+
+func FrontdoorSecurityPolicySecurityPoliciesPtr(v *FrontdoorSecurityPolicySecurityPoliciesArgs) FrontdoorSecurityPolicySecurityPoliciesPtrInput {
+	return (*frontdoorSecurityPolicySecurityPoliciesPtrType)(v)
+}
+
+func (*frontdoorSecurityPolicySecurityPoliciesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPolicies)(nil)).Elem()
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesPtrType) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutput() FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesPtrType) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPolicies)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicySecurityPoliciesOutput() FrontdoorSecurityPolicySecurityPoliciesOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicySecurityPoliciesOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutput() FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return o.ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorSecurityPolicySecurityPolicies) *FrontdoorSecurityPolicySecurityPolicies {
+		return &v
+	}).(FrontdoorSecurityPolicySecurityPoliciesPtrOutput)
+}
+
+// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPolicies) FrontdoorSecurityPolicySecurityPoliciesFirewall {
+		return v.Firewall
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPolicies)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutput() FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Elem() FrontdoorSecurityPolicySecurityPoliciesOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPolicies) FrontdoorSecurityPolicySecurityPolicies {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorSecurityPolicySecurityPolicies
+		return ret
+	}).(FrontdoorSecurityPolicySecurityPoliciesOutput)
+}
+
+// An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPolicies) *FrontdoorSecurityPolicySecurityPoliciesFirewall {
+		if v == nil {
+			return nil
+		}
+		return &v.Firewall
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewall struct {
+	// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation `pulumi:"association"`
+	// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	CdnFrontdoorFirewallPolicyId string `pulumi:"cdnFrontdoorFirewallPolicyId"`
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallArgs and FrontdoorSecurityPolicySecurityPoliciesFirewallOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallInput` via:
+//
+//	FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{...}
+type FrontdoorSecurityPolicySecurityPoliciesFirewallInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallOutput
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallArgs struct {
+	// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput `pulumi:"association"`
+	// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	CdnFrontdoorFirewallPolicyId pulumi.StringInput `pulumi:"cdnFrontdoorFirewallPolicyId"`
+}
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewall)(nil)).Elem()
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput)
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput).ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(ctx)
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallPtrInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallArgs, FrontdoorSecurityPolicySecurityPoliciesFirewallPtr and FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallPtrInput` via:
+//
+//	        FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorSecurityPolicySecurityPoliciesFirewallPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput
+}
+
+type frontdoorSecurityPolicySecurityPoliciesFirewallPtrType FrontdoorSecurityPolicySecurityPoliciesFirewallArgs
+
+func FrontdoorSecurityPolicySecurityPoliciesFirewallPtr(v *FrontdoorSecurityPolicySecurityPoliciesFirewallArgs) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrInput {
+	return (*frontdoorSecurityPolicySecurityPoliciesFirewallPtrType)(v)
+}
+
+func (*frontdoorSecurityPolicySecurityPoliciesFirewallPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPoliciesFirewall)(nil)).Elem()
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesFirewallPtrType) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesFirewallPtrType) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewall)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return o.ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorSecurityPolicySecurityPoliciesFirewall) *FrontdoorSecurityPolicySecurityPoliciesFirewall {
+		return &v
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput)
+}
+
+// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+		return v.Association
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
+}
+
+// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) string { return v.CdnFrontdoorFirewallPolicyId }).(pulumi.StringOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPoliciesFirewall)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Elem() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) FrontdoorSecurityPolicySecurityPoliciesFirewall {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorSecurityPolicySecurityPoliciesFirewall
+		return ret
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput)
+}
+
+// An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Association() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+		if v == nil {
+			return nil
+		}
+		return &v.Association
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
+}
+
+// The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CdnFrontdoorFirewallPolicyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation struct {
+	// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Domains []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain `pulumi:"domains"`
+	// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+	PatternsToMatch string `pulumi:"patternsToMatch"`
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs and FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput` via:
+//
+//	FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{...}
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs struct {
+	// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+	Domains FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput `pulumi:"domains"`
+	// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+	PatternsToMatch pulumi.StringInput `pulumi:"patternsToMatch"`
+}
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation)(nil)).Elem()
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput).ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(ctx)
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs, FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtr and FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput` via:
+//
+//	        FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput
+}
+
+type frontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrType FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs
+
+func FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtr(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput {
+	return (*frontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrType)(v)
+}
+
+func (*frontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation)(nil)).Elem()
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrType) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrType) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return o.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+		return &v
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
+}
+
+// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
+		return v.Domains
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
+}
+
+// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) PatternsToMatch() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) string { return v.PatternsToMatch }).(pulumi.StringOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Elem() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation
+		return ret
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
+}
+
+// One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
+		if v == nil {
+			return nil
+		}
+		return v.Domains
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
+}
+
+// The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) PatternsToMatch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PatternsToMatch
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain struct {
+	// Is the Frontdoor Custom Domain/Endpoint activated?
+	Active *bool `pulumi:"active"`
+	// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	CdnFrontdoorDomainId string `pulumi:"cdnFrontdoorDomainId"`
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs and FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput` via:
+//
+//	FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{...}
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs struct {
+	// Is the Frontdoor Custom Domain/Endpoint activated?
+	Active pulumi.BoolPtrInput `pulumi:"active"`
+	// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+	CdnFrontdoorDomainId pulumi.StringInput `pulumi:"cdnFrontdoorDomainId"`
+}
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput)
+}
+
+// FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput is an input type that accepts FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray and FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput values.
+// You can construct a concrete instance of `FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput` via:
+//
+//	FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{ FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{...} }
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput interface {
+	pulumi.Input
+
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput
+	ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutputWithContext(context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return i.ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutputWithContext(context.Background())
+}
+
+func (i FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput {
+	return o
+}
+
+// Is the Frontdoor Custom Domain/Endpoint activated?
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) Active() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) *bool { return v.Active }).(pulumi.BoolPtrOutput)
+}
+
+// The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) CdnFrontdoorDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) string {
+		return v.CdnFrontdoorDomainId
+	}).(pulumi.StringOutput)
+}
+
+type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput) ToFrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutputWithContext(ctx context.Context) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
+	return o
+}
+
+func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput) Index(i pulumi.IntInput) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
+		return vs[0].([]FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain)[vs[1].(int)]
+	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput)
+}
+
 type GetFrontdoorOriginGroupHealthProbe struct {
 	// Specifies the number of seconds between health probes.
 	IntervalInSeconds int `pulumi:"intervalInSeconds"`
@@ -5799,12 +7420,36 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGlobalDeliveryRuleUrlRewriteActionPtrInput)(nil)).Elem(), EndpointGlobalDeliveryRuleUrlRewriteActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginInput)(nil)).Elem(), EndpointOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleExclusionInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleExclusionArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideExclusionInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), FrontdoorOriginGroupHealthProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupHealthProbePtrInput)(nil)).Elem(), FrontdoorOriginGroupHealthProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginGroupLoadBalancingPtrInput)(nil)).Elem(), FrontdoorOriginGroupLoadBalancingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorOriginPrivateLinkPtrInput)(nil)).Elem(), FrontdoorOriginPrivateLinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesPtrInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallPtrInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
@@ -5873,12 +7518,36 @@ func init() {
 	pulumi.RegisterOutputType(EndpointGlobalDeliveryRuleUrlRewriteActionPtrOutput{})
 	pulumi.RegisterOutputType(EndpointOriginOutput{})
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleExclusionOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleExclusionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideExclusionOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideRuleOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideRuleArrayOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionOutput{})
+	pulumi.RegisterOutputType(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginGroupHealthProbeOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginGroupHealthProbePtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginGroupLoadBalancingPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkOutput{})
 	pulumi.RegisterOutputType(FrontdoorOriginPrivateLinkPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput{})
+	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})

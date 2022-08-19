@@ -37,6 +37,21 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="architecture")
+    private @Nullable Output<String> architecture;
+
+    /**
+     * @return CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> architecture() {
+        return Optional.ofNullable(this.architecture);
+    }
+
+    /**
      * A description of this Shared Image.
      * 
      */
@@ -355,6 +370,7 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
 
     private SharedImageArgs(SharedImageArgs $) {
         this.acceleratedNetworkSupportEnabled = $.acceleratedNetworkSupportEnabled;
+        this.architecture = $.architecture;
         this.description = $.description;
         this.diskTypesNotAlloweds = $.diskTypesNotAlloweds;
         this.endOfLifeDate = $.endOfLifeDate;
@@ -415,6 +431,27 @@ public final class SharedImageArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder acceleratedNetworkSupportEnabled(Boolean acceleratedNetworkSupportEnabled) {
             return acceleratedNetworkSupportEnabled(Output.of(acceleratedNetworkSupportEnabled));
+        }
+
+        /**
+         * @param architecture CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder architecture(@Nullable Output<String> architecture) {
+            $.architecture = architecture;
+            return this;
+        }
+
+        /**
+         * @param architecture CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder architecture(String architecture) {
+            return architecture(Output.of(architecture));
         }
 
         /**

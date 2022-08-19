@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkDataset;
+import com.pulumi.azure.datafactory.outputs.DataFlowSinkFlowlet;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkLinkedService;
 import com.pulumi.azure.datafactory.outputs.DataFlowSinkSchemaLinkedService;
 import com.pulumi.core.annotations.CustomType;
@@ -25,6 +26,11 @@ public final class DataFlowSink {
      */
     private final @Nullable String description;
     /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    private final @Nullable DataFlowSinkFlowlet flowlet;
+    /**
      * @return A `linked_service` block as defined below.
      * 
      */
@@ -44,11 +50,13 @@ public final class DataFlowSink {
     private DataFlowSink(
         @CustomType.Parameter("dataset") @Nullable DataFlowSinkDataset dataset,
         @CustomType.Parameter("description") @Nullable String description,
+        @CustomType.Parameter("flowlet") @Nullable DataFlowSinkFlowlet flowlet,
         @CustomType.Parameter("linkedService") @Nullable DataFlowSinkLinkedService linkedService,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("schemaLinkedService") @Nullable DataFlowSinkSchemaLinkedService schemaLinkedService) {
         this.dataset = dataset;
         this.description = description;
+        this.flowlet = flowlet;
         this.linkedService = linkedService;
         this.name = name;
         this.schemaLinkedService = schemaLinkedService;
@@ -67,6 +75,13 @@ public final class DataFlowSink {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    public Optional<DataFlowSinkFlowlet> flowlet() {
+        return Optional.ofNullable(this.flowlet);
     }
     /**
      * @return A `linked_service` block as defined below.
@@ -101,6 +116,7 @@ public final class DataFlowSink {
     public static final class Builder {
         private @Nullable DataFlowSinkDataset dataset;
         private @Nullable String description;
+        private @Nullable DataFlowSinkFlowlet flowlet;
         private @Nullable DataFlowSinkLinkedService linkedService;
         private String name;
         private @Nullable DataFlowSinkSchemaLinkedService schemaLinkedService;
@@ -113,6 +129,7 @@ public final class DataFlowSink {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
     	      this.description = defaults.description;
+    	      this.flowlet = defaults.flowlet;
     	      this.linkedService = defaults.linkedService;
     	      this.name = defaults.name;
     	      this.schemaLinkedService = defaults.schemaLinkedService;
@@ -124,6 +141,10 @@ public final class DataFlowSink {
         }
         public Builder description(@Nullable String description) {
             this.description = description;
+            return this;
+        }
+        public Builder flowlet(@Nullable DataFlowSinkFlowlet flowlet) {
+            this.flowlet = flowlet;
             return this;
         }
         public Builder linkedService(@Nullable DataFlowSinkLinkedService linkedService) {
@@ -138,7 +159,7 @@ public final class DataFlowSink {
             this.schemaLinkedService = schemaLinkedService;
             return this;
         }        public DataFlowSink build() {
-            return new DataFlowSink(dataset, description, linkedService, name, schemaLinkedService);
+            return new DataFlowSink(dataset, description, flowlet, linkedService, name, schemaLinkedService);
         }
     }
 }

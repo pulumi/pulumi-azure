@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Maintenance
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
-    ///         Scope = "All",
+    ///         Scope = "SQLDB",
     ///         Tags = 
     ///         {
     ///             { "Env", "prod" },
@@ -76,10 +76,10 @@ namespace Pulumi.Azure.Maintenance
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         /// </summary>
         [Output("scope")]
-        public Output<string?> Scope { get; private set; } = null!;
+        public Output<string> Scope { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource. The key could not contain upper case letter.
@@ -176,10 +176,10 @@ namespace Pulumi.Azure.Maintenance
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         /// </summary>
-        [Input("scope")]
-        public Input<string>? Scope { get; set; }
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+        /// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

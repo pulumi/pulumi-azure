@@ -110,6 +110,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string>;
     /**
+     * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     */
+    public readonly sqlRedirectAllowed!: pulumi.Output<boolean | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -152,6 +156,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["ruleCollectionGroups"] = state ? state.ruleCollectionGroups : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["sqlRedirectAllowed"] = state ? state.sqlRedirectAllowed : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["threatIntelligenceAllowlist"] = state ? state.threatIntelligenceAllowlist : undefined;
             resourceInputs["threatIntelligenceMode"] = state ? state.threatIntelligenceMode : undefined;
@@ -171,6 +176,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["privateIpRanges"] = args ? args.privateIpRanges : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["sqlRedirectAllowed"] = args ? args.sqlRedirectAllowed : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threatIntelligenceAllowlist"] = args ? args.threatIntelligenceAllowlist : undefined;
             resourceInputs["threatIntelligenceMode"] = args ? args.threatIntelligenceMode : undefined;
@@ -241,6 +247,10 @@ export interface FirewallPolicyState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     */
+    sqlRedirectAllowed?: pulumi.Input<boolean>;
+    /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -302,6 +312,10 @@ export interface FirewallPolicyArgs {
      * The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     */
+    sqlRedirectAllowed?: pulumi.Input<boolean>;
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      */

@@ -1399,6 +1399,162 @@ func (o ApplicationGatewayGatewayIpConfigurationArrayOutput) Index(i pulumi.IntI
 	}).(ApplicationGatewayGatewayIpConfigurationOutput)
 }
 
+type ApplicationGatewayGlobal struct {
+	// Whether Application Gateway's Request buffer is enabled.
+	RequestBufferingEnabled bool `pulumi:"requestBufferingEnabled"`
+	// Whether Application Gateway's Response buffer is enabled.
+	ResponseBufferingEnabled bool `pulumi:"responseBufferingEnabled"`
+}
+
+// ApplicationGatewayGlobalInput is an input type that accepts ApplicationGatewayGlobalArgs and ApplicationGatewayGlobalOutput values.
+// You can construct a concrete instance of `ApplicationGatewayGlobalInput` via:
+//
+//	ApplicationGatewayGlobalArgs{...}
+type ApplicationGatewayGlobalInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayGlobalOutput() ApplicationGatewayGlobalOutput
+	ToApplicationGatewayGlobalOutputWithContext(context.Context) ApplicationGatewayGlobalOutput
+}
+
+type ApplicationGatewayGlobalArgs struct {
+	// Whether Application Gateway's Request buffer is enabled.
+	RequestBufferingEnabled pulumi.BoolInput `pulumi:"requestBufferingEnabled"`
+	// Whether Application Gateway's Response buffer is enabled.
+	ResponseBufferingEnabled pulumi.BoolInput `pulumi:"responseBufferingEnabled"`
+}
+
+func (ApplicationGatewayGlobalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (i ApplicationGatewayGlobalArgs) ToApplicationGatewayGlobalOutput() ApplicationGatewayGlobalOutput {
+	return i.ToApplicationGatewayGlobalOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayGlobalArgs) ToApplicationGatewayGlobalOutputWithContext(ctx context.Context) ApplicationGatewayGlobalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayGlobalOutput)
+}
+
+func (i ApplicationGatewayGlobalArgs) ToApplicationGatewayGlobalPtrOutput() ApplicationGatewayGlobalPtrOutput {
+	return i.ToApplicationGatewayGlobalPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationGatewayGlobalArgs) ToApplicationGatewayGlobalPtrOutputWithContext(ctx context.Context) ApplicationGatewayGlobalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayGlobalOutput).ToApplicationGatewayGlobalPtrOutputWithContext(ctx)
+}
+
+// ApplicationGatewayGlobalPtrInput is an input type that accepts ApplicationGatewayGlobalArgs, ApplicationGatewayGlobalPtr and ApplicationGatewayGlobalPtrOutput values.
+// You can construct a concrete instance of `ApplicationGatewayGlobalPtrInput` via:
+//
+//	        ApplicationGatewayGlobalArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationGatewayGlobalPtrInput interface {
+	pulumi.Input
+
+	ToApplicationGatewayGlobalPtrOutput() ApplicationGatewayGlobalPtrOutput
+	ToApplicationGatewayGlobalPtrOutputWithContext(context.Context) ApplicationGatewayGlobalPtrOutput
+}
+
+type applicationGatewayGlobalPtrType ApplicationGatewayGlobalArgs
+
+func ApplicationGatewayGlobalPtr(v *ApplicationGatewayGlobalArgs) ApplicationGatewayGlobalPtrInput {
+	return (*applicationGatewayGlobalPtrType)(v)
+}
+
+func (*applicationGatewayGlobalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (i *applicationGatewayGlobalPtrType) ToApplicationGatewayGlobalPtrOutput() ApplicationGatewayGlobalPtrOutput {
+	return i.ToApplicationGatewayGlobalPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationGatewayGlobalPtrType) ToApplicationGatewayGlobalPtrOutputWithContext(ctx context.Context) ApplicationGatewayGlobalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayGlobalPtrOutput)
+}
+
+type ApplicationGatewayGlobalOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayGlobalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (o ApplicationGatewayGlobalOutput) ToApplicationGatewayGlobalOutput() ApplicationGatewayGlobalOutput {
+	return o
+}
+
+func (o ApplicationGatewayGlobalOutput) ToApplicationGatewayGlobalOutputWithContext(ctx context.Context) ApplicationGatewayGlobalOutput {
+	return o
+}
+
+func (o ApplicationGatewayGlobalOutput) ToApplicationGatewayGlobalPtrOutput() ApplicationGatewayGlobalPtrOutput {
+	return o.ToApplicationGatewayGlobalPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationGatewayGlobalOutput) ToApplicationGatewayGlobalPtrOutputWithContext(ctx context.Context) ApplicationGatewayGlobalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationGatewayGlobal) *ApplicationGatewayGlobal {
+		return &v
+	}).(ApplicationGatewayGlobalPtrOutput)
+}
+
+// Whether Application Gateway's Request buffer is enabled.
+func (o ApplicationGatewayGlobalOutput) RequestBufferingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationGatewayGlobal) bool { return v.RequestBufferingEnabled }).(pulumi.BoolOutput)
+}
+
+// Whether Application Gateway's Response buffer is enabled.
+func (o ApplicationGatewayGlobalOutput) ResponseBufferingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ApplicationGatewayGlobal) bool { return v.ResponseBufferingEnabled }).(pulumi.BoolOutput)
+}
+
+type ApplicationGatewayGlobalPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationGatewayGlobalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationGatewayGlobal)(nil)).Elem()
+}
+
+func (o ApplicationGatewayGlobalPtrOutput) ToApplicationGatewayGlobalPtrOutput() ApplicationGatewayGlobalPtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayGlobalPtrOutput) ToApplicationGatewayGlobalPtrOutputWithContext(ctx context.Context) ApplicationGatewayGlobalPtrOutput {
+	return o
+}
+
+func (o ApplicationGatewayGlobalPtrOutput) Elem() ApplicationGatewayGlobalOutput {
+	return o.ApplyT(func(v *ApplicationGatewayGlobal) ApplicationGatewayGlobal {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationGatewayGlobal
+		return ret
+	}).(ApplicationGatewayGlobalOutput)
+}
+
+// Whether Application Gateway's Request buffer is enabled.
+func (o ApplicationGatewayGlobalPtrOutput) RequestBufferingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayGlobal) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.RequestBufferingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Application Gateway's Response buffer is enabled.
+func (o ApplicationGatewayGlobalPtrOutput) ResponseBufferingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayGlobal) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ResponseBufferingEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ApplicationGatewayHttpListener struct {
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayHttpListenerCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
@@ -2460,7 +2616,7 @@ func (o ApplicationGatewayProbeArrayOutput) Index(i pulumi.IntInput) Application
 
 type ApplicationGatewayProbeMatch struct {
 	// A snippet from the Response Body which must be present in the Response.
-	Body string `pulumi:"body"`
+	Body *string `pulumi:"body"`
 	// A list of allowed status codes for this Health Probe.
 	StatusCodes []string `pulumi:"statusCodes"`
 }
@@ -2478,7 +2634,7 @@ type ApplicationGatewayProbeMatchInput interface {
 
 type ApplicationGatewayProbeMatchArgs struct {
 	// A snippet from the Response Body which must be present in the Response.
-	Body pulumi.StringInput `pulumi:"body"`
+	Body pulumi.StringPtrInput `pulumi:"body"`
 	// A list of allowed status codes for this Health Probe.
 	StatusCodes pulumi.StringArrayInput `pulumi:"statusCodes"`
 }
@@ -2561,8 +2717,8 @@ func (o ApplicationGatewayProbeMatchOutput) ToApplicationGatewayProbeMatchPtrOut
 }
 
 // A snippet from the Response Body which must be present in the Response.
-func (o ApplicationGatewayProbeMatchOutput) Body() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayProbeMatch) string { return v.Body }).(pulumi.StringOutput)
+func (o ApplicationGatewayProbeMatchOutput) Body() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayProbeMatch) *string { return v.Body }).(pulumi.StringPtrOutput)
 }
 
 // A list of allowed status codes for this Health Probe.
@@ -2600,7 +2756,7 @@ func (o ApplicationGatewayProbeMatchPtrOutput) Body() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Body
+		return v.Body
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3615,6 +3771,8 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationAr
 }
 
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrl struct {
+	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+	Components *string `pulumi:"components"`
 	// The URL path to rewrite.
 	Path *string `pulumi:"path"`
 	// The query string to rewrite.
@@ -3635,6 +3793,8 @@ type ApplicationGatewayRewriteRuleSetRewriteRuleUrlInput interface {
 }
 
 type ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs struct {
+	// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+	Components pulumi.StringPtrInput `pulumi:"components"`
 	// The URL path to rewrite.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The query string to rewrite.
@@ -3720,6 +3880,11 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) ToApplicationGatew
 	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput)
 }
 
+// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Components() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.Components }).(pulumi.StringPtrOutput)
+}
+
 // The URL path to rewrite.
 func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string { return v.Path }).(pulumi.StringPtrOutput)
@@ -3757,6 +3922,16 @@ func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Elem() Applicat
 		var ret ApplicationGatewayRewriteRuleSetRewriteRuleUrl
 		return ret
 	}).(ApplicationGatewayRewriteRuleSetRewriteRuleUrlOutput)
+}
+
+// The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+func (o ApplicationGatewayRewriteRuleSetRewriteRuleUrlPtrOutput) Components() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationGatewayRewriteRuleSetRewriteRuleUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Components
+	}).(pulumi.StringPtrOutput)
 }
 
 // The URL path to rewrite.
@@ -5295,7 +5470,7 @@ func (o ApplicationGatewayUrlPathMapPathRuleArrayOutput) Index(i pulumi.IntInput
 type ApplicationGatewayWafConfiguration struct {
 	// one or more `disabledRuleGroup` blocks as defined below.
 	DisabledRuleGroups []ApplicationGatewayWafConfigurationDisabledRuleGroup `pulumi:"disabledRuleGroups"`
-	// Is the Web Application Firewall be enabled?
+	// Is the Web Application Firewall enabled?
 	Enabled bool `pulumi:"enabled"`
 	// one or more `exclusion` blocks as defined below.
 	Exclusions []ApplicationGatewayWafConfigurationExclusion `pulumi:"exclusions"`
@@ -5327,7 +5502,7 @@ type ApplicationGatewayWafConfigurationInput interface {
 type ApplicationGatewayWafConfigurationArgs struct {
 	// one or more `disabledRuleGroup` blocks as defined below.
 	DisabledRuleGroups ApplicationGatewayWafConfigurationDisabledRuleGroupArrayInput `pulumi:"disabledRuleGroups"`
-	// Is the Web Application Firewall be enabled?
+	// Is the Web Application Firewall enabled?
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// one or more `exclusion` blocks as defined below.
 	Exclusions ApplicationGatewayWafConfigurationExclusionArrayInput `pulumi:"exclusions"`
@@ -5429,7 +5604,7 @@ func (o ApplicationGatewayWafConfigurationOutput) DisabledRuleGroups() Applicati
 	}).(ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput)
 }
 
-// Is the Web Application Firewall be enabled?
+// Is the Web Application Firewall enabled?
 func (o ApplicationGatewayWafConfigurationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ApplicationGatewayWafConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -5505,7 +5680,7 @@ func (o ApplicationGatewayWafConfigurationPtrOutput) DisabledRuleGroups() Applic
 	}).(ApplicationGatewayWafConfigurationDisabledRuleGroupArrayOutput)
 }
 
-// Is the Web Application Firewall be enabled?
+// Is the Web Application Firewall enabled?
 func (o ApplicationGatewayWafConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ApplicationGatewayWafConfiguration) *bool {
 		if v == nil {
@@ -9145,6 +9320,8 @@ func (o FirewallPolicyInsightsLogAnalyticsWorkspaceArrayOutput) Index(i pulumi.I
 type FirewallPolicyIntrusionDetection struct {
 	// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 	Mode *string `pulumi:"mode"`
+	// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+	PrivateRanges []string `pulumi:"privateRanges"`
 	// One or more `signatureOverrides` blocks as defined below.
 	SignatureOverrides []FirewallPolicyIntrusionDetectionSignatureOverride `pulumi:"signatureOverrides"`
 	// One or more `trafficBypass` blocks as defined below.
@@ -9165,6 +9342,8 @@ type FirewallPolicyIntrusionDetectionInput interface {
 type FirewallPolicyIntrusionDetectionArgs struct {
 	// In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+	PrivateRanges pulumi.StringArrayInput `pulumi:"privateRanges"`
 	// One or more `signatureOverrides` blocks as defined below.
 	SignatureOverrides FirewallPolicyIntrusionDetectionSignatureOverrideArrayInput `pulumi:"signatureOverrides"`
 	// One or more `trafficBypass` blocks as defined below.
@@ -9253,6 +9432,11 @@ func (o FirewallPolicyIntrusionDetectionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) *string { return v.Mode }).(pulumi.StringPtrOutput)
 }
 
+// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+func (o FirewallPolicyIntrusionDetectionOutput) PrivateRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) []string { return v.PrivateRanges }).(pulumi.StringArrayOutput)
+}
+
 // One or more `signatureOverrides` blocks as defined below.
 func (o FirewallPolicyIntrusionDetectionOutput) SignatureOverrides() FirewallPolicyIntrusionDetectionSignatureOverrideArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyIntrusionDetection) []FirewallPolicyIntrusionDetectionSignatureOverride {
@@ -9299,6 +9483,16 @@ func (o FirewallPolicyIntrusionDetectionPtrOutput) Mode() pulumi.StringPtrOutput
 		}
 		return v.Mode
 	}).(pulumi.StringPtrOutput)
+}
+
+// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+func (o FirewallPolicyIntrusionDetectionPtrOutput) PrivateRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FirewallPolicyIntrusionDetection) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateRanges
+	}).(pulumi.StringArrayOutput)
 }
 
 // One or more `signatureOverrides` blocks as defined below.
@@ -27019,6 +27213,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayFrontendPortArrayInput)(nil)).Elem(), ApplicationGatewayFrontendPortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayGatewayIpConfigurationInput)(nil)).Elem(), ApplicationGatewayGatewayIpConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayGatewayIpConfigurationArrayInput)(nil)).Elem(), ApplicationGatewayGatewayIpConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayGlobalInput)(nil)).Elem(), ApplicationGatewayGlobalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayGlobalPtrInput)(nil)).Elem(), ApplicationGatewayGlobalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayHttpListenerInput)(nil)).Elem(), ApplicationGatewayHttpListenerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayHttpListenerArrayInput)(nil)).Elem(), ApplicationGatewayHttpListenerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayHttpListenerCustomErrorConfigurationInput)(nil)).Elem(), ApplicationGatewayHttpListenerCustomErrorConfigurationArgs{})
@@ -27375,6 +27571,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayFrontendPortArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayGatewayIpConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayGatewayIpConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayGlobalOutput{})
+	pulumi.RegisterOutputType(ApplicationGatewayGlobalPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayHttpListenerOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayHttpListenerArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayHttpListenerCustomErrorConfigurationOutput{})

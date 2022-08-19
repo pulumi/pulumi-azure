@@ -16,14 +16,14 @@ public final class LinuxFunctionAppSiteCredentialArgs extends com.pulumi.resourc
     public static final LinuxFunctionAppSiteCredentialArgs Empty = new LinuxFunctionAppSiteCredentialArgs();
 
     /**
-     * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+     * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+     * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
     public Optional<Output<String>> name() {
@@ -71,7 +71,7 @@ public final class LinuxFunctionAppSiteCredentialArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         * @param name The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class LinuxFunctionAppSiteCredentialArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param name The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         * @param name The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          * 
          * @return builder
          * 

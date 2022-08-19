@@ -230,6 +230,10 @@ namespace Pulumi.Azure.AppService
         /// A mapping of tags assigned to the Windows Web App.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
+        /// <summary>
+        /// The subnet id which the Windows Web App is vNet Integrated with.
+        /// </summary>
+        public readonly string VirtualNetworkSubnetId;
 
         [OutputConstructor]
         private GetWindowsWebAppResult(
@@ -287,7 +291,9 @@ namespace Pulumi.Azure.AppService
 
             ImmutableArray<Outputs.GetWindowsWebAppStorageAccountResult> storageAccounts,
 
-            ImmutableDictionary<string, string> tags)
+            ImmutableDictionary<string, string> tags,
+
+            string virtualNetworkSubnetId)
         {
             AppSettings = appSettings;
             AuthSettings = authSettings;
@@ -317,6 +323,7 @@ namespace Pulumi.Azure.AppService
             StickySettings = stickySettings;
             StorageAccounts = storageAccounts;
             Tags = tags;
+            VirtualNetworkSubnetId = virtualNetworkSubnetId;
         }
     }
 }

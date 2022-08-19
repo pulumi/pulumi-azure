@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayWafConfigurationDisabledRuleGroup> DisabledRuleGroups;
         /// <summary>
-        /// Is the Web Application Firewall be enabled?
+        /// Is the Web Application Firewall enabled?
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

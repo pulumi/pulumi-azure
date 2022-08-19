@@ -61,6 +61,8 @@ import (
 type AnalyticsWorkspace struct {
 	pulumi.CustomResourceState
 
+	// Is Customer Managed Storage mandatory for query management?
+	CmkForQueryForced pulumi.BoolPtrOutput `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrOutput `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled pulumi.BoolPtrOutput    `pulumi:"internetIngestionEnabled"`
@@ -120,6 +122,8 @@ func GetAnalyticsWorkspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AnalyticsWorkspace resources.
 type analyticsWorkspaceState struct {
+	// Is Customer Managed Storage mandatory for query management?
+	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
@@ -148,6 +152,8 @@ type analyticsWorkspaceState struct {
 }
 
 type AnalyticsWorkspaceState struct {
+	// Is Customer Managed Storage mandatory for query management?
+	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrInput
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -180,6 +186,8 @@ func (AnalyticsWorkspaceState) ElementType() reflect.Type {
 }
 
 type analyticsWorkspaceArgs struct {
+	// Is Customer Managed Storage mandatory for query management?
+	CmkForQueryForced *bool `pulumi:"cmkForQueryForced"`
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             *float64 `pulumi:"dailyQuotaGb"`
 	InternetIngestionEnabled *bool    `pulumi:"internetIngestionEnabled"`
@@ -203,6 +211,8 @@ type analyticsWorkspaceArgs struct {
 
 // The set of arguments for constructing a AnalyticsWorkspace resource.
 type AnalyticsWorkspaceArgs struct {
+	// Is Customer Managed Storage mandatory for query management?
+	CmkForQueryForced pulumi.BoolPtrInput
 	// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
 	DailyQuotaGb             pulumi.Float64PtrInput
 	InternetIngestionEnabled pulumi.BoolPtrInput
@@ -309,6 +319,11 @@ func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspac
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
 	return o
+}
+
+// Is Customer Managed Storage mandatory for query management?
+func (o AnalyticsWorkspaceOutput) CmkForQueryForced() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.BoolPtrOutput { return v.CmkForQueryForced }).(pulumi.BoolPtrOutput)
 }
 
 // The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.

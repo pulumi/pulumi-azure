@@ -122,7 +122,7 @@ namespace Pulumi.Azure.Dns
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Output("targetResourceId")]
         public Output<string?> TargetResourceId { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// The Azure resource id of the target object. Conflicts with `records`
+        /// The Azure resource id of the target object. Conflicts with `records`.
         /// </summary>
         [Input("targetResourceId")]
         public Input<string>? TargetResourceId { get; set; }

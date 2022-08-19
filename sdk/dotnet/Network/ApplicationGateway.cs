@@ -240,6 +240,12 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayGatewayIpConfiguration>> GatewayIpConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// A `global` block as defined below.
+        /// </summary>
+        [Output("global")]
+        public Output<Outputs.ApplicationGatewayGlobal?> Global { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `http_listener` blocks as defined below.
         /// </summary>
         [Output("httpListeners")]
@@ -524,6 +530,12 @@ namespace Pulumi.Azure.Network
             get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationArgs>());
             set => _gatewayIpConfigurations = value;
         }
+
+        /// <summary>
+        /// A `global` block as defined below.
+        /// </summary>
+        [Input("global")]
+        public Input<Inputs.ApplicationGatewayGlobalArgs>? Global { get; set; }
 
         [Input("httpListeners", required: true)]
         private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
@@ -844,6 +856,12 @@ namespace Pulumi.Azure.Network
             get => _gatewayIpConfigurations ?? (_gatewayIpConfigurations = new InputList<Inputs.ApplicationGatewayGatewayIpConfigurationGetArgs>());
             set => _gatewayIpConfigurations = value;
         }
+
+        /// <summary>
+        /// A `global` block as defined below.
+        /// </summary>
+        [Input("global")]
+        public Input<Inputs.ApplicationGatewayGlobalGetArgs>? Global { get; set; }
 
         [Input("httpListeners")]
         private InputList<Inputs.ApplicationGatewayHttpListenerGetArgs>? _httpListeners;

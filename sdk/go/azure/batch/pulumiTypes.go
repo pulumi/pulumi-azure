@@ -956,11 +956,14 @@ func (o PoolContainerConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
 
 type PoolContainerConfigurationContainerRegistry struct {
 	// The password to log into the registry server. Changing this forces a new resource to be created.
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer string `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+	// ---
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server. Changing this forces a new resource to be created.
-	UserName string `pulumi:"userName"`
+	UserName *string `pulumi:"userName"`
 }
 
 // PoolContainerConfigurationContainerRegistryInput is an input type that accepts PoolContainerConfigurationContainerRegistryArgs and PoolContainerConfigurationContainerRegistryOutput values.
@@ -976,11 +979,14 @@ type PoolContainerConfigurationContainerRegistryInput interface {
 
 type PoolContainerConfigurationContainerRegistryArgs struct {
 	// The password to log into the registry server. Changing this forces a new resource to be created.
-	Password pulumi.StringInput `pulumi:"password"`
+	Password pulumi.StringPtrInput `pulumi:"password"`
 	// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+	// ---
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server. Changing this forces a new resource to be created.
-	UserName pulumi.StringInput `pulumi:"userName"`
+	UserName pulumi.StringPtrInput `pulumi:"userName"`
 }
 
 func (PoolContainerConfigurationContainerRegistryArgs) ElementType() reflect.Type {
@@ -1035,8 +1041,8 @@ func (o PoolContainerConfigurationContainerRegistryOutput) ToPoolContainerConfig
 }
 
 // The password to log into the registry server. Changing this forces a new resource to be created.
-func (o PoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.Password }).(pulumi.StringOutput)
+func (o PoolContainerConfigurationContainerRegistryOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
@@ -1044,9 +1050,15 @@ func (o PoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulu
 	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
 }
 
+// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+// ---
+func (o PoolContainerConfigurationContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
 // The user name to log into the registry server. Changing this forces a new resource to be created.
-func (o PoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) string { return v.UserName }).(pulumi.StringOutput)
+func (o PoolContainerConfigurationContainerRegistryOutput) UserName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PoolContainerConfigurationContainerRegistry) *string { return v.UserName }).(pulumi.StringPtrOutput)
 }
 
 type PoolContainerConfigurationContainerRegistryArrayOutput struct{ *pulumi.OutputState }
@@ -3342,6 +3354,8 @@ type GetPoolContainerConfigurationContainerRegistry struct {
 	Password string `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer string `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server.
 	UserName string `pulumi:"userName"`
 }
@@ -3362,6 +3376,8 @@ type GetPoolContainerConfigurationContainerRegistryArgs struct {
 	Password pulumi.StringInput `pulumi:"password"`
 	// The container registry URL. The default is "docker.io".
 	RegistryServer pulumi.StringInput `pulumi:"registryServer"`
+	// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 	// The user name to log into the registry server.
 	UserName pulumi.StringInput `pulumi:"userName"`
 }
@@ -3425,6 +3441,11 @@ func (o GetPoolContainerConfigurationContainerRegistryOutput) Password() pulumi.
 // The container registry URL. The default is "docker.io".
 func (o GetPoolContainerConfigurationContainerRegistryOutput) RegistryServer() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.RegistryServer }).(pulumi.StringOutput)
+}
+
+// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+func (o GetPoolContainerConfigurationContainerRegistryOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPoolContainerConfigurationContainerRegistry) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 // The user name to log into the registry server.

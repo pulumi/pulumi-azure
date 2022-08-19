@@ -105,6 +105,8 @@ type SpringCloudGatewayRouteConfig struct {
 
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// One or more `openApi` blocks as defined below.
+	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrOutput `pulumi:"openApi"`
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayOutput `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -147,6 +149,8 @@ func GetSpringCloudGatewayRouteConfig(ctx *pulumi.Context,
 type springCloudGatewayRouteConfigState struct {
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name *string `pulumi:"name"`
+	// One or more `openApi` blocks as defined below.
+	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -158,6 +162,8 @@ type springCloudGatewayRouteConfigState struct {
 type SpringCloudGatewayRouteConfigState struct {
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringPtrInput
+	// One or more `openApi` blocks as defined below.
+	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
 	// The ID of the Spring Cloud App.
@@ -173,6 +179,8 @@ func (SpringCloudGatewayRouteConfigState) ElementType() reflect.Type {
 type springCloudGatewayRouteConfigArgs struct {
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name *string `pulumi:"name"`
+	// One or more `openApi` blocks as defined below.
+	OpenApi *SpringCloudGatewayRouteConfigOpenApi `pulumi:"openApi"`
 	// One or more `route` blocks as defined below.
 	Routes []SpringCloudGatewayRouteConfigRoute `pulumi:"routes"`
 	// The ID of the Spring Cloud App.
@@ -185,6 +193,8 @@ type springCloudGatewayRouteConfigArgs struct {
 type SpringCloudGatewayRouteConfigArgs struct {
 	// The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 	Name pulumi.StringPtrInput
+	// One or more `openApi` blocks as defined below.
+	OpenApi SpringCloudGatewayRouteConfigOpenApiPtrInput
 	// One or more `route` blocks as defined below.
 	Routes SpringCloudGatewayRouteConfigRouteArrayInput
 	// The ID of the Spring Cloud App.
@@ -283,6 +293,11 @@ func (o SpringCloudGatewayRouteConfigOutput) ToSpringCloudGatewayRouteConfigOutp
 // The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
 func (o SpringCloudGatewayRouteConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// One or more `openApi` blocks as defined below.
+func (o SpringCloudGatewayRouteConfigOutput) OpenApi() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfig) SpringCloudGatewayRouteConfigOpenApiPtrOutput { return v.OpenApi }).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
 }
 
 // One or more `route` blocks as defined below.

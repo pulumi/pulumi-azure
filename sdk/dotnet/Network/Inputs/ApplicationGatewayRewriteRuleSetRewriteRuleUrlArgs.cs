@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Network.Inputs
     public sealed class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+        /// </summary>
+        [Input("components")]
+        public Input<string>? Components { get; set; }
+
+        /// <summary>
         /// The URL path to rewrite.
         /// </summary>
         [Input("path")]

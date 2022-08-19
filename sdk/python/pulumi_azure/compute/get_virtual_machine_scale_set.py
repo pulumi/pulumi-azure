@@ -22,13 +22,16 @@ class GetVirtualMachineScaleSetResult:
     """
     A collection of values returned by getVirtualMachineScaleSet.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, network_interfaces=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, instances=None, location=None, name=None, network_interfaces=None, resource_group_name=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identities and not isinstance(identities, list):
             raise TypeError("Expected argument 'identities' to be a list")
         pulumi.set(__self__, "identities", identities)
+        if instances and not isinstance(instances, list):
+            raise TypeError("Expected argument 'instances' to be a list")
+        pulumi.set(__self__, "instances", instances)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -60,7 +63,18 @@ class GetVirtualMachineScaleSetResult:
 
     @property
     @pulumi.getter
+    def instances(self) -> Sequence['outputs.GetVirtualMachineScaleSetInstanceResult']:
+        """
+        A list of `instances` blocks as defined below.
+        """
+        return pulumi.get(self, "instances")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
+        """
+        The Azure Region in which this Virtual Machine Scale Set exists.
+        """
         return pulumi.get(self, "location")
 
     @property
@@ -93,6 +107,7 @@ class AwaitableGetVirtualMachineScaleSetResult(GetVirtualMachineScaleSetResult):
         return GetVirtualMachineScaleSetResult(
             id=self.id,
             identities=self.identities,
+            instances=self.instances,
             location=self.location,
             name=self.name,
             network_interfaces=self.network_interfaces,
@@ -129,6 +144,7 @@ def get_virtual_machine_scale_set(name: Optional[str] = None,
     return AwaitableGetVirtualMachineScaleSetResult(
         id=__ret__.id,
         identities=__ret__.identities,
+        instances=__ret__.instances,
         location=__ret__.location,
         name=__ret__.name,
         network_interfaces=__ret__.network_interfaces,

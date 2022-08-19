@@ -22,7 +22,7 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, public_network_access_enabled=None, purge_protection_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -50,6 +50,9 @@ class GetKeyVaultResult:
         if network_acls and not isinstance(network_acls, list):
             raise TypeError("Expected argument 'network_acls' to be a list")
         pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access_enabled and not isinstance(public_network_access_enabled, bool):
+            raise TypeError("Expected argument 'public_network_access_enabled' to be a bool")
+        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if purge_protection_enabled and not isinstance(purge_protection_enabled, bool):
             raise TypeError("Expected argument 'purge_protection_enabled' to be a bool")
         pulumi.set(__self__, "purge_protection_enabled", purge_protection_enabled)
@@ -136,6 +139,14 @@ class GetKeyVaultResult:
         return pulumi.get(self, "network_acls")
 
     @property
+    @pulumi.getter(name="publicNetworkAccessEnabled")
+    def public_network_access_enabled(self) -> bool:
+        """
+        Is public network access enabled on this Key Vault?
+        """
+        return pulumi.get(self, "public_network_access_enabled")
+
+    @property
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> bool:
         """
@@ -196,6 +207,7 @@ class AwaitableGetKeyVaultResult(GetKeyVaultResult):
             location=self.location,
             name=self.name,
             network_acls=self.network_acls,
+            public_network_access_enabled=self.public_network_access_enabled,
             purge_protection_enabled=self.purge_protection_enabled,
             resource_group_name=self.resource_group_name,
             sku_name=self.sku_name,
@@ -241,6 +253,7 @@ def get_key_vault(name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         network_acls=__ret__.network_acls,
+        public_network_access_enabled=__ret__.public_network_access_enabled,
         purge_protection_enabled=__ret__.purge_protection_enabled,
         resource_group_name=__ret__.resource_group_name,
         sku_name=__ret__.sku_name,

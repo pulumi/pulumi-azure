@@ -15,6 +15,7 @@ __all__ = ['AnalyticsWorkspaceArgs', 'AnalyticsWorkspace']
 class AnalyticsWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -27,6 +28,7 @@ class AnalyticsWorkspaceArgs:
         """
         The set of arguments for constructing a AnalyticsWorkspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -37,6 +39,8 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cmk_for_query_forced is not None:
+            pulumi.set(__self__, "cmk_for_query_forced", cmk_for_query_forced)
         if daily_quota_gb is not None:
             pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if internet_ingestion_enabled is not None:
@@ -67,6 +71,18 @@ class AnalyticsWorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="cmkForQueryForced")
+    def cmk_for_query_forced(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Customer Managed Storage mandatory for query management?
+        """
+        return pulumi.get(self, "cmk_for_query_forced")
+
+    @cmk_for_query_forced.setter
+    def cmk_for_query_forced(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cmk_for_query_forced", value)
 
     @property
     @pulumi.getter(name="dailyQuotaGb")
@@ -177,6 +193,7 @@ class AnalyticsWorkspaceArgs:
 @pulumi.input_type
 class _AnalyticsWorkspaceState:
     def __init__(__self__, *,
+                 cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -192,6 +209,7 @@ class _AnalyticsWorkspaceState:
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AnalyticsWorkspace resources.
+        :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -205,6 +223,8 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] workspace_id: The Workspace (or Customer) ID for the Log Analytics Workspace.
         """
+        if cmk_for_query_forced is not None:
+            pulumi.set(__self__, "cmk_for_query_forced", cmk_for_query_forced)
         if daily_quota_gb is not None:
             pulumi.set(__self__, "daily_quota_gb", daily_quota_gb)
         if internet_ingestion_enabled is not None:
@@ -231,6 +251,18 @@ class _AnalyticsWorkspaceState:
             pulumi.set(__self__, "tags", tags)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
+
+    @property
+    @pulumi.getter(name="cmkForQueryForced")
+    def cmk_for_query_forced(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Customer Managed Storage mandatory for query management?
+        """
+        return pulumi.get(self, "cmk_for_query_forced")
+
+    @cmk_for_query_forced.setter
+    def cmk_for_query_forced(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cmk_for_query_forced", value)
 
     @property
     @pulumi.getter(name="dailyQuotaGb")
@@ -391,6 +423,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -429,6 +462,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -485,6 +519,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
                  daily_quota_gb: Optional[pulumi.Input[float]] = None,
                  internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
                  internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -504,6 +539,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AnalyticsWorkspaceArgs.__new__(AnalyticsWorkspaceArgs)
 
+            __props__.__dict__["cmk_for_query_forced"] = cmk_for_query_forced
             __props__.__dict__["daily_quota_gb"] = daily_quota_gb
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
@@ -529,6 +565,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cmk_for_query_forced: Optional[pulumi.Input[bool]] = None,
             daily_quota_gb: Optional[pulumi.Input[float]] = None,
             internet_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
             internet_query_enabled: Optional[pulumi.Input[bool]] = None,
@@ -549,6 +586,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] cmk_for_query_forced: Is Customer Managed Storage mandatory for query management?
         :param pulumi.Input[float] daily_quota_gb: The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         :param pulumi.Input[bool] internet_query_enabled: Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -566,6 +604,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
 
         __props__ = _AnalyticsWorkspaceState.__new__(_AnalyticsWorkspaceState)
 
+        __props__.__dict__["cmk_for_query_forced"] = cmk_for_query_forced
         __props__.__dict__["daily_quota_gb"] = daily_quota_gb
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
@@ -580,6 +619,14 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["workspace_id"] = workspace_id
         return AnalyticsWorkspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cmkForQueryForced")
+    def cmk_for_query_forced(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Customer Managed Storage mandatory for query management?
+        """
+        return pulumi.get(self, "cmk_for_query_forced")
 
     @property
     @pulumi.getter(name="dailyQuotaGb")

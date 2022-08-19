@@ -5,6 +5,7 @@ package com.pulumi.azure.appplatform.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -62,6 +63,21 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
     }
 
     /**
+     * Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="readTimeoutSeconds")
+    private @Nullable Output<Integer> readTimeoutSeconds;
+
+    /**
+     * @return Ingress read time out in seconds. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Integer>> readTimeoutSeconds() {
+        return Optional.ofNullable(this.readTimeoutSeconds);
+    }
+
+    /**
      * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
      * 
      */
@@ -97,6 +113,7 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
         this.appNetworkResourceGroup = $.appNetworkResourceGroup;
         this.appSubnetId = $.appSubnetId;
         this.cidrRanges = $.cidrRanges;
+        this.readTimeoutSeconds = $.readTimeoutSeconds;
         this.serviceRuntimeNetworkResourceGroup = $.serviceRuntimeNetworkResourceGroup;
         this.serviceRuntimeSubnetId = $.serviceRuntimeSubnetId;
     }
@@ -190,6 +207,27 @@ public final class SpringCloudServiceNetworkArgs extends com.pulumi.resources.Re
          */
         public Builder cidrRanges(String... cidrRanges) {
             return cidrRanges(List.of(cidrRanges));
+        }
+
+        /**
+         * @param readTimeoutSeconds Ingress read time out in seconds. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readTimeoutSeconds(@Nullable Output<Integer> readTimeoutSeconds) {
+            $.readTimeoutSeconds = readTimeoutSeconds;
+            return this;
+        }
+
+        /**
+         * @param readTimeoutSeconds Ingress read time out in seconds. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readTimeoutSeconds(Integer readTimeoutSeconds) {
+            return readTimeoutSeconds(Output.of(readTimeoutSeconds));
         }
 
         /**

@@ -9,6 +9,7 @@ import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisState;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisCatalogInfo;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisCustomSetupScript;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressCustomSetup;
+import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisExpressVnetIntegration;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisPackageStore;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisProxy;
 import com.pulumi.azure.datafactory.outputs.IntegrationRuntimeSsisVnetIntegration;
@@ -164,6 +165,20 @@ public class IntegrationRuntimeSsis extends com.pulumi.resources.CustomResource 
      */
     public Output<Optional<IntegrationRuntimeSsisExpressCustomSetup>> expressCustomSetup() {
         return Codegen.optional(this.expressCustomSetup);
+    }
+    /**
+     * A `express_vnet_integration` block as defined below.
+     * 
+     */
+    @Export(name="expressVnetIntegration", type=IntegrationRuntimeSsisExpressVnetIntegration.class, parameters={})
+    private Output</* @Nullable */ IntegrationRuntimeSsisExpressVnetIntegration> expressVnetIntegration;
+
+    /**
+     * @return A `express_vnet_integration` block as defined below.
+     * 
+     */
+    public Output<Optional<IntegrationRuntimeSsisExpressVnetIntegration>> expressVnetIntegration() {
+        return Codegen.optional(this.expressVnetIntegration);
     }
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.

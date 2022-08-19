@@ -51,9 +51,21 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.policyDefinitionId);
     }
 
+    /**
+     * @deprecated
+     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * 
+     */
+    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
     @Import(name="resourceDiscoveryMode")
     private @Nullable Output<String> resourceDiscoveryMode;
 
+    /**
+     * @deprecated
+     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * 
+     */
+    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
     public Optional<Output<String>> resourceDiscoveryMode() {
         return Optional.ofNullable(this.resourceDiscoveryMode);
     }
@@ -136,11 +148,27 @@ public final class GroupPolicyRemediationState extends com.pulumi.resources.Reso
             return policyDefinitionId(Output.of(policyDefinitionId));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+         * 
+         */
+        @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
         public Builder resourceDiscoveryMode(@Nullable Output<String> resourceDiscoveryMode) {
             $.resourceDiscoveryMode = resourceDiscoveryMode;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+         * 
+         */
+        @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
         public Builder resourceDiscoveryMode(String resourceDiscoveryMode) {
             return resourceDiscoveryMode(Output.of(resourceDiscoveryMode));
         }

@@ -13,6 +13,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSharedImageResult {
+    private final String architecture;
     /**
      * @return The description of this Shared Image.
      * 
@@ -74,6 +75,7 @@ public final class GetSharedImageResult {
 
     @CustomType.Constructor
     private GetSharedImageResult(
+        @CustomType.Parameter("architecture") String architecture,
         @CustomType.Parameter("description") String description,
         @CustomType.Parameter("eula") String eula,
         @CustomType.Parameter("galleryName") String galleryName,
@@ -88,6 +90,7 @@ public final class GetSharedImageResult {
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
         @CustomType.Parameter("specialized") Boolean specialized,
         @CustomType.Parameter("tags") Map<String,String> tags) {
+        this.architecture = architecture;
         this.description = description;
         this.eula = eula;
         this.galleryName = galleryName;
@@ -104,6 +107,9 @@ public final class GetSharedImageResult {
         this.tags = tags;
     }
 
+    public String architecture() {
+        return this.architecture;
+    }
     /**
      * @return The description of this Shared Image.
      * 
@@ -200,6 +206,7 @@ public final class GetSharedImageResult {
     }
 
     public static final class Builder {
+        private String architecture;
         private String description;
         private String eula;
         private String galleryName;
@@ -221,6 +228,7 @@ public final class GetSharedImageResult {
 
         public Builder(GetSharedImageResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.architecture = defaults.architecture;
     	      this.description = defaults.description;
     	      this.eula = defaults.eula;
     	      this.galleryName = defaults.galleryName;
@@ -237,6 +245,10 @@ public final class GetSharedImageResult {
     	      this.tags = defaults.tags;
         }
 
+        public Builder architecture(String architecture) {
+            this.architecture = Objects.requireNonNull(architecture);
+            return this;
+        }
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
@@ -296,7 +308,7 @@ public final class GetSharedImageResult {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }        public GetSharedImageResult build() {
-            return new GetSharedImageResult(description, eula, galleryName, hyperVGeneration, id, identifiers, location, name, osType, privacyStatementUri, releaseNoteUri, resourceGroupName, specialized, tags);
+            return new GetSharedImageResult(architecture, description, eula, galleryName, hyperVGeneration, id, identifiers, location, name, osType, privacyStatementUri, releaseNoteUri, resourceGroupName, specialized, tags);
         }
     }
 }

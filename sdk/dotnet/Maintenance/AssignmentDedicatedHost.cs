@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Maintenance
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
-    ///         Scope = "All",
+    ///         Scope = "Host",
     ///     });
     /// 
     ///     var exampleAssignmentDedicatedHost = new Azure.Maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost", new()

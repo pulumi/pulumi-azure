@@ -91,9 +91,17 @@ public class StaticSite extends com.pulumi.resources.CustomResource {
     public Output<String> defaultHostName() {
         return this.defaultHostName;
     }
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Export(name="identity", type=StaticSiteIdentity.class, parameters={})
     private Output</* @Nullable */ StaticSiteIdentity> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Output<Optional<StaticSiteIdentity>> identity() {
         return Codegen.optional(this.identity);
     }

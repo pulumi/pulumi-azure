@@ -2205,6 +2205,143 @@ func (o SpringCloudGatewayQuotaPtrOutput) Memory() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpringCloudGatewayRouteConfigOpenApi struct {
+	// The URI of OpenAPI specification.
+	Uri *string `pulumi:"uri"`
+}
+
+// SpringCloudGatewayRouteConfigOpenApiInput is an input type that accepts SpringCloudGatewayRouteConfigOpenApiArgs and SpringCloudGatewayRouteConfigOpenApiOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayRouteConfigOpenApiInput` via:
+//
+//	SpringCloudGatewayRouteConfigOpenApiArgs{...}
+type SpringCloudGatewayRouteConfigOpenApiInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayRouteConfigOpenApiOutput() SpringCloudGatewayRouteConfigOpenApiOutput
+	ToSpringCloudGatewayRouteConfigOpenApiOutputWithContext(context.Context) SpringCloudGatewayRouteConfigOpenApiOutput
+}
+
+type SpringCloudGatewayRouteConfigOpenApiArgs struct {
+	// The URI of OpenAPI specification.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (SpringCloudGatewayRouteConfigOpenApiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayRouteConfigOpenApi)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfigOpenApiOutput() SpringCloudGatewayRouteConfigOpenApiOutput {
+	return i.ToSpringCloudGatewayRouteConfigOpenApiOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfigOpenApiOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOpenApiOutput)
+}
+
+func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return i.ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayRouteConfigOpenApiArgs) ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOpenApiOutput).ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx)
+}
+
+// SpringCloudGatewayRouteConfigOpenApiPtrInput is an input type that accepts SpringCloudGatewayRouteConfigOpenApiArgs, SpringCloudGatewayRouteConfigOpenApiPtr and SpringCloudGatewayRouteConfigOpenApiPtrOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayRouteConfigOpenApiPtrInput` via:
+//
+//	        SpringCloudGatewayRouteConfigOpenApiArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudGatewayRouteConfigOpenApiPtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput
+	ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput
+}
+
+type springCloudGatewayRouteConfigOpenApiPtrType SpringCloudGatewayRouteConfigOpenApiArgs
+
+func SpringCloudGatewayRouteConfigOpenApiPtr(v *SpringCloudGatewayRouteConfigOpenApiArgs) SpringCloudGatewayRouteConfigOpenApiPtrInput {
+	return (*springCloudGatewayRouteConfigOpenApiPtrType)(v)
+}
+
+func (*springCloudGatewayRouteConfigOpenApiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayRouteConfigOpenApi)(nil)).Elem()
+}
+
+func (i *springCloudGatewayRouteConfigOpenApiPtrType) ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return i.ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudGatewayRouteConfigOpenApiPtrType) ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
+}
+
+type SpringCloudGatewayRouteConfigOpenApiOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayRouteConfigOpenApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayRouteConfigOpenApi)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToSpringCloudGatewayRouteConfigOpenApiOutput() SpringCloudGatewayRouteConfigOpenApiOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToSpringCloudGatewayRouteConfigOpenApiOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return o.ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayRouteConfigOpenApi) *SpringCloudGatewayRouteConfigOpenApi {
+		return &v
+	}).(SpringCloudGatewayRouteConfigOpenApiPtrOutput)
+}
+
+// The URI of OpenAPI specification.
+func (o SpringCloudGatewayRouteConfigOpenApiOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayRouteConfigOpenApi) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayRouteConfigOpenApiPtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayRouteConfigOpenApiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayRouteConfigOpenApi)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) ToSpringCloudGatewayRouteConfigOpenApiPtrOutput() SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) ToSpringCloudGatewayRouteConfigOpenApiPtrOutputWithContext(ctx context.Context) SpringCloudGatewayRouteConfigOpenApiPtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) Elem() SpringCloudGatewayRouteConfigOpenApiOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfigOpenApi) SpringCloudGatewayRouteConfigOpenApi {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudGatewayRouteConfigOpenApi
+		return ret
+	}).(SpringCloudGatewayRouteConfigOpenApiOutput)
+}
+
+// The URI of OpenAPI specification.
+func (o SpringCloudGatewayRouteConfigOpenApiPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayRouteConfigOpenApi) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudGatewayRouteConfigRoute struct {
 	// Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
 	ClassificationTags []string `pulumi:"classificationTags"`
@@ -3826,6 +3963,8 @@ type SpringCloudServiceNetwork struct {
 	AppSubnetId string `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges []string `pulumi:"cidrRanges"`
+	// Ingress read time out in seconds. Changing this forces a new resource to be created.
+	ReadTimeoutSeconds *int `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 	ServiceRuntimeNetworkResourceGroup *string `pulumi:"serviceRuntimeNetworkResourceGroup"`
 	// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
@@ -3850,6 +3989,8 @@ type SpringCloudServiceNetworkArgs struct {
 	AppSubnetId pulumi.StringInput `pulumi:"appSubnetId"`
 	// A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
 	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
+	// Ingress read time out in seconds. Changing this forces a new resource to be created.
+	ReadTimeoutSeconds pulumi.IntPtrInput `pulumi:"readTimeoutSeconds"`
 	// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 	ServiceRuntimeNetworkResourceGroup pulumi.StringPtrInput `pulumi:"serviceRuntimeNetworkResourceGroup"`
 	// Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
@@ -3948,6 +4089,11 @@ func (o SpringCloudServiceNetworkOutput) CidrRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
 }
 
+// Ingress read time out in seconds. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkOutput) ReadTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpringCloudServiceNetwork) *int { return v.ReadTimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
 // Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
 func (o SpringCloudServiceNetworkOutput) ServiceRuntimeNetworkResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpringCloudServiceNetwork) *string { return v.ServiceRuntimeNetworkResourceGroup }).(pulumi.StringPtrOutput)
@@ -4010,6 +4156,16 @@ func (o SpringCloudServiceNetworkPtrOutput) CidrRanges() pulumi.StringArrayOutpu
 		}
 		return v.CidrRanges
 	}).(pulumi.StringArrayOutput)
+}
+
+// Ingress read time out in seconds. Changing this forces a new resource to be created.
+func (o SpringCloudServiceNetworkPtrOutput) ReadTimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpringCloudServiceNetwork) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadTimeoutSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
@@ -5470,6 +5626,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsPtrInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaPtrInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigOpenApiInput)(nil)).Elem(), SpringCloudGatewayRouteConfigOpenApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigOpenApiPtrInput)(nil)).Elem(), SpringCloudGatewayRouteConfigOpenApiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigRouteInput)(nil)).Elem(), SpringCloudGatewayRouteConfigRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigRouteArrayInput)(nil)).Elem(), SpringCloudGatewayRouteConfigRouteArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewaySsoInput)(nil)).Elem(), SpringCloudGatewaySsoArgs{})
@@ -5538,6 +5696,8 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigOpenApiOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigOpenApiPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigRouteOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigRouteArrayOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewaySsoOutput{})

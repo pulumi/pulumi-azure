@@ -822,11 +822,13 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"azurerm_cdn_frontdoor_endpoint":     {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
-			"azurerm_cdn_frontdoor_profile":      {Tok: azureResource(azureCDN, "FrontdoorProfile")},
-			"azurerm_cdn_frontdoor_rule_set":     {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
-			"azurerm_cdn_frontdoor_origin":       {Tok: azureResource(azureCDN, "FrontdoorOrigin")},
-			"azurerm_cdn_frontdoor_origin_group": {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
+			"azurerm_cdn_frontdoor_endpoint":        {Tok: azureResource(azureCDN, "FrontdoorEndpoint")},
+			"azurerm_cdn_frontdoor_profile":         {Tok: azureResource(azureCDN, "FrontdoorProfile")},
+			"azurerm_cdn_frontdoor_rule_set":        {Tok: azureResource(azureCDN, "FrontdoorRuleSet")},
+			"azurerm_cdn_frontdoor_origin":          {Tok: azureResource(azureCDN, "FrontdoorOrigin")},
+			"azurerm_cdn_frontdoor_origin_group":    {Tok: azureResource(azureCDN, "FrontdoorOriginGroup")},
+			"azurerm_cdn_frontdoor_firewall_policy": {Tok: azureResource(azureCDN, "FrontdoorFirewallPolicy")},
+			"azurerm_cdn_frontdoor_security_policy": {Tok: azureResource(azureCDN, "FrontdoorSecurityPolicy")},
 
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
@@ -1032,6 +1034,7 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_data_flow":                        {Tok: azureResource(azureDataFactory, "DataFlow")},
 			"azurerm_data_factory_linked_service_cosmosdb_mongoapi": {Tok: azureResource(azureDataFactory, "LinkedServiceCosmosDbMongoApi")},
 			"azurerm_data_factory_linked_service_odbc":              {Tok: azureResource(azureDataFactory, "LinkedServiceOdbc")},
+			"azurerm_data_factory_flowlet_data_flow":                {Tok: azureResource(azureDataFactory, "FlowletDataFlow")},
 
 			// Data Protection
 			"azurerm_data_protection_backup_vault":                 {Tok: azureResource(azureDataProtection, "BackupVault")},
@@ -1096,8 +1099,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_hdinsight_spark_cluster":             {Tok: azureResource(azureHdInsight, "SparkCluster")},
 
 			// EventHub
-			"azurerm_eventhub":           {Tok: azureResource(azureEventHub, "EventHub")},
-			"azurerm_eventhub_namespace": {Tok: azureResource(azureEventHub, "EventHubNamespace")},
+			"azurerm_eventhub":                        {Tok: azureResource(azureEventHub, "EventHub")},
+			"azurerm_eventhub_namespace":              {Tok: azureResource(azureEventHub, "EventHubNamespace")},
+			"azurerm_eventhub_namespace_schema_group": {Tok: azureResource(azureEventHub, "NamespaceSchemaGroup")},
 			"azurerm_eventhub_namespace_authorization_rule": {
 				Tok: azureResource(azureEventHub, "EventHubNamespaceAuthorizationRule"),
 			},
@@ -2416,7 +2420,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mssql_managed_instance": {Tok: azureDataSource(azureMSSQL, "getManagedInstance")},
 
 			// DNS
-			"azurerm_dns_zone": {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_dns_zone":         {Tok: azureDataSource(azureDNS, "getZone")},
+			"azurerm_dns_a_record":     {Tok: azureDataSource(azureDNS, "getARecord")},
+			"azurerm_dns_aaaa_record":  {Tok: azureDataSource(azureDNS, "getAAAARecord")},
+			"azurerm_dns_caa_record":   {Tok: azureDataSource(azureDNS, "getCAARecord")},
+			"azurerm_dns_cname_record": {Tok: azureDataSource(azureDNS, "getCnameRecord")},
+			"azurerm_dns_mx_record":    {Tok: azureDataSource(azureDNS, "getMxRecord")},
+			"azurerm_dns_ns_record":    {Tok: azureDataSource(azureDNS, "getNsRecord")},
+			"azurerm_dns_ptr_record":   {Tok: azureDataSource(azureDNS, "getPtrRecord")},
+			"azurerm_dns_soa_record":   {Tok: azureDataSource(azureDNS, "getSoaRecord")},
+			"azurerm_dns_srv_record":   {Tok: azureDataSource(azureDNS, "getSrvRecord")},
+			"azurerm_dns_txt_record":   {Tok: azureDataSource(azureDNS, "getTxtRecord")},
+
+			// Elastic Cloud
+			"azurerm_elastic_cloud_elasticsearch": {Tok: azureDataSource(azureElasticCloud, "getElasticsearch")},
+
+			// Keyvault
 			"azurerm_key_vault": {
 				Tok: azureDataSource(azureKeyVault, "getKeyVault"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2425,10 +2444,6 @@ func Provider() tfbridge.ProviderInfo {
 					"sku": {Name: "sku", MaxItemsOne: boolRef(true)},
 				},
 			},
-
-			// Elastic Cloud
-			"azurerm_elastic_cloud_elasticsearch": {Tok: azureDataSource(azureElasticCloud, "getElasticsearch")},
-
 			"azurerm_key_vault_access_policy":      {Tok: azureDataSource(azureKeyVault, "getAccessPolicy")},
 			"azurerm_key_vault_key":                {Tok: azureDataSource(azureKeyVault, "getKey")},
 			"azurerm_key_vault_secret":             {Tok: azureDataSource(azureKeyVault, "getSecret")},
@@ -2639,7 +2654,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_management_group_template_deployment": {Tok: azureDataSource(azureManagement, "getGroupTemplateDeployment")},
 			"azurerm_spring_cloud_service":                 {Tok: azureDataSource(azureAppPlatform, "getSpringCloudService")},
 			"azurerm_spring_cloud_app":                     {Tok: azureDataSource(azureAppPlatform, "getSpringCloudApp")},
-			"azurerm_private_dns_zone":                     {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
 			"azurerm_sentinel_alert_rule":                  {Tok: azureDataSource(azureSentinel, "getAlertRule")},
 			"azurerm_sentinel_alert_rule_template":         {Tok: azureDataSource(azureSentinel, "getAlertRuleTemplate")},
 			"azurerm_maintenance_configuration":            {Tok: azureDataSource(azureMaintenance, "getConfiguration")},
@@ -2676,6 +2690,17 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_storage_share":                     {Tok: azureDataSource(azureStorage, "getShare")},
 			"azurerm_consumption_budget_resource_group": {Tok: azureDataSource(azureConsumption, "getBudgetResourceGroup")},
 			"azurerm_consumption_budget_subscription":   {Tok: azureDataSource(azureConsumption, "getBudgetSubscription")},
+
+			// Private DNS
+			"azurerm_private_dns_zone":         {Tok: azureDataSource(azurePrivateDNS, "getDnsZone")},
+			"azurerm_private_dns_a_record":     {Tok: azureDataSource(azurePrivateDNS, "getARecord")},
+			"azurerm_private_dns_aaaa_record":  {Tok: azureDataSource(azurePrivateDNS, "getAAAARecord")},
+			"azurerm_private_dns_cname_record": {Tok: azureDataSource(azurePrivateDNS, "getCnameRecord")},
+			"azurerm_private_dns_mx_record":    {Tok: azureDataSource(azurePrivateDNS, "getMxRecord")},
+			"azurerm_private_dns_ptr_record":   {Tok: azureDataSource(azurePrivateDNS, "getPtrRecord")},
+			"azurerm_private_dns_soa_record":   {Tok: azureDataSource(azurePrivateDNS, "getSoaRecord")},
+			"azurerm_private_dns_srv_record":   {Tok: azureDataSource(azurePrivateDNS, "getSrvRecord")},
+			"azurerm_private_dns_txt_record":   {Tok: azureDataSource(azurePrivateDNS, "getTxtRecord")},
 
 			// Dashboard
 			// TODO: This resource is in the "Portal" module in the upstream provider. Move to a new namespace when terraform-provider-azurerm hits v3.0.

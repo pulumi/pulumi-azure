@@ -22,7 +22,10 @@ class GetSharedImageResult:
     """
     A collection of values returned by getSharedImage.
     """
-    def __init__(__self__, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
+    def __init__(__self__, architecture=None, description=None, eula=None, gallery_name=None, hyper_v_generation=None, id=None, identifiers=None, location=None, name=None, os_type=None, privacy_statement_uri=None, release_note_uri=None, resource_group_name=None, specialized=None, tags=None):
+        if architecture and not isinstance(architecture, str):
+            raise TypeError("Expected argument 'architecture' to be a str")
+        pulumi.set(__self__, "architecture", architecture)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -65,6 +68,11 @@ class GetSharedImageResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> str:
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter
@@ -176,6 +184,7 @@ class AwaitableGetSharedImageResult(GetSharedImageResult):
         if False:
             yield self
         return GetSharedImageResult(
+            architecture=self.architecture,
             description=self.description,
             eula=self.eula,
             gallery_name=self.gallery_name,
@@ -223,6 +232,7 @@ def get_shared_image(gallery_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:compute/getSharedImage:getSharedImage', __args__, opts=opts, typ=GetSharedImageResult).value
 
     return AwaitableGetSharedImageResult(
+        architecture=__ret__.architecture,
         description=__ret__.description,
         eula=__ret__.eula,
         gallery_name=__ret__.gallery_name,

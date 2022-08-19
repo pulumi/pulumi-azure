@@ -73,7 +73,7 @@ namespace Pulumi.Azure.Dns
         public Output<ImmutableArray<string>> Records { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Azure.Dns
         public Output<int> Ttl { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("zoneName")]
         public Output<string> ZoneName { get; private set; } = null!;
@@ -161,7 +161,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Azure.Dns
         public Input<int> Ttl { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneName", required: true)]
         public Input<string> ZoneName { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Azure.Dns
         }
 
         /// <summary>
-        /// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        /// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Azure.Dns
         public Input<int>? Ttl { get; set; }
 
         /// <summary>
-        /// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        /// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("zoneName")]
         public Input<string>? ZoneName { get; set; }

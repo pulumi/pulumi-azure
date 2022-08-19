@@ -26,7 +26,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly Outputs.ManagementPolicyRuleFilters? Filters;
         /// <summary>
-        /// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        /// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         /// </summary>
         public readonly string Name;
 

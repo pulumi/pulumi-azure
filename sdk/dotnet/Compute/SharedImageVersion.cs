@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Compute
     public partial class SharedImageVersion : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("blobUri")]
+        public Output<string?> BlobUri { get; private set; } = null!;
+
+        /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
         /// </summary>
         [Output("endOfLifeDate")]
@@ -127,6 +133,12 @@ namespace Pulumi.Azure.Compute
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// A collection of tags which should be applied to this resource.
         /// </summary>
         [Output("tags")]
@@ -184,6 +196,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("blobUri")]
+        public Input<string>? BlobUri { get; set; }
+
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
         /// </summary>
@@ -244,6 +262,12 @@ namespace Pulumi.Azure.Compute
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -276,6 +300,12 @@ namespace Pulumi.Azure.Compute
 
     public sealed class SharedImageVersionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("blobUri")]
+        public Input<string>? BlobUri { get; set; }
+
         /// <summary>
         /// The end of life date in RFC3339 format of the Image Version.
         /// </summary>
@@ -335,6 +365,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
+
+        /// <summary>
+        /// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

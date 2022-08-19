@@ -169,7 +169,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -492,7 +492,7 @@ export interface LinuxVirtualMachineState {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -686,7 +686,7 @@ export interface LinuxVirtualMachineArgs {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. At this time the only supported value is `Deallocate`. Changing this forces a new resource to be created.
+     * Specifies what should happen when the Virtual Machine is evicted for price reasons when using a Spot instance. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**

@@ -57,13 +57,19 @@ type LookupGroupArgs struct {
 
 // A collection of values returned by getGroup.
 type LookupGroupResult struct {
-	DisplayName string `pulumi:"displayName"`
+	// A list of Management Group IDs which directly or indirectly belong to this Management Group.
+	AllManagementGroupIds []string `pulumi:"allManagementGroupIds"`
+	// A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
+	AllSubscriptionIds []string `pulumi:"allSubscriptionIds"`
+	DisplayName        string   `pulumi:"displayName"`
 	// The provider-assigned unique ID for this managed resource.
-	Id   string `pulumi:"id"`
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// A list of Management Group IDs which directly belong to this Management Group.
+	ManagementGroupIds []string `pulumi:"managementGroupIds"`
+	Name               string   `pulumi:"name"`
 	// The ID of any Parent Management Group.
 	ParentManagementGroupId string `pulumi:"parentManagementGroupId"`
-	// A list of Subscription IDs which are assigned to the Management Group.
+	// A list of Subscription IDs which are directly assigned to this Management Group.
 	SubscriptionIds []string `pulumi:"subscriptionIds"`
 }
 
@@ -107,6 +113,16 @@ func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx contex
 	return o
 }
 
+// A list of Management Group IDs which directly or indirectly belong to this Management Group.
+func (o LookupGroupResultOutput) AllManagementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.AllManagementGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
+func (o LookupGroupResultOutput) AllSubscriptionIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.AllSubscriptionIds }).(pulumi.StringArrayOutput)
+}
+
 func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
@@ -114,6 +130,11 @@ func (o LookupGroupResultOutput) DisplayName() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// A list of Management Group IDs which directly belong to this Management Group.
+func (o LookupGroupResultOutput) ManagementGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.ManagementGroupIds }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
@@ -125,7 +146,7 @@ func (o LookupGroupResultOutput) ParentManagementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupGroupResult) string { return v.ParentManagementGroupId }).(pulumi.StringOutput)
 }
 
-// A list of Subscription IDs which are assigned to the Management Group.
+// A list of Subscription IDs which are directly assigned to this Management Group.
 func (o LookupGroupResultOutput) SubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGroupResult) []string { return v.SubscriptionIds }).(pulumi.StringArrayOutput)
 }

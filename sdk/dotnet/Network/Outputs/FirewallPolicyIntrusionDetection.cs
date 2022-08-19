@@ -18,6 +18,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
+        /// A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+        /// </summary>
+        public readonly ImmutableArray<string> PrivateRanges;
+        /// <summary>
         /// One or more `signature_overrides` blocks as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyIntrusionDetectionSignatureOverride> SignatureOverrides;
@@ -30,11 +34,14 @@ namespace Pulumi.Azure.Network.Outputs
         private FirewallPolicyIntrusionDetection(
             string? mode,
 
+            ImmutableArray<string> privateRanges,
+
             ImmutableArray<Outputs.FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides,
 
             ImmutableArray<Outputs.FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses)
         {
             Mode = mode;
+            PrivateRanges = privateRanges;
             SignatureOverrides = signatureOverrides;
             TrafficBypasses = trafficBypasses;
         }

@@ -118,7 +118,7 @@ type LinuxFunctionApp struct {
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayOutput `pulumi:"outboundIpAddressLists"`
@@ -226,7 +226,7 @@ type linuxFunctionAppState struct {
 	Kind *string `pulumi:"kind"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists []string `pulumi:"outboundIpAddressLists"`
@@ -297,7 +297,7 @@ type LinuxFunctionAppState struct {
 	Kind pulumi.StringPtrInput
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
 	// A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
 	OutboundIpAddressLists pulumi.StringArrayInput
@@ -366,7 +366,7 @@ type linuxFunctionAppArgs struct {
 	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location *string `pulumi:"location"`
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name *string `pulumi:"name"`
 	// The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -422,7 +422,7 @@ type LinuxFunctionAppArgs struct {
 	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Azure Region where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	Location pulumi.StringPtrInput
-	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+	// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 	Name pulumi.StringPtrInput
 	// The name of the Resource Group where the Linux Function App should exist. Changing this forces a new Linux Function App to be created.
 	ResourceGroupName pulumi.StringInput
@@ -623,7 +623,7 @@ func (o LinuxFunctionAppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
 func (o LinuxFunctionAppOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxFunctionApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

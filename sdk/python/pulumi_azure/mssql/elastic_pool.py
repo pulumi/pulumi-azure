@@ -22,6 +22,7 @@ class ElasticPoolArgs:
                  sku: pulumi.Input['ElasticPoolSkuArgs'],
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class ElasticPoolArgs:
         :param pulumi.Input['ElasticPoolSkuArgs'] sku: A `sku` block as defined below.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
@@ -49,6 +51,8 @@ class ElasticPoolArgs:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_configuration_name is not None:
+            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
         if max_size_bytes is not None:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if max_size_gb is not None:
@@ -133,6 +137,18 @@ class ElasticPoolArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
+
+    @maintenance_configuration_name.setter
+    def maintenance_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_name", value)
+
+    @property
     @pulumi.getter(name="maxSizeBytes")
     def max_size_bytes(self) -> Optional[pulumi.Input[int]]:
         """
@@ -198,6 +214,7 @@ class _ElasticPoolState:
     def __init__(__self__, *,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -211,6 +228,7 @@ class _ElasticPoolState:
         Input properties used for looking up and filtering ElasticPool resources.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
@@ -225,6 +243,8 @@ class _ElasticPoolState:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maintenance_configuration_name is not None:
+            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
         if max_size_bytes is not None:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if max_size_gb is not None:
@@ -267,6 +287,18 @@ class _ElasticPoolState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
+
+    @maintenance_configuration_name.setter
+    def maintenance_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_configuration_name", value)
 
     @property
     @pulumi.getter(name="maxSizeBytes")
@@ -384,6 +416,7 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -440,6 +473,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
@@ -515,6 +549,7 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[int]] = None,
                  max_size_gb: Optional[pulumi.Input[float]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -535,6 +570,7 @@ class ElasticPool(pulumi.CustomResource):
 
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
+            __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["max_size_gb"] = max_size_gb
             __props__.__dict__["name"] = name
@@ -564,6 +600,7 @@ class ElasticPool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
             max_size_bytes: Optional[pulumi.Input[int]] = None,
             max_size_gb: Optional[pulumi.Input[float]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -582,6 +619,7 @@ class ElasticPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] license_type: Specifies the license type applied to this database. Possible values are `LicenseIncluded` and `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] maintenance_configuration_name: The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
         :param pulumi.Input[int] max_size_bytes: The max data size of the elastic pool in bytes. Conflicts with `max_size_gb`.
         :param pulumi.Input[float] max_size_gb: The max data size of the elastic pool in gigabytes. Conflicts with `max_size_bytes`.
         :param pulumi.Input[str] name: The name of the elastic pool. This needs to be globally unique. Changing this forces a new resource to be created.
@@ -598,6 +636,7 @@ class ElasticPool(pulumi.CustomResource):
 
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
+        __props__.__dict__["maintenance_configuration_name"] = maintenance_configuration_name
         __props__.__dict__["max_size_bytes"] = max_size_bytes
         __props__.__dict__["max_size_gb"] = max_size_gb
         __props__.__dict__["name"] = name
@@ -624,6 +663,14 @@ class ElasticPool(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maintenanceConfigurationName")
+    def maintenance_configuration_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the Public Maintenance Configuration window to apply to the SQL Managed Instance. Valid values include `SQL_Default`, `SQL_EastUS_MI_1`, `SQL_EastUS2_MI_1`, `SQL_WestUS2_MI_1`, `SQL_SoutheastAsia_MI_1`, `SQL_AustraliaEast_MI_1`, `SQL_NorthEurope_MI_1`, `SQL_SouthCentralUS_MI_1`, `SQL_UKSouth_MI_1`, `SQL_WestEurope_MI_1`, `SQL_EastUS_MI_2`, `SQL_EastUS2_MI_2`, `SQL_WestUS2_MI_2`, `SQL_SoutheastAsia_MI_2`, `SQL_NorthEurope_MI_2`, `SQL_SouthCentralUS_MI_2`, `SQL_UKSouth_MI_2`, `SQL_WestEurope_MI_2`, `SQL_AustraliaSoutheast_MI_1`, `SQL_BrazilSouth_MI_1`, `SQL_CanadaCentral_MI_1`, `SQL_CanadaEast_MI_1`, `SQL_CentralUS_MI_1`, `SQL_EastAsia_MI_1`, `SQL_FranceCentral_MI_1`, `SQL_GermanyWestCentral_MI_1`, `SQL_CentralIndia_MI_1`, `SQL_JapanEast_MI_1`, `SQL_JapanWest_MI_1`, `SQL_NorthCentralUS_MI_1`, `SQL_UKWest_MI_1`, `SQL_WestUS_MI_1`, `SQL_AustraliaSoutheast_MI_2`, `SQL_BrazilSouth_MI_2`, `SQL_CanadaCentral_MI_2`, `SQL_CanadaEast_MI_2`, `SQL_CentralUS_MI_2`, `SQL_EastAsia_MI_2`, `SQL_FranceCentral_MI_2`, `SQL_GermanyWestCentral_MI_2`, `SQL_CentralIndia_MI_2`, `SQL_JapanEast_MI_2`, `SQL_JapanWest_MI_2`, `SQL_NorthCentralUS_MI_2`, `SQL_UKWest_MI_2`, `SQL_WestUS_MI_2`, `SQL_KoreaCentral_MI_1`, `SQL_KoreaCentral_MI_2`, `SQL_WestCentralUS_MI_1`, `SQL_WestCentralUS_MI_2`, `SQL_UAENorth_MI_1`, `SQL_SwitzerlandWest_MI_1`, `SQL_SwitzerlandNorth_MI_1`, `SQL_UAENorth_MI_2`, `SQL_SwitzerlandWest_MI_2`, `SQL_SwitzerlandNorth_MI_2`, `SQL_FranceSouth_MI_1`, `SQL_FranceSouth_MI_2`, `SQL_SouthAfricaNorth_MI_1`, `SQL_KoreaSouth_MI_1`, `SQL_UAECentral_MI_1`, `SQL_SouthAfricaNorth_MI_2`, `SQL_KoreaSouth_MI_2`, `SQL_UAECentral_MI_2`, `SQL_SouthIndia_MI_1`, `SQL_SouthIndia_MI_2`, `SQL_AustraliaCentral_MI_1`, `SQL_AustraliaCentral2_MI_1`, `SQL_AustraliaCentral_MI_2`, `SQL_AustraliaCentral2_MI_2`, `SQL_WestIndia_MI_1`, `SQL_WestIndia_MI_2`, `SQL_SouthAfricaWest_MI_1`, `SQL_SouthAfricaWest_MI_2`, `SQL_GermanyNorth_MI_1`, `SQL_GermanyNorth_MI_2`, `SQL_NorwayEast_MI_1`, `SQL_BrazilSoutheast_MI_1`, `SQL_NorwayWest_MI_1`, `SQL_WestUS3_MI_1`, `SQL_NorwayEast_MI_2`, `SQL_BrazilSoutheast_MI_2`, `SQL_NorwayWest_MI_2`, `SQL_WestUS3_MI_2`. Defaults to `SQL_Default`.
+        """
+        return pulumi.get(self, "maintenance_configuration_name")
 
     @property
     @pulumi.getter(name="maxSizeBytes")

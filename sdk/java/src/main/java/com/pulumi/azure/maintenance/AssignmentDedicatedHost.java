@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .scope(&#34;All&#34;)
+ *             .scope(&#34;Host&#34;)
  *             .build());
  * 
  *         var exampleAssignmentDedicatedHost = new AssignmentDedicatedHost(&#34;exampleAssignmentDedicatedHost&#34;, AssignmentDedicatedHostArgs.builder()        

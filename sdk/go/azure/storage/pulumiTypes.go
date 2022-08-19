@@ -4523,7 +4523,7 @@ type ManagementPolicyRule struct {
 	Enabled bool `pulumi:"enabled"`
 	// A `filter` block as documented below.
 	Filters *ManagementPolicyRuleFilters `pulumi:"filters"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name string `pulumi:"name"`
 }
 
@@ -4545,7 +4545,7 @@ type ManagementPolicyRuleArgs struct {
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// A `filter` block as documented below.
 	Filters ManagementPolicyRuleFiltersPtrInput `pulumi:"filters"`
-	// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+	// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -4615,7 +4615,7 @@ func (o ManagementPolicyRuleOutput) Filters() ManagementPolicyRuleFiltersPtrOutp
 	return o.ApplyT(func(v ManagementPolicyRule) *ManagementPolicyRuleFilters { return v.Filters }).(ManagementPolicyRuleFiltersPtrOutput)
 }
 
-// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
 func (o ManagementPolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagementPolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }

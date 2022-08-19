@@ -37,6 +37,12 @@ namespace Pulumi.Azure.AppPlatform.Inputs
         }
 
         /// <summary>
+        /// Ingress read time out in seconds. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("readTimeoutSeconds")]
+        public Input<int>? ReadTimeoutSeconds { get; set; }
+
+        /// <summary>
         /// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         /// </summary>
         [Input("serviceRuntimeNetworkResourceGroup")]

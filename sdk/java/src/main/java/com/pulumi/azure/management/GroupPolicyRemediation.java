@@ -47,6 +47,12 @@ public class GroupPolicyRemediation extends com.pulumi.resources.CustomResource 
     public Output<Optional<String>> policyDefinitionId() {
         return Codegen.optional(this.policyDefinitionId);
     }
+    /**
+     * @deprecated
+     * `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     * 
+     */
+    @Deprecated /* `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below. */
     @Export(name="resourceDiscoveryMode", type=String.class, parameters={})
     private Output</* @Nullable */ String> resourceDiscoveryMode;
 

@@ -74,6 +74,8 @@ type LookupKeyVaultResult struct {
 	Location    string                  `pulumi:"location"`
 	Name        string                  `pulumi:"name"`
 	NetworkAcls []GetKeyVaultNetworkAcl `pulumi:"networkAcls"`
+	// Is public network access enabled on this Key Vault?
+	PublicNetworkAccessEnabled bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is purge protection enabled on this Key Vault?
 	PurgeProtectionEnabled bool   `pulumi:"purgeProtectionEnabled"`
 	ResourceGroupName      string `pulumi:"resourceGroupName"`
@@ -168,6 +170,11 @@ func (o LookupKeyVaultResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupKeyVaultResultOutput) NetworkAcls() GetKeyVaultNetworkAclArrayOutput {
 	return o.ApplyT(func(v LookupKeyVaultResult) []GetKeyVaultNetworkAcl { return v.NetworkAcls }).(GetKeyVaultNetworkAclArrayOutput)
+}
+
+// Is public network access enabled on this Key Vault?
+func (o LookupKeyVaultResultOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyVaultResult) bool { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 // Is purge protection enabled on this Key Vault?

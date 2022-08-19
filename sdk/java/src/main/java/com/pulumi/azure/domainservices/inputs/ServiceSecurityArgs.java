@@ -16,6 +16,36 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     public static final ServiceSecurityArgs Empty = new ServiceSecurityArgs();
 
     /**
+     * Whether to enable Kerberos Armoring. Defaults to `false`.
+     * 
+     */
+    @Import(name="kerberosArmoringEnabled")
+    private @Nullable Output<Boolean> kerberosArmoringEnabled;
+
+    /**
+     * @return Whether to enable Kerberos Armoring. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> kerberosArmoringEnabled() {
+        return Optional.ofNullable(this.kerberosArmoringEnabled);
+    }
+
+    /**
+     * Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+     * 
+     */
+    @Import(name="kerberosRc4EncryptionEnabled")
+    private @Nullable Output<Boolean> kerberosRc4EncryptionEnabled;
+
+    /**
+     * @return Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> kerberosRc4EncryptionEnabled() {
+        return Optional.ofNullable(this.kerberosRc4EncryptionEnabled);
+    }
+
+    /**
      * Whether to enable legacy NTLM v1 support. Defaults to `false`.
      * 
      */
@@ -93,6 +123,8 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
     private ServiceSecurityArgs() {}
 
     private ServiceSecurityArgs(ServiceSecurityArgs $) {
+        this.kerberosArmoringEnabled = $.kerberosArmoringEnabled;
+        this.kerberosRc4EncryptionEnabled = $.kerberosRc4EncryptionEnabled;
         this.ntlmV1Enabled = $.ntlmV1Enabled;
         this.syncKerberosPasswords = $.syncKerberosPasswords;
         this.syncNtlmPasswords = $.syncNtlmPasswords;
@@ -116,6 +148,48 @@ public final class ServiceSecurityArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(ServiceSecurityArgs defaults) {
             $ = new ServiceSecurityArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param kerberosArmoringEnabled Whether to enable Kerberos Armoring. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosArmoringEnabled(@Nullable Output<Boolean> kerberosArmoringEnabled) {
+            $.kerberosArmoringEnabled = kerberosArmoringEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberosArmoringEnabled Whether to enable Kerberos Armoring. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosArmoringEnabled(Boolean kerberosArmoringEnabled) {
+            return kerberosArmoringEnabled(Output.of(kerberosArmoringEnabled));
+        }
+
+        /**
+         * @param kerberosRc4EncryptionEnabled Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosRc4EncryptionEnabled(@Nullable Output<Boolean> kerberosRc4EncryptionEnabled) {
+            $.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
+            return this;
+        }
+
+        /**
+         * @param kerberosRc4EncryptionEnabled Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosRc4EncryptionEnabled(Boolean kerberosRc4EncryptionEnabled) {
+            return kerberosRc4EncryptionEnabled(Output.of(kerberosRc4EncryptionEnabled));
         }
 
         /**

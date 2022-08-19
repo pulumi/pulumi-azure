@@ -72,6 +72,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:operationalinsights/analyticsWorkspace:AnalyticsWorkspace")
 public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     /**
+     * Is Customer Managed Storage mandatory for query management?
+     * 
+     */
+    @Export(name="cmkForQueryForced", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> cmkForQueryForced;
+
+    /**
+     * @return Is Customer Managed Storage mandatory for query management?
+     * 
+     */
+    public Output<Optional<Boolean>> cmkForQueryForced() {
+        return Codegen.optional(this.cmkForQueryForced);
+    }
+    /**
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      * 
      */

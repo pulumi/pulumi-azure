@@ -25,9 +25,9 @@ class MxRecordArgs:
         """
         The set of arguments for constructing a MxRecord resource.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -56,7 +56,7 @@ class MxRecordArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -80,7 +80,7 @@ class MxRecordArgs:
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> pulumi.Input[str]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 
@@ -128,10 +128,10 @@ class _MxRecordState:
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordRecordArgs']]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -188,7 +188,7 @@ class _MxRecordState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -224,7 +224,7 @@ class _MxRecordState:
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 
@@ -285,10 +285,10 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -404,10 +404,10 @@ class MxRecord(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the DNS MX Record.
         :param pulumi.Input[str] name: The name of the DNS MX Record. Defaults to `@` (root). Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MxRecordRecordArgs']]]] records: A list of values that make up the MX record. Each `record` block supports fields documented below.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -450,7 +450,7 @@ class MxRecord(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -474,7 +474,7 @@ class MxRecord(pulumi.CustomResource):
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> pulumi.Output[str]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 

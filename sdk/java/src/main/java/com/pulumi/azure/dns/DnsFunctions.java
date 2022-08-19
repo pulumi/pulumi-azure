@@ -4,8 +4,38 @@
 package com.pulumi.azure.dns;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.dns.inputs.GetAAAARecordArgs;
+import com.pulumi.azure.dns.inputs.GetAAAARecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetARecordArgs;
+import com.pulumi.azure.dns.inputs.GetARecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetCAARecordArgs;
+import com.pulumi.azure.dns.inputs.GetCAARecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetCnameRecordArgs;
+import com.pulumi.azure.dns.inputs.GetCnameRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetMxRecordArgs;
+import com.pulumi.azure.dns.inputs.GetMxRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetNsRecordArgs;
+import com.pulumi.azure.dns.inputs.GetNsRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetPtrRecordArgs;
+import com.pulumi.azure.dns.inputs.GetPtrRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetSoaRecordArgs;
+import com.pulumi.azure.dns.inputs.GetSoaRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetSrvRecordArgs;
+import com.pulumi.azure.dns.inputs.GetSrvRecordPlainArgs;
+import com.pulumi.azure.dns.inputs.GetTxtRecordArgs;
+import com.pulumi.azure.dns.inputs.GetTxtRecordPlainArgs;
 import com.pulumi.azure.dns.inputs.GetZoneArgs;
 import com.pulumi.azure.dns.inputs.GetZonePlainArgs;
+import com.pulumi.azure.dns.outputs.GetAAAARecordResult;
+import com.pulumi.azure.dns.outputs.GetARecordResult;
+import com.pulumi.azure.dns.outputs.GetCAARecordResult;
+import com.pulumi.azure.dns.outputs.GetCnameRecordResult;
+import com.pulumi.azure.dns.outputs.GetMxRecordResult;
+import com.pulumi.azure.dns.outputs.GetNsRecordResult;
+import com.pulumi.azure.dns.outputs.GetPtrRecordResult;
+import com.pulumi.azure.dns.outputs.GetSoaRecordResult;
+import com.pulumi.azure.dns.outputs.GetSrvRecordResult;
+import com.pulumi.azure.dns.outputs.GetTxtRecordResult;
 import com.pulumi.azure.dns.outputs.GetZoneResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -14,6 +44,1354 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DnsFunctions {
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.AaaaRecord;
+     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args) {
+        return getAAAARecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.AaaaRecord;
+     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args) {
+        return getAAAARecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.AaaaRecord;
+     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAAAARecordResult> getAAAARecord(GetAAAARecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.AaaaRecord;
+     * import com.pulumi.azure.dns.AaaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new AaaaRecord(&#34;example&#34;, AaaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsAaaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAAAARecordResult> getAAAARecordPlain(GetAAAARecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getAAAARecord:getAAAARecord", TypeShape.of(GetAAAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetARecordResult> getARecord(GetARecordArgs args) {
+        return getARecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args) {
+        return getARecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetARecordResult> getARecord(GetARecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.DnsFunctions;
+     * import com.pulumi.azure.dns.inputs.GetARecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DnsFunctions.getARecord(GetARecordArgs.builder()
+     *             .name(&#34;test&#34;)
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsARecordId&#34;, example.applyValue(getARecordResult -&gt; getARecordResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetARecordResult> getARecordPlain(GetARecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getARecord:getARecord", TypeShape.of(GetARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CaaRecord;
+     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args) {
+        return getCAARecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CaaRecord;
+     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args) {
+        return getCAARecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CaaRecord;
+     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCAARecordResult> getCAARecord(GetCAARecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CaaRecord;
+     * import com.pulumi.azure.dns.CaaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CaaRecord(&#34;example&#34;, CaaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCaaRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCAARecordResult> getCAARecordPlain(GetCAARecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getCAARecord:getCAARecord", TypeShape.of(GetCAARecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CNameRecord;
+     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args) {
+        return getCnameRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CNameRecord;
+     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args) {
+        return getCnameRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CNameRecord;
+     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetCnameRecordResult> getCnameRecord(GetCnameRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.CNameRecord;
+     * import com.pulumi.azure.dns.CNameRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new CNameRecord(&#34;example&#34;, CNameRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsCnameRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetCnameRecordResult> getCnameRecordPlain(GetCnameRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getCnameRecord:getCnameRecord", TypeShape.of(GetCnameRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.MxRecord;
+     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args) {
+        return getMxRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.MxRecord;
+     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args) {
+        return getMxRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.MxRecord;
+     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetMxRecordResult> getMxRecord(GetMxRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.MxRecord;
+     * import com.pulumi.azure.dns.MxRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsMxRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetMxRecordResult> getMxRecordPlain(GetMxRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getMxRecord:getMxRecord", TypeShape.of(GetMxRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.NsRecord;
+     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args) {
+        return getNsRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.NsRecord;
+     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args) {
+        return getNsRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.NsRecord;
+     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetNsRecordResult> getNsRecord(GetNsRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.NsRecord;
+     * import com.pulumi.azure.dns.NsRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new NsRecord(&#34;example&#34;, NsRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsNsRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetNsRecordResult> getNsRecordPlain(GetNsRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getNsRecord:getNsRecord", TypeShape.of(GetNsRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.PtrRecord;
+     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args) {
+        return getPtrRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.PtrRecord;
+     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args) {
+        return getPtrRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.PtrRecord;
+     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetPtrRecordResult> getPtrRecord(GetPtrRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.PtrRecord;
+     * import com.pulumi.azure.dns.PtrRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PtrRecord(&#34;example&#34;, PtrRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsPtrRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetPtrRecordResult> getPtrRecordPlain(GetPtrRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getPtrRecord:getPtrRecord", TypeShape.of(GetPtrRecordResult.class), args, Utilities.withVersion(options));
+    }
+    public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
+        return getSoaRecord(args, InvokeOptions.Empty);
+    }
+    public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
+        return getSoaRecordPlain(args, InvokeOptions.Empty);
+    }
+    public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
+    }
+    public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.SrvRecord;
+     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args) {
+        return getSrvRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.SrvRecord;
+     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args) {
+        return getSrvRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.SrvRecord;
+     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetSrvRecordResult> getSrvRecord(GetSrvRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.SrvRecord;
+     * import com.pulumi.azure.dns.SrvRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new SrvRecord(&#34;example&#34;, SrvRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsSrvRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetSrvRecordResult> getSrvRecordPlain(GetSrvRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getSrvRecord:getSrvRecord", TypeShape.of(GetSrvRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.TxtRecord;
+     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args) {
+        return getTxtRecord(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.TxtRecord;
+     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args) {
+        return getTxtRecordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.TxtRecord;
+     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTxtRecordResult> getTxtRecord(GetTxtRecordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:dns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.dns.TxtRecord;
+     * import com.pulumi.azure.dns.TxtRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;dnsTxtRecordId&#34;, example.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTxtRecordResult> getTxtRecordPlain(GetTxtRecordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:dns/getTxtRecord:getTxtRecord", TypeShape.of(GetTxtRecordResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing DNS Zone.
      * 

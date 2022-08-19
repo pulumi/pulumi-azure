@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ApplicationGatewayProbeMatchArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +20,15 @@ public final class ApplicationGatewayProbeMatchArgs extends com.pulumi.resources
      * A snippet from the Response Body which must be present in the Response.
      * 
      */
-    @Import(name="body", required=true)
-    private Output<String> body;
+    @Import(name="body")
+    private @Nullable Output<String> body;
 
     /**
      * @return A snippet from the Response Body which must be present in the Response.
      * 
      */
-    public Output<String> body() {
-        return this.body;
+    public Optional<Output<String>> body() {
+        return Optional.ofNullable(this.body);
     }
 
     /**
@@ -75,7 +77,7 @@ public final class ApplicationGatewayProbeMatchArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder body(Output<String> body) {
+        public Builder body(@Nullable Output<String> body) {
             $.body = body;
             return this;
         }
@@ -122,7 +124,6 @@ public final class ApplicationGatewayProbeMatchArgs extends com.pulumi.resources
         }
 
         public ApplicationGatewayProbeMatchArgs build() {
-            $.body = Objects.requireNonNull($.body, "expected parameter 'body' to be non-null");
             $.statusCodes = Objects.requireNonNull($.statusCodes, "expected parameter 'statusCodes' to be non-null");
             return $;
         }

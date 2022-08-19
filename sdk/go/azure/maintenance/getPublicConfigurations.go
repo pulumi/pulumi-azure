@@ -55,7 +55,7 @@ type GetPublicConfigurationsArgs struct {
 	Location *string `pulumi:"location"`
 	// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
 	RecurEvery *string `pulumi:"recurEvery"`
-	// The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+	// The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
 	Scope *string `pulumi:"scope"`
 }
 
@@ -91,7 +91,7 @@ type GetPublicConfigurationsOutputArgs struct {
 	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
 	RecurEvery pulumi.StringPtrInput `pulumi:"recurEvery"`
-	// The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+	// The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
 	Scope pulumi.StringPtrInput `pulumi:"scope"`
 }
 

@@ -144,7 +144,7 @@ namespace Pulumi.Azure.Dns
         public readonly int NumberOfRecordSets;
         public readonly string ResourceGroupName;
         /// <summary>
-        /// A mapping of tags to assign to the EventHub Namespace.
+        /// A mapping of tags assigned to the DNS Zone.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

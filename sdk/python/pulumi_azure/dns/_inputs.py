@@ -25,7 +25,7 @@ class CaaRecordRecordArgs:
                  value: pulumi.Input[str]):
         """
         :param pulumi.Input[int] flags: Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
-        :param pulumi.Input[str] tag: A property tag, options are issue, issuewild and iodef.
+        :param pulumi.Input[str] tag: A property tag, options are `issue`, `issuewild` and `iodef`.
         :param pulumi.Input[str] value: A property value such as a registrar domain.
         """
         pulumi.set(__self__, "flags", flags)
@@ -48,7 +48,7 @@ class CaaRecordRecordArgs:
     @pulumi.getter
     def tag(self) -> pulumi.Input[str]:
         """
-        A property tag, options are issue, issuewild and iodef.
+        A property tag, options are `issue`, `issuewild` and `iodef`.
         """
         return pulumi.get(self, "tag")
 

@@ -55,6 +55,9 @@ namespace Pulumi.Azure.AppService
         [Output("defaultHostName")]
         public Output<string> DefaultHostName { get; private set; } = null!;
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Output("identity")]
         public Output<Outputs.StaticSiteIdentity?> Identity { get; private set; } = null!;
 
@@ -140,6 +143,9 @@ namespace Pulumi.Azure.AppService
 
     public sealed class StaticSiteArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.StaticSiteIdentityArgs>? Identity { get; set; }
 
@@ -205,6 +211,9 @@ namespace Pulumi.Azure.AppService
         [Input("defaultHostName")]
         public Input<string>? DefaultHostName { get; set; }
 
+        /// <summary>
+        /// An `identity` block as defined below.
+        /// </summary>
         [Input("identity")]
         public Input<Inputs.StaticSiteIdentityGetArgs>? Identity { get; set; }
 

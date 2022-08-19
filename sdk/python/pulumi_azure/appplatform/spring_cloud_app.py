@@ -25,6 +25,7 @@ class SpringCloudAppArgs:
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+                 public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SpringCloudApp resource.
@@ -37,6 +38,7 @@ class SpringCloudAppArgs:
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -55,6 +57,8 @@ class SpringCloudAppArgs:
             pulumi.set(__self__, "name", name)
         if persistent_disk is not None:
             pulumi.set(__self__, "persistent_disk", persistent_disk)
+        if public_endpoint_enabled is not None:
+            pulumi.set(__self__, "public_endpoint_enabled", public_endpoint_enabled)
         if tls_enabled is not None:
             pulumi.set(__self__, "tls_enabled", tls_enabled)
 
@@ -167,6 +171,18 @@ class SpringCloudAppArgs:
         pulumi.set(self, "persistent_disk", value)
 
     @property
+    @pulumi.getter(name="publicEndpointEnabled")
+    def public_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        """
+        return pulumi.get(self, "public_endpoint_enabled")
+
+    @public_endpoint_enabled.setter
+    def public_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_endpoint_enabled", value)
+
+    @property
     @pulumi.getter(name="tlsEnabled")
     def tls_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -190,6 +206,7 @@ class _SpringCloudAppState:
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+                 public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
@@ -204,6 +221,7 @@ class _SpringCloudAppState:
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
@@ -225,6 +243,8 @@ class _SpringCloudAppState:
             pulumi.set(__self__, "name", name)
         if persistent_disk is not None:
             pulumi.set(__self__, "persistent_disk", persistent_disk)
+        if public_endpoint_enabled is not None:
+            pulumi.set(__self__, "public_endpoint_enabled", public_endpoint_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if service_name is not None:
@@ -331,6 +351,18 @@ class _SpringCloudAppState:
         pulumi.set(self, "persistent_disk", value)
 
     @property
+    @pulumi.getter(name="publicEndpointEnabled")
+    def public_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        """
+        return pulumi.get(self, "public_endpoint_enabled")
+
+    @public_endpoint_enabled.setter
+    def public_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "public_endpoint_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -391,6 +423,7 @@ class SpringCloudApp(pulumi.CustomResource):
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+                 public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
@@ -433,6 +466,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
@@ -494,6 +528,7 @@ class SpringCloudApp(pulumi.CustomResource):
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+                 public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None,
@@ -513,6 +548,7 @@ class SpringCloudApp(pulumi.CustomResource):
             __props__.__dict__["is_public"] = is_public
             __props__.__dict__["name"] = name
             __props__.__dict__["persistent_disk"] = persistent_disk
+            __props__.__dict__["public_endpoint_enabled"] = public_endpoint_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -540,6 +576,7 @@ class SpringCloudApp(pulumi.CustomResource):
             is_public: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+            public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             tls_enabled: Optional[pulumi.Input[bool]] = None,
@@ -559,6 +596,7 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
@@ -576,6 +614,7 @@ class SpringCloudApp(pulumi.CustomResource):
         __props__.__dict__["is_public"] = is_public
         __props__.__dict__["name"] = name
         __props__.__dict__["persistent_disk"] = persistent_disk
+        __props__.__dict__["public_endpoint_enabled"] = public_endpoint_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["tls_enabled"] = tls_enabled
@@ -645,6 +684,14 @@ class SpringCloudApp(pulumi.CustomResource):
         An `persistent_disk` block as defined below.
         """
         return pulumi.get(self, "persistent_disk")
+
+    @property
+    @pulumi.getter(name="publicEndpointEnabled")
+    def public_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        """
+        return pulumi.get(self, "public_endpoint_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

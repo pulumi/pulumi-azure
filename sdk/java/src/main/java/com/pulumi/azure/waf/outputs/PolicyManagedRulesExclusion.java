@@ -3,12 +3,20 @@
 
 package com.pulumi.azure.waf.outputs;
 
+import com.pulumi.azure.waf.outputs.PolicyManagedRulesExclusionExcludedRuleSet;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyManagedRulesExclusion {
+    /**
+     * @return One or more `excluded_rule_set` block defined below.
+     * 
+     */
+    private final @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
     /**
      * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
      * 
@@ -27,14 +35,23 @@ public final class PolicyManagedRulesExclusion {
 
     @CustomType.Constructor
     private PolicyManagedRulesExclusion(
+        @CustomType.Parameter("excludedRuleSet") @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet,
         @CustomType.Parameter("matchVariable") String matchVariable,
         @CustomType.Parameter("selector") String selector,
         @CustomType.Parameter("selectorMatchOperator") String selectorMatchOperator) {
+        this.excludedRuleSet = excludedRuleSet;
         this.matchVariable = matchVariable;
         this.selector = selector;
         this.selectorMatchOperator = selectorMatchOperator;
     }
 
+    /**
+     * @return One or more `excluded_rule_set` block defined below.
+     * 
+     */
+    public Optional<PolicyManagedRulesExclusionExcludedRuleSet> excludedRuleSet() {
+        return Optional.ofNullable(this.excludedRuleSet);
+    }
     /**
      * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
      * 
@@ -66,6 +83,7 @@ public final class PolicyManagedRulesExclusion {
     }
 
     public static final class Builder {
+        private @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
         private String matchVariable;
         private String selector;
         private String selectorMatchOperator;
@@ -76,11 +94,16 @@ public final class PolicyManagedRulesExclusion {
 
         public Builder(PolicyManagedRulesExclusion defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.excludedRuleSet = defaults.excludedRuleSet;
     	      this.matchVariable = defaults.matchVariable;
     	      this.selector = defaults.selector;
     	      this.selectorMatchOperator = defaults.selectorMatchOperator;
         }
 
+        public Builder excludedRuleSet(@Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet) {
+            this.excludedRuleSet = excludedRuleSet;
+            return this;
+        }
         public Builder matchVariable(String matchVariable) {
             this.matchVariable = Objects.requireNonNull(matchVariable);
             return this;
@@ -93,7 +116,7 @@ public final class PolicyManagedRulesExclusion {
             this.selectorMatchOperator = Objects.requireNonNull(selectorMatchOperator);
             return this;
         }        public PolicyManagedRulesExclusion build() {
-            return new PolicyManagedRulesExclusion(matchVariable, selector, selectorMatchOperator);
+            return new PolicyManagedRulesExclusion(excludedRuleSet, matchVariable, selector, selectorMatchOperator);
         }
     }
 }

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     scope: "All",
+ *     scope: "Host",
  * });
  * const exampleAssignmentDedicatedHost = new azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost", {
  *     location: exampleResourceGroup.location,

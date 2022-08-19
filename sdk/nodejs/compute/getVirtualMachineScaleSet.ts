@@ -59,6 +59,13 @@ export interface GetVirtualMachineScaleSetResult {
      * A `identity` block as defined below.
      */
     readonly identities: outputs.compute.GetVirtualMachineScaleSetIdentity[];
+    /**
+     * A list of `instances` blocks as defined below.
+     */
+    readonly instances: outputs.compute.GetVirtualMachineScaleSetInstance[];
+    /**
+     * The Azure Region in which this Virtual Machine Scale Set exists.
+     */
     readonly location: string;
     /**
      * The name of the public IP address configuration

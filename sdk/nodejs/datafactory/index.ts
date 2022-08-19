@@ -19,6 +19,7 @@ export * from "./datasetPostgresql";
 export * from "./datasetSnowflake";
 export * from "./datasetSqlServerTable";
 export * from "./factory";
+export * from "./flowletDataFlow";
 export * from "./getFactory";
 export * from "./integrationRuntimeManaged";
 export * from "./integrationRuntimeRule";
@@ -68,6 +69,7 @@ import { DatasetPostgresql } from "./datasetPostgresql";
 import { DatasetSnowflake } from "./datasetSnowflake";
 import { DatasetSqlServerTable } from "./datasetSqlServerTable";
 import { Factory } from "./factory";
+import { FlowletDataFlow } from "./flowletDataFlow";
 import { IntegrationRuntimeManaged } from "./integrationRuntimeManaged";
 import { IntegrationRuntimeRule } from "./integrationRuntimeRule";
 import { IntegrationRuntimeSelfHosted } from "./integrationRuntimeSelfHosted";
@@ -133,6 +135,8 @@ const _module = {
                 return new DatasetSqlServerTable(name, <any>undefined, { urn })
             case "azure:datafactory/factory:Factory":
                 return new Factory(name, <any>undefined, { urn })
+            case "azure:datafactory/flowletDataFlow:FlowletDataFlow":
+                return new FlowletDataFlow(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
                 return new IntegrationRuntimeManaged(name, <any>undefined, { urn })
             case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
@@ -216,6 +220,7 @@ pulumi.runtime.registerResourceModule("azure", "datafactory/datasetPostgresql", 
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSnowflake", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/datasetSqlServerTable", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/factory", _module)
+pulumi.runtime.registerResourceModule("azure", "datafactory/flowletDataFlow", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeManaged", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeRule", _module)
 pulumi.runtime.registerResourceModule("azure", "datafactory/integrationRuntimeSelfHosted", _module)

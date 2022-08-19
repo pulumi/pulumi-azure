@@ -52,6 +52,11 @@ public final class GetKeyVaultResult {
     private final String name;
     private final List<GetKeyVaultNetworkAcl> networkAcls;
     /**
+     * @return Is public network access enabled on this Key Vault?
+     * 
+     */
+    private final Boolean publicNetworkAccessEnabled;
+    /**
      * @return Is purge protection enabled on this Key Vault?
      * 
      */
@@ -89,6 +94,7 @@ public final class GetKeyVaultResult {
         @CustomType.Parameter("location") String location,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("networkAcls") List<GetKeyVaultNetworkAcl> networkAcls,
+        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
         @CustomType.Parameter("purgeProtectionEnabled") Boolean purgeProtectionEnabled,
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
         @CustomType.Parameter("skuName") String skuName,
@@ -104,6 +110,7 @@ public final class GetKeyVaultResult {
         this.location = location;
         this.name = name;
         this.networkAcls = networkAcls;
+        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
         this.purgeProtectionEnabled = purgeProtectionEnabled;
         this.resourceGroupName = resourceGroupName;
         this.skuName = skuName;
@@ -168,6 +175,13 @@ public final class GetKeyVaultResult {
         return this.networkAcls;
     }
     /**
+     * @return Is public network access enabled on this Key Vault?
+     * 
+     */
+    public Boolean publicNetworkAccessEnabled() {
+        return this.publicNetworkAccessEnabled;
+    }
+    /**
      * @return Is purge protection enabled on this Key Vault?
      * 
      */
@@ -224,6 +238,7 @@ public final class GetKeyVaultResult {
         private String location;
         private String name;
         private List<GetKeyVaultNetworkAcl> networkAcls;
+        private Boolean publicNetworkAccessEnabled;
         private Boolean purgeProtectionEnabled;
         private String resourceGroupName;
         private String skuName;
@@ -246,6 +261,7 @@ public final class GetKeyVaultResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.networkAcls = defaults.networkAcls;
+    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.purgeProtectionEnabled = defaults.purgeProtectionEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.skuName = defaults.skuName;
@@ -296,6 +312,10 @@ public final class GetKeyVaultResult {
         public Builder networkAcls(GetKeyVaultNetworkAcl... networkAcls) {
             return networkAcls(List.of(networkAcls));
         }
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
+            return this;
+        }
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
             return this;
@@ -320,7 +340,7 @@ public final class GetKeyVaultResult {
             this.vaultUri = Objects.requireNonNull(vaultUri);
             return this;
         }        public GetKeyVaultResult build() {
-            return new GetKeyVaultResult(accessPolicies, enableRbacAuthorization, enabledForDeployment, enabledForDiskEncryption, enabledForTemplateDeployment, id, location, name, networkAcls, purgeProtectionEnabled, resourceGroupName, skuName, tags, tenantId, vaultUri);
+            return new GetKeyVaultResult(accessPolicies, enableRbacAuthorization, enabledForDeployment, enabledForDiskEncryption, enabledForTemplateDeployment, id, location, name, networkAcls, publicNetworkAccessEnabled, purgeProtectionEnabled, resourceGroupName, skuName, tags, tenantId, vaultUri);
         }
     }
 }

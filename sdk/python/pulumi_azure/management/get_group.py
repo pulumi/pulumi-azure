@@ -21,13 +21,22 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, display_name=None, id=None, name=None, parent_management_group_id=None, subscription_ids=None):
+    def __init__(__self__, all_management_group_ids=None, all_subscription_ids=None, display_name=None, id=None, management_group_ids=None, name=None, parent_management_group_id=None, subscription_ids=None):
+        if all_management_group_ids and not isinstance(all_management_group_ids, list):
+            raise TypeError("Expected argument 'all_management_group_ids' to be a list")
+        pulumi.set(__self__, "all_management_group_ids", all_management_group_ids)
+        if all_subscription_ids and not isinstance(all_subscription_ids, list):
+            raise TypeError("Expected argument 'all_subscription_ids' to be a list")
+        pulumi.set(__self__, "all_subscription_ids", all_subscription_ids)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if management_group_ids and not isinstance(management_group_ids, list):
+            raise TypeError("Expected argument 'management_group_ids' to be a list")
+        pulumi.set(__self__, "management_group_ids", management_group_ids)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -37,6 +46,22 @@ class GetGroupResult:
         if subscription_ids and not isinstance(subscription_ids, list):
             raise TypeError("Expected argument 'subscription_ids' to be a list")
         pulumi.set(__self__, "subscription_ids", subscription_ids)
+
+    @property
+    @pulumi.getter(name="allManagementGroupIds")
+    def all_management_group_ids(self) -> Sequence[str]:
+        """
+        A list of Management Group IDs which directly or indirectly belong to this Management Group.
+        """
+        return pulumi.get(self, "all_management_group_ids")
+
+    @property
+    @pulumi.getter(name="allSubscriptionIds")
+    def all_subscription_ids(self) -> Sequence[str]:
+        """
+        A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
+        """
+        return pulumi.get(self, "all_subscription_ids")
 
     @property
     @pulumi.getter(name="displayName")
@@ -50,6 +75,14 @@ class GetGroupResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managementGroupIds")
+    def management_group_ids(self) -> Sequence[str]:
+        """
+        A list of Management Group IDs which directly belong to this Management Group.
+        """
+        return pulumi.get(self, "management_group_ids")
 
     @property
     @pulumi.getter
@@ -68,7 +101,7 @@ class GetGroupResult:
     @pulumi.getter(name="subscriptionIds")
     def subscription_ids(self) -> Sequence[str]:
         """
-        A list of Subscription IDs which are assigned to the Management Group.
+        A list of Subscription IDs which are directly assigned to this Management Group.
         """
         return pulumi.get(self, "subscription_ids")
 
@@ -79,8 +112,11 @@ class AwaitableGetGroupResult(GetGroupResult):
         if False:
             yield self
         return GetGroupResult(
+            all_management_group_ids=self.all_management_group_ids,
+            all_subscription_ids=self.all_subscription_ids,
             display_name=self.display_name,
             id=self.id,
+            management_group_ids=self.management_group_ids,
             name=self.name,
             parent_management_group_id=self.parent_management_group_id,
             subscription_ids=self.subscription_ids)
@@ -113,8 +149,11 @@ def get_group(display_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure:management/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
+        all_management_group_ids=__ret__.all_management_group_ids,
+        all_subscription_ids=__ret__.all_subscription_ids,
         display_name=__ret__.display_name,
         id=__ret__.id,
+        management_group_ids=__ret__.management_group_ids,
         name=__ret__.name,
         parent_management_group_id=__ret__.parent_management_group_id,
         subscription_ids=__ret__.subscription_ids)

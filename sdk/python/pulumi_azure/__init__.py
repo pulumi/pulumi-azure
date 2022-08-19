@@ -1658,6 +1658,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorFirewallPolicy",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy": "FrontdoorFirewallPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorOrigin",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -1686,6 +1694,14 @@ _utilities.register(
   "fqn": "pulumi_azure.cdn",
   "classes": {
    "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet": "FrontdoorRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cdn/frontdoorSecurityPolicy",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy": "FrontdoorSecurityPolicy"
   }
  },
  {
@@ -2586,6 +2602,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "datafactory/flowletDataFlow",
+  "fqn": "pulumi_azure.datafactory",
+  "classes": {
+   "azure:datafactory/flowletDataFlow:FlowletDataFlow": "FlowletDataFlow"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "datafactory/integrationRuntimeManaged",
   "fqn": "pulumi_azure.datafactory",
   "classes": {
@@ -3374,6 +3398,14 @@ _utilities.register(
   "fqn": "pulumi_azure.eventhub",
   "classes": {
    "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey": "NamespaceCustomerManagedKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "eventhub/namespaceSchemaGroup",
+  "fqn": "pulumi_azure.eventhub",
+  "classes": {
+   "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup": "NamespaceSchemaGroup"
   }
  },
  {

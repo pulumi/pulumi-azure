@@ -178,6 +178,12 @@ namespace Pulumi.Azure.Storage
         public Output<Outputs.AccountCustomerManagedKey?> CustomerManagedKey { get; private set; } = null!;
 
         /// <summary>
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// </summary>
+        [Output("defaultToOauthAuthentication")]
+        public Output<bool?> DefaultToOauthAuthentication { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         /// </summary>
         [Output("edgeZone")]
@@ -597,6 +603,12 @@ namespace Pulumi.Azure.Storage
         public Input<Inputs.AccountCustomerManagedKeyArgs>? CustomerManagedKey { get; set; }
 
         /// <summary>
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// </summary>
+        [Input("defaultToOauthAuthentication")]
+        public Input<bool>? DefaultToOauthAuthentication { get; set; }
+
+        /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
         /// </summary>
         [Input("edgeZone")]
@@ -790,6 +802,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("customerManagedKey")]
         public Input<Inputs.AccountCustomerManagedKeyGetArgs>? CustomerManagedKey { get; set; }
+
+        /// <summary>
+        /// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+        /// </summary>
+        [Input("defaultToOauthAuthentication")]
+        public Input<bool>? DefaultToOauthAuthentication { get; set; }
 
         /// <summary>
         /// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.

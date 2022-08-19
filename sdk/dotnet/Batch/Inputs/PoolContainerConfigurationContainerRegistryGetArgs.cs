@@ -15,8 +15,8 @@ namespace Pulumi.Azure.Batch.Inputs
         /// <summary>
         /// The password to log into the registry server. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
@@ -25,10 +25,17 @@ namespace Pulumi.Azure.Batch.Inputs
         public Input<string> RegistryServer { get; set; } = null!;
 
         /// <summary>
+        /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        /// ---
+        /// </summary>
+        [Input("userAssignedIdentityId")]
+        public Input<string>? UserAssignedIdentityId { get; set; }
+
+        /// <summary>
         /// The user name to log into the registry server. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("userName", required: true)]
-        public Input<string> UserName { get; set; } = null!;
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public PoolContainerConfigurationContainerRegistryGetArgs()
         {

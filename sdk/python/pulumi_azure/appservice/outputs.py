@@ -7892,7 +7892,7 @@ class LinuxFunctionAppSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
-        :param str name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+        :param str name: The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -7904,7 +7904,7 @@ class LinuxFunctionAppSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+        The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -20300,7 +20300,7 @@ class WindowsFunctionAppSiteCredential(dict):
                  name: Optional[str] = None,
                  password: Optional[str] = None):
         """
-        :param str name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param str name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param str password: The Site Credentials Password used for publishing.
         """
         if name is not None:
@@ -20312,7 +20312,7 @@ class WindowsFunctionAppSiteCredential(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 

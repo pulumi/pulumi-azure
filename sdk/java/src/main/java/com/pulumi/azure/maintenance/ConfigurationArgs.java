@@ -78,18 +78,18 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
-    @Import(name="scope")
-    private @Nullable Output<String> scope;
+    @Import(name="scope", required=true)
+    private Output<String> scope;
 
     /**
-     * @return The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * @return The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
-    public Optional<Output<String>> scope() {
-        return Optional.ofNullable(this.scope);
+    public Output<String> scope() {
+        return this.scope;
     }
 
     /**
@@ -253,18 +253,18 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scope The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+         * @param scope The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
          * 
          * @return builder
          * 
          */
-        public Builder scope(@Nullable Output<String> scope) {
+        public Builder scope(Output<String> scope) {
             $.scope = scope;
             return this;
         }
 
         /**
-         * @param scope The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+         * @param scope The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
          * 
          * @return builder
          * 
@@ -338,6 +338,7 @@ public final class ConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
         public ConfigurationArgs build() {
             $.resourceGroupName = Objects.requireNonNull($.resourceGroupName, "expected parameter 'resourceGroupName' to be non-null");
+            $.scope = Objects.requireNonNull($.scope, "expected parameter 'scope' to be non-null");
             return $;
         }
     }

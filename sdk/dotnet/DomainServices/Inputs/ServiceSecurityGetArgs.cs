@@ -13,6 +13,18 @@ namespace Pulumi.Azure.DomainServices.Inputs
     public sealed class ServiceSecurityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to enable Kerberos Armoring. Defaults to `false`.
+        /// </summary>
+        [Input("kerberosArmoringEnabled")]
+        public Input<bool>? KerberosArmoringEnabled { get; set; }
+
+        /// <summary>
+        /// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+        /// </summary>
+        [Input("kerberosRc4EncryptionEnabled")]
+        public Input<bool>? KerberosRc4EncryptionEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable legacy NTLM v1 support. Defaults to `false`.
         /// </summary>
         [Input("ntlmV1Enabled")]

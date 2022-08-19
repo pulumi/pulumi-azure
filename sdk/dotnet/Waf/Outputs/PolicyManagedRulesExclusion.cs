@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Waf.Outputs
     public sealed class PolicyManagedRulesExclusion
     {
         /// <summary>
+        /// One or more `excluded_rule_set` block defined below.
+        /// </summary>
+        public readonly Outputs.PolicyManagedRulesExclusionExcludedRuleSet? ExcludedRuleSet;
+        /// <summary>
         /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
         /// </summary>
         public readonly string MatchVariable;
@@ -28,12 +32,15 @@ namespace Pulumi.Azure.Waf.Outputs
 
         [OutputConstructor]
         private PolicyManagedRulesExclusion(
+            Outputs.PolicyManagedRulesExclusionExcludedRuleSet? excludedRuleSet,
+
             string matchVariable,
 
             string selector,
 
             string selectorMatchOperator)
         {
+            ExcludedRuleSet = excludedRuleSet;
             MatchVariable = matchVariable;
             Selector = selector;
             SelectorMatchOperator = selectorMatchOperator;

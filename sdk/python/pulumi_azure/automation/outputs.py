@@ -11,14 +11,80 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AccountEncryption',
     'AccountIdentity',
+    'AccountPrivateEndpointConnection',
     'ModuleModuleLink',
     'ModuleModuleLinkHash',
     'RunBookJobSchedule',
     'RunBookPublishContentLink',
     'RunBookPublishContentLinkHash',
     'ScheduleMonthlyOccurrence',
+    'GetAccountPrivateEndpointConnectionResult',
 ]
+
+@pulumi.output_type
+class AccountEncryption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultKeyId":
+            suggest = "key_vault_key_id"
+        elif key == "keySource":
+            suggest = "key_source"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_key_id: str,
+                 key_source: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None):
+        """
+        :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+        :param str key_source: The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        :param str user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> str:
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[str]:
+        """
+        The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        """
+        return pulumi.get(self, "key_source")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
 
 @pulumi.output_type
 class AccountIdentity(dict):
@@ -93,6 +159,37 @@ class AccountIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AccountPrivateEndpointConnection(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str id: The ID of the Automation Account.
+        :param str name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The ID of the Automation Account.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -277,5 +374,34 @@ class ScheduleMonthlyOccurrence(dict):
         Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
         return pulumi.get(self, "occurrence")
+
+
+@pulumi.output_type
+class GetAccountPrivateEndpointConnectionResult(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 name: str):
+        """
+        :param str id: The ID of the Automation Account
+        :param str name: The name of the Automation Account.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Automation Account
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Automation Account.
+        """
+        return pulumi.get(self, "name")
 
 

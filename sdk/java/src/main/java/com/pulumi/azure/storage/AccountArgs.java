@@ -178,6 +178,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     * 
+     */
+    @Import(name="defaultToOauthAuthentication")
+    private @Nullable Output<Boolean> defaultToOauthAuthentication;
+
+    /**
+     * @return Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     * 
+     */
+    public Optional<Output<Boolean>> defaultToOauthAuthentication() {
+        return Optional.ofNullable(this.defaultToOauthAuthentication);
+    }
+
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      * 
      */
@@ -492,6 +507,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.crossTenantReplicationEnabled = $.crossTenantReplicationEnabled;
         this.customDomain = $.customDomain;
         this.customerManagedKey = $.customerManagedKey;
+        this.defaultToOauthAuthentication = $.defaultToOauthAuthentication;
         this.edgeZone = $.edgeZone;
         this.enableHttpsTrafficOnly = $.enableHttpsTrafficOnly;
         this.identity = $.identity;
@@ -740,6 +756,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customerManagedKey(AccountCustomerManagedKeyArgs customerManagedKey) {
             return customerManagedKey(Output.of(customerManagedKey));
+        }
+
+        /**
+         * @param defaultToOauthAuthentication Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultToOauthAuthentication(@Nullable Output<Boolean> defaultToOauthAuthentication) {
+            $.defaultToOauthAuthentication = defaultToOauthAuthentication;
+            return this;
+        }
+
+        /**
+         * @param defaultToOauthAuthentication Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultToOauthAuthentication(Boolean defaultToOauthAuthentication) {
+            return defaultToOauthAuthentication(Output.of(defaultToOauthAuthentication));
         }
 
         /**

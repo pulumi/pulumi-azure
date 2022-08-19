@@ -106,6 +106,20 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acceleratedNetworkSupportEnabled);
     }
     /**
+     * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="architecture", type=String.class, parameters={})
+    private Output</* @Nullable */ String> architecture;
+
+    /**
+     * @return CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> architecture() {
+        return Codegen.optional(this.architecture);
+    }
+    /**
      * A description of this Shared Image.
      * 
      */

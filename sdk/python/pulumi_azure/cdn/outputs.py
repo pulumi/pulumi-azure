@@ -43,9 +43,21 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRedirectAction',
     'EndpointGlobalDeliveryRuleUrlRewriteAction',
     'EndpointOrigin',
+    'FrontdoorFirewallPolicyCustomRule',
+    'FrontdoorFirewallPolicyCustomRuleMatchCondition',
+    'FrontdoorFirewallPolicyManagedRule',
+    'FrontdoorFirewallPolicyManagedRuleExclusion',
+    'FrontdoorFirewallPolicyManagedRuleOverride',
+    'FrontdoorFirewallPolicyManagedRuleOverrideExclusion',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRule',
+    'FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion',
     'FrontdoorOriginGroupHealthProbe',
     'FrontdoorOriginGroupLoadBalancing',
     'FrontdoorOriginPrivateLink',
+    'FrontdoorSecurityPolicySecurityPolicies',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewall',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
+    'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain',
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
 ]
@@ -119,6 +131,8 @@ class EndpointCustomDomainUserManagedHttps(dict):
         suggest = None
         if key == "keyVaultCertificateId":
             suggest = "key_vault_certificate_id"
+        elif key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
         elif key == "tlsVersion":
             suggest = "tls_version"
 
@@ -134,23 +148,36 @@ class EndpointCustomDomainUserManagedHttps(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_vault_certificate_id: str,
+                 key_vault_certificate_id: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
                  tls_version: Optional[str] = None):
         """
-        :param str key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate.
+        :param str key_vault_certificate_id: The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
+        :param str key_vault_secret_id: The ID of the Key Vault Secret that contains the HTTPS certificate.
         :param str tls_version: The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         """
-        pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        if key_vault_certificate_id is not None:
+            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
         if tls_version is not None:
             pulumi.set(__self__, "tls_version", tls_version)
 
     @property
     @pulumi.getter(name="keyVaultCertificateId")
-    def key_vault_certificate_id(self) -> str:
+    def key_vault_certificate_id(self) -> Optional[str]:
         """
-        The ID of the Key Vault Certificate that contains the HTTPS certificate.
+        The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
         """
         return pulumi.get(self, "key_vault_certificate_id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        The ID of the Key Vault Secret that contains the HTTPS certificate.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
 
     @property
     @pulumi.getter(name="tlsVersion")
@@ -2318,6 +2345,588 @@ class EndpointOrigin(dict):
 
 
 @pulumi.output_type
+class FrontdoorFirewallPolicyCustomRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "rateLimitDurationInMinutes":
+            suggest = "rate_limit_duration_in_minutes"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyCustomRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyCustomRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyCustomRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 name: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 match_conditions: Optional[Sequence['outputs.FrontdoorFirewallPolicyCustomRuleMatchCondition']] = None,
+                 priority: Optional[int] = None,
+                 rate_limit_duration_in_minutes: Optional[int] = None,
+                 rate_limit_threshold: Optional[int] = None):
+        """
+        :param str action: The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
+        :param Sequence['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        :param int priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        :param int rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
+        :param int rate_limit_threshold: The rate limit threshold. Defaults to `10`.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if match_conditions is not None:
+            pulumi.set(__self__, "match_conditions", match_conditions)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if rate_limit_duration_in_minutes is not None:
+            pulumi.set(__self__, "rate_limit_duration_in_minutes", rate_limit_duration_in_minutes)
+        if rate_limit_threshold is not None:
+            pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is the rule is enabled or disabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyCustomRuleMatchCondition']]:
+        """
+        One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="rateLimitDurationInMinutes")
+    def rate_limit_duration_in_minutes(self) -> Optional[int]:
+        """
+        The rate limit duration in minutes. Defaults to `1`.
+        """
+        return pulumi.get(self, "rate_limit_duration_in_minutes")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> Optional[int]:
+        """
+        The rate limit threshold. Defaults to `10`.
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "negationCondition":
+            suggest = "negation_condition"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyCustomRuleMatchCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyCustomRuleMatchCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 match_variable: str,
+                 operator: str,
+                 negation_condition: Optional[bool] = None,
+                 selector: Optional[str] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] match_values: Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+        :param str match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+        :param str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        :param bool negation_condition: Should the result of the condition be negated.
+        :param str selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        :param Sequence[str] transforms: Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        if negation_condition is not None:
+            pulumi.set(__self__, "negation_condition", negation_condition)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negationCondition")
+    def negation_condition(self) -> Optional[bool]:
+        """
+        Should the result of the condition be negated.
+        """
+        return pulumi.get(self, "negation_condition")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRule(dict):
+    def __init__(__self__, *,
+                 action: str,
+                 type: str,
+                 version: str,
+                 exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleExclusion']] = None,
+                 overrides: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverride']] = None):
+        """
+        :param str action: The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        :param str type: The name of the managed rule to use with this resource.
+        :param str version: The version on the managed rule to use with this resource.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "version", version)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The name of the managed rule to use with this resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        The version on the managed rule to use with this resource.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleExclusion']]:
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverride']]:
+        """
+        One or more `override` blocks as defined below.
+        """
+        return pulumi.get(self, "overrides")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyManagedRuleExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyManagedRuleExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyManagedRuleExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 operator: str,
+                 selector: str):
+        """
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRuleOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyManagedRuleOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverride.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideExclusion']] = None,
+                 rules: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRule']] = None):
+        """
+        :param str rule_group_name: The managed rule group to override.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        The managed rule group to override.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideExclusion']]:
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRule']]:
+        """
+        One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyManagedRuleOverrideExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 operator: str,
+                 selector: str):
+        """
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyManagedRuleOverrideRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 rule_id: str,
+                 enabled: Optional[bool] = None,
+                 exclusions: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion']] = None):
+        """
+        :param str action: The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        :param str rule_id: Identifier for the managed rule.
+        :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "rule_id", rule_id)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Is the managed rule override enabled or disabled. Defaults to `false`
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion']]:
+        """
+        One or more `exclusion` blocks as defined below.
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 operator: str,
+                 selector: str):
+        """
+        :param str match_variable: The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        :param str operator: Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        :param str selector: Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        Selector for the value in the `match_variable` attribute this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+
+@pulumi.output_type
 class FrontdoorOriginGroupHealthProbe(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2525,6 +3134,163 @@ class FrontdoorOriginPrivateLink(dict):
         Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
         """
         return pulumi.get(self, "target_type")
+
+
+@pulumi.output_type
+class FrontdoorSecurityPolicySecurityPolicies(dict):
+    def __init__(__self__, *,
+                 firewall: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall'):
+        """
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        pulumi.set(__self__, "firewall", firewall)
+
+    @property
+    @pulumi.getter
+    def firewall(self) -> 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall':
+        """
+        An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "firewall")
+
+
+@pulumi.output_type
+class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cdnFrontdoorFirewallPolicyId":
+            suggest = "cdn_frontdoor_firewall_policy_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorSecurityPolicySecurityPoliciesFirewall. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewall.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewall.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
+                 cdn_frontdoor_firewall_policy_id: str):
+        """
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs' association: An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        :param str cdn_frontdoor_firewall_policy_id: The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        pulumi.set(__self__, "association", association)
+        pulumi.set(__self__, "cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
+
+    @property
+    @pulumi.getter
+    def association(self) -> 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation':
+        """
+        An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "association")
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorFirewallPolicyId")
+    def cdn_frontdoor_firewall_policy_id(self) -> str:
+        """
+        The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "cdn_frontdoor_firewall_policy_id")
+
+
+@pulumi.output_type
+class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "patternsToMatch":
+            suggest = "patterns_to_match"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domains: Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain'],
+                 patterns_to_match: str):
+        """
+        :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs'] domains: One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        :param str patterns_to_match: The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        pulumi.set(__self__, "domains", domains)
+        pulumi.set(__self__, "patterns_to_match", patterns_to_match)
+
+    @property
+    @pulumi.getter
+    def domains(self) -> Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain']:
+        """
+        One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "domains")
+
+    @property
+    @pulumi.getter(name="patternsToMatch")
+    def patterns_to_match(self) -> str:
+        """
+        The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "patterns_to_match")
+
+
+@pulumi.output_type
+class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cdnFrontdoorDomainId":
+            suggest = "cdn_frontdoor_domain_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cdn_frontdoor_domain_id: str,
+                 active: Optional[bool] = None):
+        """
+        :param str cdn_frontdoor_domain_id: The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        :param bool active: Is the Frontdoor Custom Domain/Endpoint activated?
+        """
+        pulumi.set(__self__, "cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+
+    @property
+    @pulumi.getter(name="cdnFrontdoorDomainId")
+    def cdn_frontdoor_domain_id(self) -> str:
+        """
+        The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+        """
+        return pulumi.get(self, "cdn_frontdoor_domain_id")
+
+    @property
+    @pulumi.getter
+    def active(self) -> Optional[bool]:
+        """
+        Is the Frontdoor Custom Domain/Endpoint activated?
+        """
+        return pulumi.get(self, "active")
 
 
 @pulumi.output_type

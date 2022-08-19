@@ -132,6 +132,12 @@ namespace Pulumi.Azure.KeyVault
         public Output<Outputs.KeyVaultNetworkAcls> NetworkAcls { get; private set; } = null!;
 
         /// <summary>
+        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// </summary>
+        [Output("publicNetworkAccessEnabled")]
+        public Output<bool?> PublicNetworkAccessEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         /// </summary>
         [Output("purgeProtectionEnabled")]
@@ -286,6 +292,12 @@ namespace Pulumi.Azure.KeyVault
         public Input<Inputs.KeyVaultNetworkAclsArgs>? NetworkAcls { get; set; }
 
         /// <summary>
+        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
+
+        /// <summary>
         /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
         /// </summary>
         [Input("purgeProtectionEnabled")]
@@ -400,6 +412,12 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("networkAcls")]
         public Input<Inputs.KeyVaultNetworkAclsGetArgs>? NetworkAcls { get; set; }
+
+        /// <summary>
+        /// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+        /// </summary>
+        [Input("publicNetworkAccessEnabled")]
+        public Input<bool>? PublicNetworkAccessEnabled { get; set; }
 
         /// <summary>
         /// Is Purge Protection enabled for this Key Vault? Defaults to `false`.

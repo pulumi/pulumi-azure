@@ -158,6 +158,21 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     * 
+     */
+    @Import(name="publicNetworkAccessEnabled")
+    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
+        return Optional.ofNullable(this.publicNetworkAccessEnabled);
+    }
+
+    /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      * 
      */
@@ -259,6 +274,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.name = $.name;
         this.networkAcls = $.networkAcls;
+        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.purgeProtectionEnabled = $.purgeProtectionEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
@@ -492,6 +508,27 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder networkAcls(KeyVaultNetworkAclsArgs networkAcls) {
             return networkAcls(Output.of(networkAcls));
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Key Vault. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
+            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicNetworkAccessEnabled Whether public network access is allowed for this Key Vault. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
+            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**

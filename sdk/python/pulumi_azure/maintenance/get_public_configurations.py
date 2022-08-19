@@ -112,7 +112,7 @@ def get_public_configurations(location: Optional[str] = None,
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.
     :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
-    :param str scope: The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+    :param str scope: The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
     """
     __args__ = dict()
     __args__['location'] = location
@@ -152,6 +152,6 @@ def get_public_configurations_output(location: Optional[pulumi.Input[Optional[st
 
     :param str location: The Azure location to filter the list of Public Maintenance Configurations against.
     :param str recur_every: The recurring window to filter the list of Public Maintenance Configurations against. Possible values are `Monday-Thursday` and `Friday-Sunday`
-    :param str scope: The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+    :param str scope: The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
     """
     ...

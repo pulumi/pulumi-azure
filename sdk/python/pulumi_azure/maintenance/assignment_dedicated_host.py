@@ -152,7 +152,7 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         example_configuration = azure.maintenance.Configuration("exampleConfiguration",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            scope="All")
+            scope="Host")
         example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
             location=example_resource_group.location,
             maintenance_configuration_id=example_configuration.id,
@@ -201,7 +201,7 @@ class AssignmentDedicatedHost(pulumi.CustomResource):
         example_configuration = azure.maintenance.Configuration("exampleConfiguration",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            scope="All")
+            scope="Host")
         example_assignment_dedicated_host = azure.maintenance.AssignmentDedicatedHost("exampleAssignmentDedicatedHost",
             location=example_resource_group.location,
             maintenance_configuration_id=example_configuration.id,

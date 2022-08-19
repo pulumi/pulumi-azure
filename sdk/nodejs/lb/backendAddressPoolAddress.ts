@@ -33,6 +33,18 @@ import * as utilities from "../utilities";
  *     virtualNetworkId: exampleVirtualNetwork.then(exampleVirtualNetwork => exampleVirtualNetwork.id),
  *     ipAddress: "10.0.0.1",
  * });
+ * const backend-pool-cr = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
+ *     name: "globalLBBackendPool",
+ *     loadbalancerId: exampleLB.id,
+ * }));
+ * const example_1 = new azure.lb.BackendAddressPoolAddress("example-1", {
+ *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
+ *     backendAddressIpConfigurationId: azurerm_lb["backend-lb-R1"].frontend_ip_configuration[0].id,
+ * });
+ * const example_2 = new azure.lb.BackendAddressPoolAddress("example-2", {
+ *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
+ *     backendAddressIpConfigurationId: azurerm_lb["backend-lb-R2"].frontend_ip_configuration[0].id,
+ * });
  * ```
  *
  * ## Import
@@ -72,6 +84,10 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
     }
 
     /**
+     * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     */
+    public readonly backendAddressIpConfigurationId!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
     public readonly backendAddressPoolId!: pulumi.Output<string>;
@@ -82,7 +98,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    public readonly ipAddress!: pulumi.Output<string>;
+    public readonly ipAddress!: pulumi.Output<string | undefined>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
@@ -90,7 +106,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    public readonly virtualNetworkId!: pulumi.Output<string>;
+    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
 
     /**
      * Create a BackendAddressPoolAddress resource with the given unique name, arguments, and options.
@@ -105,6 +121,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BackendAddressPoolAddressState | undefined;
+            resourceInputs["backendAddressIpConfigurationId"] = state ? state.backendAddressIpConfigurationId : undefined;
             resourceInputs["backendAddressPoolId"] = state ? state.backendAddressPoolId : undefined;
             resourceInputs["inboundNatRulePortMappings"] = state ? state.inboundNatRulePortMappings : undefined;
             resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
@@ -115,12 +132,7 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
             if ((!args || args.backendAddressPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backendAddressPoolId'");
             }
-            if ((!args || args.ipAddress === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'ipAddress'");
-            }
-            if ((!args || args.virtualNetworkId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkId'");
-            }
+            resourceInputs["backendAddressIpConfigurationId"] = args ? args.backendAddressIpConfigurationId : undefined;
             resourceInputs["backendAddressPoolId"] = args ? args.backendAddressPoolId : undefined;
             resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -136,6 +148,10 @@ export class BackendAddressPoolAddress extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BackendAddressPoolAddress resources.
  */
 export interface BackendAddressPoolAddressState {
+    /**
+     * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     */
+    backendAddressIpConfigurationId?: pulumi.Input<string>;
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
@@ -163,13 +179,17 @@ export interface BackendAddressPoolAddressState {
  */
 export interface BackendAddressPoolAddressArgs {
     /**
+     * The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+     */
+    backendAddressIpConfigurationId?: pulumi.Input<string>;
+    /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      */
     backendAddressPoolId: pulumi.Input<string>;
     /**
      * The Static IP Address which should be allocated to this Backend Address Pool.
      */
-    ipAddress: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
      */
@@ -177,5 +197,5 @@ export interface BackendAddressPoolAddressArgs {
     /**
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      */
-    virtualNetworkId: pulumi.Input<string>;
+    virtualNetworkId?: pulumi.Input<string>;
 }

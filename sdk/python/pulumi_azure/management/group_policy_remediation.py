@@ -32,6 +32,9 @@ class GroupPolicyRemediationArgs:
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
         if resource_discovery_mode is not None:
+            warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+            pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
+        if resource_discovery_mode is not None:
             pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
 
     @property
@@ -111,6 +114,9 @@ class _GroupPolicyRemediationState:
             pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         if policy_definition_id is not None:
             pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        if resource_discovery_mode is not None:
+            warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+            pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
         if resource_discovery_mode is not None:
             pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
 
@@ -233,6 +239,9 @@ class GroupPolicyRemediation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'policy_assignment_id'")
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
             __props__.__dict__["policy_definition_id"] = policy_definition_id
+            if resource_discovery_mode is not None and not opts.urn:
+                warnings.warn("""`resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""", DeprecationWarning)
+                pulumi.log.warn("""resource_discovery_mode is deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.""")
             __props__.__dict__["resource_discovery_mode"] = resource_discovery_mode
         super(GroupPolicyRemediation, __self__).__init__(
             'azure:management/groupPolicyRemediation:GroupPolicyRemediation',

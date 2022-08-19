@@ -22,6 +22,10 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// A `flowlet` block as defined below.
+        /// </summary>
+        public readonly Outputs.DataFlowSourceFlowlet? Flowlet;
+        /// <summary>
         /// A `linked_service` block as defined below.
         /// </summary>
         public readonly Outputs.DataFlowSourceLinkedService? LinkedService;
@@ -40,6 +44,8 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string? description,
 
+            Outputs.DataFlowSourceFlowlet? flowlet,
+
             Outputs.DataFlowSourceLinkedService? linkedService,
 
             string name,
@@ -48,6 +54,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         {
             Dataset = dataset;
             Description = description;
+            Flowlet = flowlet;
             LinkedService = linkedService;
             Name = name;
             SchemaLinkedService = schemaLinkedService;

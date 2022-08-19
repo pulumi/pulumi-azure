@@ -68,6 +68,21 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
     }
 
     /**
+     * Should the log stream in vnet injection instance could be accessed from Internet?
+     * 
+     */
+    @Import(name="logStreamPublicEndpointEnabled")
+    private @Nullable Output<Boolean> logStreamPublicEndpointEnabled;
+
+    /**
+     * @return Should the log stream in vnet injection instance could be accessed from Internet?
+     * 
+     */
+    public Optional<Output<Boolean>> logStreamPublicEndpointEnabled() {
+        return Optional.ofNullable(this.logStreamPublicEndpointEnabled);
+    }
+
+    /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      * 
      */
@@ -238,6 +253,7 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
         this.buildAgentPoolSize = $.buildAgentPoolSize;
         this.configServerGitSetting = $.configServerGitSetting;
         this.location = $.location;
+        this.logStreamPublicEndpointEnabled = $.logStreamPublicEndpointEnabled;
         this.name = $.name;
         this.network = $.network;
         this.outboundPublicIpAddresses = $.outboundPublicIpAddresses;
@@ -330,6 +346,27 @@ public final class SpringCloudServiceState extends com.pulumi.resources.Resource
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param logStreamPublicEndpointEnabled Should the log stream in vnet injection instance could be accessed from Internet?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logStreamPublicEndpointEnabled(@Nullable Output<Boolean> logStreamPublicEndpointEnabled) {
+            $.logStreamPublicEndpointEnabled = logStreamPublicEndpointEnabled;
+            return this;
+        }
+
+        /**
+         * @param logStreamPublicEndpointEnabled Should the log stream in vnet injection instance could be accessed from Internet?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder logStreamPublicEndpointEnabled(Boolean logStreamPublicEndpointEnabled) {
+            return logStreamPublicEndpointEnabled(Output.of(logStreamPublicEndpointEnabled));
         }
 
         /**

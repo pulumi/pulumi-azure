@@ -79,6 +79,8 @@ type IntegrationRuntimeSsis struct {
 	Edition pulumi.StringPtrOutput `pulumi:"edition"`
 	// An `expressCustomSetup` block as defined below.
 	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrOutput `pulumi:"expressCustomSetup"`
+	// A `expressVnetIntegration` block as defined below.
+	ExpressVnetIntegration IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput `pulumi:"expressVnetIntegration"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -146,6 +148,8 @@ type integrationRuntimeSsisState struct {
 	Edition *string `pulumi:"edition"`
 	// An `expressCustomSetup` block as defined below.
 	ExpressCustomSetup *IntegrationRuntimeSsisExpressCustomSetup `pulumi:"expressCustomSetup"`
+	// A `expressVnetIntegration` block as defined below.
+	ExpressVnetIntegration *IntegrationRuntimeSsisExpressVnetIntegration `pulumi:"expressVnetIntegration"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -179,6 +183,8 @@ type IntegrationRuntimeSsisState struct {
 	Edition pulumi.StringPtrInput
 	// An `expressCustomSetup` block as defined below.
 	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrInput
+	// A `expressVnetIntegration` block as defined below.
+	ExpressVnetIntegration IntegrationRuntimeSsisExpressVnetIntegrationPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -216,6 +222,8 @@ type integrationRuntimeSsisArgs struct {
 	Edition *string `pulumi:"edition"`
 	// An `expressCustomSetup` block as defined below.
 	ExpressCustomSetup *IntegrationRuntimeSsisExpressCustomSetup `pulumi:"expressCustomSetup"`
+	// A `expressVnetIntegration` block as defined below.
+	ExpressVnetIntegration *IntegrationRuntimeSsisExpressVnetIntegration `pulumi:"expressVnetIntegration"`
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -250,6 +258,8 @@ type IntegrationRuntimeSsisArgs struct {
 	Edition pulumi.StringPtrInput
 	// An `expressCustomSetup` block as defined below.
 	ExpressCustomSetup IntegrationRuntimeSsisExpressCustomSetupPtrInput
+	// A `expressVnetIntegration` block as defined below.
+	ExpressVnetIntegration IntegrationRuntimeSsisExpressVnetIntegrationPtrInput
 	// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
 	LicenseType pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -389,6 +399,13 @@ func (o IntegrationRuntimeSsisOutput) ExpressCustomSetup() IntegrationRuntimeSsi
 	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisExpressCustomSetupPtrOutput {
 		return v.ExpressCustomSetup
 	}).(IntegrationRuntimeSsisExpressCustomSetupPtrOutput)
+}
+
+// A `expressVnetIntegration` block as defined below.
+func (o IntegrationRuntimeSsisOutput) ExpressVnetIntegration() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsis) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+		return v.ExpressVnetIntegration
+	}).(IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput)
 }
 
 // The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.

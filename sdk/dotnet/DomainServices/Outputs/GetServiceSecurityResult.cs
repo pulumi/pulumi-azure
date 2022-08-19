@@ -14,6 +14,14 @@ namespace Pulumi.Azure.DomainServices.Outputs
     public sealed class GetServiceSecurityResult
     {
         /// <summary>
+        /// (Optional) Whether the Kerberos Armoring is enabled.
+        /// </summary>
+        public readonly bool KerberosArmoringEnabled;
+        /// <summary>
+        /// (Optional) Whether the Kerberos RC4 Encryption is enabled.
+        /// </summary>
+        public readonly bool KerberosRc4EncryptionEnabled;
+        /// <summary>
         /// Whether legacy NTLM v1 support is enabled.
         /// </summary>
         public readonly bool NtlmV1Enabled;
@@ -36,6 +44,10 @@ namespace Pulumi.Azure.DomainServices.Outputs
 
         [OutputConstructor]
         private GetServiceSecurityResult(
+            bool kerberosArmoringEnabled,
+
+            bool kerberosRc4EncryptionEnabled,
+
             bool ntlmV1Enabled,
 
             bool syncKerberosPasswords,
@@ -46,6 +58,8 @@ namespace Pulumi.Azure.DomainServices.Outputs
 
             bool tlsV1Enabled)
         {
+            KerberosArmoringEnabled = kerberosArmoringEnabled;
+            KerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
             NtlmV1Enabled = ntlmV1Enabled;
             SyncKerberosPasswords = syncKerberosPasswords;
             SyncNtlmPasswords = syncNtlmPasswords;

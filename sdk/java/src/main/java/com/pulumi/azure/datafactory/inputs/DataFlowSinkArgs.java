@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkDatasetArgs;
+import com.pulumi.azure.datafactory.inputs.DataFlowSinkFlowletArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkLinkedServiceArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowSinkSchemaLinkedServiceArgs;
 import com.pulumi.core.Output;
@@ -46,6 +47,21 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
+    }
+
+    /**
+     * A `flowlet` block as defined below.
+     * 
+     */
+    @Import(name="flowlet")
+    private @Nullable Output<DataFlowSinkFlowletArgs> flowlet;
+
+    /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    public Optional<Output<DataFlowSinkFlowletArgs>> flowlet() {
+        return Optional.ofNullable(this.flowlet);
     }
 
     /**
@@ -98,6 +114,7 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
     private DataFlowSinkArgs(DataFlowSinkArgs $) {
         this.dataset = $.dataset;
         this.description = $.description;
+        this.flowlet = $.flowlet;
         this.linkedService = $.linkedService;
         this.name = $.name;
         this.schemaLinkedService = $.schemaLinkedService;
@@ -161,6 +178,27 @@ public final class DataFlowSinkArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param flowlet A `flowlet` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowlet(@Nullable Output<DataFlowSinkFlowletArgs> flowlet) {
+            $.flowlet = flowlet;
+            return this;
+        }
+
+        /**
+         * @param flowlet A `flowlet` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowlet(DataFlowSinkFlowletArgs flowlet) {
+            return flowlet(Output.of(flowlet));
         }
 
         /**

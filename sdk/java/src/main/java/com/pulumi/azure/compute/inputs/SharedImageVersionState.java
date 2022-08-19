@@ -20,6 +20,21 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     public static final SharedImageVersionState Empty = new SharedImageVersionState();
 
     /**
+     * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="blobUri")
+    private @Nullable Output<String> blobUri;
+
+    /**
+     * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> blobUri() {
+        return Optional.ofNullable(this.blobUri);
+    }
+
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */
@@ -170,6 +185,21 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="storageAccountId")
+    private @Nullable Output<String> storageAccountId;
+
+    /**
+     * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
      * A collection of tags which should be applied to this resource.
      * 
      */
@@ -202,6 +232,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
     private SharedImageVersionState() {}
 
     private SharedImageVersionState(SharedImageVersionState $) {
+        this.blobUri = $.blobUri;
         this.endOfLifeDate = $.endOfLifeDate;
         this.excludeFromLatest = $.excludeFromLatest;
         this.galleryName = $.galleryName;
@@ -212,6 +243,7 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
         this.osDiskSnapshotId = $.osDiskSnapshotId;
         this.replicationMode = $.replicationMode;
         this.resourceGroupName = $.resourceGroupName;
+        this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
         this.targetRegions = $.targetRegions;
     }
@@ -232,6 +264,27 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
 
         public Builder(SharedImageVersionState defaults) {
             $ = new SharedImageVersionState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobUri(@Nullable Output<String> blobUri) {
+            $.blobUri = blobUri;
+            return this;
+        }
+
+        /**
+         * @param blobUri URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder blobUri(String blobUri) {
+            return blobUri(Output.of(blobUri));
         }
 
         /**
@@ -442,6 +495,27 @@ public final class SharedImageVersionState extends com.pulumi.resources.Resource
          */
         public Builder resourceGroupName(String resourceGroupName) {
             return resourceGroupName(Output.of(resourceGroupName));
+        }
+
+        /**
+         * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
         }
 
         /**

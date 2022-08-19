@@ -74,9 +74,17 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly dscServerEndpoint!: pulumi.Output<string>;
     /**
+     * An `encryption` block as defined below.
+     */
+    public readonly encryptions!: pulumi.Output<outputs.automation.AccountEncryption[]>;
+    /**
      * An `identity` block as defined below.
      */
     public readonly identity!: pulumi.Output<outputs.automation.AccountIdentity | undefined>;
+    /**
+     * Whether requests using non-AAD authentication are blocked.
+     */
+    public readonly localAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -85,6 +93,7 @@ export class Account extends pulumi.CustomResource {
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.automation.AccountPrivateEndpointConnection[]>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
@@ -118,9 +127,12 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dscPrimaryAccessKey"] = state ? state.dscPrimaryAccessKey : undefined;
             resourceInputs["dscSecondaryAccessKey"] = state ? state.dscSecondaryAccessKey : undefined;
             resourceInputs["dscServerEndpoint"] = state ? state.dscServerEndpoint : undefined;
+            resourceInputs["encryptions"] = state ? state.encryptions : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = state ? state.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateEndpointConnections"] = state ? state.privateEndpointConnections : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -133,7 +145,9 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.skuName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
+            resourceInputs["encryptions"] = args ? args.encryptions : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["localAuthenticationEnabled"] = args ? args.localAuthenticationEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
@@ -143,6 +157,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["dscPrimaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscSecondaryAccessKey"] = undefined /*out*/;
             resourceInputs["dscServerEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Account.__pulumiType, name, resourceInputs, opts);
@@ -166,9 +181,17 @@ export interface AccountState {
      */
     dscServerEndpoint?: pulumi.Input<string>;
     /**
+     * An `encryption` block as defined below.
+     */
+    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    /**
+     * Whether requests using non-AAD authentication are blocked.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -177,6 +200,7 @@ export interface AccountState {
      * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.automation.AccountPrivateEndpointConnection>[]>;
     /**
      * Whether public network access is allowed for the container registry. Defaults to `true`.
      */
@@ -200,9 +224,17 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
+     * An `encryption` block as defined below.
+     */
+    encryptions?: pulumi.Input<pulumi.Input<inputs.automation.AccountEncryption>[]>;
+    /**
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.automation.AccountIdentity>;
+    /**
+     * Whether requests using non-AAD authentication are blocked.
+     */
+    localAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

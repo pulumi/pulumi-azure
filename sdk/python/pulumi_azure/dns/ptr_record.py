@@ -23,9 +23,9 @@ class PtrRecordArgs:
         """
         The set of arguments for constructing a PtrRecord resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS PTR Record.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -54,7 +54,7 @@ class PtrRecordArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -78,7 +78,7 @@ class PtrRecordArgs:
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> pulumi.Input[str]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 
@@ -126,10 +126,10 @@ class _PtrRecordState:
         :param pulumi.Input[str] fqdn: The FQDN of the DNS PTR Record.
         :param pulumi.Input[str] name: The name of the DNS PTR Record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
@@ -186,7 +186,7 @@ class _PtrRecordState:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -222,7 +222,7 @@ class _PtrRecordState:
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 
@@ -271,10 +271,10 @@ class PtrRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the DNS PTR Record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -378,10 +378,10 @@ class PtrRecord(pulumi.CustomResource):
         :param pulumi.Input[str] fqdn: The FQDN of the DNS PTR Record.
         :param pulumi.Input[str] name: The name of the DNS PTR Record.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] records: List of Fully Qualified Domain Names.
-        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
-        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -424,7 +424,7 @@ class PtrRecord(pulumi.CustomResource):
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Output[str]:
         """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+        Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -448,7 +448,7 @@ class PtrRecord(pulumi.CustomResource):
     @pulumi.getter(name="zoneName")
     def zone_name(self) -> pulumi.Output[str]:
         """
-        Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "zone_name")
 

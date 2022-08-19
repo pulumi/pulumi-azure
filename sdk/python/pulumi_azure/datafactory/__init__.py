@@ -19,6 +19,7 @@ from .dataset_postgresql import *
 from .dataset_snowflake import *
 from .dataset_sql_server_table import *
 from .factory import *
+from .flowlet_data_flow import *
 from .get_factory import *
 from .integration_runtime_managed import *
 from .integration_runtime_rule import *

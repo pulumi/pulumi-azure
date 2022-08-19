@@ -6,6 +6,8 @@ package com.pulumi.azure.batch.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class PoolContainerConfigurationContainerRegistry {
@@ -13,25 +15,33 @@ public final class PoolContainerConfigurationContainerRegistry {
      * @return The password to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    private final String password;
+    private final @Nullable String password;
     /**
      * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
      * 
      */
     private final String registryServer;
     /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * ---
+     * 
+     */
+    private final @Nullable String userAssignedIdentityId;
+    /**
      * @return The user name to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    private final String userName;
+    private final @Nullable String userName;
 
     @CustomType.Constructor
     private PoolContainerConfigurationContainerRegistry(
-        @CustomType.Parameter("password") String password,
+        @CustomType.Parameter("password") @Nullable String password,
         @CustomType.Parameter("registryServer") String registryServer,
-        @CustomType.Parameter("userName") String userName) {
+        @CustomType.Parameter("userAssignedIdentityId") @Nullable String userAssignedIdentityId,
+        @CustomType.Parameter("userName") @Nullable String userName) {
         this.password = password;
         this.registryServer = registryServer;
+        this.userAssignedIdentityId = userAssignedIdentityId;
         this.userName = userName;
     }
 
@@ -39,8 +49,8 @@ public final class PoolContainerConfigurationContainerRegistry {
      * @return The password to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
      * @return The container registry URL. The default is &#34;docker.io&#34;. Changing this forces a new resource to be created.
@@ -50,11 +60,19 @@ public final class PoolContainerConfigurationContainerRegistry {
         return this.registryServer;
     }
     /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * ---
+     * 
+     */
+    public Optional<String> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+    /**
      * @return The user name to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    public String userName() {
-        return this.userName;
+    public Optional<String> userName() {
+        return Optional.ofNullable(this.userName);
     }
 
     public static Builder builder() {
@@ -66,9 +84,10 @@ public final class PoolContainerConfigurationContainerRegistry {
     }
 
     public static final class Builder {
-        private String password;
+        private @Nullable String password;
         private String registryServer;
-        private String userName;
+        private @Nullable String userAssignedIdentityId;
+        private @Nullable String userName;
 
         public Builder() {
     	      // Empty
@@ -78,22 +97,27 @@ public final class PoolContainerConfigurationContainerRegistry {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.registryServer = defaults.registryServer;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
     	      this.userName = defaults.userName;
         }
 
-        public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+        public Builder password(@Nullable String password) {
+            this.password = password;
             return this;
         }
         public Builder registryServer(String registryServer) {
             this.registryServer = Objects.requireNonNull(registryServer);
             return this;
         }
-        public Builder userName(String userName) {
-            this.userName = Objects.requireNonNull(userName);
+        public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
+            this.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+        public Builder userName(@Nullable String userName) {
+            this.userName = userName;
             return this;
         }        public PoolContainerConfigurationContainerRegistry build() {
-            return new PoolContainerConfigurationContainerRegistry(password, registryServer, userName);
+            return new PoolContainerConfigurationContainerRegistry(password, registryServer, userAssignedIdentityId, userName);
         }
     }
 }

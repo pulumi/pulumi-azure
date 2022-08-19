@@ -62,7 +62,10 @@ type GetVirtualMachineScaleSetResult struct {
 	Id string `pulumi:"id"`
 	// A `identity` block as defined below.
 	Identities []GetVirtualMachineScaleSetIdentity `pulumi:"identities"`
-	Location   string                              `pulumi:"location"`
+	// A list of `instances` blocks as defined below.
+	Instances []GetVirtualMachineScaleSetInstance `pulumi:"instances"`
+	// The Azure Region in which this Virtual Machine Scale Set exists.
+	Location string `pulumi:"location"`
 	// The name of the public IP address configuration
 	Name string `pulumi:"name"`
 	// A list of `networkInterface` blocks as defined below.
@@ -120,6 +123,12 @@ func (o GetVirtualMachineScaleSetResultOutput) Identities() GetVirtualMachineSca
 	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) []GetVirtualMachineScaleSetIdentity { return v.Identities }).(GetVirtualMachineScaleSetIdentityArrayOutput)
 }
 
+// A list of `instances` blocks as defined below.
+func (o GetVirtualMachineScaleSetResultOutput) Instances() GetVirtualMachineScaleSetInstanceArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) []GetVirtualMachineScaleSetInstance { return v.Instances }).(GetVirtualMachineScaleSetInstanceArrayOutput)
+}
+
+// The Azure Region in which this Virtual Machine Scale Set exists.
 func (o GetVirtualMachineScaleSetResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v GetVirtualMachineScaleSetResult) string { return v.Location }).(pulumi.StringOutput)
 }

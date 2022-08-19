@@ -12,6 +12,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceSecurity {
     /**
+     * @return Whether to enable Kerberos Armoring. Defaults to `false`.
+     * 
+     */
+    private final @Nullable Boolean kerberosArmoringEnabled;
+    /**
+     * @return Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+     * 
+     */
+    private final @Nullable Boolean kerberosRc4EncryptionEnabled;
+    /**
      * @return Whether to enable legacy NTLM v1 support. Defaults to `false`.
      * 
      */
@@ -39,11 +49,15 @@ public final class ServiceSecurity {
 
     @CustomType.Constructor
     private ServiceSecurity(
+        @CustomType.Parameter("kerberosArmoringEnabled") @Nullable Boolean kerberosArmoringEnabled,
+        @CustomType.Parameter("kerberosRc4EncryptionEnabled") @Nullable Boolean kerberosRc4EncryptionEnabled,
         @CustomType.Parameter("ntlmV1Enabled") @Nullable Boolean ntlmV1Enabled,
         @CustomType.Parameter("syncKerberosPasswords") @Nullable Boolean syncKerberosPasswords,
         @CustomType.Parameter("syncNtlmPasswords") @Nullable Boolean syncNtlmPasswords,
         @CustomType.Parameter("syncOnPremPasswords") @Nullable Boolean syncOnPremPasswords,
         @CustomType.Parameter("tlsV1Enabled") @Nullable Boolean tlsV1Enabled) {
+        this.kerberosArmoringEnabled = kerberosArmoringEnabled;
+        this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
         this.ntlmV1Enabled = ntlmV1Enabled;
         this.syncKerberosPasswords = syncKerberosPasswords;
         this.syncNtlmPasswords = syncNtlmPasswords;
@@ -51,6 +65,20 @@ public final class ServiceSecurity {
         this.tlsV1Enabled = tlsV1Enabled;
     }
 
+    /**
+     * @return Whether to enable Kerberos Armoring. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> kerberosArmoringEnabled() {
+        return Optional.ofNullable(this.kerberosArmoringEnabled);
+    }
+    /**
+     * @return Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> kerberosRc4EncryptionEnabled() {
+        return Optional.ofNullable(this.kerberosRc4EncryptionEnabled);
+    }
     /**
      * @return Whether to enable legacy NTLM v1 support. Defaults to `false`.
      * 
@@ -96,6 +124,8 @@ public final class ServiceSecurity {
     }
 
     public static final class Builder {
+        private @Nullable Boolean kerberosArmoringEnabled;
+        private @Nullable Boolean kerberosRc4EncryptionEnabled;
         private @Nullable Boolean ntlmV1Enabled;
         private @Nullable Boolean syncKerberosPasswords;
         private @Nullable Boolean syncNtlmPasswords;
@@ -108,6 +138,8 @@ public final class ServiceSecurity {
 
         public Builder(ServiceSecurity defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.kerberosArmoringEnabled = defaults.kerberosArmoringEnabled;
+    	      this.kerberosRc4EncryptionEnabled = defaults.kerberosRc4EncryptionEnabled;
     	      this.ntlmV1Enabled = defaults.ntlmV1Enabled;
     	      this.syncKerberosPasswords = defaults.syncKerberosPasswords;
     	      this.syncNtlmPasswords = defaults.syncNtlmPasswords;
@@ -115,6 +147,14 @@ public final class ServiceSecurity {
     	      this.tlsV1Enabled = defaults.tlsV1Enabled;
         }
 
+        public Builder kerberosArmoringEnabled(@Nullable Boolean kerberosArmoringEnabled) {
+            this.kerberosArmoringEnabled = kerberosArmoringEnabled;
+            return this;
+        }
+        public Builder kerberosRc4EncryptionEnabled(@Nullable Boolean kerberosRc4EncryptionEnabled) {
+            this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
+            return this;
+        }
         public Builder ntlmV1Enabled(@Nullable Boolean ntlmV1Enabled) {
             this.ntlmV1Enabled = ntlmV1Enabled;
             return this;
@@ -135,7 +175,7 @@ public final class ServiceSecurity {
             this.tlsV1Enabled = tlsV1Enabled;
             return this;
         }        public ServiceSecurity build() {
-            return new ServiceSecurity(ntlmV1Enabled, syncKerberosPasswords, syncNtlmPasswords, syncOnPremPasswords, tlsV1Enabled);
+            return new ServiceSecurity(kerberosArmoringEnabled, kerberosRc4EncryptionEnabled, ntlmV1Enabled, syncKerberosPasswords, syncNtlmPasswords, syncOnPremPasswords, tlsV1Enabled);
         }
     }
 }

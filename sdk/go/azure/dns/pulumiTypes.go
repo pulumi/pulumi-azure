@@ -13,7 +13,7 @@ import (
 type CaaRecordRecord struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags int `pulumi:"flags"`
-	// A property tag, options are issue, issuewild and iodef.
+	// A property tag, options are `issue`, `issuewild` and `iodef`.
 	Tag string `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value string `pulumi:"value"`
@@ -33,7 +33,7 @@ type CaaRecordRecordInput interface {
 type CaaRecordRecordArgs struct {
 	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
 	Flags pulumi.IntInput `pulumi:"flags"`
-	// A property tag, options are issue, issuewild and iodef.
+	// A property tag, options are `issue`, `issuewild` and `iodef`.
 	Tag pulumi.StringInput `pulumi:"tag"`
 	// A property value such as a registrar domain.
 	Value pulumi.StringInput `pulumi:"value"`
@@ -95,7 +95,7 @@ func (o CaaRecordRecordOutput) Flags() pulumi.IntOutput {
 	return o.ApplyT(func(v CaaRecordRecord) int { return v.Flags }).(pulumi.IntOutput)
 }
 
-// A property tag, options are issue, issuewild and iodef.
+// A property tag, options are `issue`, `issuewild` and `iodef`.
 func (o CaaRecordRecordOutput) Tag() pulumi.StringOutput {
 	return o.ApplyT(func(v CaaRecordRecord) string { return v.Tag }).(pulumi.StringOutput)
 }
@@ -756,6 +756,448 @@ func (o ZoneSoaRecordPtrOutput) Ttl() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetCAARecordRecord struct {
+	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+	Flags int `pulumi:"flags"`
+	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	Tag string `pulumi:"tag"`
+	// A property value such as a registrar domain.
+	Value string `pulumi:"value"`
+}
+
+// GetCAARecordRecordInput is an input type that accepts GetCAARecordRecordArgs and GetCAARecordRecordOutput values.
+// You can construct a concrete instance of `GetCAARecordRecordInput` via:
+//
+//	GetCAARecordRecordArgs{...}
+type GetCAARecordRecordInput interface {
+	pulumi.Input
+
+	ToGetCAARecordRecordOutput() GetCAARecordRecordOutput
+	ToGetCAARecordRecordOutputWithContext(context.Context) GetCAARecordRecordOutput
+}
+
+type GetCAARecordRecordArgs struct {
+	// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+	Flags pulumi.IntInput `pulumi:"flags"`
+	// A property tag, options are `issue`, `issuewild` and `iodef`.
+	Tag pulumi.StringInput `pulumi:"tag"`
+	// A property value such as a registrar domain.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetCAARecordRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCAARecordRecord)(nil)).Elem()
+}
+
+func (i GetCAARecordRecordArgs) ToGetCAARecordRecordOutput() GetCAARecordRecordOutput {
+	return i.ToGetCAARecordRecordOutputWithContext(context.Background())
+}
+
+func (i GetCAARecordRecordArgs) ToGetCAARecordRecordOutputWithContext(ctx context.Context) GetCAARecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCAARecordRecordOutput)
+}
+
+// GetCAARecordRecordArrayInput is an input type that accepts GetCAARecordRecordArray and GetCAARecordRecordArrayOutput values.
+// You can construct a concrete instance of `GetCAARecordRecordArrayInput` via:
+//
+//	GetCAARecordRecordArray{ GetCAARecordRecordArgs{...} }
+type GetCAARecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetCAARecordRecordArrayOutput() GetCAARecordRecordArrayOutput
+	ToGetCAARecordRecordArrayOutputWithContext(context.Context) GetCAARecordRecordArrayOutput
+}
+
+type GetCAARecordRecordArray []GetCAARecordRecordInput
+
+func (GetCAARecordRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCAARecordRecord)(nil)).Elem()
+}
+
+func (i GetCAARecordRecordArray) ToGetCAARecordRecordArrayOutput() GetCAARecordRecordArrayOutput {
+	return i.ToGetCAARecordRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetCAARecordRecordArray) ToGetCAARecordRecordArrayOutputWithContext(ctx context.Context) GetCAARecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCAARecordRecordArrayOutput)
+}
+
+type GetCAARecordRecordOutput struct{ *pulumi.OutputState }
+
+func (GetCAARecordRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCAARecordRecord)(nil)).Elem()
+}
+
+func (o GetCAARecordRecordOutput) ToGetCAARecordRecordOutput() GetCAARecordRecordOutput {
+	return o
+}
+
+func (o GetCAARecordRecordOutput) ToGetCAARecordRecordOutputWithContext(ctx context.Context) GetCAARecordRecordOutput {
+	return o
+}
+
+// Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+func (o GetCAARecordRecordOutput) Flags() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCAARecordRecord) int { return v.Flags }).(pulumi.IntOutput)
+}
+
+// A property tag, options are `issue`, `issuewild` and `iodef`.
+func (o GetCAARecordRecordOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCAARecordRecord) string { return v.Tag }).(pulumi.StringOutput)
+}
+
+// A property value such as a registrar domain.
+func (o GetCAARecordRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCAARecordRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetCAARecordRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCAARecordRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCAARecordRecord)(nil)).Elem()
+}
+
+func (o GetCAARecordRecordArrayOutput) ToGetCAARecordRecordArrayOutput() GetCAARecordRecordArrayOutput {
+	return o
+}
+
+func (o GetCAARecordRecordArrayOutput) ToGetCAARecordRecordArrayOutputWithContext(ctx context.Context) GetCAARecordRecordArrayOutput {
+	return o
+}
+
+func (o GetCAARecordRecordArrayOutput) Index(i pulumi.IntInput) GetCAARecordRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCAARecordRecord {
+		return vs[0].([]GetCAARecordRecord)[vs[1].(int)]
+	}).(GetCAARecordRecordOutput)
+}
+
+type GetMxRecordRecord struct {
+	// The mail server responsible for the domain covered by the MX record.
+	Exchange string `pulumi:"exchange"`
+	// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+	Preference string `pulumi:"preference"`
+}
+
+// GetMxRecordRecordInput is an input type that accepts GetMxRecordRecordArgs and GetMxRecordRecordOutput values.
+// You can construct a concrete instance of `GetMxRecordRecordInput` via:
+//
+//	GetMxRecordRecordArgs{...}
+type GetMxRecordRecordInput interface {
+	pulumi.Input
+
+	ToGetMxRecordRecordOutput() GetMxRecordRecordOutput
+	ToGetMxRecordRecordOutputWithContext(context.Context) GetMxRecordRecordOutput
+}
+
+type GetMxRecordRecordArgs struct {
+	// The mail server responsible for the domain covered by the MX record.
+	Exchange pulumi.StringInput `pulumi:"exchange"`
+	// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+	Preference pulumi.StringInput `pulumi:"preference"`
+}
+
+func (GetMxRecordRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMxRecordRecord)(nil)).Elem()
+}
+
+func (i GetMxRecordRecordArgs) ToGetMxRecordRecordOutput() GetMxRecordRecordOutput {
+	return i.ToGetMxRecordRecordOutputWithContext(context.Background())
+}
+
+func (i GetMxRecordRecordArgs) ToGetMxRecordRecordOutputWithContext(ctx context.Context) GetMxRecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordOutput)
+}
+
+// GetMxRecordRecordArrayInput is an input type that accepts GetMxRecordRecordArray and GetMxRecordRecordArrayOutput values.
+// You can construct a concrete instance of `GetMxRecordRecordArrayInput` via:
+//
+//	GetMxRecordRecordArray{ GetMxRecordRecordArgs{...} }
+type GetMxRecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetMxRecordRecordArrayOutput() GetMxRecordRecordArrayOutput
+	ToGetMxRecordRecordArrayOutputWithContext(context.Context) GetMxRecordRecordArrayOutput
+}
+
+type GetMxRecordRecordArray []GetMxRecordRecordInput
+
+func (GetMxRecordRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMxRecordRecord)(nil)).Elem()
+}
+
+func (i GetMxRecordRecordArray) ToGetMxRecordRecordArrayOutput() GetMxRecordRecordArrayOutput {
+	return i.ToGetMxRecordRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetMxRecordRecordArray) ToGetMxRecordRecordArrayOutputWithContext(ctx context.Context) GetMxRecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordArrayOutput)
+}
+
+type GetMxRecordRecordOutput struct{ *pulumi.OutputState }
+
+func (GetMxRecordRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMxRecordRecord)(nil)).Elem()
+}
+
+func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutput() GetMxRecordRecordOutput {
+	return o
+}
+
+func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutputWithContext(ctx context.Context) GetMxRecordRecordOutput {
+	return o
+}
+
+// The mail server responsible for the domain covered by the MX record.
+func (o GetMxRecordRecordOutput) Exchange() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMxRecordRecord) string { return v.Exchange }).(pulumi.StringOutput)
+}
+
+// String representing the "preference” value of the MX records. Records with lower preference value take priority.
+func (o GetMxRecordRecordOutput) Preference() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMxRecordRecord) string { return v.Preference }).(pulumi.StringOutput)
+}
+
+type GetMxRecordRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMxRecordRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMxRecordRecord)(nil)).Elem()
+}
+
+func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutput() GetMxRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutputWithContext(ctx context.Context) GetMxRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetMxRecordRecordArrayOutput) Index(i pulumi.IntInput) GetMxRecordRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMxRecordRecord {
+		return vs[0].([]GetMxRecordRecord)[vs[1].(int)]
+	}).(GetMxRecordRecordOutput)
+}
+
+type GetSrvRecordRecord struct {
+	// Port the service is listening on.
+	Port int `pulumi:"port"`
+	// Priority of the SRV record.
+	Priority int `pulumi:"priority"`
+	// FQDN of the service.
+	Target string `pulumi:"target"`
+	// Weight of the SRV record.
+	Weight int `pulumi:"weight"`
+}
+
+// GetSrvRecordRecordInput is an input type that accepts GetSrvRecordRecordArgs and GetSrvRecordRecordOutput values.
+// You can construct a concrete instance of `GetSrvRecordRecordInput` via:
+//
+//	GetSrvRecordRecordArgs{...}
+type GetSrvRecordRecordInput interface {
+	pulumi.Input
+
+	ToGetSrvRecordRecordOutput() GetSrvRecordRecordOutput
+	ToGetSrvRecordRecordOutputWithContext(context.Context) GetSrvRecordRecordOutput
+}
+
+type GetSrvRecordRecordArgs struct {
+	// Port the service is listening on.
+	Port pulumi.IntInput `pulumi:"port"`
+	// Priority of the SRV record.
+	Priority pulumi.IntInput `pulumi:"priority"`
+	// FQDN of the service.
+	Target pulumi.StringInput `pulumi:"target"`
+	// Weight of the SRV record.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (GetSrvRecordRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSrvRecordRecord)(nil)).Elem()
+}
+
+func (i GetSrvRecordRecordArgs) ToGetSrvRecordRecordOutput() GetSrvRecordRecordOutput {
+	return i.ToGetSrvRecordRecordOutputWithContext(context.Background())
+}
+
+func (i GetSrvRecordRecordArgs) ToGetSrvRecordRecordOutputWithContext(ctx context.Context) GetSrvRecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordOutput)
+}
+
+// GetSrvRecordRecordArrayInput is an input type that accepts GetSrvRecordRecordArray and GetSrvRecordRecordArrayOutput values.
+// You can construct a concrete instance of `GetSrvRecordRecordArrayInput` via:
+//
+//	GetSrvRecordRecordArray{ GetSrvRecordRecordArgs{...} }
+type GetSrvRecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetSrvRecordRecordArrayOutput() GetSrvRecordRecordArrayOutput
+	ToGetSrvRecordRecordArrayOutputWithContext(context.Context) GetSrvRecordRecordArrayOutput
+}
+
+type GetSrvRecordRecordArray []GetSrvRecordRecordInput
+
+func (GetSrvRecordRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSrvRecordRecord)(nil)).Elem()
+}
+
+func (i GetSrvRecordRecordArray) ToGetSrvRecordRecordArrayOutput() GetSrvRecordRecordArrayOutput {
+	return i.ToGetSrvRecordRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetSrvRecordRecordArray) ToGetSrvRecordRecordArrayOutputWithContext(ctx context.Context) GetSrvRecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordArrayOutput)
+}
+
+type GetSrvRecordRecordOutput struct{ *pulumi.OutputState }
+
+func (GetSrvRecordRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSrvRecordRecord)(nil)).Elem()
+}
+
+func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutput() GetSrvRecordRecordOutput {
+	return o
+}
+
+func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutputWithContext(ctx context.Context) GetSrvRecordRecordOutput {
+	return o
+}
+
+// Port the service is listening on.
+func (o GetSrvRecordRecordOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSrvRecordRecord) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// Priority of the SRV record.
+func (o GetSrvRecordRecordOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSrvRecordRecord) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+// FQDN of the service.
+func (o GetSrvRecordRecordOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSrvRecordRecord) string { return v.Target }).(pulumi.StringOutput)
+}
+
+// Weight of the SRV record.
+func (o GetSrvRecordRecordOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSrvRecordRecord) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type GetSrvRecordRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSrvRecordRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSrvRecordRecord)(nil)).Elem()
+}
+
+func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutput() GetSrvRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutputWithContext(ctx context.Context) GetSrvRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetSrvRecordRecordArrayOutput) Index(i pulumi.IntInput) GetSrvRecordRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSrvRecordRecord {
+		return vs[0].([]GetSrvRecordRecord)[vs[1].(int)]
+	}).(GetSrvRecordRecordOutput)
+}
+
+type GetTxtRecordRecord struct {
+	// The value of the record. Max length: 1024 characters
+	Value string `pulumi:"value"`
+}
+
+// GetTxtRecordRecordInput is an input type that accepts GetTxtRecordRecordArgs and GetTxtRecordRecordOutput values.
+// You can construct a concrete instance of `GetTxtRecordRecordInput` via:
+//
+//	GetTxtRecordRecordArgs{...}
+type GetTxtRecordRecordInput interface {
+	pulumi.Input
+
+	ToGetTxtRecordRecordOutput() GetTxtRecordRecordOutput
+	ToGetTxtRecordRecordOutputWithContext(context.Context) GetTxtRecordRecordOutput
+}
+
+type GetTxtRecordRecordArgs struct {
+	// The value of the record. Max length: 1024 characters
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetTxtRecordRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTxtRecordRecord)(nil)).Elem()
+}
+
+func (i GetTxtRecordRecordArgs) ToGetTxtRecordRecordOutput() GetTxtRecordRecordOutput {
+	return i.ToGetTxtRecordRecordOutputWithContext(context.Background())
+}
+
+func (i GetTxtRecordRecordArgs) ToGetTxtRecordRecordOutputWithContext(ctx context.Context) GetTxtRecordRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordOutput)
+}
+
+// GetTxtRecordRecordArrayInput is an input type that accepts GetTxtRecordRecordArray and GetTxtRecordRecordArrayOutput values.
+// You can construct a concrete instance of `GetTxtRecordRecordArrayInput` via:
+//
+//	GetTxtRecordRecordArray{ GetTxtRecordRecordArgs{...} }
+type GetTxtRecordRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetTxtRecordRecordArrayOutput() GetTxtRecordRecordArrayOutput
+	ToGetTxtRecordRecordArrayOutputWithContext(context.Context) GetTxtRecordRecordArrayOutput
+}
+
+type GetTxtRecordRecordArray []GetTxtRecordRecordInput
+
+func (GetTxtRecordRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTxtRecordRecord)(nil)).Elem()
+}
+
+func (i GetTxtRecordRecordArray) ToGetTxtRecordRecordArrayOutput() GetTxtRecordRecordArrayOutput {
+	return i.ToGetTxtRecordRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetTxtRecordRecordArray) ToGetTxtRecordRecordArrayOutputWithContext(ctx context.Context) GetTxtRecordRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordArrayOutput)
+}
+
+type GetTxtRecordRecordOutput struct{ *pulumi.OutputState }
+
+func (GetTxtRecordRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTxtRecordRecord)(nil)).Elem()
+}
+
+func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutput() GetTxtRecordRecordOutput {
+	return o
+}
+
+func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutputWithContext(ctx context.Context) GetTxtRecordRecordOutput {
+	return o
+}
+
+// The value of the record. Max length: 1024 characters
+func (o GetTxtRecordRecordOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTxtRecordRecord) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetTxtRecordRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTxtRecordRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTxtRecordRecord)(nil)).Elem()
+}
+
+func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutput() GetTxtRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutputWithContext(ctx context.Context) GetTxtRecordRecordArrayOutput {
+	return o
+}
+
+func (o GetTxtRecordRecordArrayOutput) Index(i pulumi.IntInput) GetTxtRecordRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTxtRecordRecord {
+		return vs[0].([]GetTxtRecordRecord)[vs[1].(int)]
+	}).(GetTxtRecordRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordRecordInput)(nil)).Elem(), CaaRecordRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaaRecordRecordArrayInput)(nil)).Elem(), CaaRecordRecordArray{})
@@ -767,6 +1209,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TxtRecordRecordArrayInput)(nil)).Elem(), TxtRecordRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordInput)(nil)).Elem(), ZoneSoaRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneSoaRecordPtrInput)(nil)).Elem(), ZoneSoaRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCAARecordRecordInput)(nil)).Elem(), GetCAARecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCAARecordRecordArrayInput)(nil)).Elem(), GetCAARecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMxRecordRecordInput)(nil)).Elem(), GetMxRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMxRecordRecordArrayInput)(nil)).Elem(), GetMxRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSrvRecordRecordInput)(nil)).Elem(), GetSrvRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSrvRecordRecordArrayInput)(nil)).Elem(), GetSrvRecordRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTxtRecordRecordInput)(nil)).Elem(), GetTxtRecordRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTxtRecordRecordArrayInput)(nil)).Elem(), GetTxtRecordRecordArray{})
 	pulumi.RegisterOutputType(CaaRecordRecordOutput{})
 	pulumi.RegisterOutputType(CaaRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(MxRecordRecordOutput{})
@@ -777,4 +1227,12 @@ func init() {
 	pulumi.RegisterOutputType(TxtRecordRecordArrayOutput{})
 	pulumi.RegisterOutputType(ZoneSoaRecordOutput{})
 	pulumi.RegisterOutputType(ZoneSoaRecordPtrOutput{})
+	pulumi.RegisterOutputType(GetCAARecordRecordOutput{})
+	pulumi.RegisterOutputType(GetCAARecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetMxRecordRecordOutput{})
+	pulumi.RegisterOutputType(GetMxRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetSrvRecordRecordOutput{})
+	pulumi.RegisterOutputType(GetSrvRecordRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetTxtRecordRecordOutput{})
+	pulumi.RegisterOutputType(GetTxtRecordRecordArrayOutput{})
 }

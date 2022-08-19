@@ -28,6 +28,7 @@ export * from "./getServiceBusNamespace";
 export * from "./namespace";
 export * from "./namespaceAuthorizationRule";
 export * from "./namespaceCustomerManagedKey";
+export * from "./namespaceSchemaGroup";
 export * from "./queue";
 export * from "./queueAuthorizationRule";
 export * from "./subscription";
@@ -52,6 +53,7 @@ import { EventhubNamespaceDisasterRecoveryConfig } from "./eventhubNamespaceDisa
 import { Namespace } from "./namespace";
 import { NamespaceAuthorizationRule } from "./namespaceAuthorizationRule";
 import { NamespaceCustomerManagedKey } from "./namespaceCustomerManagedKey";
+import { NamespaceSchemaGroup } from "./namespaceSchemaGroup";
 import { Queue } from "./queue";
 import { QueueAuthorizationRule } from "./queueAuthorizationRule";
 import { Subscription } from "./subscription";
@@ -93,6 +95,8 @@ const _module = {
                 return new NamespaceAuthorizationRule(name, <any>undefined, { urn })
             case "azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey":
                 return new NamespaceCustomerManagedKey(name, <any>undefined, { urn })
+            case "azure:eventhub/namespaceSchemaGroup:NamespaceSchemaGroup":
+                return new NamespaceSchemaGroup(name, <any>undefined, { urn })
             case "azure:eventhub/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
             case "azure:eventhub/queueAuthorizationRule:QueueAuthorizationRule":
@@ -125,6 +129,7 @@ pulumi.runtime.registerResourceModule("azure", "eventhub/eventhubNamespaceDisast
 pulumi.runtime.registerResourceModule("azure", "eventhub/namespace", _module)
 pulumi.runtime.registerResourceModule("azure", "eventhub/namespaceAuthorizationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "eventhub/namespaceCustomerManagedKey", _module)
+pulumi.runtime.registerResourceModule("azure", "eventhub/namespaceSchemaGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "eventhub/queue", _module)
 pulumi.runtime.registerResourceModule("azure", "eventhub/queueAuthorizationRule", _module)
 pulumi.runtime.registerResourceModule("azure", "eventhub/subscription", _module)

@@ -82,6 +82,10 @@ export interface GetKeyVaultResult {
     readonly name: string;
     readonly networkAcls: outputs.keyvault.GetKeyVaultNetworkAcl[];
     /**
+     * Is public network access enabled on this Key Vault?
+     */
+    readonly publicNetworkAccessEnabled: boolean;
+    /**
      * Is purge protection enabled on this Key Vault?
      */
     readonly purgeProtectionEnabled: boolean;

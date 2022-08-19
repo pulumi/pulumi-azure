@@ -47,9 +47,17 @@ public final class StaticSiteState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.defaultHostName);
     }
 
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<StaticSiteIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Optional<Output<StaticSiteIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -218,11 +226,23 @@ public final class StaticSiteState extends com.pulumi.resources.ResourceArgs {
             return defaultHostName(Output.of(defaultHostName));
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<StaticSiteIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(StaticSiteIdentityArgs identity) {
             return identity(Output.of(identity));
         }

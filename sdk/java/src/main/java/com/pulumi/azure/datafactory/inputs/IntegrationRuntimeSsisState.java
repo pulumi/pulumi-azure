@@ -6,6 +6,7 @@ package com.pulumi.azure.datafactory.inputs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisCatalogInfoArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisCustomSetupScriptArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisExpressCustomSetupArgs;
+import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisExpressVnetIntegrationArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisPackageStoreArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisProxyArgs;
 import com.pulumi.azure.datafactory.inputs.IntegrationRuntimeSsisVnetIntegrationArgs;
@@ -111,6 +112,21 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
      */
     public Optional<Output<IntegrationRuntimeSsisExpressCustomSetupArgs>> expressCustomSetup() {
         return Optional.ofNullable(this.expressCustomSetup);
+    }
+
+    /**
+     * A `express_vnet_integration` block as defined below.
+     * 
+     */
+    @Import(name="expressVnetIntegration")
+    private @Nullable Output<IntegrationRuntimeSsisExpressVnetIntegrationArgs> expressVnetIntegration;
+
+    /**
+     * @return A `express_vnet_integration` block as defined below.
+     * 
+     */
+    public Optional<Output<IntegrationRuntimeSsisExpressVnetIntegrationArgs>> expressVnetIntegration() {
+        return Optional.ofNullable(this.expressVnetIntegration);
     }
 
     /**
@@ -257,6 +273,7 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
         this.description = $.description;
         this.edition = $.edition;
         this.expressCustomSetup = $.expressCustomSetup;
+        this.expressVnetIntegration = $.expressVnetIntegration;
         this.licenseType = $.licenseType;
         this.location = $.location;
         this.maxParallelExecutionsPerNode = $.maxParallelExecutionsPerNode;
@@ -410,6 +427,27 @@ public final class IntegrationRuntimeSsisState extends com.pulumi.resources.Reso
          */
         public Builder expressCustomSetup(IntegrationRuntimeSsisExpressCustomSetupArgs expressCustomSetup) {
             return expressCustomSetup(Output.of(expressCustomSetup));
+        }
+
+        /**
+         * @param expressVnetIntegration A `express_vnet_integration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expressVnetIntegration(@Nullable Output<IntegrationRuntimeSsisExpressVnetIntegrationArgs> expressVnetIntegration) {
+            $.expressVnetIntegration = expressVnetIntegration;
+            return this;
+        }
+
+        /**
+         * @param expressVnetIntegration A `express_vnet_integration` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expressVnetIntegration(IntegrationRuntimeSsisExpressVnetIntegrationArgs expressVnetIntegration) {
+            return expressVnetIntegration(Output.of(expressVnetIntegration));
         }
 
         /**

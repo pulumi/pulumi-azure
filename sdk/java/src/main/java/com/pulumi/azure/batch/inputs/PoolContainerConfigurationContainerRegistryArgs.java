@@ -7,6 +7,8 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PoolContainerConfigurationContainerRegistryArgs extends com.pulumi.resources.ResourceArgs {
@@ -17,15 +19,15 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
      * The password to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
      * @return The password to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
@@ -44,18 +46,35 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
     }
 
     /**
+     * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * ---
+     * 
+     */
+    @Import(name="userAssignedIdentityId")
+    private @Nullable Output<String> userAssignedIdentityId;
+
+    /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+     * ---
+     * 
+     */
+    public Optional<Output<String>> userAssignedIdentityId() {
+        return Optional.ofNullable(this.userAssignedIdentityId);
+    }
+
+    /**
      * The user name to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    @Import(name="userName", required=true)
-    private Output<String> userName;
+    @Import(name="userName")
+    private @Nullable Output<String> userName;
 
     /**
      * @return The user name to log into the registry server. Changing this forces a new resource to be created.
      * 
      */
-    public Output<String> userName() {
-        return this.userName;
+    public Optional<Output<String>> userName() {
+        return Optional.ofNullable(this.userName);
     }
 
     private PoolContainerConfigurationContainerRegistryArgs() {}
@@ -63,6 +82,7 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
     private PoolContainerConfigurationContainerRegistryArgs(PoolContainerConfigurationContainerRegistryArgs $) {
         this.password = $.password;
         this.registryServer = $.registryServer;
+        this.userAssignedIdentityId = $.userAssignedIdentityId;
         this.userName = $.userName;
     }
 
@@ -90,7 +110,7 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
@@ -127,12 +147,35 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
         }
 
         /**
+         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * ---
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(@Nullable Output<String> userAssignedIdentityId) {
+            $.userAssignedIdentityId = userAssignedIdentityId;
+            return this;
+        }
+
+        /**
+         * @param userAssignedIdentityId The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * ---
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            return userAssignedIdentityId(Output.of(userAssignedIdentityId));
+        }
+
+        /**
          * @param userName The user name to log into the registry server. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
-        public Builder userName(Output<String> userName) {
+        public Builder userName(@Nullable Output<String> userName) {
             $.userName = userName;
             return this;
         }
@@ -148,9 +191,7 @@ public final class PoolContainerConfigurationContainerRegistryArgs extends com.p
         }
 
         public PoolContainerConfigurationContainerRegistryArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
             $.registryServer = Objects.requireNonNull($.registryServer, "expected parameter 'registryServer' to be non-null");
-            $.userName = Objects.requireNonNull($.userName, "expected parameter 'userName' to be non-null");
             return $;
         }
     }

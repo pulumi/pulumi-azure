@@ -56,6 +56,7 @@ export interface GetSharedImageArgs {
  * A collection of values returned by getSharedImage.
  */
 export interface GetSharedImageResult {
+    readonly architecture: string;
     /**
      * The description of this Shared Image.
      */

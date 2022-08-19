@@ -120,26 +120,44 @@ namespace Pulumi.Azure.ManagementGroups
     [OutputType]
     public sealed class GetManagementGroupResult
     {
+        /// <summary>
+        /// A list of Management Group IDs which directly or indirectly belong to this Management Group.
+        /// </summary>
+        public readonly ImmutableArray<string> AllManagementGroupIds;
+        /// <summary>
+        /// A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
+        /// </summary>
+        public readonly ImmutableArray<string> AllSubscriptionIds;
         public readonly string DisplayName;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// A list of Management Group IDs which directly belong to this Management Group.
+        /// </summary>
+        public readonly ImmutableArray<string> ManagementGroupIds;
         public readonly string Name;
         /// <summary>
         /// The ID of any Parent Management Group.
         /// </summary>
         public readonly string ParentManagementGroupId;
         /// <summary>
-        /// A list of Subscription IDs which are assigned to the Management Group.
+        /// A list of Subscription IDs which are directly assigned to this Management Group.
         /// </summary>
         public readonly ImmutableArray<string> SubscriptionIds;
 
         [OutputConstructor]
         private GetManagementGroupResult(
+            ImmutableArray<string> allManagementGroupIds,
+
+            ImmutableArray<string> allSubscriptionIds,
+
             string displayName,
 
             string id,
+
+            ImmutableArray<string> managementGroupIds,
 
             string name,
 
@@ -147,8 +165,11 @@ namespace Pulumi.Azure.ManagementGroups
 
             ImmutableArray<string> subscriptionIds)
         {
+            AllManagementGroupIds = allManagementGroupIds;
+            AllSubscriptionIds = allSubscriptionIds;
             DisplayName = displayName;
             Id = id;
+            ManagementGroupIds = managementGroupIds;
             Name = name;
             ParentManagementGroupId = parentManagementGroupId;
             SubscriptionIds = subscriptionIds;

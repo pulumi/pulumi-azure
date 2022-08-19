@@ -17,6 +17,7 @@ __all__ = ['AccountArgs', 'Account']
 class AccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
@@ -24,11 +25,14 @@ class AccountArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+                 storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_node_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -36,10 +40,14 @@ class AccountArgs:
         :param pulumi.Input[str] name: Specifies the name of the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
+        :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if allowed_authentication_modes is not None:
+            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
@@ -54,8 +62,12 @@ class AccountArgs:
             pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
         if public_network_access_enabled is not None:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+        if storage_account_authentication_mode is not None:
+            pulumi.set(__self__, "storage_account_authentication_mode", storage_account_authentication_mode)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_node_identity is not None:
+            pulumi.set(__self__, "storage_account_node_identity", storage_account_node_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -70,6 +82,18 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
+
+    @allowed_authentication_modes.setter
+    def allowed_authentication_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_authentication_modes", value)
 
     @property
     @pulumi.getter
@@ -156,6 +180,18 @@ class AccountArgs:
         pulumi.set(self, "public_network_access_enabled", value)
 
     @property
+    @pulumi.getter(name="storageAccountAuthenticationMode")
+    def storage_account_authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        """
+        return pulumi.get(self, "storage_account_authentication_mode")
+
+    @storage_account_authentication_mode.setter
+    def storage_account_authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_authentication_mode", value)
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -166,6 +202,18 @@ class AccountArgs:
     @storage_account_id.setter
     def storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountNodeIdentity")
+    def storage_account_node_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user assigned identity for the storage account.
+        """
+        return pulumi.get(self, "storage_account_node_identity")
+
+    @storage_account_node_identity.setter
+    def storage_account_node_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_node_identity", value)
 
     @property
     @pulumi.getter
@@ -184,6 +232,7 @@ class AccountArgs:
 class _AccountState:
     def __init__(__self__, *,
                  account_endpoint: Optional[pulumi.Input[str]] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption: Optional[pulumi.Input['AccountEncryptionArgs']] = None,
                  identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
                  key_vault_reference: Optional[pulumi.Input['AccountKeyVaultReferenceArgs']] = None,
@@ -194,11 +243,14 @@ class _AccountState:
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  secondary_access_key: Optional[pulumi.Input[str]] = None,
+                 storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_node_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         :param pulumi.Input['AccountEncryptionArgs'] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
         :param pulumi.Input['AccountIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input['AccountKeyVaultReferenceArgs'] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -209,11 +261,15 @@ class _AccountState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
+        :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         if account_endpoint is not None:
             pulumi.set(__self__, "account_endpoint", account_endpoint)
+        if allowed_authentication_modes is not None:
+            pulumi.set(__self__, "allowed_authentication_modes", allowed_authentication_modes)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if identity is not None:
@@ -234,8 +290,12 @@ class _AccountState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_access_key is not None:
             pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+        if storage_account_authentication_mode is not None:
+            pulumi.set(__self__, "storage_account_authentication_mode", storage_account_authentication_mode)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_node_identity is not None:
+            pulumi.set(__self__, "storage_account_node_identity", storage_account_node_identity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -250,6 +310,18 @@ class _AccountState:
     @account_endpoint.setter
     def account_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_endpoint", value)
+
+    @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
+
+    @allowed_authentication_modes.setter
+    def allowed_authentication_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_authentication_modes", value)
 
     @property
     @pulumi.getter
@@ -372,6 +444,18 @@ class _AccountState:
         pulumi.set(self, "secondary_access_key", value)
 
     @property
+    @pulumi.getter(name="storageAccountAuthenticationMode")
+    def storage_account_authentication_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        """
+        return pulumi.get(self, "storage_account_authentication_mode")
+
+    @storage_account_authentication_mode.setter
+    def storage_account_authentication_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_authentication_mode", value)
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -382,6 +466,18 @@ class _AccountState:
     @storage_account_id.setter
     def storage_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_id", value)
+
+    @property
+    @pulumi.getter(name="storageAccountNodeIdentity")
+    def storage_account_node_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user assigned identity for the storage account.
+        """
+        return pulumi.get(self, "storage_account_node_identity")
+
+    @storage_account_node_identity.setter
+    def storage_account_node_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_account_node_identity", value)
 
     @property
     @pulumi.getter
@@ -401,6 +497,7 @@ class Account(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
@@ -409,7 +506,9 @@ class Account(pulumi.CustomResource):
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_node_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -447,6 +546,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -455,7 +555,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] pool_allocation_mode: Specifies the mode to use for pool allocation. Possible values are `BatchService` or `UserSubscription`. Defaults to `BatchService`.
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         ...
@@ -512,6 +614,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
                  key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
@@ -520,7 +623,9 @@ class Account(pulumi.CustomResource):
                  pool_allocation_mode: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
+                 storage_account_node_identity: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -531,6 +636,7 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference"] = key_vault_reference
@@ -541,7 +647,9 @@ class Account(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["storage_account_authentication_mode"] = storage_account_authentication_mode
             __props__.__dict__["storage_account_id"] = storage_account_id
+            __props__.__dict__["storage_account_node_identity"] = storage_account_node_identity
             __props__.__dict__["tags"] = tags
             __props__.__dict__["account_endpoint"] = None
             __props__.__dict__["primary_access_key"] = None
@@ -557,6 +665,7 @@ class Account(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_endpoint: Optional[pulumi.Input[str]] = None,
+            allowed_authentication_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['AccountEncryptionArgs']]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['AccountIdentityArgs']]] = None,
             key_vault_reference: Optional[pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']]] = None,
@@ -567,7 +676,9 @@ class Account(pulumi.CustomResource):
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             secondary_access_key: Optional[pulumi.Input[str]] = None,
+            storage_account_authentication_mode: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
+            storage_account_node_identity: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Account':
         """
         Get an existing Account resource's state with the given name, id, and optional extra
@@ -577,6 +688,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_endpoint: The account endpoint used to interact with the Batch service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_authentication_modes: Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
         :param pulumi.Input[pulumi.InputType['AccountEncryptionArgs']] encryption: Specifies if customer managed key encryption should be used to encrypt batch account data.
         :param pulumi.Input[pulumi.InputType['AccountIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[pulumi.InputType['AccountKeyVaultReferenceArgs']] key_vault_reference: A `key_vault_reference` block that describes the Azure KeyVault reference to use when deploying the Azure Batch account using the `UserSubscription` pool allocation mode.
@@ -587,7 +699,9 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for this server. Defaults to `true`.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_access_key: The Batch account secondary access key.
+        :param pulumi.Input[str] storage_account_authentication_mode: Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
         :param pulumi.Input[str] storage_account_id: Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
+        :param pulumi.Input[str] storage_account_node_identity: Specifies the user assigned identity for the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -595,6 +709,7 @@ class Account(pulumi.CustomResource):
         __props__ = _AccountState.__new__(_AccountState)
 
         __props__.__dict__["account_endpoint"] = account_endpoint
+        __props__.__dict__["allowed_authentication_modes"] = allowed_authentication_modes
         __props__.__dict__["encryption"] = encryption
         __props__.__dict__["identity"] = identity
         __props__.__dict__["key_vault_reference"] = key_vault_reference
@@ -605,7 +720,9 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["secondary_access_key"] = secondary_access_key
+        __props__.__dict__["storage_account_authentication_mode"] = storage_account_authentication_mode
         __props__.__dict__["storage_account_id"] = storage_account_id
+        __props__.__dict__["storage_account_node_identity"] = storage_account_node_identity
         __props__.__dict__["tags"] = tags
         return Account(resource_name, opts=opts, __props__=__props__)
 
@@ -616,6 +733,14 @@ class Account(pulumi.CustomResource):
         The account endpoint used to interact with the Batch service.
         """
         return pulumi.get(self, "account_endpoint")
+
+    @property
+    @pulumi.getter(name="allowedAuthenticationModes")
+    def allowed_authentication_modes(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        """
+        return pulumi.get(self, "allowed_authentication_modes")
 
     @property
     @pulumi.getter
@@ -698,12 +823,28 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "secondary_access_key")
 
     @property
+    @pulumi.getter(name="storageAccountAuthenticationMode")
+    def storage_account_authentication_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        """
+        return pulumi.get(self, "storage_account_authentication_mode")
+
+    @property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @property
+    @pulumi.getter(name="storageAccountNodeIdentity")
+    def storage_account_node_identity(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the user assigned identity for the storage account.
+        """
+        return pulumi.get(self, "storage_account_node_identity")
 
     @property
     @pulumi.getter

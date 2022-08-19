@@ -83,7 +83,7 @@ export class MxRecord extends pulumi.CustomResource {
      */
     public readonly records!: pulumi.Output<outputs.dns.MxRecordRecord[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export class MxRecord extends pulumi.CustomResource {
      */
     public readonly ttl!: pulumi.Output<number>;
     /**
-     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly zoneName!: pulumi.Output<string>;
 
@@ -163,7 +163,7 @@ export interface MxRecordState {
      */
     records?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -175,7 +175,7 @@ export interface MxRecordState {
      */
     ttl?: pulumi.Input<number>;
     /**
-     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
     zoneName?: pulumi.Input<string>;
 }
@@ -193,7 +193,7 @@ export interface MxRecordArgs {
      */
     records: pulumi.Input<pulumi.Input<inputs.dns.MxRecordRecord>[]>;
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -205,7 +205,7 @@ export interface MxRecordArgs {
      */
     ttl: pulumi.Input<number>;
     /**
-     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      */
     zoneName: pulumi.Input<string>;
 }

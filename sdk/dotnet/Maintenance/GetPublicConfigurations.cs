@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Maintenance
         public string? RecurEvery { get; set; }
 
         /// <summary>
-        /// The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+        /// The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
         /// </summary>
         [Input("scope")]
         public string? Scope { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Maintenance
         public Input<string>? RecurEvery { get; set; }
 
         /// <summary>
-        /// The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+        /// The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
         /// </summary>
         [Input("scope")]
         public Input<string>? Scope { get; set; }

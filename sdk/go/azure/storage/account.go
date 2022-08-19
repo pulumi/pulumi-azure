@@ -156,6 +156,8 @@ type Account struct {
 	CustomDomain AccountCustomDomainPtrOutput `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyPtrOutput `pulumi:"customerManagedKey"`
+	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+	DefaultToOauthAuthentication pulumi.BoolPtrOutput `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -321,6 +323,8 @@ type accountState struct {
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -449,6 +453,8 @@ type AccountState struct {
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
+	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -581,6 +587,8 @@ type accountArgs struct {
 	CustomDomain *AccountCustomDomain `pulumi:"customDomain"`
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey *AccountCustomerManagedKey `pulumi:"customerManagedKey"`
+	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+	DefaultToOauthAuthentication *bool `pulumi:"defaultToOauthAuthentication"`
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -646,6 +654,8 @@ type AccountArgs struct {
 	CustomDomain AccountCustomDomainPtrInput
 	// A `customerManagedKey` block as documented below.
 	CustomerManagedKey AccountCustomerManagedKeyPtrInput
+	// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+	DefaultToOauthAuthentication pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
 	EdgeZone pulumi.StringPtrInput
 	// Boolean flag which forces HTTPS if enabled, see [here](https://docs.microsoft.com/azure/storage/storage-require-secure-transfer/)
@@ -824,6 +834,11 @@ func (o AccountOutput) CustomDomain() AccountCustomDomainPtrOutput {
 // A `customerManagedKey` block as documented below.
 func (o AccountOutput) CustomerManagedKey() AccountCustomerManagedKeyPtrOutput {
 	return o.ApplyT(func(v *Account) AccountCustomerManagedKeyPtrOutput { return v.CustomerManagedKey }).(AccountCustomerManagedKeyPtrOutput)
+}
+
+// Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+func (o AccountOutput) DefaultToOauthAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.DefaultToOauthAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.

@@ -141,6 +141,21 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     * 
+     */
+    @Import(name="publicEndpointEnabled")
+    private @Nullable Output<Boolean> publicEndpointEnabled;
+
+    /**
+     * @return Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     * 
+     */
+    public Optional<Output<Boolean>> publicEndpointEnabled() {
+        return Optional.ofNullable(this.publicEndpointEnabled);
+    }
+
+    /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      * 
      */
@@ -211,6 +226,7 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
         this.isPublic = $.isPublic;
         this.name = $.name;
         this.persistentDisk = $.persistentDisk;
+        this.publicEndpointEnabled = $.publicEndpointEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.serviceName = $.serviceName;
         this.tlsEnabled = $.tlsEnabled;
@@ -411,6 +427,27 @@ public final class SpringCloudAppState extends com.pulumi.resources.ResourceArgs
          */
         public Builder persistentDisk(SpringCloudAppPersistentDiskArgs persistentDisk) {
             return persistentDisk(Output.of(persistentDisk));
+        }
+
+        /**
+         * @param publicEndpointEnabled Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicEndpointEnabled(@Nullable Output<Boolean> publicEndpointEnabled) {
+            $.publicEndpointEnabled = publicEndpointEnabled;
+            return this;
+        }
+
+        /**
+         * @param publicEndpointEnabled Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder publicEndpointEnabled(Boolean publicEndpointEnabled) {
+            return publicEndpointEnabled(Output.of(publicEndpointEnabled));
         }
 
         /**

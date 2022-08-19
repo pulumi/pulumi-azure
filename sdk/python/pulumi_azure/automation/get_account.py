@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAccountResult',
@@ -21,7 +22,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, endpoint=None, id=None, name=None, primary_key=None, resource_group_name=None, secondary_key=None):
+    def __init__(__self__, endpoint=None, id=None, name=None, primary_key=None, private_endpoint_connections=None, resource_group_name=None, secondary_key=None):
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -34,6 +35,9 @@ class GetAccountResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -71,6 +75,11 @@ class GetAccountResult:
         return pulumi.get(self, "primary_key")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.GetAccountPrivateEndpointConnectionResult']:
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -94,6 +103,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             id=self.id,
             name=self.name,
             primary_key=self.primary_key,
+            private_endpoint_connections=self.private_endpoint_connections,
             resource_group_name=self.resource_group_name,
             secondary_key=self.secondary_key)
 
@@ -130,6 +140,7 @@ def get_account(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         primary_key=__ret__.primary_key,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         resource_group_name=__ret__.resource_group_name,
         secondary_key=__ret__.secondary_key)
 

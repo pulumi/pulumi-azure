@@ -2304,6 +2304,13 @@ export namespace appplatform {
         memory?: string;
     }
 
+    export interface SpringCloudGatewayRouteConfigOpenApi {
+        /**
+         * The URI of OpenAPI specification.
+         */
+        uri?: string;
+    }
+
     export interface SpringCloudGatewayRouteConfigRoute {
         /**
          * Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
@@ -2505,6 +2512,10 @@ export namespace appplatform {
          */
         cidrRanges: string[];
         /**
+         * Ingress read time out in seconds. Changing this forces a new resource to be created.
+         */
+        readTimeoutSeconds?: number;
+        /**
          * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
          */
         serviceRuntimeNetworkResourceGroup: string;
@@ -2544,7 +2555,6 @@ export namespace appplatform {
          */
         sampleRate?: number;
     }
-
 }
 
 export namespace appservice {
@@ -7609,7 +7619,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -10859,7 +10869,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name: string;
         /**
@@ -13063,6 +13073,21 @@ export namespace authorization {
 }
 
 export namespace automation {
+    export interface AccountEncryption {
+        /**
+         * The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+         */
+        keySource: string;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+         */
+        keyVaultKeyId: string;
+        /**
+         * The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId?: string;
+    }
+
     export interface AccountIdentity {
         /**
          * The ID of the User Assigned Identity which should be assigned to this Automation Account.
@@ -13080,6 +13105,28 @@ export namespace automation {
          * The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: string;
+    }
+
+    export interface AccountPrivateEndpointConnection {
+        /**
+         * The ID of the Automation Account.
+         */
+        id: string;
+        /**
+         * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
+    export interface GetAccountPrivateEndpointConnection {
+        /**
+         * The ID of the Automation Account
+         */
+        id: string;
+        /**
+         * The name of the Automation Account.
+         */
+        name: string;
     }
 
     export interface ModuleModuleLink {
@@ -13449,6 +13496,10 @@ export namespace batch {
          */
         registryServer: string;
         /**
+         * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+         */
+        userAssignedIdentityId: string;
+        /**
          * The user name to log into the registry server.
          */
         userName: string;
@@ -13656,15 +13707,20 @@ export namespace batch {
         /**
          * The password to log into the registry server. Changing this forces a new resource to be created.
          */
-        password: string;
+        password?: string;
         /**
          * The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
          */
         registryServer: string;
         /**
+         * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * ---
+         */
+        userAssignedIdentityId?: string;
+        /**
          * The user name to log into the registry server. Changing this forces a new resource to be created.
          */
-        userName: string;
+        userName?: string;
     }
 
     export interface PoolFixedScale {
@@ -13947,9 +14003,15 @@ export namespace cdn {
 
     export interface EndpointCustomDomainUserManagedHttps {
         /**
-         * The ID of the Key Vault Certificate that contains the HTTPS certificate.
+         * The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+         *
+         * @deprecated This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
          */
         keyVaultCertificateId: string;
+        /**
+         * The ID of the Key Vault Secret that contains the HTTPS certificate.
+         */
+        keyVaultSecretId: string;
         /**
          * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
@@ -14554,6 +14616,170 @@ export namespace cdn {
         name: string;
     }
 
+    export interface FrontdoorFirewallPolicyCustomRule {
+        /**
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: string;
+        /**
+         * Is the rule is enabled or disabled? Defaults to `true`.
+         */
+        enabled?: boolean;
+        /**
+         * One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
+         */
+        matchConditions?: outputs.cdn.FrontdoorFirewallPolicyCustomRuleMatchCondition[];
+        /**
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+         */
+        name: string;
+        /**
+         * The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+         */
+        priority?: number;
+        /**
+         * The rate limit duration in minutes. Defaults to `1`.
+         */
+        rateLimitDurationInMinutes?: number;
+        /**
+         * The rate limit threshold. Defaults to `10`.
+         */
+        rateLimitThreshold?: number;
+        /**
+         * The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+         */
+        type: string;
+    }
+
+    export interface FrontdoorFirewallPolicyCustomRuleMatchCondition {
+        /**
+         * Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
+         */
+        matchValues: string[];
+        /**
+         * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+         */
+        matchVariable: string;
+        /**
+         * Should the result of the condition be negated.
+         */
+        negationCondition?: boolean;
+        /**
+         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         */
+        operator: string;
+        /**
+         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         */
+        selector?: string;
+        /**
+         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         */
+        transforms?: string[];
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRule {
+        /**
+         * The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: string;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleExclusion[];
+        /**
+         * One or more `override` blocks as defined below.
+         */
+        overrides?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverride[];
+        /**
+         * The name of the managed rule to use with this resource.
+         */
+        type: string;
+        /**
+         * The version on the managed rule to use with this resource.
+         */
+        version: string;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: string;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverride {
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusion[];
+        /**
+         * The managed rule group to override.
+         */
+        ruleGroupName: string;
+        /**
+         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+         */
+        rules?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideRule[];
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: string;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
+        /**
+         * The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: string;
+        /**
+         * Is the managed rule override enabled or disabled. Defaults to `false`
+         */
+        enabled?: boolean;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: outputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion[];
+        /**
+         * Identifier for the managed rule.
+         */
+        ruleId: string;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: string;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: string;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: string;
+    }
+
     export interface FrontdoorOriginGroupHealthProbe {
         /**
          * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
@@ -14605,6 +14831,46 @@ export namespace cdn {
          * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
          */
         targetType?: string;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPolicies {
+        /**
+         * An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        firewall: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewall;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewall {
+        /**
+         * An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        association: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation;
+        /**
+         * The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        cdnFrontdoorFirewallPolicyId: string;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+        /**
+         * One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        domains: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain[];
+        /**
+         * The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        patternsToMatch: string;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
+        /**
+         * Is the Frontdoor Custom Domain/Endpoint activated?
+         */
+        active: boolean;
+        /**
+         * The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        cdnFrontdoorDomainId: string;
     }
 
     export interface GetFrontdoorOriginGroupHealthProbe {
@@ -15096,6 +15362,49 @@ export namespace compute {
          * The Type of IP Tag.
          */
         type: string;
+    }
+
+    export interface GetVirtualMachineScaleSetInstance {
+        /**
+         * The Hostname of this Virtual Machine.
+         */
+        computerName: string;
+        /**
+         * The Instance ID of this Virtual Machine.
+         */
+        instanceId: string;
+        /**
+         * Whether the latest model has been applied to this Virtual Machine.
+         */
+        latestModelApplied: boolean;
+        /**
+         * The name of this Virtual Machine Scale Set.
+         */
+        name: string;
+        /**
+         * The Primary Private IP Address assigned to this Virtual Machine.
+         */
+        privateIpAddress: string;
+        /**
+         * A list of Private IP Addresses assigned to this Virtual Machine.
+         */
+        privateIpAddresses: string[];
+        /**
+         * The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+         */
+        publicIpAddress: string;
+        /**
+         * A list of the Public IP Addresses assigned to this Virtual Machine.
+         */
+        publicIpAddresses: string[];
+        /**
+         * The unique ID of the virtual machine.
+         */
+        virtualMachineId: string;
+        /**
+         * The zones of the virtual machine.
+         */
+        zone: string;
     }
 
     export interface GetVirtualMachineScaleSetNetworkInterface {
@@ -21344,6 +21653,10 @@ export namespace datafactory {
          */
         description?: string;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.DataFlowSinkFlowlet;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: outputs.datafactory.DataFlowSinkLinkedService;
@@ -21364,6 +21677,18 @@ export namespace datafactory {
         name: string;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSinkFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: {[key: string]: string};
     }
@@ -21400,6 +21725,10 @@ export namespace datafactory {
          */
         description?: string;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.DataFlowSourceFlowlet;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: outputs.datafactory.DataFlowSourceLinkedService;
@@ -21420,6 +21749,18 @@ export namespace datafactory {
         name: string;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowSourceFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: {[key: string]: string};
     }
@@ -21456,6 +21797,10 @@ export namespace datafactory {
          */
         description?: string;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.DataFlowTransformationFlowlet;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: outputs.datafactory.DataFlowTransformationLinkedService;
@@ -21472,6 +21817,18 @@ export namespace datafactory {
         name: string;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface DataFlowTransformationFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: {[key: string]: string};
     }
@@ -21970,6 +22327,207 @@ export namespace datafactory {
         tenantId: string;
     }
 
+    export interface FlowletDataFlowSink {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.FlowletDataFlowSinkDataset;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: string;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.FlowletDataFlowSinkFlowlet;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.FlowletDataFlowSinkLinkedService;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: string;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: outputs.datafactory.FlowletDataFlowSinkSchemaLinkedService;
+    }
+
+    export interface FlowletDataFlowSinkDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSinkFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSinkLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSinkSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSource {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.FlowletDataFlowSourceDataset;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: string;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.FlowletDataFlowSourceFlowlet;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.FlowletDataFlowSourceLinkedService;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: string;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: outputs.datafactory.FlowletDataFlowSourceSchemaLinkedService;
+    }
+
+    export interface FlowletDataFlowSourceDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSourceFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSourceLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowSourceSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowTransformation {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: outputs.datafactory.FlowletDataFlowTransformationDataset;
+        /**
+         * The description for the Data Flow transformation.
+         */
+        description?: string;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: outputs.datafactory.FlowletDataFlowTransformationFlowlet;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: outputs.datafactory.FlowletDataFlowTransformationLinkedService;
+        /**
+         * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
+    export interface FlowletDataFlowTransformationDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowTransformationFlowlet {
+        datasetParameters?: string;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: {[key: string]: string};
+    }
+
+    export interface FlowletDataFlowTransformationLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: string;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: {[key: string]: string};
+    }
+
     export interface GetFactoryGithubConfiguration {
         /**
          * The VSTS account name.
@@ -22210,6 +22768,13 @@ export namespace datafactory {
          * Specifies the secret version in Azure Key Vault.
          */
         secretVersion?: string;
+    }
+
+    export interface IntegrationRuntimeSsisExpressVnetIntegration {
+        /**
+         * id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        subnetId: string;
     }
 
     export interface IntegrationRuntimeSsisPackageStore {
@@ -23058,11 +23623,63 @@ export namespace dns {
          */
         flags: number;
         /**
-         * A property tag, options are issue, issuewild and iodef.
+         * A property tag, options are `issue`, `issuewild` and `iodef`.
          */
         tag: string;
         /**
          * A property value such as a registrar domain.
+         */
+        value: string;
+    }
+
+    export interface GetCAARecordRecord {
+        /**
+         * Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
+         */
+        flags: number;
+        /**
+         * A property tag, options are `issue`, `issuewild` and `iodef`.
+         */
+        tag: string;
+        /**
+         * A property value such as a registrar domain.
+         */
+        value: string;
+    }
+
+    export interface GetMxRecordRecord {
+        /**
+         * The mail server responsible for the domain covered by the MX record.
+         */
+        exchange: string;
+        /**
+         * String representing the "preference” value of the MX records. Records with lower preference value take priority.
+         */
+        preference: string;
+    }
+
+    export interface GetSrvRecordRecord {
+        /**
+         * Port the service is listening on.
+         */
+        port: number;
+        /**
+         * Priority of the SRV record.
+         */
+        priority: number;
+        /**
+         * FQDN of the service.
+         */
+        target: string;
+        /**
+         * Weight of the SRV record.
+         */
+        weight: number;
+    }
+
+    export interface GetTxtRecordRecord {
+        /**
+         * The value of the record. Max length: 1024 characters
          */
         value: string;
     }
@@ -23143,7 +23760,6 @@ export namespace dns {
          */
         ttl?: number;
     }
-
 }
 
 export namespace domainservices {
@@ -23204,6 +23820,14 @@ export namespace domainservices {
     }
 
     export interface GetServiceSecurity {
+        /**
+         * (Optional) Whether the Kerberos Armoring is enabled.
+         */
+        kerberosArmoringEnabled: boolean;
+        /**
+         * (Optional) Whether the Kerberos RC4 Encryption is enabled.
+         */
+        kerberosRc4EncryptionEnabled: boolean;
         /**
          * Whether legacy NTLM v1 support is enabled.
          */
@@ -23291,6 +23915,14 @@ export namespace domainservices {
     }
 
     export interface ServiceSecurity {
+        /**
+         * Whether to enable Kerberos Armoring. Defaults to `false`.
+         */
+        kerberosArmoringEnabled?: boolean;
+        /**
+         * Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+         */
+        kerberosRc4EncryptionEnabled?: boolean;
         /**
          * Whether to enable legacy NTLM v1 support. Defaults to `false`.
          */
@@ -33567,7 +34199,7 @@ export namespace network {
         /**
          * The Private IP Address to use for the Application Gateway.
          */
-        privateIpAddress?: string;
+        privateIpAddress: string;
         /**
          * The Allocation Method for the Private IP Address. Possible values are `Dynamic` and `Static`.
          */
@@ -33618,6 +34250,17 @@ export namespace network {
          * The ID of the Subnet which the Application Gateway should be connected to.
          */
         subnetId: string;
+    }
+
+    export interface ApplicationGatewayGlobal {
+        /**
+         * Whether Application Gateway's Request buffer is enabled.
+         */
+        requestBufferingEnabled: boolean;
+        /**
+         * Whether Application Gateway's Response buffer is enabled.
+         */
+        responseBufferingEnabled: boolean;
     }
 
     export interface ApplicationGatewayHttpListener {
@@ -33817,7 +34460,7 @@ export namespace network {
         /**
          * A snippet from the Response Body which must be present in the Response.
          */
-        body: string;
+        body?: string;
         /**
          * A list of allowed status codes for this Health Probe.
          */
@@ -34007,6 +34650,10 @@ export namespace network {
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+        /**
+         * The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+         */
+        components: string;
         /**
          * The URL path to rewrite.
          */
@@ -34269,7 +34916,7 @@ export namespace network {
          */
         disabledRuleGroups?: outputs.network.ApplicationGatewayWafConfigurationDisabledRuleGroup[];
         /**
-         * Is the Web Application Firewall be enabled?
+         * Is the Web Application Firewall enabled?
          */
         enabled: boolean;
         /**
@@ -34726,6 +35373,10 @@ export namespace network {
          * In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
          */
         mode?: string;
+        /**
+         * A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+         */
+        privateRanges?: string[];
         /**
          * One or more `signatureOverrides` blocks as defined below.
          */
@@ -37392,6 +38043,43 @@ export namespace postgresql {
 }
 
 export namespace privatedns {
+    export interface GetMxRecordRecord {
+        /**
+         * The mail server responsible for the domain covered by the MX record.
+         */
+        exchange: string;
+        /**
+         * String representing the "preference” value of the MX records. Records with lower preference value take priority.
+         */
+        preference: number;
+    }
+
+    export interface GetSrvRecordRecord {
+        /**
+         * Port the service is listening on.
+         */
+        port: number;
+        /**
+         * Priority of the SRV record.
+         */
+        priority: number;
+        /**
+         * FQDN of the service.
+         */
+        target: string;
+        /**
+         * Weight of the SRV record.
+         */
+        weight: number;
+    }
+
+    export interface GetTxtRecordRecord {
+        /**
+         * The value of the record. Max length: 1024 characters
+         */
+        value: string;
+    }
+
     export interface LinkServiceNatIpConfiguration {
         /**
          * Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
@@ -37494,7 +38182,6 @@ export namespace privatedns {
          */
         ttl?: number;
     }
-
 }
 
 export namespace privatelink {
@@ -40055,7 +40742,7 @@ export namespace storage {
          */
         filters?: outputs.storage.ManagementPolicyRuleFilters;
         /**
-         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
          */
         name: string;
     }
@@ -40827,6 +41514,10 @@ export namespace waf {
 
     export interface PolicyManagedRulesExclusion {
         /**
+         * One or more `excludedRuleSet` block defined below.
+         */
+        excludedRuleSet?: outputs.waf.PolicyManagedRulesExclusionExcludedRuleSet;
+        /**
          * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
          */
         matchVariable: string;
@@ -40838,6 +41529,32 @@ export namespace waf {
          * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
          */
         selectorMatchOperator: string;
+    }
+
+    export interface PolicyManagedRulesExclusionExcludedRuleSet {
+        /**
+         * One or more `ruleGroup` block defined below.
+         */
+        ruleGroups?: outputs.waf.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup[];
+        /**
+         * The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+         */
+        type?: string;
+        /**
+         * The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+         */
+        version?: string;
+    }
+
+    export interface PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
+        /**
+         * One or more Rule IDs for exclusion.
+         */
+        excludedRules?: string[];
+        /**
+         * The name of rule group for exclusion.
+         */
+        ruleGroupName: string;
     }
 
     export interface PolicyManagedRulesManagedRuleSet {

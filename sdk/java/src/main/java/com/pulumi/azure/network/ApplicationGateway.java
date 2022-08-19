@@ -14,6 +14,7 @@ import com.pulumi.azure.network.outputs.ApplicationGatewayCustomErrorConfigurati
 import com.pulumi.azure.network.outputs.ApplicationGatewayFrontendIpConfiguration;
 import com.pulumi.azure.network.outputs.ApplicationGatewayFrontendPort;
 import com.pulumi.azure.network.outputs.ApplicationGatewayGatewayIpConfiguration;
+import com.pulumi.azure.network.outputs.ApplicationGatewayGlobal;
 import com.pulumi.azure.network.outputs.ApplicationGatewayHttpListener;
 import com.pulumi.azure.network.outputs.ApplicationGatewayIdentity;
 import com.pulumi.azure.network.outputs.ApplicationGatewayPrivateEndpointConnection;
@@ -352,6 +353,20 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<List<ApplicationGatewayGatewayIpConfiguration>> gatewayIpConfigurations() {
         return this.gatewayIpConfigurations;
+    }
+    /**
+     * A `global` block as defined below.
+     * 
+     */
+    @Export(name="global", type=ApplicationGatewayGlobal.class, parameters={})
+    private Output</* @Nullable */ ApplicationGatewayGlobal> global;
+
+    /**
+     * @return A `global` block as defined below.
+     * 
+     */
+    public Output<Optional<ApplicationGatewayGlobal>> global() {
+        return Codegen.optional(this.global);
     }
     /**
      * One or more `http_listener` blocks as defined below.

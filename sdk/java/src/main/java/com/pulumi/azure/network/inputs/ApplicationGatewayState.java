@@ -11,6 +11,7 @@ import com.pulumi.azure.network.inputs.ApplicationGatewayCustomErrorConfiguratio
 import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendIpConfigurationArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayFrontendPortArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayGatewayIpConfigurationArgs;
+import com.pulumi.azure.network.inputs.ApplicationGatewayGlobalArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayHttpListenerArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayIdentityArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayPrivateEndpointConnectionArgs;
@@ -220,6 +221,21 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
      */
     public Optional<Output<List<ApplicationGatewayGatewayIpConfigurationArgs>>> gatewayIpConfigurations() {
         return Optional.ofNullable(this.gatewayIpConfigurations);
+    }
+
+    /**
+     * A `global` block as defined below.
+     * 
+     */
+    @Import(name="global")
+    private @Nullable Output<ApplicationGatewayGlobalArgs> global;
+
+    /**
+     * @return A `global` block as defined below.
+     * 
+     */
+    public Optional<Output<ApplicationGatewayGlobalArgs>> global() {
+        return Optional.ofNullable(this.global);
     }
 
     /**
@@ -552,6 +568,7 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
         this.frontendIpConfigurations = $.frontendIpConfigurations;
         this.frontendPorts = $.frontendPorts;
         this.gatewayIpConfigurations = $.gatewayIpConfigurations;
+        this.global = $.global;
         this.httpListeners = $.httpListeners;
         this.identity = $.identity;
         this.location = $.location;
@@ -913,6 +930,27 @@ public final class ApplicationGatewayState extends com.pulumi.resources.Resource
          */
         public Builder gatewayIpConfigurations(ApplicationGatewayGatewayIpConfigurationArgs... gatewayIpConfigurations) {
             return gatewayIpConfigurations(List.of(gatewayIpConfigurations));
+        }
+
+        /**
+         * @param global A `global` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder global(@Nullable Output<ApplicationGatewayGlobalArgs> global) {
+            $.global = global;
+            return this;
+        }
+
+        /**
+         * @param global A `global` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder global(ApplicationGatewayGlobalArgs global) {
+            return global(Output.of(global));
         }
 
         /**

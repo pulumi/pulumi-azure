@@ -387,7 +387,7 @@ class DataFlow(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"))
-        example1 = azure.datafactory.DatasetJson("example1",
+        example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -396,7 +396,7 @@ class DataFlow(pulumi.CustomResource):
                 filename="foo.txt",
             ),
             encoding="UTF-8")
-        example2 = azure.datafactory.DatasetJson("example2",
+        example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -405,18 +405,82 @@ class DataFlow(pulumi.CustomResource):
                 filename="bar.txt",
             ),
             encoding="UTF-8")
+        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
+            data_factory_id=azurerm_data_factory["test"]["id"],
+            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+                name="source1",
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+                name="sink1",
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            script=\"\"\"source(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          limit: 100, 
+          ignoreNoFilesFound: false, 
+          documentForm: 'documentPerLine') ~> source1 
+        source1 sink(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          skipDuplicateMapInputs: true, 
+          skipDuplicateMapOutputs: true) ~> sink1
+        \"\"\")
+        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
+            data_factory_id=azurerm_data_factory["test"]["id"],
+            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+                name="source1",
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+                name="sink1",
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            script=\"\"\"source(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          limit: 100, 
+          ignoreNoFilesFound: false, 
+          documentForm: 'documentPerLine') ~> source1 
+        source1 sink(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          skipDuplicateMapInputs: true, 
+          skipDuplicateMapOutputs: true) ~> sink1
+        \"\"\")
         example_data_flow = azure.datafactory.DataFlow("exampleDataFlow",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.DataFlowSourceArgs(
                 name="source1",
+                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
+                    name=example1_flowlet_data_flow.name,
+                    parameters={
+                        "Key1": "value1",
+                    },
+                ),
                 dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
+                    name=example1_dataset_json.name,
                 ),
             )],
             sinks=[azure.datafactory.DataFlowSinkArgs(
                 name="sink1",
+                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
+                    name=example2_flowlet_data_flow.name,
+                    parameters={
+                        "Key1": "value1",
+                    },
+                ),
                 dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
+                    name=example2_dataset_json.name,
                 ),
             )],
             script=\"\"\"source(
@@ -485,7 +549,7 @@ class DataFlow(pulumi.CustomResource):
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"))
-        example1 = azure.datafactory.DatasetJson("example1",
+        example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -494,7 +558,7 @@ class DataFlow(pulumi.CustomResource):
                 filename="foo.txt",
             ),
             encoding="UTF-8")
-        example2 = azure.datafactory.DatasetJson("example2",
+        example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -503,18 +567,82 @@ class DataFlow(pulumi.CustomResource):
                 filename="bar.txt",
             ),
             encoding="UTF-8")
+        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
+            data_factory_id=azurerm_data_factory["test"]["id"],
+            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+                name="source1",
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+                name="sink1",
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            script=\"\"\"source(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          limit: 100, 
+          ignoreNoFilesFound: false, 
+          documentForm: 'documentPerLine') ~> source1 
+        source1 sink(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          skipDuplicateMapInputs: true, 
+          skipDuplicateMapOutputs: true) ~> sink1
+        \"\"\")
+        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
+            data_factory_id=azurerm_data_factory["test"]["id"],
+            sources=[azure.datafactory.FlowletDataFlowSourceArgs(
+                name="source1",
+                linked_service=azure.datafactory.FlowletDataFlowSourceLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            sinks=[azure.datafactory.FlowletDataFlowSinkArgs(
+                name="sink1",
+                linked_service=azure.datafactory.FlowletDataFlowSinkLinkedServiceArgs(
+                    name=azurerm_data_factory_linked_custom_service["test"]["name"],
+                ),
+            )],
+            script=\"\"\"source(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          limit: 100, 
+          ignoreNoFilesFound: false, 
+          documentForm: 'documentPerLine') ~> source1 
+        source1 sink(
+          allowSchemaDrift: true, 
+          validateSchema: false, 
+          skipDuplicateMapInputs: true, 
+          skipDuplicateMapOutputs: true) ~> sink1
+        \"\"\")
         example_data_flow = azure.datafactory.DataFlow("exampleDataFlow",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.DataFlowSourceArgs(
                 name="source1",
+                flowlet=azure.datafactory.DataFlowSourceFlowletArgs(
+                    name=example1_flowlet_data_flow.name,
+                    parameters={
+                        "Key1": "value1",
+                    },
+                ),
                 dataset=azure.datafactory.DataFlowSourceDatasetArgs(
-                    name=example1.name,
+                    name=example1_dataset_json.name,
                 ),
             )],
             sinks=[azure.datafactory.DataFlowSinkArgs(
                 name="sink1",
+                flowlet=azure.datafactory.DataFlowSinkFlowletArgs(
+                    name=example2_flowlet_data_flow.name,
+                    parameters={
+                        "Key1": "value1",
+                    },
+                ),
                 dataset=azure.datafactory.DataFlowSinkDatasetArgs(
-                    name=example2.name,
+                    name=example2_dataset_json.name,
                 ),
             )],
             script=\"\"\"source(

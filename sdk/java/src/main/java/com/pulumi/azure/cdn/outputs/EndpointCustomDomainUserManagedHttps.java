@@ -12,10 +12,19 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EndpointCustomDomainUserManagedHttps {
     /**
-     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate.
+     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
+     * 
+     * @deprecated
+     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
      * 
      */
-    private final String keyVaultCertificateId;
+    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
+    private final @Nullable String keyVaultCertificateId;
+    /**
+     * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
+     * 
+     */
+    private final @Nullable String keyVaultSecretId;
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
      * 
@@ -24,18 +33,31 @@ public final class EndpointCustomDomainUserManagedHttps {
 
     @CustomType.Constructor
     private EndpointCustomDomainUserManagedHttps(
-        @CustomType.Parameter("keyVaultCertificateId") String keyVaultCertificateId,
+        @CustomType.Parameter("keyVaultCertificateId") @Nullable String keyVaultCertificateId,
+        @CustomType.Parameter("keyVaultSecretId") @Nullable String keyVaultSecretId,
         @CustomType.Parameter("tlsVersion") @Nullable String tlsVersion) {
         this.keyVaultCertificateId = keyVaultCertificateId;
+        this.keyVaultSecretId = keyVaultSecretId;
         this.tlsVersion = tlsVersion;
     }
 
     /**
-     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate.
+     * @return The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
+     * 
+     * @deprecated
+     * This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
      * 
      */
-    public String keyVaultCertificateId() {
-        return this.keyVaultCertificateId;
+    @Deprecated /* This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate */
+    public Optional<String> keyVaultCertificateId() {
+        return Optional.ofNullable(this.keyVaultCertificateId);
+    }
+    /**
+     * @return The ID of the Key Vault Secret that contains the HTTPS certificate.
+     * 
+     */
+    public Optional<String> keyVaultSecretId() {
+        return Optional.ofNullable(this.keyVaultSecretId);
     }
     /**
      * @return The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
@@ -54,7 +76,8 @@ public final class EndpointCustomDomainUserManagedHttps {
     }
 
     public static final class Builder {
-        private String keyVaultCertificateId;
+        private @Nullable String keyVaultCertificateId;
+        private @Nullable String keyVaultSecretId;
         private @Nullable String tlsVersion;
 
         public Builder() {
@@ -64,18 +87,23 @@ public final class EndpointCustomDomainUserManagedHttps {
         public Builder(EndpointCustomDomainUserManagedHttps defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
+    	      this.keyVaultSecretId = defaults.keyVaultSecretId;
     	      this.tlsVersion = defaults.tlsVersion;
         }
 
-        public Builder keyVaultCertificateId(String keyVaultCertificateId) {
-            this.keyVaultCertificateId = Objects.requireNonNull(keyVaultCertificateId);
+        public Builder keyVaultCertificateId(@Nullable String keyVaultCertificateId) {
+            this.keyVaultCertificateId = keyVaultCertificateId;
+            return this;
+        }
+        public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
+            this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
         public Builder tlsVersion(@Nullable String tlsVersion) {
             this.tlsVersion = tlsVersion;
             return this;
         }        public EndpointCustomDomainUserManagedHttps build() {
-            return new EndpointCustomDomainUserManagedHttps(keyVaultCertificateId, tlsVersion);
+            return new EndpointCustomDomainUserManagedHttps(keyVaultCertificateId, keyVaultSecretId, tlsVersion);
         }
     }
 }

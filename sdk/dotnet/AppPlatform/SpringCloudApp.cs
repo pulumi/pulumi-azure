@@ -105,6 +105,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<Outputs.SpringCloudAppPersistentDisk> PersistentDisk { get; private set; } = null!;
 
         /// <summary>
+        /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        /// </summary>
+        [Output("publicEndpointEnabled")]
+        public Output<bool?> PublicEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Output("resourceGroupName")]
@@ -223,6 +229,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<Inputs.SpringCloudAppPersistentDiskArgs>? PersistentDisk { get; set; }
 
         /// <summary>
+        /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        /// </summary>
+        [Input("publicEndpointEnabled")]
+        public Input<bool>? PublicEndpointEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -301,6 +313,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("persistentDisk")]
         public Input<Inputs.SpringCloudAppPersistentDiskGetArgs>? PersistentDisk { get; set; }
+
+        /// <summary>
+        /// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+        /// </summary>
+        [Input("publicEndpointEnabled")]
+        public Input<bool>? PublicEndpointEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.

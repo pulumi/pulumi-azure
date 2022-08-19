@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.outputs;
 
 import com.pulumi.azure.datafactory.outputs.DataFlowTransformationDataset;
+import com.pulumi.azure.datafactory.outputs.DataFlowTransformationFlowlet;
 import com.pulumi.azure.datafactory.outputs.DataFlowTransformationLinkedService;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -24,6 +25,11 @@ public final class DataFlowTransformation {
      */
     private final @Nullable String description;
     /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    private final @Nullable DataFlowTransformationFlowlet flowlet;
+    /**
      * @return A `linked_service` block as defined below.
      * 
      */
@@ -38,10 +44,12 @@ public final class DataFlowTransformation {
     private DataFlowTransformation(
         @CustomType.Parameter("dataset") @Nullable DataFlowTransformationDataset dataset,
         @CustomType.Parameter("description") @Nullable String description,
+        @CustomType.Parameter("flowlet") @Nullable DataFlowTransformationFlowlet flowlet,
         @CustomType.Parameter("linkedService") @Nullable DataFlowTransformationLinkedService linkedService,
         @CustomType.Parameter("name") String name) {
         this.dataset = dataset;
         this.description = description;
+        this.flowlet = flowlet;
         this.linkedService = linkedService;
         this.name = name;
     }
@@ -59,6 +67,13 @@ public final class DataFlowTransformation {
      */
     public Optional<String> description() {
         return Optional.ofNullable(this.description);
+    }
+    /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    public Optional<DataFlowTransformationFlowlet> flowlet() {
+        return Optional.ofNullable(this.flowlet);
     }
     /**
      * @return A `linked_service` block as defined below.
@@ -86,6 +101,7 @@ public final class DataFlowTransformation {
     public static final class Builder {
         private @Nullable DataFlowTransformationDataset dataset;
         private @Nullable String description;
+        private @Nullable DataFlowTransformationFlowlet flowlet;
         private @Nullable DataFlowTransformationLinkedService linkedService;
         private String name;
 
@@ -97,6 +113,7 @@ public final class DataFlowTransformation {
     	      Objects.requireNonNull(defaults);
     	      this.dataset = defaults.dataset;
     	      this.description = defaults.description;
+    	      this.flowlet = defaults.flowlet;
     	      this.linkedService = defaults.linkedService;
     	      this.name = defaults.name;
         }
@@ -109,6 +126,10 @@ public final class DataFlowTransformation {
             this.description = description;
             return this;
         }
+        public Builder flowlet(@Nullable DataFlowTransformationFlowlet flowlet) {
+            this.flowlet = flowlet;
+            return this;
+        }
         public Builder linkedService(@Nullable DataFlowTransformationLinkedService linkedService) {
             this.linkedService = linkedService;
             return this;
@@ -117,7 +138,7 @@ public final class DataFlowTransformation {
             this.name = Objects.requireNonNull(name);
             return this;
         }        public DataFlowTransformation build() {
-            return new DataFlowTransformation(dataset, description, linkedService, name);
+            return new DataFlowTransformation(dataset, description, flowlet, linkedService, name);
         }
     }
 }

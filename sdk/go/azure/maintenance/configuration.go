@@ -37,7 +37,7 @@ import (
 //			_, err = maintenance.NewConfiguration(ctx, "exampleConfiguration", &maintenance.ConfigurationArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				Scope:             pulumi.String("All"),
+//				Scope:             pulumi.String("SQLDB"),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("prod"),
 //				},
@@ -71,8 +71,8 @@ type Configuration struct {
 	Properties pulumi.StringMapOutput `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
-	Scope pulumi.StringPtrOutput `pulumi:"scope"`
+	// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
+	Scope pulumi.StringOutput `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
@@ -90,6 +90,9 @@ func NewConfiguration(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	var resource Configuration
 	err := ctx.RegisterResource("azure:maintenance/configuration:Configuration", name, args, &resource, opts...)
@@ -121,7 +124,7 @@ type configurationState struct {
 	Properties map[string]string `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
 	Scope *string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
@@ -140,7 +143,7 @@ type ConfigurationState struct {
 	Properties pulumi.StringMapInput
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+	// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
 	Scope pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
@@ -163,8 +166,8 @@ type configurationArgs struct {
 	Properties map[string]string `pulumi:"properties"`
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
-	Scope *string `pulumi:"scope"`
+	// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
+	Scope string `pulumi:"scope"`
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags map[string]string `pulumi:"tags"`
 	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
@@ -183,8 +186,8 @@ type ConfigurationArgs struct {
 	Properties pulumi.StringMapInput
 	// The name of the Resource Group where the Maintenance Configuration should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
-	Scope pulumi.StringPtrInput
+	// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
+	Scope pulumi.StringInput
 	// A mapping of tags to assign to the resource. The key could not contain upper case letter.
 	Tags pulumi.StringMapInput
 	// The visibility of the Maintenance Configuration. The only allowable value is `Custom`.
@@ -300,9 +303,9 @@ func (o ConfigurationOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
-func (o ConfigurationOutput) Scope() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Scope }).(pulumi.StringPtrOutput)
+// The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
+func (o ConfigurationOutput) Scope() pulumi.StringOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Scope }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource. The key could not contain upper case letter.

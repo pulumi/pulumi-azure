@@ -30,7 +30,7 @@ public final class ManagementPolicyRule {
      */
     private final @Nullable ManagementPolicyRuleFilters filters;
     /**
-     * @return A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+     * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
      */
     private final String name;
@@ -69,7 +69,7 @@ public final class ManagementPolicyRule {
         return Optional.ofNullable(this.filters);
     }
     /**
-     * @return A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+     * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
      */
     public String name() {

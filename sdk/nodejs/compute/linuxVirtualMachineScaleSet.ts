@@ -161,7 +161,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     public readonly encryptionAtHostEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     public readonly evictionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -504,7 +504,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**
@@ -712,7 +712,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     encryptionAtHostEnabled?: pulumi.Input<boolean>;
     /**
-     * The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+     * Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
      */
     evictionPolicy?: pulumi.Input<string>;
     /**

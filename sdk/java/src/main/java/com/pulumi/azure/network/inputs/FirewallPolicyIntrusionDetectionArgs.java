@@ -34,6 +34,21 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
     }
 
     /**
+     * A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+     * 
+     */
+    @Import(name="privateRanges")
+    private @Nullable Output<List<String>> privateRanges;
+
+    /**
+     * @return A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+     * 
+     */
+    public Optional<Output<List<String>>> privateRanges() {
+        return Optional.ofNullable(this.privateRanges);
+    }
+
+    /**
      * One or more `signature_overrides` blocks as defined below.
      * 
      */
@@ -67,6 +82,7 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
 
     private FirewallPolicyIntrusionDetectionArgs(FirewallPolicyIntrusionDetectionArgs $) {
         this.mode = $.mode;
+        this.privateRanges = $.privateRanges;
         this.signatureOverrides = $.signatureOverrides;
         this.trafficBypasses = $.trafficBypasses;
     }
@@ -108,6 +124,37 @@ public final class FirewallPolicyIntrusionDetectionArgs extends com.pulumi.resou
          */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
+        }
+
+        /**
+         * @param privateRanges A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateRanges(@Nullable Output<List<String>> privateRanges) {
+            $.privateRanges = privateRanges;
+            return this;
+        }
+
+        /**
+         * @param privateRanges A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateRanges(List<String> privateRanges) {
+            return privateRanges(Output.of(privateRanges));
+        }
+
+        /**
+         * @param privateRanges A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateRanges(String... privateRanges) {
+            return privateRanges(List.of(privateRanges));
         }
 
         /**

@@ -20,6 +20,21 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     public static final AnalyticsWorkspaceState Empty = new AnalyticsWorkspaceState();
 
     /**
+     * Is Customer Managed Storage mandatory for query management?
+     * 
+     */
+    @Import(name="cmkForQueryForced")
+    private @Nullable Output<Boolean> cmkForQueryForced;
+
+    /**
+     * @return Is Customer Managed Storage mandatory for query management?
+     * 
+     */
+    public Optional<Output<Boolean>> cmkForQueryForced() {
+        return Optional.ofNullable(this.cmkForQueryForced);
+    }
+
+    /**
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      * 
      */
@@ -209,6 +224,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     private AnalyticsWorkspaceState() {}
 
     private AnalyticsWorkspaceState(AnalyticsWorkspaceState $) {
+        this.cmkForQueryForced = $.cmkForQueryForced;
         this.dailyQuotaGb = $.dailyQuotaGb;
         this.internetIngestionEnabled = $.internetIngestionEnabled;
         this.internetQueryEnabled = $.internetQueryEnabled;
@@ -240,6 +256,27 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
 
         public Builder(AnalyticsWorkspaceState defaults) {
             $ = new AnalyticsWorkspaceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cmkForQueryForced Is Customer Managed Storage mandatory for query management?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmkForQueryForced(@Nullable Output<Boolean> cmkForQueryForced) {
+            $.cmkForQueryForced = cmkForQueryForced;
+            return this;
+        }
+
+        /**
+         * @param cmkForQueryForced Is Customer Managed Storage mandatory for query management?
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmkForQueryForced(Boolean cmkForQueryForced) {
+            return cmkForQueryForced(Output.of(cmkForQueryForced));
         }
 
         /**

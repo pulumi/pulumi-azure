@@ -129,6 +129,13 @@ namespace Pulumi.Azure.Compute
         /// A `identity` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetIdentityResult> Identities;
+        /// <summary>
+        /// A list of `instances` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVirtualMachineScaleSetInstanceResult> Instances;
+        /// <summary>
+        /// The Azure Region in which this Virtual Machine Scale Set exists.
+        /// </summary>
         public readonly string Location;
         /// <summary>
         /// The name of the public IP address configuration
@@ -146,6 +153,8 @@ namespace Pulumi.Azure.Compute
 
             ImmutableArray<Outputs.GetVirtualMachineScaleSetIdentityResult> identities,
 
+            ImmutableArray<Outputs.GetVirtualMachineScaleSetInstanceResult> instances,
+
             string location,
 
             string name,
@@ -156,6 +165,7 @@ namespace Pulumi.Azure.Compute
         {
             Id = id;
             Identities = identities;
+            Instances = instances;
             Location = location;
             Name = name;
             NetworkInterfaces = networkInterfaces;

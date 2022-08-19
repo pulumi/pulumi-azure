@@ -73,6 +73,12 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> AcceleratedNetworkSupportEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("architecture")]
+        public Output<string?> Architecture { get; private set; } = null!;
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Output("description")]
@@ -251,6 +257,12 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
 
         /// <summary>
+        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("architecture")]
+        public Input<string>? Architecture { get; set; }
+
+        /// <summary>
         /// A description of this Shared Image.
         /// </summary>
         [Input("description")]
@@ -401,6 +413,12 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("acceleratedNetworkSupportEnabled")]
         public Input<bool>? AcceleratedNetworkSupportEnabled { get; set; }
+
+        /// <summary>
+        /// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("architecture")]
+        public Input<string>? Architecture { get; set; }
 
         /// <summary>
         /// A description of this Shared Image.

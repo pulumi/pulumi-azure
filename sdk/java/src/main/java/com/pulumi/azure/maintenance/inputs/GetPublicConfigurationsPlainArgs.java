@@ -45,14 +45,14 @@ public final class GetPublicConfigurationsPlainArgs extends com.pulumi.resources
     }
 
     /**
-     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      * 
      */
     @Import(name="scope")
     private @Nullable String scope;
 
     /**
-     * @return The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * @return The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      * 
      */
     public Optional<String> scope() {
@@ -108,7 +108,7 @@ public final class GetPublicConfigurationsPlainArgs extends com.pulumi.resources
         }
 
         /**
-         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
          * 
          * @return builder
          * 

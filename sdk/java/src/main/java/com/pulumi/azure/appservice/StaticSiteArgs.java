@@ -17,9 +17,17 @@ public final class StaticSiteArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final StaticSiteArgs Empty = new StaticSiteArgs();
 
+    /**
+     * An `identity` block as defined below.
+     * 
+     */
     @Import(name="identity")
     private @Nullable Output<StaticSiteIdentityArgs> identity;
 
+    /**
+     * @return An `identity` block as defined below.
+     * 
+     */
     public Optional<Output<StaticSiteIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
     }
@@ -144,11 +152,23 @@ public final class StaticSiteArgs extends com.pulumi.resources.ResourceArgs {
             $ = new StaticSiteArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(@Nullable Output<StaticSiteIdentityArgs> identity) {
             $.identity = identity;
             return this;
         }
 
+        /**
+         * @param identity An `identity` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder identity(StaticSiteIdentityArgs identity) {
             return identity(Output.of(identity));
         }

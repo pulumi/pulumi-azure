@@ -80,6 +80,8 @@ type SharedImage struct {
 
 	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrOutput `pulumi:"acceleratedNetworkSupportEnabled"`
+	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+	Architecture pulumi.StringPtrOutput `pulumi:"architecture"`
 	// A description of this Shared Image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -167,6 +169,8 @@ func GetSharedImage(ctx *pulumi.Context,
 type sharedImageState struct {
 	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
+	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+	Architecture *string `pulumi:"architecture"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -214,6 +218,8 @@ type sharedImageState struct {
 type SharedImageState struct {
 	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
+	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+	Architecture pulumi.StringPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -265,6 +271,8 @@ func (SharedImageState) ElementType() reflect.Type {
 type sharedImageArgs struct {
 	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled *bool `pulumi:"acceleratedNetworkSupportEnabled"`
+	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+	Architecture *string `pulumi:"architecture"`
 	// A description of this Shared Image.
 	Description *string `pulumi:"description"`
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -313,6 +321,8 @@ type sharedImageArgs struct {
 type SharedImageArgs struct {
 	// Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 	AcceleratedNetworkSupportEnabled pulumi.BoolPtrInput
+	// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+	Architecture pulumi.StringPtrInput
 	// A description of this Shared Image.
 	Description pulumi.StringPtrInput
 	// One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
@@ -447,6 +457,11 @@ func (o SharedImageOutput) ToSharedImageOutputWithContext(ctx context.Context) S
 // Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
 func (o SharedImageOutput) AcceleratedNetworkSupportEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.AcceleratedNetworkSupportEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+func (o SharedImageOutput) Architecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImage) pulumi.StringPtrOutput { return v.Architecture }).(pulumi.StringPtrOutput)
 }
 
 // A description of this Shared Image.

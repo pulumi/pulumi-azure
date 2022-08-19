@@ -372,6 +372,8 @@ class PoolContainerConfigurationContainerRegistry(dict):
         suggest = None
         if key == "registryServer":
             suggest = "registry_server"
+        elif key == "userAssignedIdentityId":
+            suggest = "user_assigned_identity_id"
         elif key == "userName":
             suggest = "user_name"
 
@@ -387,25 +389,24 @@ class PoolContainerConfigurationContainerRegistry(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 password: str,
                  registry_server: str,
-                 user_name: str):
+                 password: Optional[str] = None,
+                 user_assigned_identity_id: Optional[str] = None,
+                 user_name: Optional[str] = None):
         """
-        :param str password: The password to log into the registry server. Changing this forces a new resource to be created.
         :param str registry_server: The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
+        :param str password: The password to log into the registry server. Changing this forces a new resource to be created.
+        :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+               ---
         :param str user_name: The user name to log into the registry server. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "registry_server", registry_server)
-        pulumi.set(__self__, "user_name", user_name)
-
-    @property
-    @pulumi.getter
-    def password(self) -> str:
-        """
-        The password to log into the registry server. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "password")
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @property
     @pulumi.getter(name="registryServer")
@@ -416,8 +417,25 @@ class PoolContainerConfigurationContainerRegistry(dict):
         return pulumi.get(self, "registry_server")
 
     @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        The password to log into the registry server. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[str]:
+        """
+        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        ---
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @property
     @pulumi.getter(name="userName")
-    def user_name(self) -> str:
+    def user_name(self) -> Optional[str]:
         """
         The user name to log into the registry server. Changing this forces a new resource to be created.
         """
@@ -1295,14 +1313,17 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
     def __init__(__self__, *,
                  password: str,
                  registry_server: str,
+                 user_assigned_identity_id: str,
                  user_name: str):
         """
         :param str password: The password to log into the registry server.
         :param str registry_server: The container registry URL. The default is "docker.io".
+        :param str user_assigned_identity_id: The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
         :param str user_name: The user name to log into the registry server.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "registry_server", registry_server)
+        pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
         pulumi.set(__self__, "user_name", user_name)
 
     @property
@@ -1320,6 +1341,14 @@ class GetPoolContainerConfigurationContainerRegistryResult(dict):
         The container registry URL. The default is "docker.io".
         """
         return pulumi.get(self, "registry_server")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> str:
+        """
+        The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
 
     @property
     @pulumi.getter(name="userName")

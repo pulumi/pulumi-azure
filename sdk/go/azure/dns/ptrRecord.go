@@ -73,13 +73,13 @@ type PtrRecord struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
@@ -130,13 +130,13 @@ type ptrRecordState struct {
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
@@ -147,13 +147,13 @@ type PtrRecordState struct {
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
 
@@ -166,13 +166,13 @@ type ptrRecordArgs struct {
 	Name *string `pulumi:"name"`
 	// List of Fully Qualified Domain Names.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
 
@@ -182,13 +182,13 @@ type PtrRecordArgs struct {
 	Name pulumi.StringPtrInput
 	// List of Fully Qualified Domain Names.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
 
@@ -294,7 +294,7 @@ func (o PtrRecordOutput) Records() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.StringArrayOutput { return v.Records }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 func (o PtrRecordOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -309,7 +309,7 @@ func (o PtrRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }
 
-// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 func (o PtrRecordOutput) ZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *PtrRecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }
