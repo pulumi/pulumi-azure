@@ -6,6 +6,7 @@ package com.pulumi.azure.appplatform;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.appplatform.SpringCloudGatewayRouteConfigArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigState;
+import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayRouteConfigOpenApi;
 import com.pulumi.azure.appplatform.outputs.SpringCloudGatewayRouteConfigRoute;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -119,6 +120,20 @@ public class SpringCloudGatewayRouteConfig extends com.pulumi.resources.CustomRe
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * One or more `open_api` blocks as defined below.
+     * 
+     */
+    @Export(name="openApi", type=SpringCloudGatewayRouteConfigOpenApi.class, parameters={})
+    private Output</* @Nullable */ SpringCloudGatewayRouteConfigOpenApi> openApi;
+
+    /**
+     * @return One or more `open_api` blocks as defined below.
+     * 
+     */
+    public Output<Optional<SpringCloudGatewayRouteConfigOpenApi>> openApi() {
+        return Codegen.optional(this.openApi);
     }
     /**
      * One or more `route` blocks as defined below.

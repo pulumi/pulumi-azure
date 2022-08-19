@@ -10,6 +10,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -33,6 +34,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> accountEndpoint() {
         return Optional.ofNullable(this.accountEndpoint);
+    }
+
+    /**
+     * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     * 
+     */
+    @Import(name="allowedAuthenticationModes")
+    private @Nullable Output<List<String>> allowedAuthenticationModes;
+
+    /**
+     * @return Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     * 
+     */
+    public Optional<Output<List<String>>> allowedAuthenticationModes() {
+        return Optional.ofNullable(this.allowedAuthenticationModes);
     }
 
     /**
@@ -186,6 +202,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     * 
+     */
+    @Import(name="storageAccountAuthenticationMode")
+    private @Nullable Output<String> storageAccountAuthenticationMode;
+
+    /**
+     * @return Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     * 
+     */
+    public Optional<Output<String>> storageAccountAuthenticationMode() {
+        return Optional.ofNullable(this.storageAccountAuthenticationMode);
+    }
+
+    /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
      */
@@ -198,6 +229,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> storageAccountId() {
         return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * Specifies the user assigned identity for the storage account.
+     * 
+     */
+    @Import(name="storageAccountNodeIdentity")
+    private @Nullable Output<String> storageAccountNodeIdentity;
+
+    /**
+     * @return Specifies the user assigned identity for the storage account.
+     * 
+     */
+    public Optional<Output<String>> storageAccountNodeIdentity() {
+        return Optional.ofNullable(this.storageAccountNodeIdentity);
     }
 
     /**
@@ -219,6 +265,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
 
     private AccountState(AccountState $) {
         this.accountEndpoint = $.accountEndpoint;
+        this.allowedAuthenticationModes = $.allowedAuthenticationModes;
         this.encryption = $.encryption;
         this.identity = $.identity;
         this.keyVaultReference = $.keyVaultReference;
@@ -229,7 +276,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.secondaryAccessKey = $.secondaryAccessKey;
+        this.storageAccountAuthenticationMode = $.storageAccountAuthenticationMode;
         this.storageAccountId = $.storageAccountId;
+        this.storageAccountNodeIdentity = $.storageAccountNodeIdentity;
         this.tags = $.tags;
     }
 
@@ -270,6 +319,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder accountEndpoint(String accountEndpoint) {
             return accountEndpoint(Output.of(accountEndpoint));
+        }
+
+        /**
+         * @param allowedAuthenticationModes Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedAuthenticationModes(@Nullable Output<List<String>> allowedAuthenticationModes) {
+            $.allowedAuthenticationModes = allowedAuthenticationModes;
+            return this;
+        }
+
+        /**
+         * @param allowedAuthenticationModes Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedAuthenticationModes(List<String> allowedAuthenticationModes) {
+            return allowedAuthenticationModes(Output.of(allowedAuthenticationModes));
+        }
+
+        /**
+         * @param allowedAuthenticationModes Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedAuthenticationModes(String... allowedAuthenticationModes) {
+            return allowedAuthenticationModes(List.of(allowedAuthenticationModes));
         }
 
         /**
@@ -483,6 +563,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param storageAccountAuthenticationMode Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountAuthenticationMode(@Nullable Output<String> storageAccountAuthenticationMode) {
+            $.storageAccountAuthenticationMode = storageAccountAuthenticationMode;
+            return this;
+        }
+
+        /**
+         * @param storageAccountAuthenticationMode Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountAuthenticationMode(String storageAccountAuthenticationMode) {
+            return storageAccountAuthenticationMode(Output.of(storageAccountAuthenticationMode));
+        }
+
+        /**
          * @param storageAccountId Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
          * 
          * @return builder
@@ -501,6 +602,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageAccountId(String storageAccountId) {
             return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param storageAccountNodeIdentity Specifies the user assigned identity for the storage account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountNodeIdentity(@Nullable Output<String> storageAccountNodeIdentity) {
+            $.storageAccountNodeIdentity = storageAccountNodeIdentity;
+            return this;
+        }
+
+        /**
+         * @param storageAccountNodeIdentity Specifies the user assigned identity for the storage account.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountNodeIdentity(String storageAccountNodeIdentity) {
+            return storageAccountNodeIdentity(Output.of(storageAccountNodeIdentity));
         }
 
         /**

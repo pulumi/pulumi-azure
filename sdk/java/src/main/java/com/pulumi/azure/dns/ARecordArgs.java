@@ -79,14 +79,14 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     @Import(name="targetResourceId")
     private @Nullable Output<String> targetResourceId;
 
     /**
-     * @return The Azure resource id of the target object. Conflicts with `records`
+     * @return The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     public Optional<Output<String>> targetResourceId() {
@@ -248,7 +248,7 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`
+         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ARecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`
+         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`.
          * 
          * @return builder
          * 

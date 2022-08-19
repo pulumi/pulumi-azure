@@ -50,7 +50,7 @@ namespace Pulumi.Azure.DataFactory
     /// "),
     ///     });
     /// 
-    ///     var example1 = new Azure.DataFactory.DatasetJson("example1", new()
+    ///     var example1DatasetJson = new Azure.DataFactory.DatasetJson("example1DatasetJson", new()
     ///     {
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedCustomService.Name,
@@ -63,7 +63,7 @@ namespace Pulumi.Azure.DataFactory
     ///         Encoding = "UTF-8",
     ///     });
     /// 
-    ///     var example2 = new Azure.DataFactory.DatasetJson("example2", new()
+    ///     var example2DatasetJson = new Azure.DataFactory.DatasetJson("example2DatasetJson", new()
     ///     {
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedCustomService.Name,
@@ -76,6 +76,84 @@ namespace Pulumi.Azure.DataFactory
     ///         Encoding = "UTF-8",
     ///     });
     /// 
+    ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1FlowletDataFlow", new()
+    ///     {
+    ///         DataFactoryId = azurerm_data_factory.Test.Id,
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 Name = "source1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
+    ///             {
+    ///                 Name = "sink1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
+    ///                 {
+    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Script = @"source(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   limit: 100, 
+    ///   ignoreNoFilesFound: false, 
+    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    /// source1 sink(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   skipDuplicateMapInputs: true, 
+    ///   skipDuplicateMapOutputs: true) ~&gt; sink1
+    /// ",
+    ///     });
+    /// 
+    ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2FlowletDataFlow", new()
+    ///     {
+    ///         DataFactoryId = azurerm_data_factory.Test.Id,
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSourceArgs
+    ///             {
+    ///                 Name = "source1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSourceLinkedServiceArgs
+    ///                 {
+    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sinks = new[]
+    ///         {
+    ///             new Azure.DataFactory.Inputs.FlowletDataFlowSinkArgs
+    ///             {
+    ///                 Name = "sink1",
+    ///                 LinkedService = new Azure.DataFactory.Inputs.FlowletDataFlowSinkLinkedServiceArgs
+    ///                 {
+    ///                     Name = azurerm_data_factory_linked_custom_service.Test.Name,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Script = @"source(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   limit: 100, 
+    ///   ignoreNoFilesFound: false, 
+    ///   documentForm: 'documentPerLine') ~&gt; source1 
+    /// source1 sink(
+    ///   allowSchemaDrift: true, 
+    ///   validateSchema: false, 
+    ///   skipDuplicateMapInputs: true, 
+    ///   skipDuplicateMapOutputs: true) ~&gt; sink1
+    /// ",
+    ///     });
+    /// 
     ///     var exampleDataFlow = new Azure.DataFactory.DataFlow("exampleDataFlow", new()
     ///     {
     ///         DataFactoryId = exampleFactory.Id,
@@ -84,9 +162,17 @@ namespace Pulumi.Azure.DataFactory
     ///             new Azure.DataFactory.Inputs.DataFlowSourceArgs
     ///             {
     ///                 Name = "source1",
+    ///                 Flowlet = new Azure.DataFactory.Inputs.DataFlowSourceFlowletArgs
+    ///                 {
+    ///                     Name = example1FlowletDataFlow.Name,
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "Key1", "value1" },
+    ///                     },
+    ///                 },
     ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSourceDatasetArgs
     ///                 {
-    ///                     Name = example1.Name,
+    ///                     Name = example1DatasetJson.Name,
     ///                 },
     ///             },
     ///         },
@@ -95,9 +181,17 @@ namespace Pulumi.Azure.DataFactory
     ///             new Azure.DataFactory.Inputs.DataFlowSinkArgs
     ///             {
     ///                 Name = "sink1",
+    ///                 Flowlet = new Azure.DataFactory.Inputs.DataFlowSinkFlowletArgs
+    ///                 {
+    ///                     Name = example2FlowletDataFlow.Name,
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "Key1", "value1" },
+    ///                     },
+    ///                 },
     ///                 Dataset = new Azure.DataFactory.Inputs.DataFlowSinkDatasetArgs
     ///                 {
-    ///                     Name = example2.Name,
+    ///                     Name = example2DatasetJson.Name,
     ///                 },
     ///             },
     ///         },

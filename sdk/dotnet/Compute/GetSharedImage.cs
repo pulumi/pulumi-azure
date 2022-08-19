@@ -127,6 +127,7 @@ namespace Pulumi.Azure.Compute
     [OutputType]
     public sealed class GetSharedImageResult
     {
+        public readonly string Architecture;
         /// <summary>
         /// The description of this Shared Image.
         /// </summary>
@@ -177,6 +178,8 @@ namespace Pulumi.Azure.Compute
 
         [OutputConstructor]
         private GetSharedImageResult(
+            string architecture,
+
             string description,
 
             string eula,
@@ -205,6 +208,7 @@ namespace Pulumi.Azure.Compute
 
             ImmutableDictionary<string, string> tags)
         {
+            Architecture = architecture;
             Description = description;
             Eula = eula;
             GalleryName = galleryName;

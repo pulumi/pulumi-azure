@@ -78,14 +78,14 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * @return The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -253,7 +253,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scope The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+         * @param scope The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class ConfigurationState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param scope The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+         * @param scope The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
          * 
          * @return builder
          * 

@@ -128,7 +128,7 @@ type ARecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
@@ -184,7 +184,7 @@ type arecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
@@ -203,7 +203,7 @@ type ARecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
@@ -224,7 +224,7 @@ type arecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
@@ -242,7 +242,7 @@ type ARecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
@@ -362,7 +362,7 @@ func (o ARecordOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Azure resource id of the target object. Conflicts with `records`
+// The Azure resource id of the target object. Conflicts with `records`.
 func (o ARecordOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ARecord) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetIdentity;
+import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetInstance;
 import com.pulumi.azure.compute.outputs.GetVirtualMachineScaleSetNetworkInterface;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -22,6 +23,15 @@ public final class GetVirtualMachineScaleSetResult {
      * 
      */
     private final List<GetVirtualMachineScaleSetIdentity> identities;
+    /**
+     * @return A list of `instances` blocks as defined below.
+     * 
+     */
+    private final List<GetVirtualMachineScaleSetInstance> instances;
+    /**
+     * @return The Azure Region in which this Virtual Machine Scale Set exists.
+     * 
+     */
     private final String location;
     /**
      * @return The name of the public IP address configuration
@@ -39,12 +49,14 @@ public final class GetVirtualMachineScaleSetResult {
     private GetVirtualMachineScaleSetResult(
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("identities") List<GetVirtualMachineScaleSetIdentity> identities,
+        @CustomType.Parameter("instances") List<GetVirtualMachineScaleSetInstance> instances,
         @CustomType.Parameter("location") String location,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("networkInterfaces") List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces,
         @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
         this.id = id;
         this.identities = identities;
+        this.instances = instances;
         this.location = location;
         this.name = name;
         this.networkInterfaces = networkInterfaces;
@@ -65,6 +77,17 @@ public final class GetVirtualMachineScaleSetResult {
     public List<GetVirtualMachineScaleSetIdentity> identities() {
         return this.identities;
     }
+    /**
+     * @return A list of `instances` blocks as defined below.
+     * 
+     */
+    public List<GetVirtualMachineScaleSetInstance> instances() {
+        return this.instances;
+    }
+    /**
+     * @return The Azure Region in which this Virtual Machine Scale Set exists.
+     * 
+     */
     public String location() {
         return this.location;
     }
@@ -97,6 +120,7 @@ public final class GetVirtualMachineScaleSetResult {
     public static final class Builder {
         private String id;
         private List<GetVirtualMachineScaleSetIdentity> identities;
+        private List<GetVirtualMachineScaleSetInstance> instances;
         private String location;
         private String name;
         private List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces;
@@ -110,6 +134,7 @@ public final class GetVirtualMachineScaleSetResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
+    	      this.instances = defaults.instances;
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.networkInterfaces = defaults.networkInterfaces;
@@ -126,6 +151,13 @@ public final class GetVirtualMachineScaleSetResult {
         }
         public Builder identities(GetVirtualMachineScaleSetIdentity... identities) {
             return identities(List.of(identities));
+        }
+        public Builder instances(List<GetVirtualMachineScaleSetInstance> instances) {
+            this.instances = Objects.requireNonNull(instances);
+            return this;
+        }
+        public Builder instances(GetVirtualMachineScaleSetInstance... instances) {
+            return instances(List.of(instances));
         }
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
@@ -146,7 +178,7 @@ public final class GetVirtualMachineScaleSetResult {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }        public GetVirtualMachineScaleSetResult build() {
-            return new GetVirtualMachineScaleSetResult(id, identities, location, name, networkInterfaces, resourceGroupName);
+            return new GetVirtualMachineScaleSetResult(id, identities, instances, location, name, networkInterfaces, resourceGroupName);
         }
     }
 }

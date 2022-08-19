@@ -73,6 +73,10 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
     /**
+     * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     */
+    public readonly allowedAuthenticationModes!: pulumi.Output<string[]>;
+    /**
      * Specifies if customer managed key encryption should be used to encrypt batch account data.
      */
     public readonly encryption!: pulumi.Output<outputs.batch.AccountEncryption | undefined>;
@@ -113,9 +117,17 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly secondaryAccessKey!: pulumi.Output<string>;
     /**
+     * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     */
+    public readonly storageAccountAuthenticationMode!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
     public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the user assigned identity for the storage account.
+     */
+    public readonly storageAccountNodeIdentity!: pulumi.Output<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -135,6 +147,7 @@ export class Account extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["accountEndpoint"] = state ? state.accountEndpoint : undefined;
+            resourceInputs["allowedAuthenticationModes"] = state ? state.allowedAuthenticationModes : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["keyVaultReference"] = state ? state.keyVaultReference : undefined;
@@ -145,13 +158,16 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["secondaryAccessKey"] = state ? state.secondaryAccessKey : undefined;
+            resourceInputs["storageAccountAuthenticationMode"] = state ? state.storageAccountAuthenticationMode : undefined;
             resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
+            resourceInputs["storageAccountNodeIdentity"] = state ? state.storageAccountNodeIdentity : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["allowedAuthenticationModes"] = args ? args.allowedAuthenticationModes : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
@@ -160,7 +176,9 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountAuthenticationMode"] = args ? args.storageAccountAuthenticationMode : undefined;
             resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
+            resourceInputs["storageAccountNodeIdentity"] = args ? args.storageAccountNodeIdentity : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["primaryAccessKey"] = undefined /*out*/;
@@ -179,6 +197,10 @@ export interface AccountState {
      * The account endpoint used to interact with the Batch service.
      */
     accountEndpoint?: pulumi.Input<string>;
+    /**
+     * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     */
+    allowedAuthenticationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies if customer managed key encryption should be used to encrypt batch account data.
      */
@@ -220,9 +242,17 @@ export interface AccountState {
      */
     secondaryAccessKey?: pulumi.Input<string>;
     /**
+     * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     */
+    storageAccountAuthenticationMode?: pulumi.Input<string>;
+    /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
     storageAccountId?: pulumi.Input<string>;
+    /**
+     * Specifies the user assigned identity for the storage account.
+     */
+    storageAccountNodeIdentity?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -233,6 +263,10 @@ export interface AccountState {
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
+    /**
+     * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     */
+    allowedAuthenticationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies if customer managed key encryption should be used to encrypt batch account data.
      */
@@ -266,9 +300,17 @@ export interface AccountArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     */
+    storageAccountAuthenticationMode?: pulumi.Input<string>;
+    /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      */
     storageAccountId?: pulumi.Input<string>;
+    /**
+     * Specifies the user assigned identity for the storage account.
+     */
+    storageAccountNodeIdentity?: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource.
      */

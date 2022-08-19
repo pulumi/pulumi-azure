@@ -52,18 +52,30 @@ export interface GetManagementGroupArgs {
  * A collection of values returned by getManagementGroup.
  */
 export interface GetManagementGroupResult {
+    /**
+     * A list of Management Group IDs which directly or indirectly belong to this Management Group.
+     */
+    readonly allManagementGroupIds: string[];
+    /**
+     * A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
+     */
+    readonly allSubscriptionIds: string[];
     readonly displayName: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * A list of Management Group IDs which directly belong to this Management Group.
+     */
+    readonly managementGroupIds: string[];
     readonly name: string;
     /**
      * The ID of any Parent Management Group.
      */
     readonly parentManagementGroupId: string;
     /**
-     * A list of Subscription IDs which are assigned to the Management Group.
+     * A list of Subscription IDs which are directly assigned to this Management Group.
      */
     readonly subscriptionIds: string[];
 }

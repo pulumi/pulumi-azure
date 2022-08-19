@@ -99,9 +99,12 @@ export class AaaaRecord extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     public readonly targetResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     public readonly ttl!: pulumi.Output<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -179,9 +182,12 @@ export interface AaaaRecordState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     targetResourceId?: pulumi.Input<string>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     ttl?: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
@@ -210,9 +216,12 @@ export interface AaaaRecordArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     targetResourceId?: pulumi.Input<string>;
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     */
     ttl: pulumi.Input<number>;
     /**
      * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.

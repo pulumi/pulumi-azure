@@ -37,6 +37,9 @@ export class GroupPolicyRemediation extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly policyAssignmentId!: pulumi.Output<string>;
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     */
     public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
 
     /**
@@ -87,6 +90,9 @@ export interface GroupPolicyRemediationState {
     name?: pulumi.Input<string>;
     policyAssignmentId?: pulumi.Input<string>;
     policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     */
     resourceDiscoveryMode?: pulumi.Input<string>;
 }
 
@@ -99,5 +105,8 @@ export interface GroupPolicyRemediationArgs {
     name?: pulumi.Input<string>;
     policyAssignmentId: pulumi.Input<string>;
     policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * @deprecated `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+     */
     resourceDiscoveryMode?: pulumi.Input<string>;
 }

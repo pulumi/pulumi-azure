@@ -3,11 +3,14 @@
 
 package com.pulumi.azure.automation.inputs;
 
+import com.pulumi.azure.automation.inputs.AccountEncryptionArgs;
 import com.pulumi.azure.automation.inputs.AccountIdentityArgs;
+import com.pulumi.azure.automation.inputs.AccountPrivateEndpointConnectionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -64,6 +67,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * An `encryption` block as defined below.
+     * 
+     */
+    @Import(name="encryptions")
+    private @Nullable Output<List<AccountEncryptionArgs>> encryptions;
+
+    /**
+     * @return An `encryption` block as defined below.
+     * 
+     */
+    public Optional<Output<List<AccountEncryptionArgs>>> encryptions() {
+        return Optional.ofNullable(this.encryptions);
+    }
+
+    /**
      * An `identity` block as defined below.
      * 
      */
@@ -76,6 +94,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<AccountIdentityArgs>> identity() {
         return Optional.ofNullable(this.identity);
+    }
+
+    /**
+     * Whether requests using non-AAD authentication are blocked.
+     * 
+     */
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Whether requests using non-AAD authentication are blocked.
+     * 
+     */
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
     }
 
     /**
@@ -106,6 +139,13 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    @Import(name="privateEndpointConnections")
+    private @Nullable Output<List<AccountPrivateEndpointConnectionArgs>> privateEndpointConnections;
+
+    public Optional<Output<List<AccountPrivateEndpointConnectionArgs>>> privateEndpointConnections() {
+        return Optional.ofNullable(this.privateEndpointConnections);
     }
 
     /**
@@ -174,9 +214,12 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.dscPrimaryAccessKey = $.dscPrimaryAccessKey;
         this.dscSecondaryAccessKey = $.dscSecondaryAccessKey;
         this.dscServerEndpoint = $.dscServerEndpoint;
+        this.encryptions = $.encryptions;
         this.identity = $.identity;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.name = $.name;
+        this.privateEndpointConnections = $.privateEndpointConnections;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.skuName = $.skuName;
@@ -265,6 +308,37 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptions(@Nullable Output<List<AccountEncryptionArgs>> encryptions) {
+            $.encryptions = encryptions;
+            return this;
+        }
+
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptions(List<AccountEncryptionArgs> encryptions) {
+            return encryptions(Output.of(encryptions));
+        }
+
+        /**
+         * @param encryptions An `encryption` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder encryptions(AccountEncryptionArgs... encryptions) {
+            return encryptions(List.of(encryptions));
+        }
+
+        /**
          * @param identity An `identity` block as defined below.
          * 
          * @return builder
@@ -283,6 +357,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(AccountIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        /**
+         * @param localAuthenticationEnabled Whether requests using non-AAD authentication are blocked.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**
@@ -325,6 +420,19 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder privateEndpointConnections(@Nullable Output<List<AccountPrivateEndpointConnectionArgs>> privateEndpointConnections) {
+            $.privateEndpointConnections = privateEndpointConnections;
+            return this;
+        }
+
+        public Builder privateEndpointConnections(List<AccountPrivateEndpointConnectionArgs> privateEndpointConnections) {
+            return privateEndpointConnections(Output.of(privateEndpointConnections));
+        }
+
+        public Builder privateEndpointConnections(AccountPrivateEndpointConnectionArgs... privateEndpointConnections) {
+            return privateEndpointConnections(List.of(privateEndpointConnections));
         }
 
         /**

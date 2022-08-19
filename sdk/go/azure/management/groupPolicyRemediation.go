@@ -14,12 +14,13 @@ import (
 type GroupPolicyRemediation struct {
 	pulumi.CustomResourceState
 
-	LocationFilters       pulumi.StringArrayOutput `pulumi:"locationFilters"`
-	ManagementGroupId     pulumi.StringOutput      `pulumi:"managementGroupId"`
-	Name                  pulumi.StringOutput      `pulumi:"name"`
-	PolicyAssignmentId    pulumi.StringOutput      `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
-	ResourceDiscoveryMode pulumi.StringPtrOutput   `pulumi:"resourceDiscoveryMode"`
+	LocationFilters    pulumi.StringArrayOutput `pulumi:"locationFilters"`
+	ManagementGroupId  pulumi.StringOutput      `pulumi:"managementGroupId"`
+	Name               pulumi.StringOutput      `pulumi:"name"`
+	PolicyAssignmentId pulumi.StringOutput      `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId pulumi.StringPtrOutput   `pulumi:"policyDefinitionId"`
+	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	ResourceDiscoveryMode pulumi.StringPtrOutput `pulumi:"resourceDiscoveryMode"`
 }
 
 // NewGroupPolicyRemediation registers a new resource with the given unique name, arguments, and options.
@@ -57,20 +58,22 @@ func GetGroupPolicyRemediation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupPolicyRemediation resources.
 type groupPolicyRemediationState struct {
-	LocationFilters       []string `pulumi:"locationFilters"`
-	ManagementGroupId     *string  `pulumi:"managementGroupId"`
-	Name                  *string  `pulumi:"name"`
-	PolicyAssignmentId    *string  `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
-	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
+	LocationFilters    []string `pulumi:"locationFilters"`
+	ManagementGroupId  *string  `pulumi:"managementGroupId"`
+	Name               *string  `pulumi:"name"`
+	PolicyAssignmentId *string  `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId *string  `pulumi:"policyDefinitionId"`
+	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 type GroupPolicyRemediationState struct {
-	LocationFilters       pulumi.StringArrayInput
-	ManagementGroupId     pulumi.StringPtrInput
-	Name                  pulumi.StringPtrInput
-	PolicyAssignmentId    pulumi.StringPtrInput
-	PolicyDefinitionId    pulumi.StringPtrInput
+	LocationFilters    pulumi.StringArrayInput
+	ManagementGroupId  pulumi.StringPtrInput
+	Name               pulumi.StringPtrInput
+	PolicyAssignmentId pulumi.StringPtrInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
@@ -79,21 +82,23 @@ func (GroupPolicyRemediationState) ElementType() reflect.Type {
 }
 
 type groupPolicyRemediationArgs struct {
-	LocationFilters       []string `pulumi:"locationFilters"`
-	ManagementGroupId     string   `pulumi:"managementGroupId"`
-	Name                  *string  `pulumi:"name"`
-	PolicyAssignmentId    string   `pulumi:"policyAssignmentId"`
-	PolicyDefinitionId    *string  `pulumi:"policyDefinitionId"`
-	ResourceDiscoveryMode *string  `pulumi:"resourceDiscoveryMode"`
+	LocationFilters    []string `pulumi:"locationFilters"`
+	ManagementGroupId  string   `pulumi:"managementGroupId"`
+	Name               *string  `pulumi:"name"`
+	PolicyAssignmentId string   `pulumi:"policyAssignmentId"`
+	PolicyDefinitionId *string  `pulumi:"policyDefinitionId"`
+	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
+	ResourceDiscoveryMode *string `pulumi:"resourceDiscoveryMode"`
 }
 
 // The set of arguments for constructing a GroupPolicyRemediation resource.
 type GroupPolicyRemediationArgs struct {
-	LocationFilters       pulumi.StringArrayInput
-	ManagementGroupId     pulumi.StringInput
-	Name                  pulumi.StringPtrInput
-	PolicyAssignmentId    pulumi.StringInput
-	PolicyDefinitionId    pulumi.StringPtrInput
+	LocationFilters    pulumi.StringArrayInput
+	ManagementGroupId  pulumi.StringInput
+	Name               pulumi.StringPtrInput
+	PolicyAssignmentId pulumi.StringInput
+	PolicyDefinitionId pulumi.StringPtrInput
+	// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 	ResourceDiscoveryMode pulumi.StringPtrInput
 }
 
@@ -204,6 +209,7 @@ func (o GroupPolicyRemediationOutput) PolicyDefinitionId() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.PolicyDefinitionId }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: `resource_discovery_mode` will be removed in version 4.0 of the AzureRM Provider as evaluating compliance before remediation is only supported at subscription scope and below.
 func (o GroupPolicyRemediationOutput) ResourceDiscoveryMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupPolicyRemediation) pulumi.StringPtrOutput { return v.ResourceDiscoveryMode }).(pulumi.StringPtrOutput)
 }

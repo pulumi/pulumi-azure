@@ -85,6 +85,8 @@ type FirewallPolicy struct {
 	RuleCollectionGroups pulumi.StringArrayOutput `pulumi:"ruleCollectionGroups"`
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringOutput `pulumi:"sku"`
+	// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+	SqlRedirectAllowed pulumi.BoolPtrOutput `pulumi:"sqlRedirectAllowed"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -153,6 +155,8 @@ type firewallPolicyState struct {
 	RuleCollectionGroups []string `pulumi:"ruleCollectionGroups"`
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku *string `pulumi:"sku"`
+	// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+	SqlRedirectAllowed *bool `pulumi:"sqlRedirectAllowed"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -190,6 +194,8 @@ type FirewallPolicyState struct {
 	RuleCollectionGroups pulumi.StringArrayInput
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringPtrInput
+	// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+	SqlRedirectAllowed pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -225,6 +231,8 @@ type firewallPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku *string `pulumi:"sku"`
+	// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+	SqlRedirectAllowed *bool `pulumi:"sqlRedirectAllowed"`
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags map[string]string `pulumi:"tags"`
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -257,6 +265,8 @@ type FirewallPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 	Sku pulumi.StringPtrInput
+	// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+	SqlRedirectAllowed pulumi.BoolPtrInput
 	// A mapping of tags which should be assigned to the Firewall Policy.
 	Tags pulumi.StringMapInput
 	// A `threatIntelligenceAllowlist` block as defined below.
@@ -417,6 +427,11 @@ func (o FirewallPolicyOutput) RuleCollectionGroups() pulumi.StringArrayOutput {
 // The SKU Tier of the Firewall Policy. Possible values are `Standard`, `Premium`. Changing this forces a new Firewall Policy to be created.
 func (o FirewallPolicyOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *FirewallPolicy) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
+}
+
+// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+func (o FirewallPolicyOutput) SqlRedirectAllowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirewallPolicy) pulumi.BoolPtrOutput { return v.SqlRedirectAllowed }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags which should be assigned to the Firewall Policy.

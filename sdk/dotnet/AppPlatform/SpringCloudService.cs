@@ -92,6 +92,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// Should the log stream in vnet injection instance could be accessed from Internet?
+        /// </summary>
+        [Output("logStreamPublicEndpointEnabled")]
+        public Output<bool?> LogStreamPublicEndpointEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -222,6 +228,12 @@ namespace Pulumi.Azure.AppPlatform
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// Should the log stream in vnet injection instance could be accessed from Internet?
+        /// </summary>
+        [Input("logStreamPublicEndpointEnabled")]
+        public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -300,6 +312,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Should the log stream in vnet injection instance could be accessed from Internet?
+        /// </summary>
+        [Input("logStreamPublicEndpointEnabled")]
+        public Input<bool>? LogStreamPublicEndpointEnabled { get; set; }
 
         /// <summary>
         /// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

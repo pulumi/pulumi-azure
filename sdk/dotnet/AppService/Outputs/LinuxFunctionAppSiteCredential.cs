@@ -14,7 +14,7 @@ namespace Pulumi.Azure.AppService.Outputs
     public sealed class LinuxFunctionAppSiteCredential
     {
         /// <summary>
-        /// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+        /// The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         /// </summary>
         public readonly string? Name;
         /// <summary>

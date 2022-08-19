@@ -97,7 +97,7 @@ type AccessPolicy struct {
 	ApplicationId pulumi.StringPtrOutput `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions pulumi.StringArrayOutput `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 	KeyPermissions pulumi.StringArrayOutput `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
@@ -159,7 +159,7 @@ type accessPolicyState struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
@@ -184,7 +184,7 @@ type AccessPolicyState struct {
 	ApplicationId pulumi.StringPtrInput
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions pulumi.StringArrayInput
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 	KeyPermissions pulumi.StringArrayInput
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
@@ -213,7 +213,7 @@ type accessPolicyArgs struct {
 	ApplicationId *string `pulumi:"applicationId"`
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions []string `pulumi:"certificatePermissions"`
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 	KeyPermissions []string `pulumi:"keyPermissions"`
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
@@ -239,7 +239,7 @@ type AccessPolicyArgs struct {
 	ApplicationId pulumi.StringPtrInput
 	// List of certificate permissions, must be one or more from the following: `Backup`, `Create`, `Delete`, `DeleteIssuers`, `Get`, `GetIssuers`, `Import`, `List`, `ListIssuers`, `ManageContacts`, `ManageIssuers`, `Purge`, `Recover`, `Restore`, `SetIssuers` and `Update`.
 	CertificatePermissions pulumi.StringArrayInput
-	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+	// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 	KeyPermissions pulumi.StringArrayInput
 	// Specifies the id of the Key Vault resource. Changing this
 	// forces a new resource to be created.
@@ -356,7 +356,7 @@ func (o AccessPolicyOutput) CertificatePermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringArrayOutput { return v.CertificatePermissions }).(pulumi.StringArrayOutput)
 }
 
-// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify` and `WrapKey`.
+// List of key permissions, must be one or more from the following: `Backup`, `Create`, `Decrypt`, `Delete`, `Encrypt`, `Get`, `Import`, `List`, `Purge`, `Recover`, `Restore`, `Sign`, `UnwrapKey`, `Update`, `Verify`, `WrapKey`, `Release`, `Rotate`, `GetRotationPolicy`, and `SetRotationPolicy`.
 func (o AccessPolicyOutput) KeyPermissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccessPolicy) pulumi.StringArrayOutput { return v.KeyPermissions }).(pulumi.StringArrayOutput)
 }

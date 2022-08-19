@@ -24,11 +24,12 @@ class CNameRecordArgs:
         """
         The set of arguments for constructing a CNameRecord resource.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the DNS CNAME Record.
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "ttl", ttl)
@@ -57,6 +58,9 @@ class CNameRecordArgs:
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -115,7 +119,7 @@ class CNameRecordArgs:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure resource id of the target object. Conflicts with `records`
+        The Azure resource id of the target object. Conflicts with `record`.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -142,7 +146,8 @@ class _CNameRecordState:
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
@@ -226,7 +231,7 @@ class _CNameRecordState:
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Azure resource id of the target object. Conflicts with `records`
+        The Azure resource id of the target object. Conflicts with `record`.
         """
         return pulumi.get(self, "target_resource_id")
 
@@ -237,6 +242,9 @@ class _CNameRecordState:
     @property
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @ttl.setter
@@ -318,7 +326,8 @@ class CNameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
@@ -445,7 +454,8 @@ class CNameRecord(pulumi.CustomResource):
         :param pulumi.Input[str] record: The target of the CNAME.
         :param pulumi.Input[str] resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`
+        :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `record`.
+        :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -506,13 +516,16 @@ class CNameRecord(pulumi.CustomResource):
     @pulumi.getter(name="targetResourceId")
     def target_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The Azure resource id of the target object. Conflicts with `records`
+        The Azure resource id of the target object. Conflicts with `record`.
         """
         return pulumi.get(self, "target_resource_id")
 
     @property
     @pulumi.getter
     def ttl(self) -> pulumi.Output[int]:
+        """
+        The Time To Live (TTL) of the DNS record in seconds.
+        """
         return pulumi.get(self, "ttl")
 
     @property

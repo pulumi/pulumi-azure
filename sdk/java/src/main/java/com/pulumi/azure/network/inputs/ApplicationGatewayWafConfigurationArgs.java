@@ -36,14 +36,14 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * Is the Web Application Firewall be enabled?
+     * Is the Web Application Firewall enabled?
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Is the Web Application Firewall be enabled?
+     * @return Is the Web Application Firewall enabled?
      * 
      */
     public Output<Boolean> enabled() {
@@ -219,7 +219,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Is the Web Application Firewall be enabled?
+         * @param enabled Is the Web Application Firewall enabled?
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class ApplicationGatewayWafConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param enabled Is the Web Application Firewall be enabled?
+         * @param enabled Is the Web Application Firewall enabled?
          * 
          * @return builder
          * 

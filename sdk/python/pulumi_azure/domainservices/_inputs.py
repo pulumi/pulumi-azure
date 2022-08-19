@@ -280,18 +280,26 @@ class ServiceSecureLdapArgs:
 @pulumi.input_type
 class ServiceSecurityArgs:
     def __init__(__self__, *,
+                 kerberos_armoring_enabled: Optional[pulumi.Input[bool]] = None,
+                 kerberos_rc4_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  ntlm_v1_enabled: Optional[pulumi.Input[bool]] = None,
                  sync_kerberos_passwords: Optional[pulumi.Input[bool]] = None,
                  sync_ntlm_passwords: Optional[pulumi.Input[bool]] = None,
                  sync_on_prem_passwords: Optional[pulumi.Input[bool]] = None,
                  tls_v1_enabled: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input[bool] kerberos_armoring_enabled: Whether to enable Kerberos Armoring. Defaults to `false`.
+        :param pulumi.Input[bool] kerberos_rc4_encryption_enabled: Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
         :param pulumi.Input[bool] ntlm_v1_enabled: Whether to enable legacy NTLM v1 support. Defaults to `false`.
         :param pulumi.Input[bool] sync_kerberos_passwords: Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
         :param pulumi.Input[bool] sync_ntlm_passwords: Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
         :param pulumi.Input[bool] sync_on_prem_passwords: Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
         :param pulumi.Input[bool] tls_v1_enabled: Whether to enable legacy TLS v1 support. Defaults to `false`.
         """
+        if kerberos_armoring_enabled is not None:
+            pulumi.set(__self__, "kerberos_armoring_enabled", kerberos_armoring_enabled)
+        if kerberos_rc4_encryption_enabled is not None:
+            pulumi.set(__self__, "kerberos_rc4_encryption_enabled", kerberos_rc4_encryption_enabled)
         if ntlm_v1_enabled is not None:
             pulumi.set(__self__, "ntlm_v1_enabled", ntlm_v1_enabled)
         if sync_kerberos_passwords is not None:
@@ -302,6 +310,30 @@ class ServiceSecurityArgs:
             pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
         if tls_v1_enabled is not None:
             pulumi.set(__self__, "tls_v1_enabled", tls_v1_enabled)
+
+    @property
+    @pulumi.getter(name="kerberosArmoringEnabled")
+    def kerberos_armoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Kerberos Armoring. Defaults to `false`.
+        """
+        return pulumi.get(self, "kerberos_armoring_enabled")
+
+    @kerberos_armoring_enabled.setter
+    def kerberos_armoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos_armoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="kerberosRc4EncryptionEnabled")
+    def kerberos_rc4_encryption_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+        """
+        return pulumi.get(self, "kerberos_rc4_encryption_enabled")
+
+    @kerberos_rc4_encryption_enabled.setter
+    def kerberos_rc4_encryption_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "kerberos_rc4_encryption_enabled", value)
 
     @property
     @pulumi.getter(name="ntlmV1Enabled")

@@ -23,6 +23,7 @@ __all__ = [
     'SpringCloudGatewayApiMetadataArgs',
     'SpringCloudGatewayCorsArgs',
     'SpringCloudGatewayQuotaArgs',
+    'SpringCloudGatewayRouteConfigOpenApiArgs',
     'SpringCloudGatewayRouteConfigRouteArgs',
     'SpringCloudGatewaySsoArgs',
     'SpringCloudJavaDeploymentQuotaArgs',
@@ -901,6 +902,29 @@ class SpringCloudGatewayQuotaArgs:
 
 
 @pulumi.input_type
+class SpringCloudGatewayRouteConfigOpenApiArgs:
+    def __init__(__self__, *,
+                 uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] uri: The URI of OpenAPI specification.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URI of OpenAPI specification.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
 class SpringCloudGatewayRouteConfigRouteArgs:
     def __init__(__self__, *,
                  classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1601,12 +1625,14 @@ class SpringCloudServiceNetworkArgs:
                  cidr_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
                  service_runtime_subnet_id: pulumi.Input[str],
                  app_network_resource_group: Optional[pulumi.Input[str]] = None,
+                 read_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  service_runtime_network_resource_group: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] app_subnet_id: Specifies the ID of the Subnet which should host the Spring Boot Applications deployed in this Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_ranges: A list of (at least 3) CIDR ranges (at least /16) which are used to host the Spring Cloud infrastructure, which must not overlap with any existing CIDR ranges in the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_runtime_subnet_id: Specifies the ID of the Subnet where the Service Runtime components of the Spring Cloud Service will exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] app_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Apps. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] read_timeout_seconds: Ingress read time out in seconds. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "app_subnet_id", app_subnet_id)
@@ -1614,6 +1640,8 @@ class SpringCloudServiceNetworkArgs:
         pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
         if app_network_resource_group is not None:
             pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
+        if read_timeout_seconds is not None:
+            pulumi.set(__self__, "read_timeout_seconds", read_timeout_seconds)
         if service_runtime_network_resource_group is not None:
             pulumi.set(__self__, "service_runtime_network_resource_group", service_runtime_network_resource_group)
 
@@ -1664,6 +1692,18 @@ class SpringCloudServiceNetworkArgs:
     @app_network_resource_group.setter
     def app_network_resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "app_network_resource_group", value)
+
+    @property
+    @pulumi.getter(name="readTimeoutSeconds")
+    def read_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Ingress read time out in seconds. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "read_timeout_seconds")
+
+    @read_timeout_seconds.setter
+    def read_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "read_timeout_seconds", value)
 
     @property
     @pulumi.getter(name="serviceRuntimeNetworkResourceGroup")

@@ -171,6 +171,8 @@ type DataFlowSink struct {
 	Dataset *DataFlowSinkDataset `pulumi:"dataset"`
 	// The description for the Data Flow Source.
 	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *DataFlowSinkFlowlet `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService *DataFlowSinkLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
@@ -195,6 +197,8 @@ type DataFlowSinkArgs struct {
 	Dataset DataFlowSinkDatasetPtrInput `pulumi:"dataset"`
 	// The description for the Data Flow Source.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet DataFlowSinkFlowletPtrInput `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService DataFlowSinkLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
@@ -262,6 +266,11 @@ func (o DataFlowSinkOutput) Dataset() DataFlowSinkDatasetPtrOutput {
 // The description for the Data Flow Source.
 func (o DataFlowSinkOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowSink) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o DataFlowSinkOutput) Flowlet() DataFlowSinkFlowletPtrOutput {
+	return o.ApplyT(func(v DataFlowSink) *DataFlowSinkFlowlet { return v.Flowlet }).(DataFlowSinkFlowletPtrOutput)
 }
 
 // A `linkedService` block as defined below.
@@ -448,6 +457,177 @@ func (o DataFlowSinkDatasetPtrOutput) Name() pulumi.StringPtrOutput {
 // A map of parameters to associate with the Data Factory dataset.
 func (o DataFlowSinkDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataFlowSinkDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSinkFlowletInput is an input type that accepts DataFlowSinkFlowletArgs and DataFlowSinkFlowletOutput values.
+// You can construct a concrete instance of `DataFlowSinkFlowletInput` via:
+//
+//	DataFlowSinkFlowletArgs{...}
+type DataFlowSinkFlowletInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkFlowletOutput() DataFlowSinkFlowletOutput
+	ToDataFlowSinkFlowletOutputWithContext(context.Context) DataFlowSinkFlowletOutput
+}
+
+type DataFlowSinkFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSinkFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (i DataFlowSinkFlowletArgs) ToDataFlowSinkFlowletOutput() DataFlowSinkFlowletOutput {
+	return i.ToDataFlowSinkFlowletOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkFlowletArgs) ToDataFlowSinkFlowletOutputWithContext(ctx context.Context) DataFlowSinkFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkFlowletOutput)
+}
+
+func (i DataFlowSinkFlowletArgs) ToDataFlowSinkFlowletPtrOutput() DataFlowSinkFlowletPtrOutput {
+	return i.ToDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSinkFlowletArgs) ToDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) DataFlowSinkFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkFlowletOutput).ToDataFlowSinkFlowletPtrOutputWithContext(ctx)
+}
+
+// DataFlowSinkFlowletPtrInput is an input type that accepts DataFlowSinkFlowletArgs, DataFlowSinkFlowletPtr and DataFlowSinkFlowletPtrOutput values.
+// You can construct a concrete instance of `DataFlowSinkFlowletPtrInput` via:
+//
+//	        DataFlowSinkFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFlowSinkFlowletPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSinkFlowletPtrOutput() DataFlowSinkFlowletPtrOutput
+	ToDataFlowSinkFlowletPtrOutputWithContext(context.Context) DataFlowSinkFlowletPtrOutput
+}
+
+type dataFlowSinkFlowletPtrType DataFlowSinkFlowletArgs
+
+func DataFlowSinkFlowletPtr(v *DataFlowSinkFlowletArgs) DataFlowSinkFlowletPtrInput {
+	return (*dataFlowSinkFlowletPtrType)(v)
+}
+
+func (*dataFlowSinkFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (i *dataFlowSinkFlowletPtrType) ToDataFlowSinkFlowletPtrOutput() DataFlowSinkFlowletPtrOutput {
+	return i.ToDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSinkFlowletPtrType) ToDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) DataFlowSinkFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSinkFlowletPtrOutput)
+}
+
+type DataFlowSinkFlowletOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowSinkFlowletOutput) ToDataFlowSinkFlowletOutput() DataFlowSinkFlowletOutput {
+	return o
+}
+
+func (o DataFlowSinkFlowletOutput) ToDataFlowSinkFlowletOutputWithContext(ctx context.Context) DataFlowSinkFlowletOutput {
+	return o
+}
+
+func (o DataFlowSinkFlowletOutput) ToDataFlowSinkFlowletPtrOutput() DataFlowSinkFlowletPtrOutput {
+	return o.ToDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSinkFlowletOutput) ToDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) DataFlowSinkFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSinkFlowlet) *DataFlowSinkFlowlet {
+		return &v
+	}).(DataFlowSinkFlowletPtrOutput)
+}
+
+func (o DataFlowSinkFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowSinkFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowSinkFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSinkFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowSinkFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSinkFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSinkFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSinkFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowSinkFlowletPtrOutput) ToDataFlowSinkFlowletPtrOutput() DataFlowSinkFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowSinkFlowletPtrOutput) ToDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) DataFlowSinkFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowSinkFlowletPtrOutput) Elem() DataFlowSinkFlowletOutput {
+	return o.ApplyT(func(v *DataFlowSinkFlowlet) DataFlowSinkFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSinkFlowlet
+		return ret
+	}).(DataFlowSinkFlowletOutput)
+}
+
+func (o DataFlowSinkFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowSinkFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSinkFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowSinkFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSinkFlowlet) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -772,6 +952,8 @@ type DataFlowSource struct {
 	Dataset *DataFlowSourceDataset `pulumi:"dataset"`
 	// The description for the Data Flow Source.
 	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *DataFlowSourceFlowlet `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService *DataFlowSourceLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
@@ -796,6 +978,8 @@ type DataFlowSourceArgs struct {
 	Dataset DataFlowSourceDatasetPtrInput `pulumi:"dataset"`
 	// The description for the Data Flow Source.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet DataFlowSourceFlowletPtrInput `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService DataFlowSourceLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow Source.
@@ -863,6 +1047,11 @@ func (o DataFlowSourceOutput) Dataset() DataFlowSourceDatasetPtrOutput {
 // The description for the Data Flow Source.
 func (o DataFlowSourceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowSource) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o DataFlowSourceOutput) Flowlet() DataFlowSourceFlowletPtrOutput {
+	return o.ApplyT(func(v DataFlowSource) *DataFlowSourceFlowlet { return v.Flowlet }).(DataFlowSourceFlowletPtrOutput)
 }
 
 // A `linkedService` block as defined below.
@@ -1049,6 +1238,177 @@ func (o DataFlowSourceDatasetPtrOutput) Name() pulumi.StringPtrOutput {
 // A map of parameters to associate with the Data Factory dataset.
 func (o DataFlowSourceDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataFlowSourceDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowSourceFlowletInput is an input type that accepts DataFlowSourceFlowletArgs and DataFlowSourceFlowletOutput values.
+// You can construct a concrete instance of `DataFlowSourceFlowletInput` via:
+//
+//	DataFlowSourceFlowletArgs{...}
+type DataFlowSourceFlowletInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceFlowletOutput() DataFlowSourceFlowletOutput
+	ToDataFlowSourceFlowletOutputWithContext(context.Context) DataFlowSourceFlowletOutput
+}
+
+type DataFlowSourceFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowSourceFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (i DataFlowSourceFlowletArgs) ToDataFlowSourceFlowletOutput() DataFlowSourceFlowletOutput {
+	return i.ToDataFlowSourceFlowletOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceFlowletArgs) ToDataFlowSourceFlowletOutputWithContext(ctx context.Context) DataFlowSourceFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceFlowletOutput)
+}
+
+func (i DataFlowSourceFlowletArgs) ToDataFlowSourceFlowletPtrOutput() DataFlowSourceFlowletPtrOutput {
+	return i.ToDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowSourceFlowletArgs) ToDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) DataFlowSourceFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceFlowletOutput).ToDataFlowSourceFlowletPtrOutputWithContext(ctx)
+}
+
+// DataFlowSourceFlowletPtrInput is an input type that accepts DataFlowSourceFlowletArgs, DataFlowSourceFlowletPtr and DataFlowSourceFlowletPtrOutput values.
+// You can construct a concrete instance of `DataFlowSourceFlowletPtrInput` via:
+//
+//	        DataFlowSourceFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFlowSourceFlowletPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowSourceFlowletPtrOutput() DataFlowSourceFlowletPtrOutput
+	ToDataFlowSourceFlowletPtrOutputWithContext(context.Context) DataFlowSourceFlowletPtrOutput
+}
+
+type dataFlowSourceFlowletPtrType DataFlowSourceFlowletArgs
+
+func DataFlowSourceFlowletPtr(v *DataFlowSourceFlowletArgs) DataFlowSourceFlowletPtrInput {
+	return (*dataFlowSourceFlowletPtrType)(v)
+}
+
+func (*dataFlowSourceFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (i *dataFlowSourceFlowletPtrType) ToDataFlowSourceFlowletPtrOutput() DataFlowSourceFlowletPtrOutput {
+	return i.ToDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowSourceFlowletPtrType) ToDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) DataFlowSourceFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowSourceFlowletPtrOutput)
+}
+
+type DataFlowSourceFlowletOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowSourceFlowletOutput) ToDataFlowSourceFlowletOutput() DataFlowSourceFlowletOutput {
+	return o
+}
+
+func (o DataFlowSourceFlowletOutput) ToDataFlowSourceFlowletOutputWithContext(ctx context.Context) DataFlowSourceFlowletOutput {
+	return o
+}
+
+func (o DataFlowSourceFlowletOutput) ToDataFlowSourceFlowletPtrOutput() DataFlowSourceFlowletPtrOutput {
+	return o.ToDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowSourceFlowletOutput) ToDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) DataFlowSourceFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowSourceFlowlet) *DataFlowSourceFlowlet {
+		return &v
+	}).(DataFlowSourceFlowletPtrOutput)
+}
+
+func (o DataFlowSourceFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowSourceFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowSourceFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowSourceFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowSourceFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowSourceFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowSourceFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowSourceFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowSourceFlowletPtrOutput) ToDataFlowSourceFlowletPtrOutput() DataFlowSourceFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowSourceFlowletPtrOutput) ToDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) DataFlowSourceFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowSourceFlowletPtrOutput) Elem() DataFlowSourceFlowletOutput {
+	return o.ApplyT(func(v *DataFlowSourceFlowlet) DataFlowSourceFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowSourceFlowlet
+		return ret
+	}).(DataFlowSourceFlowletOutput)
+}
+
+func (o DataFlowSourceFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowSourceFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowSourceFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowSourceFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowSourceFlowlet) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -1373,6 +1733,8 @@ type DataFlowTransformation struct {
 	Dataset *DataFlowTransformationDataset `pulumi:"dataset"`
 	// The description for the Data Flow transformation.
 	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *DataFlowTransformationFlowlet `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService *DataFlowTransformationLinkedService `pulumi:"linkedService"`
 	// The name for the Data Flow transformation.
@@ -1395,6 +1757,8 @@ type DataFlowTransformationArgs struct {
 	Dataset DataFlowTransformationDatasetPtrInput `pulumi:"dataset"`
 	// The description for the Data Flow transformation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet DataFlowTransformationFlowletPtrInput `pulumi:"flowlet"`
 	// A `linkedService` block as defined below.
 	LinkedService DataFlowTransformationLinkedServicePtrInput `pulumi:"linkedService"`
 	// The name for the Data Flow transformation.
@@ -1460,6 +1824,11 @@ func (o DataFlowTransformationOutput) Dataset() DataFlowTransformationDatasetPtr
 // The description for the Data Flow transformation.
 func (o DataFlowTransformationOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataFlowTransformation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o DataFlowTransformationOutput) Flowlet() DataFlowTransformationFlowletPtrOutput {
+	return o.ApplyT(func(v DataFlowTransformation) *DataFlowTransformationFlowlet { return v.Flowlet }).(DataFlowTransformationFlowletPtrOutput)
 }
 
 // A `linkedService` block as defined below.
@@ -1641,6 +2010,177 @@ func (o DataFlowTransformationDatasetPtrOutput) Name() pulumi.StringPtrOutput {
 // A map of parameters to associate with the Data Factory dataset.
 func (o DataFlowTransformationDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataFlowTransformationDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformationFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// DataFlowTransformationFlowletInput is an input type that accepts DataFlowTransformationFlowletArgs and DataFlowTransformationFlowletOutput values.
+// You can construct a concrete instance of `DataFlowTransformationFlowletInput` via:
+//
+//	DataFlowTransformationFlowletArgs{...}
+type DataFlowTransformationFlowletInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationFlowletOutput() DataFlowTransformationFlowletOutput
+	ToDataFlowTransformationFlowletOutputWithContext(context.Context) DataFlowTransformationFlowletOutput
+}
+
+type DataFlowTransformationFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (DataFlowTransformationFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (i DataFlowTransformationFlowletArgs) ToDataFlowTransformationFlowletOutput() DataFlowTransformationFlowletOutput {
+	return i.ToDataFlowTransformationFlowletOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationFlowletArgs) ToDataFlowTransformationFlowletOutputWithContext(ctx context.Context) DataFlowTransformationFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationFlowletOutput)
+}
+
+func (i DataFlowTransformationFlowletArgs) ToDataFlowTransformationFlowletPtrOutput() DataFlowTransformationFlowletPtrOutput {
+	return i.ToDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i DataFlowTransformationFlowletArgs) ToDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) DataFlowTransformationFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationFlowletOutput).ToDataFlowTransformationFlowletPtrOutputWithContext(ctx)
+}
+
+// DataFlowTransformationFlowletPtrInput is an input type that accepts DataFlowTransformationFlowletArgs, DataFlowTransformationFlowletPtr and DataFlowTransformationFlowletPtrOutput values.
+// You can construct a concrete instance of `DataFlowTransformationFlowletPtrInput` via:
+//
+//	        DataFlowTransformationFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataFlowTransformationFlowletPtrInput interface {
+	pulumi.Input
+
+	ToDataFlowTransformationFlowletPtrOutput() DataFlowTransformationFlowletPtrOutput
+	ToDataFlowTransformationFlowletPtrOutputWithContext(context.Context) DataFlowTransformationFlowletPtrOutput
+}
+
+type dataFlowTransformationFlowletPtrType DataFlowTransformationFlowletArgs
+
+func DataFlowTransformationFlowletPtr(v *DataFlowTransformationFlowletArgs) DataFlowTransformationFlowletPtrInput {
+	return (*dataFlowTransformationFlowletPtrType)(v)
+}
+
+func (*dataFlowTransformationFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (i *dataFlowTransformationFlowletPtrType) ToDataFlowTransformationFlowletPtrOutput() DataFlowTransformationFlowletPtrOutput {
+	return i.ToDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *dataFlowTransformationFlowletPtrType) ToDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) DataFlowTransformationFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataFlowTransformationFlowletPtrOutput)
+}
+
+type DataFlowTransformationFlowletOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowTransformationFlowletOutput) ToDataFlowTransformationFlowletOutput() DataFlowTransformationFlowletOutput {
+	return o
+}
+
+func (o DataFlowTransformationFlowletOutput) ToDataFlowTransformationFlowletOutputWithContext(ctx context.Context) DataFlowTransformationFlowletOutput {
+	return o
+}
+
+func (o DataFlowTransformationFlowletOutput) ToDataFlowTransformationFlowletPtrOutput() DataFlowTransformationFlowletPtrOutput {
+	return o.ToDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o DataFlowTransformationFlowletOutput) ToDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) DataFlowTransformationFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataFlowTransformationFlowlet) *DataFlowTransformationFlowlet {
+		return &v
+	}).(DataFlowTransformationFlowletPtrOutput)
+}
+
+func (o DataFlowTransformationFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataFlowTransformationFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowTransformationFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataFlowTransformationFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowTransformationFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v DataFlowTransformationFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type DataFlowTransformationFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (DataFlowTransformationFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (o DataFlowTransformationFlowletPtrOutput) ToDataFlowTransformationFlowletPtrOutput() DataFlowTransformationFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationFlowletPtrOutput) ToDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) DataFlowTransformationFlowletPtrOutput {
+	return o
+}
+
+func (o DataFlowTransformationFlowletPtrOutput) Elem() DataFlowTransformationFlowletOutput {
+	return o.ApplyT(func(v *DataFlowTransformationFlowlet) DataFlowTransformationFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret DataFlowTransformationFlowlet
+		return ret
+	}).(DataFlowTransformationFlowletOutput)
+}
+
+func (o DataFlowTransformationFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowTransformationFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o DataFlowTransformationFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataFlowTransformationFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o DataFlowTransformationFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *DataFlowTransformationFlowlet) map[string]string {
 		if v == nil {
 			return nil
 		}
@@ -6022,6 +6562,2186 @@ func (o FactoryVstsConfigurationPtrOutput) TenantId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FlowletDataFlowSink struct {
+	// A `dataset` block as defined below.
+	Dataset *FlowletDataFlowSinkDataset `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *FlowletDataFlowSinkFlowlet `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService *FlowletDataFlowSinkLinkedService `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name string `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService *FlowletDataFlowSinkSchemaLinkedService `pulumi:"schemaLinkedService"`
+}
+
+// FlowletDataFlowSinkInput is an input type that accepts FlowletDataFlowSinkArgs and FlowletDataFlowSinkOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkInput` via:
+//
+//	FlowletDataFlowSinkArgs{...}
+type FlowletDataFlowSinkInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkOutput() FlowletDataFlowSinkOutput
+	ToFlowletDataFlowSinkOutputWithContext(context.Context) FlowletDataFlowSinkOutput
+}
+
+type FlowletDataFlowSinkArgs struct {
+	// A `dataset` block as defined below.
+	Dataset FlowletDataFlowSinkDatasetPtrInput `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet FlowletDataFlowSinkFlowletPtrInput `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService FlowletDataFlowSinkLinkedServicePtrInput `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService FlowletDataFlowSinkSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
+}
+
+func (FlowletDataFlowSinkArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSink)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkArgs) ToFlowletDataFlowSinkOutput() FlowletDataFlowSinkOutput {
+	return i.ToFlowletDataFlowSinkOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkArgs) ToFlowletDataFlowSinkOutputWithContext(ctx context.Context) FlowletDataFlowSinkOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkOutput)
+}
+
+// FlowletDataFlowSinkArrayInput is an input type that accepts FlowletDataFlowSinkArray and FlowletDataFlowSinkArrayOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkArrayInput` via:
+//
+//	FlowletDataFlowSinkArray{ FlowletDataFlowSinkArgs{...} }
+type FlowletDataFlowSinkArrayInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkArrayOutput() FlowletDataFlowSinkArrayOutput
+	ToFlowletDataFlowSinkArrayOutputWithContext(context.Context) FlowletDataFlowSinkArrayOutput
+}
+
+type FlowletDataFlowSinkArray []FlowletDataFlowSinkInput
+
+func (FlowletDataFlowSinkArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowSink)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkArray) ToFlowletDataFlowSinkArrayOutput() FlowletDataFlowSinkArrayOutput {
+	return i.ToFlowletDataFlowSinkArrayOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkArray) ToFlowletDataFlowSinkArrayOutputWithContext(ctx context.Context) FlowletDataFlowSinkArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkArrayOutput)
+}
+
+type FlowletDataFlowSinkOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSink)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkOutput) ToFlowletDataFlowSinkOutput() FlowletDataFlowSinkOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkOutput) ToFlowletDataFlowSinkOutputWithContext(ctx context.Context) FlowletDataFlowSinkOutput {
+	return o
+}
+
+// A `dataset` block as defined below.
+func (o FlowletDataFlowSinkOutput) Dataset() FlowletDataFlowSinkDatasetPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *FlowletDataFlowSinkDataset { return v.Dataset }).(FlowletDataFlowSinkDatasetPtrOutput)
+}
+
+// The description for the Data Flow Source.
+func (o FlowletDataFlowSinkOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o FlowletDataFlowSinkOutput) Flowlet() FlowletDataFlowSinkFlowletPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *FlowletDataFlowSinkFlowlet { return v.Flowlet }).(FlowletDataFlowSinkFlowletPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o FlowletDataFlowSinkOutput) LinkedService() FlowletDataFlowSinkLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *FlowletDataFlowSinkLinkedService { return v.LinkedService }).(FlowletDataFlowSinkLinkedServicePtrOutput)
+}
+
+// The name for the Data Flow Source.
+func (o FlowletDataFlowSinkOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schemaLinkedService` block as defined below.
+func (o FlowletDataFlowSinkOutput) SchemaLinkedService() FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSink) *FlowletDataFlowSinkSchemaLinkedService { return v.SchemaLinkedService }).(FlowletDataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSinkArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowSink)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkArrayOutput) ToFlowletDataFlowSinkArrayOutput() FlowletDataFlowSinkArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkArrayOutput) ToFlowletDataFlowSinkArrayOutputWithContext(ctx context.Context) FlowletDataFlowSinkArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkArrayOutput) Index(i pulumi.IntInput) FlowletDataFlowSinkOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowletDataFlowSink {
+		return vs[0].([]FlowletDataFlowSink)[vs[1].(int)]
+	}).(FlowletDataFlowSinkOutput)
+}
+
+type FlowletDataFlowSinkDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSinkDatasetInput is an input type that accepts FlowletDataFlowSinkDatasetArgs and FlowletDataFlowSinkDatasetOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkDatasetInput` via:
+//
+//	FlowletDataFlowSinkDatasetArgs{...}
+type FlowletDataFlowSinkDatasetInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkDatasetOutput() FlowletDataFlowSinkDatasetOutput
+	ToFlowletDataFlowSinkDatasetOutputWithContext(context.Context) FlowletDataFlowSinkDatasetOutput
+}
+
+type FlowletDataFlowSinkDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSinkDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkDataset)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkDatasetArgs) ToFlowletDataFlowSinkDatasetOutput() FlowletDataFlowSinkDatasetOutput {
+	return i.ToFlowletDataFlowSinkDatasetOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkDatasetArgs) ToFlowletDataFlowSinkDatasetOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkDatasetOutput)
+}
+
+func (i FlowletDataFlowSinkDatasetArgs) ToFlowletDataFlowSinkDatasetPtrOutput() FlowletDataFlowSinkDatasetPtrOutput {
+	return i.ToFlowletDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkDatasetArgs) ToFlowletDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkDatasetOutput).ToFlowletDataFlowSinkDatasetPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSinkDatasetPtrInput is an input type that accepts FlowletDataFlowSinkDatasetArgs, FlowletDataFlowSinkDatasetPtr and FlowletDataFlowSinkDatasetPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkDatasetPtrInput` via:
+//
+//	        FlowletDataFlowSinkDatasetArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSinkDatasetPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkDatasetPtrOutput() FlowletDataFlowSinkDatasetPtrOutput
+	ToFlowletDataFlowSinkDatasetPtrOutputWithContext(context.Context) FlowletDataFlowSinkDatasetPtrOutput
+}
+
+type flowletDataFlowSinkDatasetPtrType FlowletDataFlowSinkDatasetArgs
+
+func FlowletDataFlowSinkDatasetPtr(v *FlowletDataFlowSinkDatasetArgs) FlowletDataFlowSinkDatasetPtrInput {
+	return (*flowletDataFlowSinkDatasetPtrType)(v)
+}
+
+func (*flowletDataFlowSinkDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkDataset)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSinkDatasetPtrType) ToFlowletDataFlowSinkDatasetPtrOutput() FlowletDataFlowSinkDatasetPtrOutput {
+	return i.ToFlowletDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSinkDatasetPtrType) ToFlowletDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkDatasetPtrOutput)
+}
+
+type FlowletDataFlowSinkDatasetOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkDatasetOutput) ToFlowletDataFlowSinkDatasetOutput() FlowletDataFlowSinkDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkDatasetOutput) ToFlowletDataFlowSinkDatasetOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkDatasetOutput) ToFlowletDataFlowSinkDatasetPtrOutput() FlowletDataFlowSinkDatasetPtrOutput {
+	return o.ToFlowletDataFlowSinkDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSinkDatasetOutput) ToFlowletDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSinkDataset) *FlowletDataFlowSinkDataset {
+		return &v
+	}).(FlowletDataFlowSinkDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowSinkDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowSinkDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkDatasetPtrOutput) ToFlowletDataFlowSinkDatasetPtrOutput() FlowletDataFlowSinkDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkDatasetPtrOutput) ToFlowletDataFlowSinkDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkDatasetPtrOutput) Elem() FlowletDataFlowSinkDatasetOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkDataset) FlowletDataFlowSinkDataset {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSinkDataset
+		return ret
+	}).(FlowletDataFlowSinkDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowSinkDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowSinkDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSinkFlowletInput is an input type that accepts FlowletDataFlowSinkFlowletArgs and FlowletDataFlowSinkFlowletOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkFlowletInput` via:
+//
+//	FlowletDataFlowSinkFlowletArgs{...}
+type FlowletDataFlowSinkFlowletInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkFlowletOutput() FlowletDataFlowSinkFlowletOutput
+	ToFlowletDataFlowSinkFlowletOutputWithContext(context.Context) FlowletDataFlowSinkFlowletOutput
+}
+
+type FlowletDataFlowSinkFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSinkFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkFlowletArgs) ToFlowletDataFlowSinkFlowletOutput() FlowletDataFlowSinkFlowletOutput {
+	return i.ToFlowletDataFlowSinkFlowletOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkFlowletArgs) ToFlowletDataFlowSinkFlowletOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkFlowletOutput)
+}
+
+func (i FlowletDataFlowSinkFlowletArgs) ToFlowletDataFlowSinkFlowletPtrOutput() FlowletDataFlowSinkFlowletPtrOutput {
+	return i.ToFlowletDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkFlowletArgs) ToFlowletDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkFlowletOutput).ToFlowletDataFlowSinkFlowletPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSinkFlowletPtrInput is an input type that accepts FlowletDataFlowSinkFlowletArgs, FlowletDataFlowSinkFlowletPtr and FlowletDataFlowSinkFlowletPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkFlowletPtrInput` via:
+//
+//	        FlowletDataFlowSinkFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSinkFlowletPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkFlowletPtrOutput() FlowletDataFlowSinkFlowletPtrOutput
+	ToFlowletDataFlowSinkFlowletPtrOutputWithContext(context.Context) FlowletDataFlowSinkFlowletPtrOutput
+}
+
+type flowletDataFlowSinkFlowletPtrType FlowletDataFlowSinkFlowletArgs
+
+func FlowletDataFlowSinkFlowletPtr(v *FlowletDataFlowSinkFlowletArgs) FlowletDataFlowSinkFlowletPtrInput {
+	return (*flowletDataFlowSinkFlowletPtrType)(v)
+}
+
+func (*flowletDataFlowSinkFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSinkFlowletPtrType) ToFlowletDataFlowSinkFlowletPtrOutput() FlowletDataFlowSinkFlowletPtrOutput {
+	return i.ToFlowletDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSinkFlowletPtrType) ToFlowletDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkFlowletPtrOutput)
+}
+
+type FlowletDataFlowSinkFlowletOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkFlowletOutput) ToFlowletDataFlowSinkFlowletOutput() FlowletDataFlowSinkFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkFlowletOutput) ToFlowletDataFlowSinkFlowletOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkFlowletOutput) ToFlowletDataFlowSinkFlowletPtrOutput() FlowletDataFlowSinkFlowletPtrOutput {
+	return o.ToFlowletDataFlowSinkFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSinkFlowletOutput) ToFlowletDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSinkFlowlet) *FlowletDataFlowSinkFlowlet {
+		return &v
+	}).(FlowletDataFlowSinkFlowletPtrOutput)
+}
+
+func (o FlowletDataFlowSinkFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowSinkFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowSinkFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkFlowletPtrOutput) ToFlowletDataFlowSinkFlowletPtrOutput() FlowletDataFlowSinkFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkFlowletPtrOutput) ToFlowletDataFlowSinkFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkFlowletPtrOutput) Elem() FlowletDataFlowSinkFlowletOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkFlowlet) FlowletDataFlowSinkFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSinkFlowlet
+		return ret
+	}).(FlowletDataFlowSinkFlowletOutput)
+}
+
+func (o FlowletDataFlowSinkFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowSinkFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowSinkFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkFlowlet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSinkLinkedServiceInput is an input type that accepts FlowletDataFlowSinkLinkedServiceArgs and FlowletDataFlowSinkLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkLinkedServiceInput` via:
+//
+//	FlowletDataFlowSinkLinkedServiceArgs{...}
+type FlowletDataFlowSinkLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkLinkedServiceOutput() FlowletDataFlowSinkLinkedServiceOutput
+	ToFlowletDataFlowSinkLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSinkLinkedServiceOutput
+}
+
+type FlowletDataFlowSinkLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSinkLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkLinkedServiceArgs) ToFlowletDataFlowSinkLinkedServiceOutput() FlowletDataFlowSinkLinkedServiceOutput {
+	return i.ToFlowletDataFlowSinkLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkLinkedServiceArgs) ToFlowletDataFlowSinkLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSinkLinkedServiceArgs) ToFlowletDataFlowSinkLinkedServicePtrOutput() FlowletDataFlowSinkLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkLinkedServiceArgs) ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkLinkedServiceOutput).ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSinkLinkedServicePtrInput is an input type that accepts FlowletDataFlowSinkLinkedServiceArgs, FlowletDataFlowSinkLinkedServicePtr and FlowletDataFlowSinkLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSinkLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSinkLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkLinkedServicePtrOutput() FlowletDataFlowSinkLinkedServicePtrOutput
+	ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSinkLinkedServicePtrOutput
+}
+
+type flowletDataFlowSinkLinkedServicePtrType FlowletDataFlowSinkLinkedServiceArgs
+
+func FlowletDataFlowSinkLinkedServicePtr(v *FlowletDataFlowSinkLinkedServiceArgs) FlowletDataFlowSinkLinkedServicePtrInput {
+	return (*flowletDataFlowSinkLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSinkLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSinkLinkedServicePtrType) ToFlowletDataFlowSinkLinkedServicePtrOutput() FlowletDataFlowSinkLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSinkLinkedServicePtrType) ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSinkLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkLinkedServiceOutput) ToFlowletDataFlowSinkLinkedServiceOutput() FlowletDataFlowSinkLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkLinkedServiceOutput) ToFlowletDataFlowSinkLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkLinkedServiceOutput) ToFlowletDataFlowSinkLinkedServicePtrOutput() FlowletDataFlowSinkLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSinkLinkedServiceOutput) ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSinkLinkedService) *FlowletDataFlowSinkLinkedService {
+		return &v
+	}).(FlowletDataFlowSinkLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowSinkLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkLinkedServicePtrOutput) ToFlowletDataFlowSinkLinkedServicePtrOutput() FlowletDataFlowSinkLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkLinkedServicePtrOutput) ToFlowletDataFlowSinkLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkLinkedServicePtrOutput) Elem() FlowletDataFlowSinkLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkLinkedService) FlowletDataFlowSinkLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSinkLinkedService
+		return ret
+	}).(FlowletDataFlowSinkLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowSinkLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkSchemaLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSinkSchemaLinkedServiceInput is an input type that accepts FlowletDataFlowSinkSchemaLinkedServiceArgs and FlowletDataFlowSinkSchemaLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkSchemaLinkedServiceInput` via:
+//
+//	FlowletDataFlowSinkSchemaLinkedServiceArgs{...}
+type FlowletDataFlowSinkSchemaLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkSchemaLinkedServiceOutput() FlowletDataFlowSinkSchemaLinkedServiceOutput
+	ToFlowletDataFlowSinkSchemaLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSinkSchemaLinkedServiceOutput
+}
+
+type FlowletDataFlowSinkSchemaLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSinkSchemaLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSinkSchemaLinkedServiceArgs) ToFlowletDataFlowSinkSchemaLinkedServiceOutput() FlowletDataFlowSinkSchemaLinkedServiceOutput {
+	return i.ToFlowletDataFlowSinkSchemaLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkSchemaLinkedServiceArgs) ToFlowletDataFlowSinkSchemaLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkSchemaLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSinkSchemaLinkedServiceArgs) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutput() FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSinkSchemaLinkedServiceArgs) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkSchemaLinkedServiceOutput).ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSinkSchemaLinkedServicePtrInput is an input type that accepts FlowletDataFlowSinkSchemaLinkedServiceArgs, FlowletDataFlowSinkSchemaLinkedServicePtr and FlowletDataFlowSinkSchemaLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSinkSchemaLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSinkSchemaLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSinkSchemaLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSinkSchemaLinkedServicePtrOutput() FlowletDataFlowSinkSchemaLinkedServicePtrOutput
+	ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSinkSchemaLinkedServicePtrOutput
+}
+
+type flowletDataFlowSinkSchemaLinkedServicePtrType FlowletDataFlowSinkSchemaLinkedServiceArgs
+
+func FlowletDataFlowSinkSchemaLinkedServicePtr(v *FlowletDataFlowSinkSchemaLinkedServiceArgs) FlowletDataFlowSinkSchemaLinkedServicePtrInput {
+	return (*flowletDataFlowSinkSchemaLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSinkSchemaLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSinkSchemaLinkedServicePtrType) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutput() FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSinkSchemaLinkedServicePtrType) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSinkSchemaLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkSchemaLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) ToFlowletDataFlowSinkSchemaLinkedServiceOutput() FlowletDataFlowSinkSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) ToFlowletDataFlowSinkSchemaLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutput() FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSinkSchemaLinkedService) *FlowletDataFlowSinkSchemaLinkedService {
+		return &v
+	}).(FlowletDataFlowSinkSchemaLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkSchemaLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkSchemaLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSinkSchemaLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSinkSchemaLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSinkSchemaLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSinkSchemaLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServicePtrOutput) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutput() FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServicePtrOutput) ToFlowletDataFlowSinkSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSinkSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSinkSchemaLinkedServicePtrOutput) Elem() FlowletDataFlowSinkSchemaLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkSchemaLinkedService) FlowletDataFlowSinkSchemaLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSinkSchemaLinkedService
+		return ret
+	}).(FlowletDataFlowSinkSchemaLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSinkSchemaLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkSchemaLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSinkSchemaLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSinkSchemaLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSource struct {
+	// A `dataset` block as defined below.
+	Dataset *FlowletDataFlowSourceDataset `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *FlowletDataFlowSourceFlowlet `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService *FlowletDataFlowSourceLinkedService `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name string `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService *FlowletDataFlowSourceSchemaLinkedService `pulumi:"schemaLinkedService"`
+}
+
+// FlowletDataFlowSourceInput is an input type that accepts FlowletDataFlowSourceArgs and FlowletDataFlowSourceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceInput` via:
+//
+//	FlowletDataFlowSourceArgs{...}
+type FlowletDataFlowSourceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceOutput() FlowletDataFlowSourceOutput
+	ToFlowletDataFlowSourceOutputWithContext(context.Context) FlowletDataFlowSourceOutput
+}
+
+type FlowletDataFlowSourceArgs struct {
+	// A `dataset` block as defined below.
+	Dataset FlowletDataFlowSourceDatasetPtrInput `pulumi:"dataset"`
+	// The description for the Data Flow Source.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet FlowletDataFlowSourceFlowletPtrInput `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService FlowletDataFlowSourceLinkedServicePtrInput `pulumi:"linkedService"`
+	// The name for the Data Flow Source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A `schemaLinkedService` block as defined below.
+	SchemaLinkedService FlowletDataFlowSourceSchemaLinkedServicePtrInput `pulumi:"schemaLinkedService"`
+}
+
+func (FlowletDataFlowSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSource)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceArgs) ToFlowletDataFlowSourceOutput() FlowletDataFlowSourceOutput {
+	return i.ToFlowletDataFlowSourceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceArgs) ToFlowletDataFlowSourceOutputWithContext(ctx context.Context) FlowletDataFlowSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceOutput)
+}
+
+// FlowletDataFlowSourceArrayInput is an input type that accepts FlowletDataFlowSourceArray and FlowletDataFlowSourceArrayOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceArrayInput` via:
+//
+//	FlowletDataFlowSourceArray{ FlowletDataFlowSourceArgs{...} }
+type FlowletDataFlowSourceArrayInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceArrayOutput() FlowletDataFlowSourceArrayOutput
+	ToFlowletDataFlowSourceArrayOutputWithContext(context.Context) FlowletDataFlowSourceArrayOutput
+}
+
+type FlowletDataFlowSourceArray []FlowletDataFlowSourceInput
+
+func (FlowletDataFlowSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowSource)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceArray) ToFlowletDataFlowSourceArrayOutput() FlowletDataFlowSourceArrayOutput {
+	return i.ToFlowletDataFlowSourceArrayOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceArray) ToFlowletDataFlowSourceArrayOutputWithContext(ctx context.Context) FlowletDataFlowSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceArrayOutput)
+}
+
+type FlowletDataFlowSourceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSource)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceOutput) ToFlowletDataFlowSourceOutput() FlowletDataFlowSourceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceOutput) ToFlowletDataFlowSourceOutputWithContext(ctx context.Context) FlowletDataFlowSourceOutput {
+	return o
+}
+
+// A `dataset` block as defined below.
+func (o FlowletDataFlowSourceOutput) Dataset() FlowletDataFlowSourceDatasetPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *FlowletDataFlowSourceDataset { return v.Dataset }).(FlowletDataFlowSourceDatasetPtrOutput)
+}
+
+// The description for the Data Flow Source.
+func (o FlowletDataFlowSourceOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o FlowletDataFlowSourceOutput) Flowlet() FlowletDataFlowSourceFlowletPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *FlowletDataFlowSourceFlowlet { return v.Flowlet }).(FlowletDataFlowSourceFlowletPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o FlowletDataFlowSourceOutput) LinkedService() FlowletDataFlowSourceLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *FlowletDataFlowSourceLinkedService { return v.LinkedService }).(FlowletDataFlowSourceLinkedServicePtrOutput)
+}
+
+// The name for the Data Flow Source.
+func (o FlowletDataFlowSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A `schemaLinkedService` block as defined below.
+func (o FlowletDataFlowSourceOutput) SchemaLinkedService() FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSource) *FlowletDataFlowSourceSchemaLinkedService { return v.SchemaLinkedService }).(FlowletDataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowSource)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceArrayOutput) ToFlowletDataFlowSourceArrayOutput() FlowletDataFlowSourceArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceArrayOutput) ToFlowletDataFlowSourceArrayOutputWithContext(ctx context.Context) FlowletDataFlowSourceArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceArrayOutput) Index(i pulumi.IntInput) FlowletDataFlowSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowletDataFlowSource {
+		return vs[0].([]FlowletDataFlowSource)[vs[1].(int)]
+	}).(FlowletDataFlowSourceOutput)
+}
+
+type FlowletDataFlowSourceDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSourceDatasetInput is an input type that accepts FlowletDataFlowSourceDatasetArgs and FlowletDataFlowSourceDatasetOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceDatasetInput` via:
+//
+//	FlowletDataFlowSourceDatasetArgs{...}
+type FlowletDataFlowSourceDatasetInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceDatasetOutput() FlowletDataFlowSourceDatasetOutput
+	ToFlowletDataFlowSourceDatasetOutputWithContext(context.Context) FlowletDataFlowSourceDatasetOutput
+}
+
+type FlowletDataFlowSourceDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSourceDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceDataset)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceDatasetArgs) ToFlowletDataFlowSourceDatasetOutput() FlowletDataFlowSourceDatasetOutput {
+	return i.ToFlowletDataFlowSourceDatasetOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceDatasetArgs) ToFlowletDataFlowSourceDatasetOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceDatasetOutput)
+}
+
+func (i FlowletDataFlowSourceDatasetArgs) ToFlowletDataFlowSourceDatasetPtrOutput() FlowletDataFlowSourceDatasetPtrOutput {
+	return i.ToFlowletDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceDatasetArgs) ToFlowletDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceDatasetOutput).ToFlowletDataFlowSourceDatasetPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSourceDatasetPtrInput is an input type that accepts FlowletDataFlowSourceDatasetArgs, FlowletDataFlowSourceDatasetPtr and FlowletDataFlowSourceDatasetPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceDatasetPtrInput` via:
+//
+//	        FlowletDataFlowSourceDatasetArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSourceDatasetPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceDatasetPtrOutput() FlowletDataFlowSourceDatasetPtrOutput
+	ToFlowletDataFlowSourceDatasetPtrOutputWithContext(context.Context) FlowletDataFlowSourceDatasetPtrOutput
+}
+
+type flowletDataFlowSourceDatasetPtrType FlowletDataFlowSourceDatasetArgs
+
+func FlowletDataFlowSourceDatasetPtr(v *FlowletDataFlowSourceDatasetArgs) FlowletDataFlowSourceDatasetPtrInput {
+	return (*flowletDataFlowSourceDatasetPtrType)(v)
+}
+
+func (*flowletDataFlowSourceDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceDataset)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSourceDatasetPtrType) ToFlowletDataFlowSourceDatasetPtrOutput() FlowletDataFlowSourceDatasetPtrOutput {
+	return i.ToFlowletDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSourceDatasetPtrType) ToFlowletDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceDatasetPtrOutput)
+}
+
+type FlowletDataFlowSourceDatasetOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceDatasetOutput) ToFlowletDataFlowSourceDatasetOutput() FlowletDataFlowSourceDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceDatasetOutput) ToFlowletDataFlowSourceDatasetOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceDatasetOutput) ToFlowletDataFlowSourceDatasetPtrOutput() FlowletDataFlowSourceDatasetPtrOutput {
+	return o.ToFlowletDataFlowSourceDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSourceDatasetOutput) ToFlowletDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSourceDataset) *FlowletDataFlowSourceDataset {
+		return &v
+	}).(FlowletDataFlowSourceDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowSourceDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowSourceDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceDatasetPtrOutput) ToFlowletDataFlowSourceDatasetPtrOutput() FlowletDataFlowSourceDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceDatasetPtrOutput) ToFlowletDataFlowSourceDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceDatasetPtrOutput) Elem() FlowletDataFlowSourceDatasetOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceDataset) FlowletDataFlowSourceDataset {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSourceDataset
+		return ret
+	}).(FlowletDataFlowSourceDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowSourceDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowSourceDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSourceFlowletInput is an input type that accepts FlowletDataFlowSourceFlowletArgs and FlowletDataFlowSourceFlowletOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceFlowletInput` via:
+//
+//	FlowletDataFlowSourceFlowletArgs{...}
+type FlowletDataFlowSourceFlowletInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceFlowletOutput() FlowletDataFlowSourceFlowletOutput
+	ToFlowletDataFlowSourceFlowletOutputWithContext(context.Context) FlowletDataFlowSourceFlowletOutput
+}
+
+type FlowletDataFlowSourceFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSourceFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceFlowletArgs) ToFlowletDataFlowSourceFlowletOutput() FlowletDataFlowSourceFlowletOutput {
+	return i.ToFlowletDataFlowSourceFlowletOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceFlowletArgs) ToFlowletDataFlowSourceFlowletOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceFlowletOutput)
+}
+
+func (i FlowletDataFlowSourceFlowletArgs) ToFlowletDataFlowSourceFlowletPtrOutput() FlowletDataFlowSourceFlowletPtrOutput {
+	return i.ToFlowletDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceFlowletArgs) ToFlowletDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceFlowletOutput).ToFlowletDataFlowSourceFlowletPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSourceFlowletPtrInput is an input type that accepts FlowletDataFlowSourceFlowletArgs, FlowletDataFlowSourceFlowletPtr and FlowletDataFlowSourceFlowletPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceFlowletPtrInput` via:
+//
+//	        FlowletDataFlowSourceFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSourceFlowletPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceFlowletPtrOutput() FlowletDataFlowSourceFlowletPtrOutput
+	ToFlowletDataFlowSourceFlowletPtrOutputWithContext(context.Context) FlowletDataFlowSourceFlowletPtrOutput
+}
+
+type flowletDataFlowSourceFlowletPtrType FlowletDataFlowSourceFlowletArgs
+
+func FlowletDataFlowSourceFlowletPtr(v *FlowletDataFlowSourceFlowletArgs) FlowletDataFlowSourceFlowletPtrInput {
+	return (*flowletDataFlowSourceFlowletPtrType)(v)
+}
+
+func (*flowletDataFlowSourceFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSourceFlowletPtrType) ToFlowletDataFlowSourceFlowletPtrOutput() FlowletDataFlowSourceFlowletPtrOutput {
+	return i.ToFlowletDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSourceFlowletPtrType) ToFlowletDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceFlowletPtrOutput)
+}
+
+type FlowletDataFlowSourceFlowletOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceFlowletOutput) ToFlowletDataFlowSourceFlowletOutput() FlowletDataFlowSourceFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceFlowletOutput) ToFlowletDataFlowSourceFlowletOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceFlowletOutput) ToFlowletDataFlowSourceFlowletPtrOutput() FlowletDataFlowSourceFlowletPtrOutput {
+	return o.ToFlowletDataFlowSourceFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSourceFlowletOutput) ToFlowletDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSourceFlowlet) *FlowletDataFlowSourceFlowlet {
+		return &v
+	}).(FlowletDataFlowSourceFlowletPtrOutput)
+}
+
+func (o FlowletDataFlowSourceFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowSourceFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowSourceFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceFlowletPtrOutput) ToFlowletDataFlowSourceFlowletPtrOutput() FlowletDataFlowSourceFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceFlowletPtrOutput) ToFlowletDataFlowSourceFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceFlowletPtrOutput) Elem() FlowletDataFlowSourceFlowletOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceFlowlet) FlowletDataFlowSourceFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSourceFlowlet
+		return ret
+	}).(FlowletDataFlowSourceFlowletOutput)
+}
+
+func (o FlowletDataFlowSourceFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowSourceFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowSourceFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceFlowlet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSourceLinkedServiceInput is an input type that accepts FlowletDataFlowSourceLinkedServiceArgs and FlowletDataFlowSourceLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceLinkedServiceInput` via:
+//
+//	FlowletDataFlowSourceLinkedServiceArgs{...}
+type FlowletDataFlowSourceLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceLinkedServiceOutput() FlowletDataFlowSourceLinkedServiceOutput
+	ToFlowletDataFlowSourceLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSourceLinkedServiceOutput
+}
+
+type FlowletDataFlowSourceLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSourceLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceLinkedServiceArgs) ToFlowletDataFlowSourceLinkedServiceOutput() FlowletDataFlowSourceLinkedServiceOutput {
+	return i.ToFlowletDataFlowSourceLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceLinkedServiceArgs) ToFlowletDataFlowSourceLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSourceLinkedServiceArgs) ToFlowletDataFlowSourceLinkedServicePtrOutput() FlowletDataFlowSourceLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceLinkedServiceArgs) ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceLinkedServiceOutput).ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSourceLinkedServicePtrInput is an input type that accepts FlowletDataFlowSourceLinkedServiceArgs, FlowletDataFlowSourceLinkedServicePtr and FlowletDataFlowSourceLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSourceLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSourceLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceLinkedServicePtrOutput() FlowletDataFlowSourceLinkedServicePtrOutput
+	ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSourceLinkedServicePtrOutput
+}
+
+type flowletDataFlowSourceLinkedServicePtrType FlowletDataFlowSourceLinkedServiceArgs
+
+func FlowletDataFlowSourceLinkedServicePtr(v *FlowletDataFlowSourceLinkedServiceArgs) FlowletDataFlowSourceLinkedServicePtrInput {
+	return (*flowletDataFlowSourceLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSourceLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSourceLinkedServicePtrType) ToFlowletDataFlowSourceLinkedServicePtrOutput() FlowletDataFlowSourceLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSourceLinkedServicePtrType) ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSourceLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceLinkedServiceOutput) ToFlowletDataFlowSourceLinkedServiceOutput() FlowletDataFlowSourceLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceLinkedServiceOutput) ToFlowletDataFlowSourceLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceLinkedServiceOutput) ToFlowletDataFlowSourceLinkedServicePtrOutput() FlowletDataFlowSourceLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSourceLinkedServiceOutput) ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSourceLinkedService) *FlowletDataFlowSourceLinkedService {
+		return &v
+	}).(FlowletDataFlowSourceLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowSourceLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceLinkedServicePtrOutput) ToFlowletDataFlowSourceLinkedServicePtrOutput() FlowletDataFlowSourceLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceLinkedServicePtrOutput) ToFlowletDataFlowSourceLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceLinkedServicePtrOutput) Elem() FlowletDataFlowSourceLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceLinkedService) FlowletDataFlowSourceLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSourceLinkedService
+		return ret
+	}).(FlowletDataFlowSourceLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowSourceLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceSchemaLinkedService struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowSourceSchemaLinkedServiceInput is an input type that accepts FlowletDataFlowSourceSchemaLinkedServiceArgs and FlowletDataFlowSourceSchemaLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceSchemaLinkedServiceInput` via:
+//
+//	FlowletDataFlowSourceSchemaLinkedServiceArgs{...}
+type FlowletDataFlowSourceSchemaLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceSchemaLinkedServiceOutput() FlowletDataFlowSourceSchemaLinkedServiceOutput
+	ToFlowletDataFlowSourceSchemaLinkedServiceOutputWithContext(context.Context) FlowletDataFlowSourceSchemaLinkedServiceOutput
+}
+
+type FlowletDataFlowSourceSchemaLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service with schema.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowSourceSchemaLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowSourceSchemaLinkedServiceArgs) ToFlowletDataFlowSourceSchemaLinkedServiceOutput() FlowletDataFlowSourceSchemaLinkedServiceOutput {
+	return i.ToFlowletDataFlowSourceSchemaLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceSchemaLinkedServiceArgs) ToFlowletDataFlowSourceSchemaLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceSchemaLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowSourceSchemaLinkedServiceArgs) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutput() FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowSourceSchemaLinkedServiceArgs) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceSchemaLinkedServiceOutput).ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowSourceSchemaLinkedServicePtrInput is an input type that accepts FlowletDataFlowSourceSchemaLinkedServiceArgs, FlowletDataFlowSourceSchemaLinkedServicePtr and FlowletDataFlowSourceSchemaLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowSourceSchemaLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowSourceSchemaLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowSourceSchemaLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowSourceSchemaLinkedServicePtrOutput() FlowletDataFlowSourceSchemaLinkedServicePtrOutput
+	ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowSourceSchemaLinkedServicePtrOutput
+}
+
+type flowletDataFlowSourceSchemaLinkedServicePtrType FlowletDataFlowSourceSchemaLinkedServiceArgs
+
+func FlowletDataFlowSourceSchemaLinkedServicePtr(v *FlowletDataFlowSourceSchemaLinkedServiceArgs) FlowletDataFlowSourceSchemaLinkedServicePtrInput {
+	return (*flowletDataFlowSourceSchemaLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowSourceSchemaLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowSourceSchemaLinkedServicePtrType) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutput() FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowSourceSchemaLinkedServicePtrType) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowSourceSchemaLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceSchemaLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) ToFlowletDataFlowSourceSchemaLinkedServiceOutput() FlowletDataFlowSourceSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) ToFlowletDataFlowSourceSchemaLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutput() FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowSourceSchemaLinkedService) *FlowletDataFlowSourceSchemaLinkedService {
+		return &v
+	}).(FlowletDataFlowSourceSchemaLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceSchemaLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceSchemaLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowSourceSchemaLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowSourceSchemaLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowSourceSchemaLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowSourceSchemaLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServicePtrOutput) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutput() FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServicePtrOutput) ToFlowletDataFlowSourceSchemaLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowSourceSchemaLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowSourceSchemaLinkedServicePtrOutput) Elem() FlowletDataFlowSourceSchemaLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceSchemaLinkedService) FlowletDataFlowSourceSchemaLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowSourceSchemaLinkedService
+		return ret
+	}).(FlowletDataFlowSourceSchemaLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service with schema.
+func (o FlowletDataFlowSourceSchemaLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceSchemaLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowSourceSchemaLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowSourceSchemaLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformation struct {
+	// A `dataset` block as defined below.
+	Dataset *FlowletDataFlowTransformationDataset `pulumi:"dataset"`
+	// The description for the Data Flow transformation.
+	Description *string `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet *FlowletDataFlowTransformationFlowlet `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService *FlowletDataFlowTransformationLinkedService `pulumi:"linkedService"`
+	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+}
+
+// FlowletDataFlowTransformationInput is an input type that accepts FlowletDataFlowTransformationArgs and FlowletDataFlowTransformationOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationInput` via:
+//
+//	FlowletDataFlowTransformationArgs{...}
+type FlowletDataFlowTransformationInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationOutput() FlowletDataFlowTransformationOutput
+	ToFlowletDataFlowTransformationOutputWithContext(context.Context) FlowletDataFlowTransformationOutput
+}
+
+type FlowletDataFlowTransformationArgs struct {
+	// A `dataset` block as defined below.
+	Dataset FlowletDataFlowTransformationDatasetPtrInput `pulumi:"dataset"`
+	// The description for the Data Flow transformation.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A `flowlet` block as defined below.
+	Flowlet FlowletDataFlowTransformationFlowletPtrInput `pulumi:"flowlet"`
+	// A `linkedService` block as defined below.
+	LinkedService FlowletDataFlowTransformationLinkedServicePtrInput `pulumi:"linkedService"`
+	// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FlowletDataFlowTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformation)(nil)).Elem()
+}
+
+func (i FlowletDataFlowTransformationArgs) ToFlowletDataFlowTransformationOutput() FlowletDataFlowTransformationOutput {
+	return i.ToFlowletDataFlowTransformationOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationArgs) ToFlowletDataFlowTransformationOutputWithContext(ctx context.Context) FlowletDataFlowTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationOutput)
+}
+
+// FlowletDataFlowTransformationArrayInput is an input type that accepts FlowletDataFlowTransformationArray and FlowletDataFlowTransformationArrayOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationArrayInput` via:
+//
+//	FlowletDataFlowTransformationArray{ FlowletDataFlowTransformationArgs{...} }
+type FlowletDataFlowTransformationArrayInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationArrayOutput() FlowletDataFlowTransformationArrayOutput
+	ToFlowletDataFlowTransformationArrayOutputWithContext(context.Context) FlowletDataFlowTransformationArrayOutput
+}
+
+type FlowletDataFlowTransformationArray []FlowletDataFlowTransformationInput
+
+func (FlowletDataFlowTransformationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowTransformation)(nil)).Elem()
+}
+
+func (i FlowletDataFlowTransformationArray) ToFlowletDataFlowTransformationArrayOutput() FlowletDataFlowTransformationArrayOutput {
+	return i.ToFlowletDataFlowTransformationArrayOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationArray) ToFlowletDataFlowTransformationArrayOutputWithContext(ctx context.Context) FlowletDataFlowTransformationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationArrayOutput)
+}
+
+type FlowletDataFlowTransformationOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformation)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationOutput) ToFlowletDataFlowTransformationOutput() FlowletDataFlowTransformationOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationOutput) ToFlowletDataFlowTransformationOutputWithContext(ctx context.Context) FlowletDataFlowTransformationOutput {
+	return o
+}
+
+// A `dataset` block as defined below.
+func (o FlowletDataFlowTransformationOutput) Dataset() FlowletDataFlowTransformationDatasetPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformation) *FlowletDataFlowTransformationDataset { return v.Dataset }).(FlowletDataFlowTransformationDatasetPtrOutput)
+}
+
+// The description for the Data Flow transformation.
+func (o FlowletDataFlowTransformationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformation) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A `flowlet` block as defined below.
+func (o FlowletDataFlowTransformationOutput) Flowlet() FlowletDataFlowTransformationFlowletPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformation) *FlowletDataFlowTransformationFlowlet { return v.Flowlet }).(FlowletDataFlowTransformationFlowletPtrOutput)
+}
+
+// A `linkedService` block as defined below.
+func (o FlowletDataFlowTransformationOutput) LinkedService() FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformation) *FlowletDataFlowTransformationLinkedService {
+		return v.LinkedService
+	}).(FlowletDataFlowTransformationLinkedServicePtrOutput)
+}
+
+// Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+func (o FlowletDataFlowTransformationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformation) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FlowletDataFlowTransformationArrayOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FlowletDataFlowTransformation)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationArrayOutput) ToFlowletDataFlowTransformationArrayOutput() FlowletDataFlowTransformationArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationArrayOutput) ToFlowletDataFlowTransformationArrayOutputWithContext(ctx context.Context) FlowletDataFlowTransformationArrayOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationArrayOutput) Index(i pulumi.IntInput) FlowletDataFlowTransformationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowletDataFlowTransformation {
+		return vs[0].([]FlowletDataFlowTransformation)[vs[1].(int)]
+	}).(FlowletDataFlowTransformationOutput)
+}
+
+type FlowletDataFlowTransformationDataset struct {
+	// The name for the Data Factory Dataset.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowTransformationDatasetInput is an input type that accepts FlowletDataFlowTransformationDatasetArgs and FlowletDataFlowTransformationDatasetOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationDatasetInput` via:
+//
+//	FlowletDataFlowTransformationDatasetArgs{...}
+type FlowletDataFlowTransformationDatasetInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationDatasetOutput() FlowletDataFlowTransformationDatasetOutput
+	ToFlowletDataFlowTransformationDatasetOutputWithContext(context.Context) FlowletDataFlowTransformationDatasetOutput
+}
+
+type FlowletDataFlowTransformationDatasetArgs struct {
+	// The name for the Data Factory Dataset.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory dataset.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowTransformationDatasetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (i FlowletDataFlowTransformationDatasetArgs) ToFlowletDataFlowTransformationDatasetOutput() FlowletDataFlowTransformationDatasetOutput {
+	return i.ToFlowletDataFlowTransformationDatasetOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationDatasetArgs) ToFlowletDataFlowTransformationDatasetOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationDatasetOutput)
+}
+
+func (i FlowletDataFlowTransformationDatasetArgs) ToFlowletDataFlowTransformationDatasetPtrOutput() FlowletDataFlowTransformationDatasetPtrOutput {
+	return i.ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationDatasetArgs) ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationDatasetOutput).ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowTransformationDatasetPtrInput is an input type that accepts FlowletDataFlowTransformationDatasetArgs, FlowletDataFlowTransformationDatasetPtr and FlowletDataFlowTransformationDatasetPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationDatasetPtrInput` via:
+//
+//	        FlowletDataFlowTransformationDatasetArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowTransformationDatasetPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationDatasetPtrOutput() FlowletDataFlowTransformationDatasetPtrOutput
+	ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(context.Context) FlowletDataFlowTransformationDatasetPtrOutput
+}
+
+type flowletDataFlowTransformationDatasetPtrType FlowletDataFlowTransformationDatasetArgs
+
+func FlowletDataFlowTransformationDatasetPtr(v *FlowletDataFlowTransformationDatasetArgs) FlowletDataFlowTransformationDatasetPtrInput {
+	return (*flowletDataFlowTransformationDatasetPtrType)(v)
+}
+
+func (*flowletDataFlowTransformationDatasetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (i *flowletDataFlowTransformationDatasetPtrType) ToFlowletDataFlowTransformationDatasetPtrOutput() FlowletDataFlowTransformationDatasetPtrOutput {
+	return i.ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowTransformationDatasetPtrType) ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationDatasetPtrOutput)
+}
+
+type FlowletDataFlowTransformationDatasetOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationDatasetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationDatasetOutput) ToFlowletDataFlowTransformationDatasetOutput() FlowletDataFlowTransformationDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationDatasetOutput) ToFlowletDataFlowTransformationDatasetOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationDatasetOutput) ToFlowletDataFlowTransformationDatasetPtrOutput() FlowletDataFlowTransformationDatasetPtrOutput {
+	return o.ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowTransformationDatasetOutput) ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowTransformationDataset) *FlowletDataFlowTransformationDataset {
+		return &v
+	}).(FlowletDataFlowTransformationDatasetPtrOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowTransformationDatasetOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationDataset) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowTransformationDatasetOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationDataset) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformationDatasetPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationDatasetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationDataset)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationDatasetPtrOutput) ToFlowletDataFlowTransformationDatasetPtrOutput() FlowletDataFlowTransformationDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationDatasetPtrOutput) ToFlowletDataFlowTransformationDatasetPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationDatasetPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationDatasetPtrOutput) Elem() FlowletDataFlowTransformationDatasetOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationDataset) FlowletDataFlowTransformationDataset {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowTransformationDataset
+		return ret
+	}).(FlowletDataFlowTransformationDatasetOutput)
+}
+
+// The name for the Data Factory Dataset.
+func (o FlowletDataFlowTransformationDatasetPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationDataset) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory dataset.
+func (o FlowletDataFlowTransformationDatasetPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationDataset) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformationFlowlet struct {
+	DatasetParameters *string `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowTransformationFlowletInput is an input type that accepts FlowletDataFlowTransformationFlowletArgs and FlowletDataFlowTransformationFlowletOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationFlowletInput` via:
+//
+//	FlowletDataFlowTransformationFlowletArgs{...}
+type FlowletDataFlowTransformationFlowletInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationFlowletOutput() FlowletDataFlowTransformationFlowletOutput
+	ToFlowletDataFlowTransformationFlowletOutputWithContext(context.Context) FlowletDataFlowTransformationFlowletOutput
+}
+
+type FlowletDataFlowTransformationFlowletArgs struct {
+	DatasetParameters pulumi.StringPtrInput `pulumi:"datasetParameters"`
+	// The name for the Data Factory Flowlet.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Flowlet.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowTransformationFlowletArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (i FlowletDataFlowTransformationFlowletArgs) ToFlowletDataFlowTransformationFlowletOutput() FlowletDataFlowTransformationFlowletOutput {
+	return i.ToFlowletDataFlowTransformationFlowletOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationFlowletArgs) ToFlowletDataFlowTransformationFlowletOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationFlowletOutput)
+}
+
+func (i FlowletDataFlowTransformationFlowletArgs) ToFlowletDataFlowTransformationFlowletPtrOutput() FlowletDataFlowTransformationFlowletPtrOutput {
+	return i.ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationFlowletArgs) ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationFlowletOutput).ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowTransformationFlowletPtrInput is an input type that accepts FlowletDataFlowTransformationFlowletArgs, FlowletDataFlowTransformationFlowletPtr and FlowletDataFlowTransformationFlowletPtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationFlowletPtrInput` via:
+//
+//	        FlowletDataFlowTransformationFlowletArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowTransformationFlowletPtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationFlowletPtrOutput() FlowletDataFlowTransformationFlowletPtrOutput
+	ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(context.Context) FlowletDataFlowTransformationFlowletPtrOutput
+}
+
+type flowletDataFlowTransformationFlowletPtrType FlowletDataFlowTransformationFlowletArgs
+
+func FlowletDataFlowTransformationFlowletPtr(v *FlowletDataFlowTransformationFlowletArgs) FlowletDataFlowTransformationFlowletPtrInput {
+	return (*flowletDataFlowTransformationFlowletPtrType)(v)
+}
+
+func (*flowletDataFlowTransformationFlowletPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (i *flowletDataFlowTransformationFlowletPtrType) ToFlowletDataFlowTransformationFlowletPtrOutput() FlowletDataFlowTransformationFlowletPtrOutput {
+	return i.ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowTransformationFlowletPtrType) ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationFlowletPtrOutput)
+}
+
+type FlowletDataFlowTransformationFlowletOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationFlowletOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationFlowletOutput) ToFlowletDataFlowTransformationFlowletOutput() FlowletDataFlowTransformationFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationFlowletOutput) ToFlowletDataFlowTransformationFlowletOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationFlowletOutput) ToFlowletDataFlowTransformationFlowletPtrOutput() FlowletDataFlowTransformationFlowletPtrOutput {
+	return o.ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowTransformationFlowletOutput) ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowTransformationFlowlet) *FlowletDataFlowTransformationFlowlet {
+		return &v
+	}).(FlowletDataFlowTransformationFlowletPtrOutput)
+}
+
+func (o FlowletDataFlowTransformationFlowletOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationFlowlet) *string { return v.DatasetParameters }).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowTransformationFlowletOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationFlowlet) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowTransformationFlowletOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationFlowlet) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformationFlowletPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationFlowletPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationFlowlet)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationFlowletPtrOutput) ToFlowletDataFlowTransformationFlowletPtrOutput() FlowletDataFlowTransformationFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationFlowletPtrOutput) ToFlowletDataFlowTransformationFlowletPtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationFlowletPtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationFlowletPtrOutput) Elem() FlowletDataFlowTransformationFlowletOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationFlowlet) FlowletDataFlowTransformationFlowlet {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowTransformationFlowlet
+		return ret
+	}).(FlowletDataFlowTransformationFlowletOutput)
+}
+
+func (o FlowletDataFlowTransformationFlowletPtrOutput) DatasetParameters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatasetParameters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name for the Data Factory Flowlet.
+func (o FlowletDataFlowTransformationFlowletPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationFlowlet) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Flowlet.
+func (o FlowletDataFlowTransformationFlowletPtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationFlowlet) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformationLinkedService struct {
+	// The name for the Data Factory Linked Service.
+	Name string `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters map[string]string `pulumi:"parameters"`
+}
+
+// FlowletDataFlowTransformationLinkedServiceInput is an input type that accepts FlowletDataFlowTransformationLinkedServiceArgs and FlowletDataFlowTransformationLinkedServiceOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationLinkedServiceInput` via:
+//
+//	FlowletDataFlowTransformationLinkedServiceArgs{...}
+type FlowletDataFlowTransformationLinkedServiceInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationLinkedServiceOutput() FlowletDataFlowTransformationLinkedServiceOutput
+	ToFlowletDataFlowTransformationLinkedServiceOutputWithContext(context.Context) FlowletDataFlowTransformationLinkedServiceOutput
+}
+
+type FlowletDataFlowTransformationLinkedServiceArgs struct {
+	// The name for the Data Factory Linked Service.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A map of parameters to associate with the Data Factory Linked Service.
+	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+}
+
+func (FlowletDataFlowTransformationLinkedServiceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (i FlowletDataFlowTransformationLinkedServiceArgs) ToFlowletDataFlowTransformationLinkedServiceOutput() FlowletDataFlowTransformationLinkedServiceOutput {
+	return i.ToFlowletDataFlowTransformationLinkedServiceOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationLinkedServiceArgs) ToFlowletDataFlowTransformationLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServiceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationLinkedServiceOutput)
+}
+
+func (i FlowletDataFlowTransformationLinkedServiceArgs) ToFlowletDataFlowTransformationLinkedServicePtrOutput() FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i FlowletDataFlowTransformationLinkedServiceArgs) ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationLinkedServiceOutput).ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(ctx)
+}
+
+// FlowletDataFlowTransformationLinkedServicePtrInput is an input type that accepts FlowletDataFlowTransformationLinkedServiceArgs, FlowletDataFlowTransformationLinkedServicePtr and FlowletDataFlowTransformationLinkedServicePtrOutput values.
+// You can construct a concrete instance of `FlowletDataFlowTransformationLinkedServicePtrInput` via:
+//
+//	        FlowletDataFlowTransformationLinkedServiceArgs{...}
+//
+//	or:
+//
+//	        nil
+type FlowletDataFlowTransformationLinkedServicePtrInput interface {
+	pulumi.Input
+
+	ToFlowletDataFlowTransformationLinkedServicePtrOutput() FlowletDataFlowTransformationLinkedServicePtrOutput
+	ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(context.Context) FlowletDataFlowTransformationLinkedServicePtrOutput
+}
+
+type flowletDataFlowTransformationLinkedServicePtrType FlowletDataFlowTransformationLinkedServiceArgs
+
+func FlowletDataFlowTransformationLinkedServicePtr(v *FlowletDataFlowTransformationLinkedServiceArgs) FlowletDataFlowTransformationLinkedServicePtrInput {
+	return (*flowletDataFlowTransformationLinkedServicePtrType)(v)
+}
+
+func (*flowletDataFlowTransformationLinkedServicePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (i *flowletDataFlowTransformationLinkedServicePtrType) ToFlowletDataFlowTransformationLinkedServicePtrOutput() FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return i.ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (i *flowletDataFlowTransformationLinkedServicePtrType) ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowTransformationLinkedServicePtrOutput)
+}
+
+type FlowletDataFlowTransformationLinkedServiceOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationLinkedServiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowletDataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationLinkedServiceOutput) ToFlowletDataFlowTransformationLinkedServiceOutput() FlowletDataFlowTransformationLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationLinkedServiceOutput) ToFlowletDataFlowTransformationLinkedServiceOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServiceOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationLinkedServiceOutput) ToFlowletDataFlowTransformationLinkedServicePtrOutput() FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return o.ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(context.Background())
+}
+
+func (o FlowletDataFlowTransformationLinkedServiceOutput) ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowletDataFlowTransformationLinkedService) *FlowletDataFlowTransformationLinkedService {
+		return &v
+	}).(FlowletDataFlowTransformationLinkedServicePtrOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowTransformationLinkedServiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationLinkedService) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowTransformationLinkedServiceOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FlowletDataFlowTransformationLinkedService) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+}
+
+type FlowletDataFlowTransformationLinkedServicePtrOutput struct{ *pulumi.OutputState }
+
+func (FlowletDataFlowTransformationLinkedServicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowletDataFlowTransformationLinkedService)(nil)).Elem()
+}
+
+func (o FlowletDataFlowTransformationLinkedServicePtrOutput) ToFlowletDataFlowTransformationLinkedServicePtrOutput() FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationLinkedServicePtrOutput) ToFlowletDataFlowTransformationLinkedServicePtrOutputWithContext(ctx context.Context) FlowletDataFlowTransformationLinkedServicePtrOutput {
+	return o
+}
+
+func (o FlowletDataFlowTransformationLinkedServicePtrOutput) Elem() FlowletDataFlowTransformationLinkedServiceOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationLinkedService) FlowletDataFlowTransformationLinkedService {
+		if v != nil {
+			return *v
+		}
+		var ret FlowletDataFlowTransformationLinkedService
+		return ret
+	}).(FlowletDataFlowTransformationLinkedServiceOutput)
+}
+
+// The name for the Data Factory Linked Service.
+func (o FlowletDataFlowTransformationLinkedServicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationLinkedService) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of parameters to associate with the Data Factory Linked Service.
+func (o FlowletDataFlowTransformationLinkedServicePtrOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FlowletDataFlowTransformationLinkedService) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(pulumi.StringMapOutput)
+}
+
 type IntegrationRuntimeManagedCatalogInfo struct {
 	// Administrator login name for the SQL Server.
 	AdministratorLogin *string `pulumi:"administratorLogin"`
@@ -7832,6 +10552,143 @@ func (o IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutpu
 			return nil
 		}
 		return v.SecretVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressVnetIntegration struct {
+	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// IntegrationRuntimeSsisExpressVnetIntegrationInput is an input type that accepts IntegrationRuntimeSsisExpressVnetIntegrationArgs and IntegrationRuntimeSsisExpressVnetIntegrationOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressVnetIntegrationInput` via:
+//
+//	IntegrationRuntimeSsisExpressVnetIntegrationArgs{...}
+type IntegrationRuntimeSsisExpressVnetIntegrationInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressVnetIntegrationOutput() IntegrationRuntimeSsisExpressVnetIntegrationOutput
+	ToIntegrationRuntimeSsisExpressVnetIntegrationOutputWithContext(context.Context) IntegrationRuntimeSsisExpressVnetIntegrationOutput
+}
+
+type IntegrationRuntimeSsisExpressVnetIntegrationArgs struct {
+	// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (IntegrationRuntimeSsisExpressVnetIntegrationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressVnetIntegration)(nil)).Elem()
+}
+
+func (i IntegrationRuntimeSsisExpressVnetIntegrationArgs) ToIntegrationRuntimeSsisExpressVnetIntegrationOutput() IntegrationRuntimeSsisExpressVnetIntegrationOutput {
+	return i.ToIntegrationRuntimeSsisExpressVnetIntegrationOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressVnetIntegrationArgs) ToIntegrationRuntimeSsisExpressVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressVnetIntegrationOutput)
+}
+
+func (i IntegrationRuntimeSsisExpressVnetIntegrationArgs) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutput() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationRuntimeSsisExpressVnetIntegrationArgs) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressVnetIntegrationOutput).ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(ctx)
+}
+
+// IntegrationRuntimeSsisExpressVnetIntegrationPtrInput is an input type that accepts IntegrationRuntimeSsisExpressVnetIntegrationArgs, IntegrationRuntimeSsisExpressVnetIntegrationPtr and IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput values.
+// You can construct a concrete instance of `IntegrationRuntimeSsisExpressVnetIntegrationPtrInput` via:
+//
+//	        IntegrationRuntimeSsisExpressVnetIntegrationArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationRuntimeSsisExpressVnetIntegrationPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutput() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput
+	ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(context.Context) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput
+}
+
+type integrationRuntimeSsisExpressVnetIntegrationPtrType IntegrationRuntimeSsisExpressVnetIntegrationArgs
+
+func IntegrationRuntimeSsisExpressVnetIntegrationPtr(v *IntegrationRuntimeSsisExpressVnetIntegrationArgs) IntegrationRuntimeSsisExpressVnetIntegrationPtrInput {
+	return (*integrationRuntimeSsisExpressVnetIntegrationPtrType)(v)
+}
+
+func (*integrationRuntimeSsisExpressVnetIntegrationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressVnetIntegration)(nil)).Elem()
+}
+
+func (i *integrationRuntimeSsisExpressVnetIntegrationPtrType) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutput() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return i.ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationRuntimeSsisExpressVnetIntegrationPtrType) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput)
+}
+
+type IntegrationRuntimeSsisExpressVnetIntegrationOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressVnetIntegrationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationRuntimeSsisExpressVnetIntegration)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationOutput() IntegrationRuntimeSsisExpressVnetIntegrationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutput() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return o.ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationRuntimeSsisExpressVnetIntegration) *IntegrationRuntimeSsisExpressVnetIntegration {
+		return &v
+	}).(IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput)
+}
+
+// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisExpressVnetIntegrationOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationRuntimeSsisExpressVnetIntegration) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationRuntimeSsisExpressVnetIntegration)(nil)).Elem()
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutput() IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput) ToIntegrationRuntimeSsisExpressVnetIntegrationPtrOutputWithContext(ctx context.Context) IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput {
+	return o
+}
+
+func (o IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput) Elem() IntegrationRuntimeSsisExpressVnetIntegrationOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressVnetIntegration) IntegrationRuntimeSsisExpressVnetIntegration {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationRuntimeSsisExpressVnetIntegration
+		return ret
+	}).(IntegrationRuntimeSsisExpressVnetIntegrationOutput)
+}
+
+// id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+func (o IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeSsisExpressVnetIntegration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SubnetId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12470,6 +15327,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkArrayInput)(nil)).Elem(), DataFlowSinkArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkDatasetInput)(nil)).Elem(), DataFlowSinkDatasetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkDatasetPtrInput)(nil)).Elem(), DataFlowSinkDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkFlowletInput)(nil)).Elem(), DataFlowSinkFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkFlowletPtrInput)(nil)).Elem(), DataFlowSinkFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkLinkedServiceInput)(nil)).Elem(), DataFlowSinkLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkLinkedServicePtrInput)(nil)).Elem(), DataFlowSinkLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSinkSchemaLinkedServiceInput)(nil)).Elem(), DataFlowSinkSchemaLinkedServiceArgs{})
@@ -12478,6 +15337,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceArrayInput)(nil)).Elem(), DataFlowSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceDatasetInput)(nil)).Elem(), DataFlowSourceDatasetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceDatasetPtrInput)(nil)).Elem(), DataFlowSourceDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceFlowletInput)(nil)).Elem(), DataFlowSourceFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceFlowletPtrInput)(nil)).Elem(), DataFlowSourceFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceLinkedServiceInput)(nil)).Elem(), DataFlowSourceLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceLinkedServicePtrInput)(nil)).Elem(), DataFlowSourceLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowSourceSchemaLinkedServiceInput)(nil)).Elem(), DataFlowSourceSchemaLinkedServiceArgs{})
@@ -12486,6 +15347,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationArrayInput)(nil)).Elem(), DataFlowTransformationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationDatasetInput)(nil)).Elem(), DataFlowTransformationDatasetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationDatasetPtrInput)(nil)).Elem(), DataFlowTransformationDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationFlowletInput)(nil)).Elem(), DataFlowTransformationFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationFlowletPtrInput)(nil)).Elem(), DataFlowTransformationFlowletArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationLinkedServiceInput)(nil)).Elem(), DataFlowTransformationLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataFlowTransformationLinkedServicePtrInput)(nil)).Elem(), DataFlowTransformationLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatasetAzureBlobSchemaColumnInput)(nil)).Elem(), DatasetAzureBlobSchemaColumnArgs{})
@@ -12538,6 +15401,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FactoryIdentityPtrInput)(nil)).Elem(), FactoryIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FactoryVstsConfigurationInput)(nil)).Elem(), FactoryVstsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FactoryVstsConfigurationPtrInput)(nil)).Elem(), FactoryVstsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkInput)(nil)).Elem(), FlowletDataFlowSinkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkArrayInput)(nil)).Elem(), FlowletDataFlowSinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkDatasetInput)(nil)).Elem(), FlowletDataFlowSinkDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkDatasetPtrInput)(nil)).Elem(), FlowletDataFlowSinkDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkFlowletInput)(nil)).Elem(), FlowletDataFlowSinkFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkFlowletPtrInput)(nil)).Elem(), FlowletDataFlowSinkFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSinkLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSinkLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSinkSchemaLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSinkSchemaLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSinkSchemaLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceInput)(nil)).Elem(), FlowletDataFlowSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceArrayInput)(nil)).Elem(), FlowletDataFlowSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceDatasetInput)(nil)).Elem(), FlowletDataFlowSourceDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceDatasetPtrInput)(nil)).Elem(), FlowletDataFlowSourceDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceFlowletInput)(nil)).Elem(), FlowletDataFlowSourceFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceFlowletPtrInput)(nil)).Elem(), FlowletDataFlowSourceFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSourceLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSourceLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedServiceInput)(nil)).Elem(), FlowletDataFlowSourceSchemaLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowSourceSchemaLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowSourceSchemaLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationInput)(nil)).Elem(), FlowletDataFlowTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationArrayInput)(nil)).Elem(), FlowletDataFlowTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationDatasetInput)(nil)).Elem(), FlowletDataFlowTransformationDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationDatasetPtrInput)(nil)).Elem(), FlowletDataFlowTransformationDatasetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationFlowletInput)(nil)).Elem(), FlowletDataFlowTransformationFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationFlowletPtrInput)(nil)).Elem(), FlowletDataFlowTransformationFlowletArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationLinkedServiceInput)(nil)).Elem(), FlowletDataFlowTransformationLinkedServiceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowletDataFlowTransformationLinkedServicePtrInput)(nil)).Elem(), FlowletDataFlowTransformationLinkedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeManagedCatalogInfoInput)(nil)).Elem(), IntegrationRuntimeManagedCatalogInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeManagedCatalogInfoPtrInput)(nil)).Elem(), IntegrationRuntimeManagedCatalogInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeManagedCustomSetupScriptInput)(nil)).Elem(), IntegrationRuntimeManagedCustomSetupScriptArgs{})
@@ -12560,6 +15451,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponentArrayInput)(nil)).Elem(), IntegrationRuntimeSsisExpressCustomSetupComponentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseInput)(nil)).Elem(), IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrInput)(nil)).Elem(), IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressVnetIntegrationInput)(nil)).Elem(), IntegrationRuntimeSsisExpressVnetIntegrationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisExpressVnetIntegrationPtrInput)(nil)).Elem(), IntegrationRuntimeSsisExpressVnetIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPackageStoreInput)(nil)).Elem(), IntegrationRuntimeSsisPackageStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisPackageStoreArrayInput)(nil)).Elem(), IntegrationRuntimeSsisPackageStoreArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisProxyInput)(nil)).Elem(), IntegrationRuntimeSsisProxyArgs{})
@@ -12626,6 +15519,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowSinkArrayOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkDatasetOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkFlowletOutput{})
+	pulumi.RegisterOutputType(DataFlowSinkFlowletPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSinkSchemaLinkedServiceOutput{})
@@ -12634,6 +15529,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowSourceArrayOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceDatasetOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceFlowletOutput{})
+	pulumi.RegisterOutputType(DataFlowSourceFlowletPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DataFlowSourceSchemaLinkedServiceOutput{})
@@ -12642,6 +15539,8 @@ func init() {
 	pulumi.RegisterOutputType(DataFlowTransformationArrayOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationDatasetOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationDatasetPtrOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationFlowletOutput{})
+	pulumi.RegisterOutputType(DataFlowTransformationFlowletPtrOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationLinkedServiceOutput{})
 	pulumi.RegisterOutputType(DataFlowTransformationLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(DatasetAzureBlobSchemaColumnOutput{})
@@ -12694,6 +15593,34 @@ func init() {
 	pulumi.RegisterOutputType(FactoryIdentityPtrOutput{})
 	pulumi.RegisterOutputType(FactoryVstsConfigurationOutput{})
 	pulumi.RegisterOutputType(FactoryVstsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkArrayOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkDatasetOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkDatasetPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkFlowletOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkFlowletPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkSchemaLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSinkSchemaLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceArrayOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceDatasetOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceDatasetPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceFlowletOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceFlowletPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceSchemaLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowSourceSchemaLinkedServicePtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationArrayOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationDatasetOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationDatasetPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationFlowletOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationFlowletPtrOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationLinkedServiceOutput{})
+	pulumi.RegisterOutputType(FlowletDataFlowTransformationLinkedServicePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedCatalogInfoOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedCatalogInfoPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeManagedCustomSetupScriptOutput{})
@@ -12716,6 +15643,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicensePtrOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressVnetIntegrationOutput{})
+	pulumi.RegisterOutputType(IntegrationRuntimeSsisExpressVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisPackageStoreArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisProxyOutput{})

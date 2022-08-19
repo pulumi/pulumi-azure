@@ -32,6 +32,7 @@ class ApplicationGatewayArgs:
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  firewall_policy_id: Optional[pulumi.Input[str]] = None,
                  force_firewall_policy_association: Optional[pulumi.Input[bool]] = None,
+                 global_: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']] = None,
                  identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -66,6 +67,7 @@ class ApplicationGatewayArgs:
         :param pulumi.Input[bool] fips_enabled: Is FIPS enabled on the Application Gateway?
         :param pulumi.Input[str] firewall_policy_id: The ID of the Web Application Firewall Policy.
         :param pulumi.Input[bool] force_firewall_policy_association: Is the Firewall Policy associated with the Application Gateway?
+        :param pulumi.Input['ApplicationGatewayGlobalArgs'] global_: A `global` block as defined below.
         :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Application Gateway. Changing this forces a new resource to be created.
@@ -106,6 +108,8 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
         if force_firewall_policy_association is not None:
             pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
+        if global_ is not None:
+            pulumi.set(__self__, "global_", global_)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -332,6 +336,18 @@ class ApplicationGatewayArgs:
         pulumi.set(self, "force_firewall_policy_association", value)
 
     @property
+    @pulumi.getter(name="global")
+    def global_(self) -> Optional[pulumi.Input['ApplicationGatewayGlobalArgs']]:
+        """
+        A `global` block as defined below.
+        """
+        return pulumi.get(self, "global_")
+
+    @global_.setter
+    def global_(self, value: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']]):
+        pulumi.set(self, "global_", value)
+
+    @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ApplicationGatewayIdentityArgs']]:
         """
@@ -539,6 +555,7 @@ class _ApplicationGatewayState:
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]] = None,
+                 global_: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]]] = None,
                  identity: Optional[pulumi.Input['ApplicationGatewayIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -574,6 +591,7 @@ class _ApplicationGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendIpConfigurationArgs']]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayFrontendPortArgs']]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input['ApplicationGatewayGlobalArgs'] global_: A `global` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayHttpListenerArgs']]] http_listeners: One or more `http_listener` blocks as defined below.
         :param pulumi.Input['ApplicationGatewayIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -620,6 +638,8 @@ class _ApplicationGatewayState:
             pulumi.set(__self__, "frontend_ports", frontend_ports)
         if gateway_ip_configurations is not None:
             pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        if global_ is not None:
+            pulumi.set(__self__, "global_", global_)
         if http_listeners is not None:
             pulumi.set(__self__, "http_listeners", http_listeners)
         if identity is not None:
@@ -806,6 +826,18 @@ class _ApplicationGatewayState:
     @gateway_ip_configurations.setter
     def gateway_ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayGatewayIpConfigurationArgs']]]]):
         pulumi.set(self, "gateway_ip_configurations", value)
+
+    @property
+    @pulumi.getter(name="global")
+    def global_(self) -> Optional[pulumi.Input['ApplicationGatewayGlobalArgs']]:
+        """
+        A `global` block as defined below.
+        """
+        return pulumi.get(self, "global_")
+
+    @global_.setter
+    def global_(self, value: Optional[pulumi.Input['ApplicationGatewayGlobalArgs']]):
+        pulumi.set(self, "global_", value)
 
     @property
     @pulumi.getter(name="httpListeners")
@@ -1077,6 +1109,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
+                 global_: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalArgs']]] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1199,6 +1232,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalArgs']] global_: A `global` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: One or more `http_listener` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -1340,6 +1374,7 @@ class ApplicationGateway(pulumi.CustomResource):
                  frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
                  frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
                  gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
+                 global_: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalArgs']]] = None,
                  http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -1391,6 +1426,7 @@ class ApplicationGateway(pulumi.CustomResource):
             if gateway_ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_ip_configurations'")
             __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
+            __props__.__dict__["global_"] = global_
             if http_listeners is None and not opts.urn:
                 raise TypeError("Missing required property 'http_listeners'")
             __props__.__dict__["http_listeners"] = http_listeners
@@ -1442,6 +1478,7 @@ class ApplicationGateway(pulumi.CustomResource):
             frontend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]]] = None,
             frontend_ports: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]]] = None,
             gateway_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]]] = None,
+            global_: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalArgs']]] = None,
             http_listeners: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -1482,6 +1519,7 @@ class ApplicationGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendIpConfigurationArgs']]]] frontend_ip_configurations: One or more `frontend_ip_configuration` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayFrontendPortArgs']]]] frontend_ports: One or more `frontend_port` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayGatewayIpConfigurationArgs']]]] gateway_ip_configurations: One or more `gateway_ip_configuration` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['ApplicationGatewayGlobalArgs']] global_: A `global` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationGatewayHttpListenerArgs']]]] http_listeners: One or more `http_listener` blocks as defined below.
         :param pulumi.Input[pulumi.InputType['ApplicationGatewayIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure region where the Application Gateway should exist. Changing this forces a new resource to be created.
@@ -1520,6 +1558,7 @@ class ApplicationGateway(pulumi.CustomResource):
         __props__.__dict__["frontend_ip_configurations"] = frontend_ip_configurations
         __props__.__dict__["frontend_ports"] = frontend_ports
         __props__.__dict__["gateway_ip_configurations"] = gateway_ip_configurations
+        __props__.__dict__["global_"] = global_
         __props__.__dict__["http_listeners"] = http_listeners
         __props__.__dict__["identity"] = identity
         __props__.__dict__["location"] = location
@@ -1638,6 +1677,14 @@ class ApplicationGateway(pulumi.CustomResource):
         One or more `gateway_ip_configuration` blocks as defined below.
         """
         return pulumi.get(self, "gateway_ip_configurations")
+
+    @property
+    @pulumi.getter(name="global")
+    def global_(self) -> pulumi.Output[Optional['outputs.ApplicationGatewayGlobal']]:
+        """
+        A `global` block as defined below.
+        """
+        return pulumi.get(self, "global_")
 
     @property
     @pulumi.getter(name="httpListeners")

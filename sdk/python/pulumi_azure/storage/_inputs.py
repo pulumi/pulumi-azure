@@ -1800,7 +1800,7 @@ class ManagementPolicyRuleArgs:
         """
         :param pulumi.Input['ManagementPolicyRuleActionsArgs'] actions: An `actions` block as documented below.
         :param pulumi.Input[bool] enabled: Boolean to specify whether the rule is enabled.
-        :param pulumi.Input[str] name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        :param pulumi.Input[str] name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         :param pulumi.Input['ManagementPolicyRuleFiltersArgs'] filters: A `filter` block as documented below.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1837,7 +1837,7 @@ class ManagementPolicyRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         return pulumi.get(self, "name")
 

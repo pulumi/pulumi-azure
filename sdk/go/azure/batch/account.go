@@ -76,6 +76,8 @@ type Account struct {
 
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringOutput `pulumi:"accountEndpoint"`
+	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+	AllowedAuthenticationModes pulumi.StringArrayOutput `pulumi:"allowedAuthenticationModes"`
 	// Specifies if customer managed key encryption should be used to encrypt batch account data.
 	Encryption AccountEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -96,8 +98,12 @@ type Account struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
 	SecondaryAccessKey pulumi.StringOutput `pulumi:"secondaryAccessKey"`
+	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+	StorageAccountAuthenticationMode pulumi.StringPtrOutput `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
+	// Specifies the user assigned identity for the storage account.
+	StorageAccountNodeIdentity pulumi.StringPtrOutput `pulumi:"storageAccountNodeIdentity"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 }
@@ -136,6 +142,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint *string `pulumi:"accountEndpoint"`
+	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+	AllowedAuthenticationModes []string `pulumi:"allowedAuthenticationModes"`
 	// Specifies if customer managed key encryption should be used to encrypt batch account data.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -156,8 +164,12 @@ type accountState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The Batch account secondary access key.
 	SecondaryAccessKey *string `pulumi:"secondaryAccessKey"`
+	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+	StorageAccountAuthenticationMode *string `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the user assigned identity for the storage account.
+	StorageAccountNodeIdentity *string `pulumi:"storageAccountNodeIdentity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -165,6 +177,8 @@ type accountState struct {
 type AccountState struct {
 	// The account endpoint used to interact with the Batch service.
 	AccountEndpoint pulumi.StringPtrInput
+	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+	AllowedAuthenticationModes pulumi.StringArrayInput
 	// Specifies if customer managed key encryption should be used to encrypt batch account data.
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
@@ -185,8 +199,12 @@ type AccountState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The Batch account secondary access key.
 	SecondaryAccessKey pulumi.StringPtrInput
+	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+	StorageAccountAuthenticationMode pulumi.StringPtrInput
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId pulumi.StringPtrInput
+	// Specifies the user assigned identity for the storage account.
+	StorageAccountNodeIdentity pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -196,6 +214,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+	AllowedAuthenticationModes []string `pulumi:"allowedAuthenticationModes"`
 	// Specifies if customer managed key encryption should be used to encrypt batch account data.
 	Encryption *AccountEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
@@ -212,14 +232,20 @@ type accountArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+	StorageAccountAuthenticationMode *string `pulumi:"storageAccountAuthenticationMode"`
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId *string `pulumi:"storageAccountId"`
+	// Specifies the user assigned identity for the storage account.
+	StorageAccountNodeIdentity *string `pulumi:"storageAccountNodeIdentity"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+	AllowedAuthenticationModes pulumi.StringArrayInput
 	// Specifies if customer managed key encryption should be used to encrypt batch account data.
 	Encryption AccountEncryptionPtrInput
 	// An `identity` block as defined below.
@@ -236,8 +262,12 @@ type AccountArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Batch account. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+	StorageAccountAuthenticationMode pulumi.StringPtrInput
 	// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 	StorageAccountId pulumi.StringPtrInput
+	// Specifies the user assigned identity for the storage account.
+	StorageAccountNodeIdentity pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }
@@ -334,6 +364,11 @@ func (o AccountOutput) AccountEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccountEndpoint }).(pulumi.StringOutput)
 }
 
+// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+func (o AccountOutput) AllowedAuthenticationModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringArrayOutput { return v.AllowedAuthenticationModes }).(pulumi.StringArrayOutput)
+}
+
 // Specifies if customer managed key encryption should be used to encrypt batch account data.
 func (o AccountOutput) Encryption() AccountEncryptionPtrOutput {
 	return o.ApplyT(func(v *Account) AccountEncryptionPtrOutput { return v.Encryption }).(AccountEncryptionPtrOutput)
@@ -384,9 +419,19 @@ func (o AccountOutput) SecondaryAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SecondaryAccessKey }).(pulumi.StringOutput)
 }
 
+// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+func (o AccountOutput) StorageAccountAuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.StorageAccountAuthenticationMode }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
 func (o AccountOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the user assigned identity for the storage account.
+func (o AccountOutput) StorageAccountNodeIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.StorageAccountNodeIdentity }).(pulumi.StringPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

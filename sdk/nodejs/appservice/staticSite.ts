@@ -66,6 +66,9 @@ export class StaticSite extends pulumi.CustomResource {
      * The default host name of the Static Web App.
      */
     public /*out*/ readonly defaultHostName!: pulumi.Output<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     public readonly identity!: pulumi.Output<outputs.appservice.StaticSiteIdentity | undefined>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -146,6 +149,9 @@ export interface StaticSiteState {
      * The default host name of the Static Web App.
      */
     defaultHostName?: pulumi.Input<string>;
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
@@ -177,6 +183,9 @@ export interface StaticSiteState {
  * The set of arguments for constructing a StaticSite resource.
  */
 export interface StaticSiteArgs {
+    /**
+     * An `identity` block as defined below.
+     */
     identity?: pulumi.Input<inputs.appservice.StaticSiteIdentity>;
     /**
      * The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.

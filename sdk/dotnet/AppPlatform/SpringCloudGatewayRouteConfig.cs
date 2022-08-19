@@ -99,6 +99,12 @@ namespace Pulumi.Azure.AppPlatform
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// One or more `open_api` blocks as defined below.
+        /// </summary>
+        [Output("openApi")]
+        public Output<Outputs.SpringCloudGatewayRouteConfigOpenApi?> OpenApi { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `route` blocks as defined below.
         /// </summary>
         [Output("routes")]
@@ -168,6 +174,12 @@ namespace Pulumi.Azure.AppPlatform
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// One or more `open_api` blocks as defined below.
+        /// </summary>
+        [Input("openApi")]
+        public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiArgs>? OpenApi { get; set; }
+
         [Input("routes")]
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteArgs>? _routes;
 
@@ -205,6 +217,12 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// One or more `open_api` blocks as defined below.
+        /// </summary>
+        [Input("openApi")]
+        public Input<Inputs.SpringCloudGatewayRouteConfigOpenApiGetArgs>? OpenApi { get; set; }
 
         [Input("routes")]
         private InputList<Inputs.SpringCloudGatewayRouteConfigRouteGetArgs>? _routes;

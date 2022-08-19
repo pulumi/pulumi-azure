@@ -3,15 +3,33 @@
 
 package com.pulumi.azure.waf.inputs;
 
+import com.pulumi.azure.waf.inputs.PolicyManagedRulesExclusionExcludedRuleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyManagedRulesExclusionArgs Empty = new PolicyManagedRulesExclusionArgs();
+
+    /**
+     * One or more `excluded_rule_set` block defined below.
+     * 
+     */
+    @Import(name="excludedRuleSet")
+    private @Nullable Output<PolicyManagedRulesExclusionExcludedRuleSetArgs> excludedRuleSet;
+
+    /**
+     * @return One or more `excluded_rule_set` block defined below.
+     * 
+     */
+    public Optional<Output<PolicyManagedRulesExclusionExcludedRuleSetArgs>> excludedRuleSet() {
+        return Optional.ofNullable(this.excludedRuleSet);
+    }
 
     /**
      * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
@@ -61,6 +79,7 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
     private PolicyManagedRulesExclusionArgs() {}
 
     private PolicyManagedRulesExclusionArgs(PolicyManagedRulesExclusionArgs $) {
+        this.excludedRuleSet = $.excludedRuleSet;
         this.matchVariable = $.matchVariable;
         this.selector = $.selector;
         this.selectorMatchOperator = $.selectorMatchOperator;
@@ -82,6 +101,27 @@ public final class PolicyManagedRulesExclusionArgs extends com.pulumi.resources.
 
         public Builder(PolicyManagedRulesExclusionArgs defaults) {
             $ = new PolicyManagedRulesExclusionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param excludedRuleSet One or more `excluded_rule_set` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedRuleSet(@Nullable Output<PolicyManagedRulesExclusionExcludedRuleSetArgs> excludedRuleSet) {
+            $.excludedRuleSet = excludedRuleSet;
+            return this;
+        }
+
+        /**
+         * @param excludedRuleSet One or more `excluded_rule_set` block defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder excludedRuleSet(PolicyManagedRulesExclusionExcludedRuleSetArgs excludedRuleSet) {
+            return excludedRuleSet(Output.of(excludedRuleSet));
         }
 
         /**

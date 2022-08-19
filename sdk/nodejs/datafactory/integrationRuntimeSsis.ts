@@ -87,6 +87,10 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
      */
     public readonly expressCustomSetup!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup | undefined>;
     /**
+     * A `expressVnetIntegration` block as defined below.
+     */
+    public readonly expressVnetIntegration!: pulumi.Output<outputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration | undefined>;
+    /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
     public readonly licenseType!: pulumi.Output<string | undefined>;
@@ -142,6 +146,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["expressCustomSetup"] = state ? state.expressCustomSetup : undefined;
+            resourceInputs["expressVnetIntegration"] = state ? state.expressVnetIntegration : undefined;
             resourceInputs["licenseType"] = state ? state.licenseType : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["maxParallelExecutionsPerNode"] = state ? state.maxParallelExecutionsPerNode : undefined;
@@ -165,6 +170,7 @@ export class IntegrationRuntimeSsis extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["expressCustomSetup"] = args ? args.expressCustomSetup : undefined;
+            resourceInputs["expressVnetIntegration"] = args ? args.expressVnetIntegration : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["maxParallelExecutionsPerNode"] = args ? args.maxParallelExecutionsPerNode : undefined;
@@ -208,6 +214,10 @@ export interface IntegrationRuntimeSsisState {
      * An `expressCustomSetup` block as defined below.
      */
     expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    /**
+     * A `expressVnetIntegration` block as defined below.
+     */
+    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */
@@ -274,6 +284,10 @@ export interface IntegrationRuntimeSsisArgs {
      * An `expressCustomSetup` block as defined below.
      */
     expressCustomSetup?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressCustomSetup>;
+    /**
+     * A `expressVnetIntegration` block as defined below.
+     */
+    expressVnetIntegration?: pulumi.Input<inputs.datafactory.IntegrationRuntimeSsisExpressVnetIntegration>;
     /**
      * The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
      */

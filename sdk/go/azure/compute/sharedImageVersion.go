@@ -77,6 +77,8 @@ import (
 type SharedImageVersion struct {
 	pulumi.CustomResourceState
 
+	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+	BlobUri pulumi.StringPtrOutput `pulumi:"blobUri"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrOutput `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -97,6 +99,8 @@ type SharedImageVersion struct {
 	ReplicationMode pulumi.StringPtrOutput `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
+	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// A collection of tags which should be applied to this resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
@@ -144,6 +148,8 @@ func GetSharedImageVersion(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SharedImageVersion resources.
 type sharedImageVersionState struct {
+	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+	BlobUri *string `pulumi:"blobUri"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -164,6 +170,8 @@ type sharedImageVersionState struct {
 	ReplicationMode *string `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A collection of tags which should be applied to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
@@ -171,6 +179,8 @@ type sharedImageVersionState struct {
 }
 
 type SharedImageVersionState struct {
+	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+	BlobUri pulumi.StringPtrInput
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -191,6 +201,8 @@ type SharedImageVersionState struct {
 	ReplicationMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
+	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// A collection of tags which should be applied to this resource.
 	Tags pulumi.StringMapInput
 	// One or more `targetRegion` blocks as documented below.
@@ -202,6 +214,8 @@ func (SharedImageVersionState) ElementType() reflect.Type {
 }
 
 type sharedImageVersionArgs struct {
+	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+	BlobUri *string `pulumi:"blobUri"`
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate *string `pulumi:"endOfLifeDate"`
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -222,6 +236,8 @@ type sharedImageVersionArgs struct {
 	ReplicationMode *string `pulumi:"replicationMode"`
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// A collection of tags which should be applied to this resource.
 	Tags map[string]string `pulumi:"tags"`
 	// One or more `targetRegion` blocks as documented below.
@@ -230,6 +246,8 @@ type sharedImageVersionArgs struct {
 
 // The set of arguments for constructing a SharedImageVersion resource.
 type SharedImageVersionArgs struct {
+	// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+	BlobUri pulumi.StringPtrInput
 	// The end of life date in RFC3339 format of the Image Version.
 	EndOfLifeDate pulumi.StringPtrInput
 	// Should this Image Version be excluded from the `latest` filter? If set to `true` this Image Version won't be returned for the `latest` version. Defaults to `false`.
@@ -250,6 +268,8 @@ type SharedImageVersionArgs struct {
 	ReplicationMode pulumi.StringPtrInput
 	// The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
+	// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// A collection of tags which should be applied to this resource.
 	Tags pulumi.StringMapInput
 	// One or more `targetRegion` blocks as documented below.
@@ -343,6 +363,11 @@ func (o SharedImageVersionOutput) ToSharedImageVersionOutputWithContext(ctx cont
 	return o
 }
 
+// URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+func (o SharedImageVersionOutput) BlobUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.BlobUri }).(pulumi.StringPtrOutput)
+}
+
 // The end of life date in RFC3339 format of the Image Version.
 func (o SharedImageVersionOutput) EndOfLifeDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.EndOfLifeDate }).(pulumi.StringPtrOutput)
@@ -391,6 +416,11 @@ func (o SharedImageVersionOutput) ReplicationMode() pulumi.StringPtrOutput {
 // The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
 func (o SharedImageVersionOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+func (o SharedImageVersionOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedImageVersion) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
 }
 
 // A collection of tags which should be applied to this resource.

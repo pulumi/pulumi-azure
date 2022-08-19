@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .scope(&#34;All&#34;)
+ *             .scope(&#34;SQLDB&#34;)
  *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
  *             .build());
  * 
@@ -126,18 +126,18 @@ public class Configuration extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
     @Export(name="scope", type=String.class, parameters={})
-    private Output</* @Nullable */ String> scope;
+    private Output<String> scope;
 
     /**
-     * @return The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * @return The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      * 
      */
-    public Output<Optional<String>> scope() {
-        return Codegen.optional(this.scope);
+    public Output<String> scope() {
+        return this.scope;
     }
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.

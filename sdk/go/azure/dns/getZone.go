@@ -70,7 +70,7 @@ type LookupZoneResult struct {
 	// The number of records already in the zone.
 	NumberOfRecordSets int    `pulumi:"numberOfRecordSets"`
 	ResourceGroupName  string `pulumi:"resourceGroupName"`
-	// A mapping of tags to assign to the EventHub Namespace.
+	// A mapping of tags assigned to the DNS Zone.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -144,7 +144,7 @@ func (o LookupZoneResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the EventHub Namespace.
+// A mapping of tags assigned to the DNS Zone.
 func (o LookupZoneResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupZoneResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

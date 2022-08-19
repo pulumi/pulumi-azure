@@ -18,6 +18,21 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
     public static final BackendAddressPoolAddressState Empty = new BackendAddressPoolAddressState();
 
     /**
+     * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    @Import(name="backendAddressIpConfigurationId")
+    private @Nullable Output<String> backendAddressIpConfigurationId;
+
+    /**
+     * @return The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    public Optional<Output<String>> backendAddressIpConfigurationId() {
+        return Optional.ofNullable(this.backendAddressIpConfigurationId);
+    }
+
+    /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      * 
      */
@@ -95,6 +110,7 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
     private BackendAddressPoolAddressState() {}
 
     private BackendAddressPoolAddressState(BackendAddressPoolAddressState $) {
+        this.backendAddressIpConfigurationId = $.backendAddressIpConfigurationId;
         this.backendAddressPoolId = $.backendAddressPoolId;
         this.inboundNatRulePortMappings = $.inboundNatRulePortMappings;
         this.ipAddress = $.ipAddress;
@@ -118,6 +134,27 @@ public final class BackendAddressPoolAddressState extends com.pulumi.resources.R
 
         public Builder(BackendAddressPoolAddressState defaults) {
             $ = new BackendAddressPoolAddressState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressIpConfigurationId(@Nullable Output<String> backendAddressIpConfigurationId) {
+            $.backendAddressIpConfigurationId = backendAddressIpConfigurationId;
+            return this;
+        }
+
+        /**
+         * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressIpConfigurationId(String backendAddressIpConfigurationId) {
+            return backendAddressIpConfigurationId(Output.of(backendAddressIpConfigurationId));
         }
 
         /**

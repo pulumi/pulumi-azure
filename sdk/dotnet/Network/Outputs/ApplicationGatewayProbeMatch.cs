@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// <summary>
         /// A snippet from the Response Body which must be present in the Response.
         /// </summary>
-        public readonly string Body;
+        public readonly string? Body;
         /// <summary>
         /// A list of allowed status codes for this Health Probe.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Network.Outputs
 
         [OutputConstructor]
         private ApplicationGatewayProbeMatch(
-            string body,
+            string? body,
 
             ImmutableArray<string> statusCodes)
         {

@@ -20,6 +20,11 @@ public final class GetPoolContainerConfigurationContainerRegistry {
      */
     private final String registryServer;
     /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+     * 
+     */
+    private final String userAssignedIdentityId;
+    /**
      * @return The user name to log into the registry server.
      * 
      */
@@ -29,9 +34,11 @@ public final class GetPoolContainerConfigurationContainerRegistry {
     private GetPoolContainerConfigurationContainerRegistry(
         @CustomType.Parameter("password") String password,
         @CustomType.Parameter("registryServer") String registryServer,
+        @CustomType.Parameter("userAssignedIdentityId") String userAssignedIdentityId,
         @CustomType.Parameter("userName") String userName) {
         this.password = password;
         this.registryServer = registryServer;
+        this.userAssignedIdentityId = userAssignedIdentityId;
         this.userName = userName;
     }
 
@@ -48,6 +55,13 @@ public final class GetPoolContainerConfigurationContainerRegistry {
      */
     public String registryServer() {
         return this.registryServer;
+    }
+    /**
+     * @return The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password.
+     * 
+     */
+    public String userAssignedIdentityId() {
+        return this.userAssignedIdentityId;
     }
     /**
      * @return The user name to log into the registry server.
@@ -68,6 +82,7 @@ public final class GetPoolContainerConfigurationContainerRegistry {
     public static final class Builder {
         private String password;
         private String registryServer;
+        private String userAssignedIdentityId;
         private String userName;
 
         public Builder() {
@@ -78,6 +93,7 @@ public final class GetPoolContainerConfigurationContainerRegistry {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.registryServer = defaults.registryServer;
+    	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
     	      this.userName = defaults.userName;
         }
 
@@ -89,11 +105,15 @@ public final class GetPoolContainerConfigurationContainerRegistry {
             this.registryServer = Objects.requireNonNull(registryServer);
             return this;
         }
+        public Builder userAssignedIdentityId(String userAssignedIdentityId) {
+            this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
+            return this;
+        }
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
         }        public GetPoolContainerConfigurationContainerRegistry build() {
-            return new GetPoolContainerConfigurationContainerRegistry(password, registryServer, userName);
+            return new GetPoolContainerConfigurationContainerRegistry(password, registryServer, userAssignedIdentityId, userName);
         }
     }
 }

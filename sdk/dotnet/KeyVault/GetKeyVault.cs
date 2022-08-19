@@ -152,6 +152,10 @@ namespace Pulumi.Azure.KeyVault
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetKeyVaultNetworkAclResult> NetworkAcls;
         /// <summary>
+        /// Is public network access enabled on this Key Vault?
+        /// </summary>
+        public readonly bool PublicNetworkAccessEnabled;
+        /// <summary>
         /// Is purge protection enabled on this Key Vault?
         /// </summary>
         public readonly bool PurgeProtectionEnabled;
@@ -193,6 +197,8 @@ namespace Pulumi.Azure.KeyVault
 
             ImmutableArray<Outputs.GetKeyVaultNetworkAclResult> networkAcls,
 
+            bool publicNetworkAccessEnabled,
+
             bool purgeProtectionEnabled,
 
             string resourceGroupName,
@@ -214,6 +220,7 @@ namespace Pulumi.Azure.KeyVault
             Location = location;
             Name = name;
             NetworkAcls = networkAcls;
+            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             PurgeProtectionEnabled = purgeProtectionEnabled;
             ResourceGroupName = resourceGroupName;
             SkuName = skuName;

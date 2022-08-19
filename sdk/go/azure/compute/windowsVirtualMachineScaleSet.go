@@ -147,7 +147,7 @@ type WindowsVirtualMachineScaleSet struct {
 	EnableAutomaticUpdates pulumi.BoolPtrOutput `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
@@ -307,7 +307,7 @@ type windowsVirtualMachineScaleSetState struct {
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -418,7 +418,7 @@ type WindowsVirtualMachineScaleSetState struct {
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
@@ -533,7 +533,7 @@ type windowsVirtualMachineScaleSetArgs struct {
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []WindowsVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -643,7 +643,7 @@ type WindowsVirtualMachineScaleSetArgs struct {
 	EnableAutomaticUpdates pulumi.BoolPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions WindowsVirtualMachineScaleSetExtensionArrayInput
@@ -897,7 +897,7 @@ func (o WindowsVirtualMachineScaleSetOutput) EncryptionAtHostEnabled() pulumi.Bo
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }

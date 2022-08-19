@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  *     subDomain: "example-iotcentral-app-subdomain",
  *     displayName: "example-iotcentral-app-display-name",
- *     sku: "S1",
+ *     sku: "ST1",
  *     template: "iotc-default@1.0.0",
  *     tags: {
  *         Foo: "Bar",

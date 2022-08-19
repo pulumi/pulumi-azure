@@ -10,7 +10,9 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AccountEncryptionArgs',
     'AccountIdentityArgs',
+    'AccountPrivateEndpointConnectionArgs',
     'ModuleModuleLinkArgs',
     'ModuleModuleLinkHashArgs',
     'RunBookJobScheduleArgs',
@@ -18,6 +20,60 @@ __all__ = [
     'RunBookPublishContentLinkHashArgs',
     'ScheduleMonthlyOccurrenceArgs',
 ]
+
+@pulumi.input_type
+class AccountEncryptionArgs:
+    def __init__(__self__, *,
+                 key_vault_key_id: pulumi.Input[str],
+                 key_source: Optional[pulumi.Input[str]] = None,
+                 user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+        :param pulumi.Input[str] key_source: The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        :param pulumi.Input[str] user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_key_id", value)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 @pulumi.input_type
 class AccountIdentityArgs:
@@ -87,6 +143,45 @@ class AccountIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class AccountPrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: The ID of the Automation Account.
+        :param pulumi.Input[str] name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Automation Account.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

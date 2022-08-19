@@ -128,9 +128,10 @@ type AaaaRecord struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrOutput `pulumi:"targetResourceId"`
-	Ttl              pulumi.IntOutput       `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntOutput `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
@@ -183,9 +184,10 @@ type aaaaRecordState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl              *int    `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl *int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
@@ -201,9 +203,10 @@ type AaaaRecordState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
-	Ttl              pulumi.IntPtrInput
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntPtrInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
@@ -221,9 +224,10 @@ type aaaaRecordArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId *string `pulumi:"targetResourceId"`
-	Ttl              int     `pulumi:"ttl"`
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl int `pulumi:"ttl"`
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
@@ -238,9 +242,10 @@ type AaaaRecordArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// The Azure resource id of the target object. Conflicts with `records`
+	// The Azure resource id of the target object. Conflicts with `records`.
 	TargetResourceId pulumi.StringPtrInput
-	Ttl              pulumi.IntInput
+	// The Time To Live (TTL) of the DNS record in seconds.
+	Ttl pulumi.IntInput
 	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
@@ -357,11 +362,12 @@ func (o AaaaRecordOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The Azure resource id of the target object. Conflicts with `records`
+// The Azure resource id of the target object. Conflicts with `records`.
 func (o AaaaRecordOutput) TargetResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.StringPtrOutput { return v.TargetResourceId }).(pulumi.StringPtrOutput)
 }
 
+// The Time To Live (TTL) of the DNS record in seconds.
 func (o AaaaRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *AaaaRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }

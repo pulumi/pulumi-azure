@@ -113,6 +113,8 @@ type LookupWindowsWebAppResult struct {
 	StorageAccounts []GetWindowsWebAppStorageAccount `pulumi:"storageAccounts"`
 	// A mapping of tags assigned to the Windows Web App.
 	Tags map[string]string `pulumi:"tags"`
+	// The subnet id which the Windows Web App is vNet Integrated with.
+	VirtualNetworkSubnetId string `pulumi:"virtualNetworkSubnetId"`
 }
 
 func LookupWindowsWebAppOutput(ctx *pulumi.Context, args LookupWindowsWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsWebAppResultOutput {
@@ -292,6 +294,11 @@ func (o LookupWindowsWebAppResultOutput) StorageAccounts() GetWindowsWebAppStora
 // A mapping of tags assigned to the Windows Web App.
 func (o LookupWindowsWebAppResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupWindowsWebAppResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// The subnet id which the Windows Web App is vNet Integrated with.
+func (o LookupWindowsWebAppResultOutput) VirtualNetworkSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWindowsWebAppResult) string { return v.VirtualNetworkSubnetId }).(pulumi.StringOutput)
 }
 
 func init() {

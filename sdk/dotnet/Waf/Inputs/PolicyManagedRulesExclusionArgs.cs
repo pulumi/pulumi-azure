@@ -13,6 +13,12 @@ namespace Pulumi.Azure.Waf.Inputs
     public sealed class PolicyManagedRulesExclusionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// One or more `excluded_rule_set` block defined below.
+        /// </summary>
+        [Input("excludedRuleSet")]
+        public Input<Inputs.PolicyManagedRulesExclusionExcludedRuleSetArgs>? ExcludedRuleSet { get; set; }
+
+        /// <summary>
         /// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
         /// </summary>
         [Input("matchVariable", required: true)]

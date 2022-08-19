@@ -90,6 +90,12 @@ namespace Pulumi.Azure.DataFactory
         public Output<Outputs.IntegrationRuntimeSsisExpressCustomSetup?> ExpressCustomSetup { get; private set; } = null!;
 
         /// <summary>
+        /// A `express_vnet_integration` block as defined below.
+        /// </summary>
+        [Output("expressVnetIntegration")]
+        public Output<Outputs.IntegrationRuntimeSsisExpressVnetIntegration?> ExpressVnetIntegration { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Output("licenseType")]
@@ -226,6 +232,12 @@ namespace Pulumi.Azure.DataFactory
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupArgs>? ExpressCustomSetup { get; set; }
 
         /// <summary>
+        /// A `express_vnet_integration` block as defined below.
+        /// </summary>
+        [Input("expressVnetIntegration")]
+        public Input<Inputs.IntegrationRuntimeSsisExpressVnetIntegrationArgs>? ExpressVnetIntegration { get; set; }
+
+        /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         /// </summary>
         [Input("licenseType")]
@@ -328,6 +340,12 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("expressCustomSetup")]
         public Input<Inputs.IntegrationRuntimeSsisExpressCustomSetupGetArgs>? ExpressCustomSetup { get; set; }
+
+        /// <summary>
+        /// A `express_vnet_integration` block as defined below.
+        /// </summary>
+        [Input("expressVnetIntegration")]
+        public Input<Inputs.IntegrationRuntimeSsisExpressVnetIntegrationGetArgs>? ExpressVnetIntegration { get; set; }
 
         /// <summary>
         /// The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.

@@ -174,6 +174,10 @@ export class ApplicationGateway extends pulumi.CustomResource {
      */
     public readonly gatewayIpConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayGatewayIpConfiguration[]>;
     /**
+     * A `global` block as defined below.
+     */
+    public readonly global!: pulumi.Output<outputs.network.ApplicationGatewayGlobal | undefined>;
+    /**
      * One or more `httpListener` blocks as defined below.
      */
     public readonly httpListeners!: pulumi.Output<outputs.network.ApplicationGatewayHttpListener[]>;
@@ -283,6 +287,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurations"] = state ? state.frontendIpConfigurations : undefined;
             resourceInputs["frontendPorts"] = state ? state.frontendPorts : undefined;
             resourceInputs["gatewayIpConfigurations"] = state ? state.gatewayIpConfigurations : undefined;
+            resourceInputs["global"] = state ? state.global : undefined;
             resourceInputs["httpListeners"] = state ? state.httpListeners : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -345,6 +350,7 @@ export class ApplicationGateway extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurations"] = args ? args.frontendIpConfigurations : undefined;
             resourceInputs["frontendPorts"] = args ? args.frontendPorts : undefined;
             resourceInputs["gatewayIpConfigurations"] = args ? args.gatewayIpConfigurations : undefined;
+            resourceInputs["global"] = args ? args.global : undefined;
             resourceInputs["httpListeners"] = args ? args.httpListeners : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -424,6 +430,10 @@ export interface ApplicationGatewayState {
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
     gatewayIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[]>;
+    /**
+     * A `global` block as defined below.
+     */
+    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
     /**
      * One or more `httpListener` blocks as defined below.
      */
@@ -562,6 +572,10 @@ export interface ApplicationGatewayArgs {
      * One or more `gatewayIpConfiguration` blocks as defined below.
      */
     gatewayIpConfigurations: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayGatewayIpConfiguration>[]>;
+    /**
+     * A `global` block as defined below.
+     */
+    global?: pulumi.Input<inputs.network.ApplicationGatewayGlobal>;
     /**
      * One or more `httpListener` blocks as defined below.
      */

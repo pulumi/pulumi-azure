@@ -63,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example1, err := datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
+//			example1DatasetJson, err := datafactory.NewDatasetJson(ctx, "example1DatasetJson", &datafactory.DatasetJsonArgs{
 //				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
@@ -76,7 +76,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2, err := datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
+//			example2DatasetJson, err := datafactory.NewDatasetJson(ctx, "example2DatasetJson", &datafactory.DatasetJsonArgs{
 //				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
@@ -89,21 +89,109 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
+//				DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
+//				Sources: datafactory.FlowletDataFlowSourceArray{
+//					&datafactory.FlowletDataFlowSourceArgs{
+//						Name: pulumi.String("source1"),
+//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
+//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//						},
+//					},
+//				},
+//				Sinks: datafactory.FlowletDataFlowSinkArray{
+//					&datafactory.FlowletDataFlowSinkArgs{
+//						Name: pulumi.String("sink1"),
+//						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
+//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//						},
+//					},
+//				},
+//				Script: pulumi.String(fmt.Sprintf(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
+// source1 sink(
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
+//				DataFactoryId: pulumi.Any(azurerm_data_factory.Test.Id),
+//				Sources: datafactory.FlowletDataFlowSourceArray{
+//					&datafactory.FlowletDataFlowSourceArgs{
+//						Name: pulumi.String("source1"),
+//						LinkedService: &datafactory.FlowletDataFlowSourceLinkedServiceArgs{
+//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//						},
+//					},
+//				},
+//				Sinks: datafactory.FlowletDataFlowSinkArray{
+//					&datafactory.FlowletDataFlowSinkArgs{
+//						Name: pulumi.String("sink1"),
+//						LinkedService: &datafactory.FlowletDataFlowSinkLinkedServiceArgs{
+//							Name: pulumi.Any(azurerm_data_factory_linked_custom_service.Test.Name),
+//						},
+//					},
+//				},
+//				Script: pulumi.String(fmt.Sprintf(`source(
+//	  allowSchemaDrift: true,
+//	  validateSchema: false,
+//	  limit: 100,
+//	  ignoreNoFilesFound: false,
+//	  documentForm: 'documentPerLine') ~> source1
+//
+// source1 sink(
+//
+//	allowSchemaDrift: true,
+//	validateSchema: false,
+//	skipDuplicateMapInputs: true,
+//	skipDuplicateMapOutputs: true) ~> sink1
+//
+// `)),
+//
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			_, err = datafactory.NewDataFlow(ctx, "exampleDataFlow", &datafactory.DataFlowArgs{
 //				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.DataFlowSourceArray{
 //					&datafactory.DataFlowSourceArgs{
 //						Name: pulumi.String("source1"),
+//						Flowlet: &datafactory.DataFlowSourceFlowletArgs{
+//							Name: example1FlowletDataFlow.Name,
+//							Parameters: pulumi.StringMap{
+//								"Key1": pulumi.String("value1"),
+//							},
+//						},
 //						Dataset: &datafactory.DataFlowSourceDatasetArgs{
-//							Name: example1.Name,
+//							Name: example1DatasetJson.Name,
 //						},
 //					},
 //				},
 //				Sinks: datafactory.DataFlowSinkArray{
 //					&datafactory.DataFlowSinkArgs{
 //						Name: pulumi.String("sink1"),
+//						Flowlet: &datafactory.DataFlowSinkFlowletArgs{
+//							Name: example2FlowletDataFlow.Name,
+//							Parameters: pulumi.StringMap{
+//								"Key1": pulumi.String("value1"),
+//							},
+//						},
 //						Dataset: &datafactory.DataFlowSinkDatasetArgs{
-//							Name: example2.Name,
+//							Name: example2DatasetJson.Name,
 //						},
 //					},
 //				},

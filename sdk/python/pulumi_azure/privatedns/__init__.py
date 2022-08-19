@@ -8,7 +8,15 @@ import typing
 from .a_record import *
 from .aaaa_record import *
 from .cname_record import *
+from .get_a_record import *
+from .get_aaaa_record import *
+from .get_cname_record import *
 from .get_dns_zone import *
+from .get_mx_record import *
+from .get_ptr_record import *
+from .get_soa_record import *
+from .get_srv_record import *
+from .get_txt_record import *
 from .link_service import *
 from .mx_record import *
 from .ptr_record import *

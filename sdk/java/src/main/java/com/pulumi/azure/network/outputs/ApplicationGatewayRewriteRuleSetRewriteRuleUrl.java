@@ -13,6 +13,11 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     /**
+     * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * 
+     */
+    private final @Nullable String components;
+    /**
      * @return The URL path to rewrite.
      * 
      */
@@ -30,14 +35,23 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 
     @CustomType.Constructor
     private ApplicationGatewayRewriteRuleSetRewriteRuleUrl(
+        @CustomType.Parameter("components") @Nullable String components,
         @CustomType.Parameter("path") @Nullable String path,
         @CustomType.Parameter("queryString") @Nullable String queryString,
         @CustomType.Parameter("reroute") @Nullable Boolean reroute) {
+        this.components = components;
         this.path = path;
         this.queryString = queryString;
         this.reroute = reroute;
     }
 
+    /**
+     * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * 
+     */
+    public Optional<String> components() {
+        return Optional.ofNullable(this.components);
+    }
     /**
      * @return The URL path to rewrite.
      * 
@@ -69,6 +83,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     }
 
     public static final class Builder {
+        private @Nullable String components;
         private @Nullable String path;
         private @Nullable String queryString;
         private @Nullable Boolean reroute;
@@ -79,11 +94,16 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
 
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRuleUrl defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.components = defaults.components;
     	      this.path = defaults.path;
     	      this.queryString = defaults.queryString;
     	      this.reroute = defaults.reroute;
         }
 
+        public Builder components(@Nullable String components) {
+            this.components = components;
+            return this;
+        }
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
@@ -96,7 +116,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
             this.reroute = reroute;
             return this;
         }        public ApplicationGatewayRewriteRuleSetRewriteRuleUrl build() {
-            return new ApplicationGatewayRewriteRuleSetRewriteRuleUrl(path, queryString, reroute);
+            return new ApplicationGatewayRewriteRuleSetRewriteRuleUrl(components, path, queryString, reroute);
         }
     }
 }

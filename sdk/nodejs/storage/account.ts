@@ -139,6 +139,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly customerManagedKey!: pulumi.Output<outputs.storage.AccountCustomerManagedKey | undefined>;
     /**
+     * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     */
+    public readonly defaultToOauthAuthentication!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
     public readonly edgeZone!: pulumi.Output<string | undefined>;
@@ -371,6 +375,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["crossTenantReplicationEnabled"] = state ? state.crossTenantReplicationEnabled : undefined;
             resourceInputs["customDomain"] = state ? state.customDomain : undefined;
             resourceInputs["customerManagedKey"] = state ? state.customerManagedKey : undefined;
+            resourceInputs["defaultToOauthAuthentication"] = state ? state.defaultToOauthAuthentication : undefined;
             resourceInputs["edgeZone"] = state ? state.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = state ? state.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
@@ -444,6 +449,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["crossTenantReplicationEnabled"] = args ? args.crossTenantReplicationEnabled : undefined;
             resourceInputs["customDomain"] = args ? args.customDomain : undefined;
             resourceInputs["customerManagedKey"] = args ? args.customerManagedKey : undefined;
+            resourceInputs["defaultToOauthAuthentication"] = args ? args.defaultToOauthAuthentication : undefined;
             resourceInputs["edgeZone"] = args ? args.edgeZone : undefined;
             resourceInputs["enableHttpsTrafficOnly"] = args ? args.enableHttpsTrafficOnly : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -546,6 +552,10 @@ export interface AccountState {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    /**
+     * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     */
+    defaultToOauthAuthentication?: pulumi.Input<boolean>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */
@@ -801,6 +811,10 @@ export interface AccountArgs {
      * A `customerManagedKey` block as documented below.
      */
     customerManagedKey?: pulumi.Input<inputs.storage.AccountCustomerManagedKey>;
+    /**
+     * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     */
+    defaultToOauthAuthentication?: pulumi.Input<boolean>;
     /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      */

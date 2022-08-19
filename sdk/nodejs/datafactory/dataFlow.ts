@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const example1 = new azure.datafactory.DatasetJson("example1", {
+ * const example1DatasetJson = new azure.datafactory.DatasetJson("example1DatasetJson", {
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     },
  *     encoding: "UTF-8",
  * });
- * const example2 = new azure.datafactory.DatasetJson("example2", {
+ * const example2DatasetJson = new azure.datafactory.DatasetJson("example2DatasetJson", {
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedCustomService.name,
  *     azureBlobStorageLocation: {
@@ -53,18 +53,84 @@ import * as utilities from "../utilities";
  *     },
  *     encoding: "UTF-8",
  * });
- * const exampleDataFlow = new azure.datafactory.DataFlow("exampleDataFlow", {
- *     dataFactoryId: exampleFactory.id,
+ * const example1FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example1FlowletDataFlow", {
+ *     dataFactoryId: azurerm_data_factory.test.id,
  *     sources: [{
  *         name: "source1",
- *         dataset: {
- *             name: example1.name,
+ *         linkedService: {
+ *             name: azurerm_data_factory_linked_custom_service.test.name,
  *         },
  *     }],
  *     sinks: [{
  *         name: "sink1",
+ *         linkedService: {
+ *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *         },
+ *     }],
+ *     script: `source(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   limit: 100, 
+ *   ignoreNoFilesFound: false, 
+ *   documentForm: 'documentPerLine') ~> source1 
+ * source1 sink(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   skipDuplicateMapInputs: true, 
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ * `,
+ * });
+ * const example2FlowletDataFlow = new azure.datafactory.FlowletDataFlow("example2FlowletDataFlow", {
+ *     dataFactoryId: azurerm_data_factory.test.id,
+ *     sources: [{
+ *         name: "source1",
+ *         linkedService: {
+ *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *         },
+ *     }],
+ *     sinks: [{
+ *         name: "sink1",
+ *         linkedService: {
+ *             name: azurerm_data_factory_linked_custom_service.test.name,
+ *         },
+ *     }],
+ *     script: `source(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   limit: 100, 
+ *   ignoreNoFilesFound: false, 
+ *   documentForm: 'documentPerLine') ~> source1 
+ * source1 sink(
+ *   allowSchemaDrift: true, 
+ *   validateSchema: false, 
+ *   skipDuplicateMapInputs: true, 
+ *   skipDuplicateMapOutputs: true) ~> sink1
+ * `,
+ * });
+ * const exampleDataFlow = new azure.datafactory.DataFlow("exampleDataFlow", {
+ *     dataFactoryId: exampleFactory.id,
+ *     sources: [{
+ *         name: "source1",
+ *         flowlet: {
+ *             name: example1FlowletDataFlow.name,
+ *             parameters: {
+ *                 Key1: "value1",
+ *             },
+ *         },
  *         dataset: {
- *             name: example2.name,
+ *             name: example1DatasetJson.name,
+ *         },
+ *     }],
+ *     sinks: [{
+ *         name: "sink1",
+ *         flowlet: {
+ *             name: example2FlowletDataFlow.name,
+ *             parameters: {
+ *                 Key1: "value1",
+ *             },
+ *         },
+ *         dataset: {
+ *             name: example2DatasetJson.name,
  *         },
  *     }],
  *     script: `source(

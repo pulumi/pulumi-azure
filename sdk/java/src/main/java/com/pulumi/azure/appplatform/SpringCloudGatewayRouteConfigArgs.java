@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.appplatform;
 
+import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigOpenApiArgs;
 import com.pulumi.azure.appplatform.inputs.SpringCloudGatewayRouteConfigRouteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -30,6 +31,21 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * One or more `open_api` blocks as defined below.
+     * 
+     */
+    @Import(name="openApi")
+    private @Nullable Output<SpringCloudGatewayRouteConfigOpenApiArgs> openApi;
+
+    /**
+     * @return One or more `open_api` blocks as defined below.
+     * 
+     */
+    public Optional<Output<SpringCloudGatewayRouteConfigOpenApiArgs>> openApi() {
+        return Optional.ofNullable(this.openApi);
     }
 
     /**
@@ -81,6 +97,7 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
 
     private SpringCloudGatewayRouteConfigArgs(SpringCloudGatewayRouteConfigArgs $) {
         this.name = $.name;
+        this.openApi = $.openApi;
         this.routes = $.routes;
         this.springCloudAppId = $.springCloudAppId;
         this.springCloudGatewayId = $.springCloudGatewayId;
@@ -123,6 +140,27 @@ public final class SpringCloudGatewayRouteConfigArgs extends com.pulumi.resource
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param openApi One or more `open_api` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openApi(@Nullable Output<SpringCloudGatewayRouteConfigOpenApiArgs> openApi) {
+            $.openApi = openApi;
+            return this;
+        }
+
+        /**
+         * @param openApi One or more `open_api` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder openApi(SpringCloudGatewayRouteConfigOpenApiArgs openApi) {
+            return openApi(Output.of(openApi));
         }
 
         /**

@@ -20,6 +20,11 @@ public final class FirewallPolicyIntrusionDetection {
      */
     private final @Nullable String mode;
     /**
+     * @return A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+     * 
+     */
+    private final @Nullable List<String> privateRanges;
+    /**
      * @return One or more `signature_overrides` blocks as defined below.
      * 
      */
@@ -33,9 +38,11 @@ public final class FirewallPolicyIntrusionDetection {
     @CustomType.Constructor
     private FirewallPolicyIntrusionDetection(
         @CustomType.Parameter("mode") @Nullable String mode,
+        @CustomType.Parameter("privateRanges") @Nullable List<String> privateRanges,
         @CustomType.Parameter("signatureOverrides") @Nullable List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides,
         @CustomType.Parameter("trafficBypasses") @Nullable List<FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses) {
         this.mode = mode;
+        this.privateRanges = privateRanges;
         this.signatureOverrides = signatureOverrides;
         this.trafficBypasses = trafficBypasses;
     }
@@ -46,6 +53,13 @@ public final class FirewallPolicyIntrusionDetection {
      */
     public Optional<String> mode() {
         return Optional.ofNullable(this.mode);
+    }
+    /**
+     * @return A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+     * 
+     */
+    public List<String> privateRanges() {
+        return this.privateRanges == null ? List.of() : this.privateRanges;
     }
     /**
      * @return One or more `signature_overrides` blocks as defined below.
@@ -72,6 +86,7 @@ public final class FirewallPolicyIntrusionDetection {
 
     public static final class Builder {
         private @Nullable String mode;
+        private @Nullable List<String> privateRanges;
         private @Nullable List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides;
         private @Nullable List<FirewallPolicyIntrusionDetectionTrafficBypass> trafficBypasses;
 
@@ -82,6 +97,7 @@ public final class FirewallPolicyIntrusionDetection {
         public Builder(FirewallPolicyIntrusionDetection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
+    	      this.privateRanges = defaults.privateRanges;
     	      this.signatureOverrides = defaults.signatureOverrides;
     	      this.trafficBypasses = defaults.trafficBypasses;
         }
@@ -89,6 +105,13 @@ public final class FirewallPolicyIntrusionDetection {
         public Builder mode(@Nullable String mode) {
             this.mode = mode;
             return this;
+        }
+        public Builder privateRanges(@Nullable List<String> privateRanges) {
+            this.privateRanges = privateRanges;
+            return this;
+        }
+        public Builder privateRanges(String... privateRanges) {
+            return privateRanges(List.of(privateRanges));
         }
         public Builder signatureOverrides(@Nullable List<FirewallPolicyIntrusionDetectionSignatureOverride> signatureOverrides) {
             this.signatureOverrides = signatureOverrides;
@@ -104,7 +127,7 @@ public final class FirewallPolicyIntrusionDetection {
         public Builder trafficBypasses(FirewallPolicyIntrusionDetectionTrafficBypass... trafficBypasses) {
             return trafficBypasses(List.of(trafficBypasses));
         }        public FirewallPolicyIntrusionDetection build() {
-            return new FirewallPolicyIntrusionDetection(mode, signatureOverrides, trafficBypasses);
+            return new FirewallPolicyIntrusionDetection(mode, privateRanges, signatureOverrides, trafficBypasses);
         }
     }
 }

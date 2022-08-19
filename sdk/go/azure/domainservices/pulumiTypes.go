@@ -657,6 +657,10 @@ func (o ServiceSecureLdapPtrOutput) PublicCertificate() pulumi.StringPtrOutput {
 }
 
 type ServiceSecurity struct {
+	// Whether to enable Kerberos Armoring. Defaults to `false`.
+	KerberosArmoringEnabled *bool `pulumi:"kerberosArmoringEnabled"`
+	// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+	KerberosRc4EncryptionEnabled *bool `pulumi:"kerberosRc4EncryptionEnabled"`
 	// Whether to enable legacy NTLM v1 support. Defaults to `false`.
 	NtlmV1Enabled *bool `pulumi:"ntlmV1Enabled"`
 	// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
@@ -681,6 +685,10 @@ type ServiceSecurityInput interface {
 }
 
 type ServiceSecurityArgs struct {
+	// Whether to enable Kerberos Armoring. Defaults to `false`.
+	KerberosArmoringEnabled pulumi.BoolPtrInput `pulumi:"kerberosArmoringEnabled"`
+	// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+	KerberosRc4EncryptionEnabled pulumi.BoolPtrInput `pulumi:"kerberosRc4EncryptionEnabled"`
 	// Whether to enable legacy NTLM v1 support. Defaults to `false`.
 	NtlmV1Enabled pulumi.BoolPtrInput `pulumi:"ntlmV1Enabled"`
 	// Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
@@ -770,6 +778,16 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 	}).(ServiceSecurityPtrOutput)
 }
 
+// Whether to enable Kerberos Armoring. Defaults to `false`.
+func (o ServiceSecurityOutput) KerberosArmoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.KerberosArmoringEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+func (o ServiceSecurityOutput) KerberosRc4EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceSecurity) *bool { return v.KerberosRc4EncryptionEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Whether to enable legacy NTLM v1 support. Defaults to `false`.
 func (o ServiceSecurityOutput) NtlmV1Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ServiceSecurity) *bool { return v.NtlmV1Enabled }).(pulumi.BoolPtrOutput)
@@ -817,6 +835,26 @@ func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
 		var ret ServiceSecurity
 		return ret
 	}).(ServiceSecurityOutput)
+}
+
+// Whether to enable Kerberos Armoring. Defaults to `false`.
+func (o ServiceSecurityPtrOutput) KerberosArmoringEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosArmoringEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+func (o ServiceSecurityPtrOutput) KerberosRc4EncryptionEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceSecurity) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.KerberosRc4EncryptionEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Whether to enable legacy NTLM v1 support. Defaults to `false`.
@@ -1251,6 +1289,10 @@ func (o GetServiceSecureLdapArrayOutput) Index(i pulumi.IntInput) GetServiceSecu
 }
 
 type GetServiceSecurity struct {
+	// (Optional) Whether the Kerberos Armoring is enabled.
+	KerberosArmoringEnabled bool `pulumi:"kerberosArmoringEnabled"`
+	// (Optional) Whether the Kerberos RC4 Encryption is enabled.
+	KerberosRc4EncryptionEnabled bool `pulumi:"kerberosRc4EncryptionEnabled"`
 	// Whether legacy NTLM v1 support is enabled.
 	NtlmV1Enabled bool `pulumi:"ntlmV1Enabled"`
 	// Whether Kerberos password hashes are synchronized to the managed domain.
@@ -1275,6 +1317,10 @@ type GetServiceSecurityInput interface {
 }
 
 type GetServiceSecurityArgs struct {
+	// (Optional) Whether the Kerberos Armoring is enabled.
+	KerberosArmoringEnabled pulumi.BoolInput `pulumi:"kerberosArmoringEnabled"`
+	// (Optional) Whether the Kerberos RC4 Encryption is enabled.
+	KerberosRc4EncryptionEnabled pulumi.BoolInput `pulumi:"kerberosRc4EncryptionEnabled"`
 	// Whether legacy NTLM v1 support is enabled.
 	NtlmV1Enabled pulumi.BoolInput `pulumi:"ntlmV1Enabled"`
 	// Whether Kerberos password hashes are synchronized to the managed domain.
@@ -1336,6 +1382,16 @@ func (o GetServiceSecurityOutput) ToGetServiceSecurityOutput() GetServiceSecurit
 
 func (o GetServiceSecurityOutput) ToGetServiceSecurityOutputWithContext(ctx context.Context) GetServiceSecurityOutput {
 	return o
+}
+
+// (Optional) Whether the Kerberos Armoring is enabled.
+func (o GetServiceSecurityOutput) KerberosArmoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceSecurity) bool { return v.KerberosArmoringEnabled }).(pulumi.BoolOutput)
+}
+
+// (Optional) Whether the Kerberos RC4 Encryption is enabled.
+func (o GetServiceSecurityOutput) KerberosRc4EncryptionEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetServiceSecurity) bool { return v.KerberosRc4EncryptionEnabled }).(pulumi.BoolOutput)
 }
 
 // Whether legacy NTLM v1 support is enabled.

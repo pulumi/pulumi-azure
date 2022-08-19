@@ -32,7 +32,7 @@ namespace Pulumi.Azure.IotCentral
     ///         Location = exampleResourceGroup.Location,
     ///         SubDomain = "example-iotcentral-app-subdomain",
     ///         DisplayName = "example-iotcentral-app-display-name",
-    ///         Sku = "S1",
+    ///         Sku = "ST1",
     ///         Template = "iotc-default@1.0.0",
     ///         Tags = 
     ///         {

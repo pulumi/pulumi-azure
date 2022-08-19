@@ -35,7 +35,7 @@ public final class GetZoneResult {
     private final Integer numberOfRecordSets;
     private final String resourceGroupName;
     /**
-     * @return A mapping of tags to assign to the EventHub Namespace.
+     * @return A mapping of tags assigned to the DNS Zone.
      * 
      */
     private final Map<String,String> tags;
@@ -93,7 +93,7 @@ public final class GetZoneResult {
         return this.resourceGroupName;
     }
     /**
-     * @return A mapping of tags to assign to the EventHub Namespace.
+     * @return A mapping of tags assigned to the DNS Zone.
      * 
      */
     public Map<String,String> tags() {

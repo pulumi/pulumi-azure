@@ -59,6 +59,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
     }
 
     /**
+     * Is Customer Managed Storage mandatory for query management?
+     */
+    public readonly cmkForQueryForced!: pulumi.Output<boolean | undefined>;
+    /**
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
     public readonly dailyQuotaGb!: pulumi.Output<number | undefined>;
@@ -121,6 +125,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AnalyticsWorkspaceState | undefined;
+            resourceInputs["cmkForQueryForced"] = state ? state.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = state ? state.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = state ? state.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = state ? state.internetQueryEnabled : undefined;
@@ -139,6 +144,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["cmkForQueryForced"] = args ? args.cmkForQueryForced : undefined;
             resourceInputs["dailyQuotaGb"] = args ? args.dailyQuotaGb : undefined;
             resourceInputs["internetIngestionEnabled"] = args ? args.internetIngestionEnabled : undefined;
             resourceInputs["internetQueryEnabled"] = args ? args.internetQueryEnabled : undefined;
@@ -162,6 +168,10 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AnalyticsWorkspace resources.
  */
 export interface AnalyticsWorkspaceState {
+    /**
+     * Is Customer Managed Storage mandatory for query management?
+     */
+    cmkForQueryForced?: pulumi.Input<boolean>;
     /**
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */
@@ -217,6 +227,10 @@ export interface AnalyticsWorkspaceState {
  * The set of arguments for constructing a AnalyticsWorkspace resource.
  */
 export interface AnalyticsWorkspaceArgs {
+    /**
+     * Is Customer Managed Storage mandatory for query management?
+     */
+    cmkForQueryForced?: pulumi.Input<boolean>;
     /**
      * The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
      */

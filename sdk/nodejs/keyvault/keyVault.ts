@@ -111,6 +111,10 @@ export class KeyVault extends pulumi.CustomResource {
      */
     public readonly networkAcls!: pulumi.Output<outputs.keyvault.KeyVaultNetworkAcls>;
     /**
+     * Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     */
+    public readonly publicNetworkAccessEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      */
     public readonly purgeProtectionEnabled!: pulumi.Output<boolean | undefined>;
@@ -161,6 +165,7 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["networkAcls"] = state ? state.networkAcls : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = state ? state.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["skuName"] = state ? state.skuName : undefined;
@@ -188,6 +193,7 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
+            resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["purgeProtectionEnabled"] = args ? args.purgeProtectionEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["skuName"] = args ? args.skuName : undefined;
@@ -241,6 +247,10 @@ export interface KeyVaultState {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    /**
+     * Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      */
@@ -311,6 +321,10 @@ export interface KeyVaultArgs {
      * A `networkAcls` block as defined below.
      */
     networkAcls?: pulumi.Input<inputs.keyvault.KeyVaultNetworkAcls>;
+    /**
+     * Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     */
+    publicNetworkAccessEnabled?: pulumi.Input<boolean>;
     /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      */

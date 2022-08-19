@@ -285,6 +285,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.customerManagedKey);
     }
     /**
+     * Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     * 
+     */
+    @Export(name="defaultToOauthAuthentication", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> defaultToOauthAuthentication;
+
+    /**
+     * @return Default to Azure Active Directory authorization in the Azure portal when accessing the Storage Account. The default value is `false`
+     * 
+     */
+    public Output<Optional<Boolean>> defaultToOauthAuthentication() {
+        return Codegen.optional(this.defaultToOauthAuthentication);
+    }
+    /**
      * Specifies the Edge Zone within the Azure Region where this Storage Account should exist. Changing this forces a new Storage Account to be created.
      * 
      */

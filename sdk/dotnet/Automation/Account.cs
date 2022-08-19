@@ -70,10 +70,22 @@ namespace Pulumi.Azure.Automation
         public Output<string> DscServerEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        [Output("encryptions")]
+        public Output<ImmutableArray<Outputs.AccountEncryption>> Encryptions { get; private set; } = null!;
+
+        /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.AccountIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether requests using non-AAD authentication are blocked.
+        /// </summary>
+        [Output("localAuthenticationEnabled")]
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -86,6 +98,9 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.AccountPrivateEndpointConnection>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
         /// Whether public network access is allowed for the container registry. Defaults to `true`.
@@ -157,11 +172,29 @@ namespace Pulumi.Azure.Automation
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
+        [Input("encryptions")]
+        private InputList<Inputs.AccountEncryptionArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountEncryptionArgs> Encryptions
+        {
+            get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionArgs>());
+            set => _encryptions = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether requests using non-AAD authentication are blocked.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -231,11 +264,29 @@ namespace Pulumi.Azure.Automation
         [Input("dscServerEndpoint")]
         public Input<string>? DscServerEndpoint { get; set; }
 
+        [Input("encryptions")]
+        private InputList<Inputs.AccountEncryptionGetArgs>? _encryptions;
+
+        /// <summary>
+        /// An `encryption` block as defined below.
+        /// </summary>
+        public InputList<Inputs.AccountEncryptionGetArgs> Encryptions
+        {
+            get => _encryptions ?? (_encryptions = new InputList<Inputs.AccountEncryptionGetArgs>());
+            set => _encryptions = value;
+        }
+
         /// <summary>
         /// An `identity` block as defined below.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.AccountIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// Whether requests using non-AAD authentication are blocked.
+        /// </summary>
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -248,6 +299,14 @@ namespace Pulumi.Azure.Automation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.AccountPrivateEndpointConnectionGetArgs>? _privateEndpointConnections;
+        public InputList<Inputs.AccountPrivateEndpointConnectionGetArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.AccountPrivateEndpointConnectionGetArgs>());
+            set => _privateEndpointConnections = value;
+        }
 
         /// <summary>
         /// Whether public network access is allowed for the container registry. Defaults to `true`.

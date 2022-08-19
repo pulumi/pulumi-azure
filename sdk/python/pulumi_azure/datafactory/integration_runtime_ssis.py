@@ -23,6 +23,7 @@ class IntegrationRuntimeSsisArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
+                 express_vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
@@ -40,6 +41,7 @@ class IntegrationRuntimeSsisArgs:
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs'] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
@@ -61,6 +63,8 @@ class IntegrationRuntimeSsisArgs:
             pulumi.set(__self__, "edition", edition)
         if express_custom_setup is not None:
             pulumi.set(__self__, "express_custom_setup", express_custom_setup)
+        if express_vnet_integration is not None:
+            pulumi.set(__self__, "express_vnet_integration", express_vnet_integration)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -161,6 +165,18 @@ class IntegrationRuntimeSsisArgs:
     @express_custom_setup.setter
     def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
         pulumi.set(self, "express_custom_setup", value)
+
+    @property
+    @pulumi.getter(name="expressVnetIntegration")
+    def express_vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
+        """
+        A `express_vnet_integration` block as defined below.
+        """
+        return pulumi.get(self, "express_vnet_integration")
+
+    @express_vnet_integration.setter
+    def express_vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
+        pulumi.set(self, "express_vnet_integration", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -268,6 +284,7 @@ class _IntegrationRuntimeSsisState:
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  express_custom_setup: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']] = None,
+                 express_vnet_integration: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
@@ -285,6 +302,7 @@ class _IntegrationRuntimeSsisState:
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs'] express_custom_setup: An `express_custom_setup` block as defined below.
+        :param pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs'] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
@@ -307,6 +325,8 @@ class _IntegrationRuntimeSsisState:
             pulumi.set(__self__, "edition", edition)
         if express_custom_setup is not None:
             pulumi.set(__self__, "express_custom_setup", express_custom_setup)
+        if express_vnet_integration is not None:
+            pulumi.set(__self__, "express_vnet_integration", express_vnet_integration)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -397,6 +417,18 @@ class _IntegrationRuntimeSsisState:
     @express_custom_setup.setter
     def express_custom_setup(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupArgs']]):
         pulumi.set(self, "express_custom_setup", value)
+
+    @property
+    @pulumi.getter(name="expressVnetIntegration")
+    def express_vnet_integration(self) -> Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]:
+        """
+        A `express_vnet_integration` block as defined below.
+        """
+        return pulumi.get(self, "express_vnet_integration")
+
+    @express_vnet_integration.setter
+    def express_vnet_integration(self, value: Optional[pulumi.Input['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]):
+        pulumi.set(self, "express_vnet_integration", value)
 
     @property
     @pulumi.getter(name="licenseType")
@@ -518,6 +550,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
+                 express_vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
@@ -563,6 +596,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
@@ -627,6 +661,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  edition: Optional[pulumi.Input[str]] = None,
                  express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
+                 express_vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]] = None,
                  license_type: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
@@ -653,6 +688,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["edition"] = edition
             __props__.__dict__["express_custom_setup"] = express_custom_setup
+            __props__.__dict__["express_vnet_integration"] = express_vnet_integration
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
             __props__.__dict__["max_parallel_executions_per_node"] = max_parallel_executions_per_node
@@ -680,6 +716,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             edition: Optional[pulumi.Input[str]] = None,
             express_custom_setup: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']]] = None,
+            express_vnet_integration: Optional[pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']]] = None,
             license_type: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
@@ -702,6 +739,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] edition: The Azure-SSIS Integration Runtime edition. Valid values are `Standard` and `Enterprise`. Defaults to `Standard`.
         :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressCustomSetupArgs']] express_custom_setup: An `express_custom_setup` block as defined below.
+        :param pulumi.Input[pulumi.InputType['IntegrationRuntimeSsisExpressVnetIntegrationArgs']] express_vnet_integration: A `express_vnet_integration` block as defined below.
         :param pulumi.Input[str] license_type: The type of the license that is used. Valid values are `LicenseIncluded` and `BasePrice`. Defaults to `LicenseIncluded`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_parallel_executions_per_node: Defines the maximum parallel executions per node. Defaults to `1`. Max is `16`.
@@ -722,6 +760,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["edition"] = edition
         __props__.__dict__["express_custom_setup"] = express_custom_setup
+        __props__.__dict__["express_vnet_integration"] = express_vnet_integration
         __props__.__dict__["license_type"] = license_type
         __props__.__dict__["location"] = location
         __props__.__dict__["max_parallel_executions_per_node"] = max_parallel_executions_per_node
@@ -780,6 +819,14 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         An `express_custom_setup` block as defined below.
         """
         return pulumi.get(self, "express_custom_setup")
+
+    @property
+    @pulumi.getter(name="expressVnetIntegration")
+    def express_vnet_integration(self) -> pulumi.Output[Optional['outputs.IntegrationRuntimeSsisExpressVnetIntegration']]:
+        """
+        A `express_vnet_integration` block as defined below.
+        """
+        return pulumi.get(self, "express_vnet_integration")
 
     @property
     @pulumi.getter(name="licenseType")

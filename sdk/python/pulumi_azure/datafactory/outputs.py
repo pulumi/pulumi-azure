@@ -14,14 +14,17 @@ __all__ = [
     'CustomDatasetLinkedService',
     'DataFlowSink',
     'DataFlowSinkDataset',
+    'DataFlowSinkFlowlet',
     'DataFlowSinkLinkedService',
     'DataFlowSinkSchemaLinkedService',
     'DataFlowSource',
     'DataFlowSourceDataset',
+    'DataFlowSourceFlowlet',
     'DataFlowSourceLinkedService',
     'DataFlowSourceSchemaLinkedService',
     'DataFlowTransformation',
     'DataFlowTransformationDataset',
+    'DataFlowTransformationFlowlet',
     'DataFlowTransformationLinkedService',
     'DatasetAzureBlobSchemaColumn',
     'DatasetBinaryAzureBlobStorageLocation',
@@ -48,6 +51,20 @@ __all__ = [
     'FactoryGlobalParameter',
     'FactoryIdentity',
     'FactoryVstsConfiguration',
+    'FlowletDataFlowSink',
+    'FlowletDataFlowSinkDataset',
+    'FlowletDataFlowSinkFlowlet',
+    'FlowletDataFlowSinkLinkedService',
+    'FlowletDataFlowSinkSchemaLinkedService',
+    'FlowletDataFlowSource',
+    'FlowletDataFlowSourceDataset',
+    'FlowletDataFlowSourceFlowlet',
+    'FlowletDataFlowSourceLinkedService',
+    'FlowletDataFlowSourceSchemaLinkedService',
+    'FlowletDataFlowTransformation',
+    'FlowletDataFlowTransformationDataset',
+    'FlowletDataFlowTransformationFlowlet',
+    'FlowletDataFlowTransformationLinkedService',
     'IntegrationRuntimeManagedCatalogInfo',
     'IntegrationRuntimeManagedCustomSetupScript',
     'IntegrationRuntimeManagedVnetIntegration',
@@ -59,6 +76,7 @@ __all__ = [
     'IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPassword',
     'IntegrationRuntimeSsisExpressCustomSetupComponent',
     'IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense',
+    'IntegrationRuntimeSsisExpressVnetIntegration',
     'IntegrationRuntimeSsisPackageStore',
     'IntegrationRuntimeSsisProxy',
     'IntegrationRuntimeSsisVnetIntegration',
@@ -146,12 +164,14 @@ class DataFlowSink(dict):
                  name: str,
                  dataset: Optional['outputs.DataFlowSinkDataset'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowSinkFlowlet'] = None,
                  linked_service: Optional['outputs.DataFlowSinkLinkedService'] = None,
                  schema_linked_service: Optional['outputs.DataFlowSinkSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
         :param 'DataFlowSinkDatasetArgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
+        :param 'DataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'DataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
         :param 'DataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
@@ -160,6 +180,8 @@ class DataFlowSink(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -188,6 +210,14 @@ class DataFlowSink(dict):
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowSinkFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -232,6 +262,61 @@ class DataFlowSinkDataset(dict):
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
         A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class DataFlowSinkFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFlowSinkFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFlowSinkFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFlowSinkFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
@@ -321,12 +406,14 @@ class DataFlowSource(dict):
                  name: str,
                  dataset: Optional['outputs.DataFlowSourceDataset'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowSourceFlowlet'] = None,
                  linked_service: Optional['outputs.DataFlowSourceLinkedService'] = None,
                  schema_linked_service: Optional['outputs.DataFlowSourceSchemaLinkedService'] = None):
         """
         :param str name: The name for the Data Flow Source.
         :param 'DataFlowSourceDatasetArgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow Source.
+        :param 'DataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'DataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
         :param 'DataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
         """
@@ -335,6 +422,8 @@ class DataFlowSource(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
         if schema_linked_service is not None:
@@ -363,6 +452,14 @@ class DataFlowSource(dict):
         The description for the Data Flow Source.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowSourceFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -407,6 +504,61 @@ class DataFlowSourceDataset(dict):
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
         A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class DataFlowSourceFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFlowSourceFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFlowSourceFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFlowSourceFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
@@ -494,11 +646,13 @@ class DataFlowTransformation(dict):
                  name: str,
                  dataset: Optional['outputs.DataFlowTransformationDataset'] = None,
                  description: Optional[str] = None,
+                 flowlet: Optional['outputs.DataFlowTransformationFlowlet'] = None,
                  linked_service: Optional['outputs.DataFlowTransformationLinkedService'] = None):
         """
         :param str name: The name for the Data Flow transformation.
         :param 'DataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
         :param str description: The description for the Data Flow transformation.
+        :param 'DataFlowTransformationFlowletArgs' flowlet: A `flowlet` block as defined below.
         :param 'DataFlowTransformationLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
         """
         pulumi.set(__self__, "name", name)
@@ -506,6 +660,8 @@ class DataFlowTransformation(dict):
             pulumi.set(__self__, "dataset", dataset)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
 
@@ -532,6 +688,14 @@ class DataFlowTransformation(dict):
         The description for the Data Flow transformation.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.DataFlowTransformationFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
 
     @property
     @pulumi.getter(name="linkedService")
@@ -568,6 +732,61 @@ class DataFlowTransformationDataset(dict):
     def parameters(self) -> Optional[Mapping[str, str]]:
         """
         A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class DataFlowTransformationFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataFlowTransformationFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataFlowTransformationFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataFlowTransformationFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
         """
         return pulumi.get(self, "parameters")
 
@@ -2231,6 +2450,688 @@ class FactoryVstsConfiguration(dict):
 
 
 @pulumi.output_type
+class FlowletDataFlowSink(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+        elif key == "schemaLinkedService":
+            suggest = "schema_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowSink. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowSink.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowSink.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset: Optional['outputs.FlowletDataFlowSinkDataset'] = None,
+                 description: Optional[str] = None,
+                 flowlet: Optional['outputs.FlowletDataFlowSinkFlowlet'] = None,
+                 linked_service: Optional['outputs.FlowletDataFlowSinkLinkedService'] = None,
+                 schema_linked_service: Optional['outputs.FlowletDataFlowSinkSchemaLinkedService'] = None):
+        """
+        :param str name: The name for the Data Flow Source.
+        :param 'FlowletDataFlowSinkDatasetArgs' dataset: A `dataset` block as defined below.
+        :param str description: The description for the Data Flow Source.
+        :param 'FlowletDataFlowSinkFlowletArgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowSinkLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSinkSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+        if schema_linked_service is not None:
+            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Flow Source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.FlowletDataFlowSinkDataset']:
+        """
+        A `dataset` block as defined below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for the Data Flow Source.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.FlowletDataFlowSinkFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.FlowletDataFlowSinkLinkedService']:
+        """
+        A `linked_service` block as defined below.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="schemaLinkedService")
+    def schema_linked_service(self) -> Optional['outputs.FlowletDataFlowSinkSchemaLinkedService']:
+        """
+        A `schema_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "schema_linked_service")
+
+
+@pulumi.output_type
+class FlowletDataFlowSinkDataset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Dataset.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSinkFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowSinkFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowSinkFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowSinkFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSinkLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSinkSchemaLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+        elif key == "schemaLinkedService":
+            suggest = "schema_linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset: Optional['outputs.FlowletDataFlowSourceDataset'] = None,
+                 description: Optional[str] = None,
+                 flowlet: Optional['outputs.FlowletDataFlowSourceFlowlet'] = None,
+                 linked_service: Optional['outputs.FlowletDataFlowSourceLinkedService'] = None,
+                 schema_linked_service: Optional['outputs.FlowletDataFlowSourceSchemaLinkedService'] = None):
+        """
+        :param str name: The name for the Data Flow Source.
+        :param 'FlowletDataFlowSourceDatasetArgs' dataset: A `dataset` block as defined below.
+        :param str description: The description for the Data Flow Source.
+        :param 'FlowletDataFlowSourceFlowletArgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowSourceLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        :param 'FlowletDataFlowSourceSchemaLinkedServiceArgs' schema_linked_service: A `schema_linked_service` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+        if schema_linked_service is not None:
+            pulumi.set(__self__, "schema_linked_service", schema_linked_service)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Flow Source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.FlowletDataFlowSourceDataset']:
+        """
+        A `dataset` block as defined below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for the Data Flow Source.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.FlowletDataFlowSourceFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.FlowletDataFlowSourceLinkedService']:
+        """
+        A `linked_service` block as defined below.
+        """
+        return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="schemaLinkedService")
+    def schema_linked_service(self) -> Optional['outputs.FlowletDataFlowSourceSchemaLinkedService']:
+        """
+        A `schema_linked_service` block as defined below.
+        """
+        return pulumi.get(self, "schema_linked_service")
+
+
+@pulumi.output_type
+class FlowletDataFlowSourceDataset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Dataset.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSourceFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowSourceFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowSourceFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowSourceFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSourceLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowSourceSchemaLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service with schema.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service with schema.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowTransformation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedService":
+            suggest = "linked_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowTransformation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowTransformation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowTransformation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset: Optional['outputs.FlowletDataFlowTransformationDataset'] = None,
+                 description: Optional[str] = None,
+                 flowlet: Optional['outputs.FlowletDataFlowTransformationFlowlet'] = None,
+                 linked_service: Optional['outputs.FlowletDataFlowTransformationLinkedService'] = None):
+        """
+        :param str name: Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        :param 'FlowletDataFlowTransformationDatasetArgs' dataset: A `dataset` block as defined below.
+        :param str description: The description for the Data Flow transformation.
+        :param 'FlowletDataFlowTransformationFlowletArgs' flowlet: A `flowlet` block as defined below.
+        :param 'FlowletDataFlowTransformationLinkedServiceArgs' linked_service: A `linked_service` block as defined below.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset is not None:
+            pulumi.set(__self__, "dataset", dataset)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if flowlet is not None:
+            pulumi.set(__self__, "flowlet", flowlet)
+        if linked_service is not None:
+            pulumi.set(__self__, "linked_service", linked_service)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def dataset(self) -> Optional['outputs.FlowletDataFlowTransformationDataset']:
+        """
+        A `dataset` block as defined below.
+        """
+        return pulumi.get(self, "dataset")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The description for the Data Flow transformation.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def flowlet(self) -> Optional['outputs.FlowletDataFlowTransformationFlowlet']:
+        """
+        A `flowlet` block as defined below.
+        """
+        return pulumi.get(self, "flowlet")
+
+    @property
+    @pulumi.getter(name="linkedService")
+    def linked_service(self) -> Optional['outputs.FlowletDataFlowTransformationLinkedService']:
+        """
+        A `linked_service` block as defined below.
+        """
+        return pulumi.get(self, "linked_service")
+
+
+@pulumi.output_type
+class FlowletDataFlowTransformationDataset(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Dataset.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory dataset.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Dataset.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowTransformationFlowlet(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "datasetParameters":
+            suggest = "dataset_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowletDataFlowTransformationFlowlet. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowletDataFlowTransformationFlowlet.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowletDataFlowTransformationFlowlet.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 dataset_parameters: Optional[str] = None,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Flowlet.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Flowlet.
+        """
+        pulumi.set(__self__, "name", name)
+        if dataset_parameters is not None:
+            pulumi.set(__self__, "dataset_parameters", dataset_parameters)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="datasetParameters")
+    def dataset_parameters(self) -> Optional[str]:
+        return pulumi.get(self, "dataset_parameters")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Flowlet.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
+class FlowletDataFlowTransformationLinkedService(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 parameters: Optional[Mapping[str, str]] = None):
+        """
+        :param str name: The name for the Data Factory Linked Service.
+        :param Mapping[str, str] parameters: A map of parameters to associate with the Data Factory Linked Service.
+        """
+        pulumi.set(__self__, "name", name)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name for the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of parameters to associate with the Data Factory Linked Service.
+        """
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class IntegrationRuntimeManagedCatalogInfo(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2930,6 +3831,41 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicense(dict):
         Specifies the secret version in Azure Key Vault.
         """
         return pulumi.get(self, "secret_version")
+
+
+@pulumi.output_type
+class IntegrationRuntimeSsisExpressVnetIntegration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeSsisExpressVnetIntegration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeSsisExpressVnetIntegration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeSsisExpressVnetIntegration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: str):
+        """
+        :param str subnet_id: id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> str:
+        """
+        id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type

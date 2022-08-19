@@ -14,9 +14,13 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class EndpointCustomDomainUserManagedHttps
     {
         /// <summary>
-        /// The ID of the Key Vault Certificate that contains the HTTPS certificate.
+        /// The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `key_vault_secret_id`.
         /// </summary>
-        public readonly string KeyVaultCertificateId;
+        public readonly string? KeyVaultCertificateId;
+        /// <summary>
+        /// The ID of the Key Vault Secret that contains the HTTPS certificate.
+        /// </summary>
+        public readonly string? KeyVaultSecretId;
         /// <summary>
         /// The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
         /// </summary>
@@ -24,11 +28,14 @@ namespace Pulumi.Azure.Cdn.Outputs
 
         [OutputConstructor]
         private EndpointCustomDomainUserManagedHttps(
-            string keyVaultCertificateId,
+            string? keyVaultCertificateId,
+
+            string? keyVaultSecretId,
 
             string? tlsVersion)
         {
             KeyVaultCertificateId = keyVaultCertificateId;
+            KeyVaultSecretId = keyVaultSecretId;
             TlsVersion = tlsVersion;
         }
     }

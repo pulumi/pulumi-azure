@@ -62,7 +62,7 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input['WindowsFunctionAppIdentityArgs'] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input['WindowsFunctionAppStickySettingsArgs'] sticky_settings: A `sticky_settings` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the backend storage account for the Function App. Conflicts with `storage_uses_managed_identity`.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App.
@@ -341,7 +341,7 @@ class WindowsFunctionAppArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -491,7 +491,7 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App.
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -797,7 +797,7 @@ class _WindowsFunctionAppState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 
@@ -1072,7 +1072,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppIdentityArgs']] identity: A `identity` block as defined below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
         :param pulumi.Input[str] service_plan_id: The ID of the App Service Plan within which to create this Function App.
         :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSiteConfigArgs']] site_config: A `site_config` block as defined below.
@@ -1286,7 +1286,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App.
         :param pulumi.Input[str] location: The Azure Region where the Windows Function App should exist. Changing this forces a new Windows Function App to be created.
-        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        :param pulumi.Input[str] name: The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_ip_address_lists: A list of outbound IP addresses. For example `["52.23.25.3", "52.143.43.12"]`
         :param pulumi.Input[str] outbound_ip_addresses: A comma separated list of outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] possible_outbound_ip_address_lists: A list of possible outbound IP addresses, not all of which are necessarily in use. This is a superset of `outbound_ip_address_list`. For example `["52.23.25.3", "52.143.43.12"]`.
@@ -1491,7 +1491,7 @@ class WindowsFunctionApp(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+        The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
         """
         return pulumi.get(self, "name")
 

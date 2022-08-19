@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DatasetSqlServerTable{}
 	case "azure:datafactory/factory:Factory":
 		r = &Factory{}
+	case "azure:datafactory/flowletDataFlow:FlowletDataFlow":
+		r = &FlowletDataFlow{}
 	case "azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged":
 		r = &IntegrationRuntimeManaged{}
 	case "azure:datafactory/integrationRuntimeRule:IntegrationRuntimeRule":
@@ -194,6 +196,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"datafactory/factory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"datafactory/flowletDataFlow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

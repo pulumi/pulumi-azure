@@ -16,6 +16,21 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
     public static final BackendAddressPoolAddressArgs Empty = new BackendAddressPoolAddressArgs();
 
     /**
+     * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    @Import(name="backendAddressIpConfigurationId")
+    private @Nullable Output<String> backendAddressIpConfigurationId;
+
+    /**
+     * @return The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    public Optional<Output<String>> backendAddressIpConfigurationId() {
+        return Optional.ofNullable(this.backendAddressIpConfigurationId);
+    }
+
+    /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      * 
      */
@@ -34,15 +49,15 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
      * The Static IP Address which should be allocated to this Backend Address Pool.
      * 
      */
-    @Import(name="ipAddress", required=true)
-    private Output<String> ipAddress;
+    @Import(name="ipAddress")
+    private @Nullable Output<String> ipAddress;
 
     /**
      * @return The Static IP Address which should be allocated to this Backend Address Pool.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Optional<Output<String>> ipAddress() {
+        return Optional.ofNullable(this.ipAddress);
     }
 
     /**
@@ -64,20 +79,21 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
      * The ID of the Virtual Network within which the Backend Address Pool should exist.
      * 
      */
-    @Import(name="virtualNetworkId", required=true)
-    private Output<String> virtualNetworkId;
+    @Import(name="virtualNetworkId")
+    private @Nullable Output<String> virtualNetworkId;
 
     /**
      * @return The ID of the Virtual Network within which the Backend Address Pool should exist.
      * 
      */
-    public Output<String> virtualNetworkId() {
-        return this.virtualNetworkId;
+    public Optional<Output<String>> virtualNetworkId() {
+        return Optional.ofNullable(this.virtualNetworkId);
     }
 
     private BackendAddressPoolAddressArgs() {}
 
     private BackendAddressPoolAddressArgs(BackendAddressPoolAddressArgs $) {
+        this.backendAddressIpConfigurationId = $.backendAddressIpConfigurationId;
         this.backendAddressPoolId = $.backendAddressPoolId;
         this.ipAddress = $.ipAddress;
         this.name = $.name;
@@ -100,6 +116,27 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
 
         public Builder(BackendAddressPoolAddressArgs defaults) {
             $ = new BackendAddressPoolAddressArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressIpConfigurationId(@Nullable Output<String> backendAddressIpConfigurationId) {
+            $.backendAddressIpConfigurationId = backendAddressIpConfigurationId;
+            return this;
+        }
+
+        /**
+         * @param backendAddressIpConfigurationId The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder backendAddressIpConfigurationId(String backendAddressIpConfigurationId) {
+            return backendAddressIpConfigurationId(Output.of(backendAddressIpConfigurationId));
         }
 
         /**
@@ -129,7 +166,7 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder ipAddress(Output<String> ipAddress) {
+        public Builder ipAddress(@Nullable Output<String> ipAddress) {
             $.ipAddress = ipAddress;
             return this;
         }
@@ -171,7 +208,7 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder virtualNetworkId(Output<String> virtualNetworkId) {
+        public Builder virtualNetworkId(@Nullable Output<String> virtualNetworkId) {
             $.virtualNetworkId = virtualNetworkId;
             return this;
         }
@@ -188,8 +225,6 @@ public final class BackendAddressPoolAddressArgs extends com.pulumi.resources.Re
 
         public BackendAddressPoolAddressArgs build() {
             $.backendAddressPoolId = Objects.requireNonNull($.backendAddressPoolId, "expected parameter 'backendAddressPoolId' to be non-null");
-            $.ipAddress = Objects.requireNonNull($.ipAddress, "expected parameter 'ipAddress' to be non-null");
-            $.virtualNetworkId = Objects.requireNonNull($.virtualNetworkId, "expected parameter 'virtualNetworkId' to be non-null");
             return $;
         }
     }

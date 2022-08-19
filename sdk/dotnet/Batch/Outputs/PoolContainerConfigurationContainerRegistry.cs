@@ -16,26 +16,34 @@ namespace Pulumi.Azure.Batch.Outputs
         /// <summary>
         /// The password to log into the registry server. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
         /// The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
         /// </summary>
         public readonly string RegistryServer;
         /// <summary>
+        /// The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+        /// ---
+        /// </summary>
+        public readonly string? UserAssignedIdentityId;
+        /// <summary>
         /// The user name to log into the registry server. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string UserName;
+        public readonly string? UserName;
 
         [OutputConstructor]
         private PoolContainerConfigurationContainerRegistry(
-            string password,
+            string? password,
 
             string registryServer,
 
-            string userName)
+            string? userAssignedIdentityId,
+
+            string? userName)
         {
             Password = password;
             RegistryServer = registryServer;
+            UserAssignedIdentityId = userAssignedIdentityId;
             UserName = userName;
         }
     }

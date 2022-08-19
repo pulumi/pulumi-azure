@@ -24645,6 +24645,184 @@ func (o GetVirtualMachineScaleSetIdentityArrayOutput) Index(i pulumi.IntInput) G
 	}).(GetVirtualMachineScaleSetIdentityOutput)
 }
 
+type GetVirtualMachineScaleSetInstance struct {
+	// The Hostname of this Virtual Machine.
+	ComputerName string `pulumi:"computerName"`
+	// The Instance ID of this Virtual Machine.
+	InstanceId string `pulumi:"instanceId"`
+	// Whether the latest model has been applied to this Virtual Machine.
+	LatestModelApplied bool `pulumi:"latestModelApplied"`
+	// The name of this Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// The Primary Private IP Address assigned to this Virtual Machine.
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// A list of Private IP Addresses assigned to this Virtual Machine.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+	// A list of the Public IP Addresses assigned to this Virtual Machine.
+	PublicIpAddresses []string `pulumi:"publicIpAddresses"`
+	// The unique ID of the virtual machine.
+	VirtualMachineId string `pulumi:"virtualMachineId"`
+	// The zones of the virtual machine.
+	Zone string `pulumi:"zone"`
+}
+
+// GetVirtualMachineScaleSetInstanceInput is an input type that accepts GetVirtualMachineScaleSetInstanceArgs and GetVirtualMachineScaleSetInstanceOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetInstanceInput` via:
+//
+//	GetVirtualMachineScaleSetInstanceArgs{...}
+type GetVirtualMachineScaleSetInstanceInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetInstanceOutput() GetVirtualMachineScaleSetInstanceOutput
+	ToGetVirtualMachineScaleSetInstanceOutputWithContext(context.Context) GetVirtualMachineScaleSetInstanceOutput
+}
+
+type GetVirtualMachineScaleSetInstanceArgs struct {
+	// The Hostname of this Virtual Machine.
+	ComputerName pulumi.StringInput `pulumi:"computerName"`
+	// The Instance ID of this Virtual Machine.
+	InstanceId pulumi.StringInput `pulumi:"instanceId"`
+	// Whether the latest model has been applied to this Virtual Machine.
+	LatestModelApplied pulumi.BoolInput `pulumi:"latestModelApplied"`
+	// The name of this Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Primary Private IP Address assigned to this Virtual Machine.
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// A list of Private IP Addresses assigned to this Virtual Machine.
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
+	// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+	// A list of the Public IP Addresses assigned to this Virtual Machine.
+	PublicIpAddresses pulumi.StringArrayInput `pulumi:"publicIpAddresses"`
+	// The unique ID of the virtual machine.
+	VirtualMachineId pulumi.StringInput `pulumi:"virtualMachineId"`
+	// The zones of the virtual machine.
+	Zone pulumi.StringInput `pulumi:"zone"`
+}
+
+func (GetVirtualMachineScaleSetInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetInstance)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetInstanceArgs) ToGetVirtualMachineScaleSetInstanceOutput() GetVirtualMachineScaleSetInstanceOutput {
+	return i.ToGetVirtualMachineScaleSetInstanceOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetInstanceArgs) ToGetVirtualMachineScaleSetInstanceOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetInstanceOutput)
+}
+
+// GetVirtualMachineScaleSetInstanceArrayInput is an input type that accepts GetVirtualMachineScaleSetInstanceArray and GetVirtualMachineScaleSetInstanceArrayOutput values.
+// You can construct a concrete instance of `GetVirtualMachineScaleSetInstanceArrayInput` via:
+//
+//	GetVirtualMachineScaleSetInstanceArray{ GetVirtualMachineScaleSetInstanceArgs{...} }
+type GetVirtualMachineScaleSetInstanceArrayInput interface {
+	pulumi.Input
+
+	ToGetVirtualMachineScaleSetInstanceArrayOutput() GetVirtualMachineScaleSetInstanceArrayOutput
+	ToGetVirtualMachineScaleSetInstanceArrayOutputWithContext(context.Context) GetVirtualMachineScaleSetInstanceArrayOutput
+}
+
+type GetVirtualMachineScaleSetInstanceArray []GetVirtualMachineScaleSetInstanceInput
+
+func (GetVirtualMachineScaleSetInstanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetInstance)(nil)).Elem()
+}
+
+func (i GetVirtualMachineScaleSetInstanceArray) ToGetVirtualMachineScaleSetInstanceArrayOutput() GetVirtualMachineScaleSetInstanceArrayOutput {
+	return i.ToGetVirtualMachineScaleSetInstanceArrayOutputWithContext(context.Background())
+}
+
+func (i GetVirtualMachineScaleSetInstanceArray) ToGetVirtualMachineScaleSetInstanceArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetInstanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVirtualMachineScaleSetInstanceArrayOutput)
+}
+
+type GetVirtualMachineScaleSetInstanceOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVirtualMachineScaleSetInstance)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetInstanceOutput) ToGetVirtualMachineScaleSetInstanceOutput() GetVirtualMachineScaleSetInstanceOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetInstanceOutput) ToGetVirtualMachineScaleSetInstanceOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetInstanceOutput {
+	return o
+}
+
+// The Hostname of this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) ComputerName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.ComputerName }).(pulumi.StringOutput)
+}
+
+// The Instance ID of this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+// Whether the latest model has been applied to this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) LatestModelApplied() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) bool { return v.LatestModelApplied }).(pulumi.BoolOutput)
+}
+
+// The name of this Virtual Machine Scale Set.
+func (o GetVirtualMachineScaleSetInstanceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Primary Private IP Address assigned to this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// A list of Private IP Addresses assigned to this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `publicIpAddress` is documented below.
+func (o GetVirtualMachineScaleSetInstanceOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+// A list of the Public IP Addresses assigned to this Virtual Machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) PublicIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) []string { return v.PublicIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// The unique ID of the virtual machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) VirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.VirtualMachineId }).(pulumi.StringOutput)
+}
+
+// The zones of the virtual machine.
+func (o GetVirtualMachineScaleSetInstanceOutput) Zone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVirtualMachineScaleSetInstance) string { return v.Zone }).(pulumi.StringOutput)
+}
+
+type GetVirtualMachineScaleSetInstanceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVirtualMachineScaleSetInstanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVirtualMachineScaleSetInstance)(nil)).Elem()
+}
+
+func (o GetVirtualMachineScaleSetInstanceArrayOutput) ToGetVirtualMachineScaleSetInstanceArrayOutput() GetVirtualMachineScaleSetInstanceArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetInstanceArrayOutput) ToGetVirtualMachineScaleSetInstanceArrayOutputWithContext(ctx context.Context) GetVirtualMachineScaleSetInstanceArrayOutput {
+	return o
+}
+
+func (o GetVirtualMachineScaleSetInstanceArrayOutput) Index(i pulumi.IntInput) GetVirtualMachineScaleSetInstanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVirtualMachineScaleSetInstance {
+		return vs[0].([]GetVirtualMachineScaleSetInstance)[vs[1].(int)]
+	}).(GetVirtualMachineScaleSetInstanceOutput)
+}
+
 type GetVirtualMachineScaleSetNetworkInterface struct {
 	// An array of the DNS servers in use.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -25548,6 +25726,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineIdentityArrayInput)(nil)).Elem(), GetVirtualMachineIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetIdentityInput)(nil)).Elem(), GetVirtualMachineScaleSetIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetIdentityArrayInput)(nil)).Elem(), GetVirtualMachineScaleSetIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetInstanceInput)(nil)).Elem(), GetVirtualMachineScaleSetInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetInstanceArrayInput)(nil)).Elem(), GetVirtualMachineScaleSetInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceInput)(nil)).Elem(), GetVirtualMachineScaleSetNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceArrayInput)(nil)).Elem(), GetVirtualMachineScaleSetNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationInput)(nil)).Elem(), GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{})
@@ -25878,6 +26058,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVirtualMachineIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetInstanceOutput{})
+	pulumi.RegisterOutputType(GetVirtualMachineScaleSetInstanceArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput{})

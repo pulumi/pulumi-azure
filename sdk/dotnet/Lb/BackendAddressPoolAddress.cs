@@ -48,6 +48,24 @@ namespace Pulumi.Azure.Lb
     ///         IpAddress = "10.0.0.1",
     ///     });
     /// 
+    ///     var backend_pool_cr = Azure.Lb.GetBackendAddressPool.Invoke(new()
+    ///     {
+    ///         Name = "globalLBBackendPool",
+    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///     });
+    /// 
+    ///     var example_1 = new Azure.Lb.BackendAddressPoolAddress("example-1", new()
+    ///     {
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult).Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R1.Frontend_ip_configuration[0].Id,
+    ///     });
+    /// 
+    ///     var example_2 = new Azure.Lb.BackendAddressPoolAddress("example-2", new()
+    ///     {
+    ///         BackendAddressPoolId = backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult).Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
+    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R2.Frontend_ip_configuration[0].Id,
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -62,6 +80,12 @@ namespace Pulumi.Azure.Lb
     [AzureResourceType("azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress")]
     public partial class BackendAddressPoolAddress : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// </summary>
+        [Output("backendAddressIpConfigurationId")]
+        public Output<string?> BackendAddressIpConfigurationId { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         /// </summary>
@@ -78,7 +102,7 @@ namespace Pulumi.Azure.Lb
         /// The Static IP Address which should be allocated to this Backend Address Pool.
         /// </summary>
         [Output("ipAddress")]
-        public Output<string> IpAddress { get; private set; } = null!;
+        public Output<string?> IpAddress { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -90,7 +114,7 @@ namespace Pulumi.Azure.Lb
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         /// </summary>
         [Output("virtualNetworkId")]
-        public Output<string> VirtualNetworkId { get; private set; } = null!;
+        public Output<string?> VirtualNetworkId { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,6 +163,12 @@ namespace Pulumi.Azure.Lb
     public sealed class BackendAddressPoolAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// </summary>
+        [Input("backendAddressIpConfigurationId")]
+        public Input<string>? BackendAddressIpConfigurationId { get; set; }
+
+        /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         /// </summary>
         [Input("backendAddressPoolId", required: true)]
@@ -147,8 +177,8 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// The Static IP Address which should be allocated to this Backend Address Pool.
         /// </summary>
-        [Input("ipAddress", required: true)]
-        public Input<string> IpAddress { get; set; } = null!;
+        [Input("ipAddress")]
+        public Input<string>? IpAddress { get; set; }
 
         /// <summary>
         /// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -159,8 +189,8 @@ namespace Pulumi.Azure.Lb
         /// <summary>
         /// The ID of the Virtual Network within which the Backend Address Pool should exist.
         /// </summary>
-        [Input("virtualNetworkId", required: true)]
-        public Input<string> VirtualNetworkId { get; set; } = null!;
+        [Input("virtualNetworkId")]
+        public Input<string>? VirtualNetworkId { get; set; }
 
         public BackendAddressPoolAddressArgs()
         {
@@ -170,6 +200,12 @@ namespace Pulumi.Azure.Lb
 
     public sealed class BackendAddressPoolAddressState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+        /// </summary>
+        [Input("backendAddressIpConfigurationId")]
+        public Input<string>? BackendAddressIpConfigurationId { get; set; }
+
         /// <summary>
         /// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
         /// </summary>

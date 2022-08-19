@@ -17,6 +17,21 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
     public static final ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs Empty = new ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs();
 
     /**
+     * The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * 
+     */
+    @Import(name="components")
+    private @Nullable Output<String> components;
+
+    /**
+     * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+     * 
+     */
+    public Optional<Output<String>> components() {
+        return Optional.ofNullable(this.components);
+    }
+
+    /**
      * The URL path to rewrite.
      * 
      */
@@ -64,6 +79,7 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
     private ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs() {}
 
     private ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs(ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs $) {
+        this.components = $.components;
         this.path = $.path;
         this.queryString = $.queryString;
         this.reroute = $.reroute;
@@ -85,6 +101,27 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs extends co
 
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs defaults) {
             $ = new ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param components The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder components(@Nullable Output<String> components) {
+            $.components = components;
+            return this;
+        }
+
+        /**
+         * @param components The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder components(String components) {
+            return components(Output.of(components));
         }
 
         /**

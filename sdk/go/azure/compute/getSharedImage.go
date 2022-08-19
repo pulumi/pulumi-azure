@@ -60,6 +60,7 @@ type LookupSharedImageArgs struct {
 
 // A collection of values returned by getSharedImage.
 type LookupSharedImageResult struct {
+	Architecture string `pulumi:"architecture"`
 	// The description of this Shared Image.
 	Description string `pulumi:"description"`
 	// The End User Licence Agreement for the Shared Image.
@@ -127,6 +128,10 @@ func (o LookupSharedImageResultOutput) ToLookupSharedImageResultOutput() LookupS
 
 func (o LookupSharedImageResultOutput) ToLookupSharedImageResultOutputWithContext(ctx context.Context) LookupSharedImageResultOutput {
 	return o
+}
+
+func (o LookupSharedImageResultOutput) Architecture() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupSharedImageResult) string { return v.Architecture }).(pulumi.StringOutput)
 }
 
 // The description of this Shared Image.

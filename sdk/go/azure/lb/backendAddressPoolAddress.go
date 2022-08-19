@@ -59,6 +59,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			backend_pool_cr, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
+//				Name:           "globalLBBackendPool",
+//				LoadbalancerId: exampleLB.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-1", &lb.BackendAddressPoolAddressArgs{
+//				BackendAddressPoolId:            pulumi.String(backend_pool_cr.Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.Backend - lb - R1.Frontend_ip_configuration[0].Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-2", &lb.BackendAddressPoolAddressArgs{
+//				BackendAddressPoolId:            pulumi.String(backend_pool_cr.Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.Backend - lb - R2.Frontend_ip_configuration[0].Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -77,16 +98,18 @@ import (
 type BackendAddressPoolAddress struct {
 	pulumi.CustomResourceState
 
+	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	BackendAddressIpConfigurationId pulumi.StringPtrOutput `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringOutput `pulumi:"backendAddressPoolId"`
 	// A list of `inboundNatRulePortMapping` block as defined below.
 	InboundNatRulePortMappings BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput `pulumi:"inboundNatRulePortMappings"`
 	// The Static IP Address which should be allocated to this Backend Address Pool.
-	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
+	IpAddress pulumi.StringPtrOutput `pulumi:"ipAddress"`
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the Virtual Network within which the Backend Address Pool should exist.
-	VirtualNetworkId pulumi.StringOutput `pulumi:"virtualNetworkId"`
+	VirtualNetworkId pulumi.StringPtrOutput `pulumi:"virtualNetworkId"`
 }
 
 // NewBackendAddressPoolAddress registers a new resource with the given unique name, arguments, and options.
@@ -98,12 +121,6 @@ func NewBackendAddressPoolAddress(ctx *pulumi.Context,
 
 	if args.BackendAddressPoolId == nil {
 		return nil, errors.New("invalid value for required argument 'BackendAddressPoolId'")
-	}
-	if args.IpAddress == nil {
-		return nil, errors.New("invalid value for required argument 'IpAddress'")
-	}
-	if args.VirtualNetworkId == nil {
-		return nil, errors.New("invalid value for required argument 'VirtualNetworkId'")
 	}
 	var resource BackendAddressPoolAddress
 	err := ctx.RegisterResource("azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress", name, args, &resource, opts...)
@@ -127,6 +144,8 @@ func GetBackendAddressPoolAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BackendAddressPoolAddress resources.
 type backendAddressPoolAddressState struct {
+	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	BackendAddressIpConfigurationId *string `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
 	// A list of `inboundNatRulePortMapping` block as defined below.
@@ -140,6 +159,8 @@ type backendAddressPoolAddressState struct {
 }
 
 type BackendAddressPoolAddressState struct {
+	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	BackendAddressIpConfigurationId pulumi.StringPtrInput
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringPtrInput
 	// A list of `inboundNatRulePortMapping` block as defined below.
@@ -157,26 +178,30 @@ func (BackendAddressPoolAddressState) ElementType() reflect.Type {
 }
 
 type backendAddressPoolAddressArgs struct {
+	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	BackendAddressIpConfigurationId *string `pulumi:"backendAddressIpConfigurationId"`
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId string `pulumi:"backendAddressPoolId"`
 	// The Static IP Address which should be allocated to this Backend Address Pool.
-	IpAddress string `pulumi:"ipAddress"`
+	IpAddress *string `pulumi:"ipAddress"`
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
 	Name *string `pulumi:"name"`
 	// The ID of the Virtual Network within which the Backend Address Pool should exist.
-	VirtualNetworkId string `pulumi:"virtualNetworkId"`
+	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
 }
 
 // The set of arguments for constructing a BackendAddressPoolAddress resource.
 type BackendAddressPoolAddressArgs struct {
+	// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+	BackendAddressIpConfigurationId pulumi.StringPtrInput
 	// The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 	BackendAddressPoolId pulumi.StringInput
 	// The Static IP Address which should be allocated to this Backend Address Pool.
-	IpAddress pulumi.StringInput
+	IpAddress pulumi.StringPtrInput
 	// The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
 	Name pulumi.StringPtrInput
 	// The ID of the Virtual Network within which the Backend Address Pool should exist.
-	VirtualNetworkId pulumi.StringInput
+	VirtualNetworkId pulumi.StringPtrInput
 }
 
 func (BackendAddressPoolAddressArgs) ElementType() reflect.Type {
@@ -266,6 +291,11 @@ func (o BackendAddressPoolAddressOutput) ToBackendAddressPoolAddressOutputWithCo
 	return o
 }
 
+// The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool.
+func (o BackendAddressPoolAddressOutput) BackendAddressIpConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringPtrOutput { return v.BackendAddressIpConfigurationId }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
 func (o BackendAddressPoolAddressOutput) BackendAddressPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringOutput { return v.BackendAddressPoolId }).(pulumi.StringOutput)
@@ -279,8 +309,8 @@ func (o BackendAddressPoolAddressOutput) InboundNatRulePortMappings() BackendAdd
 }
 
 // The Static IP Address which should be allocated to this Backend Address Pool.
-func (o BackendAddressPoolAddressOutput) IpAddress() pulumi.StringOutput {
-	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
+func (o BackendAddressPoolAddressOutput) IpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringPtrOutput { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 // The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -289,8 +319,8 @@ func (o BackendAddressPoolAddressOutput) Name() pulumi.StringOutput {
 }
 
 // The ID of the Virtual Network within which the Backend Address Pool should exist.
-func (o BackendAddressPoolAddressOutput) VirtualNetworkId() pulumi.StringOutput {
-	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringOutput { return v.VirtualNetworkId }).(pulumi.StringOutput)
+func (o BackendAddressPoolAddressOutput) VirtualNetworkId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BackendAddressPoolAddress) pulumi.StringPtrOutput { return v.VirtualNetworkId }).(pulumi.StringPtrOutput)
 }
 
 type BackendAddressPoolAddressArrayOutput struct{ *pulumi.OutputState }

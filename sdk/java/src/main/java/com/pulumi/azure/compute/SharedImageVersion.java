@@ -87,6 +87,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/sharedImageVersion:SharedImageVersion")
 public class SharedImageVersion extends com.pulumi.resources.CustomResource {
     /**
+     * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="blobUri", type=String.class, parameters={})
+    private Output</* @Nullable */ String> blobUri;
+
+    /**
+     * @return URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> blobUri() {
+        return Codegen.optional(this.blobUri);
+    }
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      * 
      */
@@ -225,6 +239,20 @@ public class SharedImageVersion extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="storageAccountId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> storageAccountId;
+
+    /**
+     * @return The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> storageAccountId() {
+        return Codegen.optional(this.storageAccountId);
     }
     /**
      * A collection of tags which should be applied to this resource.

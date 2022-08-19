@@ -541,6 +541,8 @@ func (o PolicyManagedRulesPtrOutput) ManagedRuleSets() PolicyManagedRulesManaged
 }
 
 type PolicyManagedRulesExclusion struct {
+	// One or more `excludedRuleSet` block defined below.
+	ExcludedRuleSet *PolicyManagedRulesExclusionExcludedRuleSet `pulumi:"excludedRuleSet"`
 	// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable string `pulumi:"matchVariable"`
 	// Describes field of the matchVariable collection.
@@ -561,6 +563,8 @@ type PolicyManagedRulesExclusionInput interface {
 }
 
 type PolicyManagedRulesExclusionArgs struct {
+	// One or more `excludedRuleSet` block defined below.
+	ExcludedRuleSet PolicyManagedRulesExclusionExcludedRuleSetPtrInput `pulumi:"excludedRuleSet"`
 	// The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Describes field of the matchVariable collection.
@@ -620,6 +624,13 @@ func (o PolicyManagedRulesExclusionOutput) ToPolicyManagedRulesExclusionOutputWi
 	return o
 }
 
+// One or more `excludedRuleSet` block defined below.
+func (o PolicyManagedRulesExclusionOutput) ExcludedRuleSet() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusion) *PolicyManagedRulesExclusionExcludedRuleSet {
+		return v.ExcludedRuleSet
+	}).(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput)
+}
+
 // The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
 func (o PolicyManagedRulesExclusionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyManagedRulesExclusion) string { return v.MatchVariable }).(pulumi.StringOutput)
@@ -653,6 +664,289 @@ func (o PolicyManagedRulesExclusionArrayOutput) Index(i pulumi.IntInput) PolicyM
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesExclusion {
 		return vs[0].([]PolicyManagedRulesExclusion)[vs[1].(int)]
 	}).(PolicyManagedRulesExclusionOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSet struct {
+	// One or more `ruleGroup` block defined below.
+	RuleGroups []PolicyManagedRulesExclusionExcludedRuleSetRuleGroup `pulumi:"ruleGroups"`
+	// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+	Type *string `pulumi:"type"`
+	// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+	Version *string `pulumi:"version"`
+}
+
+// PolicyManagedRulesExclusionExcludedRuleSetInput is an input type that accepts PolicyManagedRulesExclusionExcludedRuleSetArgs and PolicyManagedRulesExclusionExcludedRuleSetOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionExcludedRuleSetInput` via:
+//
+//	PolicyManagedRulesExclusionExcludedRuleSetArgs{...}
+type PolicyManagedRulesExclusionExcludedRuleSetInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionExcludedRuleSetOutput() PolicyManagedRulesExclusionExcludedRuleSetOutput
+	ToPolicyManagedRulesExclusionExcludedRuleSetOutputWithContext(context.Context) PolicyManagedRulesExclusionExcludedRuleSetOutput
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetArgs struct {
+	// One or more `ruleGroup` block defined below.
+	RuleGroups PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput `pulumi:"ruleGroups"`
+	// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (PolicyManagedRulesExclusionExcludedRuleSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSet)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExclusionExcludedRuleSetOutput() PolicyManagedRulesExclusionExcludedRuleSetOutput {
+	return i.ToPolicyManagedRulesExclusionExcludedRuleSetOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExclusionExcludedRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetOutput)
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return i.ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetArgs) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetOutput).ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx)
+}
+
+// PolicyManagedRulesExclusionExcludedRuleSetPtrInput is an input type that accepts PolicyManagedRulesExclusionExcludedRuleSetArgs, PolicyManagedRulesExclusionExcludedRuleSetPtr and PolicyManagedRulesExclusionExcludedRuleSetPtrOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionExcludedRuleSetPtrInput` via:
+//
+//	        PolicyManagedRulesExclusionExcludedRuleSetArgs{...}
+//
+//	or:
+//
+//	        nil
+type PolicyManagedRulesExclusionExcludedRuleSetPtrInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput
+	ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput
+}
+
+type policyManagedRulesExclusionExcludedRuleSetPtrType PolicyManagedRulesExclusionExcludedRuleSetArgs
+
+func PolicyManagedRulesExclusionExcludedRuleSetPtr(v *PolicyManagedRulesExclusionExcludedRuleSetArgs) PolicyManagedRulesExclusionExcludedRuleSetPtrInput {
+	return (*policyManagedRulesExclusionExcludedRuleSetPtrType)(v)
+}
+
+func (*policyManagedRulesExclusionExcludedRuleSetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyManagedRulesExclusionExcludedRuleSet)(nil)).Elem()
+}
+
+func (i *policyManagedRulesExclusionExcludedRuleSetPtrType) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return i.ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (i *policyManagedRulesExclusionExcludedRuleSetPtrType) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionExcludedRuleSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToPolicyManagedRulesExclusionExcludedRuleSetOutput() PolicyManagedRulesExclusionExcludedRuleSetOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToPolicyManagedRulesExclusionExcludedRuleSetOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return o.ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyManagedRulesExclusionExcludedRuleSet) *PolicyManagedRulesExclusionExcludedRuleSet {
+		return &v
+	}).(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput)
+}
+
+// One or more `ruleGroup` block defined below.
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) RuleGroups() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) []PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
+		return v.RuleGroups
+	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
+}
+
+// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+func (o PolicyManagedRulesExclusionExcludedRuleSetOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSet) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyManagedRulesExclusionExcludedRuleSet)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutput() PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) ToPolicyManagedRulesExclusionExcludedRuleSetPtrOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetPtrOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Elem() PolicyManagedRulesExclusionExcludedRuleSetOutput {
+	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) PolicyManagedRulesExclusionExcludedRuleSet {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyManagedRulesExclusionExcludedRuleSet
+		return ret
+	}).(PolicyManagedRulesExclusionExcludedRuleSetOutput)
+}
+
+// One or more `ruleGroup` block defined below.
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) RuleGroups() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) []PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
+		if v == nil {
+			return nil
+		}
+		return v.RuleGroups
+	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
+}
+
+// The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+func (o PolicyManagedRulesExclusionExcludedRuleSetPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyManagedRulesExclusionExcludedRuleSet) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroup struct {
+	// One or more Rule IDs for exclusion.
+	ExcludedRules []string `pulumi:"excludedRules"`
+	// The name of rule group for exclusion.
+	RuleGroupName string `pulumi:"ruleGroupName"`
+}
+
+// PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput is an input type that accepts PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs and PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput` via:
+//
+//	PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs{...}
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput
+	ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs struct {
+	// One or more Rule IDs for exclusion.
+	ExcludedRules pulumi.StringArrayInput `pulumi:"excludedRules"`
+	// The name of rule group for exclusion.
+	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
+}
+
+func (PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
+	return i.ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput)
+}
+
+// PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput is an input type that accepts PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray and PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput values.
+// You can construct a concrete instance of `PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput` via:
+//
+//	PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray{ PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs{...} }
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput interface {
+	pulumi.Input
+
+	ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput
+	ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray []PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput
+
+func (PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return i.ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(context.Background())
+}
+
+func (i PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
+	return o
+}
+
+// One or more Rule IDs for exclusion.
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) ExcludedRules() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) []string { return v.ExcludedRules }).(pulumi.StringArrayOutput)
+}
+
+// The name of rule group for exclusion.
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput) RuleGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v PolicyManagedRulesExclusionExcludedRuleSetRuleGroup) string { return v.RuleGroupName }).(pulumi.StringOutput)
+}
+
+type PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup)(nil)).Elem()
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput() PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) ToPolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutputWithContext(ctx context.Context) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput {
+	return o
+}
+
+func (o PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput) Index(i pulumi.IntInput) PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
+		return vs[0].([]PolicyManagedRulesExclusionExcludedRuleSetRuleGroup)[vs[1].(int)]
+	}).(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput)
 }
 
 type PolicyManagedRulesManagedRuleSet struct {
@@ -1102,6 +1396,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesPtrInput)(nil)).Elem(), PolicyManagedRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionInput)(nil)).Elem(), PolicyManagedRulesExclusionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionArrayInput)(nil)).Elem(), PolicyManagedRulesExclusionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetInput)(nil)).Elem(), PolicyManagedRulesExclusionExcludedRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetPtrInput)(nil)).Elem(), PolicyManagedRulesExclusionExcludedRuleSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetRuleGroupInput)(nil)).Elem(), PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayInput)(nil)).Elem(), PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetArrayInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyManagedRulesManagedRuleSetRuleGroupOverrideInput)(nil)).Elem(), PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs{})
@@ -1118,6 +1416,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyManagedRulesPtrOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesExclusionArrayOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionExcludedRuleSetOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionExcludedRuleSetPtrOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupOutput{})
+	pulumi.RegisterOutputType(PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(PolicyManagedRulesManagedRuleSetRuleGroupOverrideOutput{})

@@ -15,6 +15,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -95,6 +96,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<String> accountEndpoint() {
         return this.accountEndpoint;
+    }
+    /**
+     * Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     * 
+     */
+    @Export(name="allowedAuthenticationModes", type=List.class, parameters={String.class})
+    private Output<List<String>> allowedAuthenticationModes;
+
+    /**
+     * @return Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+     * 
+     */
+    public Output<List<String>> allowedAuthenticationModes() {
+        return this.allowedAuthenticationModes;
     }
     /**
      * Specifies if customer managed key encryption should be used to encrypt batch account data.
@@ -237,6 +252,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.secondaryAccessKey;
     }
     /**
+     * Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     * 
+     */
+    @Export(name="storageAccountAuthenticationMode", type=String.class, parameters={})
+    private Output</* @Nullable */ String> storageAccountAuthenticationMode;
+
+    /**
+     * @return Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+     * 
+     */
+    public Output<Optional<String>> storageAccountAuthenticationMode() {
+        return Codegen.optional(this.storageAccountAuthenticationMode);
+    }
+    /**
      * Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
      * 
      */
@@ -249,6 +278,20 @@ public class Account extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> storageAccountId() {
         return Codegen.optional(this.storageAccountId);
+    }
+    /**
+     * Specifies the user assigned identity for the storage account.
+     * 
+     */
+    @Export(name="storageAccountNodeIdentity", type=String.class, parameters={})
+    private Output</* @Nullable */ String> storageAccountNodeIdentity;
+
+    /**
+     * @return Specifies the user assigned identity for the storage account.
+     * 
+     */
+    public Output<Optional<String>> storageAccountNodeIdentity() {
+        return Codegen.optional(this.storageAccountNodeIdentity);
     }
     /**
      * A mapping of tags to assign to the resource.

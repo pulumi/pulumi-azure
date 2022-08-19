@@ -219,6 +219,20 @@ public class KeyVault extends com.pulumi.resources.CustomResource {
         return this.networkAcls;
     }
     /**
+     * Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     * 
+     */
+    @Export(name="publicNetworkAccessEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicNetworkAccessEnabled;
+
+    /**
+     * @return Whether public network access is allowed for this Key Vault. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> publicNetworkAccessEnabled() {
+        return Codegen.optional(this.publicNetworkAccessEnabled);
+    }
+    /**
      * Is Purge Protection enabled for this Key Vault? Defaults to `false`.
      * 
      */

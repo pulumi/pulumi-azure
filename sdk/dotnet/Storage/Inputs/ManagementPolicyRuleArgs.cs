@@ -31,7 +31,7 @@ namespace Pulumi.Azure.Storage.Inputs
         public Input<Inputs.ManagementPolicyRuleFiltersArgs>? Filters { get; set; }
 
         /// <summary>
-        /// A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        /// The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

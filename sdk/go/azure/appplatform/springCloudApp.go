@@ -85,6 +85,8 @@ type SpringCloudApp struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// An `persistentDisk` block as defined below.
 	PersistentDisk SpringCloudAppPersistentDiskOutput `pulumi:"persistentDisk"`
+	// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+	PublicEndpointEnabled pulumi.BoolPtrOutput `pulumi:"publicEndpointEnabled"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -146,6 +148,8 @@ type springCloudAppState struct {
 	Name *string `pulumi:"name"`
 	// An `persistentDisk` block as defined below.
 	PersistentDisk *SpringCloudAppPersistentDisk `pulumi:"persistentDisk"`
+	// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+	PublicEndpointEnabled *bool `pulumi:"publicEndpointEnabled"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -173,6 +177,8 @@ type SpringCloudAppState struct {
 	Name pulumi.StringPtrInput
 	// An `persistentDisk` block as defined below.
 	PersistentDisk SpringCloudAppPersistentDiskPtrInput
+	// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+	PublicEndpointEnabled pulumi.BoolPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -202,6 +208,8 @@ type springCloudAppArgs struct {
 	Name *string `pulumi:"name"`
 	// An `persistentDisk` block as defined below.
 	PersistentDisk *SpringCloudAppPersistentDisk `pulumi:"persistentDisk"`
+	// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+	PublicEndpointEnabled *bool `pulumi:"publicEndpointEnabled"`
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -226,6 +234,8 @@ type SpringCloudAppArgs struct {
 	Name pulumi.StringPtrInput
 	// An `persistentDisk` block as defined below.
 	PersistentDisk SpringCloudAppPersistentDiskPtrInput
+	// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+	PublicEndpointEnabled pulumi.BoolPtrInput
 	// Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -359,6 +369,11 @@ func (o SpringCloudAppOutput) Name() pulumi.StringOutput {
 // An `persistentDisk` block as defined below.
 func (o SpringCloudAppOutput) PersistentDisk() SpringCloudAppPersistentDiskOutput {
 	return o.ApplyT(func(v *SpringCloudApp) SpringCloudAppPersistentDiskOutput { return v.PersistentDisk }).(SpringCloudAppPersistentDiskOutput)
+}
+
+// Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+func (o SpringCloudAppOutput) PublicEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudApp) pulumi.BoolPtrOutput { return v.PublicEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.

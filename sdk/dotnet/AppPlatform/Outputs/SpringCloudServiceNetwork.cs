@@ -26,6 +26,10 @@ namespace Pulumi.Azure.AppPlatform.Outputs
         /// </summary>
         public readonly ImmutableArray<string> CidrRanges;
         /// <summary>
+        /// Ingress read time out in seconds. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly int? ReadTimeoutSeconds;
+        /// <summary>
         /// Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? ServiceRuntimeNetworkResourceGroup;
@@ -42,6 +46,8 @@ namespace Pulumi.Azure.AppPlatform.Outputs
 
             ImmutableArray<string> cidrRanges,
 
+            int? readTimeoutSeconds,
+
             string? serviceRuntimeNetworkResourceGroup,
 
             string serviceRuntimeSubnetId)
@@ -49,6 +55,7 @@ namespace Pulumi.Azure.AppPlatform.Outputs
             AppNetworkResourceGroup = appNetworkResourceGroup;
             AppSubnetId = appSubnetId;
             CidrRanges = cidrRanges;
+            ReadTimeoutSeconds = readTimeoutSeconds;
             ServiceRuntimeNetworkResourceGroup = serviceRuntimeNetworkResourceGroup;
             ServiceRuntimeSubnetId = serviceRuntimeSubnetId;
         }

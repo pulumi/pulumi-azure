@@ -64,8 +64,9 @@ type LookupAccountResult struct {
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
 	// The Primary Access Key for the Automation Account.
-	PrimaryKey        string `pulumi:"primaryKey"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PrimaryKey                 string                                `pulumi:"primaryKey"`
+	PrivateEndpointConnections []GetAccountPrivateEndpointConnection `pulumi:"privateEndpointConnections"`
+	ResourceGroupName          string                                `pulumi:"resourceGroupName"`
 	// The Secondary Access Key for the Automation Account.
 	SecondaryKey string `pulumi:"secondaryKey"`
 }
@@ -127,6 +128,10 @@ func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 // The Primary Access Key for the Automation Account.
 func (o LookupAccountResultOutput) PrimaryKey() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.PrimaryKey }).(pulumi.StringOutput)
+}
+
+func (o LookupAccountResultOutput) PrivateEndpointConnections() GetAccountPrivateEndpointConnectionArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []GetAccountPrivateEndpointConnection { return v.PrivateEndpointConnections }).(GetAccountPrivateEndpointConnectionArrayOutput)
 }
 
 func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {

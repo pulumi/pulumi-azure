@@ -97,7 +97,7 @@ export class Server extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      */
     public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
     /**
@@ -225,7 +225,7 @@ export interface ServerState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**
@@ -291,7 +291,7 @@ export interface ServerArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` and `1.2`.
+     * The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
      */
     minimumTlsVersion?: pulumi.Input<string>;
     /**

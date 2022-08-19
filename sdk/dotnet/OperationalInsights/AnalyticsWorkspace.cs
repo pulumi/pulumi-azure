@@ -49,6 +49,12 @@ namespace Pulumi.Azure.OperationalInsights
     public partial class AnalyticsWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Is Customer Managed Storage mandatory for query management?
+        /// </summary>
+        [Output("cmkForQueryForced")]
+        public Output<bool?> CmkForQueryForced { get; private set; } = null!;
+
+        /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Output("dailyQuotaGb")]
@@ -170,6 +176,12 @@ namespace Pulumi.Azure.OperationalInsights
     public sealed class AnalyticsWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Is Customer Managed Storage mandatory for query management?
+        /// </summary>
+        [Input("cmkForQueryForced")]
+        public Input<bool>? CmkForQueryForced { get; set; }
+
+        /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>
         [Input("dailyQuotaGb")]
@@ -240,6 +252,12 @@ namespace Pulumi.Azure.OperationalInsights
 
     public sealed class AnalyticsWorkspaceState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Is Customer Managed Storage mandatory for query management?
+        /// </summary>
+        [Input("cmkForQueryForced")]
+        public Input<bool>? CmkForQueryForced { get; set; }
+
         /// <summary>
         /// The workspace daily quota for ingestion in GB.  Defaults to -1 (unlimited) if omitted.
         /// </summary>

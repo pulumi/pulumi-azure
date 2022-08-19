@@ -83,13 +83,13 @@ type MxRecord struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records MxRecordRecordArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
@@ -140,13 +140,13 @@ type mxRecordState struct {
 	Name *string `pulumi:"name"`
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records []MxRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName *string `pulumi:"zoneName"`
 }
 
@@ -157,13 +157,13 @@ type MxRecordState struct {
 	Name pulumi.StringPtrInput
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records MxRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringPtrInput
 }
 
@@ -176,13 +176,13 @@ type mxRecordArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records []MxRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName string `pulumi:"zoneName"`
 }
 
@@ -192,13 +192,13 @@ type MxRecordArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of values that make up the MX record. Each `record` block supports fields documented below.
 	Records MxRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+	// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
-	// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+	// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 	ZoneName pulumi.StringInput
 }
 
@@ -304,7 +304,7 @@ func (o MxRecordOutput) Records() MxRecordRecordArrayOutput {
 	return o.ApplyT(func(v *MxRecord) MxRecordRecordArrayOutput { return v.Records }).(MxRecordRecordArrayOutput)
 }
 
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+// Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
 func (o MxRecordOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MxRecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
@@ -319,7 +319,7 @@ func (o MxRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *MxRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
 }
 
-// Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+// Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
 func (o MxRecordOutput) ZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MxRecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }

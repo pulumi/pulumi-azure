@@ -157,6 +157,11 @@ public final class GetWindowsWebAppResult {
      * 
      */
     private final Map<String,String> tags;
+    /**
+     * @return The subnet id which the Windows Web App is vNet Integrated with.
+     * 
+     */
+    private final String virtualNetworkSubnetId;
 
     @CustomType.Constructor
     private GetWindowsWebAppResult(
@@ -187,7 +192,8 @@ public final class GetWindowsWebAppResult {
         @CustomType.Parameter("siteCredentials") List<GetWindowsWebAppSiteCredential> siteCredentials,
         @CustomType.Parameter("stickySettings") List<GetWindowsWebAppStickySetting> stickySettings,
         @CustomType.Parameter("storageAccounts") List<GetWindowsWebAppStorageAccount> storageAccounts,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
+        @CustomType.Parameter("tags") Map<String,String> tags,
+        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
         this.appSettings = appSettings;
         this.authSettings = authSettings;
         this.backups = backups;
@@ -216,6 +222,7 @@ public final class GetWindowsWebAppResult {
         this.stickySettings = stickySettings;
         this.storageAccounts = storageAccounts;
         this.tags = tags;
+        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
     }
 
     /**
@@ -410,6 +417,13 @@ public final class GetWindowsWebAppResult {
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return The subnet id which the Windows Web App is vNet Integrated with.
+     * 
+     */
+    public String virtualNetworkSubnetId() {
+        return this.virtualNetworkSubnetId;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -448,6 +462,7 @@ public final class GetWindowsWebAppResult {
         private List<GetWindowsWebAppStickySetting> stickySettings;
         private List<GetWindowsWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
+        private String virtualNetworkSubnetId;
 
         public Builder() {
     	      // Empty
@@ -483,6 +498,7 @@ public final class GetWindowsWebAppResult {
     	      this.stickySettings = defaults.stickySettings;
     	      this.storageAccounts = defaults.storageAccounts;
     	      this.tags = defaults.tags;
+    	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
         public Builder appSettings(Map<String,String> appSettings) {
@@ -629,8 +645,12 @@ public final class GetWindowsWebAppResult {
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
+        }
+        public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
+            this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
+            return this;
         }        public GetWindowsWebAppResult build() {
-            return new GetWindowsWebAppResult(appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags);
+            return new GetWindowsWebAppResult(appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags, virtualNetworkSubnetId);
         }
     }
 }

@@ -90,6 +90,8 @@ type SpringCloudService struct {
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrOutput `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// Should the log stream in vnet injection instance could be accessed from Internet?
+	LogStreamPublicEndpointEnabled pulumi.BoolPtrOutput `pulumi:"logStreamPublicEndpointEnabled"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -152,6 +154,8 @@ type springCloudServiceState struct {
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Should the log stream in vnet injection instance could be accessed from Internet?
+	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -183,6 +187,8 @@ type SpringCloudServiceState struct {
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Should the log stream in vnet injection instance could be accessed from Internet?
+	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -218,6 +224,8 @@ type springCloudServiceArgs struct {
 	ConfigServerGitSetting *SpringCloudServiceConfigServerGitSetting `pulumi:"configServerGitSetting"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// Should the log stream in vnet injection instance could be accessed from Internet?
+	LogStreamPublicEndpointEnabled *bool `pulumi:"logStreamPublicEndpointEnabled"`
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -244,6 +252,8 @@ type SpringCloudServiceArgs struct {
 	ConfigServerGitSetting SpringCloudServiceConfigServerGitSettingPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// Should the log stream in vnet injection instance could be accessed from Internet?
+	LogStreamPublicEndpointEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// A `network` block as defined below. Changing this forces a new resource to be created.
@@ -364,6 +374,11 @@ func (o SpringCloudServiceOutput) ConfigServerGitSetting() SpringCloudServiceCon
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o SpringCloudServiceOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpringCloudService) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// Should the log stream in vnet injection instance could be accessed from Internet?
+func (o SpringCloudServiceOutput) LogStreamPublicEndpointEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpringCloudService) pulumi.BoolPtrOutput { return v.LogStreamPublicEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

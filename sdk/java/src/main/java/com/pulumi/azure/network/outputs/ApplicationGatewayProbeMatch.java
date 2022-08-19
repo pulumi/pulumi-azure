@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ApplicationGatewayProbeMatch {
@@ -14,7 +16,7 @@ public final class ApplicationGatewayProbeMatch {
      * @return A snippet from the Response Body which must be present in the Response.
      * 
      */
-    private final String body;
+    private final @Nullable String body;
     /**
      * @return A list of allowed status codes for this Health Probe.
      * 
@@ -23,7 +25,7 @@ public final class ApplicationGatewayProbeMatch {
 
     @CustomType.Constructor
     private ApplicationGatewayProbeMatch(
-        @CustomType.Parameter("body") String body,
+        @CustomType.Parameter("body") @Nullable String body,
         @CustomType.Parameter("statusCodes") List<String> statusCodes) {
         this.body = body;
         this.statusCodes = statusCodes;
@@ -33,8 +35,8 @@ public final class ApplicationGatewayProbeMatch {
      * @return A snippet from the Response Body which must be present in the Response.
      * 
      */
-    public String body() {
-        return this.body;
+    public Optional<String> body() {
+        return Optional.ofNullable(this.body);
     }
     /**
      * @return A list of allowed status codes for this Health Probe.
@@ -53,7 +55,7 @@ public final class ApplicationGatewayProbeMatch {
     }
 
     public static final class Builder {
-        private String body;
+        private @Nullable String body;
         private List<String> statusCodes;
 
         public Builder() {
@@ -66,8 +68,8 @@ public final class ApplicationGatewayProbeMatch {
     	      this.statusCodes = defaults.statusCodes;
         }
 
-        public Builder body(String body) {
-            this.body = Objects.requireNonNull(body);
+        public Builder body(@Nullable String body) {
+            this.body = body;
             return this;
         }
         public Builder statusCodes(List<String> statusCodes) {

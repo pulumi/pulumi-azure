@@ -99,7 +99,7 @@ export class ARecord extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     public readonly targetResourceId!: pulumi.Output<string | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface ARecordState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     targetResourceId?: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface ARecordArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      */
     targetResourceId?: pulumi.Input<string>;
     /**

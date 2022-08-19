@@ -1881,6 +1881,13 @@ export namespace appplatform {
         memory?: pulumi.Input<string>;
     }
 
+    export interface SpringCloudGatewayRouteConfigOpenApi {
+        /**
+         * The URI of OpenAPI specification.
+         */
+        uri?: pulumi.Input<string>;
+    }
+
     export interface SpringCloudGatewayRouteConfigRoute {
         /**
          * Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
@@ -2082,6 +2089,10 @@ export namespace appplatform {
          */
         cidrRanges: pulumi.Input<pulumi.Input<string>[]>;
         /**
+         * Ingress read time out in seconds. Changing this forces a new resource to be created.
+         */
+        readTimeoutSeconds?: pulumi.Input<number>;
+        /**
          * Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
          */
         serviceRuntimeNetworkResourceGroup?: pulumi.Input<string>;
@@ -2121,6 +2132,7 @@ export namespace appplatform {
          */
         sampleRate?: pulumi.Input<number>;
     }
+
 }
 
 export namespace appservice {
@@ -4083,7 +4095,7 @@ export namespace appservice {
 
     export interface LinuxFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created.
+         * The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name?: pulumi.Input<string>;
         /**
@@ -7333,7 +7345,7 @@ export namespace appservice {
 
     export interface WindowsFunctionAppSiteCredential {
         /**
-         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created.
+         * The name which should be used for this Windows Function App. Changing this forces a new Windows Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
          */
         name?: pulumi.Input<string>;
         /**
@@ -9522,6 +9534,21 @@ export namespace authorization {
 }
 
 export namespace automation {
+    export interface AccountEncryption {
+        /**
+         * The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+         */
+        keySource?: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+         */
+        keyVaultKeyId: pulumi.Input<string>;
+        /**
+         * The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+    }
+
     export interface AccountIdentity {
         /**
          * The ID of the User Assigned Identity which should be assigned to this Automation Account.
@@ -9539,6 +9566,17 @@ export namespace automation {
          * The type of identity used for this Automation Account. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface AccountPrivateEndpointConnection {
+        /**
+         * The ID of the Automation Account.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+         */
+        name?: pulumi.Input<string>;
     }
 
     export interface ModuleModuleLink {
@@ -9858,15 +9896,20 @@ export namespace batch {
         /**
          * The password to log into the registry server. Changing this forces a new resource to be created.
          */
-        password: pulumi.Input<string>;
+        password?: pulumi.Input<string>;
         /**
          * The container registry URL. The default is "docker.io". Changing this forces a new resource to be created.
          */
         registryServer: pulumi.Input<string>;
         /**
+         * The reference to the user assigned identity to use to access an Azure Container Registry instead of username and password. Changing this forces a new resource to be created.
+         * ---
+         */
+        userAssignedIdentityId?: pulumi.Input<string>;
+        /**
          * The user name to log into the registry server. Changing this forces a new resource to be created.
          */
-        userName: pulumi.Input<string>;
+        userName?: pulumi.Input<string>;
     }
 
     export interface PoolFixedScale {
@@ -10148,9 +10191,15 @@ export namespace cdn {
 
     export interface EndpointCustomDomainUserManagedHttps {
         /**
-         * The ID of the Key Vault Certificate that contains the HTTPS certificate.
+         * The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of `keyVaultSecretId`.
+         *
+         * @deprecated This is deprecated in favor of `key_vault_secret_id` as the service is actually looking for a secret, not a certificate
          */
-        keyVaultCertificateId: pulumi.Input<string>;
+        keyVaultCertificateId?: pulumi.Input<string>;
+        /**
+         * The ID of the Key Vault Secret that contains the HTTPS certificate.
+         */
+        keyVaultSecretId?: pulumi.Input<string>;
         /**
          * The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`.
          */
@@ -10755,6 +10804,170 @@ export namespace cdn {
         name: pulumi.Input<string>;
     }
 
+    export interface FrontdoorFirewallPolicyCustomRule {
+        /**
+         * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Is the rule is enabled or disabled? Defaults to `true`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `matchCondition` block defined below. Can support up to `10` `matchCondition` blocks.
+         */
+        matchConditions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyCustomRuleMatchCondition>[]>;
+        /**
+         * Gets name of the resource that is unique within a policy. This name can be used to access the resource.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * The rate limit duration in minutes. Defaults to `1`.
+         */
+        rateLimitDurationInMinutes?: pulumi.Input<number>;
+        /**
+         * The rate limit threshold. Defaults to `10`.
+         */
+        rateLimitThreshold?: pulumi.Input<number>;
+        /**
+         * The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFirewallPolicyCustomRuleMatchCondition {
+        /**
+         * Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
+         */
+        matchValues: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Should the result of the condition be negated.
+         */
+        negationCondition?: pulumi.Input<boolean>;
+        /**
+         * Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Match against a specific key if the `matchVariable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
+         */
+        selector?: pulumi.Input<string>;
+        /**
+         * Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or `URLEncode`.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRule {
+        /**
+         * The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleExclusion>[]>;
+        /**
+         * One or more `override` blocks as defined below.
+         */
+        overrides?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleOverride>[]>;
+        /**
+         * The name of the managed rule to use with this resource.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The version on the managed rule to use with this resource.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverride {
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideExclusion>[]>;
+        /**
+         * The managed rule group to override.
+         */
+        ruleGroupName: pulumi.Input<string>;
+        /**
+         * One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+         */
+        rules?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideRule>[]>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideRule {
+        /**
+         * The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
+         */
+        action: pulumi.Input<string>;
+        /**
+         * Is the managed rule override enabled or disabled. Defaults to `false`
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * One or more `exclusion` blocks as defined below.
+         */
+        exclusions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion>[]>;
+        /**
+         * Identifier for the managed rule.
+         */
+        ruleId: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
+        /**
+         * The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
+         */
+        matchVariable: pulumi.Input<string>;
+        /**
+         * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * Selector for the value in the `matchVariable` attribute this exclusion applies to.
+         */
+        selector: pulumi.Input<string>;
+    }
+
     export interface FrontdoorOriginGroupHealthProbe {
         /**
          * Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
@@ -10806,6 +11019,46 @@ export namespace cdn {
          * Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blobSecondary`, `web` and `sites`.
          */
         targetType?: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPolicies {
+        /**
+         * An `firewall` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        firewall: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewall>;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewall {
+        /**
+         * An `association` block as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        association: pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation>;
+        /**
+         * The Resource Id of the Frontdoor Firewall Policy that should be linked to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        cdnFrontdoorFirewallPolicyId: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
+        /**
+         * One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        domains: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain>[]>;
+        /**
+         * The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        patternsToMatch: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
+        /**
+         * Is the Frontdoor Custom Domain/Endpoint activated?
+         */
+        active?: pulumi.Input<boolean>;
+        /**
+         * The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
+         */
+        cdnFrontdoorDomainId: pulumi.Input<string>;
     }
 
 }
@@ -16233,6 +16486,10 @@ export namespace datafactory {
          */
         description?: pulumi.Input<string>;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.DataFlowSinkFlowlet>;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: pulumi.Input<inputs.datafactory.DataFlowSinkLinkedService>;
@@ -16253,6 +16510,18 @@ export namespace datafactory {
         name: pulumi.Input<string>;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSinkFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -16289,6 +16558,10 @@ export namespace datafactory {
          */
         description?: pulumi.Input<string>;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.DataFlowSourceFlowlet>;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: pulumi.Input<inputs.datafactory.DataFlowSourceLinkedService>;
@@ -16309,6 +16582,18 @@ export namespace datafactory {
         name: pulumi.Input<string>;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowSourceFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -16345,6 +16630,10 @@ export namespace datafactory {
          */
         description?: pulumi.Input<string>;
         /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.DataFlowTransformationFlowlet>;
+        /**
          * A `linkedService` block as defined below.
          */
         linkedService?: pulumi.Input<inputs.datafactory.DataFlowTransformationLinkedService>;
@@ -16361,6 +16650,18 @@ export namespace datafactory {
         name: pulumi.Input<string>;
         /**
          * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface DataFlowTransformationFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
          */
         parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
@@ -16859,6 +17160,207 @@ export namespace datafactory {
         tenantId: pulumi.Input<string>;
     }
 
+    export interface FlowletDataFlowSink {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: pulumi.Input<inputs.datafactory.FlowletDataFlowSinkDataset>;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.FlowletDataFlowSinkFlowlet>;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: pulumi.Input<inputs.datafactory.FlowletDataFlowSinkLinkedService>;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: pulumi.Input<inputs.datafactory.FlowletDataFlowSinkSchemaLinkedService>;
+    }
+
+    export interface FlowletDataFlowSinkDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSinkFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSinkLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSinkSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSource {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: pulumi.Input<inputs.datafactory.FlowletDataFlowSourceDataset>;
+        /**
+         * The description for the Data Flow Source.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.FlowletDataFlowSourceFlowlet>;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: pulumi.Input<inputs.datafactory.FlowletDataFlowSourceLinkedService>;
+        /**
+         * The name for the Data Flow Source.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A `schemaLinkedService` block as defined below.
+         */
+        schemaLinkedService?: pulumi.Input<inputs.datafactory.FlowletDataFlowSourceSchemaLinkedService>;
+    }
+
+    export interface FlowletDataFlowSourceDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSourceFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSourceLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowSourceSchemaLinkedService {
+        /**
+         * The name for the Data Factory Linked Service with schema.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowTransformation {
+        /**
+         * A `dataset` block as defined below.
+         */
+        dataset?: pulumi.Input<inputs.datafactory.FlowletDataFlowTransformationDataset>;
+        /**
+         * The description for the Data Flow transformation.
+         */
+        description?: pulumi.Input<string>;
+        /**
+         * A `flowlet` block as defined below.
+         */
+        flowlet?: pulumi.Input<inputs.datafactory.FlowletDataFlowTransformationFlowlet>;
+        /**
+         * A `linkedService` block as defined below.
+         */
+        linkedService?: pulumi.Input<inputs.datafactory.FlowletDataFlowTransformationLinkedService>;
+        /**
+         * Specifies the name of the Data Factory Flowlet Data Flow. Changing this forces a new resource to be created.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface FlowletDataFlowTransformationDataset {
+        /**
+         * The name for the Data Factory Dataset.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory dataset.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowTransformationFlowlet {
+        datasetParameters?: pulumi.Input<string>;
+        /**
+         * The name for the Data Factory Flowlet.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Flowlet.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface FlowletDataFlowTransformationLinkedService {
+        /**
+         * The name for the Data Factory Linked Service.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A map of parameters to associate with the Data Factory Linked Service.
+         */
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface IntegrationRuntimeManagedCatalogInfo {
         /**
          * Administrator login name for the SQL Server.
@@ -17030,6 +17532,13 @@ export namespace datafactory {
          * Specifies the secret version in Azure Key Vault.
          */
         secretVersion?: pulumi.Input<string>;
+    }
+
+    export interface IntegrationRuntimeSsisExpressVnetIntegration {
+        /**
+         * id of the subnet to which the nodes of the Azure-SSIS Integration Runtime will be added.
+         */
+        subnetId: pulumi.Input<string>;
     }
 
     export interface IntegrationRuntimeSsisPackageStore {
@@ -17778,7 +18287,7 @@ export namespace dns {
          */
         flags: pulumi.Input<number>;
         /**
-         * A property tag, options are issue, issuewild and iodef.
+         * A property tag, options are `issue`, `issuewild` and `iodef`.
          */
         tag: pulumi.Input<string>;
         /**
@@ -17863,6 +18372,7 @@ export namespace dns {
          */
         ttl?: pulumi.Input<number>;
     }
+
 }
 
 export namespace domainservices {
@@ -17931,6 +18441,14 @@ export namespace domainservices {
     }
 
     export interface ServiceSecurity {
+        /**
+         * Whether to enable Kerberos Armoring. Defaults to `false`.
+         */
+        kerberosArmoringEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
+         */
+        kerberosRc4EncryptionEnabled?: pulumi.Input<boolean>;
         /**
          * Whether to enable legacy NTLM v1 support. Defaults to `false`.
          */
@@ -27270,6 +27788,17 @@ export namespace network {
         subnetId: pulumi.Input<string>;
     }
 
+    export interface ApplicationGatewayGlobal {
+        /**
+         * Whether Application Gateway's Request buffer is enabled.
+         */
+        requestBufferingEnabled: pulumi.Input<boolean>;
+        /**
+         * Whether Application Gateway's Response buffer is enabled.
+         */
+        responseBufferingEnabled: pulumi.Input<boolean>;
+    }
+
     export interface ApplicationGatewayHttpListener {
         /**
          * One or more `customErrorConfiguration` blocks as defined below.
@@ -27467,7 +27996,7 @@ export namespace network {
         /**
          * A snippet from the Response Body which must be present in the Response.
          */
-        body: pulumi.Input<string>;
+        body?: pulumi.Input<string>;
         /**
          * A list of allowed status codes for this Health Probe.
          */
@@ -27657,6 +28186,10 @@ export namespace network {
     }
 
     export interface ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
+        /**
+         * The components used to rewrite the URL. Possible values are `pathOnly` and `queryStringOnly` to limit the rewrite to the URL Path or URL Query String only.
+         */
+        components?: pulumi.Input<string>;
         /**
          * The URL path to rewrite.
          */
@@ -27919,7 +28452,7 @@ export namespace network {
          */
         disabledRuleGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayWafConfigurationDisabledRuleGroup>[]>;
         /**
-         * Is the Web Application Firewall be enabled?
+         * Is the Web Application Firewall enabled?
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -28376,6 +28909,10 @@ export namespace network {
          * In which mode you want to run intrusion detection: `Off`, `Alert` or `Deny`.
          */
         mode?: pulumi.Input<string>;
+        /**
+         * A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
+         */
+        privateRanges?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * One or more `signatureOverrides` blocks as defined below.
          */
@@ -30393,6 +30930,7 @@ export namespace privatedns {
          */
         ttl?: pulumi.Input<number>;
     }
+
 }
 
 export namespace privatelink {
@@ -32667,7 +33205,7 @@ export namespace storage {
          */
         filters?: pulumi.Input<inputs.storage.ManagementPolicyRuleFilters>;
         /**
-         * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
          */
         name: pulumi.Input<string>;
     }
@@ -33406,6 +33944,10 @@ export namespace waf {
 
     export interface PolicyManagedRulesExclusion {
         /**
+         * One or more `excludedRuleSet` block defined below.
+         */
+        excludedRuleSet?: pulumi.Input<inputs.waf.PolicyManagedRulesExclusionExcludedRuleSet>;
+        /**
          * The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
          */
         matchVariable: pulumi.Input<string>;
@@ -33417,6 +33959,32 @@ export namespace waf {
          * Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
          */
         selectorMatchOperator: pulumi.Input<string>;
+    }
+
+    export interface PolicyManagedRulesExclusionExcludedRuleSet {
+        /**
+         * One or more `ruleGroup` block defined below.
+         */
+        ruleGroups?: pulumi.Input<pulumi.Input<inputs.waf.PolicyManagedRulesExclusionExcludedRuleSetRuleGroup>[]>;
+        /**
+         * The rule set type. The only possible value is `OWASP` . Defaults to `OWASP`.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * The rule set version. The only possible value is `3.2` . Defaults to `3.2`.
+         */
+        version?: pulumi.Input<string>;
+    }
+
+    export interface PolicyManagedRulesExclusionExcludedRuleSetRuleGroup {
+        /**
+         * One or more Rule IDs for exclusion.
+         */
+        excludedRules?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The name of rule group for exclusion.
+         */
+        ruleGroupName: pulumi.Input<string>;
     }
 
     export interface PolicyManagedRulesManagedRuleSet {

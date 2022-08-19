@@ -3,8 +3,10 @@
 
 package com.pulumi.azure.automation.outputs;
 
+import com.pulumi.azure.automation.outputs.GetAccountPrivateEndpointConnection;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -25,6 +27,7 @@ public final class GetAccountResult {
      * 
      */
     private final String primaryKey;
+    private final List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
     private final String resourceGroupName;
     /**
      * @return The Secondary Access Key for the Automation Account.
@@ -38,12 +41,14 @@ public final class GetAccountResult {
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("primaryKey") String primaryKey,
+        @CustomType.Parameter("privateEndpointConnections") List<GetAccountPrivateEndpointConnection> privateEndpointConnections,
         @CustomType.Parameter("resourceGroupName") String resourceGroupName,
         @CustomType.Parameter("secondaryKey") String secondaryKey) {
         this.endpoint = endpoint;
         this.id = id;
         this.name = name;
         this.primaryKey = primaryKey;
+        this.privateEndpointConnections = privateEndpointConnections;
         this.resourceGroupName = resourceGroupName;
         this.secondaryKey = secondaryKey;
     }
@@ -72,6 +77,9 @@ public final class GetAccountResult {
     public String primaryKey() {
         return this.primaryKey;
     }
+    public List<GetAccountPrivateEndpointConnection> privateEndpointConnections() {
+        return this.privateEndpointConnections;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -96,6 +104,7 @@ public final class GetAccountResult {
         private String id;
         private String name;
         private String primaryKey;
+        private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
         private String resourceGroupName;
         private String secondaryKey;
 
@@ -109,6 +118,7 @@ public final class GetAccountResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.primaryKey = defaults.primaryKey;
+    	      this.privateEndpointConnections = defaults.privateEndpointConnections;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryKey = defaults.secondaryKey;
         }
@@ -129,6 +139,13 @@ public final class GetAccountResult {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        public Builder privateEndpointConnections(List<GetAccountPrivateEndpointConnection> privateEndpointConnections) {
+            this.privateEndpointConnections = Objects.requireNonNull(privateEndpointConnections);
+            return this;
+        }
+        public Builder privateEndpointConnections(GetAccountPrivateEndpointConnection... privateEndpointConnections) {
+            return privateEndpointConnections(List.of(privateEndpointConnections));
+        }
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
@@ -137,7 +154,7 @@ public final class GetAccountResult {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
         }        public GetAccountResult build() {
-            return new GetAccountResult(endpoint, id, name, primaryKey, resourceGroupName, secondaryKey);
+            return new GetAccountResult(endpoint, id, name, primaryKey, privateEndpointConnections, resourceGroupName, secondaryKey);
         }
     }
 }

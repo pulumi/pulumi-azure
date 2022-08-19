@@ -67,6 +67,12 @@ namespace Pulumi.Azure.Batch
         public Output<string> AccountEndpoint { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        /// </summary>
+        [Output("allowedAuthenticationModes")]
+        public Output<ImmutableArray<string>> AllowedAuthenticationModes { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies if customer managed key encryption should be used to encrypt batch account data.
         /// </summary>
         [Output("encryption")]
@@ -127,10 +133,22 @@ namespace Pulumi.Azure.Batch
         public Output<string> SecondaryAccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        /// </summary>
+        [Output("storageAccountAuthenticationMode")]
+        public Output<string?> StorageAccountAuthenticationMode { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// </summary>
         [Output("storageAccountId")]
         public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the user assigned identity for the storage account.
+        /// </summary>
+        [Output("storageAccountNodeIdentity")]
+        public Output<string?> StorageAccountNodeIdentity { get; private set; } = null!;
 
         /// <summary>
         /// A mapping of tags to assign to the resource.
@@ -184,6 +202,18 @@ namespace Pulumi.Azure.Batch
 
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedAuthenticationModes")]
+        private InputList<string>? _allowedAuthenticationModes;
+
+        /// <summary>
+        /// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        /// </summary>
+        public InputList<string> AllowedAuthenticationModes
+        {
+            get => _allowedAuthenticationModes ?? (_allowedAuthenticationModes = new InputList<string>());
+            set => _allowedAuthenticationModes = value;
+        }
+
         /// <summary>
         /// Specifies if customer managed key encryption should be used to encrypt batch account data.
         /// </summary>
@@ -233,10 +263,22 @@ namespace Pulumi.Azure.Batch
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        /// </summary>
+        [Input("storageAccountAuthenticationMode")]
+        public Input<string>? StorageAccountAuthenticationMode { get; set; }
+
+        /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the user assigned identity for the storage account.
+        /// </summary>
+        [Input("storageAccountNodeIdentity")]
+        public Input<string>? StorageAccountNodeIdentity { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -263,6 +305,18 @@ namespace Pulumi.Azure.Batch
         /// </summary>
         [Input("accountEndpoint")]
         public Input<string>? AccountEndpoint { get; set; }
+
+        [Input("allowedAuthenticationModes")]
+        private InputList<string>? _allowedAuthenticationModes;
+
+        /// <summary>
+        /// Specifies the allowed authentication mode for the Batch account. Possible values include `AAD`, `SharedKey` or `TaskAuthenticationToken`.
+        /// </summary>
+        public InputList<string> AllowedAuthenticationModes
+        {
+            get => _allowedAuthenticationModes ?? (_allowedAuthenticationModes = new InputList<string>());
+            set => _allowedAuthenticationModes = value;
+        }
 
         /// <summary>
         /// Specifies if customer managed key encryption should be used to encrypt batch account data.
@@ -325,10 +379,22 @@ namespace Pulumi.Azure.Batch
         public Input<string>? SecondaryAccessKey { get; set; }
 
         /// <summary>
+        /// Specifies the storage account authentication mode. Possible values include `StorageKeys`, `BatchAccountManagedIdentity`.
+        /// </summary>
+        [Input("storageAccountAuthenticationMode")]
+        public Input<string>? StorageAccountAuthenticationMode { get; set; }
+
+        /// <summary>
         /// Specifies the storage account to use for the Batch account. If not specified, Azure Batch will manage the storage.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the user assigned identity for the storage account.
+        /// </summary>
+        [Input("storageAccountNodeIdentity")]
+        public Input<string>? StorageAccountNodeIdentity { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

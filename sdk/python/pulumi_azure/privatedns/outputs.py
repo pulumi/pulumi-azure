@@ -15,6 +15,9 @@ __all__ = [
     'SRVRecordRecord',
     'TxtRecordRecord',
     'ZoneSoaRecord',
+    'GetMxRecordRecordResult',
+    'GetSrvRecordRecordResult',
+    'GetTxtRecordRecordResult',
 ]
 
 @pulumi.output_type
@@ -351,5 +354,103 @@ class ZoneSoaRecord(dict):
         The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
         return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class GetMxRecordRecordResult(dict):
+    def __init__(__self__, *,
+                 exchange: str,
+                 preference: int):
+        """
+        :param str exchange: The mail server responsible for the domain covered by the MX record.
+        :param int preference: String representing the "preference” value of the MX records. Records with lower preference value take priority.
+        """
+        pulumi.set(__self__, "exchange", exchange)
+        pulumi.set(__self__, "preference", preference)
+
+    @property
+    @pulumi.getter
+    def exchange(self) -> str:
+        """
+        The mail server responsible for the domain covered by the MX record.
+        """
+        return pulumi.get(self, "exchange")
+
+    @property
+    @pulumi.getter
+    def preference(self) -> int:
+        """
+        String representing the "preference” value of the MX records. Records with lower preference value take priority.
+        """
+        return pulumi.get(self, "preference")
+
+
+@pulumi.output_type
+class GetSrvRecordRecordResult(dict):
+    def __init__(__self__, *,
+                 port: int,
+                 priority: int,
+                 target: str,
+                 weight: int):
+        """
+        :param int port: Port the service is listening on.
+        :param int priority: Priority of the SRV record.
+        :param str target: FQDN of the service.
+        :param int weight: Weight of the SRV record.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "target", target)
+        pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Port the service is listening on.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the SRV record.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        FQDN of the service.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        Weight of the SRV record.
+        """
+        return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class GetTxtRecordRecordResult(dict):
+    def __init__(__self__, *,
+                 value: str):
+        """
+        :param str value: The value of the record. Max length: 1024 characters
+        """
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the record. Max length: 1024 characters
+        """
+        return pulumi.get(self, "value")
 
 

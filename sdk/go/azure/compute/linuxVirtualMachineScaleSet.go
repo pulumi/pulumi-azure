@@ -149,7 +149,7 @@ type LinuxVirtualMachineScaleSet struct {
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
@@ -297,7 +297,7 @@ type linuxVirtualMachineScaleSetState struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -402,7 +402,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
@@ -511,7 +511,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	EdgeZone *string `pulumi:"edgeZone"`
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// One or more `extension` blocks as defined below
 	Extensions []LinuxVirtualMachineScaleSetExtension `pulumi:"extensions"`
@@ -615,7 +615,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	EdgeZone pulumi.StringPtrInput
 	// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
-	// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+	// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions LinuxVirtualMachineScaleSetExtensionArrayInput
@@ -863,7 +863,7 @@ func (o LinuxVirtualMachineScaleSetOutput) EncryptionAtHostEnabled() pulumi.Bool
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.EncryptionAtHostEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Policy which should be used Virtual Machines are Evicted from the Scale Set. Changing this forces a new resource to be created.
+// Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }

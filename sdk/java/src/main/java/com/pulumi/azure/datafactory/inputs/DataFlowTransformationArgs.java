@@ -4,6 +4,7 @@
 package com.pulumi.azure.datafactory.inputs;
 
 import com.pulumi.azure.datafactory.inputs.DataFlowTransformationDatasetArgs;
+import com.pulumi.azure.datafactory.inputs.DataFlowTransformationFlowletArgs;
 import com.pulumi.azure.datafactory.inputs.DataFlowTransformationLinkedServiceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -48,6 +49,21 @@ public final class DataFlowTransformationArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * A `flowlet` block as defined below.
+     * 
+     */
+    @Import(name="flowlet")
+    private @Nullable Output<DataFlowTransformationFlowletArgs> flowlet;
+
+    /**
+     * @return A `flowlet` block as defined below.
+     * 
+     */
+    public Optional<Output<DataFlowTransformationFlowletArgs>> flowlet() {
+        return Optional.ofNullable(this.flowlet);
+    }
+
+    /**
      * A `linked_service` block as defined below.
      * 
      */
@@ -82,6 +98,7 @@ public final class DataFlowTransformationArgs extends com.pulumi.resources.Resou
     private DataFlowTransformationArgs(DataFlowTransformationArgs $) {
         this.dataset = $.dataset;
         this.description = $.description;
+        this.flowlet = $.flowlet;
         this.linkedService = $.linkedService;
         this.name = $.name;
     }
@@ -144,6 +161,27 @@ public final class DataFlowTransformationArgs extends com.pulumi.resources.Resou
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param flowlet A `flowlet` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowlet(@Nullable Output<DataFlowTransformationFlowletArgs> flowlet) {
+            $.flowlet = flowlet;
+            return this;
+        }
+
+        /**
+         * @param flowlet A `flowlet` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder flowlet(DataFlowTransformationFlowletArgs flowlet) {
+            return flowlet(Output.of(flowlet));
         }
 
         /**

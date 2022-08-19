@@ -78,23 +78,31 @@ public final class CNameRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `record`.
      * 
      */
     @Import(name="targetResourceId")
     private @Nullable Output<String> targetResourceId;
 
     /**
-     * @return The Azure resource id of the target object. Conflicts with `records`
+     * @return The Azure resource id of the target object. Conflicts with `record`.
      * 
      */
     public Optional<Output<String>> targetResourceId() {
         return Optional.ofNullable(this.targetResourceId);
     }
 
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Import(name="ttl", required=true)
     private Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }
@@ -229,7 +237,7 @@ public final class CNameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`
+         * @param targetResourceId The Azure resource id of the target object. Conflicts with `record`.
          * 
          * @return builder
          * 
@@ -240,7 +248,7 @@ public final class CNameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetResourceId The Azure resource id of the target object. Conflicts with `records`
+         * @param targetResourceId The Azure resource id of the target object. Conflicts with `record`.
          * 
          * @return builder
          * 
@@ -249,11 +257,23 @@ public final class CNameRecordArgs extends com.pulumi.resources.ResourceArgs {
             return targetResourceId(Output.of(targetResourceId));
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(Output<Integer> ttl) {
             $.ttl = ttl;
             return this;
         }
 
+        /**
+         * @param ttl The Time To Live (TTL) of the DNS record in seconds.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
         }

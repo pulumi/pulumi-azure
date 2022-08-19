@@ -125,6 +125,12 @@ namespace Pulumi.Azure.Network
         public Output<string> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+        /// </summary>
+        [Output("sqlRedirectAllowed")]
+        public Output<bool?> SqlRedirectAllowed { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Firewall Policy.
         /// </summary>
         [Output("tags")]
@@ -259,6 +265,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+        /// </summary>
+        [Input("sqlRedirectAllowed")]
+        public Input<bool>? SqlRedirectAllowed { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -399,6 +411,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+        /// </summary>
+        [Input("sqlRedirectAllowed")]
+        public Input<bool>? SqlRedirectAllowed { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

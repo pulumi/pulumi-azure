@@ -134,6 +134,7 @@ namespace Pulumi.Azure.Automation
         /// The Primary Access Key for the Automation Account.
         /// </summary>
         public readonly string PrimaryKey;
+        public readonly ImmutableArray<Outputs.GetAccountPrivateEndpointConnectionResult> PrivateEndpointConnections;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The Secondary Access Key for the Automation Account.
@@ -150,6 +151,8 @@ namespace Pulumi.Azure.Automation
 
             string primaryKey,
 
+            ImmutableArray<Outputs.GetAccountPrivateEndpointConnectionResult> privateEndpointConnections,
+
             string resourceGroupName,
 
             string secondaryKey)
@@ -158,6 +161,7 @@ namespace Pulumi.Azure.Automation
             Id = id;
             Name = name;
             PrimaryKey = primaryKey;
+            PrivateEndpointConnections = privateEndpointConnections;
             ResourceGroupName = resourceGroupName;
             SecondaryKey = secondaryKey;
         }

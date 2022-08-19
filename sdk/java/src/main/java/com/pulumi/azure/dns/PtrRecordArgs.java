@@ -49,14 +49,14 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="resourceGroupName", required=true)
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * @return Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -94,14 +94,14 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="zoneName", required=true)
     private Output<String> zoneName;
 
     /**
-     * @return Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * @return Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> zoneName() {
@@ -190,7 +190,7 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+         * @param resourceGroupName Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+         * @param resourceGroupName Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneName Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+         * @param zoneName Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -264,7 +264,7 @@ public final class PtrRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param zoneName Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+         * @param zoneName Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

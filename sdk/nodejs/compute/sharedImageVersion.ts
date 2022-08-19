@@ -74,6 +74,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
     }
 
     /**
+     * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     */
+    public readonly blobUri!: pulumi.Output<string | undefined>;
+    /**
      * The end of life date in RFC3339 format of the Image Version.
      */
     public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
@@ -114,6 +118,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
+     * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     */
+    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    /**
      * A collection of tags which should be applied to this resource.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,6 +143,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SharedImageVersionState | undefined;
+            resourceInputs["blobUri"] = state ? state.blobUri : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = state ? state.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = state ? state.galleryName : undefined;
@@ -145,6 +154,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["osDiskSnapshotId"] = state ? state.osDiskSnapshotId : undefined;
             resourceInputs["replicationMode"] = state ? state.replicationMode : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = state ? state.storageAccountId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["targetRegions"] = state ? state.targetRegions : undefined;
         } else {
@@ -161,6 +171,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             if ((!args || args.targetRegions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetRegions'");
             }
+            resourceInputs["blobUri"] = args ? args.blobUri : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
             resourceInputs["galleryName"] = args ? args.galleryName : undefined;
@@ -171,6 +182,7 @@ export class SharedImageVersion extends pulumi.CustomResource {
             resourceInputs["osDiskSnapshotId"] = args ? args.osDiskSnapshotId : undefined;
             resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetRegions"] = args ? args.targetRegions : undefined;
         }
@@ -183,6 +195,10 @@ export class SharedImageVersion extends pulumi.CustomResource {
  * Input properties used for looking up and filtering SharedImageVersion resources.
  */
 export interface SharedImageVersionState {
+    /**
+     * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     */
+    blobUri?: pulumi.Input<string>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
@@ -224,6 +240,10 @@ export interface SharedImageVersionState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
+     * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     */
+    storageAccountId?: pulumi.Input<string>;
+    /**
      * A collection of tags which should be applied to this resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -237,6 +257,10 @@ export interface SharedImageVersionState {
  * The set of arguments for constructing a SharedImageVersion resource.
  */
 export interface SharedImageVersionArgs {
+    /**
+     * URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
+     */
+    blobUri?: pulumi.Input<string>;
     /**
      * The end of life date in RFC3339 format of the Image Version.
      */
@@ -277,6 +301,10 @@ export interface SharedImageVersionArgs {
      * The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created.
+     */
+    storageAccountId?: pulumi.Input<string>;
     /**
      * A collection of tags which should be applied to this resource.
      */

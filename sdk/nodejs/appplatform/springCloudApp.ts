@@ -97,6 +97,10 @@ export class SpringCloudApp extends pulumi.CustomResource {
      */
     public readonly persistentDisk!: pulumi.Output<outputs.appplatform.SpringCloudAppPersistentDisk>;
     /**
+     * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     */
+    public readonly publicEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
@@ -134,6 +138,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             resourceInputs["isPublic"] = state ? state.isPublic : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["persistentDisk"] = state ? state.persistentDisk : undefined;
+            resourceInputs["publicEndpointEnabled"] = state ? state.publicEndpointEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["tlsEnabled"] = state ? state.tlsEnabled : undefined;
@@ -153,6 +158,7 @@ export class SpringCloudApp extends pulumi.CustomResource {
             resourceInputs["isPublic"] = args ? args.isPublic : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["persistentDisk"] = args ? args.persistentDisk : undefined;
+            resourceInputs["publicEndpointEnabled"] = args ? args.publicEndpointEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["tlsEnabled"] = args ? args.tlsEnabled : undefined;
@@ -200,6 +206,10 @@ export interface SpringCloudAppState {
      * An `persistentDisk` block as defined below.
      */
     persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
+    /**
+     * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     */
+    publicEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */
@@ -250,6 +260,10 @@ export interface SpringCloudAppArgs {
      * An `persistentDisk` block as defined below.
      */
     persistentDisk?: pulumi.Input<inputs.appplatform.SpringCloudAppPersistentDisk>;
+    /**
+     * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     */
+    publicEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      */

@@ -51,7 +51,7 @@ import javax.annotation.Nullable;
  *             .location(exampleResourceGroup.location())
  *             .subDomain(&#34;example-iotcentral-app-subdomain&#34;)
  *             .displayName(&#34;example-iotcentral-app-display-name&#34;)
- *             .sku(&#34;S1&#34;)
+ *             .sku(&#34;ST1&#34;)
  *             .template(&#34;iotc-default@1.0.0&#34;)
  *             .tags(Map.of(&#34;Foo&#34;, &#34;Bar&#34;))
  *             .build());

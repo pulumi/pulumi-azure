@@ -172,6 +172,7 @@ __all__ = [
     'GetSnapshotEncryptionSettingKeyEncryptionKeyResult',
     'GetVirtualMachineIdentityResult',
     'GetVirtualMachineScaleSetIdentityResult',
+    'GetVirtualMachineScaleSetInstanceResult',
     'GetVirtualMachineScaleSetNetworkInterfaceResult',
     'GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult',
     'GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult',
@@ -9647,6 +9648,123 @@ class GetVirtualMachineScaleSetIdentityResult(dict):
         The Type of IP Tag.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetVirtualMachineScaleSetInstanceResult(dict):
+    def __init__(__self__, *,
+                 computer_name: str,
+                 instance_id: str,
+                 latest_model_applied: bool,
+                 name: str,
+                 private_ip_address: str,
+                 private_ip_addresses: Sequence[str],
+                 public_ip_address: str,
+                 public_ip_addresses: Sequence[str],
+                 virtual_machine_id: str,
+                 zone: str):
+        """
+        :param str computer_name: The Hostname of this Virtual Machine.
+        :param str instance_id: The Instance ID of this Virtual Machine.
+        :param bool latest_model_applied: Whether the latest model has been applied to this Virtual Machine.
+        :param str name: The name of this Virtual Machine Scale Set.
+        :param str private_ip_address: The Primary Private IP Address assigned to this Virtual Machine.
+        :param Sequence[str] private_ip_addresses: A list of Private IP Addresses assigned to this Virtual Machine.
+        :param str public_ip_address: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param Sequence[str] public_ip_addresses: A list of the Public IP Addresses assigned to this Virtual Machine.
+        :param str virtual_machine_id: The unique ID of the virtual machine.
+        :param str zone: The zones of the virtual machine.
+        """
+        pulumi.set(__self__, "computer_name", computer_name)
+        pulumi.set(__self__, "instance_id", instance_id)
+        pulumi.set(__self__, "latest_model_applied", latest_model_applied)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        pulumi.set(__self__, "zone", zone)
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> str:
+        """
+        The Hostname of this Virtual Machine.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> str:
+        """
+        The Instance ID of this Virtual Machine.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="latestModelApplied")
+    def latest_model_applied(self) -> bool:
+        """
+        Whether the latest model has been applied to this Virtual Machine.
+        """
+        return pulumi.get(self, "latest_model_applied")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of this Virtual Machine Scale Set.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The Primary Private IP Address assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Sequence[str]:
+        """
+        A list of Private IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Sequence[str]:
+        """
+        A list of the Public IP Addresses assigned to this Virtual Machine.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="virtualMachineId")
+    def virtual_machine_id(self) -> str:
+        """
+        The unique ID of the virtual machine.
+        """
+        return pulumi.get(self, "virtual_machine_id")
+
+    @property
+    @pulumi.getter
+    def zone(self) -> str:
+        """
+        The zones of the virtual machine.
+        """
+        return pulumi.get(self, "zone")
 
 
 @pulumi.output_type

@@ -49,7 +49,7 @@ export interface GetPublicConfigurationsArgs {
      */
     recurEvery?: string;
     /**
-     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      */
     scope?: string;
 }
@@ -94,7 +94,7 @@ export interface GetPublicConfigurationsOutputArgs {
      */
     recurEvery?: pulumi.Input<string>;
     /**
-     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      */
     scope?: pulumi.Input<string>;
 }

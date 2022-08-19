@@ -57,8 +57,9 @@ type StaticSite struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey pulumi.StringOutput `pulumi:"apiKey"`
 	// The default host name of the Static Web App.
-	DefaultHostName pulumi.StringOutput         `pulumi:"defaultHostName"`
-	Identity        StaticSiteIdentityPtrOutput `pulumi:"identity"`
+	DefaultHostName pulumi.StringOutput `pulumi:"defaultHostName"`
+	// An `identity` block as defined below.
+	Identity StaticSiteIdentityPtrOutput `pulumi:"identity"`
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
@@ -108,8 +109,9 @@ type staticSiteState struct {
 	// The API key of this Static Web App, which is used for later interacting with this Static Web App from other clients, e.g. GitHub Action.
 	ApiKey *string `pulumi:"apiKey"`
 	// The default host name of the Static Web App.
-	DefaultHostName *string             `pulumi:"defaultHostName"`
-	Identity        *StaticSiteIdentity `pulumi:"identity"`
+	DefaultHostName *string `pulumi:"defaultHostName"`
+	// An `identity` block as defined below.
+	Identity *StaticSiteIdentity `pulumi:"identity"`
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	Location *string `pulumi:"location"`
 	// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
@@ -129,7 +131,8 @@ type StaticSiteState struct {
 	ApiKey pulumi.StringPtrInput
 	// The default host name of the Static Web App.
 	DefaultHostName pulumi.StringPtrInput
-	Identity        StaticSiteIdentityPtrInput
+	// An `identity` block as defined below.
+	Identity StaticSiteIdentityPtrInput
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	Location pulumi.StringPtrInput
 	// The name which should be used for this Static Web App. Changing this forces a new Static Web App to be created.
@@ -149,6 +152,7 @@ func (StaticSiteState) ElementType() reflect.Type {
 }
 
 type staticSiteArgs struct {
+	// An `identity` block as defined below.
 	Identity *StaticSiteIdentity `pulumi:"identity"`
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	Location *string `pulumi:"location"`
@@ -166,6 +170,7 @@ type staticSiteArgs struct {
 
 // The set of arguments for constructing a StaticSite resource.
 type StaticSiteArgs struct {
+	// An `identity` block as defined below.
 	Identity StaticSiteIdentityPtrInput
 	// The Azure Region where the Static Web App should exist. Changing this forces a new Static Web App to be created.
 	Location pulumi.StringPtrInput
@@ -278,6 +283,7 @@ func (o StaticSiteOutput) DefaultHostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StaticSite) pulumi.StringOutput { return v.DefaultHostName }).(pulumi.StringOutput)
 }
 
+// An `identity` block as defined below.
 func (o StaticSiteOutput) Identity() StaticSiteIdentityPtrOutput {
 	return o.ApplyT(func(v *StaticSite) StaticSiteIdentityPtrOutput { return v.Identity }).(StaticSiteIdentityPtrOutput)
 }

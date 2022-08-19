@@ -198,22 +198,30 @@ public class AaaaRecord extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     @Export(name="targetResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> targetResourceId;
 
     /**
-     * @return The Azure resource id of the target object. Conflicts with `records`
+     * @return The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     public Output<Optional<String>> targetResourceId() {
         return Codegen.optional(this.targetResourceId);
     }
+    /**
+     * The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     @Export(name="ttl", type=Integer.class, parameters={})
     private Output<Integer> ttl;
 
+    /**
+     * @return The Time To Live (TTL) of the DNS record in seconds.
+     * 
+     */
     public Output<Integer> ttl() {
         return this.ttl;
     }

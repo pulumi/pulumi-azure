@@ -1880,7 +1880,7 @@ class ManagementPolicyRule(dict):
         """
         :param 'ManagementPolicyRuleActionsArgs' actions: An `actions` block as documented below.
         :param bool enabled: Boolean to specify whether the rule is enabled.
-        :param str name: A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        :param str name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         :param 'ManagementPolicyRuleFiltersArgs' filters: A `filter` block as documented below.
         """
         pulumi.set(__self__, "actions", actions)
@@ -1909,7 +1909,7 @@ class ManagementPolicyRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+        The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         return pulumi.get(self, "name")
 

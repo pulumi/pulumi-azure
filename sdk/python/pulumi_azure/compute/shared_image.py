@@ -21,6 +21,7 @@ class SharedImageArgs:
                  os_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -45,6 +46,7 @@ class SharedImageArgs:
         :param pulumi.Input[str] os_type: The type of Operating System present in this Shared Image. Possible values are `Linux` and `Windows`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -69,6 +71,8 @@ class SharedImageArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if accelerated_network_support_enabled is not None:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disk_types_not_alloweds is not None:
@@ -163,6 +167,18 @@ class SharedImageArgs:
     @accelerated_network_support_enabled.setter
     def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "accelerated_network_support_enabled", value)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter
@@ -373,6 +389,7 @@ class SharedImageArgs:
 class _SharedImageState:
     def __init__(__self__, *,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -397,6 +414,7 @@ class _SharedImageState:
         """
         Input properties used for looking up and filtering SharedImage resources.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -421,6 +439,8 @@ class _SharedImageState:
         """
         if accelerated_network_support_enabled is not None:
             pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if disk_types_not_alloweds is not None:
@@ -475,6 +495,18 @@ class _SharedImageState:
     @accelerated_network_support_enabled.setter
     def accelerated_network_support_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "accelerated_network_support_enabled", value)
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "architecture", value)
 
     @property
     @pulumi.getter
@@ -735,6 +767,7 @@ class SharedImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -798,6 +831,7 @@ class SharedImage(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -880,6 +914,7 @@ class SharedImage(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+                 architecture: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -911,6 +946,7 @@ class SharedImage(pulumi.CustomResource):
             __props__ = SharedImageArgs.__new__(SharedImageArgs)
 
             __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
+            __props__.__dict__["architecture"] = architecture
             __props__.__dict__["description"] = description
             __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
             __props__.__dict__["end_of_life_date"] = end_of_life_date
@@ -951,6 +987,7 @@ class SharedImage(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+            architecture: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -980,6 +1017,7 @@ class SharedImage(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] accelerated_network_support_enabled: Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] architecture: CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] description: A description of this Shared Image.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disk_types_not_alloweds: One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`.
         :param pulumi.Input[str] end_of_life_date: The end of life date in RFC3339 format of the Image.
@@ -1007,6 +1045,7 @@ class SharedImage(pulumi.CustomResource):
         __props__ = _SharedImageState.__new__(_SharedImageState)
 
         __props__.__dict__["accelerated_network_support_enabled"] = accelerated_network_support_enabled
+        __props__.__dict__["architecture"] = architecture
         __props__.__dict__["description"] = description
         __props__.__dict__["disk_types_not_alloweds"] = disk_types_not_alloweds
         __props__.__dict__["end_of_life_date"] = end_of_life_date
@@ -1037,6 +1076,14 @@ class SharedImage(pulumi.CustomResource):
         Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "accelerated_network_support_enabled")
+
+    @property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Output[Optional[str]]:
+        """
+        CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "architecture")
 
     @property
     @pulumi.getter

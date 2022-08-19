@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
 export * from "./endpoint";
 export * from "./endpointCustomDomain";
 export * from "./frontdoorEndpoint";
+export * from "./frontdoorFirewallPolicy";
 export * from "./frontdoorOrigin";
 export * from "./frontdoorOriginGroup";
 export * from "./frontdoorProfile";
 export * from "./frontdoorRuleSet";
+export * from "./frontdoorSecurityPolicy";
 export * from "./getFrontdoorEndpoint";
 export * from "./getFrontdoorOriginGroup";
 export * from "./getFrontdoorProfile";
@@ -23,10 +25,12 @@ export * from "./profile";
 import { Endpoint } from "./endpoint";
 import { EndpointCustomDomain } from "./endpointCustomDomain";
 import { FrontdoorEndpoint } from "./frontdoorEndpoint";
+import { FrontdoorFirewallPolicy } from "./frontdoorFirewallPolicy";
 import { FrontdoorOrigin } from "./frontdoorOrigin";
 import { FrontdoorOriginGroup } from "./frontdoorOriginGroup";
 import { FrontdoorProfile } from "./frontdoorProfile";
 import { FrontdoorRuleSet } from "./frontdoorRuleSet";
+import { FrontdoorSecurityPolicy } from "./frontdoorSecurityPolicy";
 import { Profile } from "./profile";
 
 const _module = {
@@ -39,6 +43,8 @@ const _module = {
                 return new EndpointCustomDomain(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorEndpoint:FrontdoorEndpoint":
                 return new FrontdoorEndpoint(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorFirewallPolicy:FrontdoorFirewallPolicy":
+                return new FrontdoorFirewallPolicy(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorOrigin:FrontdoorOrigin":
                 return new FrontdoorOrigin(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup":
@@ -47,6 +53,8 @@ const _module = {
                 return new FrontdoorProfile(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorRuleSet:FrontdoorRuleSet":
                 return new FrontdoorRuleSet(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy":
+                return new FrontdoorSecurityPolicy(name, <any>undefined, { urn })
             case "azure:cdn/profile:Profile":
                 return new Profile(name, <any>undefined, { urn })
             default:
@@ -57,8 +65,10 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorFirewallPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOrigin", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorOriginGroup", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorProfile", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorRuleSet", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/profile", _module)

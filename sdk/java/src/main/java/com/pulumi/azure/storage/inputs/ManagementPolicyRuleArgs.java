@@ -64,14 +64,14 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+     * The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+     * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
      */
     public Output<String> name() {
@@ -169,7 +169,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * @param name The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ManagementPolicyRuleArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy.
+         * @param name The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
          * 
          * @return builder
          * 

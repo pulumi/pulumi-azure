@@ -91,6 +91,10 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * One or more `openApi` blocks as defined below.
+     */
+    public readonly openApi!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigOpenApi | undefined>;
+    /**
      * One or more `route` blocks as defined below.
      */
     public readonly routes!: pulumi.Output<outputs.appplatform.SpringCloudGatewayRouteConfigRoute[] | undefined>;
@@ -117,6 +121,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SpringCloudGatewayRouteConfigState | undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openApi"] = state ? state.openApi : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
             resourceInputs["springCloudAppId"] = state ? state.springCloudAppId : undefined;
             resourceInputs["springCloudGatewayId"] = state ? state.springCloudGatewayId : undefined;
@@ -126,6 +131,7 @@ export class SpringCloudGatewayRouteConfig extends pulumi.CustomResource {
                 throw new Error("Missing required property 'springCloudGatewayId'");
             }
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openApi"] = args ? args.openApi : undefined;
             resourceInputs["routes"] = args ? args.routes : undefined;
             resourceInputs["springCloudAppId"] = args ? args.springCloudAppId : undefined;
             resourceInputs["springCloudGatewayId"] = args ? args.springCloudGatewayId : undefined;
@@ -143,6 +149,10 @@ export interface SpringCloudGatewayRouteConfigState {
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `openApi` blocks as defined below.
+     */
+    openApi?: pulumi.Input<inputs.appplatform.SpringCloudGatewayRouteConfigOpenApi>;
     /**
      * One or more `route` blocks as defined below.
      */
@@ -165,6 +175,10 @@ export interface SpringCloudGatewayRouteConfigArgs {
      * The name which should be used for this Spring Cloud Gateway Route Config. Changing this forces a new Spring Cloud Gateway Route Config to be created.
      */
     name?: pulumi.Input<string>;
+    /**
+     * One or more `openApi` blocks as defined below.
+     */
+    openApi?: pulumi.Input<inputs.appplatform.SpringCloudGatewayRouteConfigOpenApi>;
     /**
      * One or more `route` blocks as defined below.
      */

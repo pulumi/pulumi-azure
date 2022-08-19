@@ -178,6 +178,8 @@ type ApplicationGateway struct {
 	FrontendPorts ApplicationGatewayFrontendPortArrayOutput `pulumi:"frontendPorts"`
 	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayOutput `pulumi:"gatewayIpConfigurations"`
+	// A `global` block as defined below.
+	Global ApplicationGatewayGlobalPtrOutput `pulumi:"global"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayOutput `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
@@ -302,6 +304,8 @@ type applicationGatewayState struct {
 	FrontendPorts []ApplicationGatewayFrontendPort `pulumi:"frontendPorts"`
 	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations []ApplicationGatewayGatewayIpConfiguration `pulumi:"gatewayIpConfigurations"`
+	// A `global` block as defined below.
+	Global *ApplicationGatewayGlobal `pulumi:"global"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
@@ -371,6 +375,8 @@ type ApplicationGatewayState struct {
 	FrontendPorts ApplicationGatewayFrontendPortArrayInput
 	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayInput
+	// A `global` block as defined below.
+	Global ApplicationGatewayGlobalPtrInput
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// An `identity` block as defined below.
@@ -444,6 +450,8 @@ type applicationGatewayArgs struct {
 	FrontendPorts []ApplicationGatewayFrontendPort `pulumi:"frontendPorts"`
 	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations []ApplicationGatewayGatewayIpConfiguration `pulumi:"gatewayIpConfigurations"`
+	// A `global` block as defined below.
+	Global *ApplicationGatewayGlobal `pulumi:"global"`
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners []ApplicationGatewayHttpListener `pulumi:"httpListeners"`
 	// An `identity` block as defined below.
@@ -512,6 +520,8 @@ type ApplicationGatewayArgs struct {
 	FrontendPorts ApplicationGatewayFrontendPortArrayInput
 	// One or more `gatewayIpConfiguration` blocks as defined below.
 	GatewayIpConfigurations ApplicationGatewayGatewayIpConfigurationArrayInput
+	// A `global` block as defined below.
+	Global ApplicationGatewayGlobalPtrInput
 	// One or more `httpListener` blocks as defined below.
 	HttpListeners ApplicationGatewayHttpListenerArrayInput
 	// An `identity` block as defined below.
@@ -713,6 +723,11 @@ func (o ApplicationGatewayOutput) GatewayIpConfigurations() ApplicationGatewayGa
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayGatewayIpConfigurationArrayOutput {
 		return v.GatewayIpConfigurations
 	}).(ApplicationGatewayGatewayIpConfigurationArrayOutput)
+}
+
+// A `global` block as defined below.
+func (o ApplicationGatewayOutput) Global() ApplicationGatewayGlobalPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayGlobalPtrOutput { return v.Global }).(ApplicationGatewayGlobalPtrOutput)
 }
 
 // One or more `httpListener` blocks as defined below.

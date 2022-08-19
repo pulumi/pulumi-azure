@@ -8,10 +8,12 @@ import typing
 from .endpoint import *
 from .endpoint_custom_domain import *
 from .frontdoor_endpoint import *
+from .frontdoor_firewall_policy import *
 from .frontdoor_origin import *
 from .frontdoor_origin_group import *
 from .frontdoor_profile import *
 from .frontdoor_rule_set import *
+from .frontdoor_security_policy import *
 from .get_frontdoor_endpoint import *
 from .get_frontdoor_origin_group import *
 from .get_frontdoor_profile import *

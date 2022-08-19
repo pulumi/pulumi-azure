@@ -90,7 +90,7 @@ class GetZoneResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        A mapping of tags to assign to the EventHub Namespace.
+        A mapping of tags assigned to the DNS Zone.
         """
         return pulumi.get(self, "tags")
 

@@ -11,6 +11,7 @@ import com.pulumi.azure.network.inputs.FirewallPolicyThreatIntelligenceAllowlist
 import com.pulumi.azure.network.inputs.FirewallPolicyTlsCertificateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -174,6 +175,21 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     * 
+     */
+    @Import(name="sqlRedirectAllowed")
+    private @Nullable Output<Boolean> sqlRedirectAllowed;
+
+    /**
+     * @return Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     * 
+     */
+    public Optional<Output<Boolean>> sqlRedirectAllowed() {
+        return Optional.ofNullable(this.sqlRedirectAllowed);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Firewall Policy.
      * 
      */
@@ -246,6 +262,7 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
         this.privateIpRanges = $.privateIpRanges;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.sqlRedirectAllowed = $.sqlRedirectAllowed;
         this.tags = $.tags;
         this.threatIntelligenceAllowlist = $.threatIntelligenceAllowlist;
         this.threatIntelligenceMode = $.threatIntelligenceMode;
@@ -488,6 +505,27 @@ public final class FirewallPolicyArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param sqlRedirectAllowed Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlRedirectAllowed(@Nullable Output<Boolean> sqlRedirectAllowed) {
+            $.sqlRedirectAllowed = sqlRedirectAllowed;
+            return this;
+        }
+
+        /**
+         * @param sqlRedirectAllowed Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sqlRedirectAllowed(Boolean sqlRedirectAllowed) {
+            return sqlRedirectAllowed(Output.of(sqlRedirectAllowed));
         }
 
         /**

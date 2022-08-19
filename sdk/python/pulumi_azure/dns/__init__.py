@@ -9,6 +9,16 @@ from .a_record import *
 from .aaaa_record import *
 from .c_name_record import *
 from .caa_record import *
+from .get_a_record import *
+from .get_aaaa_record import *
+from .get_caa_record import *
+from .get_cname_record import *
+from .get_mx_record import *
+from .get_ns_record import *
+from .get_ptr_record import *
+from .get_soa_record import *
+from .get_srv_record import *
+from .get_txt_record import *
 from .get_zone import *
 from .mx_record import *
 from .ns_record import *

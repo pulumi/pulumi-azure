@@ -20,6 +20,7 @@ class SpringCloudServiceArgs:
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +34,7 @@ class SpringCloudServiceArgs:
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
@@ -48,6 +50,8 @@ class SpringCloudServiceArgs:
             pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if log_stream_public_endpoint_enabled is not None:
+            pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network is not None:
@@ -110,6 +114,18 @@ class SpringCloudServiceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logStreamPublicEndpointEnabled")
+    def log_stream_public_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the log stream in vnet injection instance could be accessed from Internet?
+        """
+        return pulumi.get(self, "log_stream_public_endpoint_enabled")
+
+    @log_stream_public_endpoint_enabled.setter
+    def log_stream_public_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_stream_public_endpoint_enabled", value)
 
     @property
     @pulumi.getter
@@ -202,6 +218,7 @@ class _SpringCloudServiceState:
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
                  outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -218,6 +235,7 @@ class _SpringCloudServiceState:
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
@@ -236,6 +254,8 @@ class _SpringCloudServiceState:
             pulumi.set(__self__, "config_server_git_setting", config_server_git_setting)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if log_stream_public_endpoint_enabled is not None:
+            pulumi.set(__self__, "log_stream_public_endpoint_enabled", log_stream_public_endpoint_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network is not None:
@@ -294,6 +314,18 @@ class _SpringCloudServiceState:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="logStreamPublicEndpointEnabled")
+    def log_stream_public_endpoint_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Should the log stream in vnet injection instance could be accessed from Internet?
+        """
+        return pulumi.get(self, "log_stream_public_endpoint_enabled")
+
+    @log_stream_public_endpoint_enabled.setter
+    def log_stream_public_endpoint_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "log_stream_public_endpoint_enabled", value)
 
     @property
     @pulumi.getter
@@ -436,6 +468,7 @@ class SpringCloudService(pulumi.CustomResource):
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -493,6 +526,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
@@ -569,6 +603,7 @@ class SpringCloudService(pulumi.CustomResource):
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
                  config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -589,6 +624,7 @@ class SpringCloudService(pulumi.CustomResource):
             __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
             __props__.__dict__["config_server_git_setting"] = config_server_git_setting
             __props__.__dict__["location"] = location
+            __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
             __props__.__dict__["name"] = name
             __props__.__dict__["network"] = network
             if resource_group_name is None and not opts.urn:
@@ -615,6 +651,7 @@ class SpringCloudService(pulumi.CustomResource):
             build_agent_pool_size: Optional[pulumi.Input[str]] = None,
             config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
+            log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
             outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -636,6 +673,7 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
+        :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
@@ -655,6 +693,7 @@ class SpringCloudService(pulumi.CustomResource):
         __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
         __props__.__dict__["config_server_git_setting"] = config_server_git_setting
         __props__.__dict__["location"] = location
+        __props__.__dict__["log_stream_public_endpoint_enabled"] = log_stream_public_endpoint_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["network"] = network
         __props__.__dict__["outbound_public_ip_addresses"] = outbound_public_ip_addresses
@@ -691,6 +730,14 @@ class SpringCloudService(pulumi.CustomResource):
         Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="logStreamPublicEndpointEnabled")
+    def log_stream_public_endpoint_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Should the log stream in vnet injection instance could be accessed from Internet?
+        """
+        return pulumi.get(self, "log_stream_public_endpoint_enabled")
 
     @property
     @pulumi.getter

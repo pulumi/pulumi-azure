@@ -198,14 +198,14 @@ public class ARecord extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * The Azure resource id of the target object. Conflicts with `records`
+     * The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     @Export(name="targetResourceId", type=String.class, parameters={})
     private Output</* @Nullable */ String> targetResourceId;
 
     /**
-     * @return The Azure resource id of the target object. Conflicts with `records`
+     * @return The Azure resource id of the target object. Conflicts with `records`.
      * 
      */
     public Output<Optional<String>> targetResourceId() {

@@ -120,14 +120,14 @@ public class NsRecord extends com.pulumi.resources.CustomResource {
         return this.records;
     }
     /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="resourceGroupName", type=String.class, parameters={})
     private Output<String> resourceGroupName;
 
     /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
+     * @return Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> resourceGroupName() {
@@ -162,14 +162,14 @@ public class NsRecord extends com.pulumi.resources.CustomResource {
         return this.ttl;
     }
     /**
-     * Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="zoneName", type=String.class, parameters={})
     private Output<String> zoneName;
 
     /**
-     * @return Specifies the DNS Zone where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created.
+     * @return Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> zoneName() {

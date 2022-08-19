@@ -105,6 +105,8 @@ type KeyVault struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsOutput `pulumi:"networkAcls"`
+	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -177,6 +179,8 @@ type keyVaultState struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
+	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -212,6 +216,8 @@ type KeyVaultState struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput
+	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -251,6 +257,8 @@ type keyVaultArgs struct {
 	Name *string `pulumi:"name"`
 	// A `networkAcls` block as defined below.
 	NetworkAcls *KeyVaultNetworkAcls `pulumi:"networkAcls"`
+	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -285,6 +293,8 @@ type KeyVaultArgs struct {
 	Name pulumi.StringPtrInput
 	// A `networkAcls` block as defined below.
 	NetworkAcls KeyVaultNetworkAclsPtrInput
+	// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Is Purge Protection enabled for this Key Vault? Defaults to `false`.
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
@@ -429,6 +439,11 @@ func (o KeyVaultOutput) Name() pulumi.StringOutput {
 // A `networkAcls` block as defined below.
 func (o KeyVaultOutput) NetworkAcls() KeyVaultNetworkAclsOutput {
 	return o.ApplyT(func(v *KeyVault) KeyVaultNetworkAclsOutput { return v.NetworkAcls }).(KeyVaultNetworkAclsOutput)
+}
+
+// Whether public network access is allowed for this Key Vault. Defaults to `true`.
+func (o KeyVaultOutput) PublicNetworkAccessEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyVault) pulumi.BoolPtrOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is Purge Protection enabled for this Key Vault? Defaults to `false`.

@@ -310,7 +310,7 @@ class Application(pulumi.CustomResource):
             location=example_resource_group.location,
             sub_domain="example-iotcentral-app-subdomain",
             display_name="example-iotcentral-app-display-name",
-            sku="S1",
+            sku="ST1",
             template="iotc-default@1.0.0",
             tags={
                 "Foo": "Bar",
@@ -357,7 +357,7 @@ class Application(pulumi.CustomResource):
             location=example_resource_group.location,
             sub_domain="example-iotcentral-app-subdomain",
             display_name="example-iotcentral-app-display-name",
-            sku="S1",
+            sku="ST1",
             template="iotc-default@1.0.0",
             tags={
                 "Foo": "Bar",

@@ -160,6 +160,10 @@ export interface GetWindowsWebAppResult {
      * A mapping of tags assigned to the Windows Web App.
      */
     readonly tags: {[key: string]: string};
+    /**
+     * The subnet id which the Windows Web App is vNet Integrated with.
+     */
+    readonly virtualNetworkSubnetId: string;
 }
 
 export function getWindowsWebAppOutput(args: GetWindowsWebAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWindowsWebAppResult> {

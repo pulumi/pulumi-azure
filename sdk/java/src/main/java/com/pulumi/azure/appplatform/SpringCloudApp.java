@@ -194,6 +194,20 @@ public class SpringCloudApp extends com.pulumi.resources.CustomResource {
         return this.persistentDisk;
     }
     /**
+     * Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     * 
+     */
+    @Export(name="publicEndpointEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> publicEndpointEnabled;
+
+    /**
+     * @return Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
+     * 
+     */
+    public Output<Optional<Boolean>> publicEndpointEnabled() {
+        return Codegen.optional(this.publicEndpointEnabled);
+    }
+    /**
      * Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
      * 
      */

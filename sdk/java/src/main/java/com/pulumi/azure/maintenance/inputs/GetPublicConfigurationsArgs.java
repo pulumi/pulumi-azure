@@ -46,14 +46,14 @@ public final class GetPublicConfigurationsArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      * 
      */
     @Import(name="scope")
     private @Nullable Output<String> scope;
 
     /**
-     * @return The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+     * @return The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
      * 
      */
     public Optional<Output<String>> scope() {
@@ -129,7 +129,7 @@ public final class GetPublicConfigurationsArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GetPublicConfigurationsArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
+         * @param scope The scope to filter the list of Public Maintenance Configurations against. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` and `SQLManagedInstance`.
          * 
          * @return builder
          * 

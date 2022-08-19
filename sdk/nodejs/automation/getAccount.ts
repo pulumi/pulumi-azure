@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -63,6 +64,7 @@ export interface GetAccountResult {
      * The Primary Access Key for the Automation Account.
      */
     readonly primaryKey: string;
+    readonly privateEndpointConnections: outputs.automation.GetAccountPrivateEndpointConnection[];
     readonly resourceGroupName: string;
     /**
      * The Secondary Access Key for the Automation Account.

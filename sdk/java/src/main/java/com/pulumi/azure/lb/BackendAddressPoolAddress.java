@@ -13,6 +13,7 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -68,6 +69,21 @@ import javax.annotation.Nullable;
  *             .ipAddress(&#34;10.0.0.1&#34;)
  *             .build());
  * 
+ *         final var backend-pool-cr = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+ *             .name(&#34;globalLBBackendPool&#34;)
+ *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+ *             .build());
+ * 
+ *         var example_1 = new BackendAddressPoolAddress(&#34;example-1&#34;, BackendAddressPoolAddressArgs.builder()        
+ *             .backendAddressPoolId(backend_pool_cr.id())
+ *             .backendAddressIpConfigurationId(azurerm_lb.backend-lb-R1().frontend_ip_configuration()[0].id())
+ *             .build());
+ * 
+ *         var example_2 = new BackendAddressPoolAddress(&#34;example-2&#34;, BackendAddressPoolAddressArgs.builder()        
+ *             .backendAddressPoolId(backend_pool_cr.id())
+ *             .backendAddressIpConfigurationId(azurerm_lb.backend-lb-R2().frontend_ip_configuration()[0].id())
+ *             .build());
+ * 
  *     }
  * }
  * ```
@@ -83,6 +99,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress")
 public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResource {
+    /**
+     * The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    @Export(name="backendAddressIpConfigurationId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> backendAddressIpConfigurationId;
+
+    /**
+     * @return The ip config ID of the regional load balancer that&#39;s added to the global load balancer&#39;s backend address pool.
+     * 
+     */
+    public Output<Optional<String>> backendAddressIpConfigurationId() {
+        return Codegen.optional(this.backendAddressIpConfigurationId);
+    }
     /**
      * The ID of the Backend Address Pool. Changing this forces a new Backend Address Pool Address to be created.
      * 
@@ -116,14 +146,14 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="ipAddress", type=String.class, parameters={})
-    private Output<String> ipAddress;
+    private Output</* @Nullable */ String> ipAddress;
 
     /**
      * @return The Static IP Address which should be allocated to this Backend Address Pool.
      * 
      */
-    public Output<String> ipAddress() {
-        return this.ipAddress;
+    public Output<Optional<String>> ipAddress() {
+        return Codegen.optional(this.ipAddress);
     }
     /**
      * The name which should be used for this Backend Address Pool Address. Changing this forces a new Backend Address Pool Address to be created.
@@ -144,14 +174,14 @@ public class BackendAddressPoolAddress extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="virtualNetworkId", type=String.class, parameters={})
-    private Output<String> virtualNetworkId;
+    private Output</* @Nullable */ String> virtualNetworkId;
 
     /**
      * @return The ID of the Virtual Network within which the Backend Address Pool should exist.
      * 
      */
-    public Output<String> virtualNetworkId() {
-        return this.virtualNetworkId;
+    public Output<Optional<String>> virtualNetworkId() {
+        return Codegen.optional(this.virtualNetworkId);
     }
 
     /**

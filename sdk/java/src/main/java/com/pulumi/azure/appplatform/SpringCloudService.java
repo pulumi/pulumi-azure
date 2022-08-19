@@ -138,6 +138,20 @@ public class SpringCloudService extends com.pulumi.resources.CustomResource {
         return this.location;
     }
     /**
+     * Should the log stream in vnet injection instance could be accessed from Internet?
+     * 
+     */
+    @Export(name="logStreamPublicEndpointEnabled", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> logStreamPublicEndpointEnabled;
+
+    /**
+     * @return Should the log stream in vnet injection instance could be accessed from Internet?
+     * 
+     */
+    public Output<Optional<Boolean>> logStreamPublicEndpointEnabled() {
+        return Codegen.optional(this.logStreamPublicEndpointEnabled);
+    }
+    /**
      * Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
      * 
      */

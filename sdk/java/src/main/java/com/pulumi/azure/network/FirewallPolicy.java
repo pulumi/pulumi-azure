@@ -16,6 +16,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -254,6 +255,20 @@ public class FirewallPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<String> sku() {
         return this.sku;
+    }
+    /**
+     * Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     * 
+     */
+    @Export(name="sqlRedirectAllowed", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> sqlRedirectAllowed;
+
+    /**
+     * @return Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`.
+     * 
+     */
+    public Output<Optional<Boolean>> sqlRedirectAllowed() {
+        return Codegen.optional(this.sqlRedirectAllowed);
     }
     /**
      * A mapping of tags which should be assigned to the Firewall Policy.

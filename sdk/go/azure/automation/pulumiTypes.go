@@ -10,6 +10,121 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccountEncryption struct {
+	// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+	KeySource *string `pulumi:"keySource"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+	KeyVaultKeyId string `pulumi:"keyVaultKeyId"`
+	// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId *string `pulumi:"userAssignedIdentityId"`
+}
+
+// AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
+// You can construct a concrete instance of `AccountEncryptionInput` via:
+//
+//	AccountEncryptionArgs{...}
+type AccountEncryptionInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionOutput() AccountEncryptionOutput
+	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
+}
+
+type AccountEncryptionArgs struct {
+	// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+	KeySource pulumi.StringPtrInput `pulumi:"keySource"`
+	// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+	KeyVaultKeyId pulumi.StringInput `pulumi:"keyVaultKeyId"`
+	// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+	UserAssignedIdentityId pulumi.StringPtrInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (AccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return i.ToAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+// AccountEncryptionArrayInput is an input type that accepts AccountEncryptionArray and AccountEncryptionArrayOutput values.
+// You can construct a concrete instance of `AccountEncryptionArrayInput` via:
+//
+//	AccountEncryptionArray{ AccountEncryptionArgs{...} }
+type AccountEncryptionArrayInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionArrayOutput() AccountEncryptionArrayOutput
+	ToAccountEncryptionArrayOutputWithContext(context.Context) AccountEncryptionArrayOutput
+}
+
+type AccountEncryptionArray []AccountEncryptionInput
+
+func (AccountEncryptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArray) ToAccountEncryptionArrayOutput() AccountEncryptionArrayOutput {
+	return i.ToAccountEncryptionArrayOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArray) ToAccountEncryptionArrayOutputWithContext(ctx context.Context) AccountEncryptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionArrayOutput)
+}
+
+type AccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return o
+}
+
+// The source of the encryption key. Possible values are `Microsoft.Keyvault` and `Microsoft.Storage`.
+func (o AccountEncryptionOutput) KeySource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.KeySource }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
+func (o AccountEncryptionOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryption) string { return v.KeyVaultKeyId }).(pulumi.StringOutput)
+}
+
+// The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
+func (o AccountEncryptionOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *string { return v.UserAssignedIdentityId }).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionArrayOutput) ToAccountEncryptionArrayOutput() AccountEncryptionArrayOutput {
+	return o
+}
+
+func (o AccountEncryptionArrayOutput) ToAccountEncryptionArrayOutputWithContext(ctx context.Context) AccountEncryptionArrayOutput {
+	return o
+}
+
+func (o AccountEncryptionArrayOutput) Index(i pulumi.IntInput) AccountEncryptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountEncryption {
+		return vs[0].([]AccountEncryption)[vs[1].(int)]
+	}).(AccountEncryptionOutput)
+}
+
 type AccountIdentity struct {
 	// The ID of the User Assigned Identity which should be assigned to this Automation Account.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -202,6 +317,112 @@ func (o AccountIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type AccountPrivateEndpointConnection struct {
+	// The ID of the Automation Account.
+	Id *string `pulumi:"id"`
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name *string `pulumi:"name"`
+}
+
+// AccountPrivateEndpointConnectionInput is an input type that accepts AccountPrivateEndpointConnectionArgs and AccountPrivateEndpointConnectionOutput values.
+// You can construct a concrete instance of `AccountPrivateEndpointConnectionInput` via:
+//
+//	AccountPrivateEndpointConnectionArgs{...}
+type AccountPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToAccountPrivateEndpointConnectionOutput() AccountPrivateEndpointConnectionOutput
+	ToAccountPrivateEndpointConnectionOutputWithContext(context.Context) AccountPrivateEndpointConnectionOutput
+}
+
+type AccountPrivateEndpointConnectionArgs struct {
+	// The ID of the Automation Account.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (AccountPrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i AccountPrivateEndpointConnectionArgs) ToAccountPrivateEndpointConnectionOutput() AccountPrivateEndpointConnectionOutput {
+	return i.ToAccountPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i AccountPrivateEndpointConnectionArgs) ToAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPrivateEndpointConnectionOutput)
+}
+
+// AccountPrivateEndpointConnectionArrayInput is an input type that accepts AccountPrivateEndpointConnectionArray and AccountPrivateEndpointConnectionArrayOutput values.
+// You can construct a concrete instance of `AccountPrivateEndpointConnectionArrayInput` via:
+//
+//	AccountPrivateEndpointConnectionArray{ AccountPrivateEndpointConnectionArgs{...} }
+type AccountPrivateEndpointConnectionArrayInput interface {
+	pulumi.Input
+
+	ToAccountPrivateEndpointConnectionArrayOutput() AccountPrivateEndpointConnectionArrayOutput
+	ToAccountPrivateEndpointConnectionArrayOutputWithContext(context.Context) AccountPrivateEndpointConnectionArrayOutput
+}
+
+type AccountPrivateEndpointConnectionArray []AccountPrivateEndpointConnectionInput
+
+func (AccountPrivateEndpointConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i AccountPrivateEndpointConnectionArray) ToAccountPrivateEndpointConnectionArrayOutput() AccountPrivateEndpointConnectionArrayOutput {
+	return i.ToAccountPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i AccountPrivateEndpointConnectionArray) ToAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountPrivateEndpointConnectionArrayOutput)
+}
+
+type AccountPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (AccountPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o AccountPrivateEndpointConnectionOutput) ToAccountPrivateEndpointConnectionOutput() AccountPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o AccountPrivateEndpointConnectionOutput) ToAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionOutput {
+	return o
+}
+
+// The ID of the Automation Account.
+func (o AccountPrivateEndpointConnectionOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPrivateEndpointConnection) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the Automation Account. Changing this forces a new resource to be created.
+func (o AccountPrivateEndpointConnectionOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccountPrivateEndpointConnection) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type AccountPrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (AccountPrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o AccountPrivateEndpointConnectionArrayOutput) ToAccountPrivateEndpointConnectionArrayOutput() AccountPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o AccountPrivateEndpointConnectionArrayOutput) ToAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) AccountPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o AccountPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) AccountPrivateEndpointConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AccountPrivateEndpointConnection {
+		return vs[0].([]AccountPrivateEndpointConnection)[vs[1].(int)]
+	}).(AccountPrivateEndpointConnectionOutput)
 }
 
 type ModuleModuleLink struct {
@@ -1037,9 +1258,119 @@ func (o ScheduleMonthlyOccurrenceArrayOutput) Index(i pulumi.IntInput) ScheduleM
 	}).(ScheduleMonthlyOccurrenceOutput)
 }
 
+type GetAccountPrivateEndpointConnection struct {
+	// The ID of the Automation Account
+	Id string `pulumi:"id"`
+	// The name of the Automation Account.
+	Name string `pulumi:"name"`
+}
+
+// GetAccountPrivateEndpointConnectionInput is an input type that accepts GetAccountPrivateEndpointConnectionArgs and GetAccountPrivateEndpointConnectionOutput values.
+// You can construct a concrete instance of `GetAccountPrivateEndpointConnectionInput` via:
+//
+//	GetAccountPrivateEndpointConnectionArgs{...}
+type GetAccountPrivateEndpointConnectionInput interface {
+	pulumi.Input
+
+	ToGetAccountPrivateEndpointConnectionOutput() GetAccountPrivateEndpointConnectionOutput
+	ToGetAccountPrivateEndpointConnectionOutputWithContext(context.Context) GetAccountPrivateEndpointConnectionOutput
+}
+
+type GetAccountPrivateEndpointConnectionArgs struct {
+	// The ID of the Automation Account
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the Automation Account.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetAccountPrivateEndpointConnectionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i GetAccountPrivateEndpointConnectionArgs) ToGetAccountPrivateEndpointConnectionOutput() GetAccountPrivateEndpointConnectionOutput {
+	return i.ToGetAccountPrivateEndpointConnectionOutputWithContext(context.Background())
+}
+
+func (i GetAccountPrivateEndpointConnectionArgs) ToGetAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountPrivateEndpointConnectionOutput)
+}
+
+// GetAccountPrivateEndpointConnectionArrayInput is an input type that accepts GetAccountPrivateEndpointConnectionArray and GetAccountPrivateEndpointConnectionArrayOutput values.
+// You can construct a concrete instance of `GetAccountPrivateEndpointConnectionArrayInput` via:
+//
+//	GetAccountPrivateEndpointConnectionArray{ GetAccountPrivateEndpointConnectionArgs{...} }
+type GetAccountPrivateEndpointConnectionArrayInput interface {
+	pulumi.Input
+
+	ToGetAccountPrivateEndpointConnectionArrayOutput() GetAccountPrivateEndpointConnectionArrayOutput
+	ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(context.Context) GetAccountPrivateEndpointConnectionArrayOutput
+}
+
+type GetAccountPrivateEndpointConnectionArray []GetAccountPrivateEndpointConnectionInput
+
+func (GetAccountPrivateEndpointConnectionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (i GetAccountPrivateEndpointConnectionArray) ToGetAccountPrivateEndpointConnectionArrayOutput() GetAccountPrivateEndpointConnectionArrayOutput {
+	return i.ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccountPrivateEndpointConnectionArray) ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccountPrivateEndpointConnectionArrayOutput)
+}
+
+type GetAccountPrivateEndpointConnectionOutput struct{ *pulumi.OutputState }
+
+func (GetAccountPrivateEndpointConnectionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o GetAccountPrivateEndpointConnectionOutput) ToGetAccountPrivateEndpointConnectionOutput() GetAccountPrivateEndpointConnectionOutput {
+	return o
+}
+
+func (o GetAccountPrivateEndpointConnectionOutput) ToGetAccountPrivateEndpointConnectionOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionOutput {
+	return o
+}
+
+// The ID of the Automation Account
+func (o GetAccountPrivateEndpointConnectionOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountPrivateEndpointConnection) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the Automation Account.
+func (o GetAccountPrivateEndpointConnectionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccountPrivateEndpointConnection) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetAccountPrivateEndpointConnectionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccountPrivateEndpointConnectionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccountPrivateEndpointConnection)(nil)).Elem()
+}
+
+func (o GetAccountPrivateEndpointConnectionArrayOutput) ToGetAccountPrivateEndpointConnectionArrayOutput() GetAccountPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o GetAccountPrivateEndpointConnectionArrayOutput) ToGetAccountPrivateEndpointConnectionArrayOutputWithContext(ctx context.Context) GetAccountPrivateEndpointConnectionArrayOutput {
+	return o
+}
+
+func (o GetAccountPrivateEndpointConnectionArrayOutput) Index(i pulumi.IntInput) GetAccountPrivateEndpointConnectionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccountPrivateEndpointConnection {
+		return vs[0].([]GetAccountPrivateEndpointConnection)[vs[1].(int)]
+	}).(GetAccountPrivateEndpointConnectionOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionInput)(nil)).Elem(), AccountEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountEncryptionArrayInput)(nil)).Elem(), AccountEncryptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityInput)(nil)).Elem(), AccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountIdentityPtrInput)(nil)).Elem(), AccountIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPrivateEndpointConnectionInput)(nil)).Elem(), AccountPrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPrivateEndpointConnectionArrayInput)(nil)).Elem(), AccountPrivateEndpointConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkPtrInput)(nil)).Elem(), ModuleModuleLinkArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModuleModuleLinkHashInput)(nil)).Elem(), ModuleModuleLinkHashArgs{})
@@ -1052,8 +1383,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RunBookPublishContentLinkHashPtrInput)(nil)).Elem(), RunBookPublishContentLinkHashArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMonthlyOccurrenceArrayInput)(nil)).Elem(), ScheduleMonthlyOccurrenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountPrivateEndpointConnectionInput)(nil)).Elem(), GetAccountPrivateEndpointConnectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountPrivateEndpointConnectionArrayInput)(nil)).Elem(), GetAccountPrivateEndpointConnectionArray{})
+	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
+	pulumi.RegisterOutputType(AccountPrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(AccountPrivateEndpointConnectionArrayOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkPtrOutput{})
 	pulumi.RegisterOutputType(ModuleModuleLinkHashOutput{})
@@ -1066,4 +1403,6 @@ func init() {
 	pulumi.RegisterOutputType(RunBookPublishContentLinkHashPtrOutput{})
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceOutput{})
 	pulumi.RegisterOutputType(ScheduleMonthlyOccurrenceArrayOutput{})
+	pulumi.RegisterOutputType(GetAccountPrivateEndpointConnectionOutput{})
+	pulumi.RegisterOutputType(GetAccountPrivateEndpointConnectionArrayOutput{})
 }

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     scope: "All",
+ *     scope: "SQLDB",
  *     tags: {
  *         Env: "prod",
  *     },
@@ -78,9 +78,9 @@ export class Configuration extends pulumi.CustomResource {
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    public readonly scope!: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */
@@ -120,6 +120,9 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.scope === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
+            }
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
@@ -155,7 +158,7 @@ export interface ConfigurationState {
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      */
     scope?: pulumi.Input<string>;
     /**
@@ -193,9 +196,9 @@ export interface ConfigurationArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The scope of the Maintenance Configuration. Possible values are `All`, `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`. Defaults to `All`.
+     * The scope of the Maintenance Configuration. Possible values are `Extension`, `Host`, `InGuestPatch`, `OSImage`, `SQLDB` or `SQLManagedInstance`.
      */
-    scope?: pulumi.Input<string>;
+    scope: pulumi.Input<string>;
     /**
      * A mapping of tags to assign to the resource. The key could not contain upper case letter.
      */

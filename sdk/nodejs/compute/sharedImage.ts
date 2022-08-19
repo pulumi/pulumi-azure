@@ -78,6 +78,10 @@ export class SharedImage extends pulumi.CustomResource {
      */
     public readonly acceleratedNetworkSupportEnabled!: pulumi.Output<boolean | undefined>;
     /**
+     * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     */
+    public readonly architecture!: pulumi.Output<string | undefined>;
+    /**
      * A description of this Shared Image.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -176,6 +180,7 @@ export class SharedImage extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as SharedImageState | undefined;
             resourceInputs["acceleratedNetworkSupportEnabled"] = state ? state.acceleratedNetworkSupportEnabled : undefined;
+            resourceInputs["architecture"] = state ? state.architecture : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["diskTypesNotAlloweds"] = state ? state.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = state ? state.endOfLifeDate : undefined;
@@ -212,6 +217,7 @@ export class SharedImage extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["acceleratedNetworkSupportEnabled"] = args ? args.acceleratedNetworkSupportEnabled : undefined;
+            resourceInputs["architecture"] = args ? args.architecture : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["diskTypesNotAlloweds"] = args ? args.diskTypesNotAlloweds : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
@@ -247,6 +253,10 @@ export interface SharedImageState {
      * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
      */
     acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
+    /**
+     * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     */
+    architecture?: pulumi.Input<string>;
     /**
      * A description of this Shared Image.
      */
@@ -341,6 +351,10 @@ export interface SharedImageArgs {
      * Specifies if the Shared Image supports Accelerated Network. Defaults to `false`. Changing this forces a new resource to be created.
      */
     acceleratedNetworkSupportEnabled?: pulumi.Input<boolean>;
+    /**
+     * CPU architecture supported by an OS. Possible values are `x64` and `Arm64`. Defaults to `x64`. Changing this forces a new resource to be created.
+     */
+    architecture?: pulumi.Input<string>;
     /**
      * A description of this Shared Image.
      */
