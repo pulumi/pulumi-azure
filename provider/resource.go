@@ -23,11 +23,13 @@ import (
 	"unicode"
 
 	"github.com/Azure/go-autorest/autorest/azure/cli"
+	"github.com/hashicorp/go-azure-helpers/authentication"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-provider-azurerm/helpers/azure"
 	"github.com/hashicorp/terraform-provider-azurerm/shim"
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	tfshim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
@@ -235,6 +237,60 @@ func detectCloudShell() cloudShellProfile {
 	return negative
 }
 
+// stringValue gets a string value from a property map if present, else ""
+func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
+	val, ok := vars[prop]
+	if ok && val.IsString() {
+		return val.StringValue()
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			return val
+		}
+	}
+	return ""
+}
+
+// preConfigureCallback returns an error when cloud provider setup is misconfigured
+func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) error {
+
+	envName := stringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
+	if envName == "" {
+		envName = "public"
+	}
+
+	// validate the azure config
+	// make a Builder
+	builder := &authentication.Builder{
+		SubscriptionID:     stringValue(vars, "subscriptionID", []string{"ARM_SUBSCRIPTION_ID"}),
+		ClientID:           stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientSecret:       stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
+		TenantID:           stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		Environment:        envName,
+		ClientCertPath:     stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
+		ClientCertPassword: stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
+		MsiEndpoint:        stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
+		//AuxiliaryTenantIDs:   auxTenants,
+		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
+
+		// Feature Toggles
+		SupportsClientCertAuth:   true,
+		SupportsClientSecretAuth: true,
+		//SupportsManagedServiceIdentity: useMsi,
+		SupportsAzureCliToken: true,
+		//SupportsAuxiliaryTenants:       len(auxTenants) > 0,
+	}
+
+	_, err := builder.Build()
+
+	if err != nil {
+		return fmt.Errorf("failed to load application credentials. Please run 'az login' to set up account.\n" +
+			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for details.")
+	}
+	return nil
+}
+
 // Provider returns additional overlaid schema and metadata associated with the azure package.
 //
 // nolint: lll
@@ -299,6 +355,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
+		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			// Azure Active Directory Business to Consumer
 			"azurerm_aadb2c_directory": {

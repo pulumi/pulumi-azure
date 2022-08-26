@@ -4,6 +4,7 @@ go 1.18
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.5
+	github.com/hashicorp/go-azure-helpers v0.39.1
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.19.0
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20210812080924-c853ec4222d8
 	github.com/hashicorp/terraform-provider-azurerm/shim v0.0.0
