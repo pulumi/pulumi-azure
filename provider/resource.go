@@ -237,7 +237,7 @@ func detectCloudShell() cloudShellProfile {
 	return negative
 }
 
-// stringValue gets a string value from a property map if present, else ""
+// stringValue gets a string value from a property map, then from environment vars; if neither are present, returns empty string ""
 func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
 	val, ok := vars[prop]
 	if ok && val.IsString() {
@@ -285,7 +285,8 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	_, err := builder.Build()
 
 	if err != nil {
-		return fmt.Errorf("failed to load application credentials. Please run 'az login' to set up account.\n" +
+		return fmt.Errorf("failed to load application credentials.\n" +
+			"\tPlease sign in via 'az login' or confugure another authentication method.\n" +
 			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for details.")
 	}
 	return nil
