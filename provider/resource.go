@@ -286,7 +286,7 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 
 	if err != nil {
 		return fmt.Errorf("failed to load application credentials.\n" +
-			"\tPlease sign in via 'az login' or confugure another authentication method.\n" +
+			"\tPlease sign in via 'az login' or configure another authentication method.\n" +
 			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for details.")
 	}
 	return nil
