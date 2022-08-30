@@ -252,6 +252,42 @@ func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []st
 	return ""
 }
 
+// boolValue takes a bool value from a property map, then from environment vars; defaults to false
+func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) bool {
+	val, ok := vars[prop]
+	if ok && val.IsBool() {
+		return val.BoolValue()
+	}
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok && val == "true" {
+			return true
+		}
+	}
+	return false
+}
+
+// arrayValue takes an array value from a property map, then from environment vars; defaults to an empty array
+func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
+	val, ok := vars[prop]
+	var vals []string
+	fmt.Println(vals)
+	if ok && val.IsArray() {
+		for _, v := range val.ArrayValue() {
+			vals = append(vals, v.StringValue())
+		}
+		return vals
+	}
+
+	for _, env := range envs {
+		val, ok := os.LookupEnv(env)
+		if ok {
+			return strings.Split(val, ";")
+		}
+	}
+	return vals
+}
+
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
 func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) error {
 
@@ -260,26 +296,29 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 		envName = "public"
 	}
 
+	//check for auxiliary tenants
+	auxTenants := arrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
+
 	// validate the azure config
 	// make a Builder
 	builder := &authentication.Builder{
-		SubscriptionID:     stringValue(vars, "subscriptionID", []string{"ARM_SUBSCRIPTION_ID"}),
-		ClientID:           stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
-		ClientSecret:       stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
-		TenantID:           stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
-		Environment:        envName,
-		ClientCertPath:     stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
-		ClientCertPassword: stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
-		MsiEndpoint:        stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
-		//AuxiliaryTenantIDs:   auxTenants,
+		SubscriptionID:       stringValue(vars, "subscriptionID", []string{"ARM_SUBSCRIPTION_ID"}),
+		ClientID:             stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientSecret:         stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
+		TenantID:             stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		Environment:          envName,
+		ClientCertPath:       stringValue(vars, "clientCertificatePath", []string{"ARM_CLIENT_CERTIFICATE_PATH"}),
+		ClientCertPassword:   stringValue(vars, "clientCertificatePassword", []string{"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
+		MsiEndpoint:          stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
+		AuxiliaryTenantIDs:   auxTenants,
 		ClientSecretDocsLink: "https://www.pulumi.com/docs/intro/cloud-providers/azure/setup/#service-principal-authentication",
 
 		// Feature Toggles
-		SupportsClientCertAuth:   true,
-		SupportsClientSecretAuth: true,
-		//SupportsManagedServiceIdentity: useMsi,
-		SupportsAzureCliToken: true,
-		//SupportsAuxiliaryTenants:       len(auxTenants) > 0,
+		SupportsClientCertAuth:         true,
+		SupportsClientSecretAuth:       true,
+		SupportsManagedServiceIdentity: boolValue(vars, "msiEndpoint", []string{"ARM_USE_MSI"}),
+		SupportsAzureCliToken:          true,
+		SupportsAuxiliaryTenants:       len(auxTenants) > 0,
 	}
 
 	_, err := builder.Build()
@@ -287,7 +326,7 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	if err != nil {
 		return fmt.Errorf("failed to load application credentials:\n"+
 			"Details: %v\n\n"+
-			"\tPlease make sure you have signed in via 'az login' or configured another authentication method.\n"+
+			"\tPlease make sure you have signed in via 'az login' or configured another authentication method.\n\n"+
 			"\tSee https://www.pulumi.com/registry/packages/azure/installation-configuration/ for more information.", err)
 	}
 	return nil
