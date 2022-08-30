@@ -16,35 +16,24 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
      * @return Perform a case in-sensitive comparison. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean ignoreCase;
+    private @Nullable Boolean ignoreCase;
     /**
      * @return Negate the result of the condition evaluation. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean negate;
+    private @Nullable Boolean negate;
     /**
      * @return The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
      * 
      */
-    private final String pattern;
+    private String pattern;
     /**
      * @return The [variable](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) of the condition.
      * 
      */
-    private final String variable;
+    private String variable;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRewriteRuleSetRewriteRuleCondition(
-        @CustomType.Parameter("ignoreCase") @Nullable Boolean ignoreCase,
-        @CustomType.Parameter("negate") @Nullable Boolean negate,
-        @CustomType.Parameter("pattern") String pattern,
-        @CustomType.Parameter("variable") String variable) {
-        this.ignoreCase = ignoreCase;
-        this.negate = negate;
-        this.pattern = pattern;
-        this.variable = variable;
-    }
-
+    private ApplicationGatewayRewriteRuleSetRewriteRuleCondition() {}
     /**
      * @return Perform a case in-sensitive comparison. Defaults to `false`
      * 
@@ -81,17 +70,13 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
     public static Builder builder(ApplicationGatewayRewriteRuleSetRewriteRuleCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ignoreCase;
         private @Nullable Boolean negate;
         private String pattern;
         private String variable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ignoreCase = defaults.ignoreCase;
@@ -100,23 +85,33 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleCondition {
     	      this.variable = defaults.variable;
         }
 
+        @CustomType.Setter
         public Builder ignoreCase(@Nullable Boolean ignoreCase) {
             this.ignoreCase = ignoreCase;
             return this;
         }
+        @CustomType.Setter
         public Builder negate(@Nullable Boolean negate) {
             this.negate = negate;
             return this;
         }
+        @CustomType.Setter
         public Builder pattern(String pattern) {
             this.pattern = Objects.requireNonNull(pattern);
             return this;
         }
+        @CustomType.Setter
         public Builder variable(String variable) {
             this.variable = Objects.requireNonNull(variable);
             return this;
-        }        public ApplicationGatewayRewriteRuleSetRewriteRuleCondition build() {
-            return new ApplicationGatewayRewriteRuleSetRewriteRuleCondition(ignoreCase, negate, pattern, variable);
+        }
+        public ApplicationGatewayRewriteRuleSetRewriteRuleCondition build() {
+            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleCondition();
+            o.ignoreCase = ignoreCase;
+            o.negate = negate;
+            o.pattern = pattern;
+            o.variable = variable;
+            return o;
         }
     }
 }

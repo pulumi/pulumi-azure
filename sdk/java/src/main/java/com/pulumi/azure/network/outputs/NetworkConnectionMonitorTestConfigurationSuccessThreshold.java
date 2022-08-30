@@ -16,21 +16,14 @@ public final class NetworkConnectionMonitorTestConfigurationSuccessThreshold {
      * @return The maximum percentage of failed checks permitted for a test to be successful.
      * 
      */
-    private final @Nullable Integer checksFailedPercent;
+    private @Nullable Integer checksFailedPercent;
     /**
      * @return The maximum round-trip time in milliseconds permitted for a test to be successful.
      * 
      */
-    private final @Nullable Double roundTripTimeMs;
+    private @Nullable Double roundTripTimeMs;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestConfigurationSuccessThreshold(
-        @CustomType.Parameter("checksFailedPercent") @Nullable Integer checksFailedPercent,
-        @CustomType.Parameter("roundTripTimeMs") @Nullable Double roundTripTimeMs) {
-        this.checksFailedPercent = checksFailedPercent;
-        this.roundTripTimeMs = roundTripTimeMs;
-    }
-
+    private NetworkConnectionMonitorTestConfigurationSuccessThreshold() {}
     /**
      * @return The maximum percentage of failed checks permitted for a test to be successful.
      * 
@@ -53,30 +46,32 @@ public final class NetworkConnectionMonitorTestConfigurationSuccessThreshold {
     public static Builder builder(NetworkConnectionMonitorTestConfigurationSuccessThreshold defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer checksFailedPercent;
         private @Nullable Double roundTripTimeMs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestConfigurationSuccessThreshold defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.checksFailedPercent = defaults.checksFailedPercent;
     	      this.roundTripTimeMs = defaults.roundTripTimeMs;
         }
 
+        @CustomType.Setter
         public Builder checksFailedPercent(@Nullable Integer checksFailedPercent) {
             this.checksFailedPercent = checksFailedPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder roundTripTimeMs(@Nullable Double roundTripTimeMs) {
             this.roundTripTimeMs = roundTripTimeMs;
             return this;
-        }        public NetworkConnectionMonitorTestConfigurationSuccessThreshold build() {
-            return new NetworkConnectionMonitorTestConfigurationSuccessThreshold(checksFailedPercent, roundTripTimeMs);
+        }
+        public NetworkConnectionMonitorTestConfigurationSuccessThreshold build() {
+            final var o = new NetworkConnectionMonitorTestConfigurationSuccessThreshold();
+            o.checksFailedPercent = checksFailedPercent;
+            o.roundTripTimeMs = roundTripTimeMs;
+            return o;
         }
     }
 }

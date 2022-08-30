@@ -15,21 +15,14 @@ public final class WindowsWebAppStickySettings {
      * @return A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final @Nullable List<String> appSettingNames;
+    private @Nullable List<String> appSettingNames;
     /**
      * @return A list of `connection_string` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final @Nullable List<String> connectionStringNames;
+    private @Nullable List<String> connectionStringNames;
 
-    @CustomType.Constructor
-    private WindowsWebAppStickySettings(
-        @CustomType.Parameter("appSettingNames") @Nullable List<String> appSettingNames,
-        @CustomType.Parameter("connectionStringNames") @Nullable List<String> connectionStringNames) {
-        this.appSettingNames = appSettingNames;
-        this.connectionStringNames = connectionStringNames;
-    }
-
+    private WindowsWebAppStickySettings() {}
     /**
      * @return A list of `app_setting` names that the Linux Web App will not swap between Slots when a swap operation is triggered.
      * 
@@ -52,21 +45,18 @@ public final class WindowsWebAppStickySettings {
     public static Builder builder(WindowsWebAppStickySettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> appSettingNames;
         private @Nullable List<String> connectionStringNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppStickySettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appSettingNames = defaults.appSettingNames;
     	      this.connectionStringNames = defaults.connectionStringNames;
         }
 
+        @CustomType.Setter
         public Builder appSettingNames(@Nullable List<String> appSettingNames) {
             this.appSettingNames = appSettingNames;
             return this;
@@ -74,14 +64,19 @@ public final class WindowsWebAppStickySettings {
         public Builder appSettingNames(String... appSettingNames) {
             return appSettingNames(List.of(appSettingNames));
         }
+        @CustomType.Setter
         public Builder connectionStringNames(@Nullable List<String> connectionStringNames) {
             this.connectionStringNames = connectionStringNames;
             return this;
         }
         public Builder connectionStringNames(String... connectionStringNames) {
             return connectionStringNames(List.of(connectionStringNames));
-        }        public WindowsWebAppStickySettings build() {
-            return new WindowsWebAppStickySettings(appSettingNames, connectionStringNames);
+        }
+        public WindowsWebAppStickySettings build() {
+            final var o = new WindowsWebAppStickySettings();
+            o.appSettingNames = appSettingNames;
+            o.connectionStringNames = connectionStringNames;
+            return o;
         }
     }
 }

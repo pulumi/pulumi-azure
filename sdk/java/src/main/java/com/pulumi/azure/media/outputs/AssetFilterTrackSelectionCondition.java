@@ -15,28 +15,19 @@ public final class AssetFilterTrackSelectionCondition {
      * @return The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
      * 
      */
-    private final @Nullable String operation;
+    private @Nullable String operation;
     /**
      * @return The track property to compare. Supported values are `Bitrate`, `FourCC`, `Language`, `Name` and `Type`. Check [documentation](https://docs.microsoft.com/azure/media-services/latest/filters-concept) for more details.
      * 
      */
-    private final @Nullable String property;
+    private @Nullable String property;
     /**
      * @return The track property value to match or not match.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private AssetFilterTrackSelectionCondition(
-        @CustomType.Parameter("operation") @Nullable String operation,
-        @CustomType.Parameter("property") @Nullable String property,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.operation = operation;
-        this.property = property;
-        this.value = value;
-    }
-
+    private AssetFilterTrackSelectionCondition() {}
     /**
      * @return The condition operation to test a track property against. Supported values are `Equal` and `NotEqual`.
      * 
@@ -66,16 +57,12 @@ public final class AssetFilterTrackSelectionCondition {
     public static Builder builder(AssetFilterTrackSelectionCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String operation;
         private @Nullable String property;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AssetFilterTrackSelectionCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operation = defaults.operation;
@@ -83,19 +70,27 @@ public final class AssetFilterTrackSelectionCondition {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder operation(@Nullable String operation) {
             this.operation = operation;
             return this;
         }
+        @CustomType.Setter
         public Builder property(@Nullable String property) {
             this.property = property;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public AssetFilterTrackSelectionCondition build() {
-            return new AssetFilterTrackSelectionCondition(operation, property, value);
+        }
+        public AssetFilterTrackSelectionCondition build() {
+            final var o = new AssetFilterTrackSelectionCondition();
+            o.operation = operation;
+            o.property = property;
+            o.value = value;
+            return o;
         }
     }
 }

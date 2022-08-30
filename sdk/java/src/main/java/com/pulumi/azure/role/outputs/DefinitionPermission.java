@@ -15,35 +15,24 @@ public final class DefinitionPermission {
      * @return One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See [&#39;Azure Resource Manager resource provider operations&#39;](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
      * 
      */
-    private final @Nullable List<String> actions;
+    private @Nullable List<String> actions;
     /**
      * @return One or more Allowed Data Actions, such as `*`, `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`. See [&#39;Azure Resource Manager resource provider operations&#39;](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
      * 
      */
-    private final @Nullable List<String> dataActions;
+    private @Nullable List<String> dataActions;
     /**
      * @return One or more Disallowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See [&#39;Azure Resource Manager resource provider operations&#39;](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
      * 
      */
-    private final @Nullable List<String> notActions;
+    private @Nullable List<String> notActions;
     /**
      * @return One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See [&#39;Azure Resource Manager resource provider operations&#39;](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
      * 
      */
-    private final @Nullable List<String> notDataActions;
+    private @Nullable List<String> notDataActions;
 
-    @CustomType.Constructor
-    private DefinitionPermission(
-        @CustomType.Parameter("actions") @Nullable List<String> actions,
-        @CustomType.Parameter("dataActions") @Nullable List<String> dataActions,
-        @CustomType.Parameter("notActions") @Nullable List<String> notActions,
-        @CustomType.Parameter("notDataActions") @Nullable List<String> notDataActions) {
-        this.actions = actions;
-        this.dataActions = dataActions;
-        this.notActions = notActions;
-        this.notDataActions = notDataActions;
-    }
-
+    private DefinitionPermission() {}
     /**
      * @return One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See [&#39;Azure Resource Manager resource provider operations&#39;](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
      * 
@@ -80,17 +69,13 @@ public final class DefinitionPermission {
     public static Builder builder(DefinitionPermission defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> actions;
         private @Nullable List<String> dataActions;
         private @Nullable List<String> notActions;
         private @Nullable List<String> notDataActions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DefinitionPermission defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -99,6 +84,7 @@ public final class DefinitionPermission {
     	      this.notDataActions = defaults.notDataActions;
         }
 
+        @CustomType.Setter
         public Builder actions(@Nullable List<String> actions) {
             this.actions = actions;
             return this;
@@ -106,6 +92,7 @@ public final class DefinitionPermission {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder dataActions(@Nullable List<String> dataActions) {
             this.dataActions = dataActions;
             return this;
@@ -113,6 +100,7 @@ public final class DefinitionPermission {
         public Builder dataActions(String... dataActions) {
             return dataActions(List.of(dataActions));
         }
+        @CustomType.Setter
         public Builder notActions(@Nullable List<String> notActions) {
             this.notActions = notActions;
             return this;
@@ -120,14 +108,21 @@ public final class DefinitionPermission {
         public Builder notActions(String... notActions) {
             return notActions(List.of(notActions));
         }
+        @CustomType.Setter
         public Builder notDataActions(@Nullable List<String> notDataActions) {
             this.notDataActions = notDataActions;
             return this;
         }
         public Builder notDataActions(String... notDataActions) {
             return notDataActions(List.of(notDataActions));
-        }        public DefinitionPermission build() {
-            return new DefinitionPermission(actions, dataActions, notActions, notDataActions);
+        }
+        public DefinitionPermission build() {
+            final var o = new DefinitionPermission();
+            o.actions = actions;
+            o.dataActions = dataActions;
+            o.notActions = notActions;
+            o.notDataActions = notDataActions;
+            return o;
         }
     }
 }

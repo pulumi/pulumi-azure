@@ -16,52 +16,35 @@ public final class GetRouteTableResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which the Route Table exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Route.
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return One or more `route` blocks as documented below.
      * 
      */
-    private final List<GetRouteTableRoute> routes;
+    private List<GetRouteTableRoute> routes;
     /**
      * @return The collection of Subnets associated with this route table.
      * 
      */
-    private final List<String> subnets;
+    private List<String> subnets;
     /**
      * @return A mapping of tags assigned to the Route Table.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetRouteTableResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("routes") List<GetRouteTableRoute> routes,
-        @CustomType.Parameter("subnets") List<String> subnets,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.routes = routes;
-        this.subnets = subnets;
-        this.tags = tags;
-    }
-
+    private GetRouteTableResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -115,7 +98,7 @@ public final class GetRouteTableResult {
     public static Builder builder(GetRouteTableResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -124,11 +107,7 @@ public final class GetRouteTableResult {
         private List<GetRouteTableRoute> routes;
         private List<String> subnets;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteTableResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -140,22 +119,27 @@ public final class GetRouteTableResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder routes(List<GetRouteTableRoute> routes) {
             this.routes = Objects.requireNonNull(routes);
             return this;
@@ -163,6 +147,7 @@ public final class GetRouteTableResult {
         public Builder routes(GetRouteTableRoute... routes) {
             return routes(List.of(routes));
         }
+        @CustomType.Setter
         public Builder subnets(List<String> subnets) {
             this.subnets = Objects.requireNonNull(subnets);
             return this;
@@ -170,11 +155,21 @@ public final class GetRouteTableResult {
         public Builder subnets(String... subnets) {
             return subnets(List.of(subnets));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetRouteTableResult build() {
-            return new GetRouteTableResult(id, location, name, resourceGroupName, routes, subnets, tags);
+        }
+        public GetRouteTableResult build() {
+            final var o = new GetRouteTableResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.routes = routes;
+            o.subnets = subnets;
+            o.tags = tags;
+            return o;
         }
     }
 }

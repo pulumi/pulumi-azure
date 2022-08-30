@@ -15,13 +15,9 @@ public final class AccountBlobPropertiesContainerDeleteRetentionPolicy {
      * @return Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
 
-    @CustomType.Constructor
-    private AccountBlobPropertiesContainerDeleteRetentionPolicy(@CustomType.Parameter("days") @Nullable Integer days) {
-        this.days = days;
-    }
-
+    private AccountBlobPropertiesContainerDeleteRetentionPolicy() {}
     /**
      * @return Specifies the number of days that the container should be retained, between `1` and `365` days. Defaults to `7`.
      * 
@@ -37,24 +33,24 @@ public final class AccountBlobPropertiesContainerDeleteRetentionPolicy {
     public static Builder builder(AccountBlobPropertiesContainerDeleteRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountBlobPropertiesContainerDeleteRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
-        }        public AccountBlobPropertiesContainerDeleteRetentionPolicy build() {
-            return new AccountBlobPropertiesContainerDeleteRetentionPolicy(days);
+        }
+        public AccountBlobPropertiesContainerDeleteRetentionPolicy build() {
+            final var o = new AccountBlobPropertiesContainerDeleteRetentionPolicy();
+            o.days = days;
+            return o;
         }
     }
 }

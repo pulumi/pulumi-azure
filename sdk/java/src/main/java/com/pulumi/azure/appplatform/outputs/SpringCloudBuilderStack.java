@@ -13,21 +13,14 @@ public final class SpringCloudBuilderStack {
      * @return Specifies the ID of the ClusterStack.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the version of the ClusterStack
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private SpringCloudBuilderStack(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.version = version;
-    }
-
+    private SpringCloudBuilderStack() {}
     /**
      * @return Specifies the ID of the ClusterStack.
      * 
@@ -50,30 +43,32 @@ public final class SpringCloudBuilderStack {
     public static Builder builder(SpringCloudBuilderStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudBuilderStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public SpringCloudBuilderStack build() {
-            return new SpringCloudBuilderStack(id, version);
+        }
+        public SpringCloudBuilderStack build() {
+            final var o = new SpringCloudBuilderStack();
+            o.id = id;
+            o.version = version;
+            return o;
         }
     }
 }

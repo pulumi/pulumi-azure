@@ -18,56 +18,39 @@ public final class ServerThreatDetectionPolicy {
      * @return Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
      * 
      */
-    private final @Nullable List<String> disabledAlerts;
+    private @Nullable List<String> disabledAlerts;
     /**
      * @return Should the account administrators be emailed when this alert is triggered?
      * 
      */
-    private final @Nullable Boolean emailAccountAdmins;
+    private @Nullable Boolean emailAccountAdmins;
     /**
      * @return A list of email addresses which alerts should be sent to.
      * 
      */
-    private final @Nullable List<String> emailAddresses;
+    private @Nullable List<String> emailAddresses;
     /**
      * @return Is the policy enabled?
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Specifies the number of days to keep in the Threat Detection audit logs.
      * 
      */
-    private final @Nullable Integer retentionDays;
+    private @Nullable Integer retentionDays;
     /**
      * @return Specifies the identifier key of the Threat Detection audit storage account.
      * 
      */
-    private final @Nullable String storageAccountAccessKey;
+    private @Nullable String storageAccountAccessKey;
     /**
      * @return Specifies the blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
      * 
      */
-    private final @Nullable String storageEndpoint;
+    private @Nullable String storageEndpoint;
 
-    @CustomType.Constructor
-    private ServerThreatDetectionPolicy(
-        @CustomType.Parameter("disabledAlerts") @Nullable List<String> disabledAlerts,
-        @CustomType.Parameter("emailAccountAdmins") @Nullable Boolean emailAccountAdmins,
-        @CustomType.Parameter("emailAddresses") @Nullable List<String> emailAddresses,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retentionDays") @Nullable Integer retentionDays,
-        @CustomType.Parameter("storageAccountAccessKey") @Nullable String storageAccountAccessKey,
-        @CustomType.Parameter("storageEndpoint") @Nullable String storageEndpoint) {
-        this.disabledAlerts = disabledAlerts;
-        this.emailAccountAdmins = emailAccountAdmins;
-        this.emailAddresses = emailAddresses;
-        this.enabled = enabled;
-        this.retentionDays = retentionDays;
-        this.storageAccountAccessKey = storageAccountAccessKey;
-        this.storageEndpoint = storageEndpoint;
-    }
-
+    private ServerThreatDetectionPolicy() {}
     /**
      * @return Specifies a list of alerts which should be disabled. Possible values include `Access_Anomaly`, `Sql_Injection` and `Sql_Injection_Vulnerability`.
      * 
@@ -125,7 +108,7 @@ public final class ServerThreatDetectionPolicy {
     public static Builder builder(ServerThreatDetectionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> disabledAlerts;
         private @Nullable Boolean emailAccountAdmins;
@@ -134,11 +117,7 @@ public final class ServerThreatDetectionPolicy {
         private @Nullable Integer retentionDays;
         private @Nullable String storageAccountAccessKey;
         private @Nullable String storageEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerThreatDetectionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabledAlerts = defaults.disabledAlerts;
@@ -150,6 +129,7 @@ public final class ServerThreatDetectionPolicy {
     	      this.storageEndpoint = defaults.storageEndpoint;
         }
 
+        @CustomType.Setter
         public Builder disabledAlerts(@Nullable List<String> disabledAlerts) {
             this.disabledAlerts = disabledAlerts;
             return this;
@@ -157,10 +137,12 @@ public final class ServerThreatDetectionPolicy {
         public Builder disabledAlerts(String... disabledAlerts) {
             return disabledAlerts(List.of(disabledAlerts));
         }
+        @CustomType.Setter
         public Builder emailAccountAdmins(@Nullable Boolean emailAccountAdmins) {
             this.emailAccountAdmins = emailAccountAdmins;
             return this;
         }
+        @CustomType.Setter
         public Builder emailAddresses(@Nullable List<String> emailAddresses) {
             this.emailAddresses = emailAddresses;
             return this;
@@ -168,23 +150,36 @@ public final class ServerThreatDetectionPolicy {
         public Builder emailAddresses(String... emailAddresses) {
             return emailAddresses(List.of(emailAddresses));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionDays(@Nullable Integer retentionDays) {
             this.retentionDays = retentionDays;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountAccessKey(@Nullable String storageAccountAccessKey) {
             this.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
+        @CustomType.Setter
         public Builder storageEndpoint(@Nullable String storageEndpoint) {
             this.storageEndpoint = storageEndpoint;
             return this;
-        }        public ServerThreatDetectionPolicy build() {
-            return new ServerThreatDetectionPolicy(disabledAlerts, emailAccountAdmins, emailAddresses, enabled, retentionDays, storageAccountAccessKey, storageEndpoint);
+        }
+        public ServerThreatDetectionPolicy build() {
+            final var o = new ServerThreatDetectionPolicy();
+            o.disabledAlerts = disabledAlerts;
+            o.emailAccountAdmins = emailAccountAdmins;
+            o.emailAddresses = emailAddresses;
+            o.enabled = enabled;
+            o.retentionDays = retentionDays;
+            o.storageAccountAccessKey = storageAccountAccessKey;
+            o.storageEndpoint = storageEndpoint;
+            return o;
         }
     }
 }

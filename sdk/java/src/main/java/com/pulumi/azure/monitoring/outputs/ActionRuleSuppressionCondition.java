@@ -21,56 +21,39 @@ public final class ActionRuleSuppressionCondition {
      * @return A `alert_context` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionAlertContext alertContext;
+    private @Nullable ActionRuleSuppressionConditionAlertContext alertContext;
     /**
      * @return A `alert_rule_id` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId;
+    private @Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId;
     /**
      * @return A `description` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionDescription description;
+    private @Nullable ActionRuleSuppressionConditionDescription description;
     /**
      * @return A `monitor` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionMonitor monitor;
+    private @Nullable ActionRuleSuppressionConditionMonitor monitor;
     /**
      * @return A `monitor_service` as block defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionMonitorService monitorService;
+    private @Nullable ActionRuleSuppressionConditionMonitorService monitorService;
     /**
      * @return A `severity` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionSeverity severity;
+    private @Nullable ActionRuleSuppressionConditionSeverity severity;
     /**
      * @return A `target_resource_type` block as defined below.
      * 
      */
-    private final @Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType;
+    private @Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType;
 
-    @CustomType.Constructor
-    private ActionRuleSuppressionCondition(
-        @CustomType.Parameter("alertContext") @Nullable ActionRuleSuppressionConditionAlertContext alertContext,
-        @CustomType.Parameter("alertRuleId") @Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId,
-        @CustomType.Parameter("description") @Nullable ActionRuleSuppressionConditionDescription description,
-        @CustomType.Parameter("monitor") @Nullable ActionRuleSuppressionConditionMonitor monitor,
-        @CustomType.Parameter("monitorService") @Nullable ActionRuleSuppressionConditionMonitorService monitorService,
-        @CustomType.Parameter("severity") @Nullable ActionRuleSuppressionConditionSeverity severity,
-        @CustomType.Parameter("targetResourceType") @Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType) {
-        this.alertContext = alertContext;
-        this.alertRuleId = alertRuleId;
-        this.description = description;
-        this.monitor = monitor;
-        this.monitorService = monitorService;
-        this.severity = severity;
-        this.targetResourceType = targetResourceType;
-    }
-
+    private ActionRuleSuppressionCondition() {}
     /**
      * @return A `alert_context` block as defined below.
      * 
@@ -128,7 +111,7 @@ public final class ActionRuleSuppressionCondition {
     public static Builder builder(ActionRuleSuppressionCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ActionRuleSuppressionConditionAlertContext alertContext;
         private @Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId;
@@ -137,11 +120,7 @@ public final class ActionRuleSuppressionCondition {
         private @Nullable ActionRuleSuppressionConditionMonitorService monitorService;
         private @Nullable ActionRuleSuppressionConditionSeverity severity;
         private @Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleSuppressionCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alertContext = defaults.alertContext;
@@ -153,35 +132,51 @@ public final class ActionRuleSuppressionCondition {
     	      this.targetResourceType = defaults.targetResourceType;
         }
 
+        @CustomType.Setter
         public Builder alertContext(@Nullable ActionRuleSuppressionConditionAlertContext alertContext) {
             this.alertContext = alertContext;
             return this;
         }
+        @CustomType.Setter
         public Builder alertRuleId(@Nullable ActionRuleSuppressionConditionAlertRuleId alertRuleId) {
             this.alertRuleId = alertRuleId;
             return this;
         }
+        @CustomType.Setter
         public Builder description(@Nullable ActionRuleSuppressionConditionDescription description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder monitor(@Nullable ActionRuleSuppressionConditionMonitor monitor) {
             this.monitor = monitor;
             return this;
         }
+        @CustomType.Setter
         public Builder monitorService(@Nullable ActionRuleSuppressionConditionMonitorService monitorService) {
             this.monitorService = monitorService;
             return this;
         }
+        @CustomType.Setter
         public Builder severity(@Nullable ActionRuleSuppressionConditionSeverity severity) {
             this.severity = severity;
             return this;
         }
+        @CustomType.Setter
         public Builder targetResourceType(@Nullable ActionRuleSuppressionConditionTargetResourceType targetResourceType) {
             this.targetResourceType = targetResourceType;
             return this;
-        }        public ActionRuleSuppressionCondition build() {
-            return new ActionRuleSuppressionCondition(alertContext, alertRuleId, description, monitor, monitorService, severity, targetResourceType);
+        }
+        public ActionRuleSuppressionCondition build() {
+            final var o = new ActionRuleSuppressionCondition();
+            o.alertContext = alertContext;
+            o.alertRuleId = alertRuleId;
+            o.description = description;
+            o.monitor = monitor;
+            o.monitorService = monitorService;
+            o.severity = severity;
+            o.targetResourceType = targetResourceType;
+            return o;
         }
     }
 }

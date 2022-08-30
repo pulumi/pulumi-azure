@@ -17,42 +17,29 @@ public final class FrontdoorFirewallPolicyManagedRule {
      * @return The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions;
+    private @Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions;
     /**
      * @return One or more `override` blocks as defined below.
      * 
      */
-    private final @Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides;
+    private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides;
     /**
      * @return The name of the managed rule to use with this resource.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The version on the managed rule to use with this resource.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private FrontdoorFirewallPolicyManagedRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("exclusions") @Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions,
-        @CustomType.Parameter("overrides") @Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("version") String version) {
-        this.action = action;
-        this.exclusions = exclusions;
-        this.overrides = overrides;
-        this.type = type;
-        this.version = version;
-    }
-
+    private FrontdoorFirewallPolicyManagedRule() {}
     /**
      * @return The action to perform when the managed rule is matched. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
@@ -96,18 +83,14 @@ public final class FrontdoorFirewallPolicyManagedRule {
     public static Builder builder(FrontdoorFirewallPolicyManagedRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions;
         private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides;
         private String type;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorFirewallPolicyManagedRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -117,10 +100,12 @@ public final class FrontdoorFirewallPolicyManagedRule {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FrontdoorFirewallPolicyManagedRuleExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -128,6 +113,7 @@ public final class FrontdoorFirewallPolicyManagedRule {
         public Builder exclusions(FrontdoorFirewallPolicyManagedRuleExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder overrides(@Nullable List<FrontdoorFirewallPolicyManagedRuleOverride> overrides) {
             this.overrides = overrides;
             return this;
@@ -135,15 +121,24 @@ public final class FrontdoorFirewallPolicyManagedRule {
         public Builder overrides(FrontdoorFirewallPolicyManagedRuleOverride... overrides) {
             return overrides(List.of(overrides));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public FrontdoorFirewallPolicyManagedRule build() {
-            return new FrontdoorFirewallPolicyManagedRule(action, exclusions, overrides, type, version);
+        }
+        public FrontdoorFirewallPolicyManagedRule build() {
+            final var o = new FrontdoorFirewallPolicyManagedRule();
+            o.action = action;
+            o.exclusions = exclusions;
+            o.overrides = overrides;
+            o.type = type;
+            o.version = version;
+            return o;
         }
     }
 }

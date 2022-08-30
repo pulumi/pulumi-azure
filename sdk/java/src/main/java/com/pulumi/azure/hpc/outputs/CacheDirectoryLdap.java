@@ -17,49 +17,34 @@ public final class CacheDirectoryLdap {
      * @return The base distinguished name (DN) for the LDAP domain.
      * 
      */
-    private final String baseDn;
+    private String baseDn;
     /**
      * @return A `bind` block as defined above.
      * 
      */
-    private final @Nullable CacheDirectoryLdapBind bind;
+    private @Nullable CacheDirectoryLdapBind bind;
     /**
      * @return The URI of the CA certificate to validate the LDAP secure connection.
      * 
      */
-    private final @Nullable String certificateValidationUri;
+    private @Nullable String certificateValidationUri;
     /**
      * @return Whether the certificate should be automatically downloaded. This can be set to `true` only when `certificate_validation_uri` is provided. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean downloadCertificateAutomatically;
+    private @Nullable Boolean downloadCertificateAutomatically;
     /**
      * @return Whether the LDAP connection should be encrypted? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean encrypted;
+    private @Nullable Boolean encrypted;
     /**
      * @return The FQDN or IP address of the LDAP server.
      * 
      */
-    private final String server;
+    private String server;
 
-    @CustomType.Constructor
-    private CacheDirectoryLdap(
-        @CustomType.Parameter("baseDn") String baseDn,
-        @CustomType.Parameter("bind") @Nullable CacheDirectoryLdapBind bind,
-        @CustomType.Parameter("certificateValidationUri") @Nullable String certificateValidationUri,
-        @CustomType.Parameter("downloadCertificateAutomatically") @Nullable Boolean downloadCertificateAutomatically,
-        @CustomType.Parameter("encrypted") @Nullable Boolean encrypted,
-        @CustomType.Parameter("server") String server) {
-        this.baseDn = baseDn;
-        this.bind = bind;
-        this.certificateValidationUri = certificateValidationUri;
-        this.downloadCertificateAutomatically = downloadCertificateAutomatically;
-        this.encrypted = encrypted;
-        this.server = server;
-    }
-
+    private CacheDirectoryLdap() {}
     /**
      * @return The base distinguished name (DN) for the LDAP domain.
      * 
@@ -110,7 +95,7 @@ public final class CacheDirectoryLdap {
     public static Builder builder(CacheDirectoryLdap defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String baseDn;
         private @Nullable CacheDirectoryLdapBind bind;
@@ -118,11 +103,7 @@ public final class CacheDirectoryLdap {
         private @Nullable Boolean downloadCertificateAutomatically;
         private @Nullable Boolean encrypted;
         private String server;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDirectoryLdap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseDn = defaults.baseDn;
@@ -133,31 +114,45 @@ public final class CacheDirectoryLdap {
     	      this.server = defaults.server;
         }
 
+        @CustomType.Setter
         public Builder baseDn(String baseDn) {
             this.baseDn = Objects.requireNonNull(baseDn);
             return this;
         }
+        @CustomType.Setter
         public Builder bind(@Nullable CacheDirectoryLdapBind bind) {
             this.bind = bind;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateValidationUri(@Nullable String certificateValidationUri) {
             this.certificateValidationUri = certificateValidationUri;
             return this;
         }
+        @CustomType.Setter
         public Builder downloadCertificateAutomatically(@Nullable Boolean downloadCertificateAutomatically) {
             this.downloadCertificateAutomatically = downloadCertificateAutomatically;
             return this;
         }
+        @CustomType.Setter
         public Builder encrypted(@Nullable Boolean encrypted) {
             this.encrypted = encrypted;
             return this;
         }
+        @CustomType.Setter
         public Builder server(String server) {
             this.server = Objects.requireNonNull(server);
             return this;
-        }        public CacheDirectoryLdap build() {
-            return new CacheDirectoryLdap(baseDn, bind, certificateValidationUri, downloadCertificateAutomatically, encrypted, server);
+        }
+        public CacheDirectoryLdap build() {
+            final var o = new CacheDirectoryLdap();
+            o.baseDn = baseDn;
+            o.bind = bind;
+            o.certificateValidationUri = certificateValidationUri;
+            o.downloadCertificateAutomatically = downloadCertificateAutomatically;
+            o.encrypted = encrypted;
+            o.server = server;
+            return o;
         }
     }
 }

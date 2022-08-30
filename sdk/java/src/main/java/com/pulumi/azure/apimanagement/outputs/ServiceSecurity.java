@@ -15,111 +15,76 @@ public final class ServiceSecurity {
      * @return Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableBackendSsl30;
+    private @Nullable Boolean enableBackendSsl30;
     /**
      * @return Should TLS 1.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableBackendTls10;
+    private @Nullable Boolean enableBackendTls10;
     /**
      * @return Should TLS 1.1 be enabled on the backend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableBackendTls11;
+    private @Nullable Boolean enableBackendTls11;
     /**
      * @return Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableFrontendSsl30;
+    private @Nullable Boolean enableFrontendSsl30;
     /**
      * @return Should TLS 1.0 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableFrontendTls10;
+    private @Nullable Boolean enableFrontendTls10;
     /**
      * @return Should TLS 1.1 be enabled on the frontend of the gateway? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableFrontendTls11;
+    private @Nullable Boolean enableFrontendTls11;
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
-    private final @Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
-    private final @Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsRsaWithAes128CbcSha256CiphersEnabled;
+    private @Nullable Boolean tlsRsaWithAes128CbcSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsRsaWithAes128CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsRsaWithAes128CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_128_GCM_SHA256` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled;
+    private @Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA256` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled;
+    private @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_AES_256_CBC_SHA` cipher be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
+    private @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
     /**
      * @return Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tripleDesCiphersEnabled;
+    private @Nullable Boolean tripleDesCiphersEnabled;
 
-    @CustomType.Constructor
-    private ServiceSecurity(
-        @CustomType.Parameter("enableBackendSsl30") @Nullable Boolean enableBackendSsl30,
-        @CustomType.Parameter("enableBackendTls10") @Nullable Boolean enableBackendTls10,
-        @CustomType.Parameter("enableBackendTls11") @Nullable Boolean enableBackendTls11,
-        @CustomType.Parameter("enableFrontendSsl30") @Nullable Boolean enableFrontendSsl30,
-        @CustomType.Parameter("enableFrontendTls10") @Nullable Boolean enableFrontendTls10,
-        @CustomType.Parameter("enableFrontendTls11") @Nullable Boolean enableFrontendTls11,
-        @CustomType.Parameter("tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled") @Nullable Boolean tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled,
-        @CustomType.Parameter("tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled") @Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled,
-        @CustomType.Parameter("tlsEcdheRsaWithAes128CbcShaCiphersEnabled") @Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled,
-        @CustomType.Parameter("tlsEcdheRsaWithAes256CbcShaCiphersEnabled") @Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled,
-        @CustomType.Parameter("tlsRsaWithAes128CbcSha256CiphersEnabled") @Nullable Boolean tlsRsaWithAes128CbcSha256CiphersEnabled,
-        @CustomType.Parameter("tlsRsaWithAes128CbcShaCiphersEnabled") @Nullable Boolean tlsRsaWithAes128CbcShaCiphersEnabled,
-        @CustomType.Parameter("tlsRsaWithAes128GcmSha256CiphersEnabled") @Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled,
-        @CustomType.Parameter("tlsRsaWithAes256CbcSha256CiphersEnabled") @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled,
-        @CustomType.Parameter("tlsRsaWithAes256CbcShaCiphersEnabled") @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled,
-        @CustomType.Parameter("tripleDesCiphersEnabled") @Nullable Boolean tripleDesCiphersEnabled) {
-        this.enableBackendSsl30 = enableBackendSsl30;
-        this.enableBackendTls10 = enableBackendTls10;
-        this.enableBackendTls11 = enableBackendTls11;
-        this.enableFrontendSsl30 = enableFrontendSsl30;
-        this.enableFrontendTls10 = enableFrontendTls10;
-        this.enableFrontendTls11 = enableFrontendTls11;
-        this.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
-        this.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
-        this.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
-        this.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
-        this.tlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
-        this.tlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
-        this.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
-        this.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
-        this.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
-        this.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
-    }
-
+    private ServiceSecurity() {}
     /**
      * @return Should SSL 3.0 be enabled on the backend of the gateway? Defaults to `false`.
      * 
@@ -232,7 +197,7 @@ public final class ServiceSecurity {
     public static Builder builder(ServiceSecurity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enableBackendSsl30;
         private @Nullable Boolean enableBackendTls10;
@@ -250,11 +215,7 @@ public final class ServiceSecurity {
         private @Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled;
         private @Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled;
         private @Nullable Boolean tripleDesCiphersEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSecurity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enableBackendSsl30 = defaults.enableBackendSsl30;
@@ -275,71 +236,105 @@ public final class ServiceSecurity {
     	      this.tripleDesCiphersEnabled = defaults.tripleDesCiphersEnabled;
         }
 
+        @CustomType.Setter
         public Builder enableBackendSsl30(@Nullable Boolean enableBackendSsl30) {
             this.enableBackendSsl30 = enableBackendSsl30;
             return this;
         }
+        @CustomType.Setter
         public Builder enableBackendTls10(@Nullable Boolean enableBackendTls10) {
             this.enableBackendTls10 = enableBackendTls10;
             return this;
         }
+        @CustomType.Setter
         public Builder enableBackendTls11(@Nullable Boolean enableBackendTls11) {
             this.enableBackendTls11 = enableBackendTls11;
             return this;
         }
+        @CustomType.Setter
         public Builder enableFrontendSsl30(@Nullable Boolean enableFrontendSsl30) {
             this.enableFrontendSsl30 = enableFrontendSsl30;
             return this;
         }
+        @CustomType.Setter
         public Builder enableFrontendTls10(@Nullable Boolean enableFrontendTls10) {
             this.enableFrontendTls10 = enableFrontendTls10;
             return this;
         }
+        @CustomType.Setter
         public Builder enableFrontendTls11(@Nullable Boolean enableFrontendTls11) {
             this.enableFrontendTls11 = enableFrontendTls11;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled(@Nullable Boolean tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled) {
             this.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled(@Nullable Boolean tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled) {
             this.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEcdheRsaWithAes128CbcShaCiphersEnabled(@Nullable Boolean tlsEcdheRsaWithAes128CbcShaCiphersEnabled) {
             this.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsEcdheRsaWithAes256CbcShaCiphersEnabled(@Nullable Boolean tlsEcdheRsaWithAes256CbcShaCiphersEnabled) {
             this.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsRsaWithAes128CbcSha256CiphersEnabled(@Nullable Boolean tlsRsaWithAes128CbcSha256CiphersEnabled) {
             this.tlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsRsaWithAes128CbcShaCiphersEnabled(@Nullable Boolean tlsRsaWithAes128CbcShaCiphersEnabled) {
             this.tlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsRsaWithAes128GcmSha256CiphersEnabled(@Nullable Boolean tlsRsaWithAes128GcmSha256CiphersEnabled) {
             this.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsRsaWithAes256CbcSha256CiphersEnabled(@Nullable Boolean tlsRsaWithAes256CbcSha256CiphersEnabled) {
             this.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsRsaWithAes256CbcShaCiphersEnabled(@Nullable Boolean tlsRsaWithAes256CbcShaCiphersEnabled) {
             this.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tripleDesCiphersEnabled(@Nullable Boolean tripleDesCiphersEnabled) {
             this.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
             return this;
-        }        public ServiceSecurity build() {
-            return new ServiceSecurity(enableBackendSsl30, enableBackendTls10, enableBackendTls11, enableFrontendSsl30, enableFrontendTls10, enableFrontendTls11, tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled, tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled, tlsEcdheRsaWithAes128CbcShaCiphersEnabled, tlsEcdheRsaWithAes256CbcShaCiphersEnabled, tlsRsaWithAes128CbcSha256CiphersEnabled, tlsRsaWithAes128CbcShaCiphersEnabled, tlsRsaWithAes128GcmSha256CiphersEnabled, tlsRsaWithAes256CbcSha256CiphersEnabled, tlsRsaWithAes256CbcShaCiphersEnabled, tripleDesCiphersEnabled);
+        }
+        public ServiceSecurity build() {
+            final var o = new ServiceSecurity();
+            o.enableBackendSsl30 = enableBackendSsl30;
+            o.enableBackendTls10 = enableBackendTls10;
+            o.enableBackendTls11 = enableBackendTls11;
+            o.enableFrontendSsl30 = enableFrontendSsl30;
+            o.enableFrontendTls10 = enableFrontendTls10;
+            o.enableFrontendTls11 = enableFrontendTls11;
+            o.tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes128CbcShaCiphersEnabled;
+            o.tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled = tlsEcdheEcdsaWithAes256CbcShaCiphersEnabled;
+            o.tlsEcdheRsaWithAes128CbcShaCiphersEnabled = tlsEcdheRsaWithAes128CbcShaCiphersEnabled;
+            o.tlsEcdheRsaWithAes256CbcShaCiphersEnabled = tlsEcdheRsaWithAes256CbcShaCiphersEnabled;
+            o.tlsRsaWithAes128CbcSha256CiphersEnabled = tlsRsaWithAes128CbcSha256CiphersEnabled;
+            o.tlsRsaWithAes128CbcShaCiphersEnabled = tlsRsaWithAes128CbcShaCiphersEnabled;
+            o.tlsRsaWithAes128GcmSha256CiphersEnabled = tlsRsaWithAes128GcmSha256CiphersEnabled;
+            o.tlsRsaWithAes256CbcSha256CiphersEnabled = tlsRsaWithAes256CbcSha256CiphersEnabled;
+            o.tlsRsaWithAes256CbcShaCiphersEnabled = tlsRsaWithAes256CbcShaCiphersEnabled;
+            o.tripleDesCiphersEnabled = tripleDesCiphersEnabled;
+            return o;
         }
     }
 }

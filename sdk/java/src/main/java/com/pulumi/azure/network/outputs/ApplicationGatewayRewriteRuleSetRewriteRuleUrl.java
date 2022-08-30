@@ -16,35 +16,24 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
      * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
      * 
      */
-    private final @Nullable String components;
+    private @Nullable String components;
     /**
      * @return The URL path to rewrite.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return The query string to rewrite.
      * 
      */
-    private final @Nullable String queryString;
+    private @Nullable String queryString;
     /**
      * @return Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configutation](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
      * 
      */
-    private final @Nullable Boolean reroute;
+    private @Nullable Boolean reroute;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRewriteRuleSetRewriteRuleUrl(
-        @CustomType.Parameter("components") @Nullable String components,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("queryString") @Nullable String queryString,
-        @CustomType.Parameter("reroute") @Nullable Boolean reroute) {
-        this.components = components;
-        this.path = path;
-        this.queryString = queryString;
-        this.reroute = reroute;
-    }
-
+    private ApplicationGatewayRewriteRuleSetRewriteRuleUrl() {}
     /**
      * @return The components used to rewrite the URL. Possible values are `path_only` and `query_string_only` to limit the rewrite to the URL Path or URL Query String only.
      * 
@@ -81,17 +70,13 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     public static Builder builder(ApplicationGatewayRewriteRuleSetRewriteRuleUrl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String components;
         private @Nullable String path;
         private @Nullable String queryString;
         private @Nullable Boolean reroute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRuleUrl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.components = defaults.components;
@@ -100,23 +85,33 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleUrl {
     	      this.reroute = defaults.reroute;
         }
 
+        @CustomType.Setter
         public Builder components(@Nullable String components) {
             this.components = components;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
             this.queryString = queryString;
             return this;
         }
+        @CustomType.Setter
         public Builder reroute(@Nullable Boolean reroute) {
             this.reroute = reroute;
             return this;
-        }        public ApplicationGatewayRewriteRuleSetRewriteRuleUrl build() {
-            return new ApplicationGatewayRewriteRuleSetRewriteRuleUrl(components, path, queryString, reroute);
+        }
+        public ApplicationGatewayRewriteRuleSetRewriteRuleUrl build() {
+            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleUrl();
+            o.components = components;
+            o.path = path;
+            o.queryString = queryString;
+            o.reroute = reroute;
+            return o;
         }
     }
 }

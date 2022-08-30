@@ -13,56 +13,39 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
      * @return A message indicating if changes on the service provider require any updates or not.
      * 
      */
-    private final String actionRequired;
+    private String actionRequired;
     /**
      * @return The resource id of the private link service connection between the private link service and the private link endpoint.
      * 
      */
-    private final String connectionId;
+    private String connectionId;
     /**
      * @return The name of the connection between the private link service and the private link endpoint.
      * 
      */
-    private final String connectionName;
+    private String connectionName;
     /**
      * @return The request for approval message or the reason for rejection message.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The resource id of the private link endpoint.
      * 
      */
-    private final String privateEndpointId;
+    private String privateEndpointId;
     /**
      * @return The name of the private link endpoint.
      * 
      */
-    private final String privateEndpointName;
+    private String privateEndpointName;
     /**
      * @return Indicates the state of the connection between the private link service and the private link endpoint, possible values are `Pending`, `Approved` or `Rejected`.
      * 
      */
-    private final String status;
+    private String status;
 
-    @CustomType.Constructor
-    private GetServiceEndpointConnectionsPrivateEndpointConnection(
-        @CustomType.Parameter("actionRequired") String actionRequired,
-        @CustomType.Parameter("connectionId") String connectionId,
-        @CustomType.Parameter("connectionName") String connectionName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("privateEndpointId") String privateEndpointId,
-        @CustomType.Parameter("privateEndpointName") String privateEndpointName,
-        @CustomType.Parameter("status") String status) {
-        this.actionRequired = actionRequired;
-        this.connectionId = connectionId;
-        this.connectionName = connectionName;
-        this.description = description;
-        this.privateEndpointId = privateEndpointId;
-        this.privateEndpointName = privateEndpointName;
-        this.status = status;
-    }
-
+    private GetServiceEndpointConnectionsPrivateEndpointConnection() {}
     /**
      * @return A message indicating if changes on the service provider require any updates or not.
      * 
@@ -120,7 +103,7 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
     public static Builder builder(GetServiceEndpointConnectionsPrivateEndpointConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionRequired;
         private String connectionId;
@@ -129,11 +112,7 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
         private String privateEndpointId;
         private String privateEndpointName;
         private String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceEndpointConnectionsPrivateEndpointConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionRequired = defaults.actionRequired;
@@ -145,35 +124,51 @@ public final class GetServiceEndpointConnectionsPrivateEndpointConnection {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder actionRequired(String actionRequired) {
             this.actionRequired = Objects.requireNonNull(actionRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionId(String connectionId) {
             this.connectionId = Objects.requireNonNull(connectionId);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionName(String connectionName) {
             this.connectionName = Objects.requireNonNull(connectionName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpointId(String privateEndpointId) {
             this.privateEndpointId = Objects.requireNonNull(privateEndpointId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpointName(String privateEndpointName) {
             this.privateEndpointName = Objects.requireNonNull(privateEndpointName);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
-        }        public GetServiceEndpointConnectionsPrivateEndpointConnection build() {
-            return new GetServiceEndpointConnectionsPrivateEndpointConnection(actionRequired, connectionId, connectionName, description, privateEndpointId, privateEndpointName, status);
+        }
+        public GetServiceEndpointConnectionsPrivateEndpointConnection build() {
+            final var o = new GetServiceEndpointConnectionsPrivateEndpointConnection();
+            o.actionRequired = actionRequired;
+            o.connectionId = connectionId;
+            o.connectionName = connectionName;
+            o.description = description;
+            o.privateEndpointId = privateEndpointId;
+            o.privateEndpointName = privateEndpointName;
+            o.status = status;
+            return o;
         }
     }
 }

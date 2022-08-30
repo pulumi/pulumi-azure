@@ -13,28 +13,19 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
      * 
      */
-    private final String matchVariable;
+    private String matchVariable;
     /**
      * @return Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: `Equals`, `Contains`, `StartsWith`, `EndsWith`, `EqualsAny`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Selector for the value in the `match_variable` attribute this exclusion applies to.
      * 
      */
-    private final String selector;
+    private String selector;
 
-    @CustomType.Constructor
-    private FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(
-        @CustomType.Parameter("matchVariable") String matchVariable,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("selector") String selector) {
-        this.matchVariable = matchVariable;
-        this.operator = operator;
-        this.selector = selector;
-    }
-
+    private FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion() {}
     /**
      * @return The variable type to be excluded. Possible values are `QueryStringArgNames`, `RequestBodyPostArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
      * 
@@ -64,16 +55,12 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     public static Builder builder(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String matchVariable;
         private String operator;
         private String selector;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchVariable = defaults.matchVariable;
@@ -81,19 +68,27 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion {
     	      this.selector = defaults.selector;
         }
 
+        @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
             this.matchVariable = Objects.requireNonNull(matchVariable);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(String selector) {
             this.selector = Objects.requireNonNull(selector);
             return this;
-        }        public FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion build() {
-            return new FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(matchVariable, operator, selector);
+        }
+        public FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion build() {
+            final var o = new FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion();
+            o.matchVariable = matchVariable;
+            o.operator = operator;
+            o.selector = selector;
+            return o;
         }
     }
 }

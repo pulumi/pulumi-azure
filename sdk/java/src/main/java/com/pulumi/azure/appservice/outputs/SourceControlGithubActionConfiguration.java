@@ -17,27 +17,16 @@ public final class SourceControlGithubActionConfiguration {
      * @return A `code_configuration` block as defined above.
      * 
      */
-    private final @Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration;
+    private @Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration;
     /**
      * @return A `container_configuration` block as defined above.
      * 
      */
-    private final @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration;
-    private final @Nullable Boolean generateWorkflowFile;
-    private final @Nullable Boolean linuxAction;
+    private @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration;
+    private @Nullable Boolean generateWorkflowFile;
+    private @Nullable Boolean linuxAction;
 
-    @CustomType.Constructor
-    private SourceControlGithubActionConfiguration(
-        @CustomType.Parameter("codeConfiguration") @Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration,
-        @CustomType.Parameter("containerConfiguration") @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration,
-        @CustomType.Parameter("generateWorkflowFile") @Nullable Boolean generateWorkflowFile,
-        @CustomType.Parameter("linuxAction") @Nullable Boolean linuxAction) {
-        this.codeConfiguration = codeConfiguration;
-        this.containerConfiguration = containerConfiguration;
-        this.generateWorkflowFile = generateWorkflowFile;
-        this.linuxAction = linuxAction;
-    }
-
+    private SourceControlGithubActionConfiguration() {}
     /**
      * @return A `code_configuration` block as defined above.
      * 
@@ -66,17 +55,13 @@ public final class SourceControlGithubActionConfiguration {
     public static Builder builder(SourceControlGithubActionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration;
         private @Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration;
         private @Nullable Boolean generateWorkflowFile;
         private @Nullable Boolean linuxAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SourceControlGithubActionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.codeConfiguration = defaults.codeConfiguration;
@@ -85,23 +70,33 @@ public final class SourceControlGithubActionConfiguration {
     	      this.linuxAction = defaults.linuxAction;
         }
 
+        @CustomType.Setter
         public Builder codeConfiguration(@Nullable SourceControlGithubActionConfigurationCodeConfiguration codeConfiguration) {
             this.codeConfiguration = codeConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder containerConfiguration(@Nullable SourceControlGithubActionConfigurationContainerConfiguration containerConfiguration) {
             this.containerConfiguration = containerConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder generateWorkflowFile(@Nullable Boolean generateWorkflowFile) {
             this.generateWorkflowFile = generateWorkflowFile;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxAction(@Nullable Boolean linuxAction) {
             this.linuxAction = linuxAction;
             return this;
-        }        public SourceControlGithubActionConfiguration build() {
-            return new SourceControlGithubActionConfiguration(codeConfiguration, containerConfiguration, generateWorkflowFile, linuxAction);
+        }
+        public SourceControlGithubActionConfiguration build() {
+            final var o = new SourceControlGithubActionConfiguration();
+            o.codeConfiguration = codeConfiguration;
+            o.containerConfiguration = containerConfiguration;
+            o.generateWorkflowFile = generateWorkflowFile;
+            o.linuxAction = linuxAction;
+            return o;
         }
     }
 }

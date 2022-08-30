@@ -15,21 +15,14 @@ public final class WorkspacePrivateEndpointConnection {
      * @return The ID of the Healthcare Workspace.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the Healthcare Workspace. Changing this forces a new Healthcare Workspace to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private WorkspacePrivateEndpointConnection(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private WorkspacePrivateEndpointConnection() {}
     /**
      * @return The ID of the Healthcare Workspace.
      * 
@@ -52,30 +45,32 @@ public final class WorkspacePrivateEndpointConnection {
     public static Builder builder(WorkspacePrivateEndpointConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspacePrivateEndpointConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public WorkspacePrivateEndpointConnection build() {
-            return new WorkspacePrivateEndpointConnection(id, name);
+        }
+        public WorkspacePrivateEndpointConnection build() {
+            final var o = new WorkspacePrivateEndpointConnection();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

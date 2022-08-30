@@ -11498,6 +11498,599 @@ func (o ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput) Threshold() pulum
 	}).(pulumi.Float64PtrOutput)
 }
 
+type ScheduledQueryRulesAlertV2Action struct {
+	// List of Action Group resource ids to invoke when the alert fires.
+	ActionGroups []string `pulumi:"actionGroups"`
+	// Specifies the properties of an alert payload.
+	CustomProperties map[string]string `pulumi:"customProperties"`
+}
+
+// ScheduledQueryRulesAlertV2ActionInput is an input type that accepts ScheduledQueryRulesAlertV2ActionArgs and ScheduledQueryRulesAlertV2ActionOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2ActionInput` via:
+//
+//	ScheduledQueryRulesAlertV2ActionArgs{...}
+type ScheduledQueryRulesAlertV2ActionInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2ActionOutput() ScheduledQueryRulesAlertV2ActionOutput
+	ToScheduledQueryRulesAlertV2ActionOutputWithContext(context.Context) ScheduledQueryRulesAlertV2ActionOutput
+}
+
+type ScheduledQueryRulesAlertV2ActionArgs struct {
+	// List of Action Group resource ids to invoke when the alert fires.
+	ActionGroups pulumi.StringArrayInput `pulumi:"actionGroups"`
+	// Specifies the properties of an alert payload.
+	CustomProperties pulumi.StringMapInput `pulumi:"customProperties"`
+}
+
+func (ScheduledQueryRulesAlertV2ActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Action)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2ActionOutput() ScheduledQueryRulesAlertV2ActionOutput {
+	return i.ToScheduledQueryRulesAlertV2ActionOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2ActionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ActionOutput)
+}
+
+func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2ActionArgs) ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ActionOutput).ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryRulesAlertV2ActionPtrInput is an input type that accepts ScheduledQueryRulesAlertV2ActionArgs, ScheduledQueryRulesAlertV2ActionPtr and ScheduledQueryRulesAlertV2ActionPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2ActionPtrInput` via:
+//
+//	        ScheduledQueryRulesAlertV2ActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledQueryRulesAlertV2ActionPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput
+	ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput
+}
+
+type scheduledQueryRulesAlertV2ActionPtrType ScheduledQueryRulesAlertV2ActionArgs
+
+func ScheduledQueryRulesAlertV2ActionPtr(v *ScheduledQueryRulesAlertV2ActionArgs) ScheduledQueryRulesAlertV2ActionPtrInput {
+	return (*scheduledQueryRulesAlertV2ActionPtrType)(v)
+}
+
+func (*scheduledQueryRulesAlertV2ActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2Action)(nil)).Elem()
+}
+
+func (i *scheduledQueryRulesAlertV2ActionPtrType) ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesAlertV2ActionPtrType) ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2ActionPtrOutput)
+}
+
+type ScheduledQueryRulesAlertV2ActionOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2ActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Action)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2ActionOutput() ScheduledQueryRulesAlertV2ActionOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2ActionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return o.ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesAlertV2ActionOutput) ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertV2Action) *ScheduledQueryRulesAlertV2Action {
+		return &v
+	}).(ScheduledQueryRulesAlertV2ActionPtrOutput)
+}
+
+// List of Action Group resource ids to invoke when the alert fires.
+func (o ScheduledQueryRulesAlertV2ActionOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) []string { return v.ActionGroups }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the properties of an alert payload.
+func (o ScheduledQueryRulesAlertV2ActionOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Action) map[string]string { return v.CustomProperties }).(pulumi.StringMapOutput)
+}
+
+type ScheduledQueryRulesAlertV2ActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2ActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2Action)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ToScheduledQueryRulesAlertV2ActionPtrOutput() ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ToScheduledQueryRulesAlertV2ActionPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2ActionPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) Elem() ScheduledQueryRulesAlertV2ActionOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Action) ScheduledQueryRulesAlertV2Action {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertV2Action
+		return ret
+	}).(ScheduledQueryRulesAlertV2ActionOutput)
+}
+
+// List of Action Group resource ids to invoke when the alert fires.
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) ActionGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Action) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ActionGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies the properties of an alert payload.
+func (o ScheduledQueryRulesAlertV2ActionPtrOutput) CustomProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2Action) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomProperties
+	}).(pulumi.StringMapOutput)
+}
+
+type ScheduledQueryRulesAlertV2Criteria struct {
+	// A `dimension` block as defined below.
+	Dimensions []ScheduledQueryRulesAlertV2CriteriaDimension `pulumi:"dimensions"`
+	// A `failingPeriods` block as defined below.
+	FailingPeriods *ScheduledQueryRulesAlertV2CriteriaFailingPeriods `pulumi:"failingPeriods"`
+	// Specifies the column containing the metric measure number.
+	MetricMeasureColumn *string `pulumi:"metricMeasureColumn"`
+	// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+	Operator string `pulumi:"operator"`
+	// The query to run on logs. The results returned by this query are used to populate the alert.
+	Query string `pulumi:"query"`
+	// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+	ResourceIdColumn *string `pulumi:"resourceIdColumn"`
+	// Specifies the criteria threshold value that activates the alert.
+	Threshold float64 `pulumi:"threshold"`
+	// The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+	TimeAggregationMethod string `pulumi:"timeAggregationMethod"`
+}
+
+// ScheduledQueryRulesAlertV2CriteriaInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaArgs and ScheduledQueryRulesAlertV2CriteriaOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaInput` via:
+//
+//	ScheduledQueryRulesAlertV2CriteriaArgs{...}
+type ScheduledQueryRulesAlertV2CriteriaInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaOutput() ScheduledQueryRulesAlertV2CriteriaOutput
+	ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaOutput
+}
+
+type ScheduledQueryRulesAlertV2CriteriaArgs struct {
+	// A `dimension` block as defined below.
+	Dimensions ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput `pulumi:"dimensions"`
+	// A `failingPeriods` block as defined below.
+	FailingPeriods ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput `pulumi:"failingPeriods"`
+	// Specifies the column containing the metric measure number.
+	MetricMeasureColumn pulumi.StringPtrInput `pulumi:"metricMeasureColumn"`
+	// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// The query to run on logs. The results returned by this query are used to populate the alert.
+	Query pulumi.StringInput `pulumi:"query"`
+	// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+	ResourceIdColumn pulumi.StringPtrInput `pulumi:"resourceIdColumn"`
+	// Specifies the criteria threshold value that activates the alert.
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+	TimeAggregationMethod pulumi.StringInput `pulumi:"timeAggregationMethod"`
+}
+
+func (ScheduledQueryRulesAlertV2CriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Criteria)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaArgs) ToScheduledQueryRulesAlertV2CriteriaOutput() ScheduledQueryRulesAlertV2CriteriaOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaArgs) ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaOutput)
+}
+
+// ScheduledQueryRulesAlertV2CriteriaArrayInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaArray and ScheduledQueryRulesAlertV2CriteriaArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaArrayInput` via:
+//
+//	ScheduledQueryRulesAlertV2CriteriaArray{ ScheduledQueryRulesAlertV2CriteriaArgs{...} }
+type ScheduledQueryRulesAlertV2CriteriaArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaArrayOutput() ScheduledQueryRulesAlertV2CriteriaArrayOutput
+	ToScheduledQueryRulesAlertV2CriteriaArrayOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaArrayOutput
+}
+
+type ScheduledQueryRulesAlertV2CriteriaArray []ScheduledQueryRulesAlertV2CriteriaInput
+
+func (ScheduledQueryRulesAlertV2CriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesAlertV2Criteria)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaArray) ToScheduledQueryRulesAlertV2CriteriaArrayOutput() ScheduledQueryRulesAlertV2CriteriaArrayOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaArray) ToScheduledQueryRulesAlertV2CriteriaArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaArrayOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2Criteria)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) ToScheduledQueryRulesAlertV2CriteriaOutput() ScheduledQueryRulesAlertV2CriteriaOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) ToScheduledQueryRulesAlertV2CriteriaOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaOutput {
+	return o
+}
+
+// A `dimension` block as defined below.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) Dimensions() ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) []ScheduledQueryRulesAlertV2CriteriaDimension {
+		return v.Dimensions
+	}).(ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput)
+}
+
+// A `failingPeriods` block as defined below.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) FailingPeriods() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
+		return v.FailingPeriods
+	}).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput)
+}
+
+// Specifies the column containing the metric measure number.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) MetricMeasureColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.MetricMeasureColumn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// The query to run on logs. The results returned by this query are used to populate the alert.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) string { return v.Query }).(pulumi.StringOutput)
+}
+
+// Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) ResourceIdColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) *string { return v.ResourceIdColumn }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the criteria threshold value that activates the alert.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+// The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+func (o ScheduledQueryRulesAlertV2CriteriaOutput) TimeAggregationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2Criteria) string { return v.TimeAggregationMethod }).(pulumi.StringOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesAlertV2Criteria)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) ToScheduledQueryRulesAlertV2CriteriaArrayOutput() ScheduledQueryRulesAlertV2CriteriaArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) ToScheduledQueryRulesAlertV2CriteriaArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertV2CriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesAlertV2Criteria {
+		return vs[0].([]ScheduledQueryRulesAlertV2Criteria)[vs[1].(int)]
+	}).(ScheduledQueryRulesAlertV2CriteriaOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaDimension struct {
+	// Name of the dimension.
+	Name string `pulumi:"name"`
+	// Operator for dimension values. Possible values are `Exclude`,and `Include`.
+	Operator string `pulumi:"operator"`
+	// List of dimension values. Use a wildcard `*` to collect all.
+	Values []string `pulumi:"values"`
+}
+
+// ScheduledQueryRulesAlertV2CriteriaDimensionInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaDimensionArgs and ScheduledQueryRulesAlertV2CriteriaDimensionOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaDimensionInput` via:
+//
+//	ScheduledQueryRulesAlertV2CriteriaDimensionArgs{...}
+type ScheduledQueryRulesAlertV2CriteriaDimensionInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaDimensionOutput() ScheduledQueryRulesAlertV2CriteriaDimensionOutput
+	ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionOutput
+}
+
+type ScheduledQueryRulesAlertV2CriteriaDimensionArgs struct {
+	// Name of the dimension.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Operator for dimension values. Possible values are `Exclude`,and `Include`.
+	Operator pulumi.StringInput `pulumi:"operator"`
+	// List of dimension values. Use a wildcard `*` to collect all.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ScheduledQueryRulesAlertV2CriteriaDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaDimension)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaDimensionArgs) ToScheduledQueryRulesAlertV2CriteriaDimensionOutput() ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaDimensionArgs) ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaDimensionOutput)
+}
+
+// ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaDimensionArray and ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput` via:
+//
+//	ScheduledQueryRulesAlertV2CriteriaDimensionArray{ ScheduledQueryRulesAlertV2CriteriaDimensionArgs{...} }
+type ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput() ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput
+	ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput
+}
+
+type ScheduledQueryRulesAlertV2CriteriaDimensionArray []ScheduledQueryRulesAlertV2CriteriaDimensionInput
+
+func (ScheduledQueryRulesAlertV2CriteriaDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesAlertV2CriteriaDimension)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaDimensionArray) ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput() ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaDimensionArray) ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaDimensionOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaDimension)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionOutput() ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
+	return o
+}
+
+// Name of the dimension.
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Operator for dimension values. Possible values are `Exclude`,and `Include`.
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) Operator() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaDimension) string { return v.Operator }).(pulumi.StringOutput)
+}
+
+// List of dimension values. Use a wildcard `*` to collect all.
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaDimension) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ScheduledQueryRulesAlertV2CriteriaDimension)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput() ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) ToScheduledQueryRulesAlertV2CriteriaDimensionArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesAlertV2CriteriaDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScheduledQueryRulesAlertV2CriteriaDimension {
+		return vs[0].([]ScheduledQueryRulesAlertV2CriteriaDimension)[vs[1].(int)]
+	}).(ScheduledQueryRulesAlertV2CriteriaDimensionOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriods struct {
+	// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+	MinimumFailingPeriodsToTriggerAlert int `pulumi:"minimumFailingPeriodsToTriggerAlert"`
+	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+	NumberOfEvaluationPeriods int `pulumi:"numberOfEvaluationPeriods"`
+}
+
+// ScheduledQueryRulesAlertV2CriteriaFailingPeriodsInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs and ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaFailingPeriodsInput` via:
+//
+//	ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{...}
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput
+	ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput
+}
+
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs struct {
+	// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+	MinimumFailingPeriodsToTriggerAlert pulumi.IntInput `pulumi:"minimumFailingPeriodsToTriggerAlert"`
+	// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+	NumberOfEvaluationPeriods pulumi.IntInput `pulumi:"numberOfEvaluationPeriods"`
+}
+
+func (ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriods)(nil)).Elem()
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput)
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput).ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx)
+}
+
+// ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput is an input type that accepts ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs, ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtr and ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput values.
+// You can construct a concrete instance of `ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput` via:
+//
+//	        ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput interface {
+	pulumi.Input
+
+	ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput
+	ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput
+}
+
+type scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs
+
+func ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtr(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput {
+	return (*scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType)(v)
+}
+
+func (*scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2CriteriaFailingPeriods)(nil)).Elem()
+}
+
+func (i *scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return i.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrType) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriods)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return o.ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
+		return &v
+	}).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput)
+}
+
+// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) MinimumFailingPeriodsToTriggerAlert() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) int {
+		return v.MinimumFailingPeriodsToTriggerAlert
+	}).(pulumi.IntOutput)
+}
+
+// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput) NumberOfEvaluationPeriods() pulumi.IntOutput {
+	return o.ApplyT(func(v ScheduledQueryRulesAlertV2CriteriaFailingPeriods) int { return v.NumberOfEvaluationPeriods }).(pulumi.IntOutput)
+}
+
+type ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledQueryRulesAlertV2CriteriaFailingPeriods)(nil)).Elem()
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) ToScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutputWithContext(ctx context.Context) ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput {
+	return o
+}
+
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) Elem() ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriods) ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledQueryRulesAlertV2CriteriaFailingPeriods
+		return ret
+	}).(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput)
+}
+
+// Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) MinimumFailingPeriodsToTriggerAlert() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumFailingPeriodsToTriggerAlert
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+func (o ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput) NumberOfEvaluationPeriods() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledQueryRulesAlertV2CriteriaFailingPeriods) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NumberOfEvaluationPeriods
+	}).(pulumi.IntPtrOutput)
+}
+
 type ScheduledQueryRulesLogCriteria struct {
 	// A `dimension` block as defined below.
 	Dimensions []ScheduledQueryRulesLogCriteriaDimension `pulumi:"dimensions"`
@@ -14232,6 +14825,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTriggerInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerMetricTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertTriggerMetricTriggerPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertTriggerMetricTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2ActionInput)(nil)).Elem(), ScheduledQueryRulesAlertV2ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2ActionPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertV2ActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaArrayInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaDimensionInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaDimensionArrayInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriodsInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrInput)(nil)).Elem(), ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaPtrInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledQueryRulesLogCriteriaDimensionInput)(nil)).Elem(), ScheduledQueryRulesLogCriteriaDimensionArgs{})
@@ -14424,6 +15025,14 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesAlertTriggerMetricTriggerPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2ActionOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2ActionPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaDimensionOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaDimensionArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsOutput{})
+	pulumi.RegisterOutputType(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledQueryRulesLogCriteriaDimensionOutput{})

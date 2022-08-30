@@ -15,28 +15,19 @@ public final class DiskEncryptionSetIdentity {
      * @return The (Client) ID of the Service Principal.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The ID of the Tenant the Service Principal is assigned in.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return The type of Managed Service Identity that is configured on this Disk Encryption Set. The only possible value is `SystemAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DiskEncryptionSetIdentity(
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private DiskEncryptionSetIdentity() {}
     /**
      * @return The (Client) ID of the Service Principal.
      * 
@@ -66,16 +57,12 @@ public final class DiskEncryptionSetIdentity {
     public static Builder builder(DiskEncryptionSetIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiskEncryptionSetIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -83,19 +70,27 @@ public final class DiskEncryptionSetIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DiskEncryptionSetIdentity build() {
-            return new DiskEncryptionSetIdentity(principalId, tenantId, type);
+        }
+        public DiskEncryptionSetIdentity build() {
+            final var o = new DiskEncryptionSetIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

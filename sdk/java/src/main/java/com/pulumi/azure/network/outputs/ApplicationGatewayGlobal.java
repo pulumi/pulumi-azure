@@ -13,21 +13,14 @@ public final class ApplicationGatewayGlobal {
      * @return Whether Application Gateway&#39;s Request buffer is enabled.
      * 
      */
-    private final Boolean requestBufferingEnabled;
+    private Boolean requestBufferingEnabled;
     /**
      * @return Whether Application Gateway&#39;s Response buffer is enabled.
      * 
      */
-    private final Boolean responseBufferingEnabled;
+    private Boolean responseBufferingEnabled;
 
-    @CustomType.Constructor
-    private ApplicationGatewayGlobal(
-        @CustomType.Parameter("requestBufferingEnabled") Boolean requestBufferingEnabled,
-        @CustomType.Parameter("responseBufferingEnabled") Boolean responseBufferingEnabled) {
-        this.requestBufferingEnabled = requestBufferingEnabled;
-        this.responseBufferingEnabled = responseBufferingEnabled;
-    }
-
+    private ApplicationGatewayGlobal() {}
     /**
      * @return Whether Application Gateway&#39;s Request buffer is enabled.
      * 
@@ -50,30 +43,32 @@ public final class ApplicationGatewayGlobal {
     public static Builder builder(ApplicationGatewayGlobal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean requestBufferingEnabled;
         private Boolean responseBufferingEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayGlobal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requestBufferingEnabled = defaults.requestBufferingEnabled;
     	      this.responseBufferingEnabled = defaults.responseBufferingEnabled;
         }
 
+        @CustomType.Setter
         public Builder requestBufferingEnabled(Boolean requestBufferingEnabled) {
             this.requestBufferingEnabled = Objects.requireNonNull(requestBufferingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder responseBufferingEnabled(Boolean responseBufferingEnabled) {
             this.responseBufferingEnabled = Objects.requireNonNull(responseBufferingEnabled);
             return this;
-        }        public ApplicationGatewayGlobal build() {
-            return new ApplicationGatewayGlobal(requestBufferingEnabled, responseBufferingEnabled);
+        }
+        public ApplicationGatewayGlobal build() {
+            final var o = new ApplicationGatewayGlobal();
+            o.requestBufferingEnabled = requestBufferingEnabled;
+            o.responseBufferingEnabled = responseBufferingEnabled;
+            return o;
         }
     }
 }

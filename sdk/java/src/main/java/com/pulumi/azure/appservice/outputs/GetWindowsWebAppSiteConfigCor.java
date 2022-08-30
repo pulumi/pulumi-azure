@@ -15,21 +15,14 @@ public final class GetWindowsWebAppSiteConfigCor {
      * @return A `allowed_origins` block as defined above.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Whether CORS requests with credentials are allowed.
      * 
      */
-    private final Boolean supportCredentials;
+    private Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigCor(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private GetWindowsWebAppSiteConfigCor() {}
     /**
      * @return A `allowed_origins` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetWindowsWebAppSiteConfigCor {
     public static Builder builder(GetWindowsWebAppSiteConfigCor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigCor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -74,11 +64,16 @@ public final class GetWindowsWebAppSiteConfigCor {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(Boolean supportCredentials) {
             this.supportCredentials = Objects.requireNonNull(supportCredentials);
             return this;
-        }        public GetWindowsWebAppSiteConfigCor build() {
-            return new GetWindowsWebAppSiteConfigCor(allowedOrigins, supportCredentials);
+        }
+        public GetWindowsWebAppSiteConfigCor build() {
+            final var o = new GetWindowsWebAppSiteConfigCor();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

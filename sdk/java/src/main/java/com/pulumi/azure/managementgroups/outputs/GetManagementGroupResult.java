@@ -14,55 +14,36 @@ public final class GetManagementGroupResult {
      * @return A list of Management Group IDs which directly or indirectly belong to this Management Group.
      * 
      */
-    private final List<String> allManagementGroupIds;
+    private List<String> allManagementGroupIds;
     /**
      * @return A list of Subscription IDs which are assigned to this Management Group or its children Management Groups.
      * 
      */
-    private final List<String> allSubscriptionIds;
-    private final String displayName;
+    private List<String> allSubscriptionIds;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of Management Group IDs which directly belong to this Management Group.
      * 
      */
-    private final List<String> managementGroupIds;
-    private final String name;
+    private List<String> managementGroupIds;
+    private String name;
     /**
      * @return The ID of any Parent Management Group.
      * 
      */
-    private final String parentManagementGroupId;
+    private String parentManagementGroupId;
     /**
      * @return A list of Subscription IDs which are directly assigned to this Management Group.
      * 
      */
-    private final List<String> subscriptionIds;
+    private List<String> subscriptionIds;
 
-    @CustomType.Constructor
-    private GetManagementGroupResult(
-        @CustomType.Parameter("allManagementGroupIds") List<String> allManagementGroupIds,
-        @CustomType.Parameter("allSubscriptionIds") List<String> allSubscriptionIds,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("managementGroupIds") List<String> managementGroupIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parentManagementGroupId") String parentManagementGroupId,
-        @CustomType.Parameter("subscriptionIds") List<String> subscriptionIds) {
-        this.allManagementGroupIds = allManagementGroupIds;
-        this.allSubscriptionIds = allSubscriptionIds;
-        this.displayName = displayName;
-        this.id = id;
-        this.managementGroupIds = managementGroupIds;
-        this.name = name;
-        this.parentManagementGroupId = parentManagementGroupId;
-        this.subscriptionIds = subscriptionIds;
-    }
-
+    private GetManagementGroupResult() {}
     /**
      * @return A list of Management Group IDs which directly or indirectly belong to this Management Group.
      * 
@@ -119,7 +100,7 @@ public final class GetManagementGroupResult {
     public static Builder builder(GetManagementGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allManagementGroupIds;
         private List<String> allSubscriptionIds;
@@ -129,11 +110,7 @@ public final class GetManagementGroupResult {
         private String name;
         private String parentManagementGroupId;
         private List<String> subscriptionIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagementGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allManagementGroupIds = defaults.allManagementGroupIds;
@@ -146,6 +123,7 @@ public final class GetManagementGroupResult {
     	      this.subscriptionIds = defaults.subscriptionIds;
         }
 
+        @CustomType.Setter
         public Builder allManagementGroupIds(List<String> allManagementGroupIds) {
             this.allManagementGroupIds = Objects.requireNonNull(allManagementGroupIds);
             return this;
@@ -153,6 +131,7 @@ public final class GetManagementGroupResult {
         public Builder allManagementGroupIds(String... allManagementGroupIds) {
             return allManagementGroupIds(List.of(allManagementGroupIds));
         }
+        @CustomType.Setter
         public Builder allSubscriptionIds(List<String> allSubscriptionIds) {
             this.allSubscriptionIds = Objects.requireNonNull(allSubscriptionIds);
             return this;
@@ -160,14 +139,17 @@ public final class GetManagementGroupResult {
         public Builder allSubscriptionIds(String... allSubscriptionIds) {
             return allSubscriptionIds(List.of(allSubscriptionIds));
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder managementGroupIds(List<String> managementGroupIds) {
             this.managementGroupIds = Objects.requireNonNull(managementGroupIds);
             return this;
@@ -175,22 +157,35 @@ public final class GetManagementGroupResult {
         public Builder managementGroupIds(String... managementGroupIds) {
             return managementGroupIds(List.of(managementGroupIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parentManagementGroupId(String parentManagementGroupId) {
             this.parentManagementGroupId = Objects.requireNonNull(parentManagementGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionIds(List<String> subscriptionIds) {
             this.subscriptionIds = Objects.requireNonNull(subscriptionIds);
             return this;
         }
         public Builder subscriptionIds(String... subscriptionIds) {
             return subscriptionIds(List.of(subscriptionIds));
-        }        public GetManagementGroupResult build() {
-            return new GetManagementGroupResult(allManagementGroupIds, allSubscriptionIds, displayName, id, managementGroupIds, name, parentManagementGroupId, subscriptionIds);
+        }
+        public GetManagementGroupResult build() {
+            final var o = new GetManagementGroupResult();
+            o.allManagementGroupIds = allManagementGroupIds;
+            o.allSubscriptionIds = allSubscriptionIds;
+            o.displayName = displayName;
+            o.id = id;
+            o.managementGroupIds = managementGroupIds;
+            o.name = name;
+            o.parentManagementGroupId = parentManagementGroupId;
+            o.subscriptionIds = subscriptionIds;
+            return o;
         }
     }
 }

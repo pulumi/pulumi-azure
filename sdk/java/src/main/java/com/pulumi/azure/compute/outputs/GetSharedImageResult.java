@@ -13,100 +13,67 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSharedImageResult {
-    private final String architecture;
+    private String architecture;
     /**
      * @return The description of this Shared Image.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The End User Licence Agreement for the Shared Image.
      * 
      */
-    private final String eula;
-    private final String galleryName;
+    private String eula;
+    private String galleryName;
     /**
      * @return The generation of HyperV that the Virtual Machine used to create the Shared Image is based on.
      * 
      */
-    private final String hyperVGeneration;
+    private String hyperVGeneration;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identifier` block as defined below.
      * 
      */
-    private final List<GetSharedImageIdentifier> identifiers;
+    private List<GetSharedImageIdentifier> identifiers;
     /**
      * @return The supported Azure location where the Shared Image Gallery exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The type of Operating System present in this Shared Image.
      * 
      */
-    private final String osType;
+    private String osType;
     /**
      * @return The URI containing the Privacy Statement for this Shared Image.
      * 
      */
-    private final String privacyStatementUri;
+    private String privacyStatementUri;
     /**
      * @return The URI containing the Release Notes for this Shared Image.
      * 
      */
-    private final String releaseNoteUri;
-    private final String resourceGroupName;
+    private String releaseNoteUri;
+    private String resourceGroupName;
     /**
      * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run).
      * 
      */
-    private final Boolean specialized;
+    private Boolean specialized;
     /**
      * @return A mapping of tags assigned to the Shared Image.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSharedImageResult(
-        @CustomType.Parameter("architecture") String architecture,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("eula") String eula,
-        @CustomType.Parameter("galleryName") String galleryName,
-        @CustomType.Parameter("hyperVGeneration") String hyperVGeneration,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identifiers") List<GetSharedImageIdentifier> identifiers,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osType") String osType,
-        @CustomType.Parameter("privacyStatementUri") String privacyStatementUri,
-        @CustomType.Parameter("releaseNoteUri") String releaseNoteUri,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("specialized") Boolean specialized,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.architecture = architecture;
-        this.description = description;
-        this.eula = eula;
-        this.galleryName = galleryName;
-        this.hyperVGeneration = hyperVGeneration;
-        this.id = id;
-        this.identifiers = identifiers;
-        this.location = location;
-        this.name = name;
-        this.osType = osType;
-        this.privacyStatementUri = privacyStatementUri;
-        this.releaseNoteUri = releaseNoteUri;
-        this.resourceGroupName = resourceGroupName;
-        this.specialized = specialized;
-        this.tags = tags;
-    }
-
+    private GetSharedImageResult() {}
     public String architecture() {
         return this.architecture;
     }
@@ -204,7 +171,7 @@ public final class GetSharedImageResult {
     public static Builder builder(GetSharedImageResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String architecture;
         private String description;
@@ -221,11 +188,7 @@ public final class GetSharedImageResult {
         private String resourceGroupName;
         private Boolean specialized;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedImageResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
@@ -245,30 +208,37 @@ public final class GetSharedImageResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder architecture(String architecture) {
             this.architecture = Objects.requireNonNull(architecture);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder eula(String eula) {
             this.eula = Objects.requireNonNull(eula);
             return this;
         }
+        @CustomType.Setter
         public Builder galleryName(String galleryName) {
             this.galleryName = Objects.requireNonNull(galleryName);
             return this;
         }
+        @CustomType.Setter
         public Builder hyperVGeneration(String hyperVGeneration) {
             this.hyperVGeneration = Objects.requireNonNull(hyperVGeneration);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identifiers(List<GetSharedImageIdentifier> identifiers) {
             this.identifiers = Objects.requireNonNull(identifiers);
             return this;
@@ -276,39 +246,64 @@ public final class GetSharedImageResult {
         public Builder identifiers(GetSharedImageIdentifier... identifiers) {
             return identifiers(List.of(identifiers));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osType(String osType) {
             this.osType = Objects.requireNonNull(osType);
             return this;
         }
+        @CustomType.Setter
         public Builder privacyStatementUri(String privacyStatementUri) {
             this.privacyStatementUri = Objects.requireNonNull(privacyStatementUri);
             return this;
         }
+        @CustomType.Setter
         public Builder releaseNoteUri(String releaseNoteUri) {
             this.releaseNoteUri = Objects.requireNonNull(releaseNoteUri);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder specialized(Boolean specialized) {
             this.specialized = Objects.requireNonNull(specialized);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSharedImageResult build() {
-            return new GetSharedImageResult(architecture, description, eula, galleryName, hyperVGeneration, id, identifiers, location, name, osType, privacyStatementUri, releaseNoteUri, resourceGroupName, specialized, tags);
+        }
+        public GetSharedImageResult build() {
+            final var o = new GetSharedImageResult();
+            o.architecture = architecture;
+            o.description = description;
+            o.eula = eula;
+            o.galleryName = galleryName;
+            o.hyperVGeneration = hyperVGeneration;
+            o.id = id;
+            o.identifiers = identifiers;
+            o.location = location;
+            o.name = name;
+            o.osType = osType;
+            o.privacyStatementUri = privacyStatementUri;
+            o.releaseNoteUri = releaseNoteUri;
+            o.resourceGroupName = resourceGroupName;
+            o.specialized = specialized;
+            o.tags = tags;
+            return o;
         }
     }
 }

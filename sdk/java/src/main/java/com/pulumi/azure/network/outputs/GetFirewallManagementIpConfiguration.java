@@ -13,31 +13,20 @@ public final class GetFirewallManagementIpConfiguration {
      * @return The name of the Azure Firewall.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The private IP address associated with the Azure Firewall.
      * 
      */
-    private final String privateIpAddress;
-    private final String publicIpAddressId;
+    private String privateIpAddress;
+    private String publicIpAddressId;
     /**
      * @return The ID of the Subnet where the Azure Firewall is deployed.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetFirewallManagementIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private GetFirewallManagementIpConfiguration() {}
     /**
      * @return The name of the Azure Firewall.
      * 
@@ -70,17 +59,13 @@ public final class GetFirewallManagementIpConfiguration {
     public static Builder builder(GetFirewallManagementIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String privateIpAddress;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFirewallManagementIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -89,23 +74,33 @@ public final class GetFirewallManagementIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetFirewallManagementIpConfiguration build() {
-            return new GetFirewallManagementIpConfiguration(name, privateIpAddress, publicIpAddressId, subnetId);
+        }
+        public GetFirewallManagementIpConfiguration build() {
+            final var o = new GetFirewallManagementIpConfiguration();
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

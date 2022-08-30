@@ -16,37 +16,22 @@ public final class GetEndpointConnectionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the private endpoint.
      * 
      */
-    private final String name;
-    private final List<GetEndpointConnectionNetworkInterface> networkInterfaces;
-    private final List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections;
-    private final String resourceGroupName;
+    private String name;
+    private List<GetEndpointConnectionNetworkInterface> networkInterfaces;
+    private List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetEndpointConnectionResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkInterfaces") List<GetEndpointConnectionNetworkInterface> networkInterfaces,
-        @CustomType.Parameter("privateServiceConnections") List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.networkInterfaces = networkInterfaces;
-        this.privateServiceConnections = privateServiceConnections;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetEndpointConnectionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -85,7 +70,7 @@ public final class GetEndpointConnectionResult {
     public static Builder builder(GetEndpointConnectionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -93,11 +78,7 @@ public final class GetEndpointConnectionResult {
         private List<GetEndpointConnectionNetworkInterface> networkInterfaces;
         private List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointConnectionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -108,18 +89,22 @@ public final class GetEndpointConnectionResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaces(List<GetEndpointConnectionNetworkInterface> networkInterfaces) {
             this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
             return this;
@@ -127,6 +112,7 @@ public final class GetEndpointConnectionResult {
         public Builder networkInterfaces(GetEndpointConnectionNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
         public Builder privateServiceConnections(List<GetEndpointConnectionPrivateServiceConnection> privateServiceConnections) {
             this.privateServiceConnections = Objects.requireNonNull(privateServiceConnections);
             return this;
@@ -134,11 +120,20 @@ public final class GetEndpointConnectionResult {
         public Builder privateServiceConnections(GetEndpointConnectionPrivateServiceConnection... privateServiceConnections) {
             return privateServiceConnections(List.of(privateServiceConnections));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetEndpointConnectionResult build() {
-            return new GetEndpointConnectionResult(id, location, name, networkInterfaces, privateServiceConnections, resourceGroupName);
+        }
+        public GetEndpointConnectionResult build() {
+            final var o = new GetEndpointConnectionResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.networkInterfaces = networkInterfaces;
+            o.privateServiceConnections = privateServiceConnections;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

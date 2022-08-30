@@ -17,20 +17,20 @@ public final class HubEventHandler {
      * @return An `auth` block as defined below.
      * 
      */
-    private final @Nullable HubEventHandlerAuth auth;
+    private @Nullable HubEventHandlerAuth auth;
     /**
      * @return Specify the list of system events. Supported values are `connect`, `connected`
      * and `disconnected`.
      * 
      */
-    private final @Nullable List<String> systemEvents;
+    private @Nullable List<String> systemEvents;
     /**
      * @return The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are
      * available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request
      * comes in. Example: `http://example.com/api/{hub}/{event}`.
      * 
      */
-    private final String urlTemplate;
+    private String urlTemplate;
     /**
      * @return Specify the matching event names. There are 3 kind of patterns supported:
      * - `*` matches any event name
@@ -38,20 +38,9 @@ public final class HubEventHandler {
      * - The single event name, for example `event1`, it matches `event1`.
      * 
      */
-    private final @Nullable String userEventPattern;
+    private @Nullable String userEventPattern;
 
-    @CustomType.Constructor
-    private HubEventHandler(
-        @CustomType.Parameter("auth") @Nullable HubEventHandlerAuth auth,
-        @CustomType.Parameter("systemEvents") @Nullable List<String> systemEvents,
-        @CustomType.Parameter("urlTemplate") String urlTemplate,
-        @CustomType.Parameter("userEventPattern") @Nullable String userEventPattern) {
-        this.auth = auth;
-        this.systemEvents = systemEvents;
-        this.urlTemplate = urlTemplate;
-        this.userEventPattern = userEventPattern;
-    }
-
+    private HubEventHandler() {}
     /**
      * @return An `auth` block as defined below.
      * 
@@ -94,17 +83,13 @@ public final class HubEventHandler {
     public static Builder builder(HubEventHandler defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable HubEventHandlerAuth auth;
         private @Nullable List<String> systemEvents;
         private String urlTemplate;
         private @Nullable String userEventPattern;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HubEventHandler defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.auth = defaults.auth;
@@ -113,10 +98,12 @@ public final class HubEventHandler {
     	      this.userEventPattern = defaults.userEventPattern;
         }
 
+        @CustomType.Setter
         public Builder auth(@Nullable HubEventHandlerAuth auth) {
             this.auth = auth;
             return this;
         }
+        @CustomType.Setter
         public Builder systemEvents(@Nullable List<String> systemEvents) {
             this.systemEvents = systemEvents;
             return this;
@@ -124,15 +111,23 @@ public final class HubEventHandler {
         public Builder systemEvents(String... systemEvents) {
             return systemEvents(List.of(systemEvents));
         }
+        @CustomType.Setter
         public Builder urlTemplate(String urlTemplate) {
             this.urlTemplate = Objects.requireNonNull(urlTemplate);
             return this;
         }
+        @CustomType.Setter
         public Builder userEventPattern(@Nullable String userEventPattern) {
             this.userEventPattern = userEventPattern;
             return this;
-        }        public HubEventHandler build() {
-            return new HubEventHandler(auth, systemEvents, urlTemplate, userEventPattern);
+        }
+        public HubEventHandler build() {
+            final var o = new HubEventHandler();
+            o.auth = auth;
+            o.systemEvents = systemEvents;
+            o.urlTemplate = urlTemplate;
+            o.userEventPattern = userEventPattern;
+            return o;
         }
     }
 }

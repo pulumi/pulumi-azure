@@ -13,42 +13,29 @@ public final class GetHubApnsCredential {
      * @return The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
      * 
      */
-    private final String applicationMode;
+    private String applicationMode;
     /**
      * @return The Bundle ID of the iOS/macOS application to send push notifications for, such as `com.org.example`.
      * 
      */
-    private final String bundleId;
+    private String bundleId;
     /**
      * @return The Apple Push Notifications Service (APNS) Key.
      * 
      */
-    private final String keyId;
+    private String keyId;
     /**
      * @return The ID of the team the Token.
      * 
      */
-    private final String teamId;
+    private String teamId;
     /**
      * @return The Push Token associated with the Apple Developer Account.
      * 
      */
-    private final String token;
+    private String token;
 
-    @CustomType.Constructor
-    private GetHubApnsCredential(
-        @CustomType.Parameter("applicationMode") String applicationMode,
-        @CustomType.Parameter("bundleId") String bundleId,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("teamId") String teamId,
-        @CustomType.Parameter("token") String token) {
-        this.applicationMode = applicationMode;
-        this.bundleId = bundleId;
-        this.keyId = keyId;
-        this.teamId = teamId;
-        this.token = token;
-    }
-
+    private GetHubApnsCredential() {}
     /**
      * @return The Application Mode which defines which server the APNS Messages should be sent to. Possible values are `Production` and `Sandbox`.
      * 
@@ -92,18 +79,14 @@ public final class GetHubApnsCredential {
     public static Builder builder(GetHubApnsCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applicationMode;
         private String bundleId;
         private String keyId;
         private String teamId;
         private String token;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetHubApnsCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationMode = defaults.applicationMode;
@@ -113,27 +96,39 @@ public final class GetHubApnsCredential {
     	      this.token = defaults.token;
         }
 
+        @CustomType.Setter
         public Builder applicationMode(String applicationMode) {
             this.applicationMode = Objects.requireNonNull(applicationMode);
             return this;
         }
+        @CustomType.Setter
         public Builder bundleId(String bundleId) {
             this.bundleId = Objects.requireNonNull(bundleId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder teamId(String teamId) {
             this.teamId = Objects.requireNonNull(teamId);
             return this;
         }
+        @CustomType.Setter
         public Builder token(String token) {
             this.token = Objects.requireNonNull(token);
             return this;
-        }        public GetHubApnsCredential build() {
-            return new GetHubApnsCredential(applicationMode, bundleId, keyId, teamId, token);
+        }
+        public GetHubApnsCredential build() {
+            final var o = new GetHubApnsCredential();
+            o.applicationMode = applicationMode;
+            o.bundleId = bundleId;
+            o.keyId = keyId;
+            o.teamId = teamId;
+            o.token = token;
+            return o;
         }
     }
 }

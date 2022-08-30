@@ -13,21 +13,14 @@ public final class WindowsVirtualMachineScaleSetSecretCertificate {
      * @return The certificate store on the Virtual Machine where the certificate should be added.
      * 
      */
-    private final String store;
+    private String store;
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetSecretCertificate(
-        @CustomType.Parameter("store") String store,
-        @CustomType.Parameter("url") String url) {
-        this.store = store;
-        this.url = url;
-    }
-
+    private WindowsVirtualMachineScaleSetSecretCertificate() {}
     /**
      * @return The certificate store on the Virtual Machine where the certificate should be added.
      * 
@@ -50,30 +43,32 @@ public final class WindowsVirtualMachineScaleSetSecretCertificate {
     public static Builder builder(WindowsVirtualMachineScaleSetSecretCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String store;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetSecretCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.store = defaults.store;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder store(String store) {
             this.store = Objects.requireNonNull(store);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public WindowsVirtualMachineScaleSetSecretCertificate build() {
-            return new WindowsVirtualMachineScaleSetSecretCertificate(store, url);
+        }
+        public WindowsVirtualMachineScaleSetSecretCertificate build() {
+            final var o = new WindowsVirtualMachineScaleSetSecretCertificate();
+            o.store = store;
+            o.url = url;
+            return o;
         }
     }
 }

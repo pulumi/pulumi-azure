@@ -16,28 +16,19 @@ public final class TrafficManagerAzureEndpointSubnet {
      * @return The first IP Address in this subnet.
      * 
      */
-    private final String first;
+    private String first;
     /**
      * @return The last IP Address in this subnet.
      * 
      */
-    private final @Nullable String last;
+    private @Nullable String last;
     /**
      * @return The block size (number of leading bits in the subnet mask).
      * 
      */
-    private final @Nullable Integer scope;
+    private @Nullable Integer scope;
 
-    @CustomType.Constructor
-    private TrafficManagerAzureEndpointSubnet(
-        @CustomType.Parameter("first") String first,
-        @CustomType.Parameter("last") @Nullable String last,
-        @CustomType.Parameter("scope") @Nullable Integer scope) {
-        this.first = first;
-        this.last = last;
-        this.scope = scope;
-    }
-
+    private TrafficManagerAzureEndpointSubnet() {}
     /**
      * @return The first IP Address in this subnet.
      * 
@@ -67,16 +58,12 @@ public final class TrafficManagerAzureEndpointSubnet {
     public static Builder builder(TrafficManagerAzureEndpointSubnet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String first;
         private @Nullable String last;
         private @Nullable Integer scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrafficManagerAzureEndpointSubnet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.first = defaults.first;
@@ -84,19 +71,27 @@ public final class TrafficManagerAzureEndpointSubnet {
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder first(String first) {
             this.first = Objects.requireNonNull(first);
             return this;
         }
+        @CustomType.Setter
         public Builder last(@Nullable String last) {
             this.last = last;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable Integer scope) {
             this.scope = scope;
             return this;
-        }        public TrafficManagerAzureEndpointSubnet build() {
-            return new TrafficManagerAzureEndpointSubnet(first, last, scope);
+        }
+        public TrafficManagerAzureEndpointSubnet build() {
+            final var o = new TrafficManagerAzureEndpointSubnet();
+            o.first = first;
+            o.last = last;
+            o.scope = scope;
+            return o;
         }
     }
 }

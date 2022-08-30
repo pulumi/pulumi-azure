@@ -9,21 +9,14 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
-    private final String store;
+    private String store;
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate(
-        @CustomType.Parameter("store") String store,
-        @CustomType.Parameter("url") String url) {
-        this.store = store;
-        this.url = url;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate() {}
     public String store() {
         return this.store;
     }
@@ -42,30 +35,32 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String store;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.store = defaults.store;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder store(String store) {
             this.store = Objects.requireNonNull(store);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate(store, url);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate();
+            o.store = store;
+            o.url = url;
+            return o;
         }
     }
 }

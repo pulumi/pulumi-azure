@@ -14,13 +14,9 @@ public final class GetVirtualNetworkGatewayCustomRoute {
      * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
      */
-    private final List<String> addressPrefixes;
+    private List<String> addressPrefixes;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayCustomRoute(@CustomType.Parameter("addressPrefixes") List<String> addressPrefixes) {
-        this.addressPrefixes = addressPrefixes;
-    }
-
+    private GetVirtualNetworkGatewayCustomRoute() {}
     /**
      * @return A list of address blocks reserved for this virtual network in CIDR notation.
      * 
@@ -36,27 +32,27 @@ public final class GetVirtualNetworkGatewayCustomRoute {
     public static Builder builder(GetVirtualNetworkGatewayCustomRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressPrefixes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayCustomRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefixes = defaults.addressPrefixes;
         }
 
+        @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
             this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
-        }        public GetVirtualNetworkGatewayCustomRoute build() {
-            return new GetVirtualNetworkGatewayCustomRoute(addressPrefixes);
+        }
+        public GetVirtualNetworkGatewayCustomRoute build() {
+            final var o = new GetVirtualNetworkGatewayCustomRoute();
+            o.addressPrefixes = addressPrefixes;
+            return o;
         }
     }
 }

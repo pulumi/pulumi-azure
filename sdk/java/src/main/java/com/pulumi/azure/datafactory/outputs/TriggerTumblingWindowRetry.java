@@ -15,21 +15,14 @@ public final class TriggerTumblingWindowRetry {
      * @return The maximum retry attempts if the pipeline run failed.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The Interval in seconds between each retry if the pipeline run failed.
      * 
      */
-    private final @Nullable Integer interval;
+    private @Nullable Integer interval;
 
-    @CustomType.Constructor
-    private TriggerTumblingWindowRetry(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") @Nullable Integer interval) {
-        this.count = count;
-        this.interval = interval;
-    }
-
+    private TriggerTumblingWindowRetry() {}
     /**
      * @return The maximum retry attempts if the pipeline run failed.
      * 
@@ -52,30 +45,32 @@ public final class TriggerTumblingWindowRetry {
     public static Builder builder(TriggerTumblingWindowRetry defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private @Nullable Integer interval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerTumblingWindowRetry defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.interval = defaults.interval;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(@Nullable Integer interval) {
             this.interval = interval;
             return this;
-        }        public TriggerTumblingWindowRetry build() {
-            return new TriggerTumblingWindowRetry(count, interval);
+        }
+        public TriggerTumblingWindowRetry build() {
+            final var o = new TriggerTumblingWindowRetry();
+            o.count = count;
+            o.interval = interval;
+            return o;
         }
     }
 }

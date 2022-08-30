@@ -15,28 +15,19 @@ public final class CustomProviderResourceType {
      * @return Specifies the endpoint of the route definition.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return Specifies the name of the route definition.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The routing type that is supported for the resource request. Valid values are `ResourceTypeRoutingProxy` or `ResourceTypeRoutingProxyCache`. This value defaults to `ResourceTypeRoutingProxy`.
      * 
      */
-    private final @Nullable String routingType;
+    private @Nullable String routingType;
 
-    @CustomType.Constructor
-    private CustomProviderResourceType(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("routingType") @Nullable String routingType) {
-        this.endpoint = endpoint;
-        this.name = name;
-        this.routingType = routingType;
-    }
-
+    private CustomProviderResourceType() {}
     /**
      * @return Specifies the endpoint of the route definition.
      * 
@@ -66,16 +57,12 @@ public final class CustomProviderResourceType {
     public static Builder builder(CustomProviderResourceType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String name;
         private @Nullable String routingType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomProviderResourceType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -83,19 +70,27 @@ public final class CustomProviderResourceType {
     	      this.routingType = defaults.routingType;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder routingType(@Nullable String routingType) {
             this.routingType = routingType;
             return this;
-        }        public CustomProviderResourceType build() {
-            return new CustomProviderResourceType(endpoint, name, routingType);
+        }
+        public CustomProviderResourceType build() {
+            final var o = new CustomProviderResourceType();
+            o.endpoint = endpoint;
+            o.name = name;
+            o.routingType = routingType;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class ApplicationGatewayBackendHttpSettingConnectionDraining {
      * @return The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
      * 
      */
-    private final Integer drainTimeoutSec;
+    private Integer drainTimeoutSec;
     /**
      * @return If connection draining is enabled or not.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private ApplicationGatewayBackendHttpSettingConnectionDraining(
-        @CustomType.Parameter("drainTimeoutSec") Integer drainTimeoutSec,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.drainTimeoutSec = drainTimeoutSec;
-        this.enabled = enabled;
-    }
-
+    private ApplicationGatewayBackendHttpSettingConnectionDraining() {}
     /**
      * @return The number of seconds connection draining is active. Acceptable values are from `1` second to `3600` seconds.
      * 
@@ -51,30 +44,32 @@ public final class ApplicationGatewayBackendHttpSettingConnectionDraining {
     public static Builder builder(ApplicationGatewayBackendHttpSettingConnectionDraining defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer drainTimeoutSec;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayBackendHttpSettingConnectionDraining defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.drainTimeoutSec = defaults.drainTimeoutSec;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder drainTimeoutSec(Integer drainTimeoutSec) {
             this.drainTimeoutSec = Objects.requireNonNull(drainTimeoutSec);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public ApplicationGatewayBackendHttpSettingConnectionDraining build() {
-            return new ApplicationGatewayBackendHttpSettingConnectionDraining(drainTimeoutSec, enabled);
+        }
+        public ApplicationGatewayBackendHttpSettingConnectionDraining build() {
+            final var o = new ApplicationGatewayBackendHttpSettingConnectionDraining();
+            o.drainTimeoutSec = drainTimeoutSec;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

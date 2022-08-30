@@ -13,35 +13,24 @@ public final class GetPrivateCloudCircuit {
      * @return The ID of the ExpressRoute Circuit.
      * 
      */
-    private final String expressRouteId;
+    private String expressRouteId;
     /**
      * @return The ID of the ExpressRoute Circuit private peering.
      * 
      */
-    private final String expressRoutePrivatePeeringId;
+    private String expressRoutePrivatePeeringId;
     /**
      * @return The CIDR of the primary subnet.
      * 
      */
-    private final String primarySubnetCidr;
+    private String primarySubnetCidr;
     /**
      * @return The CIDR of the secondary subnet.
      * 
      */
-    private final String secondarySubnetCidr;
+    private String secondarySubnetCidr;
 
-    @CustomType.Constructor
-    private GetPrivateCloudCircuit(
-        @CustomType.Parameter("expressRouteId") String expressRouteId,
-        @CustomType.Parameter("expressRoutePrivatePeeringId") String expressRoutePrivatePeeringId,
-        @CustomType.Parameter("primarySubnetCidr") String primarySubnetCidr,
-        @CustomType.Parameter("secondarySubnetCidr") String secondarySubnetCidr) {
-        this.expressRouteId = expressRouteId;
-        this.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
-        this.primarySubnetCidr = primarySubnetCidr;
-        this.secondarySubnetCidr = secondarySubnetCidr;
-    }
-
+    private GetPrivateCloudCircuit() {}
     /**
      * @return The ID of the ExpressRoute Circuit.
      * 
@@ -78,17 +67,13 @@ public final class GetPrivateCloudCircuit {
     public static Builder builder(GetPrivateCloudCircuit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expressRouteId;
         private String expressRoutePrivatePeeringId;
         private String primarySubnetCidr;
         private String secondarySubnetCidr;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateCloudCircuit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expressRouteId = defaults.expressRouteId;
@@ -97,23 +82,33 @@ public final class GetPrivateCloudCircuit {
     	      this.secondarySubnetCidr = defaults.secondarySubnetCidr;
         }
 
+        @CustomType.Setter
         public Builder expressRouteId(String expressRouteId) {
             this.expressRouteId = Objects.requireNonNull(expressRouteId);
             return this;
         }
+        @CustomType.Setter
         public Builder expressRoutePrivatePeeringId(String expressRoutePrivatePeeringId) {
             this.expressRoutePrivatePeeringId = Objects.requireNonNull(expressRoutePrivatePeeringId);
             return this;
         }
+        @CustomType.Setter
         public Builder primarySubnetCidr(String primarySubnetCidr) {
             this.primarySubnetCidr = Objects.requireNonNull(primarySubnetCidr);
             return this;
         }
+        @CustomType.Setter
         public Builder secondarySubnetCidr(String secondarySubnetCidr) {
             this.secondarySubnetCidr = Objects.requireNonNull(secondarySubnetCidr);
             return this;
-        }        public GetPrivateCloudCircuit build() {
-            return new GetPrivateCloudCircuit(expressRouteId, expressRoutePrivatePeeringId, primarySubnetCidr, secondarySubnetCidr);
+        }
+        public GetPrivateCloudCircuit build() {
+            final var o = new GetPrivateCloudCircuit();
+            o.expressRouteId = expressRouteId;
+            o.expressRoutePrivatePeeringId = expressRoutePrivatePeeringId;
+            o.primarySubnetCidr = primarySubnetCidr;
+            o.secondarySubnetCidr = secondarySubnetCidr;
+            return o;
         }
     }
 }

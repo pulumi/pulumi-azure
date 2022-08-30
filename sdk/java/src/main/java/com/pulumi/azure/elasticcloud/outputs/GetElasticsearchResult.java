@@ -17,108 +17,75 @@ public final class GetElasticsearchResult {
      * @return The ID of the Deployment within Elastic Cloud.
      * 
      */
-    private final String elasticCloudDeploymentId;
+    private String elasticCloudDeploymentId;
     /**
      * @return The Email Address which is associated with this Elasticsearch account.
      * 
      */
-    private final String elasticCloudEmailAddress;
+    private String elasticCloudEmailAddress;
     /**
      * @return The Default URL used for Single Sign On (SSO) to Elastic Cloud.
      * 
      */
-    private final String elasticCloudSsoDefaultUrl;
+    private String elasticCloudSsoDefaultUrl;
     /**
      * @return The ID of the User Account within Elastic Cloud.
      * 
      */
-    private final String elasticCloudUserId;
+    private String elasticCloudUserId;
     /**
      * @return The URL to the Elasticsearch Service associated with this Elasticsearch.
      * 
      */
-    private final String elasticsearchServiceUrl;
+    private String elasticsearchServiceUrl;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The URL to the Kibana Dashboard associated with this Elasticsearch.
      * 
      */
-    private final String kibanaServiceUrl;
+    private String kibanaServiceUrl;
     /**
      * @return The URI used for SSO to the Kibana Dashboard associated with this Elasticsearch.
      * 
      */
-    private final String kibanaSsoUri;
+    private String kibanaSsoUri;
     /**
      * @return The Azure Region in which this Elasticsearch exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `logs` block as defined below.
      * 
      */
-    private final List<GetElasticsearchLog> logs;
+    private List<GetElasticsearchLog> logs;
     /**
      * @return Specifies if monitoring is enabled on this Elasticsearch or not.
      * 
      */
-    private final Boolean monitoringEnabled;
+    private Boolean monitoringEnabled;
     /**
      * @return The name (key) of the Tag which should be filtered.
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The name of the SKU used for this Elasticsearch.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A mapping of tags assigned to the Elasticsearch.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetElasticsearchResult(
-        @CustomType.Parameter("elasticCloudDeploymentId") String elasticCloudDeploymentId,
-        @CustomType.Parameter("elasticCloudEmailAddress") String elasticCloudEmailAddress,
-        @CustomType.Parameter("elasticCloudSsoDefaultUrl") String elasticCloudSsoDefaultUrl,
-        @CustomType.Parameter("elasticCloudUserId") String elasticCloudUserId,
-        @CustomType.Parameter("elasticsearchServiceUrl") String elasticsearchServiceUrl,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kibanaServiceUrl") String kibanaServiceUrl,
-        @CustomType.Parameter("kibanaSsoUri") String kibanaSsoUri,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("logs") List<GetElasticsearchLog> logs,
-        @CustomType.Parameter("monitoringEnabled") Boolean monitoringEnabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.elasticCloudDeploymentId = elasticCloudDeploymentId;
-        this.elasticCloudEmailAddress = elasticCloudEmailAddress;
-        this.elasticCloudSsoDefaultUrl = elasticCloudSsoDefaultUrl;
-        this.elasticCloudUserId = elasticCloudUserId;
-        this.elasticsearchServiceUrl = elasticsearchServiceUrl;
-        this.id = id;
-        this.kibanaServiceUrl = kibanaServiceUrl;
-        this.kibanaSsoUri = kibanaSsoUri;
-        this.location = location;
-        this.logs = logs;
-        this.monitoringEnabled = monitoringEnabled;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.tags = tags;
-    }
-
+    private GetElasticsearchResult() {}
     /**
      * @return The ID of the Deployment within Elastic Cloud.
      * 
@@ -228,7 +195,7 @@ public final class GetElasticsearchResult {
     public static Builder builder(GetElasticsearchResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String elasticCloudDeploymentId;
         private String elasticCloudEmailAddress;
@@ -245,11 +212,7 @@ public final class GetElasticsearchResult {
         private String resourceGroupName;
         private String skuName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetElasticsearchResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.elasticCloudDeploymentId = defaults.elasticCloudDeploymentId;
@@ -269,42 +232,52 @@ public final class GetElasticsearchResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder elasticCloudDeploymentId(String elasticCloudDeploymentId) {
             this.elasticCloudDeploymentId = Objects.requireNonNull(elasticCloudDeploymentId);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticCloudEmailAddress(String elasticCloudEmailAddress) {
             this.elasticCloudEmailAddress = Objects.requireNonNull(elasticCloudEmailAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticCloudSsoDefaultUrl(String elasticCloudSsoDefaultUrl) {
             this.elasticCloudSsoDefaultUrl = Objects.requireNonNull(elasticCloudSsoDefaultUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticCloudUserId(String elasticCloudUserId) {
             this.elasticCloudUserId = Objects.requireNonNull(elasticCloudUserId);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticsearchServiceUrl(String elasticsearchServiceUrl) {
             this.elasticsearchServiceUrl = Objects.requireNonNull(elasticsearchServiceUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kibanaServiceUrl(String kibanaServiceUrl) {
             this.kibanaServiceUrl = Objects.requireNonNull(kibanaServiceUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder kibanaSsoUri(String kibanaSsoUri) {
             this.kibanaSsoUri = Objects.requireNonNull(kibanaSsoUri);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder logs(List<GetElasticsearchLog> logs) {
             this.logs = Objects.requireNonNull(logs);
             return this;
@@ -312,27 +285,49 @@ public final class GetElasticsearchResult {
         public Builder logs(GetElasticsearchLog... logs) {
             return logs(List.of(logs));
         }
+        @CustomType.Setter
         public Builder monitoringEnabled(Boolean monitoringEnabled) {
             this.monitoringEnabled = Objects.requireNonNull(monitoringEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetElasticsearchResult build() {
-            return new GetElasticsearchResult(elasticCloudDeploymentId, elasticCloudEmailAddress, elasticCloudSsoDefaultUrl, elasticCloudUserId, elasticsearchServiceUrl, id, kibanaServiceUrl, kibanaSsoUri, location, logs, monitoringEnabled, name, resourceGroupName, skuName, tags);
+        }
+        public GetElasticsearchResult build() {
+            final var o = new GetElasticsearchResult();
+            o.elasticCloudDeploymentId = elasticCloudDeploymentId;
+            o.elasticCloudEmailAddress = elasticCloudEmailAddress;
+            o.elasticCloudSsoDefaultUrl = elasticCloudSsoDefaultUrl;
+            o.elasticCloudUserId = elasticCloudUserId;
+            o.elasticsearchServiceUrl = elasticsearchServiceUrl;
+            o.id = id;
+            o.kibanaServiceUrl = kibanaServiceUrl;
+            o.kibanaSsoUri = kibanaSsoUri;
+            o.location = location;
+            o.logs = logs;
+            o.monitoringEnabled = monitoringEnabled;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.tags = tags;
+            return o;
         }
     }
 }

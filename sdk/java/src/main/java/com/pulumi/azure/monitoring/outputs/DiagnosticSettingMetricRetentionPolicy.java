@@ -16,21 +16,14 @@ public final class DiagnosticSettingMetricRetentionPolicy {
      * @return The number of days for which this Retention Policy should apply.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Is this Retention Policy enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private DiagnosticSettingMetricRetentionPolicy(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private DiagnosticSettingMetricRetentionPolicy() {}
     /**
      * @return The number of days for which this Retention Policy should apply.
      * 
@@ -53,30 +46,32 @@ public final class DiagnosticSettingMetricRetentionPolicy {
     public static Builder builder(DiagnosticSettingMetricRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticSettingMetricRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public DiagnosticSettingMetricRetentionPolicy build() {
-            return new DiagnosticSettingMetricRetentionPolicy(days, enabled);
+        }
+        public DiagnosticSettingMetricRetentionPolicy build() {
+            final var o = new DiagnosticSettingMetricRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

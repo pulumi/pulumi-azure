@@ -15,21 +15,14 @@ public final class PolicyVMRetentionWeekly {
      * @return The number of yearly backups to keep. Must be between `1` and `9999`
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    private final List<String> weekdays;
+    private List<String> weekdays;
 
-    @CustomType.Constructor
-    private PolicyVMRetentionWeekly(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("weekdays") List<String> weekdays) {
-        this.count = count;
-        this.weekdays = weekdays;
-    }
-
+    private PolicyVMRetentionWeekly() {}
     /**
      * @return The number of yearly backups to keep. Must be between `1` and `9999`
      * 
@@ -52,33 +45,35 @@ public final class PolicyVMRetentionWeekly {
     public static Builder builder(PolicyVMRetentionWeekly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private List<String> weekdays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyVMRetentionWeekly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.weekdays = defaults.weekdays;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder weekdays(List<String> weekdays) {
             this.weekdays = Objects.requireNonNull(weekdays);
             return this;
         }
         public Builder weekdays(String... weekdays) {
             return weekdays(List.of(weekdays));
-        }        public PolicyVMRetentionWeekly build() {
-            return new PolicyVMRetentionWeekly(count, weekdays);
+        }
+        public PolicyVMRetentionWeekly build() {
+            final var o = new PolicyVMRetentionWeekly();
+            o.count = count;
+            o.weekdays = weekdays;
+            return o;
         }
     }
 }

@@ -19,42 +19,29 @@ public final class VirtualMachineOsProfileWindowsConfig {
      * @return An `additional_unattend_config` block as defined below.
      * 
      */
-    private final @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
+    private @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
     /**
      * @return Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
      * 
      */
-    private final @Nullable Boolean enableAutomaticUpgrades;
+    private @Nullable Boolean enableAutomaticUpgrades;
     /**
      * @return Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean provisionVmAgent;
+    private @Nullable Boolean provisionVmAgent;
     /**
      * @return Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
      * 
      */
-    private final @Nullable String timezone;
+    private @Nullable String timezone;
     /**
      * @return One or more `winrm` blocks as defined below.
      * 
      */
-    private final @Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms;
+    private @Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileWindowsConfig(
-        @CustomType.Parameter("additionalUnattendConfigs") @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs,
-        @CustomType.Parameter("enableAutomaticUpgrades") @Nullable Boolean enableAutomaticUpgrades,
-        @CustomType.Parameter("provisionVmAgent") @Nullable Boolean provisionVmAgent,
-        @CustomType.Parameter("timezone") @Nullable String timezone,
-        @CustomType.Parameter("winrms") @Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms) {
-        this.additionalUnattendConfigs = additionalUnattendConfigs;
-        this.enableAutomaticUpgrades = enableAutomaticUpgrades;
-        this.provisionVmAgent = provisionVmAgent;
-        this.timezone = timezone;
-        this.winrms = winrms;
-    }
-
+    private VirtualMachineOsProfileWindowsConfig() {}
     /**
      * @return An `additional_unattend_config` block as defined below.
      * 
@@ -98,18 +85,14 @@ public final class VirtualMachineOsProfileWindowsConfig {
     public static Builder builder(VirtualMachineOsProfileWindowsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
         private @Nullable Boolean enableAutomaticUpgrades;
         private @Nullable Boolean provisionVmAgent;
         private @Nullable String timezone;
         private @Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileWindowsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalUnattendConfigs = defaults.additionalUnattendConfigs;
@@ -119,6 +102,7 @@ public final class VirtualMachineOsProfileWindowsConfig {
     	      this.winrms = defaults.winrms;
         }
 
+        @CustomType.Setter
         public Builder additionalUnattendConfigs(@Nullable List<VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs) {
             this.additionalUnattendConfigs = additionalUnattendConfigs;
             return this;
@@ -126,26 +110,37 @@ public final class VirtualMachineOsProfileWindowsConfig {
         public Builder additionalUnattendConfigs(VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig... additionalUnattendConfigs) {
             return additionalUnattendConfigs(List.of(additionalUnattendConfigs));
         }
+        @CustomType.Setter
         public Builder enableAutomaticUpgrades(@Nullable Boolean enableAutomaticUpgrades) {
             this.enableAutomaticUpgrades = enableAutomaticUpgrades;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
         }
+        @CustomType.Setter
         public Builder winrms(@Nullable List<VirtualMachineOsProfileWindowsConfigWinrm> winrms) {
             this.winrms = winrms;
             return this;
         }
         public Builder winrms(VirtualMachineOsProfileWindowsConfigWinrm... winrms) {
             return winrms(List.of(winrms));
-        }        public VirtualMachineOsProfileWindowsConfig build() {
-            return new VirtualMachineOsProfileWindowsConfig(additionalUnattendConfigs, enableAutomaticUpgrades, provisionVmAgent, timezone, winrms);
+        }
+        public VirtualMachineOsProfileWindowsConfig build() {
+            final var o = new VirtualMachineOsProfileWindowsConfig();
+            o.additionalUnattendConfigs = additionalUnattendConfigs;
+            o.enableAutomaticUpgrades = enableAutomaticUpgrades;
+            o.provisionVmAgent = provisionVmAgent;
+            o.timezone = timezone;
+            o.winrms = winrms;
+            return o;
         }
     }
 }

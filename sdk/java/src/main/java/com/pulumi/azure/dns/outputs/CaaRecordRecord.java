@@ -14,28 +14,19 @@ public final class CaaRecordRecord {
      * @return Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
      * 
      */
-    private final Integer flags;
+    private Integer flags;
     /**
      * @return A property tag, options are `issue`, `issuewild` and `iodef`.
      * 
      */
-    private final String tag;
+    private String tag;
     /**
      * @return A property value such as a registrar domain.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private CaaRecordRecord(
-        @CustomType.Parameter("flags") Integer flags,
-        @CustomType.Parameter("tag") String tag,
-        @CustomType.Parameter("value") String value) {
-        this.flags = flags;
-        this.tag = tag;
-        this.value = value;
-    }
-
+    private CaaRecordRecord() {}
     /**
      * @return Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
      * 
@@ -65,16 +56,12 @@ public final class CaaRecordRecord {
     public static Builder builder(CaaRecordRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer flags;
         private String tag;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CaaRecordRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.flags = defaults.flags;
@@ -82,19 +69,27 @@ public final class CaaRecordRecord {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder flags(Integer flags) {
             this.flags = Objects.requireNonNull(flags);
             return this;
         }
+        @CustomType.Setter
         public Builder tag(String tag) {
             this.tag = Objects.requireNonNull(tag);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public CaaRecordRecord build() {
-            return new CaaRecordRecord(flags, tag, value);
+        }
+        public CaaRecordRecord build() {
+            final var o = new CaaRecordRecord();
+            o.flags = flags;
+            o.tag = tag;
+            o.value = value;
+            return o;
         }
     }
 }

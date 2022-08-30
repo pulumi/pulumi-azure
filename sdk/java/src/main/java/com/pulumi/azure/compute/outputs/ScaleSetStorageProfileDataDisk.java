@@ -16,42 +16,29 @@ public final class ScaleSetStorageProfileDataDisk {
      * @return Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
      * 
      */
-    private final @Nullable String caching;
+    private @Nullable String caching;
     /**
      * @return Specifies how the data disk should be created. The only possible options are `FromImage` and `Empty`.
      * 
      */
-    private final String createOption;
+    private String createOption;
     /**
      * @return Specifies the size of the disk in GB. This element is required when creating an empty disk.
      * 
      */
-    private final @Nullable Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
      * @return Specifies the Logical Unit Number of the disk in each virtual machine in the scale set.
      * 
      */
-    private final Integer lun;
+    private Integer lun;
     /**
      * @return Specifies the type of managed disk to create. Value must be either `Standard_LRS`, `StandardSSD_LRS` or `Premium_LRS`.
      * 
      */
-    private final @Nullable String managedDiskType;
+    private @Nullable String managedDiskType;
 
-    @CustomType.Constructor
-    private ScaleSetStorageProfileDataDisk(
-        @CustomType.Parameter("caching") @Nullable String caching,
-        @CustomType.Parameter("createOption") String createOption,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("lun") Integer lun,
-        @CustomType.Parameter("managedDiskType") @Nullable String managedDiskType) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.diskSizeGb = diskSizeGb;
-        this.lun = lun;
-        this.managedDiskType = managedDiskType;
-    }
-
+    private ScaleSetStorageProfileDataDisk() {}
     /**
      * @return Specifies the caching requirements. Possible values include: `None` (default), `ReadOnly`, `ReadWrite`.
      * 
@@ -95,18 +82,14 @@ public final class ScaleSetStorageProfileDataDisk {
     public static Builder builder(ScaleSetStorageProfileDataDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String caching;
         private String createOption;
         private @Nullable Integer diskSizeGb;
         private Integer lun;
         private @Nullable String managedDiskType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetStorageProfileDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -116,27 +99,39 @@ public final class ScaleSetStorageProfileDataDisk {
     	      this.managedDiskType = defaults.managedDiskType;
         }
 
+        @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(String createOption) {
             this.createOption = Objects.requireNonNull(createOption);
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder lun(Integer lun) {
             this.lun = Objects.requireNonNull(lun);
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskType(@Nullable String managedDiskType) {
             this.managedDiskType = managedDiskType;
             return this;
-        }        public ScaleSetStorageProfileDataDisk build() {
-            return new ScaleSetStorageProfileDataDisk(caching, createOption, diskSizeGb, lun, managedDiskType);
+        }
+        public ScaleSetStorageProfileDataDisk build() {
+            final var o = new ScaleSetStorageProfileDataDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.diskSizeGb = diskSizeGb;
+            o.lun = lun;
+            o.managedDiskType = managedDiskType;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ComputeInstanceAssignToUser {
      * @return User’s AAD Object Id.
      * 
      */
-    private final @Nullable String objectId;
+    private @Nullable String objectId;
     /**
      * @return User’s AAD Tenant Id.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
 
-    @CustomType.Constructor
-    private ComputeInstanceAssignToUser(
-        @CustomType.Parameter("objectId") @Nullable String objectId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId) {
-        this.objectId = objectId;
-        this.tenantId = tenantId;
-    }
-
+    private ComputeInstanceAssignToUser() {}
     /**
      * @return User’s AAD Object Id.
      * 
@@ -52,30 +45,32 @@ public final class ComputeInstanceAssignToUser {
     public static Builder builder(ComputeInstanceAssignToUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String objectId;
         private @Nullable String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeInstanceAssignToUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.objectId = defaults.objectId;
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder objectId(@Nullable String objectId) {
             this.objectId = objectId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
-        }        public ComputeInstanceAssignToUser build() {
-            return new ComputeInstanceAssignToUser(objectId, tenantId);
+        }
+        public ComputeInstanceAssignToUser build() {
+            final var o = new ComputeInstanceAssignToUser();
+            o.objectId = objectId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

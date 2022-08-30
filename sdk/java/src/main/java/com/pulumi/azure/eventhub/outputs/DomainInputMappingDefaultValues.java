@@ -15,28 +15,19 @@ public final class DomainInputMappingDefaultValues {
      * @return Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String dataVersion;
+    private @Nullable String dataVersion;
     /**
      * @return Specifies the default event type of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String eventType;
+    private @Nullable String eventType;
     /**
      * @return Specifies the default subject of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String subject;
+    private @Nullable String subject;
 
-    @CustomType.Constructor
-    private DomainInputMappingDefaultValues(
-        @CustomType.Parameter("dataVersion") @Nullable String dataVersion,
-        @CustomType.Parameter("eventType") @Nullable String eventType,
-        @CustomType.Parameter("subject") @Nullable String subject) {
-        this.dataVersion = dataVersion;
-        this.eventType = eventType;
-        this.subject = subject;
-    }
-
+    private DomainInputMappingDefaultValues() {}
     /**
      * @return Specifies the default data version of the EventGrid Event to associate with the domain. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class DomainInputMappingDefaultValues {
     public static Builder builder(DomainInputMappingDefaultValues defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dataVersion;
         private @Nullable String eventType;
         private @Nullable String subject;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainInputMappingDefaultValues defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataVersion = defaults.dataVersion;
@@ -83,19 +70,27 @@ public final class DomainInputMappingDefaultValues {
     	      this.subject = defaults.subject;
         }
 
+        @CustomType.Setter
         public Builder dataVersion(@Nullable String dataVersion) {
             this.dataVersion = dataVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder eventType(@Nullable String eventType) {
             this.eventType = eventType;
             return this;
         }
+        @CustomType.Setter
         public Builder subject(@Nullable String subject) {
             this.subject = subject;
             return this;
-        }        public DomainInputMappingDefaultValues build() {
-            return new DomainInputMappingDefaultValues(dataVersion, eventType, subject);
+        }
+        public DomainInputMappingDefaultValues build() {
+            final var o = new DomainInputMappingDefaultValues();
+            o.dataVersion = dataVersion;
+            o.eventType = eventType;
+            o.subject = subject;
+            return o;
         }
     }
 }

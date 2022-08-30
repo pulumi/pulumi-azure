@@ -13,55 +13,36 @@ public final class GetFunctionAppHostKeysResult {
      * @return Function App resource&#39;s default function key.
      * 
      */
-    private final String defaultFunctionKey;
+    private String defaultFunctionKey;
     /**
      * @return Function App resource&#39;s Durable Task Extension system key.
      * 
      */
-    private final String durabletaskExtensionKey;
+    private String durabletaskExtensionKey;
     /**
      * @return Function App resource&#39;s Event Grid Extension Config system key.
      * 
      */
-    private final String eventGridExtensionConfigKey;
+    private String eventGridExtensionConfigKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return Function App resource&#39;s secret key
      * 
      */
-    private final String primaryKey;
-    private final String resourceGroupName;
+    private String primaryKey;
+    private String resourceGroupName;
     /**
      * @return Function App resource&#39;s SignalR Extension system key.
      * 
      */
-    private final String signalrExtensionKey;
+    private String signalrExtensionKey;
 
-    @CustomType.Constructor
-    private GetFunctionAppHostKeysResult(
-        @CustomType.Parameter("defaultFunctionKey") String defaultFunctionKey,
-        @CustomType.Parameter("durabletaskExtensionKey") String durabletaskExtensionKey,
-        @CustomType.Parameter("eventGridExtensionConfigKey") String eventGridExtensionConfigKey,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("signalrExtensionKey") String signalrExtensionKey) {
-        this.defaultFunctionKey = defaultFunctionKey;
-        this.durabletaskExtensionKey = durabletaskExtensionKey;
-        this.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
-        this.id = id;
-        this.name = name;
-        this.primaryKey = primaryKey;
-        this.resourceGroupName = resourceGroupName;
-        this.signalrExtensionKey = signalrExtensionKey;
-    }
-
+    private GetFunctionAppHostKeysResult() {}
     /**
      * @return Function App resource&#39;s default function key.
      * 
@@ -118,7 +99,7 @@ public final class GetFunctionAppHostKeysResult {
     public static Builder builder(GetFunctionAppHostKeysResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultFunctionKey;
         private String durabletaskExtensionKey;
@@ -128,11 +109,7 @@ public final class GetFunctionAppHostKeysResult {
         private String primaryKey;
         private String resourceGroupName;
         private String signalrExtensionKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionAppHostKeysResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultFunctionKey = defaults.defaultFunctionKey;
@@ -145,39 +122,57 @@ public final class GetFunctionAppHostKeysResult {
     	      this.signalrExtensionKey = defaults.signalrExtensionKey;
         }
 
+        @CustomType.Setter
         public Builder defaultFunctionKey(String defaultFunctionKey) {
             this.defaultFunctionKey = Objects.requireNonNull(defaultFunctionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder durabletaskExtensionKey(String durabletaskExtensionKey) {
             this.durabletaskExtensionKey = Objects.requireNonNull(durabletaskExtensionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder eventGridExtensionConfigKey(String eventGridExtensionConfigKey) {
             this.eventGridExtensionConfigKey = Objects.requireNonNull(eventGridExtensionConfigKey);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder signalrExtensionKey(String signalrExtensionKey) {
             this.signalrExtensionKey = Objects.requireNonNull(signalrExtensionKey);
             return this;
-        }        public GetFunctionAppHostKeysResult build() {
-            return new GetFunctionAppHostKeysResult(defaultFunctionKey, durabletaskExtensionKey, eventGridExtensionConfigKey, id, name, primaryKey, resourceGroupName, signalrExtensionKey);
+        }
+        public GetFunctionAppHostKeysResult build() {
+            final var o = new GetFunctionAppHostKeysResult();
+            o.defaultFunctionKey = defaultFunctionKey;
+            o.durabletaskExtensionKey = durabletaskExtensionKey;
+            o.eventGridExtensionConfigKey = eventGridExtensionConfigKey;
+            o.id = id;
+            o.name = name;
+            o.primaryKey = primaryKey;
+            o.resourceGroupName = resourceGroupName;
+            o.signalrExtensionKey = signalrExtensionKey;
+            return o;
         }
     }
 }

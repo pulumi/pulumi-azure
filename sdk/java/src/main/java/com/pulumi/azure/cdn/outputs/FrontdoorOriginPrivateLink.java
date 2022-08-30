@@ -15,35 +15,24 @@ public final class FrontdoorOriginPrivateLink {
      * @return Specifies the location where the Private Link resource should exist.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The ID of the Azure Resource to connect to via the Private Link.
      * 
      */
-    private final String privateLinkTargetId;
+    private String privateLinkTargetId;
     /**
      * @return Specifies the request message that will be submitted to the `private_link_target_id` when requesting the private link endpoint connection. Values must be between `1` and `140` characters in length. Defaults to `Access request for CDN Frontdoor Private Link Origin`.
      * 
      */
-    private final @Nullable String requestMessage;
+    private @Nullable String requestMessage;
     /**
      * @return Specifies the type of target for this Private Link Endpoint. Possible values are `blob`, `blob_secondary`, `web` and `sites`.
      * 
      */
-    private final @Nullable String targetType;
+    private @Nullable String targetType;
 
-    @CustomType.Constructor
-    private FrontdoorOriginPrivateLink(
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("privateLinkTargetId") String privateLinkTargetId,
-        @CustomType.Parameter("requestMessage") @Nullable String requestMessage,
-        @CustomType.Parameter("targetType") @Nullable String targetType) {
-        this.location = location;
-        this.privateLinkTargetId = privateLinkTargetId;
-        this.requestMessage = requestMessage;
-        this.targetType = targetType;
-    }
-
+    private FrontdoorOriginPrivateLink() {}
     /**
      * @return Specifies the location where the Private Link resource should exist.
      * 
@@ -80,17 +69,13 @@ public final class FrontdoorOriginPrivateLink {
     public static Builder builder(FrontdoorOriginPrivateLink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String location;
         private String privateLinkTargetId;
         private @Nullable String requestMessage;
         private @Nullable String targetType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorOriginPrivateLink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.location = defaults.location;
@@ -99,23 +84,33 @@ public final class FrontdoorOriginPrivateLink {
     	      this.targetType = defaults.targetType;
         }
 
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkTargetId(String privateLinkTargetId) {
             this.privateLinkTargetId = Objects.requireNonNull(privateLinkTargetId);
             return this;
         }
+        @CustomType.Setter
         public Builder requestMessage(@Nullable String requestMessage) {
             this.requestMessage = requestMessage;
             return this;
         }
+        @CustomType.Setter
         public Builder targetType(@Nullable String targetType) {
             this.targetType = targetType;
             return this;
-        }        public FrontdoorOriginPrivateLink build() {
-            return new FrontdoorOriginPrivateLink(location, privateLinkTargetId, requestMessage, targetType);
+        }
+        public FrontdoorOriginPrivateLink build() {
+            final var o = new FrontdoorOriginPrivateLink();
+            o.location = location;
+            o.privateLinkTargetId = privateLinkTargetId;
+            o.requestMessage = requestMessage;
+            o.targetType = targetType;
+            return o;
         }
     }
 }

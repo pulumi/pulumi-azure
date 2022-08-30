@@ -15,21 +15,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
      * @return One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
+    private List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
     /**
      * @return The list of paths to match for this firewall policy. Possilbe value includes `/*`. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final String patternsToMatch;
+    private String patternsToMatch;
 
-    @CustomType.Constructor
-    private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(
-        @CustomType.Parameter("domains") List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains,
-        @CustomType.Parameter("patternsToMatch") String patternsToMatch) {
-        this.domains = domains;
-        this.patternsToMatch = patternsToMatch;
-    }
-
+    private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation() {}
     /**
      * @return One or more `domain` blocks as defined below. Changing this forces a new Frontdoor Security Policy to be created.
      * 
@@ -52,21 +45,18 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
     public static Builder builder(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
         private String patternsToMatch;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domains = defaults.domains;
     	      this.patternsToMatch = defaults.patternsToMatch;
         }
 
+        @CustomType.Setter
         public Builder domains(List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains) {
             this.domains = Objects.requireNonNull(domains);
             return this;
@@ -74,11 +64,16 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
         public Builder domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain... domains) {
             return domains(List.of(domains));
         }
+        @CustomType.Setter
         public Builder patternsToMatch(String patternsToMatch) {
             this.patternsToMatch = Objects.requireNonNull(patternsToMatch);
             return this;
-        }        public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation build() {
-            return new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(domains, patternsToMatch);
+        }
+        public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation build() {
+            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation();
+            o.domains = domains;
+            o.patternsToMatch = patternsToMatch;
+            return o;
         }
     }
 }

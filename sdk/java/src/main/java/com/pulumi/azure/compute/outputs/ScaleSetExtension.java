@@ -17,63 +17,44 @@ public final class ScaleSetExtension {
      * @return Specifies whether or not to use the latest minor version available.
      * 
      */
-    private final @Nullable Boolean autoUpgradeMinorVersion;
+    private @Nullable Boolean autoUpgradeMinorVersion;
     /**
      * @return Specifies the name of the extension.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The protected_settings passed to the extension, like settings, these are specified as a JSON object in a string.
      * 
      */
-    private final @Nullable String protectedSettings;
+    private @Nullable String protectedSettings;
     /**
      * @return Specifies a dependency array of extensions required to be executed before, the array stores the name of each extension.
      * 
      */
-    private final @Nullable List<String> provisionAfterExtensions;
+    private @Nullable List<String> provisionAfterExtensions;
     /**
      * @return The publisher of the extension, available publishers can be found by using the Azure CLI.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return The settings passed to the extension, these are specified as a JSON object in a string.
      * 
      */
-    private final @Nullable String settings;
+    private @Nullable String settings;
     /**
      * @return The type of extension, available types for a publisher can be found using the Azure CLI.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      */
-    private final String typeHandlerVersion;
+    private String typeHandlerVersion;
 
-    @CustomType.Constructor
-    private ScaleSetExtension(
-        @CustomType.Parameter("autoUpgradeMinorVersion") @Nullable Boolean autoUpgradeMinorVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protectedSettings") @Nullable String protectedSettings,
-        @CustomType.Parameter("provisionAfterExtensions") @Nullable List<String> provisionAfterExtensions,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("settings") @Nullable String settings,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("typeHandlerVersion") String typeHandlerVersion) {
-        this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
-        this.name = name;
-        this.protectedSettings = protectedSettings;
-        this.provisionAfterExtensions = provisionAfterExtensions;
-        this.publisher = publisher;
-        this.settings = settings;
-        this.type = type;
-        this.typeHandlerVersion = typeHandlerVersion;
-    }
-
+    private ScaleSetExtension() {}
     /**
      * @return Specifies whether or not to use the latest minor version available.
      * 
@@ -138,7 +119,7 @@ public final class ScaleSetExtension {
     public static Builder builder(ScaleSetExtension defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoUpgradeMinorVersion;
         private String name;
@@ -148,11 +129,7 @@ public final class ScaleSetExtension {
         private @Nullable String settings;
         private String type;
         private String typeHandlerVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetExtension defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUpgradeMinorVersion = defaults.autoUpgradeMinorVersion;
@@ -165,18 +142,22 @@ public final class ScaleSetExtension {
     	      this.typeHandlerVersion = defaults.typeHandlerVersion;
         }
 
+        @CustomType.Setter
         public Builder autoUpgradeMinorVersion(@Nullable Boolean autoUpgradeMinorVersion) {
             this.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protectedSettings(@Nullable String protectedSettings) {
             this.protectedSettings = protectedSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionAfterExtensions(@Nullable List<String> provisionAfterExtensions) {
             this.provisionAfterExtensions = provisionAfterExtensions;
             return this;
@@ -184,23 +165,37 @@ public final class ScaleSetExtension {
         public Builder provisionAfterExtensions(String... provisionAfterExtensions) {
             return provisionAfterExtensions(List.of(provisionAfterExtensions));
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder settings(@Nullable String settings) {
             this.settings = settings;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder typeHandlerVersion(String typeHandlerVersion) {
             this.typeHandlerVersion = Objects.requireNonNull(typeHandlerVersion);
             return this;
-        }        public ScaleSetExtension build() {
-            return new ScaleSetExtension(autoUpgradeMinorVersion, name, protectedSettings, provisionAfterExtensions, publisher, settings, type, typeHandlerVersion);
+        }
+        public ScaleSetExtension build() {
+            final var o = new ScaleSetExtension();
+            o.autoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            o.name = name;
+            o.protectedSettings = protectedSettings;
+            o.provisionAfterExtensions = provisionAfterExtensions;
+            o.publisher = publisher;
+            o.settings = settings;
+            o.type = type;
+            o.typeHandlerVersion = typeHandlerVersion;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetMxRecordRecord {
      * @return The mail server responsible for the domain covered by the MX record.
      * 
      */
-    private final String exchange;
+    private String exchange;
     /**
      * @return String representing the &#34;preference” value of the MX records. Records with lower preference value take priority.
      * 
      */
-    private final String preference;
+    private String preference;
 
-    @CustomType.Constructor
-    private GetMxRecordRecord(
-        @CustomType.Parameter("exchange") String exchange,
-        @CustomType.Parameter("preference") String preference) {
-        this.exchange = exchange;
-        this.preference = preference;
-    }
-
+    private GetMxRecordRecord() {}
     /**
      * @return The mail server responsible for the domain covered by the MX record.
      * 
@@ -50,30 +43,32 @@ public final class GetMxRecordRecord {
     public static Builder builder(GetMxRecordRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String exchange;
         private String preference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMxRecordRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exchange = defaults.exchange;
     	      this.preference = defaults.preference;
         }
 
+        @CustomType.Setter
         public Builder exchange(String exchange) {
             this.exchange = Objects.requireNonNull(exchange);
             return this;
         }
+        @CustomType.Setter
         public Builder preference(String preference) {
             this.preference = Objects.requireNonNull(preference);
             return this;
-        }        public GetMxRecordRecord build() {
-            return new GetMxRecordRecord(exchange, preference);
+        }
+        public GetMxRecordRecord build() {
+            final var o = new GetMxRecordRecord();
+            o.exchange = exchange;
+            o.preference = preference;
+            return o;
         }
     }
 }

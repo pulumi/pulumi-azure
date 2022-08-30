@@ -18,56 +18,39 @@ public final class RegistryTaskSourceTrigger {
      * @return A `authentication` block as defined above.
      * 
      */
-    private final @Nullable RegistryTaskSourceTriggerAuthentication authentication;
+    private @Nullable RegistryTaskSourceTriggerAuthentication authentication;
     /**
      * @return The branch name of the source code.
      * 
      */
-    private final @Nullable String branch;
+    private @Nullable String branch;
     /**
      * @return Should the trigger be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Specifies a list of source events corresponding to the trigger. Possible values are `commit` and `pullrequest`.
      * 
      */
-    private final List<String> events;
+    private List<String> events;
     /**
      * @return The name which should be used for this trigger.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The full URL to the source code repository.
      * 
      */
-    private final String repositoryUrl;
+    private String repositoryUrl;
     /**
      * @return The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
      * 
      */
-    private final String sourceType;
+    private String sourceType;
 
-    @CustomType.Constructor
-    private RegistryTaskSourceTrigger(
-        @CustomType.Parameter("authentication") @Nullable RegistryTaskSourceTriggerAuthentication authentication,
-        @CustomType.Parameter("branch") @Nullable String branch,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("events") List<String> events,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("repositoryUrl") String repositoryUrl,
-        @CustomType.Parameter("sourceType") String sourceType) {
-        this.authentication = authentication;
-        this.branch = branch;
-        this.enabled = enabled;
-        this.events = events;
-        this.name = name;
-        this.repositoryUrl = repositoryUrl;
-        this.sourceType = sourceType;
-    }
-
+    private RegistryTaskSourceTrigger() {}
     /**
      * @return A `authentication` block as defined above.
      * 
@@ -125,7 +108,7 @@ public final class RegistryTaskSourceTrigger {
     public static Builder builder(RegistryTaskSourceTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable RegistryTaskSourceTriggerAuthentication authentication;
         private @Nullable String branch;
@@ -134,11 +117,7 @@ public final class RegistryTaskSourceTrigger {
         private String name;
         private String repositoryUrl;
         private String sourceType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskSourceTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authentication = defaults.authentication;
@@ -150,18 +129,22 @@ public final class RegistryTaskSourceTrigger {
     	      this.sourceType = defaults.sourceType;
         }
 
+        @CustomType.Setter
         public Builder authentication(@Nullable RegistryTaskSourceTriggerAuthentication authentication) {
             this.authentication = authentication;
             return this;
         }
+        @CustomType.Setter
         public Builder branch(@Nullable String branch) {
             this.branch = branch;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder events(List<String> events) {
             this.events = Objects.requireNonNull(events);
             return this;
@@ -169,19 +152,31 @@ public final class RegistryTaskSourceTrigger {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryUrl(String repositoryUrl) {
             this.repositoryUrl = Objects.requireNonNull(repositoryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceType(String sourceType) {
             this.sourceType = Objects.requireNonNull(sourceType);
             return this;
-        }        public RegistryTaskSourceTrigger build() {
-            return new RegistryTaskSourceTrigger(authentication, branch, enabled, events, name, repositoryUrl, sourceType);
+        }
+        public RegistryTaskSourceTrigger build() {
+            final var o = new RegistryTaskSourceTrigger();
+            o.authentication = authentication;
+            o.branch = branch;
+            o.enabled = enabled;
+            o.events = events;
+            o.name = name;
+            o.repositoryUrl = repositoryUrl;
+            o.sourceType = sourceType;
+            return o;
         }
     }
 }

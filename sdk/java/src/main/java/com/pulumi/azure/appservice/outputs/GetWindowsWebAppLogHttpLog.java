@@ -15,21 +15,14 @@ public final class GetWindowsWebAppLogHttpLog {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
+    private List<GetWindowsWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
     /**
      * @return A `file_system` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppLogHttpLogFileSystem> fileSystems;
+    private List<GetWindowsWebAppLogHttpLogFileSystem> fileSystems;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppLogHttpLog(
-        @CustomType.Parameter("azureBlobStorages") List<GetWindowsWebAppLogHttpLogAzureBlobStorage> azureBlobStorages,
-        @CustomType.Parameter("fileSystems") List<GetWindowsWebAppLogHttpLogFileSystem> fileSystems) {
-        this.azureBlobStorages = azureBlobStorages;
-        this.fileSystems = fileSystems;
-    }
-
+    private GetWindowsWebAppLogHttpLog() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetWindowsWebAppLogHttpLog {
     public static Builder builder(GetWindowsWebAppLogHttpLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsWebAppLogHttpLogAzureBlobStorage> azureBlobStorages;
         private List<GetWindowsWebAppLogHttpLogFileSystem> fileSystems;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppLogHttpLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorages = defaults.azureBlobStorages;
     	      this.fileSystems = defaults.fileSystems;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorages(List<GetWindowsWebAppLogHttpLogAzureBlobStorage> azureBlobStorages) {
             this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
             return this;
@@ -74,14 +64,19 @@ public final class GetWindowsWebAppLogHttpLog {
         public Builder azureBlobStorages(GetWindowsWebAppLogHttpLogAzureBlobStorage... azureBlobStorages) {
             return azureBlobStorages(List.of(azureBlobStorages));
         }
+        @CustomType.Setter
         public Builder fileSystems(List<GetWindowsWebAppLogHttpLogFileSystem> fileSystems) {
             this.fileSystems = Objects.requireNonNull(fileSystems);
             return this;
         }
         public Builder fileSystems(GetWindowsWebAppLogHttpLogFileSystem... fileSystems) {
             return fileSystems(List.of(fileSystems));
-        }        public GetWindowsWebAppLogHttpLog build() {
-            return new GetWindowsWebAppLogHttpLog(azureBlobStorages, fileSystems);
+        }
+        public GetWindowsWebAppLogHttpLog build() {
+            final var o = new GetWindowsWebAppLogHttpLog();
+            o.azureBlobStorages = azureBlobStorages;
+            o.fileSystems = fileSystems;
+            return o;
         }
     }
 }

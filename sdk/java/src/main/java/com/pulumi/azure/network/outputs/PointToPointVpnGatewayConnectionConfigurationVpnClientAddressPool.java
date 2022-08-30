@@ -14,13 +14,9 @@ public final class PointToPointVpnGatewayConnectionConfigurationVpnClientAddress
      * @return A list of CIDR Ranges which should be used as Address Prefixes.
      * 
      */
-    private final List<String> addressPrefixes;
+    private List<String> addressPrefixes;
 
-    @CustomType.Constructor
-    private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(@CustomType.Parameter("addressPrefixes") List<String> addressPrefixes) {
-        this.addressPrefixes = addressPrefixes;
-    }
-
+    private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool() {}
     /**
      * @return A list of CIDR Ranges which should be used as Address Prefixes.
      * 
@@ -36,27 +32,27 @@ public final class PointToPointVpnGatewayConnectionConfigurationVpnClientAddress
     public static Builder builder(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> addressPrefixes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefixes = defaults.addressPrefixes;
         }
 
+        @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
             this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
             return this;
         }
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
-        }        public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool build() {
-            return new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool(addressPrefixes);
+        }
+        public PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool build() {
+            final var o = new PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool();
+            o.addressPrefixes = addressPrefixes;
+            return o;
         }
     }
 }

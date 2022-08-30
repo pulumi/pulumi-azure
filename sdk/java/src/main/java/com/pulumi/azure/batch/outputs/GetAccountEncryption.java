@@ -9,13 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountEncryption {
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
 
-    @CustomType.Constructor
-    private GetAccountEncryption(@CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId) {
-        this.keyVaultKeyId = keyVaultKeyId;
-    }
-
+    private GetAccountEncryption() {}
     public String keyVaultKeyId() {
         return this.keyVaultKeyId;
     }
@@ -27,24 +23,24 @@ public final class GetAccountEncryption {
     public static Builder builder(GetAccountEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyVaultKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
         }
 
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
-        }        public GetAccountEncryption build() {
-            return new GetAccountEncryption(keyVaultKeyId);
+        }
+        public GetAccountEncryption build() {
+            final var o = new GetAccountEncryption();
+            o.keyVaultKeyId = keyVaultKeyId;
+            return o;
         }
     }
 }

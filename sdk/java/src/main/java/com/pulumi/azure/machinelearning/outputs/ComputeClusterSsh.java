@@ -15,28 +15,19 @@ public final class ComputeClusterSsh {
      * @return Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final @Nullable String adminPassword;
+    private @Nullable String adminPassword;
     /**
      * @return Name of the administrator user account which can be used to SSH to nodes. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return SSH public key of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
      */
-    private final @Nullable String keyValue;
+    private @Nullable String keyValue;
 
-    @CustomType.Constructor
-    private ComputeClusterSsh(
-        @CustomType.Parameter("adminPassword") @Nullable String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("keyValue") @Nullable String keyValue) {
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.keyValue = keyValue;
-    }
-
+    private ComputeClusterSsh() {}
     /**
      * @return Password of the administrator user account. Changing this forces a new Machine Learning Compute Cluster to be created.
      * 
@@ -66,16 +57,12 @@ public final class ComputeClusterSsh {
     public static Builder builder(ComputeClusterSsh defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
         private String adminUsername;
         private @Nullable String keyValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeClusterSsh defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -83,19 +70,27 @@ public final class ComputeClusterSsh {
     	      this.keyValue = defaults.keyValue;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
             this.adminPassword = adminPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder keyValue(@Nullable String keyValue) {
             this.keyValue = keyValue;
             return this;
-        }        public ComputeClusterSsh build() {
-            return new ComputeClusterSsh(adminPassword, adminUsername, keyValue);
+        }
+        public ComputeClusterSsh build() {
+            final var o = new ComputeClusterSsh();
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.keyValue = keyValue;
+            return o;
         }
     }
 }

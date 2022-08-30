@@ -15,42 +15,29 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
      * @return The direction of required traffic. Possible values are `Inbound`, `Outbound`.
      * 
      */
-    private final String direction;
+    private String direction;
     /**
      * @return The FQDN list of required traffic.
      * 
      */
-    private final List<String> fqdns;
+    private List<String> fqdns;
     /**
      * @return The IP list of required traffic.
      * 
      */
-    private final List<String> ipAddresses;
+    private List<String> ipAddresses;
     /**
      * @return The port of required traffic.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The protocol of required traffic.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private GetSpringCloudServiceRequiredNetworkTrafficRule(
-        @CustomType.Parameter("direction") String direction,
-        @CustomType.Parameter("fqdns") List<String> fqdns,
-        @CustomType.Parameter("ipAddresses") List<String> ipAddresses,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.direction = direction;
-        this.fqdns = fqdns;
-        this.ipAddresses = ipAddresses;
-        this.port = port;
-        this.protocol = protocol;
-    }
-
+    private GetSpringCloudServiceRequiredNetworkTrafficRule() {}
     /**
      * @return The direction of required traffic. Possible values are `Inbound`, `Outbound`.
      * 
@@ -94,18 +81,14 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
     public static Builder builder(GetSpringCloudServiceRequiredNetworkTrafficRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String direction;
         private List<String> fqdns;
         private List<String> ipAddresses;
         private Integer port;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudServiceRequiredNetworkTrafficRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.direction = defaults.direction;
@@ -115,10 +98,12 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder direction(String direction) {
             this.direction = Objects.requireNonNull(direction);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdns(List<String> fqdns) {
             this.fqdns = Objects.requireNonNull(fqdns);
             return this;
@@ -126,6 +111,7 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
         public Builder fqdns(String... fqdns) {
             return fqdns(List.of(fqdns));
         }
+        @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
             this.ipAddresses = Objects.requireNonNull(ipAddresses);
             return this;
@@ -133,15 +119,24 @@ public final class GetSpringCloudServiceRequiredNetworkTrafficRule {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public GetSpringCloudServiceRequiredNetworkTrafficRule build() {
-            return new GetSpringCloudServiceRequiredNetworkTrafficRule(direction, fqdns, ipAddresses, port, protocol);
+        }
+        public GetSpringCloudServiceRequiredNetworkTrafficRule build() {
+            final var o = new GetSpringCloudServiceRequiredNetworkTrafficRule();
+            o.direction = direction;
+            o.fqdns = fqdns;
+            o.ipAddresses = ipAddresses;
+            o.port = port;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

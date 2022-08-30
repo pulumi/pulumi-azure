@@ -19,144 +19,95 @@ public final class GetCacheResult {
      * @return The size of the Redis Cache deployed.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Whether the SSL port is enabled.
      * 
      */
-    private final Boolean enableNonSslPort;
+    private Boolean enableNonSslPort;
     /**
      * @return The SKU family/pricing group used. Possible values are `C` (for Basic/Standard SKU family) and `P` (for `Premium`)
      * 
      */
-    private final String family;
+    private String family;
     /**
      * @return The Hostname of the Redis Instance
      * 
      */
-    private final String hostname;
+    private String hostname;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the Redis Cache.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The minimum TLS version.
      * 
      */
-    private final String minimumTlsVersion;
-    private final String name;
+    private String minimumTlsVersion;
+    private String name;
     /**
      * @return A list of `patch_schedule` blocks as defined below.
      * 
      */
-    private final List<GetCachePatchSchedule> patchSchedules;
+    private List<GetCachePatchSchedule> patchSchedules;
     /**
      * @return The non-SSL Port of the Redis Instance
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return The Primary Access Key for the Redis Instance
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return The primary connection string of the Redis Instance.
      * 
      */
-    private final String primaryConnectionString;
-    private final String privateStaticIpAddress;
+    private String primaryConnectionString;
+    private String privateStaticIpAddress;
     /**
      * @return A `redis_configuration` block as defined below.
      * 
      */
-    private final List<GetCacheRedisConfiguration> redisConfigurations;
-    private final String resourceGroupName;
+    private List<GetCacheRedisConfiguration> redisConfigurations;
+    private String resourceGroupName;
     /**
      * @return The Secondary Access Key for the Redis Instance
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The secondary connection string of the Redis Instance.
      * 
      */
-    private final String secondaryConnectionString;
-    private final Integer shardCount;
+    private String secondaryConnectionString;
+    private Integer shardCount;
     /**
      * @return The SKU of Redis used. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The SSL Port of the Redis Instance
      * 
      */
-    private final Integer sslPort;
-    private final String subnetId;
-    private final Map<String,String> tags;
+    private Integer sslPort;
+    private String subnetId;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones in which this Redis Cache is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetCacheResult(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("enableNonSslPort") Boolean enableNonSslPort,
-        @CustomType.Parameter("family") String family,
-        @CustomType.Parameter("hostname") String hostname,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("minimumTlsVersion") String minimumTlsVersion,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("patchSchedules") List<GetCachePatchSchedule> patchSchedules,
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("privateStaticIpAddress") String privateStaticIpAddress,
-        @CustomType.Parameter("redisConfigurations") List<GetCacheRedisConfiguration> redisConfigurations,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("shardCount") Integer shardCount,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("sslPort") Integer sslPort,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.capacity = capacity;
-        this.enableNonSslPort = enableNonSslPort;
-        this.family = family;
-        this.hostname = hostname;
-        this.id = id;
-        this.location = location;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.name = name;
-        this.patchSchedules = patchSchedules;
-        this.port = port;
-        this.primaryAccessKey = primaryAccessKey;
-        this.primaryConnectionString = primaryConnectionString;
-        this.privateStaticIpAddress = privateStaticIpAddress;
-        this.redisConfigurations = redisConfigurations;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.shardCount = shardCount;
-        this.skuName = skuName;
-        this.sslPort = sslPort;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetCacheResult() {}
     /**
      * @return The size of the Redis Cache deployed.
      * 
@@ -302,7 +253,7 @@ public final class GetCacheResult {
     public static Builder builder(GetCacheResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private Boolean enableNonSslPort;
@@ -327,11 +278,7 @@ public final class GetCacheResult {
         private String subnetId;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCacheResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -359,38 +306,47 @@ public final class GetCacheResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder enableNonSslPort(Boolean enableNonSslPort) {
             this.enableNonSslPort = Objects.requireNonNull(enableNonSslPort);
             return this;
         }
+        @CustomType.Setter
         public Builder family(String family) {
             this.family = Objects.requireNonNull(family);
             return this;
         }
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder patchSchedules(List<GetCachePatchSchedule> patchSchedules) {
             this.patchSchedules = Objects.requireNonNull(patchSchedules);
             return this;
@@ -398,22 +354,27 @@ public final class GetCacheResult {
         public Builder patchSchedules(GetCachePatchSchedule... patchSchedules) {
             return patchSchedules(List.of(patchSchedules));
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder privateStaticIpAddress(String privateStaticIpAddress) {
             this.privateStaticIpAddress = Objects.requireNonNull(privateStaticIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder redisConfigurations(List<GetCacheRedisConfiguration> redisConfigurations) {
             this.redisConfigurations = Objects.requireNonNull(redisConfigurations);
             return this;
@@ -421,46 +382,80 @@ public final class GetCacheResult {
         public Builder redisConfigurations(GetCacheRedisConfiguration... redisConfigurations) {
             return redisConfigurations(List.of(redisConfigurations));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder shardCount(Integer shardCount) {
             this.shardCount = Objects.requireNonNull(shardCount);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder sslPort(Integer sslPort) {
             this.sslPort = Objects.requireNonNull(sslPort);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetCacheResult build() {
-            return new GetCacheResult(capacity, enableNonSslPort, family, hostname, id, location, minimumTlsVersion, name, patchSchedules, port, primaryAccessKey, primaryConnectionString, privateStaticIpAddress, redisConfigurations, resourceGroupName, secondaryAccessKey, secondaryConnectionString, shardCount, skuName, sslPort, subnetId, tags, zones);
+        }
+        public GetCacheResult build() {
+            final var o = new GetCacheResult();
+            o.capacity = capacity;
+            o.enableNonSslPort = enableNonSslPort;
+            o.family = family;
+            o.hostname = hostname;
+            o.id = id;
+            o.location = location;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.name = name;
+            o.patchSchedules = patchSchedules;
+            o.port = port;
+            o.primaryAccessKey = primaryAccessKey;
+            o.primaryConnectionString = primaryConnectionString;
+            o.privateStaticIpAddress = privateStaticIpAddress;
+            o.redisConfigurations = redisConfigurations;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.shardCount = shardCount;
+            o.skuName = skuName;
+            o.sslPort = sslPort;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

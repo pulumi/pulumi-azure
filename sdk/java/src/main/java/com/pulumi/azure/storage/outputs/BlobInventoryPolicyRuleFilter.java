@@ -17,35 +17,24 @@ public final class BlobInventoryPolicyRuleFilter {
      * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
      */
-    private final List<String> blobTypes;
+    private List<String> blobTypes;
     /**
      * @return Includes blob versions in blob inventory or not? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean includeBlobVersions;
+    private @Nullable Boolean includeBlobVersions;
     /**
      * @return Includes blob snapshots in blob inventory or not? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean includeSnapshots;
+    private @Nullable Boolean includeSnapshots;
     /**
      * @return A set of strings for blob prefixes to be matched.
      * 
      */
-    private final @Nullable List<String> prefixMatches;
+    private @Nullable List<String> prefixMatches;
 
-    @CustomType.Constructor
-    private BlobInventoryPolicyRuleFilter(
-        @CustomType.Parameter("blobTypes") List<String> blobTypes,
-        @CustomType.Parameter("includeBlobVersions") @Nullable Boolean includeBlobVersions,
-        @CustomType.Parameter("includeSnapshots") @Nullable Boolean includeSnapshots,
-        @CustomType.Parameter("prefixMatches") @Nullable List<String> prefixMatches) {
-        this.blobTypes = blobTypes;
-        this.includeBlobVersions = includeBlobVersions;
-        this.includeSnapshots = includeSnapshots;
-        this.prefixMatches = prefixMatches;
-    }
-
+    private BlobInventoryPolicyRuleFilter() {}
     /**
      * @return A set of blob types. Possible values are `blockBlob`, `appendBlob`, and `pageBlob`. The storage account with `is_hns_enabled` is `true` doesn&#39;t support `pageBlob`.
      * 
@@ -82,17 +71,13 @@ public final class BlobInventoryPolicyRuleFilter {
     public static Builder builder(BlobInventoryPolicyRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> blobTypes;
         private @Nullable Boolean includeBlobVersions;
         private @Nullable Boolean includeSnapshots;
         private @Nullable List<String> prefixMatches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BlobInventoryPolicyRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
@@ -101,6 +86,7 @@ public final class BlobInventoryPolicyRuleFilter {
     	      this.prefixMatches = defaults.prefixMatches;
         }
 
+        @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
             this.blobTypes = Objects.requireNonNull(blobTypes);
             return this;
@@ -108,22 +94,31 @@ public final class BlobInventoryPolicyRuleFilter {
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
         }
+        @CustomType.Setter
         public Builder includeBlobVersions(@Nullable Boolean includeBlobVersions) {
             this.includeBlobVersions = includeBlobVersions;
             return this;
         }
+        @CustomType.Setter
         public Builder includeSnapshots(@Nullable Boolean includeSnapshots) {
             this.includeSnapshots = includeSnapshots;
             return this;
         }
+        @CustomType.Setter
         public Builder prefixMatches(@Nullable List<String> prefixMatches) {
             this.prefixMatches = prefixMatches;
             return this;
         }
         public Builder prefixMatches(String... prefixMatches) {
             return prefixMatches(List.of(prefixMatches));
-        }        public BlobInventoryPolicyRuleFilter build() {
-            return new BlobInventoryPolicyRuleFilter(blobTypes, includeBlobVersions, includeSnapshots, prefixMatches);
+        }
+        public BlobInventoryPolicyRuleFilter build() {
+            final var o = new BlobInventoryPolicyRuleFilter();
+            o.blobTypes = blobTypes;
+            o.includeBlobVersions = includeBlobVersions;
+            o.includeSnapshots = includeSnapshots;
+            o.prefixMatches = prefixMatches;
+            return o;
         }
     }
 }

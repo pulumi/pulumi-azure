@@ -18,42 +18,29 @@ public final class ServiceCorsConfiguration {
      * @return If credentials are allowed via CORS.
      * 
      */
-    private final @Nullable Boolean allowCredentials;
+    private @Nullable Boolean allowCredentials;
     /**
      * @return A set of headers to be allowed via CORS.
      * 
      */
-    private final @Nullable List<String> allowedHeaders;
+    private @Nullable List<String> allowedHeaders;
     /**
      * @return The methods to be allowed via CORS.
      * 
      */
-    private final @Nullable List<String> allowedMethods;
+    private @Nullable List<String> allowedMethods;
     /**
      * @return A set of origins to be allowed via CORS.
      * 
      */
-    private final @Nullable List<String> allowedOrigins;
+    private @Nullable List<String> allowedOrigins;
     /**
      * @return The max age to be allowed via CORS.
      * 
      */
-    private final @Nullable Integer maxAgeInSeconds;
+    private @Nullable Integer maxAgeInSeconds;
 
-    @CustomType.Constructor
-    private ServiceCorsConfiguration(
-        @CustomType.Parameter("allowCredentials") @Nullable Boolean allowCredentials,
-        @CustomType.Parameter("allowedHeaders") @Nullable List<String> allowedHeaders,
-        @CustomType.Parameter("allowedMethods") @Nullable List<String> allowedMethods,
-        @CustomType.Parameter("allowedOrigins") @Nullable List<String> allowedOrigins,
-        @CustomType.Parameter("maxAgeInSeconds") @Nullable Integer maxAgeInSeconds) {
-        this.allowCredentials = allowCredentials;
-        this.allowedHeaders = allowedHeaders;
-        this.allowedMethods = allowedMethods;
-        this.allowedOrigins = allowedOrigins;
-        this.maxAgeInSeconds = maxAgeInSeconds;
-    }
-
+    private ServiceCorsConfiguration() {}
     /**
      * @return If credentials are allowed via CORS.
      * 
@@ -97,18 +84,14 @@ public final class ServiceCorsConfiguration {
     public static Builder builder(ServiceCorsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean allowCredentials;
         private @Nullable List<String> allowedHeaders;
         private @Nullable List<String> allowedMethods;
         private @Nullable List<String> allowedOrigins;
         private @Nullable Integer maxAgeInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceCorsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowCredentials = defaults.allowCredentials;
@@ -118,10 +101,12 @@ public final class ServiceCorsConfiguration {
     	      this.maxAgeInSeconds = defaults.maxAgeInSeconds;
         }
 
+        @CustomType.Setter
         public Builder allowCredentials(@Nullable Boolean allowCredentials) {
             this.allowCredentials = allowCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder allowedHeaders(@Nullable List<String> allowedHeaders) {
             this.allowedHeaders = allowedHeaders;
             return this;
@@ -129,6 +114,7 @@ public final class ServiceCorsConfiguration {
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
+        @CustomType.Setter
         public Builder allowedMethods(@Nullable List<String> allowedMethods) {
             this.allowedMethods = allowedMethods;
             return this;
@@ -136,6 +122,7 @@ public final class ServiceCorsConfiguration {
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
+        @CustomType.Setter
         public Builder allowedOrigins(@Nullable List<String> allowedOrigins) {
             this.allowedOrigins = allowedOrigins;
             return this;
@@ -143,11 +130,19 @@ public final class ServiceCorsConfiguration {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder maxAgeInSeconds(@Nullable Integer maxAgeInSeconds) {
             this.maxAgeInSeconds = maxAgeInSeconds;
             return this;
-        }        public ServiceCorsConfiguration build() {
-            return new ServiceCorsConfiguration(allowCredentials, allowedHeaders, allowedMethods, allowedOrigins, maxAgeInSeconds);
+        }
+        public ServiceCorsConfiguration build() {
+            final var o = new ServiceCorsConfiguration();
+            o.allowCredentials = allowCredentials;
+            o.allowedHeaders = allowedHeaders;
+            o.allowedMethods = allowedMethods;
+            o.allowedOrigins = allowedOrigins;
+            o.maxAgeInSeconds = maxAgeInSeconds;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class ApplicationGatewayTrustedRootCertificate {
      * @return The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Secret ID of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if `data` is not set.
      * 
      */
-    private final @Nullable String keyVaultSecretId;
+    private @Nullable String keyVaultSecretId;
     /**
      * @return The Name of the Trusted Root Certificate to use.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ApplicationGatewayTrustedRootCertificate(
-        @CustomType.Parameter("data") @Nullable String data,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("keyVaultSecretId") @Nullable String keyVaultSecretId,
-        @CustomType.Parameter("name") String name) {
-        this.data = data;
-        this.id = id;
-        this.keyVaultSecretId = keyVaultSecretId;
-        this.name = name;
-    }
-
+    private ApplicationGatewayTrustedRootCertificate() {}
     /**
      * @return The contents of the Trusted Root Certificate which should be used. Required if `key_vault_secret_id` is not set.
      * 
@@ -80,17 +69,13 @@ public final class ApplicationGatewayTrustedRootCertificate {
     public static Builder builder(ApplicationGatewayTrustedRootCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
         private @Nullable String id;
         private @Nullable String keyVaultSecretId;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayTrustedRootCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
@@ -99,23 +84,33 @@ public final class ApplicationGatewayTrustedRootCertificate {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
             this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ApplicationGatewayTrustedRootCertificate build() {
-            return new ApplicationGatewayTrustedRootCertificate(data, id, keyVaultSecretId, name);
+        }
+        public ApplicationGatewayTrustedRootCertificate build() {
+            final var o = new ApplicationGatewayTrustedRootCertificate();
+            o.data = data;
+            o.id = id;
+            o.keyVaultSecretId = keyVaultSecretId;
+            o.name = name;
+            return o;
         }
     }
 }

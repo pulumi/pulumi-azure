@@ -15,21 +15,14 @@ public final class WorkspaceCustomerManagedKey {
      * @return An identifier for the key. Name needs to match the name of the key used with the `azure.synapse.WorkspaceKey` resource. Defaults to &#34;cmk&#34; if not specified.
      * 
      */
-    private final @Nullable String keyName;
+    private @Nullable String keyName;
     /**
      * @return The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. `https://example-keyvault.vault.azure.net/type/cmk/`).
      * 
      */
-    private final String keyVersionlessId;
+    private String keyVersionlessId;
 
-    @CustomType.Constructor
-    private WorkspaceCustomerManagedKey(
-        @CustomType.Parameter("keyName") @Nullable String keyName,
-        @CustomType.Parameter("keyVersionlessId") String keyVersionlessId) {
-        this.keyName = keyName;
-        this.keyVersionlessId = keyVersionlessId;
-    }
-
+    private WorkspaceCustomerManagedKey() {}
     /**
      * @return An identifier for the key. Name needs to match the name of the key used with the `azure.synapse.WorkspaceKey` resource. Defaults to &#34;cmk&#34; if not specified.
      * 
@@ -52,30 +45,32 @@ public final class WorkspaceCustomerManagedKey {
     public static Builder builder(WorkspaceCustomerManagedKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String keyName;
         private String keyVersionlessId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyName = defaults.keyName;
     	      this.keyVersionlessId = defaults.keyVersionlessId;
         }
 
+        @CustomType.Setter
         public Builder keyName(@Nullable String keyName) {
             this.keyName = keyName;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVersionlessId(String keyVersionlessId) {
             this.keyVersionlessId = Objects.requireNonNull(keyVersionlessId);
             return this;
-        }        public WorkspaceCustomerManagedKey build() {
-            return new WorkspaceCustomerManagedKey(keyName, keyVersionlessId);
+        }
+        public WorkspaceCustomerManagedKey build() {
+            final var o = new WorkspaceCustomerManagedKey();
+            o.keyName = keyName;
+            o.keyVersionlessId = keyVersionlessId;
+            return o;
         }
     }
 }

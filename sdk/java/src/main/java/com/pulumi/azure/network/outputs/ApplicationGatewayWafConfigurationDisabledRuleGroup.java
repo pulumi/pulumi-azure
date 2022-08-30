@@ -16,21 +16,14 @@ public final class ApplicationGatewayWafConfigurationDisabledRuleGroup {
      * @return The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
      * 
      */
-    private final String ruleGroupName;
+    private String ruleGroupName;
     /**
      * @return A list of rules which should be disabled in that group. Disables all rules in the specified group if `rules` is not specified.
      * 
      */
-    private final @Nullable List<Integer> rules;
+    private @Nullable List<Integer> rules;
 
-    @CustomType.Constructor
-    private ApplicationGatewayWafConfigurationDisabledRuleGroup(
-        @CustomType.Parameter("ruleGroupName") String ruleGroupName,
-        @CustomType.Parameter("rules") @Nullable List<Integer> rules) {
-        this.ruleGroupName = ruleGroupName;
-        this.rules = rules;
-    }
-
+    private ApplicationGatewayWafConfigurationDisabledRuleGroup() {}
     /**
      * @return The rule group where specific rules should be disabled. Accepted values are:  `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `General`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`
      * 
@@ -53,33 +46,35 @@ public final class ApplicationGatewayWafConfigurationDisabledRuleGroup {
     public static Builder builder(ApplicationGatewayWafConfigurationDisabledRuleGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ruleGroupName;
         private @Nullable List<Integer> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayWafConfigurationDisabledRuleGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleGroupName = defaults.ruleGroupName;
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<Integer> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(Integer... rules) {
             return rules(List.of(rules));
-        }        public ApplicationGatewayWafConfigurationDisabledRuleGroup build() {
-            return new ApplicationGatewayWafConfigurationDisabledRuleGroup(ruleGroupName, rules);
+        }
+        public ApplicationGatewayWafConfigurationDisabledRuleGroup build() {
+            final var o = new ApplicationGatewayWafConfigurationDisabledRuleGroup();
+            o.ruleGroupName = ruleGroupName;
+            o.rules = rules;
+            return o;
         }
     }
 }

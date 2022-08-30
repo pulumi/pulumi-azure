@@ -16,42 +16,29 @@ public final class LinkServiceNatIpConfiguration {
      * @return Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return Specifies a Private Static IP Address for this IP Configuration.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
      * 
      */
-    private final @Nullable String privateIpAddressVersion;
+    private @Nullable String privateIpAddressVersion;
     /**
      * @return Specifies the ID of the Subnet which should be used for the Private Link Service.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private LinkServiceNatIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressVersion") @Nullable String privateIpAddressVersion,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.primary = primary;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.subnetId = subnetId;
-    }
-
+    private LinkServiceNatIpConfiguration() {}
     /**
      * @return Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
      * 
@@ -95,18 +82,14 @@ public final class LinkServiceNatIpConfiguration {
     public static Builder builder(LinkServiceNatIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Boolean primary;
         private @Nullable String privateIpAddress;
         private @Nullable String privateIpAddressVersion;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkServiceNatIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -116,27 +99,39 @@ public final class LinkServiceNatIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(@Nullable String privateIpAddressVersion) {
             this.privateIpAddressVersion = privateIpAddressVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public LinkServiceNatIpConfiguration build() {
-            return new LinkServiceNatIpConfiguration(name, primary, privateIpAddress, privateIpAddressVersion, subnetId);
+        }
+        public LinkServiceNatIpConfiguration build() {
+            final var o = new LinkServiceNatIpConfiguration();
+            o.name = name;
+            o.primary = primary;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

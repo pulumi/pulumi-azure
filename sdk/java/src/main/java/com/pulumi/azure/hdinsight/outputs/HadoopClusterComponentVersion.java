@@ -13,13 +13,9 @@ public final class HadoopClusterComponentVersion {
      * @return The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String hadoop;
+    private String hadoop;
 
-    @CustomType.Constructor
-    private HadoopClusterComponentVersion(@CustomType.Parameter("hadoop") String hadoop) {
-        this.hadoop = hadoop;
-    }
-
+    private HadoopClusterComponentVersion() {}
     /**
      * @return The version of Hadoop which should be used for this HDInsight Hadoop Cluster. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class HadoopClusterComponentVersion {
     public static Builder builder(HadoopClusterComponentVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hadoop;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterComponentVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hadoop = defaults.hadoop;
         }
 
+        @CustomType.Setter
         public Builder hadoop(String hadoop) {
             this.hadoop = Objects.requireNonNull(hadoop);
             return this;
-        }        public HadoopClusterComponentVersion build() {
-            return new HadoopClusterComponentVersion(hadoop);
+        }
+        public HadoopClusterComponentVersion build() {
+            final var o = new HadoopClusterComponentVersion();
+            o.hadoop = hadoop;
+            return o;
         }
     }
 }

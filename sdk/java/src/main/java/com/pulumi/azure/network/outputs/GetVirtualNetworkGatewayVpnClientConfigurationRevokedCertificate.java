@@ -13,17 +13,10 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertific
      * @return Specifies the name of the Virtual Network Gateway.
      * 
      */
-    private final String name;
-    private final String thumbprint;
+    private String name;
+    private String thumbprint;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("thumbprint") String thumbprint) {
-        this.name = name;
-        this.thumbprint = thumbprint;
-    }
-
+    private GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate() {}
     /**
      * @return Specifies the name of the Virtual Network Gateway.
      * 
@@ -42,30 +35,32 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertific
     public static Builder builder(GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
-        }        public GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate build() {
-            return new GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate(name, thumbprint);
+        }
+        public GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate build() {
+            final var o = new GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate();
+            o.name = name;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

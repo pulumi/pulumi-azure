@@ -14,36 +14,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
-    private final @Nullable List<String> dnsServers;
-    private final @Nullable Boolean enableAcceleratedNetworking;
-    private final @Nullable Boolean enableIpForwarding;
-    private final List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    private @Nullable List<String> dnsServers;
+    private @Nullable Boolean enableAcceleratedNetworking;
+    private @Nullable Boolean enableIpForwarding;
+    private List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
-    private final @Nullable String networkSecurityGroupId;
-    private final @Nullable Boolean primary;
+    private String name;
+    private @Nullable String networkSecurityGroupId;
+    private @Nullable Boolean primary;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetNetworkInterface(
-        @CustomType.Parameter("dnsServers") @Nullable List<String> dnsServers,
-        @CustomType.Parameter("enableAcceleratedNetworking") @Nullable Boolean enableAcceleratedNetworking,
-        @CustomType.Parameter("enableIpForwarding") @Nullable Boolean enableIpForwarding,
-        @CustomType.Parameter("ipConfigurations") List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupId") @Nullable String networkSecurityGroupId,
-        @CustomType.Parameter("primary") @Nullable Boolean primary) {
-        this.dnsServers = dnsServers;
-        this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-        this.enableIpForwarding = enableIpForwarding;
-        this.ipConfigurations = ipConfigurations;
-        this.name = name;
-        this.networkSecurityGroupId = networkSecurityGroupId;
-        this.primary = primary;
-    }
-
+    private OrchestratedVirtualMachineScaleSetNetworkInterface() {}
     public List<String> dnsServers() {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
@@ -77,7 +60,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     public static Builder builder(OrchestratedVirtualMachineScaleSetNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> dnsServers;
         private @Nullable Boolean enableAcceleratedNetworking;
@@ -86,11 +69,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         private String name;
         private @Nullable String networkSecurityGroupId;
         private @Nullable Boolean primary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
@@ -102,6 +81,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(@Nullable List<String> dnsServers) {
             this.dnsServers = dnsServers;
             return this;
@@ -109,14 +89,17 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder enableAcceleratedNetworking(@Nullable Boolean enableAcceleratedNetworking) {
             this.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
+        @CustomType.Setter
         public Builder enableIpForwarding(@Nullable Boolean enableIpForwarding) {
             this.enableIpForwarding = enableIpForwarding;
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -124,19 +107,31 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         public Builder ipConfigurations(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupId(@Nullable String networkSecurityGroupId) {
             this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
             this.primary = primary;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetNetworkInterface build() {
-            return new OrchestratedVirtualMachineScaleSetNetworkInterface(dnsServers, enableAcceleratedNetworking, enableIpForwarding, ipConfigurations, name, networkSecurityGroupId, primary);
+        }
+        public OrchestratedVirtualMachineScaleSetNetworkInterface build() {
+            final var o = new OrchestratedVirtualMachineScaleSetNetworkInterface();
+            o.dnsServers = dnsServers;
+            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            o.enableIpForwarding = enableIpForwarding;
+            o.ipConfigurations = ipConfigurations;
+            o.name = name;
+            o.networkSecurityGroupId = networkSecurityGroupId;
+            o.primary = primary;
+            return o;
         }
     }
 }

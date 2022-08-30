@@ -13,21 +13,14 @@ public final class SqlPoolRestore {
      * @return Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
-    private final String pointInTime;
+    private String pointInTime;
     /**
      * @return The ID of the Synapse SQL Pool or SQL Database which is to restore. Changing this forces a new Synapse SQL Pool to be created.
      * 
      */
-    private final String sourceDatabaseId;
+    private String sourceDatabaseId;
 
-    @CustomType.Constructor
-    private SqlPoolRestore(
-        @CustomType.Parameter("pointInTime") String pointInTime,
-        @CustomType.Parameter("sourceDatabaseId") String sourceDatabaseId) {
-        this.pointInTime = pointInTime;
-        this.sourceDatabaseId = sourceDatabaseId;
-    }
-
+    private SqlPoolRestore() {}
     /**
      * @return Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
      * 
@@ -50,30 +43,32 @@ public final class SqlPoolRestore {
     public static Builder builder(SqlPoolRestore defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String pointInTime;
         private String sourceDatabaseId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlPoolRestore defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.pointInTime = defaults.pointInTime;
     	      this.sourceDatabaseId = defaults.sourceDatabaseId;
         }
 
+        @CustomType.Setter
         public Builder pointInTime(String pointInTime) {
             this.pointInTime = Objects.requireNonNull(pointInTime);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceDatabaseId(String sourceDatabaseId) {
             this.sourceDatabaseId = Objects.requireNonNull(sourceDatabaseId);
             return this;
-        }        public SqlPoolRestore build() {
-            return new SqlPoolRestore(pointInTime, sourceDatabaseId);
+        }
+        public SqlPoolRestore build() {
+            final var o = new SqlPoolRestore();
+            o.pointInTime = pointInTime;
+            o.sourceDatabaseId = sourceDatabaseId;
+            return o;
         }
     }
 }

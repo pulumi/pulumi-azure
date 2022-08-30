@@ -13,28 +13,19 @@ public final class WorkspaceSqlAadAdmin {
      * @return The login name of the Azure AD Administrator of this Synapse Workspace SQL.
      * 
      */
-    private final String login;
+    private String login;
     /**
      * @return The object id of the Azure AD Administrator of this Synapse Workspace SQL.
      * 
      */
-    private final String objectId;
+    private String objectId;
     /**
      * @return The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private WorkspaceSqlAadAdmin(
-        @CustomType.Parameter("login") String login,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.login = login;
-        this.objectId = objectId;
-        this.tenantId = tenantId;
-    }
-
+    private WorkspaceSqlAadAdmin() {}
     /**
      * @return The login name of the Azure AD Administrator of this Synapse Workspace SQL.
      * 
@@ -64,16 +55,12 @@ public final class WorkspaceSqlAadAdmin {
     public static Builder builder(WorkspaceSqlAadAdmin defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String login;
         private String objectId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceSqlAadAdmin defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.login = defaults.login;
@@ -81,19 +68,27 @@ public final class WorkspaceSqlAadAdmin {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder login(String login) {
             this.login = Objects.requireNonNull(login);
             return this;
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public WorkspaceSqlAadAdmin build() {
-            return new WorkspaceSqlAadAdmin(login, objectId, tenantId);
+        }
+        public WorkspaceSqlAadAdmin build() {
+            final var o = new WorkspaceSqlAadAdmin();
+            o.login = login;
+            o.objectId = objectId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class RegistryGeoreplication {
      * @return A location where the container registry should be geo-replicated.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return Whether regional endpoint is enabled for this Container Registry? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean regionalEndpointEnabled;
+    private @Nullable Boolean regionalEndpointEnabled;
     /**
      * @return A mapping of tags to assign to this replication location.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return Whether zone redundancy is enabled for this replication location? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean zoneRedundancyEnabled;
+    private @Nullable Boolean zoneRedundancyEnabled;
 
-    @CustomType.Constructor
-    private RegistryGeoreplication(
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("regionalEndpointEnabled") @Nullable Boolean regionalEndpointEnabled,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundancyEnabled") @Nullable Boolean zoneRedundancyEnabled) {
-        this.location = location;
-        this.regionalEndpointEnabled = regionalEndpointEnabled;
-        this.tags = tags;
-        this.zoneRedundancyEnabled = zoneRedundancyEnabled;
-    }
-
+    private RegistryGeoreplication() {}
     /**
      * @return A location where the container registry should be geo-replicated.
      * 
@@ -82,17 +71,13 @@ public final class RegistryGeoreplication {
     public static Builder builder(RegistryGeoreplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String location;
         private @Nullable Boolean regionalEndpointEnabled;
         private @Nullable Map<String,String> tags;
         private @Nullable Boolean zoneRedundancyEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryGeoreplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.location = defaults.location;
@@ -101,23 +86,33 @@ public final class RegistryGeoreplication {
     	      this.zoneRedundancyEnabled = defaults.zoneRedundancyEnabled;
         }
 
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder regionalEndpointEnabled(@Nullable Boolean regionalEndpointEnabled) {
             this.regionalEndpointEnabled = regionalEndpointEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundancyEnabled(@Nullable Boolean zoneRedundancyEnabled) {
             this.zoneRedundancyEnabled = zoneRedundancyEnabled;
             return this;
-        }        public RegistryGeoreplication build() {
-            return new RegistryGeoreplication(location, regionalEndpointEnabled, tags, zoneRedundancyEnabled);
+        }
+        public RegistryGeoreplication build() {
+            final var o = new RegistryGeoreplication();
+            o.location = location;
+            o.regionalEndpointEnabled = regionalEndpointEnabled;
+            o.tags = tags;
+            o.zoneRedundancyEnabled = zoneRedundancyEnabled;
+            return o;
         }
     }
 }

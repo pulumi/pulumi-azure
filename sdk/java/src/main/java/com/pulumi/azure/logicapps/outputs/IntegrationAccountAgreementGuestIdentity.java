@@ -13,21 +13,14 @@ public final class IntegrationAccountAgreementGuestIdentity {
      * @return The authenticating body that provides unique guest identities to organizations.
      * 
      */
-    private final String qualifier;
+    private String qualifier;
     /**
      * @return The value that identifies the documents that your logic apps receive.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private IntegrationAccountAgreementGuestIdentity(
-        @CustomType.Parameter("qualifier") String qualifier,
-        @CustomType.Parameter("value") String value) {
-        this.qualifier = qualifier;
-        this.value = value;
-    }
-
+    private IntegrationAccountAgreementGuestIdentity() {}
     /**
      * @return The authenticating body that provides unique guest identities to organizations.
      * 
@@ -50,30 +43,32 @@ public final class IntegrationAccountAgreementGuestIdentity {
     public static Builder builder(IntegrationAccountAgreementGuestIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String qualifier;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountAgreementGuestIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.qualifier = defaults.qualifier;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder qualifier(String qualifier) {
             this.qualifier = Objects.requireNonNull(qualifier);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public IntegrationAccountAgreementGuestIdentity build() {
-            return new IntegrationAccountAgreementGuestIdentity(qualifier, value);
+        }
+        public IntegrationAccountAgreementGuestIdentity build() {
+            final var o = new IntegrationAccountAgreementGuestIdentity();
+            o.qualifier = qualifier;
+            o.value = value;
+            return o;
         }
     }
 }

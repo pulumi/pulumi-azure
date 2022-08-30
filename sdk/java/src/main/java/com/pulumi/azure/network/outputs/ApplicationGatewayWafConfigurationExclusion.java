@@ -15,28 +15,19 @@ public final class ApplicationGatewayWafConfigurationExclusion {
      * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
      * 
      */
-    private final String matchVariable;
+    private String matchVariable;
     /**
      * @return String value which will be used for the filter operation. If empty will exclude all traffic on this `match_variable`
      * 
      */
-    private final @Nullable String selector;
+    private @Nullable String selector;
     /**
      * @return Operator which will be used to search in the variable content. Possible values are `Equals`, `StartsWith`, `EndsWith`, `Contains`. If empty will exclude all traffic on this `match_variable`
      * 
      */
-    private final @Nullable String selectorMatchOperator;
+    private @Nullable String selectorMatchOperator;
 
-    @CustomType.Constructor
-    private ApplicationGatewayWafConfigurationExclusion(
-        @CustomType.Parameter("matchVariable") String matchVariable,
-        @CustomType.Parameter("selector") @Nullable String selector,
-        @CustomType.Parameter("selectorMatchOperator") @Nullable String selectorMatchOperator) {
-        this.matchVariable = matchVariable;
-        this.selector = selector;
-        this.selectorMatchOperator = selectorMatchOperator;
-    }
-
+    private ApplicationGatewayWafConfigurationExclusion() {}
     /**
      * @return Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are `RequestHeaderNames`, `RequestArgNames` and `RequestCookieNames`
      * 
@@ -66,16 +57,12 @@ public final class ApplicationGatewayWafConfigurationExclusion {
     public static Builder builder(ApplicationGatewayWafConfigurationExclusion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String matchVariable;
         private @Nullable String selector;
         private @Nullable String selectorMatchOperator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayWafConfigurationExclusion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchVariable = defaults.matchVariable;
@@ -83,19 +70,27 @@ public final class ApplicationGatewayWafConfigurationExclusion {
     	      this.selectorMatchOperator = defaults.selectorMatchOperator;
         }
 
+        @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
             this.matchVariable = Objects.requireNonNull(matchVariable);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(@Nullable String selector) {
             this.selector = selector;
             return this;
         }
+        @CustomType.Setter
         public Builder selectorMatchOperator(@Nullable String selectorMatchOperator) {
             this.selectorMatchOperator = selectorMatchOperator;
             return this;
-        }        public ApplicationGatewayWafConfigurationExclusion build() {
-            return new ApplicationGatewayWafConfigurationExclusion(matchVariable, selector, selectorMatchOperator);
+        }
+        public ApplicationGatewayWafConfigurationExclusion build() {
+            final var o = new ApplicationGatewayWafConfigurationExclusion();
+            o.matchVariable = matchVariable;
+            o.selector = selector;
+            o.selectorMatchOperator = selectorMatchOperator;
+            return o;
         }
     }
 }

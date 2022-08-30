@@ -14,35 +14,24 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The time interval in the form `hh:mm:ss`.
      * 
      */
-    private final String interval;
+    private String interval;
     /**
      * @return The path to which this rule status code applies.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return The amount of time that qualifies as slow for this rule.
      * 
      */
-    private final String timeTaken;
+    private String timeTaken;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("interval") String interval,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("timeTaken") String timeTaken) {
-        this.count = count;
-        this.interval = interval;
-        this.path = path;
-        this.timeTaken = timeTaken;
-    }
-
+    private GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest() {}
     /**
      * @return The number of occurrences of the defined `status_code` in the specified `interval` on which to trigger this rule.
      * 
@@ -79,17 +68,13 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     public static Builder builder(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private String interval;
         private String path;
         private String timeTaken;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -98,23 +83,33 @@ public final class GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest {
     	      this.timeTaken = defaults.timeTaken;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder interval(String interval) {
             this.interval = Objects.requireNonNull(interval);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder timeTaken(String timeTaken) {
             this.timeTaken = Objects.requireNonNull(timeTaken);
             return this;
-        }        public GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
-            return new GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest(count, interval, path, timeTaken);
+        }
+        public GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest build() {
+            final var o = new GetWindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequest();
+            o.count = count;
+            o.interval = interval;
+            o.path = path;
+            o.timeTaken = timeTaken;
+            return o;
         }
     }
 }

@@ -19,42 +19,42 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
      * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
      * 
      */
-    private final String aadAudience;
+    private String aadAudience;
     /**
      * @return The STS url for your tenant
      * This setting is incompatible with the use of
      * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
      * 
      */
-    private final String aadIssuer;
+    private String aadIssuer;
     /**
      * @return AzureAD Tenant URL
      * This setting is incompatible with the use of
      * `root_certificate` and `revoked_certificate`, `radius_server_address`, and `radius_server_secret`.
      * 
      */
-    private final String aadTenant;
+    private String aadTenant;
     /**
      * @return The address space out of which IP addresses for
      * vpn clients will be taken. You can provide more than one address space, e.g.
      * in CIDR notation.
      * 
      */
-    private final List<String> addressSpaces;
+    private List<String> addressSpaces;
     /**
      * @return The address of the Radius server.
      * This setting is incompatible with the use of
      * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
      * 
      */
-    private final String radiusServerAddress;
+    private String radiusServerAddress;
     /**
      * @return The secret used by the Radius server.
      * This setting is incompatible with the use of
      * `aad_tenant`, `aad_audience`, `aad_issuer`, `root_certificate` and `revoked_certificate`.
      * 
      */
-    private final String radiusServerSecret;
+    private String radiusServerSecret;
     /**
      * @return One or more `revoked_certificate` blocks which
      * are defined below.
@@ -62,7 +62,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
      * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
      * 
      */
-    private final List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
+    private List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
     /**
      * @return One or more `root_certificate` blocks which are
      * defined below. These root certificates are used to sign the client certificate
@@ -71,36 +71,15 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
      * `aad_tenant`, `aad_audience`, `aad_issuer`, `radius_server_address`, and `radius_server_secret`.
      * 
      */
-    private final List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
+    private List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
     /**
      * @return List of the protocols supported by the vpn client.
      * The supported values are `SSTP`, `IkeV2` and `OpenVPN`.
      * 
      */
-    private final List<String> vpnClientProtocols;
+    private List<String> vpnClientProtocols;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayVpnClientConfiguration(
-        @CustomType.Parameter("aadAudience") String aadAudience,
-        @CustomType.Parameter("aadIssuer") String aadIssuer,
-        @CustomType.Parameter("aadTenant") String aadTenant,
-        @CustomType.Parameter("addressSpaces") List<String> addressSpaces,
-        @CustomType.Parameter("radiusServerAddress") String radiusServerAddress,
-        @CustomType.Parameter("radiusServerSecret") String radiusServerSecret,
-        @CustomType.Parameter("revokedCertificates") List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates,
-        @CustomType.Parameter("rootCertificates") List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates,
-        @CustomType.Parameter("vpnClientProtocols") List<String> vpnClientProtocols) {
-        this.aadAudience = aadAudience;
-        this.aadIssuer = aadIssuer;
-        this.aadTenant = aadTenant;
-        this.addressSpaces = addressSpaces;
-        this.radiusServerAddress = radiusServerAddress;
-        this.radiusServerSecret = radiusServerSecret;
-        this.revokedCertificates = revokedCertificates;
-        this.rootCertificates = rootCertificates;
-        this.vpnClientProtocols = vpnClientProtocols;
-    }
-
+    private GetVirtualNetworkGatewayVpnClientConfiguration() {}
     /**
      * @return The client id of the Azure VPN application.
      * See [Create an Active Directory (AD) tenant for P2S OpenVPN protocol connections](https://docs.microsoft.com/en-gb/azure/vpn-gateway/openvpn-azure-ad-tenant-multi-app) for values
@@ -193,7 +172,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     public static Builder builder(GetVirtualNetworkGatewayVpnClientConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aadAudience;
         private String aadIssuer;
@@ -204,11 +183,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         private List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates;
         private List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates;
         private List<String> vpnClientProtocols;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayVpnClientConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aadAudience = defaults.aadAudience;
@@ -222,18 +197,22 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
     	      this.vpnClientProtocols = defaults.vpnClientProtocols;
         }
 
+        @CustomType.Setter
         public Builder aadAudience(String aadAudience) {
             this.aadAudience = Objects.requireNonNull(aadAudience);
             return this;
         }
+        @CustomType.Setter
         public Builder aadIssuer(String aadIssuer) {
             this.aadIssuer = Objects.requireNonNull(aadIssuer);
             return this;
         }
+        @CustomType.Setter
         public Builder aadTenant(String aadTenant) {
             this.aadTenant = Objects.requireNonNull(aadTenant);
             return this;
         }
+        @CustomType.Setter
         public Builder addressSpaces(List<String> addressSpaces) {
             this.addressSpaces = Objects.requireNonNull(addressSpaces);
             return this;
@@ -241,14 +220,17 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         public Builder addressSpaces(String... addressSpaces) {
             return addressSpaces(List.of(addressSpaces));
         }
+        @CustomType.Setter
         public Builder radiusServerAddress(String radiusServerAddress) {
             this.radiusServerAddress = Objects.requireNonNull(radiusServerAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder radiusServerSecret(String radiusServerSecret) {
             this.radiusServerSecret = Objects.requireNonNull(radiusServerSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder revokedCertificates(List<GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate> revokedCertificates) {
             this.revokedCertificates = Objects.requireNonNull(revokedCertificates);
             return this;
@@ -256,6 +238,7 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         public Builder revokedCertificates(GetVirtualNetworkGatewayVpnClientConfigurationRevokedCertificate... revokedCertificates) {
             return revokedCertificates(List.of(revokedCertificates));
         }
+        @CustomType.Setter
         public Builder rootCertificates(List<GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate> rootCertificates) {
             this.rootCertificates = Objects.requireNonNull(rootCertificates);
             return this;
@@ -263,14 +246,26 @@ public final class GetVirtualNetworkGatewayVpnClientConfiguration {
         public Builder rootCertificates(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate... rootCertificates) {
             return rootCertificates(List.of(rootCertificates));
         }
+        @CustomType.Setter
         public Builder vpnClientProtocols(List<String> vpnClientProtocols) {
             this.vpnClientProtocols = Objects.requireNonNull(vpnClientProtocols);
             return this;
         }
         public Builder vpnClientProtocols(String... vpnClientProtocols) {
             return vpnClientProtocols(List.of(vpnClientProtocols));
-        }        public GetVirtualNetworkGatewayVpnClientConfiguration build() {
-            return new GetVirtualNetworkGatewayVpnClientConfiguration(aadAudience, aadIssuer, aadTenant, addressSpaces, radiusServerAddress, radiusServerSecret, revokedCertificates, rootCertificates, vpnClientProtocols);
+        }
+        public GetVirtualNetworkGatewayVpnClientConfiguration build() {
+            final var o = new GetVirtualNetworkGatewayVpnClientConfiguration();
+            o.aadAudience = aadAudience;
+            o.aadIssuer = aadIssuer;
+            o.aadTenant = aadTenant;
+            o.addressSpaces = addressSpaces;
+            o.radiusServerAddress = radiusServerAddress;
+            o.radiusServerSecret = radiusServerSecret;
+            o.revokedCertificates = revokedCertificates;
+            o.rootCertificates = rootCertificates;
+            o.vpnClientProtocols = vpnClientProtocols;
+            return o;
         }
     }
 }

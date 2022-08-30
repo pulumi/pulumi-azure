@@ -13,21 +13,14 @@ public final class GetLinuxFunctionAppSiteCredential {
      * @return The name which should be used for this Linux Function App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Site Credentials Password used for publishing.
      * 
      */
-    private final String password;
+    private String password;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppSiteCredential(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("password") String password) {
-        this.name = name;
-        this.password = password;
-    }
-
+    private GetLinuxFunctionAppSiteCredential() {}
     /**
      * @return The name which should be used for this Linux Function App.
      * 
@@ -50,30 +43,32 @@ public final class GetLinuxFunctionAppSiteCredential {
     public static Builder builder(GetLinuxFunctionAppSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
-        }        public GetLinuxFunctionAppSiteCredential build() {
-            return new GetLinuxFunctionAppSiteCredential(name, password);
+        }
+        public GetLinuxFunctionAppSiteCredential build() {
+            final var o = new GetLinuxFunctionAppSiteCredential();
+            o.name = name;
+            o.password = password;
+            return o;
         }
     }
 }

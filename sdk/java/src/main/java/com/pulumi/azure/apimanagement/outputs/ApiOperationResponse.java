@@ -19,35 +19,24 @@ public final class ApiOperationResponse {
      * @return A description of the HTTP Response, which may include HTML tags.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return One or more `header` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApiOperationResponseHeader> headers;
+    private @Nullable List<ApiOperationResponseHeader> headers;
     /**
      * @return One or more `representation` blocks as defined below.
      * 
      */
-    private final @Nullable List<ApiOperationResponseRepresentation> representations;
+    private @Nullable List<ApiOperationResponseRepresentation> representations;
     /**
      * @return The HTTP Status Code.
      * 
      */
-    private final Integer statusCode;
+    private Integer statusCode;
 
-    @CustomType.Constructor
-    private ApiOperationResponse(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("headers") @Nullable List<ApiOperationResponseHeader> headers,
-        @CustomType.Parameter("representations") @Nullable List<ApiOperationResponseRepresentation> representations,
-        @CustomType.Parameter("statusCode") Integer statusCode) {
-        this.description = description;
-        this.headers = headers;
-        this.representations = representations;
-        this.statusCode = statusCode;
-    }
-
+    private ApiOperationResponse() {}
     /**
      * @return A description of the HTTP Response, which may include HTML tags.
      * 
@@ -84,17 +73,13 @@ public final class ApiOperationResponse {
     public static Builder builder(ApiOperationResponse defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<ApiOperationResponseHeader> headers;
         private @Nullable List<ApiOperationResponseRepresentation> representations;
         private Integer statusCode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOperationResponse defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -103,10 +88,12 @@ public final class ApiOperationResponse {
     	      this.statusCode = defaults.statusCode;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<ApiOperationResponseHeader> headers) {
             this.headers = headers;
             return this;
@@ -114,6 +101,7 @@ public final class ApiOperationResponse {
         public Builder headers(ApiOperationResponseHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder representations(@Nullable List<ApiOperationResponseRepresentation> representations) {
             this.representations = representations;
             return this;
@@ -121,11 +109,18 @@ public final class ApiOperationResponse {
         public Builder representations(ApiOperationResponseRepresentation... representations) {
             return representations(List.of(representations));
         }
+        @CustomType.Setter
         public Builder statusCode(Integer statusCode) {
             this.statusCode = Objects.requireNonNull(statusCode);
             return this;
-        }        public ApiOperationResponse build() {
-            return new ApiOperationResponse(description, headers, representations, statusCode);
+        }
+        public ApiOperationResponse build() {
+            final var o = new ApiOperationResponse();
+            o.description = description;
+            o.headers = headers;
+            o.representations = representations;
+            o.statusCode = statusCode;
+            return o;
         }
     }
 }

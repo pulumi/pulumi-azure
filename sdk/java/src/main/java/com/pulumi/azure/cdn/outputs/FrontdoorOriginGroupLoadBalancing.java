@@ -15,28 +15,19 @@ public final class FrontdoorOriginGroupLoadBalancing {
      * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
      * 
      */
-    private final @Nullable Integer additionalLatencyInMilliseconds;
+    private @Nullable Integer additionalLatencyInMilliseconds;
     /**
      * @return Specifies the number of samples to consider for load balancing decisions. Possible values are between `0` and `255` (inclusive). Defaults to `4`.
      * 
      */
-    private final @Nullable Integer sampleSize;
+    private @Nullable Integer sampleSize;
     /**
      * @return Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`.
      * 
      */
-    private final @Nullable Integer successfulSamplesRequired;
+    private @Nullable Integer successfulSamplesRequired;
 
-    @CustomType.Constructor
-    private FrontdoorOriginGroupLoadBalancing(
-        @CustomType.Parameter("additionalLatencyInMilliseconds") @Nullable Integer additionalLatencyInMilliseconds,
-        @CustomType.Parameter("sampleSize") @Nullable Integer sampleSize,
-        @CustomType.Parameter("successfulSamplesRequired") @Nullable Integer successfulSamplesRequired) {
-        this.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
-        this.sampleSize = sampleSize;
-        this.successfulSamplesRequired = successfulSamplesRequired;
-    }
-
+    private FrontdoorOriginGroupLoadBalancing() {}
     /**
      * @return Specifies the additional latency in milliseconds for probes to fall into the lowest latency bucket. Possible values are between `0` and `1000` seconds (inclusive). Defaults to `50`.
      * 
@@ -66,16 +57,12 @@ public final class FrontdoorOriginGroupLoadBalancing {
     public static Builder builder(FrontdoorOriginGroupLoadBalancing defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer additionalLatencyInMilliseconds;
         private @Nullable Integer sampleSize;
         private @Nullable Integer successfulSamplesRequired;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorOriginGroupLoadBalancing defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalLatencyInMilliseconds = defaults.additionalLatencyInMilliseconds;
@@ -83,19 +70,27 @@ public final class FrontdoorOriginGroupLoadBalancing {
     	      this.successfulSamplesRequired = defaults.successfulSamplesRequired;
         }
 
+        @CustomType.Setter
         public Builder additionalLatencyInMilliseconds(@Nullable Integer additionalLatencyInMilliseconds) {
             this.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
             return this;
         }
+        @CustomType.Setter
         public Builder sampleSize(@Nullable Integer sampleSize) {
             this.sampleSize = sampleSize;
             return this;
         }
+        @CustomType.Setter
         public Builder successfulSamplesRequired(@Nullable Integer successfulSamplesRequired) {
             this.successfulSamplesRequired = successfulSamplesRequired;
             return this;
-        }        public FrontdoorOriginGroupLoadBalancing build() {
-            return new FrontdoorOriginGroupLoadBalancing(additionalLatencyInMilliseconds, sampleSize, successfulSamplesRequired);
+        }
+        public FrontdoorOriginGroupLoadBalancing build() {
+            final var o = new FrontdoorOriginGroupLoadBalancing();
+            o.additionalLatencyInMilliseconds = additionalLatencyInMilliseconds;
+            o.sampleSize = sampleSize;
+            o.successfulSamplesRequired = successfulSamplesRequired;
+            return o;
         }
     }
 }

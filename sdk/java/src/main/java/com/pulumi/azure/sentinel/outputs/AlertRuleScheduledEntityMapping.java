@@ -15,21 +15,14 @@ public final class AlertRuleScheduledEntityMapping {
      * @return The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
      */
-    private final String entityType;
+    private String entityType;
     /**
      * @return A list of `field_mapping` blocks as defined below.
      * 
      */
-    private final List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings;
+    private List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings;
 
-    @CustomType.Constructor
-    private AlertRuleScheduledEntityMapping(
-        @CustomType.Parameter("entityType") String entityType,
-        @CustomType.Parameter("fieldMappings") List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings) {
-        this.entityType = entityType;
-        this.fieldMappings = fieldMappings;
-    }
-
+    private AlertRuleScheduledEntityMapping() {}
     /**
      * @return The type of the entity. Possible values are `Account`, `AzureResource`, `CloudApplication`, `DNS`, `File`, `FileHash`, `Host`, `IP`, `Mailbox`, `MailCluster`, `MailMessage`, `Malware`, `Process`, `RegistryKey`, `RegistryValue`, `SecurityGroup`, `SubmissionMail`, `URL`.
      * 
@@ -52,33 +45,35 @@ public final class AlertRuleScheduledEntityMapping {
     public static Builder builder(AlertRuleScheduledEntityMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String entityType;
         private List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertRuleScheduledEntityMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entityType = defaults.entityType;
     	      this.fieldMappings = defaults.fieldMappings;
         }
 
+        @CustomType.Setter
         public Builder entityType(String entityType) {
             this.entityType = Objects.requireNonNull(entityType);
             return this;
         }
+        @CustomType.Setter
         public Builder fieldMappings(List<AlertRuleScheduledEntityMappingFieldMapping> fieldMappings) {
             this.fieldMappings = Objects.requireNonNull(fieldMappings);
             return this;
         }
         public Builder fieldMappings(AlertRuleScheduledEntityMappingFieldMapping... fieldMappings) {
             return fieldMappings(List.of(fieldMappings));
-        }        public AlertRuleScheduledEntityMapping build() {
-            return new AlertRuleScheduledEntityMapping(entityType, fieldMappings);
+        }
+        public AlertRuleScheduledEntityMapping build() {
+            final var o = new AlertRuleScheduledEntityMapping();
+            o.entityType = entityType;
+            o.fieldMappings = fieldMappings;
+            return o;
         }
     }
 }

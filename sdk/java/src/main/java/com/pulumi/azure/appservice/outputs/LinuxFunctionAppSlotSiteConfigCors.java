@@ -17,21 +17,14 @@ public final class LinuxFunctionAppSlotSiteConfigCors {
      * @return an `allowed_origins` block as detailed below.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Are credentials allowed in CORS requests? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean supportCredentials;
+    private @Nullable Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSlotSiteConfigCors(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") @Nullable Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private LinuxFunctionAppSlotSiteConfigCors() {}
     /**
      * @return an `allowed_origins` block as detailed below.
      * 
@@ -54,21 +47,18 @@ public final class LinuxFunctionAppSlotSiteConfigCors {
     public static Builder builder(LinuxFunctionAppSlotSiteConfigCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSlotSiteConfigCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -76,11 +66,16 @@ public final class LinuxFunctionAppSlotSiteConfigCors {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
             this.supportCredentials = supportCredentials;
             return this;
-        }        public LinuxFunctionAppSlotSiteConfigCors build() {
-            return new LinuxFunctionAppSlotSiteConfigCors(allowedOrigins, supportCredentials);
+        }
+        public LinuxFunctionAppSlotSiteConfigCors build() {
+            final var o = new LinuxFunctionAppSlotSiteConfigCors();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

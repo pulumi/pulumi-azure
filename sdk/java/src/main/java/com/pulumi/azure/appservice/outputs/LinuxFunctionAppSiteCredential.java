@@ -15,21 +15,14 @@ public final class LinuxFunctionAppSiteCredential {
      * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The Site Credentials Password used for publishing.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSiteCredential(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("password") @Nullable String password) {
-        this.name = name;
-        this.password = password;
-    }
-
+    private LinuxFunctionAppSiteCredential() {}
     /**
      * @return The name which should be used for this Linux Function App. Changing this forces a new Linux Function App to be created. Limit the function name to 32 characters to avoid naming collisions. For more information about [Function App naming rule](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftweb) and [Host ID Collisions](https://github.com/Azure/azure-functions-host/wiki/Host-IDs#host-id-collisions)
      * 
@@ -52,30 +45,32 @@ public final class LinuxFunctionAppSiteCredential {
     public static Builder builder(LinuxFunctionAppSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
-        }        public LinuxFunctionAppSiteCredential build() {
-            return new LinuxFunctionAppSiteCredential(name, password);
+        }
+        public LinuxFunctionAppSiteCredential build() {
+            final var o = new LinuxFunctionAppSiteCredential();
+            o.name = name;
+            o.password = password;
+            return o;
         }
     }
 }

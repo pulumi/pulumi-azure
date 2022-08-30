@@ -9,58 +9,37 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApiVersionSetResult {
-    private final String apiManagementName;
+    private String apiManagementName;
     /**
      * @return The description of API Version Set.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of this API Version Set.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The name of the Header which should be read from Inbound Requests which defines the API Version.
      * 
      */
-    private final String versionHeaderName;
+    private String versionHeaderName;
     /**
      * @return The name of the Query String which should be read from Inbound Requests which defines the API Version.
      * 
      */
-    private final String versionQueryName;
-    private final String versioningScheme;
+    private String versionQueryName;
+    private String versioningScheme;
 
-    @CustomType.Constructor
-    private GetApiVersionSetResult(
-        @CustomType.Parameter("apiManagementName") String apiManagementName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("versionHeaderName") String versionHeaderName,
-        @CustomType.Parameter("versionQueryName") String versionQueryName,
-        @CustomType.Parameter("versioningScheme") String versioningScheme) {
-        this.apiManagementName = apiManagementName;
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.versionHeaderName = versionHeaderName;
-        this.versionQueryName = versionQueryName;
-        this.versioningScheme = versioningScheme;
-    }
-
+    private GetApiVersionSetResult() {}
     public String apiManagementName() {
         return this.apiManagementName;
     }
@@ -116,7 +95,7 @@ public final class GetApiVersionSetResult {
     public static Builder builder(GetApiVersionSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementName;
         private String description;
@@ -127,11 +106,7 @@ public final class GetApiVersionSetResult {
         private String versionHeaderName;
         private String versionQueryName;
         private String versioningScheme;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApiVersionSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementName = defaults.apiManagementName;
@@ -145,43 +120,63 @@ public final class GetApiVersionSetResult {
     	      this.versioningScheme = defaults.versioningScheme;
         }
 
+        @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
             this.apiManagementName = Objects.requireNonNull(apiManagementName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder versionHeaderName(String versionHeaderName) {
             this.versionHeaderName = Objects.requireNonNull(versionHeaderName);
             return this;
         }
+        @CustomType.Setter
         public Builder versionQueryName(String versionQueryName) {
             this.versionQueryName = Objects.requireNonNull(versionQueryName);
             return this;
         }
+        @CustomType.Setter
         public Builder versioningScheme(String versioningScheme) {
             this.versioningScheme = Objects.requireNonNull(versioningScheme);
             return this;
-        }        public GetApiVersionSetResult build() {
-            return new GetApiVersionSetResult(apiManagementName, description, displayName, id, name, resourceGroupName, versionHeaderName, versionQueryName, versioningScheme);
+        }
+        public GetApiVersionSetResult build() {
+            final var o = new GetApiVersionSetResult();
+            o.apiManagementName = apiManagementName;
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.versionHeaderName = versionHeaderName;
+            o.versionQueryName = versionQueryName;
+            o.versioningScheme = versioningScheme;
+            return o;
         }
     }
 }

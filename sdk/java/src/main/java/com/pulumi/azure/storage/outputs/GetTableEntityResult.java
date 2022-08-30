@@ -14,33 +14,18 @@ public final class GetTableEntityResult {
      * @return A map of key/value pairs that describe the entity to be stored in the storage table.
      * 
      */
-    private final Map<String,String> entity;
+    private Map<String,String> entity;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String partitionKey;
-    private final String rowKey;
-    private final String storageAccountName;
-    private final String tableName;
+    private String id;
+    private String partitionKey;
+    private String rowKey;
+    private String storageAccountName;
+    private String tableName;
 
-    @CustomType.Constructor
-    private GetTableEntityResult(
-        @CustomType.Parameter("entity") Map<String,String> entity,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("partitionKey") String partitionKey,
-        @CustomType.Parameter("rowKey") String rowKey,
-        @CustomType.Parameter("storageAccountName") String storageAccountName,
-        @CustomType.Parameter("tableName") String tableName) {
-        this.entity = entity;
-        this.id = id;
-        this.partitionKey = partitionKey;
-        this.rowKey = rowKey;
-        this.storageAccountName = storageAccountName;
-        this.tableName = tableName;
-    }
-
+    private GetTableEntityResult() {}
     /**
      * @return A map of key/value pairs that describe the entity to be stored in the storage table.
      * 
@@ -75,7 +60,7 @@ public final class GetTableEntityResult {
     public static Builder builder(GetTableEntityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> entity;
         private String id;
@@ -83,11 +68,7 @@ public final class GetTableEntityResult {
         private String rowKey;
         private String storageAccountName;
         private String tableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTableEntityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.entity = defaults.entity;
@@ -98,31 +79,45 @@ public final class GetTableEntityResult {
     	      this.tableName = defaults.tableName;
         }
 
+        @CustomType.Setter
         public Builder entity(Map<String,String> entity) {
             this.entity = Objects.requireNonNull(entity);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionKey(String partitionKey) {
             this.partitionKey = Objects.requireNonNull(partitionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder rowKey(String rowKey) {
             this.rowKey = Objects.requireNonNull(rowKey);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             this.storageAccountName = Objects.requireNonNull(storageAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder tableName(String tableName) {
             this.tableName = Objects.requireNonNull(tableName);
             return this;
-        }        public GetTableEntityResult build() {
-            return new GetTableEntityResult(entity, id, partitionKey, rowKey, storageAccountName, tableName);
+        }
+        public GetTableEntityResult build() {
+            final var o = new GetTableEntityResult();
+            o.entity = entity;
+            o.id = id;
+            o.partitionKey = partitionKey;
+            o.rowKey = rowKey;
+            o.storageAccountName = storageAccountName;
+            o.tableName = tableName;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class ActivityLogAlertCriteriaServiceHealth {
      * @return Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
      * 
      */
-    private final @Nullable List<String> events;
+    private @Nullable List<String> events;
     /**
      * @return Locations this alert will monitor. For example, `West Europe`. Defaults to `Global`.
      * 
      */
-    private final @Nullable List<String> locations;
+    private @Nullable List<String> locations;
     /**
      * @return Services this alert will monitor. For example, `Activity Logs &amp; Alerts`, `Action Groups`. Defaults to all Services.
      * 
      */
-    private final @Nullable List<String> services;
+    private @Nullable List<String> services;
 
-    @CustomType.Constructor
-    private ActivityLogAlertCriteriaServiceHealth(
-        @CustomType.Parameter("events") @Nullable List<String> events,
-        @CustomType.Parameter("locations") @Nullable List<String> locations,
-        @CustomType.Parameter("services") @Nullable List<String> services) {
-        this.events = events;
-        this.locations = locations;
-        this.services = services;
-    }
-
+    private ActivityLogAlertCriteriaServiceHealth() {}
     /**
      * @return Events this alert will monitor Possible values are `Incident`, `Maintenance`, `Informational`, `ActionRequired` and `Security`.
      * 
@@ -66,16 +57,12 @@ public final class ActivityLogAlertCriteriaServiceHealth {
     public static Builder builder(ActivityLogAlertCriteriaServiceHealth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> events;
         private @Nullable List<String> locations;
         private @Nullable List<String> services;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActivityLogAlertCriteriaServiceHealth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.events = defaults.events;
@@ -83,6 +70,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
     	      this.services = defaults.services;
         }
 
+        @CustomType.Setter
         public Builder events(@Nullable List<String> events) {
             this.events = events;
             return this;
@@ -90,6 +78,7 @@ public final class ActivityLogAlertCriteriaServiceHealth {
         public Builder events(String... events) {
             return events(List.of(events));
         }
+        @CustomType.Setter
         public Builder locations(@Nullable List<String> locations) {
             this.locations = locations;
             return this;
@@ -97,14 +86,20 @@ public final class ActivityLogAlertCriteriaServiceHealth {
         public Builder locations(String... locations) {
             return locations(List.of(locations));
         }
+        @CustomType.Setter
         public Builder services(@Nullable List<String> services) {
             this.services = services;
             return this;
         }
         public Builder services(String... services) {
             return services(List.of(services));
-        }        public ActivityLogAlertCriteriaServiceHealth build() {
-            return new ActivityLogAlertCriteriaServiceHealth(events, locations, services);
+        }
+        public ActivityLogAlertCriteriaServiceHealth build() {
+            final var o = new ActivityLogAlertCriteriaServiceHealth();
+            o.events = events;
+            o.locations = locations;
+            o.services = services;
+            return o;
         }
     }
 }

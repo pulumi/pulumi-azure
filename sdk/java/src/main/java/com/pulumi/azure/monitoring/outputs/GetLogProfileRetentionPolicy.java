@@ -14,21 +14,14 @@ public final class GetLogProfileRetentionPolicy {
      * @return The number of days for the retention policy.
      * 
      */
-    private final Integer days;
+    private Integer days;
     /**
      * @return A boolean value indicating whether the retention policy is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private GetLogProfileRetentionPolicy(
-        @CustomType.Parameter("days") Integer days,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private GetLogProfileRetentionPolicy() {}
     /**
      * @return The number of days for the retention policy.
      * 
@@ -51,30 +44,32 @@ public final class GetLogProfileRetentionPolicy {
     public static Builder builder(GetLogProfileRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer days;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLogProfileRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(Integer days) {
             this.days = Objects.requireNonNull(days);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public GetLogProfileRetentionPolicy build() {
-            return new GetLogProfileRetentionPolicy(days, enabled);
+        }
+        public GetLogProfileRetentionPolicy build() {
+            final var o = new GetLogProfileRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

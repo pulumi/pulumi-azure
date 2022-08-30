@@ -13,21 +13,14 @@ public final class GetServiceQueryKey {
      * @return The value of this Query Key.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The Name of the Search Service.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetServiceQueryKey(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("name") String name) {
-        this.key = key;
-        this.name = name;
-    }
-
+    private GetServiceQueryKey() {}
     /**
      * @return The value of this Query Key.
      * 
@@ -50,30 +43,32 @@ public final class GetServiceQueryKey {
     public static Builder builder(GetServiceQueryKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceQueryKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetServiceQueryKey build() {
-            return new GetServiceQueryKey(key, name);
+        }
+        public GetServiceQueryKey build() {
+            final var o = new GetServiceQueryKey();
+            o.key = key;
+            o.name = name;
+            return o;
         }
     }
 }

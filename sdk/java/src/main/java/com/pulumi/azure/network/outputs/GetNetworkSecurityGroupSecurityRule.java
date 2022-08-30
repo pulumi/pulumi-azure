@@ -16,111 +16,76 @@ public final class GetNetworkSecurityGroupSecurityRule {
      * @return Is network traffic is allowed or denied?
      * 
      */
-    private final String access;
+    private String access;
     /**
      * @return The description for this rule.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return CIDR or destination IP range or * to match any IP.
      * 
      */
-    private final String destinationAddressPrefix;
+    private String destinationAddressPrefix;
     /**
      * @return A list of CIDRs or destination IP ranges.
      * 
      */
-    private final List<String> destinationAddressPrefixes;
+    private List<String> destinationAddressPrefixes;
     /**
      * @return A List of destination Application Security Group IDs
      * 
      */
-    private final @Nullable List<String> destinationApplicationSecurityGroupIds;
+    private @Nullable List<String> destinationApplicationSecurityGroupIds;
     /**
      * @return The Destination Port or Range.
      * 
      */
-    private final String destinationPortRange;
-    private final List<String> destinationPortRanges;
+    private String destinationPortRange;
+    private List<String> destinationPortRanges;
     /**
      * @return The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      * 
      */
-    private final String direction;
+    private String direction;
     /**
      * @return Specifies the Name of the Network Security Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The priority of the rule
      * 
      */
-    private final Integer priority;
+    private Integer priority;
     /**
      * @return The network protocol this rule applies to.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return CIDR or source IP range or * to match any IP.
      * 
      */
-    private final String sourceAddressPrefix;
+    private String sourceAddressPrefix;
     /**
      * @return A list of CIDRs or source IP ranges.
      * 
      */
-    private final List<String> sourceAddressPrefixes;
+    private List<String> sourceAddressPrefixes;
     /**
      * @return A List of source Application Security Group IDs
      * 
      */
-    private final @Nullable List<String> sourceApplicationSecurityGroupIds;
+    private @Nullable List<String> sourceApplicationSecurityGroupIds;
     /**
      * @return The Source Port or Range.
      * 
      */
-    private final String sourcePortRange;
-    private final List<String> sourcePortRanges;
+    private String sourcePortRange;
+    private List<String> sourcePortRanges;
 
-    @CustomType.Constructor
-    private GetNetworkSecurityGroupSecurityRule(
-        @CustomType.Parameter("access") String access,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("destinationAddressPrefix") String destinationAddressPrefix,
-        @CustomType.Parameter("destinationAddressPrefixes") List<String> destinationAddressPrefixes,
-        @CustomType.Parameter("destinationApplicationSecurityGroupIds") @Nullable List<String> destinationApplicationSecurityGroupIds,
-        @CustomType.Parameter("destinationPortRange") String destinationPortRange,
-        @CustomType.Parameter("destinationPortRanges") List<String> destinationPortRanges,
-        @CustomType.Parameter("direction") String direction,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("sourceAddressPrefix") String sourceAddressPrefix,
-        @CustomType.Parameter("sourceAddressPrefixes") List<String> sourceAddressPrefixes,
-        @CustomType.Parameter("sourceApplicationSecurityGroupIds") @Nullable List<String> sourceApplicationSecurityGroupIds,
-        @CustomType.Parameter("sourcePortRange") String sourcePortRange,
-        @CustomType.Parameter("sourcePortRanges") List<String> sourcePortRanges) {
-        this.access = access;
-        this.description = description;
-        this.destinationAddressPrefix = destinationAddressPrefix;
-        this.destinationAddressPrefixes = destinationAddressPrefixes;
-        this.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
-        this.destinationPortRange = destinationPortRange;
-        this.destinationPortRanges = destinationPortRanges;
-        this.direction = direction;
-        this.name = name;
-        this.priority = priority;
-        this.protocol = protocol;
-        this.sourceAddressPrefix = sourceAddressPrefix;
-        this.sourceAddressPrefixes = sourceAddressPrefixes;
-        this.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
-        this.sourcePortRange = sourcePortRange;
-        this.sourcePortRanges = sourcePortRanges;
-    }
-
+    private GetNetworkSecurityGroupSecurityRule() {}
     /**
      * @return Is network traffic is allowed or denied?
      * 
@@ -233,7 +198,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
     public static Builder builder(GetNetworkSecurityGroupSecurityRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String access;
         private String description;
@@ -251,11 +216,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         private @Nullable List<String> sourceApplicationSecurityGroupIds;
         private String sourcePortRange;
         private List<String> sourcePortRanges;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNetworkSecurityGroupSecurityRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
@@ -276,18 +237,22 @@ public final class GetNetworkSecurityGroupSecurityRule {
     	      this.sourcePortRanges = defaults.sourcePortRanges;
         }
 
+        @CustomType.Setter
         public Builder access(String access) {
             this.access = Objects.requireNonNull(access);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationAddressPrefix(String destinationAddressPrefix) {
             this.destinationAddressPrefix = Objects.requireNonNull(destinationAddressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationAddressPrefixes(List<String> destinationAddressPrefixes) {
             this.destinationAddressPrefixes = Objects.requireNonNull(destinationAddressPrefixes);
             return this;
@@ -295,6 +260,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         public Builder destinationAddressPrefixes(String... destinationAddressPrefixes) {
             return destinationAddressPrefixes(List.of(destinationAddressPrefixes));
         }
+        @CustomType.Setter
         public Builder destinationApplicationSecurityGroupIds(@Nullable List<String> destinationApplicationSecurityGroupIds) {
             this.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
             return this;
@@ -302,10 +268,12 @@ public final class GetNetworkSecurityGroupSecurityRule {
         public Builder destinationApplicationSecurityGroupIds(String... destinationApplicationSecurityGroupIds) {
             return destinationApplicationSecurityGroupIds(List.of(destinationApplicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder destinationPortRange(String destinationPortRange) {
             this.destinationPortRange = Objects.requireNonNull(destinationPortRange);
             return this;
         }
+        @CustomType.Setter
         public Builder destinationPortRanges(List<String> destinationPortRanges) {
             this.destinationPortRanges = Objects.requireNonNull(destinationPortRanges);
             return this;
@@ -313,26 +281,32 @@ public final class GetNetworkSecurityGroupSecurityRule {
         public Builder destinationPortRanges(String... destinationPortRanges) {
             return destinationPortRanges(List.of(destinationPortRanges));
         }
+        @CustomType.Setter
         public Builder direction(String direction) {
             this.direction = Objects.requireNonNull(direction);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceAddressPrefix(String sourceAddressPrefix) {
             this.sourceAddressPrefix = Objects.requireNonNull(sourceAddressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceAddressPrefixes(List<String> sourceAddressPrefixes) {
             this.sourceAddressPrefixes = Objects.requireNonNull(sourceAddressPrefixes);
             return this;
@@ -340,6 +314,7 @@ public final class GetNetworkSecurityGroupSecurityRule {
         public Builder sourceAddressPrefixes(String... sourceAddressPrefixes) {
             return sourceAddressPrefixes(List.of(sourceAddressPrefixes));
         }
+        @CustomType.Setter
         public Builder sourceApplicationSecurityGroupIds(@Nullable List<String> sourceApplicationSecurityGroupIds) {
             this.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
             return this;
@@ -347,18 +322,38 @@ public final class GetNetworkSecurityGroupSecurityRule {
         public Builder sourceApplicationSecurityGroupIds(String... sourceApplicationSecurityGroupIds) {
             return sourceApplicationSecurityGroupIds(List.of(sourceApplicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder sourcePortRange(String sourcePortRange) {
             this.sourcePortRange = Objects.requireNonNull(sourcePortRange);
             return this;
         }
+        @CustomType.Setter
         public Builder sourcePortRanges(List<String> sourcePortRanges) {
             this.sourcePortRanges = Objects.requireNonNull(sourcePortRanges);
             return this;
         }
         public Builder sourcePortRanges(String... sourcePortRanges) {
             return sourcePortRanges(List.of(sourcePortRanges));
-        }        public GetNetworkSecurityGroupSecurityRule build() {
-            return new GetNetworkSecurityGroupSecurityRule(access, description, destinationAddressPrefix, destinationAddressPrefixes, destinationApplicationSecurityGroupIds, destinationPortRange, destinationPortRanges, direction, name, priority, protocol, sourceAddressPrefix, sourceAddressPrefixes, sourceApplicationSecurityGroupIds, sourcePortRange, sourcePortRanges);
+        }
+        public GetNetworkSecurityGroupSecurityRule build() {
+            final var o = new GetNetworkSecurityGroupSecurityRule();
+            o.access = access;
+            o.description = description;
+            o.destinationAddressPrefix = destinationAddressPrefix;
+            o.destinationAddressPrefixes = destinationAddressPrefixes;
+            o.destinationApplicationSecurityGroupIds = destinationApplicationSecurityGroupIds;
+            o.destinationPortRange = destinationPortRange;
+            o.destinationPortRanges = destinationPortRanges;
+            o.direction = direction;
+            o.name = name;
+            o.priority = priority;
+            o.protocol = protocol;
+            o.sourceAddressPrefix = sourceAddressPrefix;
+            o.sourceAddressPrefixes = sourceAddressPrefixes;
+            o.sourceApplicationSecurityGroupIds = sourceApplicationSecurityGroupIds;
+            o.sourcePortRange = sourcePortRange;
+            o.sourcePortRanges = sourcePortRanges;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
      * @return This value must start with a `/` and can&#39;t be longer than 260 characters.
      * 
      */
-    private final String destination;
+    private String destination;
     /**
      * @return Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean preserveUnmatchedPath;
+    private @Nullable Boolean preserveUnmatchedPath;
     /**
      * @return This value must start with a `/` and can&#39;t be longer than 260 characters.
      * 
      */
-    private final String sourcePattern;
+    private String sourcePattern;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRuleUrlRewriteAction(
-        @CustomType.Parameter("destination") String destination,
-        @CustomType.Parameter("preserveUnmatchedPath") @Nullable Boolean preserveUnmatchedPath,
-        @CustomType.Parameter("sourcePattern") String sourcePattern) {
-        this.destination = destination;
-        this.preserveUnmatchedPath = preserveUnmatchedPath;
-        this.sourcePattern = sourcePattern;
-    }
-
+    private EndpointDeliveryRuleUrlRewriteAction() {}
     /**
      * @return This value must start with a `/` and can&#39;t be longer than 260 characters.
      * 
@@ -67,16 +58,12 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
     public static Builder builder(EndpointDeliveryRuleUrlRewriteAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String destination;
         private @Nullable Boolean preserveUnmatchedPath;
         private String sourcePattern;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRuleUrlRewriteAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.destination = defaults.destination;
@@ -84,19 +71,27 @@ public final class EndpointDeliveryRuleUrlRewriteAction {
     	      this.sourcePattern = defaults.sourcePattern;
         }
 
+        @CustomType.Setter
         public Builder destination(String destination) {
             this.destination = Objects.requireNonNull(destination);
             return this;
         }
+        @CustomType.Setter
         public Builder preserveUnmatchedPath(@Nullable Boolean preserveUnmatchedPath) {
             this.preserveUnmatchedPath = preserveUnmatchedPath;
             return this;
         }
+        @CustomType.Setter
         public Builder sourcePattern(String sourcePattern) {
             this.sourcePattern = Objects.requireNonNull(sourcePattern);
             return this;
-        }        public EndpointDeliveryRuleUrlRewriteAction build() {
-            return new EndpointDeliveryRuleUrlRewriteAction(destination, preserveUnmatchedPath, sourcePattern);
+        }
+        public EndpointDeliveryRuleUrlRewriteAction build() {
+            final var o = new EndpointDeliveryRuleUrlRewriteAction();
+            o.destination = destination;
+            o.preserveUnmatchedPath = preserveUnmatchedPath;
+            o.sourcePattern = sourcePattern;
+            return o;
         }
     }
 }

@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotEncryptionSettingsDiskEncryptionKey {
-    private final String secretUrl;
-    private final String sourceVaultId;
+    private String secretUrl;
+    private String sourceVaultId;
 
-    @CustomType.Constructor
-    private SnapshotEncryptionSettingsDiskEncryptionKey(
-        @CustomType.Parameter("secretUrl") String secretUrl,
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId) {
-        this.secretUrl = secretUrl;
-        this.sourceVaultId = sourceVaultId;
-    }
-
+    private SnapshotEncryptionSettingsDiskEncryptionKey() {}
     public String secretUrl() {
         return this.secretUrl;
     }
@@ -34,30 +27,32 @@ public final class SnapshotEncryptionSettingsDiskEncryptionKey {
     public static Builder builder(SnapshotEncryptionSettingsDiskEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String secretUrl;
         private String sourceVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotEncryptionSettingsDiskEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretUrl = defaults.secretUrl;
     	      this.sourceVaultId = defaults.sourceVaultId;
         }
 
+        @CustomType.Setter
         public Builder secretUrl(String secretUrl) {
             this.secretUrl = Objects.requireNonNull(secretUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
-        }        public SnapshotEncryptionSettingsDiskEncryptionKey build() {
-            return new SnapshotEncryptionSettingsDiskEncryptionKey(secretUrl, sourceVaultId);
+        }
+        public SnapshotEncryptionSettingsDiskEncryptionKey build() {
+            final var o = new SnapshotEncryptionSettingsDiskEncryptionKey();
+            o.secretUrl = secretUrl;
+            o.sourceVaultId = sourceVaultId;
+            return o;
         }
     }
 }

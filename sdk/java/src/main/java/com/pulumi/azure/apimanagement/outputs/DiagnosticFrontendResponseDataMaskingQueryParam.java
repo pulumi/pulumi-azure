@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DiagnosticFrontendResponseDataMaskingQueryParam {
-    private final String mode;
-    private final String value;
+    private String mode;
+    private String value;
 
-    @CustomType.Constructor
-    private DiagnosticFrontendResponseDataMaskingQueryParam(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("value") String value) {
-        this.mode = mode;
-        this.value = value;
-    }
-
+    private DiagnosticFrontendResponseDataMaskingQueryParam() {}
     public String mode() {
         return this.mode;
     }
@@ -34,30 +27,32 @@ public final class DiagnosticFrontendResponseDataMaskingQueryParam {
     public static Builder builder(DiagnosticFrontendResponseDataMaskingQueryParam defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticFrontendResponseDataMaskingQueryParam defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public DiagnosticFrontendResponseDataMaskingQueryParam build() {
-            return new DiagnosticFrontendResponseDataMaskingQueryParam(mode, value);
+        }
+        public DiagnosticFrontendResponseDataMaskingQueryParam build() {
+            final var o = new DiagnosticFrontendResponseDataMaskingQueryParam();
+            o.mode = mode;
+            o.value = value;
+            return o;
         }
     }
 }

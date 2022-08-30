@@ -16,28 +16,19 @@ public final class AccountNetworkAcls {
      * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
      * 
      */
-    private final String defaultAction;
+    private String defaultAction;
     /**
      * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
      * 
      */
-    private final @Nullable List<String> ipRules;
+    private @Nullable List<String> ipRules;
     /**
      * @return A `virtual_network_rules` block as defined below.
      * 
      */
-    private final @Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules;
+    private @Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules;
 
-    @CustomType.Constructor
-    private AccountNetworkAcls(
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<String> ipRules,
-        @CustomType.Parameter("virtualNetworkRules") @Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules) {
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.virtualNetworkRules = virtualNetworkRules;
-    }
-
+    private AccountNetworkAcls() {}
     /**
      * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
      * 
@@ -67,16 +58,12 @@ public final class AccountNetworkAcls {
     public static Builder builder(AccountNetworkAcls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String defaultAction;
         private @Nullable List<String> ipRules;
         private @Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountNetworkAcls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
@@ -84,10 +71,12 @@ public final class AccountNetworkAcls {
     	      this.virtualNetworkRules = defaults.virtualNetworkRules;
         }
 
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
             this.ipRules = ipRules;
             return this;
@@ -95,14 +84,20 @@ public final class AccountNetworkAcls {
         public Builder ipRules(String... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder virtualNetworkRules(@Nullable List<AccountNetworkAclsVirtualNetworkRule> virtualNetworkRules) {
             this.virtualNetworkRules = virtualNetworkRules;
             return this;
         }
         public Builder virtualNetworkRules(AccountNetworkAclsVirtualNetworkRule... virtualNetworkRules) {
             return virtualNetworkRules(List.of(virtualNetworkRules));
-        }        public AccountNetworkAcls build() {
-            return new AccountNetworkAcls(defaultAction, ipRules, virtualNetworkRules);
+        }
+        public AccountNetworkAcls build() {
+            final var o = new AccountNetworkAcls();
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.virtualNetworkRules = virtualNetworkRules;
+            return o;
         }
     }
 }

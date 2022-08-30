@@ -17,84 +17,59 @@ public final class DeviceDeviceProperty {
      * @return The Data Box Edge/Gateway device local capacity in MB.
      * 
      */
-    private final @Nullable Integer capacity;
+    private @Nullable Integer capacity;
     /**
      * @return Type of compute roles configured.
      * 
      */
-    private final @Nullable List<String> configuredRoleTypes;
+    private @Nullable List<String> configuredRoleTypes;
     /**
      * @return The Data Box Edge/Gateway device culture.
      * 
      */
-    private final @Nullable String culture;
+    private @Nullable String culture;
     /**
      * @return The device software version number of the device (e.g. 1.2.18105.6).
      * 
      */
-    private final @Nullable String hcsVersion;
+    private @Nullable String hcsVersion;
     /**
      * @return The Data Box Edge/Gateway device model.
      * 
      */
-    private final @Nullable String model;
+    private @Nullable String model;
     /**
      * @return The number of nodes in the cluster.
      * 
      */
-    private final @Nullable Integer nodeCount;
+    private @Nullable Integer nodeCount;
     /**
      * @return The Serial Number of Data Box Edge/Gateway device.
      * 
      */
-    private final @Nullable String serialNumber;
+    private @Nullable String serialNumber;
     /**
      * @return The Data Box Edge/Gateway device software version.
      * 
      */
-    private final @Nullable String softwareVersion;
+    private @Nullable String softwareVersion;
     /**
      * @return The status of the Data Box Edge/Gateway device.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The Data Box Edge/Gateway device timezone.
      * 
      */
-    private final @Nullable String timeZone;
+    private @Nullable String timeZone;
     /**
      * @return The type of the Data Box Edge/Gateway device.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private DeviceDeviceProperty(
-        @CustomType.Parameter("capacity") @Nullable Integer capacity,
-        @CustomType.Parameter("configuredRoleTypes") @Nullable List<String> configuredRoleTypes,
-        @CustomType.Parameter("culture") @Nullable String culture,
-        @CustomType.Parameter("hcsVersion") @Nullable String hcsVersion,
-        @CustomType.Parameter("model") @Nullable String model,
-        @CustomType.Parameter("nodeCount") @Nullable Integer nodeCount,
-        @CustomType.Parameter("serialNumber") @Nullable String serialNumber,
-        @CustomType.Parameter("softwareVersion") @Nullable String softwareVersion,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("timeZone") @Nullable String timeZone,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.capacity = capacity;
-        this.configuredRoleTypes = configuredRoleTypes;
-        this.culture = culture;
-        this.hcsVersion = hcsVersion;
-        this.model = model;
-        this.nodeCount = nodeCount;
-        this.serialNumber = serialNumber;
-        this.softwareVersion = softwareVersion;
-        this.status = status;
-        this.timeZone = timeZone;
-        this.type = type;
-    }
-
+    private DeviceDeviceProperty() {}
     /**
      * @return The Data Box Edge/Gateway device local capacity in MB.
      * 
@@ -180,7 +155,7 @@ public final class DeviceDeviceProperty {
     public static Builder builder(DeviceDeviceProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
         private @Nullable List<String> configuredRoleTypes;
@@ -193,11 +168,7 @@ public final class DeviceDeviceProperty {
         private @Nullable String status;
         private @Nullable String timeZone;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DeviceDeviceProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -213,10 +184,12 @@ public final class DeviceDeviceProperty {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder configuredRoleTypes(@Nullable List<String> configuredRoleTypes) {
             this.configuredRoleTypes = configuredRoleTypes;
             return this;
@@ -224,43 +197,65 @@ public final class DeviceDeviceProperty {
         public Builder configuredRoleTypes(String... configuredRoleTypes) {
             return configuredRoleTypes(List.of(configuredRoleTypes));
         }
+        @CustomType.Setter
         public Builder culture(@Nullable String culture) {
             this.culture = culture;
             return this;
         }
+        @CustomType.Setter
         public Builder hcsVersion(@Nullable String hcsVersion) {
             this.hcsVersion = hcsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder model(@Nullable String model) {
             this.model = model;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeCount(@Nullable Integer nodeCount) {
             this.nodeCount = nodeCount;
             return this;
         }
+        @CustomType.Setter
         public Builder serialNumber(@Nullable String serialNumber) {
             this.serialNumber = serialNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder softwareVersion(@Nullable String softwareVersion) {
             this.softwareVersion = softwareVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
             this.timeZone = timeZone;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public DeviceDeviceProperty build() {
-            return new DeviceDeviceProperty(capacity, configuredRoleTypes, culture, hcsVersion, model, nodeCount, serialNumber, softwareVersion, status, timeZone, type);
+        }
+        public DeviceDeviceProperty build() {
+            final var o = new DeviceDeviceProperty();
+            o.capacity = capacity;
+            o.configuredRoleTypes = configuredRoleTypes;
+            o.culture = culture;
+            o.hcsVersion = hcsVersion;
+            o.model = model;
+            o.nodeCount = nodeCount;
+            o.serialNumber = serialNumber;
+            o.softwareVersion = softwareVersion;
+            o.status = status;
+            o.timeZone = timeZone;
+            o.type = type;
+            return o;
         }
     }
 }

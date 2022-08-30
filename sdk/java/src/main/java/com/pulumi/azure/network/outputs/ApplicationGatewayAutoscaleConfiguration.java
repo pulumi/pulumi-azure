@@ -15,21 +15,14 @@ public final class ApplicationGatewayAutoscaleConfiguration {
      * @return Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
      * 
      */
-    private final @Nullable Integer maxCapacity;
+    private @Nullable Integer maxCapacity;
     /**
      * @return Minimum capacity for autoscaling. Accepted values are in the range `0` to `100`.
      * 
      */
-    private final Integer minCapacity;
+    private Integer minCapacity;
 
-    @CustomType.Constructor
-    private ApplicationGatewayAutoscaleConfiguration(
-        @CustomType.Parameter("maxCapacity") @Nullable Integer maxCapacity,
-        @CustomType.Parameter("minCapacity") Integer minCapacity) {
-        this.maxCapacity = maxCapacity;
-        this.minCapacity = minCapacity;
-    }
-
+    private ApplicationGatewayAutoscaleConfiguration() {}
     /**
      * @return Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
      * 
@@ -52,30 +45,32 @@ public final class ApplicationGatewayAutoscaleConfiguration {
     public static Builder builder(ApplicationGatewayAutoscaleConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxCapacity;
         private Integer minCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayAutoscaleConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
         }
 
+        @CustomType.Setter
         public Builder maxCapacity(@Nullable Integer maxCapacity) {
             this.maxCapacity = maxCapacity;
             return this;
         }
+        @CustomType.Setter
         public Builder minCapacity(Integer minCapacity) {
             this.minCapacity = Objects.requireNonNull(minCapacity);
             return this;
-        }        public ApplicationGatewayAutoscaleConfiguration build() {
-            return new ApplicationGatewayAutoscaleConfiguration(maxCapacity, minCapacity);
+        }
+        public ApplicationGatewayAutoscaleConfiguration build() {
+            final var o = new ApplicationGatewayAutoscaleConfiguration();
+            o.maxCapacity = maxCapacity;
+            o.minCapacity = minCapacity;
+            return o;
         }
     }
 }

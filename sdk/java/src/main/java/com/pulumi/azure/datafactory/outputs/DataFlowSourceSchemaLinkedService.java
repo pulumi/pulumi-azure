@@ -15,21 +15,14 @@ public final class DataFlowSourceSchemaLinkedService {
      * @return The name for the Data Factory Linked Service with schema.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private DataFlowSourceSchemaLinkedService(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private DataFlowSourceSchemaLinkedService() {}
     /**
      * @return The name for the Data Factory Linked Service with schema.
      * 
@@ -52,30 +45,32 @@ public final class DataFlowSourceSchemaLinkedService {
     public static Builder builder(DataFlowSourceSchemaLinkedService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataFlowSourceSchemaLinkedService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public DataFlowSourceSchemaLinkedService build() {
-            return new DataFlowSourceSchemaLinkedService(name, parameters);
+        }
+        public DataFlowSourceSchemaLinkedService build() {
+            final var o = new DataFlowSourceSchemaLinkedService();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

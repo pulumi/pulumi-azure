@@ -17,49 +17,34 @@ public final class GetSharedImageVersionsImage {
      * @return Is this Image Version excluded from the `latest` filter?
      * 
      */
-    private final Boolean excludeFromLatest;
+    private Boolean excludeFromLatest;
     /**
      * @return The supported Azure location where the Shared Image Gallery exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The ID of the Managed Image which was the source of this Shared Image Version.
      * 
      */
-    private final String managedImageId;
+    private String managedImageId;
     /**
      * @return The Azure Region in which this Image Version exists.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A mapping of tags assigned to the Shared Image.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return One or more `target_region` blocks as documented below.
      * 
      */
-    private final List<GetSharedImageVersionsImageTargetRegion> targetRegions;
+    private List<GetSharedImageVersionsImageTargetRegion> targetRegions;
 
-    @CustomType.Constructor
-    private GetSharedImageVersionsImage(
-        @CustomType.Parameter("excludeFromLatest") Boolean excludeFromLatest,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managedImageId") String managedImageId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetRegions") List<GetSharedImageVersionsImageTargetRegion> targetRegions) {
-        this.excludeFromLatest = excludeFromLatest;
-        this.location = location;
-        this.managedImageId = managedImageId;
-        this.name = name;
-        this.tags = tags;
-        this.targetRegions = targetRegions;
-    }
-
+    private GetSharedImageVersionsImage() {}
     /**
      * @return Is this Image Version excluded from the `latest` filter?
      * 
@@ -110,7 +95,7 @@ public final class GetSharedImageVersionsImage {
     public static Builder builder(GetSharedImageVersionsImage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean excludeFromLatest;
         private String location;
@@ -118,11 +103,7 @@ public final class GetSharedImageVersionsImage {
         private String name;
         private Map<String,String> tags;
         private List<GetSharedImageVersionsImageTargetRegion> targetRegions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedImageVersionsImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeFromLatest = defaults.excludeFromLatest;
@@ -133,34 +114,48 @@ public final class GetSharedImageVersionsImage {
     	      this.targetRegions = defaults.targetRegions;
         }
 
+        @CustomType.Setter
         public Builder excludeFromLatest(Boolean excludeFromLatest) {
             this.excludeFromLatest = Objects.requireNonNull(excludeFromLatest);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managedImageId(String managedImageId) {
             this.managedImageId = Objects.requireNonNull(managedImageId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetRegions(List<GetSharedImageVersionsImageTargetRegion> targetRegions) {
             this.targetRegions = Objects.requireNonNull(targetRegions);
             return this;
         }
         public Builder targetRegions(GetSharedImageVersionsImageTargetRegion... targetRegions) {
             return targetRegions(List.of(targetRegions));
-        }        public GetSharedImageVersionsImage build() {
-            return new GetSharedImageVersionsImage(excludeFromLatest, location, managedImageId, name, tags, targetRegions);
+        }
+        public GetSharedImageVersionsImage build() {
+            final var o = new GetSharedImageVersionsImage();
+            o.excludeFromLatest = excludeFromLatest;
+            o.location = location;
+            o.managedImageId = managedImageId;
+            o.name = name;
+            o.tags = tags;
+            o.targetRegions = targetRegions;
+            return o;
         }
     }
 }

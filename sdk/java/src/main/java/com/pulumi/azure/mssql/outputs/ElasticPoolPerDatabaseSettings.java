@@ -13,21 +13,14 @@ public final class ElasticPoolPerDatabaseSettings {
      * @return The maximum capacity any one database can consume.
      * 
      */
-    private final Double maxCapacity;
+    private Double maxCapacity;
     /**
      * @return The minimum capacity all databases are guaranteed.
      * 
      */
-    private final Double minCapacity;
+    private Double minCapacity;
 
-    @CustomType.Constructor
-    private ElasticPoolPerDatabaseSettings(
-        @CustomType.Parameter("maxCapacity") Double maxCapacity,
-        @CustomType.Parameter("minCapacity") Double minCapacity) {
-        this.maxCapacity = maxCapacity;
-        this.minCapacity = minCapacity;
-    }
-
+    private ElasticPoolPerDatabaseSettings() {}
     /**
      * @return The maximum capacity any one database can consume.
      * 
@@ -50,30 +43,32 @@ public final class ElasticPoolPerDatabaseSettings {
     public static Builder builder(ElasticPoolPerDatabaseSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double maxCapacity;
         private Double minCapacity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ElasticPoolPerDatabaseSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxCapacity = defaults.maxCapacity;
     	      this.minCapacity = defaults.minCapacity;
         }
 
+        @CustomType.Setter
         public Builder maxCapacity(Double maxCapacity) {
             this.maxCapacity = Objects.requireNonNull(maxCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder minCapacity(Double minCapacity) {
             this.minCapacity = Objects.requireNonNull(minCapacity);
             return this;
-        }        public ElasticPoolPerDatabaseSettings build() {
-            return new ElasticPoolPerDatabaseSettings(maxCapacity, minCapacity);
+        }
+        public ElasticPoolPerDatabaseSettings build() {
+            final var o = new ElasticPoolPerDatabaseSettings();
+            o.maxCapacity = maxCapacity;
+            o.minCapacity = minCapacity;
+            return o;
         }
     }
 }

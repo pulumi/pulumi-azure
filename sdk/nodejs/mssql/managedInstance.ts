@@ -230,7 +230,7 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     public readonly collation!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     public readonly dnsZonePartnerId!: pulumi.Output<string | undefined>;
     /**
@@ -406,7 +406,7 @@ export interface ManagedInstanceState {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
     /**
@@ -496,7 +496,7 @@ export interface ManagedInstanceArgs {
      */
     collation?: pulumi.Input<string>;
     /**
-     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+     * The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azure.sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
      */
     dnsZonePartnerId?: pulumi.Input<string>;
     /**

@@ -16,42 +16,29 @@ public final class RegistryTaskSourceTriggerAuthentication {
      * @return Time in seconds that the token remains valid.
      * 
      */
-    private final @Nullable Integer expireInSeconds;
+    private @Nullable Integer expireInSeconds;
     /**
      * @return The refresh token used to refresh the access token.
      * 
      */
-    private final @Nullable String refreshToken;
+    private @Nullable String refreshToken;
     /**
      * @return The scope of the access token.
      * 
      */
-    private final @Nullable String scope;
+    private @Nullable String scope;
     /**
      * @return The access token used to access the source control provider.
      * 
      */
-    private final String token;
+    private String token;
     /**
      * @return The type of the token. Possible values are `PAT` (personal access token) and `OAuth`.
      * 
      */
-    private final String tokenType;
+    private String tokenType;
 
-    @CustomType.Constructor
-    private RegistryTaskSourceTriggerAuthentication(
-        @CustomType.Parameter("expireInSeconds") @Nullable Integer expireInSeconds,
-        @CustomType.Parameter("refreshToken") @Nullable String refreshToken,
-        @CustomType.Parameter("scope") @Nullable String scope,
-        @CustomType.Parameter("token") String token,
-        @CustomType.Parameter("tokenType") String tokenType) {
-        this.expireInSeconds = expireInSeconds;
-        this.refreshToken = refreshToken;
-        this.scope = scope;
-        this.token = token;
-        this.tokenType = tokenType;
-    }
-
+    private RegistryTaskSourceTriggerAuthentication() {}
     /**
      * @return Time in seconds that the token remains valid.
      * 
@@ -95,18 +82,14 @@ public final class RegistryTaskSourceTriggerAuthentication {
     public static Builder builder(RegistryTaskSourceTriggerAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer expireInSeconds;
         private @Nullable String refreshToken;
         private @Nullable String scope;
         private String token;
         private String tokenType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskSourceTriggerAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expireInSeconds = defaults.expireInSeconds;
@@ -116,27 +99,39 @@ public final class RegistryTaskSourceTriggerAuthentication {
     	      this.tokenType = defaults.tokenType;
         }
 
+        @CustomType.Setter
         public Builder expireInSeconds(@Nullable Integer expireInSeconds) {
             this.expireInSeconds = expireInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshToken(@Nullable String refreshToken) {
             this.refreshToken = refreshToken;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
         }
+        @CustomType.Setter
         public Builder token(String token) {
             this.token = Objects.requireNonNull(token);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenType(String tokenType) {
             this.tokenType = Objects.requireNonNull(tokenType);
             return this;
-        }        public RegistryTaskSourceTriggerAuthentication build() {
-            return new RegistryTaskSourceTriggerAuthentication(expireInSeconds, refreshToken, scope, token, tokenType);
+        }
+        public RegistryTaskSourceTriggerAuthentication build() {
+            final var o = new RegistryTaskSourceTriggerAuthentication();
+            o.expireInSeconds = expireInSeconds;
+            o.refreshToken = refreshToken;
+            o.scope = scope;
+            o.token = token;
+            o.tokenType = tokenType;
+            return o;
         }
     }
 }

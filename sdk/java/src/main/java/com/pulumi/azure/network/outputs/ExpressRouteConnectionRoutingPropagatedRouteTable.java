@@ -15,21 +15,14 @@ public final class ExpressRouteConnectionRoutingPropagatedRouteTable {
      * @return The list of labels to logically group route tables.
      * 
      */
-    private final @Nullable List<String> labels;
+    private @Nullable List<String> labels;
     /**
      * @return A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table.
      * 
      */
-    private final @Nullable List<String> routeTableIds;
+    private @Nullable List<String> routeTableIds;
 
-    @CustomType.Constructor
-    private ExpressRouteConnectionRoutingPropagatedRouteTable(
-        @CustomType.Parameter("labels") @Nullable List<String> labels,
-        @CustomType.Parameter("routeTableIds") @Nullable List<String> routeTableIds) {
-        this.labels = labels;
-        this.routeTableIds = routeTableIds;
-    }
-
+    private ExpressRouteConnectionRoutingPropagatedRouteTable() {}
     /**
      * @return The list of labels to logically group route tables.
      * 
@@ -52,21 +45,18 @@ public final class ExpressRouteConnectionRoutingPropagatedRouteTable {
     public static Builder builder(ExpressRouteConnectionRoutingPropagatedRouteTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> labels;
         private @Nullable List<String> routeTableIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRouteConnectionRoutingPropagatedRouteTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.labels = defaults.labels;
     	      this.routeTableIds = defaults.routeTableIds;
         }
 
+        @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
             this.labels = labels;
             return this;
@@ -74,14 +64,19 @@ public final class ExpressRouteConnectionRoutingPropagatedRouteTable {
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
+        @CustomType.Setter
         public Builder routeTableIds(@Nullable List<String> routeTableIds) {
             this.routeTableIds = routeTableIds;
             return this;
         }
         public Builder routeTableIds(String... routeTableIds) {
             return routeTableIds(List.of(routeTableIds));
-        }        public ExpressRouteConnectionRoutingPropagatedRouteTable build() {
-            return new ExpressRouteConnectionRoutingPropagatedRouteTable(labels, routeTableIds);
+        }
+        public ExpressRouteConnectionRoutingPropagatedRouteTable build() {
+            final var o = new ExpressRouteConnectionRoutingPropagatedRouteTable();
+            o.labels = labels;
+            o.routeTableIds = routeTableIds;
+            return o;
         }
     }
 }

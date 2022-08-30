@@ -14,42 +14,29 @@ public final class GetActionGroupAzureFunctionReceiver {
      * @return The Azure resource ID of the function app.
      * 
      */
-    private final String functionAppResourceId;
+    private String functionAppResourceId;
     /**
      * @return The function name in the function app.
      * 
      */
-    private final String functionName;
+    private String functionName;
     /**
      * @return The HTTP trigger url where HTTP request sent to.
      * 
      */
-    private final String httpTriggerUrl;
+    private String httpTriggerUrl;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private GetActionGroupAzureFunctionReceiver(
-        @CustomType.Parameter("functionAppResourceId") String functionAppResourceId,
-        @CustomType.Parameter("functionName") String functionName,
-        @CustomType.Parameter("httpTriggerUrl") String httpTriggerUrl,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema) {
-        this.functionAppResourceId = functionAppResourceId;
-        this.functionName = functionName;
-        this.httpTriggerUrl = httpTriggerUrl;
-        this.name = name;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private GetActionGroupAzureFunctionReceiver() {}
     /**
      * @return The Azure resource ID of the function app.
      * 
@@ -93,18 +80,14 @@ public final class GetActionGroupAzureFunctionReceiver {
     public static Builder builder(GetActionGroupAzureFunctionReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String functionAppResourceId;
         private String functionName;
         private String httpTriggerUrl;
         private String name;
         private Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupAzureFunctionReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.functionAppResourceId = defaults.functionAppResourceId;
@@ -114,27 +97,39 @@ public final class GetActionGroupAzureFunctionReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder functionAppResourceId(String functionAppResourceId) {
             this.functionAppResourceId = Objects.requireNonNull(functionAppResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder functionName(String functionName) {
             this.functionName = Objects.requireNonNull(functionName);
             return this;
         }
+        @CustomType.Setter
         public Builder httpTriggerUrl(String httpTriggerUrl) {
             this.httpTriggerUrl = Objects.requireNonNull(httpTriggerUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
-        }        public GetActionGroupAzureFunctionReceiver build() {
-            return new GetActionGroupAzureFunctionReceiver(functionAppResourceId, functionName, httpTriggerUrl, name, useCommonAlertSchema);
+        }
+        public GetActionGroupAzureFunctionReceiver build() {
+            final var o = new GetActionGroupAzureFunctionReceiver();
+            o.functionAppResourceId = functionAppResourceId;
+            o.functionName = functionName;
+            o.httpTriggerUrl = httpTriggerUrl;
+            o.name = name;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

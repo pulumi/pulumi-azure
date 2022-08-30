@@ -15,35 +15,24 @@ public final class KeyVaultNetworkAcls {
      * @return Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
      * 
      */
-    private final String bypass;
+    private String bypass;
     /**
      * @return The Default Action to use when no rules match from `ip_rules` / `virtual_network_subnet_ids`. Possible values are `Allow` and `Deny`.
      * 
      */
-    private final String defaultAction;
+    private String defaultAction;
     /**
      * @return One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
      * 
      */
-    private final @Nullable List<String> ipRules;
+    private @Nullable List<String> ipRules;
     /**
      * @return One or more Subnet IDs which should be able to access this Key Vault.
      * 
      */
-    private final @Nullable List<String> virtualNetworkSubnetIds;
+    private @Nullable List<String> virtualNetworkSubnetIds;
 
-    @CustomType.Constructor
-    private KeyVaultNetworkAcls(
-        @CustomType.Parameter("bypass") String bypass,
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<String> ipRules,
-        @CustomType.Parameter("virtualNetworkSubnetIds") @Nullable List<String> virtualNetworkSubnetIds) {
-        this.bypass = bypass;
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-    }
-
+    private KeyVaultNetworkAcls() {}
     /**
      * @return Specifies which traffic can bypass the network rules. Possible values are `AzureServices` and `None`.
      * 
@@ -80,17 +69,13 @@ public final class KeyVaultNetworkAcls {
     public static Builder builder(KeyVaultNetworkAcls defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bypass;
         private String defaultAction;
         private @Nullable List<String> ipRules;
         private @Nullable List<String> virtualNetworkSubnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KeyVaultNetworkAcls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bypass = defaults.bypass;
@@ -99,14 +84,17 @@ public final class KeyVaultNetworkAcls {
     	      this.virtualNetworkSubnetIds = defaults.virtualNetworkSubnetIds;
         }
 
+        @CustomType.Setter
         public Builder bypass(String bypass) {
             this.bypass = Objects.requireNonNull(bypass);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
             this.ipRules = ipRules;
             return this;
@@ -114,14 +102,21 @@ public final class KeyVaultNetworkAcls {
         public Builder ipRules(String... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetIds(@Nullable List<String> virtualNetworkSubnetIds) {
             this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
             return this;
         }
         public Builder virtualNetworkSubnetIds(String... virtualNetworkSubnetIds) {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
-        }        public KeyVaultNetworkAcls build() {
-            return new KeyVaultNetworkAcls(bypass, defaultAction, ipRules, virtualNetworkSubnetIds);
+        }
+        public KeyVaultNetworkAcls build() {
+            final var o = new KeyVaultNetworkAcls();
+            o.bypass = bypass;
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return o;
         }
     }
 }

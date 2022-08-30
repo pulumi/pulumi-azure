@@ -17,62 +17,41 @@ public final class GetExpressRouteCircuitResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the ExpressRoute circuit exists
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return A `peerings` block for the ExpressRoute circuit as documented below
      * 
      */
-    private final List<GetExpressRouteCircuitPeering> peerings;
-    private final String resourceGroupName;
+    private List<GetExpressRouteCircuitPeering> peerings;
+    private String resourceGroupName;
     /**
      * @return The string needed by the service provider to provision the ExpressRoute circuit.
      * 
      */
-    private final String serviceKey;
+    private String serviceKey;
     /**
      * @return A `service_provider_properties` block for the ExpressRoute circuit as documented below
      * 
      */
-    private final List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties;
+    private List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties;
     /**
      * @return The ExpressRoute circuit provisioning state from your chosen service provider. Possible values are `NotProvisioned`, `Provisioning`, `Provisioned`, and `Deprovisioning`.
      * 
      */
-    private final String serviceProviderProvisioningState;
+    private String serviceProviderProvisioningState;
     /**
      * @return A `sku` block for the ExpressRoute circuit as documented below.
      * 
      */
-    private final GetExpressRouteCircuitSku sku;
+    private GetExpressRouteCircuitSku sku;
 
-    @CustomType.Constructor
-    private GetExpressRouteCircuitResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("peerings") List<GetExpressRouteCircuitPeering> peerings,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceKey") String serviceKey,
-        @CustomType.Parameter("serviceProviderProperties") List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties,
-        @CustomType.Parameter("serviceProviderProvisioningState") String serviceProviderProvisioningState,
-        @CustomType.Parameter("sku") GetExpressRouteCircuitSku sku) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.peerings = peerings;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceKey = serviceKey;
-        this.serviceProviderProperties = serviceProviderProperties;
-        this.serviceProviderProvisioningState = serviceProviderProvisioningState;
-        this.sku = sku;
-    }
-
+    private GetExpressRouteCircuitResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -136,7 +115,7 @@ public final class GetExpressRouteCircuitResult {
     public static Builder builder(GetExpressRouteCircuitResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -147,11 +126,7 @@ public final class GetExpressRouteCircuitResult {
         private List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties;
         private String serviceProviderProvisioningState;
         private GetExpressRouteCircuitSku sku;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExpressRouteCircuitResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -165,18 +140,22 @@ public final class GetExpressRouteCircuitResult {
     	      this.sku = defaults.sku;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder peerings(List<GetExpressRouteCircuitPeering> peerings) {
             this.peerings = Objects.requireNonNull(peerings);
             return this;
@@ -184,14 +163,17 @@ public final class GetExpressRouteCircuitResult {
         public Builder peerings(GetExpressRouteCircuitPeering... peerings) {
             return peerings(List.of(peerings));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceKey(String serviceKey) {
             this.serviceKey = Objects.requireNonNull(serviceKey);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceProviderProperties(List<GetExpressRouteCircuitServiceProviderProperty> serviceProviderProperties) {
             this.serviceProviderProperties = Objects.requireNonNull(serviceProviderProperties);
             return this;
@@ -199,15 +181,28 @@ public final class GetExpressRouteCircuitResult {
         public Builder serviceProviderProperties(GetExpressRouteCircuitServiceProviderProperty... serviceProviderProperties) {
             return serviceProviderProperties(List.of(serviceProviderProperties));
         }
+        @CustomType.Setter
         public Builder serviceProviderProvisioningState(String serviceProviderProvisioningState) {
             this.serviceProviderProvisioningState = Objects.requireNonNull(serviceProviderProvisioningState);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(GetExpressRouteCircuitSku sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
-        }        public GetExpressRouteCircuitResult build() {
-            return new GetExpressRouteCircuitResult(id, location, name, peerings, resourceGroupName, serviceKey, serviceProviderProperties, serviceProviderProvisioningState, sku);
+        }
+        public GetExpressRouteCircuitResult build() {
+            final var o = new GetExpressRouteCircuitResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.peerings = peerings;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceKey = serviceKey;
+            o.serviceProviderProperties = serviceProviderProperties;
+            o.serviceProviderProvisioningState = serviceProviderProvisioningState;
+            o.sku = sku;
+            return o;
         }
     }
 }

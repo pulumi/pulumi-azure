@@ -13,21 +13,14 @@ public final class GetCertificateCertificatePolicyLifetimeActionTrigger {
      * @return The number of days before the Certificate expires that the action associated with this Trigger should run.
      * 
      */
-    private final Integer daysBeforeExpiry;
+    private Integer daysBeforeExpiry;
     /**
      * @return The percentage at which during the Certificates Lifetime the action associated with this Trigger should run.
      * 
      */
-    private final Integer lifetimePercentage;
+    private Integer lifetimePercentage;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyLifetimeActionTrigger(
-        @CustomType.Parameter("daysBeforeExpiry") Integer daysBeforeExpiry,
-        @CustomType.Parameter("lifetimePercentage") Integer lifetimePercentage) {
-        this.daysBeforeExpiry = daysBeforeExpiry;
-        this.lifetimePercentage = lifetimePercentage;
-    }
-
+    private GetCertificateCertificatePolicyLifetimeActionTrigger() {}
     /**
      * @return The number of days before the Certificate expires that the action associated with this Trigger should run.
      * 
@@ -50,30 +43,32 @@ public final class GetCertificateCertificatePolicyLifetimeActionTrigger {
     public static Builder builder(GetCertificateCertificatePolicyLifetimeActionTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer daysBeforeExpiry;
         private Integer lifetimePercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyLifetimeActionTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysBeforeExpiry = defaults.daysBeforeExpiry;
     	      this.lifetimePercentage = defaults.lifetimePercentage;
         }
 
+        @CustomType.Setter
         public Builder daysBeforeExpiry(Integer daysBeforeExpiry) {
             this.daysBeforeExpiry = Objects.requireNonNull(daysBeforeExpiry);
             return this;
         }
+        @CustomType.Setter
         public Builder lifetimePercentage(Integer lifetimePercentage) {
             this.lifetimePercentage = Objects.requireNonNull(lifetimePercentage);
             return this;
-        }        public GetCertificateCertificatePolicyLifetimeActionTrigger build() {
-            return new GetCertificateCertificatePolicyLifetimeActionTrigger(daysBeforeExpiry, lifetimePercentage);
+        }
+        public GetCertificateCertificatePolicyLifetimeActionTrigger build() {
+            final var o = new GetCertificateCertificatePolicyLifetimeActionTrigger();
+            o.daysBeforeExpiry = daysBeforeExpiry;
+            o.lifetimePercentage = lifetimePercentage;
+            return o;
         }
     }
 }

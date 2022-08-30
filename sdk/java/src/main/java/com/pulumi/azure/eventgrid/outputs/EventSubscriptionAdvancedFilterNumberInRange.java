@@ -15,21 +15,14 @@ public final class EventSubscriptionAdvancedFilterNumberInRange {
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
      */
-    private final List<List<Double>> values;
+    private List<List<Double>> values;
 
-    @CustomType.Constructor
-    private EventSubscriptionAdvancedFilterNumberInRange(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<List<Double>> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private EventSubscriptionAdvancedFilterNumberInRange() {}
     /**
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
@@ -52,30 +45,32 @@ public final class EventSubscriptionAdvancedFilterNumberInRange {
     public static Builder builder(EventSubscriptionAdvancedFilterNumberInRange defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<List<Double>> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionAdvancedFilterNumberInRange defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<List<Double>> values) {
             this.values = Objects.requireNonNull(values);
             return this;
-        }        public EventSubscriptionAdvancedFilterNumberInRange build() {
-            return new EventSubscriptionAdvancedFilterNumberInRange(key, values);
+        }
+        public EventSubscriptionAdvancedFilterNumberInRange build() {
+            final var o = new EventSubscriptionAdvancedFilterNumberInRange();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

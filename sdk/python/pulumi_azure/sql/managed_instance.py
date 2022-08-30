@@ -46,7 +46,7 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] subnet_id: The subnet resource id that the SQL Managed Instance will be associated with.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to your instance. Values can be `8`, `16`, or `24` if `sku_name` is `GP_Gen4`, or `8`, `16`, `24`, `32`, or `40` if `sku_name` is `GP_Gen5`.
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
@@ -200,7 +200,7 @@ class ManagedInstanceArgs:
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
@@ -345,7 +345,7 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input['ManagedInstanceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
@@ -444,7 +444,7 @@ class _ManagedInstanceState:
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 
@@ -838,7 +838,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -1143,7 +1143,7 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx)
         :param pulumi.Input[str] collation: Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        :param pulumi.Input[str] dns_zone_partner_id: The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         :param pulumi.Input[str] fqdn: The fully qualified domain name of the Azure Managed SQL Instance
         :param pulumi.Input[pulumi.InputType['ManagedInstanceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] license_type: What type of license the Managed Instance will use. Valid values include can be `LicenseIncluded` or `BasePrice`.
@@ -1215,7 +1215,7 @@ class ManagedInstance(pulumi.CustomResource):
     @pulumi.getter(name="dnsZonePartnerId")
     def dns_zone_partner_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `azurerm_managed_instance_failover_group`. Setting this after creation forces a new resource to be created.
+        The ID of the Managed Instance which will share the DNS zone. This is a prerequisite for creating a `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
         """
         return pulumi.get(self, "dns_zone_partner_id")
 

@@ -14,21 +14,14 @@ public final class ServiceSku {
      * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return Specifies which tier to use. Valid values are `Free_F1`, `Standard_S1` and `Premium_P1`.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ServiceSku(
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("name") String name) {
-        this.capacity = capacity;
-        this.name = name;
-    }
-
+    private ServiceSku() {}
     /**
      * @return Specifies the number of units associated with this SignalR service. Valid values are `1`, `2`, `5`, `10`, `20`, `50` and `100`.
      * 
@@ -51,30 +44,32 @@ public final class ServiceSku {
     public static Builder builder(ServiceSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer capacity;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ServiceSku build() {
-            return new ServiceSku(capacity, name);
+        }
+        public ServiceSku build() {
+            final var o = new ServiceSku();
+            o.capacity = capacity;
+            o.name = name;
+            return o;
         }
     }
 }

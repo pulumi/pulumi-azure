@@ -15,63 +15,44 @@ public final class MonitorDatadogOrganization {
      * @return Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final String apiKey;
+    private String apiKey;
     /**
      * @return Application key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final String applicationKey;
+    private String applicationKey;
     /**
      * @return The ID of the enterprise_app.
      * 
      */
-    private final @Nullable String enterpriseAppId;
+    private @Nullable String enterpriseAppId;
     /**
      * @return The ID of the Datadog Monitor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The auth code used to linking to an existing Datadog organization. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final @Nullable String linkingAuthCode;
+    private @Nullable String linkingAuthCode;
     /**
      * @return The ID of the linking_client. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final @Nullable String linkingClientId;
+    private @Nullable String linkingClientId;
     /**
      * @return The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The redirect uri for linking. Changing this forces a new Datadog Monitor to be created.
      * 
      */
-    private final @Nullable String redirectUri;
+    private @Nullable String redirectUri;
 
-    @CustomType.Constructor
-    private MonitorDatadogOrganization(
-        @CustomType.Parameter("apiKey") String apiKey,
-        @CustomType.Parameter("applicationKey") String applicationKey,
-        @CustomType.Parameter("enterpriseAppId") @Nullable String enterpriseAppId,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("linkingAuthCode") @Nullable String linkingAuthCode,
-        @CustomType.Parameter("linkingClientId") @Nullable String linkingClientId,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("redirectUri") @Nullable String redirectUri) {
-        this.apiKey = apiKey;
-        this.applicationKey = applicationKey;
-        this.enterpriseAppId = enterpriseAppId;
-        this.id = id;
-        this.linkingAuthCode = linkingAuthCode;
-        this.linkingClientId = linkingClientId;
-        this.name = name;
-        this.redirectUri = redirectUri;
-    }
-
+    private MonitorDatadogOrganization() {}
     /**
      * @return Api key associated to the Datadog organization. Changing this forces a new Datadog Monitor to be created.
      * 
@@ -136,7 +117,7 @@ public final class MonitorDatadogOrganization {
     public static Builder builder(MonitorDatadogOrganization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiKey;
         private String applicationKey;
@@ -146,11 +127,7 @@ public final class MonitorDatadogOrganization {
         private @Nullable String linkingClientId;
         private @Nullable String name;
         private @Nullable String redirectUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MonitorDatadogOrganization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
@@ -163,39 +140,57 @@ public final class MonitorDatadogOrganization {
     	      this.redirectUri = defaults.redirectUri;
         }
 
+        @CustomType.Setter
         public Builder apiKey(String apiKey) {
             this.apiKey = Objects.requireNonNull(apiKey);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationKey(String applicationKey) {
             this.applicationKey = Objects.requireNonNull(applicationKey);
             return this;
         }
+        @CustomType.Setter
         public Builder enterpriseAppId(@Nullable String enterpriseAppId) {
             this.enterpriseAppId = enterpriseAppId;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder linkingAuthCode(@Nullable String linkingAuthCode) {
             this.linkingAuthCode = linkingAuthCode;
             return this;
         }
+        @CustomType.Setter
         public Builder linkingClientId(@Nullable String linkingClientId) {
             this.linkingClientId = linkingClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectUri(@Nullable String redirectUri) {
             this.redirectUri = redirectUri;
             return this;
-        }        public MonitorDatadogOrganization build() {
-            return new MonitorDatadogOrganization(apiKey, applicationKey, enterpriseAppId, id, linkingAuthCode, linkingClientId, name, redirectUri);
+        }
+        public MonitorDatadogOrganization build() {
+            final var o = new MonitorDatadogOrganization();
+            o.apiKey = apiKey;
+            o.applicationKey = applicationKey;
+            o.enterpriseAppId = enterpriseAppId;
+            o.id = id;
+            o.linkingAuthCode = linkingAuthCode;
+            o.linkingClientId = linkingClientId;
+            o.name = name;
+            o.redirectUri = redirectUri;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class GetLinuxWebAppLog {
      * @return A `application_logs` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppLogApplicationLog> applicationLogs;
+    private List<GetLinuxWebAppLogApplicationLog> applicationLogs;
     /**
      * @return Is Detailed Error Messaging enabled.
      * 
      */
-    private final Boolean detailedErrorMessages;
+    private Boolean detailedErrorMessages;
     /**
      * @return Is Failed Request Tracing enabled.
      * 
      */
-    private final Boolean failedRequestTracing;
+    private Boolean failedRequestTracing;
     /**
      * @return An `http_logs` block as defined above.
      * 
      */
-    private final List<GetLinuxWebAppLogHttpLog> httpLogs;
+    private List<GetLinuxWebAppLogHttpLog> httpLogs;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppLog(
-        @CustomType.Parameter("applicationLogs") List<GetLinuxWebAppLogApplicationLog> applicationLogs,
-        @CustomType.Parameter("detailedErrorMessages") Boolean detailedErrorMessages,
-        @CustomType.Parameter("failedRequestTracing") Boolean failedRequestTracing,
-        @CustomType.Parameter("httpLogs") List<GetLinuxWebAppLogHttpLog> httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessages = detailedErrorMessages;
-        this.failedRequestTracing = failedRequestTracing;
-        this.httpLogs = httpLogs;
-    }
-
+    private GetLinuxWebAppLog() {}
     /**
      * @return A `application_logs` block as defined above.
      * 
@@ -81,17 +70,13 @@ public final class GetLinuxWebAppLog {
     public static Builder builder(GetLinuxWebAppLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLinuxWebAppLogApplicationLog> applicationLogs;
         private Boolean detailedErrorMessages;
         private Boolean failedRequestTracing;
         private List<GetLinuxWebAppLogHttpLog> httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -100,6 +85,7 @@ public final class GetLinuxWebAppLog {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(List<GetLinuxWebAppLogApplicationLog> applicationLogs) {
             this.applicationLogs = Objects.requireNonNull(applicationLogs);
             return this;
@@ -107,22 +93,31 @@ public final class GetLinuxWebAppLog {
         public Builder applicationLogs(GetLinuxWebAppLogApplicationLog... applicationLogs) {
             return applicationLogs(List.of(applicationLogs));
         }
+        @CustomType.Setter
         public Builder detailedErrorMessages(Boolean detailedErrorMessages) {
             this.detailedErrorMessages = Objects.requireNonNull(detailedErrorMessages);
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracing(Boolean failedRequestTracing) {
             this.failedRequestTracing = Objects.requireNonNull(failedRequestTracing);
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(List<GetLinuxWebAppLogHttpLog> httpLogs) {
             this.httpLogs = Objects.requireNonNull(httpLogs);
             return this;
         }
         public Builder httpLogs(GetLinuxWebAppLogHttpLog... httpLogs) {
             return httpLogs(List.of(httpLogs));
-        }        public GetLinuxWebAppLog build() {
-            return new GetLinuxWebAppLog(applicationLogs, detailedErrorMessages, failedRequestTracing, httpLogs);
+        }
+        public GetLinuxWebAppLog build() {
+            final var o = new GetLinuxWebAppLog();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessages = detailedErrorMessages;
+            o.failedRequestTracing = failedRequestTracing;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

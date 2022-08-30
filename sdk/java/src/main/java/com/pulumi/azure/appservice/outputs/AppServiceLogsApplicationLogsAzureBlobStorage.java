@@ -14,28 +14,19 @@ public final class AppServiceLogsApplicationLogsAzureBlobStorage {
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
      */
-    private final String level;
+    private String level;
     /**
      * @return The number of days to retain logs for.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The URL to the storage container with a shared access signature token appended.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private AppServiceLogsApplicationLogsAzureBlobStorage(
-        @CustomType.Parameter("level") String level,
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.level = level;
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private AppServiceLogsApplicationLogsAzureBlobStorage() {}
     /**
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
@@ -65,16 +56,12 @@ public final class AppServiceLogsApplicationLogsAzureBlobStorage {
     public static Builder builder(AppServiceLogsApplicationLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String level;
         private Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceLogsApplicationLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.level = defaults.level;
@@ -82,19 +69,27 @@ public final class AppServiceLogsApplicationLogsAzureBlobStorage {
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder level(String level) {
             this.level = Objects.requireNonNull(level);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public AppServiceLogsApplicationLogsAzureBlobStorage build() {
-            return new AppServiceLogsApplicationLogsAzureBlobStorage(level, retentionInDays, sasUrl);
+        }
+        public AppServiceLogsApplicationLogsAzureBlobStorage build() {
+            final var o = new AppServiceLogsApplicationLogsAzureBlobStorage();
+            o.level = level;
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

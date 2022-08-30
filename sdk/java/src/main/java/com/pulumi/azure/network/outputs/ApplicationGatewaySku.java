@@ -16,28 +16,19 @@ public final class ApplicationGatewaySku {
      * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
      * 
      */
-    private final @Nullable Integer capacity;
+    private @Nullable Integer capacity;
     /**
      * @return The Name of the SKU to use for this Application Gateway. Possible values are `Standard_Small`, `Standard_Medium`, `Standard_Large`, `Standard_v2`, `WAF_Medium`, `WAF_Large`, and `WAF_v2`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Tier of the SKU to use for this Application Gateway. Possible values are `Standard`, `Standard_v2`, `WAF` and `WAF_v2`.
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private ApplicationGatewaySku(
-        @CustomType.Parameter("capacity") @Nullable Integer capacity,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tier") String tier) {
-        this.capacity = capacity;
-        this.name = name;
-        this.tier = tier;
-    }
-
+    private ApplicationGatewaySku() {}
     /**
      * @return The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between 1 and 32, and 1 to 125 for a V2 SKU. This property is optional if `autoscale_configuration` is set.
      * 
@@ -67,16 +58,12 @@ public final class ApplicationGatewaySku {
     public static Builder builder(ApplicationGatewaySku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
         private String name;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewaySku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -84,19 +71,27 @@ public final class ApplicationGatewaySku {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public ApplicationGatewaySku build() {
-            return new ApplicationGatewaySku(capacity, name, tier);
+        }
+        public ApplicationGatewaySku build() {
+            final var o = new ApplicationGatewaySku();
+            o.capacity = capacity;
+            o.name = name;
+            o.tier = tier;
+            return o;
         }
     }
 }

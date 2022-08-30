@@ -14,13 +14,9 @@ public final class ScaleSetNetworkProfileDnsSettings {
      * @return Specifies an array of DNS servers.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
 
-    @CustomType.Constructor
-    private ScaleSetNetworkProfileDnsSettings(@CustomType.Parameter("dnsServers") List<String> dnsServers) {
-        this.dnsServers = dnsServers;
-    }
-
+    private ScaleSetNetworkProfileDnsSettings() {}
     /**
      * @return Specifies an array of DNS servers.
      * 
@@ -36,27 +32,27 @@ public final class ScaleSetNetworkProfileDnsSettings {
     public static Builder builder(ScaleSetNetworkProfileDnsSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsServers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetNetworkProfileDnsSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
         }
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
-        }        public ScaleSetNetworkProfileDnsSettings build() {
-            return new ScaleSetNetworkProfileDnsSettings(dnsServers);
+        }
+        public ScaleSetNetworkProfileDnsSettings build() {
+            final var o = new ScaleSetNetworkProfileDnsSettings();
+            o.dnsServers = dnsServers;
+            return o;
         }
     }
 }

@@ -16,66 +16,45 @@ public final class GetPublicIpPrefixResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String ipPrefix;
+    private String id;
+    private String ipPrefix;
     /**
      * @return The supported Azure location where the resource exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Public IP prefix resource.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of bits of the prefix.
      * 
      */
-    private final Integer prefixLength;
+    private Integer prefixLength;
     /**
      * @return The name of the resource group in which to create the public IP.
      * 
      */
-    private final String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The SKU of the Public IP Prefix.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones in which this Public IP Prefix is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetPublicIpPrefixResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipPrefix") String ipPrefix,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("prefixLength") Integer prefixLength,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.id = id;
-        this.ipPrefix = ipPrefix;
-        this.location = location;
-        this.name = name;
-        this.prefixLength = prefixLength;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetPublicIpPrefixResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -143,7 +122,7 @@ public final class GetPublicIpPrefixResult {
     public static Builder builder(GetPublicIpPrefixResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String ipPrefix;
@@ -154,11 +133,7 @@ public final class GetPublicIpPrefixResult {
         private String sku;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicIpPrefixResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -172,46 +147,66 @@ public final class GetPublicIpPrefixResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipPrefix(String ipPrefix) {
             this.ipPrefix = Objects.requireNonNull(ipPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder prefixLength(Integer prefixLength) {
             this.prefixLength = Objects.requireNonNull(prefixLength);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetPublicIpPrefixResult build() {
-            return new GetPublicIpPrefixResult(id, ipPrefix, location, name, prefixLength, resourceGroupName, sku, tags, zones);
+        }
+        public GetPublicIpPrefixResult build() {
+            final var o = new GetPublicIpPrefixResult();
+            o.id = id;
+            o.ipPrefix = ipPrefix;
+            o.location = location;
+            o.name = name;
+            o.prefixLength = prefixLength;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

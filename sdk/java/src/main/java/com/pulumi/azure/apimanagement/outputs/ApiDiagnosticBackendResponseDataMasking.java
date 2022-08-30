@@ -16,21 +16,14 @@ public final class ApiDiagnosticBackendResponseDataMasking {
      * @return A `headers` block as defined below.
      * 
      */
-    private final @Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers;
+    private @Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers;
     /**
      * @return A `query_params` block as defined below.
      * 
      */
-    private final @Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams;
+    private @Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams;
 
-    @CustomType.Constructor
-    private ApiDiagnosticBackendResponseDataMasking(
-        @CustomType.Parameter("headers") @Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers,
-        @CustomType.Parameter("queryParams") @Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams) {
-        this.headers = headers;
-        this.queryParams = queryParams;
-    }
-
+    private ApiDiagnosticBackendResponseDataMasking() {}
     /**
      * @return A `headers` block as defined below.
      * 
@@ -53,21 +46,18 @@ public final class ApiDiagnosticBackendResponseDataMasking {
     public static Builder builder(ApiDiagnosticBackendResponseDataMasking defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers;
         private @Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiDiagnosticBackendResponseDataMasking defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.queryParams = defaults.queryParams;
         }
 
+        @CustomType.Setter
         public Builder headers(@Nullable List<ApiDiagnosticBackendResponseDataMaskingHeader> headers) {
             this.headers = headers;
             return this;
@@ -75,14 +65,19 @@ public final class ApiDiagnosticBackendResponseDataMasking {
         public Builder headers(ApiDiagnosticBackendResponseDataMaskingHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryParams(@Nullable List<ApiDiagnosticBackendResponseDataMaskingQueryParam> queryParams) {
             this.queryParams = queryParams;
             return this;
         }
         public Builder queryParams(ApiDiagnosticBackendResponseDataMaskingQueryParam... queryParams) {
             return queryParams(List.of(queryParams));
-        }        public ApiDiagnosticBackendResponseDataMasking build() {
-            return new ApiDiagnosticBackendResponseDataMasking(headers, queryParams);
+        }
+        public ApiDiagnosticBackendResponseDataMasking build() {
+            final var o = new ApiDiagnosticBackendResponseDataMasking();
+            o.headers = headers;
+            o.queryParams = queryParams;
+            return o;
         }
     }
 }

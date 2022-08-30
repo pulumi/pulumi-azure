@@ -13,21 +13,14 @@ public final class SystemTopicEventSubscriptionRetryPolicy {
      * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
-    private final Integer eventTimeToLive;
+    private Integer eventTimeToLive;
     /**
      * @return Specifies the maximum number of delivery retry attempts for events.
      * 
      */
-    private final Integer maxDeliveryAttempts;
+    private Integer maxDeliveryAttempts;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionRetryPolicy(
-        @CustomType.Parameter("eventTimeToLive") Integer eventTimeToLive,
-        @CustomType.Parameter("maxDeliveryAttempts") Integer maxDeliveryAttempts) {
-        this.eventTimeToLive = eventTimeToLive;
-        this.maxDeliveryAttempts = maxDeliveryAttempts;
-    }
-
+    private SystemTopicEventSubscriptionRetryPolicy() {}
     /**
      * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
@@ -50,30 +43,32 @@ public final class SystemTopicEventSubscriptionRetryPolicy {
     public static Builder builder(SystemTopicEventSubscriptionRetryPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer eventTimeToLive;
         private Integer maxDeliveryAttempts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionRetryPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventTimeToLive = defaults.eventTimeToLive;
     	      this.maxDeliveryAttempts = defaults.maxDeliveryAttempts;
         }
 
+        @CustomType.Setter
         public Builder eventTimeToLive(Integer eventTimeToLive) {
             this.eventTimeToLive = Objects.requireNonNull(eventTimeToLive);
             return this;
         }
+        @CustomType.Setter
         public Builder maxDeliveryAttempts(Integer maxDeliveryAttempts) {
             this.maxDeliveryAttempts = Objects.requireNonNull(maxDeliveryAttempts);
             return this;
-        }        public SystemTopicEventSubscriptionRetryPolicy build() {
-            return new SystemTopicEventSubscriptionRetryPolicy(eventTimeToLive, maxDeliveryAttempts);
+        }
+        public SystemTopicEventSubscriptionRetryPolicy build() {
+            final var o = new SystemTopicEventSubscriptionRetryPolicy();
+            o.eventTimeToLive = eventTimeToLive;
+            o.maxDeliveryAttempts = maxDeliveryAttempts;
+            return o;
         }
     }
 }

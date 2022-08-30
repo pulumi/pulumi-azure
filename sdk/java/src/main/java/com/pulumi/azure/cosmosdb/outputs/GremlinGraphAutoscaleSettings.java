@@ -15,13 +15,9 @@ public final class GremlinGraphAutoscaleSettings {
      * @return The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
      */
-    private final @Nullable Integer maxThroughput;
+    private @Nullable Integer maxThroughput;
 
-    @CustomType.Constructor
-    private GremlinGraphAutoscaleSettings(@CustomType.Parameter("maxThroughput") @Nullable Integer maxThroughput) {
-        this.maxThroughput = maxThroughput;
-    }
-
+    private GremlinGraphAutoscaleSettings() {}
     /**
      * @return The maximum throughput of the Gremlin graph (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`.
      * 
@@ -37,24 +33,24 @@ public final class GremlinGraphAutoscaleSettings {
     public static Builder builder(GremlinGraphAutoscaleSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxThroughput;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GremlinGraphAutoscaleSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxThroughput = defaults.maxThroughput;
         }
 
+        @CustomType.Setter
         public Builder maxThroughput(@Nullable Integer maxThroughput) {
             this.maxThroughput = maxThroughput;
             return this;
-        }        public GremlinGraphAutoscaleSettings build() {
-            return new GremlinGraphAutoscaleSettings(maxThroughput);
+        }
+        public GremlinGraphAutoscaleSettings build() {
+            final var o = new GremlinGraphAutoscaleSettings();
+            o.maxThroughput = maxThroughput;
+            return o;
         }
     }
 }

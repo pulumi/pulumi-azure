@@ -13,31 +13,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSubscriptionsResult {
-    private final @Nullable String displayNameContains;
-    private final @Nullable String displayNamePrefix;
+    private @Nullable String displayNameContains;
+    private @Nullable String displayNamePrefix;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or more `subscription` blocks as defined below.
      * 
      */
-    private final List<GetSubscriptionsSubscription> subscriptions;
+    private List<GetSubscriptionsSubscription> subscriptions;
 
-    @CustomType.Constructor
-    private GetSubscriptionsResult(
-        @CustomType.Parameter("displayNameContains") @Nullable String displayNameContains,
-        @CustomType.Parameter("displayNamePrefix") @Nullable String displayNamePrefix,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("subscriptions") List<GetSubscriptionsSubscription> subscriptions) {
-        this.displayNameContains = displayNameContains;
-        this.displayNamePrefix = displayNamePrefix;
-        this.id = id;
-        this.subscriptions = subscriptions;
-    }
-
+    private GetSubscriptionsResult() {}
     public Optional<String> displayNameContains() {
         return Optional.ofNullable(this.displayNameContains);
     }
@@ -66,17 +55,13 @@ public final class GetSubscriptionsResult {
     public static Builder builder(GetSubscriptionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String displayNameContains;
         private @Nullable String displayNamePrefix;
         private String id;
         private List<GetSubscriptionsSubscription> subscriptions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubscriptionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayNameContains = defaults.displayNameContains;
@@ -85,26 +70,36 @@ public final class GetSubscriptionsResult {
     	      this.subscriptions = defaults.subscriptions;
         }
 
+        @CustomType.Setter
         public Builder displayNameContains(@Nullable String displayNameContains) {
             this.displayNameContains = displayNameContains;
             return this;
         }
+        @CustomType.Setter
         public Builder displayNamePrefix(@Nullable String displayNamePrefix) {
             this.displayNamePrefix = displayNamePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptions(List<GetSubscriptionsSubscription> subscriptions) {
             this.subscriptions = Objects.requireNonNull(subscriptions);
             return this;
         }
         public Builder subscriptions(GetSubscriptionsSubscription... subscriptions) {
             return subscriptions(List.of(subscriptions));
-        }        public GetSubscriptionsResult build() {
-            return new GetSubscriptionsResult(displayNameContains, displayNamePrefix, id, subscriptions);
+        }
+        public GetSubscriptionsResult build() {
+            final var o = new GetSubscriptionsResult();
+            o.displayNameContains = displayNameContains;
+            o.displayNamePrefix = displayNamePrefix;
+            o.id = id;
+            o.subscriptions = subscriptions;
+            return o;
         }
     }
 }

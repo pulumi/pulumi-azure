@@ -14,65 +14,42 @@ public final class GetBlobResult {
      * @return The access tier of the storage blob.
      * 
      */
-    private final String accessTier;
+    private String accessTier;
     /**
      * @return The MD5 sum of the blob contents.
      * 
      */
-    private final String contentMd5;
+    private String contentMd5;
     /**
      * @return The content type of the storage blob.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A map of custom blob metadata.
      * 
      */
-    private final Map<String,String> metadata;
-    private final String name;
-    private final String storageAccountName;
-    private final String storageContainerName;
+    private Map<String,String> metadata;
+    private String name;
+    private String storageAccountName;
+    private String storageContainerName;
     /**
      * @return The type of the storage blob
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The URL of the storage blob.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private GetBlobResult(
-        @CustomType.Parameter("accessTier") String accessTier,
-        @CustomType.Parameter("contentMd5") String contentMd5,
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("metadata") Map<String,String> metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("storageAccountName") String storageAccountName,
-        @CustomType.Parameter("storageContainerName") String storageContainerName,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("url") String url) {
-        this.accessTier = accessTier;
-        this.contentMd5 = contentMd5;
-        this.contentType = contentType;
-        this.id = id;
-        this.metadata = metadata;
-        this.name = name;
-        this.storageAccountName = storageAccountName;
-        this.storageContainerName = storageContainerName;
-        this.type = type;
-        this.url = url;
-    }
-
+    private GetBlobResult() {}
     /**
      * @return The access tier of the storage blob.
      * 
@@ -139,7 +116,7 @@ public final class GetBlobResult {
     public static Builder builder(GetBlobResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessTier;
         private String contentMd5;
@@ -151,11 +128,7 @@ public final class GetBlobResult {
         private String storageContainerName;
         private String type;
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBlobResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessTier = defaults.accessTier;
@@ -170,47 +143,69 @@ public final class GetBlobResult {
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder accessTier(String accessTier) {
             this.accessTier = Objects.requireNonNull(accessTier);
             return this;
         }
+        @CustomType.Setter
         public Builder contentMd5(String contentMd5) {
             this.contentMd5 = Objects.requireNonNull(contentMd5);
             return this;
         }
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(Map<String,String> metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             this.storageAccountName = Objects.requireNonNull(storageAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageContainerName(String storageContainerName) {
             this.storageContainerName = Objects.requireNonNull(storageContainerName);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public GetBlobResult build() {
-            return new GetBlobResult(accessTier, contentMd5, contentType, id, metadata, name, storageAccountName, storageContainerName, type, url);
+        }
+        public GetBlobResult build() {
+            final var o = new GetBlobResult();
+            o.accessTier = accessTier;
+            o.contentMd5 = contentMd5;
+            o.contentType = contentType;
+            o.id = id;
+            o.metadata = metadata;
+            o.name = name;
+            o.storageAccountName = storageAccountName;
+            o.storageContainerName = storageContainerName;
+            o.type = type;
+            o.url = url;
+            return o;
         }
     }
 }

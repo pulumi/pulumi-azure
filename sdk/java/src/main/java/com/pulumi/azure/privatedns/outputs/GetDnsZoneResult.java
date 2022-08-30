@@ -16,55 +16,36 @@ public final class GetDnsZoneResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Maximum number of recordsets that can be created in this Private Zone.
      * 
      */
-    private final Integer maxNumberOfRecordSets;
+    private Integer maxNumberOfRecordSets;
     /**
      * @return Maximum number of Virtual Networks that can be linked to this Private Zone.
      * 
      */
-    private final Integer maxNumberOfVirtualNetworkLinks;
+    private Integer maxNumberOfVirtualNetworkLinks;
     /**
      * @return Maximum number of Virtual Networks that can be linked to this Private Zone with registration enabled.
      * 
      */
-    private final Integer maxNumberOfVirtualNetworkLinksWithRegistration;
-    private final String name;
+    private Integer maxNumberOfVirtualNetworkLinksWithRegistration;
+    private String name;
     /**
      * @return The number of recordsets currently in the zone.
      * 
      */
-    private final Integer numberOfRecordSets;
-    private final String resourceGroupName;
+    private Integer numberOfRecordSets;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags for the zone.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDnsZoneResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("maxNumberOfRecordSets") Integer maxNumberOfRecordSets,
-        @CustomType.Parameter("maxNumberOfVirtualNetworkLinks") Integer maxNumberOfVirtualNetworkLinks,
-        @CustomType.Parameter("maxNumberOfVirtualNetworkLinksWithRegistration") Integer maxNumberOfVirtualNetworkLinksWithRegistration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("numberOfRecordSets") Integer numberOfRecordSets,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.id = id;
-        this.maxNumberOfRecordSets = maxNumberOfRecordSets;
-        this.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
-        this.maxNumberOfVirtualNetworkLinksWithRegistration = maxNumberOfVirtualNetworkLinksWithRegistration;
-        this.name = name;
-        this.numberOfRecordSets = numberOfRecordSets;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetDnsZoneResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -121,7 +102,7 @@ public final class GetDnsZoneResult {
     public static Builder builder(GetDnsZoneResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Integer maxNumberOfRecordSets;
@@ -131,11 +112,7 @@ public final class GetDnsZoneResult {
         private Integer numberOfRecordSets;
         private String resourceGroupName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDnsZoneResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -148,39 +125,57 @@ public final class GetDnsZoneResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder maxNumberOfRecordSets(Integer maxNumberOfRecordSets) {
             this.maxNumberOfRecordSets = Objects.requireNonNull(maxNumberOfRecordSets);
             return this;
         }
+        @CustomType.Setter
         public Builder maxNumberOfVirtualNetworkLinks(Integer maxNumberOfVirtualNetworkLinks) {
             this.maxNumberOfVirtualNetworkLinks = Objects.requireNonNull(maxNumberOfVirtualNetworkLinks);
             return this;
         }
+        @CustomType.Setter
         public Builder maxNumberOfVirtualNetworkLinksWithRegistration(Integer maxNumberOfVirtualNetworkLinksWithRegistration) {
             this.maxNumberOfVirtualNetworkLinksWithRegistration = Objects.requireNonNull(maxNumberOfVirtualNetworkLinksWithRegistration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder numberOfRecordSets(Integer numberOfRecordSets) {
             this.numberOfRecordSets = Objects.requireNonNull(numberOfRecordSets);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDnsZoneResult build() {
-            return new GetDnsZoneResult(id, maxNumberOfRecordSets, maxNumberOfVirtualNetworkLinks, maxNumberOfVirtualNetworkLinksWithRegistration, name, numberOfRecordSets, resourceGroupName, tags);
+        }
+        public GetDnsZoneResult build() {
+            final var o = new GetDnsZoneResult();
+            o.id = id;
+            o.maxNumberOfRecordSets = maxNumberOfRecordSets;
+            o.maxNumberOfVirtualNetworkLinks = maxNumberOfVirtualNetworkLinks;
+            o.maxNumberOfVirtualNetworkLinksWithRegistration = maxNumberOfVirtualNetworkLinksWithRegistration;
+            o.name = name;
+            o.numberOfRecordSets = numberOfRecordSets;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

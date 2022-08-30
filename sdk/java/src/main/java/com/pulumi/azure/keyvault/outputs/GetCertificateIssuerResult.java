@@ -15,48 +15,31 @@ public final class GetCertificateIssuerResult {
      * @return The account number with the third-party Certificate Issuer.
      * 
      */
-    private final String accountId;
+    private String accountId;
     /**
      * @return A list of `admin` blocks as defined below.
      * 
      */
-    private final List<GetCertificateIssuerAdmin> admins;
+    private List<GetCertificateIssuerAdmin> admins;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String keyVaultId;
-    private final String name;
+    private String id;
+    private String keyVaultId;
+    private String name;
     /**
      * @return The organization ID with the third-party Certificate Issuer.
      * 
      */
-    private final String orgId;
+    private String orgId;
     /**
      * @return The name of the third-party Certificate Issuer.
      * 
      */
-    private final String providerName;
+    private String providerName;
 
-    @CustomType.Constructor
-    private GetCertificateIssuerResult(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("admins") List<GetCertificateIssuerAdmin> admins,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("orgId") String orgId,
-        @CustomType.Parameter("providerName") String providerName) {
-        this.accountId = accountId;
-        this.admins = admins;
-        this.id = id;
-        this.keyVaultId = keyVaultId;
-        this.name = name;
-        this.orgId = orgId;
-        this.providerName = providerName;
-    }
-
+    private GetCertificateIssuerResult() {}
     /**
      * @return The account number with the third-party Certificate Issuer.
      * 
@@ -106,7 +89,7 @@ public final class GetCertificateIssuerResult {
     public static Builder builder(GetCertificateIssuerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private List<GetCertificateIssuerAdmin> admins;
@@ -115,11 +98,7 @@ public final class GetCertificateIssuerResult {
         private String name;
         private String orgId;
         private String providerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateIssuerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -131,10 +110,12 @@ public final class GetCertificateIssuerResult {
     	      this.providerName = defaults.providerName;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder admins(List<GetCertificateIssuerAdmin> admins) {
             this.admins = Objects.requireNonNull(admins);
             return this;
@@ -142,27 +123,41 @@ public final class GetCertificateIssuerResult {
         public Builder admins(GetCertificateIssuerAdmin... admins) {
             return admins(List.of(admins));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder orgId(String orgId) {
             this.orgId = Objects.requireNonNull(orgId);
             return this;
         }
+        @CustomType.Setter
         public Builder providerName(String providerName) {
             this.providerName = Objects.requireNonNull(providerName);
             return this;
-        }        public GetCertificateIssuerResult build() {
-            return new GetCertificateIssuerResult(accountId, admins, id, keyVaultId, name, orgId, providerName);
+        }
+        public GetCertificateIssuerResult build() {
+            final var o = new GetCertificateIssuerResult();
+            o.accountId = accountId;
+            o.admins = admins;
+            o.id = id;
+            o.keyVaultId = keyVaultId;
+            o.name = name;
+            o.orgId = orgId;
+            o.providerName = providerName;
+            return o;
         }
     }
 }

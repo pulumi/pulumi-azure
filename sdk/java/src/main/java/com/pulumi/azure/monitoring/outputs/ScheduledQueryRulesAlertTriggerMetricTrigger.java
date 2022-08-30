@@ -14,35 +14,24 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
      * @return Evaluation of metric on a particular column.
      * 
      */
-    private final String metricColumn;
+    private String metricColumn;
     /**
      * @return Metric Trigger Type - &#39;Consecutive&#39; or &#39;Total&#39;.
      * 
      */
-    private final String metricTriggerType;
+    private String metricTriggerType;
     /**
      * @return Evaluation operation for rule - &#39;Equal&#39;, &#39;GreaterThan&#39;, GreaterThanOrEqual&#39;, &#39;LessThan&#39;, or &#39;LessThanOrEqual&#39;.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
      * 
      */
-    private final Double threshold;
+    private Double threshold;
 
-    @CustomType.Constructor
-    private ScheduledQueryRulesAlertTriggerMetricTrigger(
-        @CustomType.Parameter("metricColumn") String metricColumn,
-        @CustomType.Parameter("metricTriggerType") String metricTriggerType,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("threshold") Double threshold) {
-        this.metricColumn = metricColumn;
-        this.metricTriggerType = metricTriggerType;
-        this.operator = operator;
-        this.threshold = threshold;
-    }
-
+    private ScheduledQueryRulesAlertTriggerMetricTrigger() {}
     /**
      * @return Evaluation of metric on a particular column.
      * 
@@ -79,17 +68,13 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
     public static Builder builder(ScheduledQueryRulesAlertTriggerMetricTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String metricColumn;
         private String metricTriggerType;
         private String operator;
         private Double threshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledQueryRulesAlertTriggerMetricTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.metricColumn = defaults.metricColumn;
@@ -98,23 +83,33 @@ public final class ScheduledQueryRulesAlertTriggerMetricTrigger {
     	      this.threshold = defaults.threshold;
         }
 
+        @CustomType.Setter
         public Builder metricColumn(String metricColumn) {
             this.metricColumn = Objects.requireNonNull(metricColumn);
             return this;
         }
+        @CustomType.Setter
         public Builder metricTriggerType(String metricTriggerType) {
             this.metricTriggerType = Objects.requireNonNull(metricTriggerType);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Double threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
-        }        public ScheduledQueryRulesAlertTriggerMetricTrigger build() {
-            return new ScheduledQueryRulesAlertTriggerMetricTrigger(metricColumn, metricTriggerType, operator, threshold);
+        }
+        public ScheduledQueryRulesAlertTriggerMetricTrigger build() {
+            final var o = new ScheduledQueryRulesAlertTriggerMetricTrigger();
+            o.metricColumn = metricColumn;
+            o.metricTriggerType = metricTriggerType;
+            o.operator = operator;
+            o.threshold = threshold;
+            return o;
         }
     }
 }

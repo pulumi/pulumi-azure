@@ -14,35 +14,24 @@ public final class GetFunctionAppIdentity {
      * @return A list of User Assigned Identity IDs assigned to the Function App.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The ID of the Managed Identity assigned to the Function App.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The ID of the Tenant where the Managed Identity assigned to the Function App is located.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The identity type of the Managed Identity assigned to the Function App.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetFunctionAppIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetFunctionAppIdentity() {}
     /**
      * @return A list of User Assigned Identity IDs assigned to the Function App.
      * 
@@ -79,17 +68,13 @@ public final class GetFunctionAppIdentity {
     public static Builder builder(GetFunctionAppIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionAppIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -98,6 +83,7 @@ public final class GetFunctionAppIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -105,19 +91,28 @@ public final class GetFunctionAppIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetFunctionAppIdentity build() {
-            return new GetFunctionAppIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetFunctionAppIdentity build() {
+            final var o = new GetFunctionAppIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -18,42 +18,29 @@ public final class BudgetManagementGroupNotification {
      * @return Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
      * 
      */
-    private final List<String> contactEmails;
+    private List<String> contactEmails;
     /**
      * @return Should the notification be enabled?
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The comparison operator for the notification. Must be one of `EqualTo`, `GreaterThan`, or `GreaterThanOrEqualTo`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
      * 
      */
-    private final Integer threshold;
+    private Integer threshold;
     /**
      * @return The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are `Actual` and `Forecasted`. Default is `Actual`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String thresholdType;
+    private @Nullable String thresholdType;
 
-    @CustomType.Constructor
-    private BudgetManagementGroupNotification(
-        @CustomType.Parameter("contactEmails") List<String> contactEmails,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("threshold") Integer threshold,
-        @CustomType.Parameter("thresholdType") @Nullable String thresholdType) {
-        this.contactEmails = contactEmails;
-        this.enabled = enabled;
-        this.operator = operator;
-        this.threshold = threshold;
-        this.thresholdType = thresholdType;
-    }
-
+    private BudgetManagementGroupNotification() {}
     /**
      * @return Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
      * 
@@ -97,18 +84,14 @@ public final class BudgetManagementGroupNotification {
     public static Builder builder(BudgetManagementGroupNotification defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> contactEmails;
         private @Nullable Boolean enabled;
         private String operator;
         private Integer threshold;
         private @Nullable String thresholdType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetManagementGroupNotification defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contactEmails = defaults.contactEmails;
@@ -118,6 +101,7 @@ public final class BudgetManagementGroupNotification {
     	      this.thresholdType = defaults.thresholdType;
         }
 
+        @CustomType.Setter
         public Builder contactEmails(List<String> contactEmails) {
             this.contactEmails = Objects.requireNonNull(contactEmails);
             return this;
@@ -125,23 +109,34 @@ public final class BudgetManagementGroupNotification {
         public Builder contactEmails(String... contactEmails) {
             return contactEmails(List.of(contactEmails));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder threshold(Integer threshold) {
             this.threshold = Objects.requireNonNull(threshold);
             return this;
         }
+        @CustomType.Setter
         public Builder thresholdType(@Nullable String thresholdType) {
             this.thresholdType = thresholdType;
             return this;
-        }        public BudgetManagementGroupNotification build() {
-            return new BudgetManagementGroupNotification(contactEmails, enabled, operator, threshold, thresholdType);
+        }
+        public BudgetManagementGroupNotification build() {
+            final var o = new BudgetManagementGroupNotification();
+            o.contactEmails = contactEmails;
+            o.enabled = enabled;
+            o.operator = operator;
+            o.threshold = threshold;
+            o.thresholdType = thresholdType;
+            return o;
         }
     }
 }

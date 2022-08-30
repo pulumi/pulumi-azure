@@ -13,51 +13,32 @@ public final class GetSharedAccessPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String iothubName;
-    private final String name;
+    private String id;
+    private String iothubName;
+    private String name;
     /**
      * @return The primary connection string of the Shared Access Policy.
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The primary key used to create the authentication token.
      * 
      */
-    private final String primaryKey;
-    private final String resourceGroupName;
+    private String primaryKey;
+    private String resourceGroupName;
     /**
      * @return The secondary connection string of the Shared Access Policy.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The secondary key used to create the authentication token.
      * 
      */
-    private final String secondaryKey;
+    private String secondaryKey;
 
-    @CustomType.Constructor
-    private GetSharedAccessPolicyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("iothubName") String iothubName,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("secondaryKey") String secondaryKey) {
-        this.id = id;
-        this.iothubName = iothubName;
-        this.name = name;
-        this.primaryConnectionString = primaryConnectionString;
-        this.primaryKey = primaryKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.secondaryKey = secondaryKey;
-    }
-
+    private GetSharedAccessPolicyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -110,7 +91,7 @@ public final class GetSharedAccessPolicyResult {
     public static Builder builder(GetSharedAccessPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String iothubName;
@@ -120,11 +101,7 @@ public final class GetSharedAccessPolicyResult {
         private String resourceGroupName;
         private String secondaryConnectionString;
         private String secondaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedAccessPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -137,39 +114,57 @@ public final class GetSharedAccessPolicyResult {
     	      this.secondaryKey = defaults.secondaryKey;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder iothubName(String iothubName) {
             this.iothubName = Objects.requireNonNull(iothubName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
-        }        public GetSharedAccessPolicyResult build() {
-            return new GetSharedAccessPolicyResult(id, iothubName, name, primaryConnectionString, primaryKey, resourceGroupName, secondaryConnectionString, secondaryKey);
+        }
+        public GetSharedAccessPolicyResult build() {
+            final var o = new GetSharedAccessPolicyResult();
+            o.id = id;
+            o.iothubName = iothubName;
+            o.name = name;
+            o.primaryConnectionString = primaryConnectionString;
+            o.primaryKey = primaryKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.secondaryKey = secondaryKey;
+            return o;
         }
     }
 }

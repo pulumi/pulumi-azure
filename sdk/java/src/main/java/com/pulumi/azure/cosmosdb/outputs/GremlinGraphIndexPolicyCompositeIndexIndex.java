@@ -13,21 +13,14 @@ public final class GremlinGraphIndexPolicyCompositeIndexIndex {
      * @return Order of the index. Possible values are `Ascending` or `Descending`.
      * 
      */
-    private final String order;
+    private String order;
     /**
      * @return Path for which the indexing behaviour applies to.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private GremlinGraphIndexPolicyCompositeIndexIndex(
-        @CustomType.Parameter("order") String order,
-        @CustomType.Parameter("path") String path) {
-        this.order = order;
-        this.path = path;
-    }
-
+    private GremlinGraphIndexPolicyCompositeIndexIndex() {}
     /**
      * @return Order of the index. Possible values are `Ascending` or `Descending`.
      * 
@@ -50,30 +43,32 @@ public final class GremlinGraphIndexPolicyCompositeIndexIndex {
     public static Builder builder(GremlinGraphIndexPolicyCompositeIndexIndex defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String order;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GremlinGraphIndexPolicyCompositeIndexIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.order = defaults.order;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder order(String order) {
             this.order = Objects.requireNonNull(order);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public GremlinGraphIndexPolicyCompositeIndexIndex build() {
-            return new GremlinGraphIndexPolicyCompositeIndexIndex(order, path);
+        }
+        public GremlinGraphIndexPolicyCompositeIndexIndex build() {
+            final var o = new GremlinGraphIndexPolicyCompositeIndexIndex();
+            o.order = order;
+            o.path = path;
+            return o;
         }
     }
 }

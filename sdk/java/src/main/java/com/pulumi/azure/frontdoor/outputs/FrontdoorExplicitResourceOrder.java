@@ -11,26 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FrontdoorExplicitResourceOrder {
-    private final @Nullable List<String> backendPoolHealthProbeIds;
-    private final @Nullable List<String> backendPoolIds;
-    private final @Nullable List<String> backendPoolLoadBalancingIds;
-    private final @Nullable List<String> frontendEndpointIds;
-    private final @Nullable List<String> routingRuleIds;
+    private @Nullable List<String> backendPoolHealthProbeIds;
+    private @Nullable List<String> backendPoolIds;
+    private @Nullable List<String> backendPoolLoadBalancingIds;
+    private @Nullable List<String> frontendEndpointIds;
+    private @Nullable List<String> routingRuleIds;
 
-    @CustomType.Constructor
-    private FrontdoorExplicitResourceOrder(
-        @CustomType.Parameter("backendPoolHealthProbeIds") @Nullable List<String> backendPoolHealthProbeIds,
-        @CustomType.Parameter("backendPoolIds") @Nullable List<String> backendPoolIds,
-        @CustomType.Parameter("backendPoolLoadBalancingIds") @Nullable List<String> backendPoolLoadBalancingIds,
-        @CustomType.Parameter("frontendEndpointIds") @Nullable List<String> frontendEndpointIds,
-        @CustomType.Parameter("routingRuleIds") @Nullable List<String> routingRuleIds) {
-        this.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
-        this.backendPoolIds = backendPoolIds;
-        this.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
-        this.frontendEndpointIds = frontendEndpointIds;
-        this.routingRuleIds = routingRuleIds;
-    }
-
+    private FrontdoorExplicitResourceOrder() {}
     public List<String> backendPoolHealthProbeIds() {
         return this.backendPoolHealthProbeIds == null ? List.of() : this.backendPoolHealthProbeIds;
     }
@@ -54,18 +41,14 @@ public final class FrontdoorExplicitResourceOrder {
     public static Builder builder(FrontdoorExplicitResourceOrder defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> backendPoolHealthProbeIds;
         private @Nullable List<String> backendPoolIds;
         private @Nullable List<String> backendPoolLoadBalancingIds;
         private @Nullable List<String> frontendEndpointIds;
         private @Nullable List<String> routingRuleIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorExplicitResourceOrder defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPoolHealthProbeIds = defaults.backendPoolHealthProbeIds;
@@ -75,6 +58,7 @@ public final class FrontdoorExplicitResourceOrder {
     	      this.routingRuleIds = defaults.routingRuleIds;
         }
 
+        @CustomType.Setter
         public Builder backendPoolHealthProbeIds(@Nullable List<String> backendPoolHealthProbeIds) {
             this.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
             return this;
@@ -82,6 +66,7 @@ public final class FrontdoorExplicitResourceOrder {
         public Builder backendPoolHealthProbeIds(String... backendPoolHealthProbeIds) {
             return backendPoolHealthProbeIds(List.of(backendPoolHealthProbeIds));
         }
+        @CustomType.Setter
         public Builder backendPoolIds(@Nullable List<String> backendPoolIds) {
             this.backendPoolIds = backendPoolIds;
             return this;
@@ -89,6 +74,7 @@ public final class FrontdoorExplicitResourceOrder {
         public Builder backendPoolIds(String... backendPoolIds) {
             return backendPoolIds(List.of(backendPoolIds));
         }
+        @CustomType.Setter
         public Builder backendPoolLoadBalancingIds(@Nullable List<String> backendPoolLoadBalancingIds) {
             this.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
             return this;
@@ -96,6 +82,7 @@ public final class FrontdoorExplicitResourceOrder {
         public Builder backendPoolLoadBalancingIds(String... backendPoolLoadBalancingIds) {
             return backendPoolLoadBalancingIds(List.of(backendPoolLoadBalancingIds));
         }
+        @CustomType.Setter
         public Builder frontendEndpointIds(@Nullable List<String> frontendEndpointIds) {
             this.frontendEndpointIds = frontendEndpointIds;
             return this;
@@ -103,14 +90,22 @@ public final class FrontdoorExplicitResourceOrder {
         public Builder frontendEndpointIds(String... frontendEndpointIds) {
             return frontendEndpointIds(List.of(frontendEndpointIds));
         }
+        @CustomType.Setter
         public Builder routingRuleIds(@Nullable List<String> routingRuleIds) {
             this.routingRuleIds = routingRuleIds;
             return this;
         }
         public Builder routingRuleIds(String... routingRuleIds) {
             return routingRuleIds(List.of(routingRuleIds));
-        }        public FrontdoorExplicitResourceOrder build() {
-            return new FrontdoorExplicitResourceOrder(backendPoolHealthProbeIds, backendPoolIds, backendPoolLoadBalancingIds, frontendEndpointIds, routingRuleIds);
+        }
+        public FrontdoorExplicitResourceOrder build() {
+            final var o = new FrontdoorExplicitResourceOrder();
+            o.backendPoolHealthProbeIds = backendPoolHealthProbeIds;
+            o.backendPoolIds = backendPoolIds;
+            o.backendPoolLoadBalancingIds = backendPoolLoadBalancingIds;
+            o.frontendEndpointIds = frontendEndpointIds;
+            o.routingRuleIds = routingRuleIds;
+            return o;
         }
     }
 }

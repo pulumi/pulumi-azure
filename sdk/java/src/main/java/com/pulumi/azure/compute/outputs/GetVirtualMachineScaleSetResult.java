@@ -17,52 +17,35 @@ public final class GetVirtualMachineScaleSetResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetIdentity> identities;
+    private List<GetVirtualMachineScaleSetIdentity> identities;
     /**
      * @return A list of `instances` blocks as defined below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetInstance> instances;
+    private List<GetVirtualMachineScaleSetInstance> instances;
     /**
      * @return The Azure Region in which this Virtual Machine Scale Set exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the public IP address configuration
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of `network_interface` blocks as defined below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces;
-    private final String resourceGroupName;
+    private List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetVirtualMachineScaleSetIdentity> identities,
-        @CustomType.Parameter("instances") List<GetVirtualMachineScaleSetInstance> instances,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkInterfaces") List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.identities = identities;
-        this.instances = instances;
-        this.location = location;
-        this.name = name;
-        this.networkInterfaces = networkInterfaces;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetVirtualMachineScaleSetResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -116,7 +99,7 @@ public final class GetVirtualMachineScaleSetResult {
     public static Builder builder(GetVirtualMachineScaleSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetVirtualMachineScaleSetIdentity> identities;
@@ -125,11 +108,7 @@ public final class GetVirtualMachineScaleSetResult {
         private String name;
         private List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -141,10 +120,12 @@ public final class GetVirtualMachineScaleSetResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetVirtualMachineScaleSetIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -152,6 +133,7 @@ public final class GetVirtualMachineScaleSetResult {
         public Builder identities(GetVirtualMachineScaleSetIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder instances(List<GetVirtualMachineScaleSetInstance> instances) {
             this.instances = Objects.requireNonNull(instances);
             return this;
@@ -159,14 +141,17 @@ public final class GetVirtualMachineScaleSetResult {
         public Builder instances(GetVirtualMachineScaleSetInstance... instances) {
             return instances(List.of(instances));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkInterfaces(List<GetVirtualMachineScaleSetNetworkInterface> networkInterfaces) {
             this.networkInterfaces = Objects.requireNonNull(networkInterfaces);
             return this;
@@ -174,11 +159,21 @@ public final class GetVirtualMachineScaleSetResult {
         public Builder networkInterfaces(GetVirtualMachineScaleSetNetworkInterface... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetVirtualMachineScaleSetResult build() {
-            return new GetVirtualMachineScaleSetResult(id, identities, instances, location, name, networkInterfaces, resourceGroupName);
+        }
+        public GetVirtualMachineScaleSetResult build() {
+            final var o = new GetVirtualMachineScaleSetResult();
+            o.id = id;
+            o.identities = identities;
+            o.instances = instances;
+            o.location = location;
+            o.name = name;
+            o.networkInterfaces = networkInterfaces;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

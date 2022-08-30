@@ -13,21 +13,14 @@ public final class AppServiceLogsHttpLogsFileSystem {
      * @return The number of days to retain logs for.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The maximum size in megabytes that HTTP log files can use before being removed.
      * 
      */
-    private final Integer retentionInMb;
+    private Integer retentionInMb;
 
-    @CustomType.Constructor
-    private AppServiceLogsHttpLogsFileSystem(
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("retentionInMb") Integer retentionInMb) {
-        this.retentionInDays = retentionInDays;
-        this.retentionInMb = retentionInMb;
-    }
-
+    private AppServiceLogsHttpLogsFileSystem() {}
     /**
      * @return The number of days to retain logs for.
      * 
@@ -50,30 +43,32 @@ public final class AppServiceLogsHttpLogsFileSystem {
     public static Builder builder(AppServiceLogsHttpLogsFileSystem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer retentionInDays;
         private Integer retentionInMb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceLogsHttpLogsFileSystem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.retentionInMb = defaults.retentionInMb;
         }
 
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInMb(Integer retentionInMb) {
             this.retentionInMb = Objects.requireNonNull(retentionInMb);
             return this;
-        }        public AppServiceLogsHttpLogsFileSystem build() {
-            return new AppServiceLogsHttpLogsFileSystem(retentionInDays, retentionInMb);
+        }
+        public AppServiceLogsHttpLogsFileSystem build() {
+            final var o = new AppServiceLogsHttpLogsFileSystem();
+            o.retentionInDays = retentionInDays;
+            o.retentionInMb = retentionInMb;
+            return o;
         }
     }
 }

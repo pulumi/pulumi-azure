@@ -15,28 +15,19 @@ public final class AccountIdentity {
      * @return The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The Tenant ID for the Service Principal associated with the Identity of this Data Share Account.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Data Share Account. The only possible value is `SystemAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AccountIdentity(
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private AccountIdentity() {}
     /**
      * @return The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
      * 
@@ -66,16 +57,12 @@ public final class AccountIdentity {
     public static Builder builder(AccountIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -83,19 +70,27 @@ public final class AccountIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AccountIdentity build() {
-            return new AccountIdentity(principalId, tenantId, type);
+        }
+        public AccountIdentity build() {
+            final var o = new AccountIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

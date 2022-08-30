@@ -13,28 +13,19 @@ public final class GetPolicyRuleFilterMatchBlobIndexTag {
      * @return The filter tag name used for tag based filtering for blob objects.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The comparison operator which is used for object comparison and filtering. Possible value is `==`. Defaults to `==`.
      * 
      */
-    private final String operation;
+    private String operation;
     /**
      * @return The filter tag value used for tag based filtering for blob objects.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetPolicyRuleFilterMatchBlobIndexTag(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("operation") String operation,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.operation = operation;
-        this.value = value;
-    }
-
+    private GetPolicyRuleFilterMatchBlobIndexTag() {}
     /**
      * @return The filter tag name used for tag based filtering for blob objects.
      * 
@@ -64,16 +55,12 @@ public final class GetPolicyRuleFilterMatchBlobIndexTag {
     public static Builder builder(GetPolicyRuleFilterMatchBlobIndexTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String operation;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRuleFilterMatchBlobIndexTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class GetPolicyRuleFilterMatchBlobIndexTag {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder operation(String operation) {
             this.operation = Objects.requireNonNull(operation);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetPolicyRuleFilterMatchBlobIndexTag build() {
-            return new GetPolicyRuleFilterMatchBlobIndexTag(name, operation, value);
+        }
+        public GetPolicyRuleFilterMatchBlobIndexTag build() {
+            final var o = new GetPolicyRuleFilterMatchBlobIndexTag();
+            o.name = name;
+            o.operation = operation;
+            o.value = value;
+            return o;
         }
     }
 }

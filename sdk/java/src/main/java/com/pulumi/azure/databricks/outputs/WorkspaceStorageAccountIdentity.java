@@ -15,28 +15,19 @@ public final class WorkspaceStorageAccountIdentity {
      * @return The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The UUID of the tenant where the internal databricks storage account was created.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return The type of the internal databricks storage account.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private WorkspaceStorageAccountIdentity(
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private WorkspaceStorageAccountIdentity() {}
     /**
      * @return The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
      * 
@@ -66,16 +57,12 @@ public final class WorkspaceStorageAccountIdentity {
     public static Builder builder(WorkspaceStorageAccountIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceStorageAccountIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -83,19 +70,27 @@ public final class WorkspaceStorageAccountIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public WorkspaceStorageAccountIdentity build() {
-            return new WorkspaceStorageAccountIdentity(principalId, tenantId, type);
+        }
+        public WorkspaceStorageAccountIdentity build() {
+            final var o = new WorkspaceStorageAccountIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

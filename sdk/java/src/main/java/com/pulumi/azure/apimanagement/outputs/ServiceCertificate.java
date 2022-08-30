@@ -15,49 +15,34 @@ public final class ServiceCertificate {
      * @return The password for the certificate.
      * 
      */
-    private final @Nullable String certificatePassword;
+    private @Nullable String certificatePassword;
     /**
      * @return The Base64 Encoded PFX or Base64 Encoded X.509 Certificate.
      * 
      */
-    private final String encodedCertificate;
+    private String encodedCertificate;
     /**
      * @return The expiration date of the certificate in RFC3339 format: `2000-01-02T03:04:05Z`.
      * 
      */
-    private final @Nullable String expiry;
+    private @Nullable String expiry;
     /**
      * @return The name of the Certificate Store where this certificate should be stored. Possible values are `CertificateAuthority` and `Root`.
      * 
      */
-    private final String storeName;
+    private String storeName;
     /**
      * @return The subject of the certificate.
      * 
      */
-    private final @Nullable String subject;
+    private @Nullable String subject;
     /**
      * @return The thumbprint of the certificate.
      * 
      */
-    private final @Nullable String thumbprint;
+    private @Nullable String thumbprint;
 
-    @CustomType.Constructor
-    private ServiceCertificate(
-        @CustomType.Parameter("certificatePassword") @Nullable String certificatePassword,
-        @CustomType.Parameter("encodedCertificate") String encodedCertificate,
-        @CustomType.Parameter("expiry") @Nullable String expiry,
-        @CustomType.Parameter("storeName") String storeName,
-        @CustomType.Parameter("subject") @Nullable String subject,
-        @CustomType.Parameter("thumbprint") @Nullable String thumbprint) {
-        this.certificatePassword = certificatePassword;
-        this.encodedCertificate = encodedCertificate;
-        this.expiry = expiry;
-        this.storeName = storeName;
-        this.subject = subject;
-        this.thumbprint = thumbprint;
-    }
-
+    private ServiceCertificate() {}
     /**
      * @return The password for the certificate.
      * 
@@ -108,7 +93,7 @@ public final class ServiceCertificate {
     public static Builder builder(ServiceCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificatePassword;
         private String encodedCertificate;
@@ -116,11 +101,7 @@ public final class ServiceCertificate {
         private String storeName;
         private @Nullable String subject;
         private @Nullable String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificatePassword = defaults.certificatePassword;
@@ -131,31 +112,45 @@ public final class ServiceCertificate {
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder certificatePassword(@Nullable String certificatePassword) {
             this.certificatePassword = certificatePassword;
             return this;
         }
+        @CustomType.Setter
         public Builder encodedCertificate(String encodedCertificate) {
             this.encodedCertificate = Objects.requireNonNull(encodedCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
             this.expiry = expiry;
             return this;
         }
+        @CustomType.Setter
         public Builder storeName(String storeName) {
             this.storeName = Objects.requireNonNull(storeName);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(@Nullable String subject) {
             this.subject = subject;
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(@Nullable String thumbprint) {
             this.thumbprint = thumbprint;
             return this;
-        }        public ServiceCertificate build() {
-            return new ServiceCertificate(certificatePassword, encodedCertificate, expiry, storeName, subject, thumbprint);
+        }
+        public ServiceCertificate build() {
+            final var o = new ServiceCertificate();
+            o.certificatePassword = certificatePassword;
+            o.encodedCertificate = encodedCertificate;
+            o.expiry = expiry;
+            o.storeName = storeName;
+            o.subject = subject;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

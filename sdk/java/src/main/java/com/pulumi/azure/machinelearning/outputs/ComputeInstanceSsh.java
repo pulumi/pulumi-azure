@@ -16,28 +16,19 @@ public final class ComputeInstanceSsh {
      * @return Describes the port for connecting through SSH.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return Specifies the SSH rsa public key file as a string. Use &#34;ssh-keygen -t rsa -b 2048&#34; to generate your SSH key pairs.
      * 
      */
-    private final String publicKey;
+    private String publicKey;
     /**
      * @return The admin username of this Machine Learning Compute Instance.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private ComputeInstanceSsh(
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.port = port;
-        this.publicKey = publicKey;
-        this.username = username;
-    }
-
+    private ComputeInstanceSsh() {}
     /**
      * @return Describes the port for connecting through SSH.
      * 
@@ -67,16 +58,12 @@ public final class ComputeInstanceSsh {
     public static Builder builder(ComputeInstanceSsh defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer port;
         private String publicKey;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ComputeInstanceSsh defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
@@ -84,19 +71,27 @@ public final class ComputeInstanceSsh {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public ComputeInstanceSsh build() {
-            return new ComputeInstanceSsh(port, publicKey, username);
+        }
+        public ComputeInstanceSsh build() {
+            final var o = new ComputeInstanceSsh();
+            o.port = port;
+            o.publicKey = publicKey;
+            o.username = username;
+            return o;
         }
     }
 }

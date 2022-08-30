@@ -13,13 +13,9 @@ public final class FunctionJavascriptUdaOutput {
      * @return The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FunctionJavascriptUdaOutput(@CustomType.Parameter("type") String type) {
-        this.type = type;
-    }
-
+    private FunctionJavascriptUdaOutput() {}
     /**
      * @return The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
      * 
@@ -35,24 +31,24 @@ public final class FunctionJavascriptUdaOutput {
     public static Builder builder(FunctionJavascriptUdaOutput defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionJavascriptUdaOutput defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FunctionJavascriptUdaOutput build() {
-            return new FunctionJavascriptUdaOutput(type);
+        }
+        public FunctionJavascriptUdaOutput build() {
+            final var o = new FunctionJavascriptUdaOutput();
+            o.type = type;
+            return o;
         }
     }
 }

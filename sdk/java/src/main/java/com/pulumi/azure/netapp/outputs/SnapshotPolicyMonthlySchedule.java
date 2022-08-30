@@ -10,35 +10,24 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotPolicyMonthlySchedule {
-    private final List<Integer> daysOfMonths;
+    private List<Integer> daysOfMonths;
     /**
      * @return Hour of the day that the snapshots will be created, valid range is from 0 to 23.
      * 
      */
-    private final Integer hour;
+    private Integer hour;
     /**
      * @return Minute of the hour that the snapshots will be created, valid range is from 0 to 59.
      * 
      */
-    private final Integer minute;
+    private Integer minute;
     /**
      * @return How many hourly snapshots to keep, valid range is from 0 to 255.
      * 
      */
-    private final Integer snapshotsToKeep;
+    private Integer snapshotsToKeep;
 
-    @CustomType.Constructor
-    private SnapshotPolicyMonthlySchedule(
-        @CustomType.Parameter("daysOfMonths") List<Integer> daysOfMonths,
-        @CustomType.Parameter("hour") Integer hour,
-        @CustomType.Parameter("minute") Integer minute,
-        @CustomType.Parameter("snapshotsToKeep") Integer snapshotsToKeep) {
-        this.daysOfMonths = daysOfMonths;
-        this.hour = hour;
-        this.minute = minute;
-        this.snapshotsToKeep = snapshotsToKeep;
-    }
-
+    private SnapshotPolicyMonthlySchedule() {}
     public List<Integer> daysOfMonths() {
         return this.daysOfMonths;
     }
@@ -71,17 +60,13 @@ public final class SnapshotPolicyMonthlySchedule {
     public static Builder builder(SnapshotPolicyMonthlySchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<Integer> daysOfMonths;
         private Integer hour;
         private Integer minute;
         private Integer snapshotsToKeep;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotPolicyMonthlySchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysOfMonths = defaults.daysOfMonths;
@@ -90,6 +75,7 @@ public final class SnapshotPolicyMonthlySchedule {
     	      this.snapshotsToKeep = defaults.snapshotsToKeep;
         }
 
+        @CustomType.Setter
         public Builder daysOfMonths(List<Integer> daysOfMonths) {
             this.daysOfMonths = Objects.requireNonNull(daysOfMonths);
             return this;
@@ -97,19 +83,28 @@ public final class SnapshotPolicyMonthlySchedule {
         public Builder daysOfMonths(Integer... daysOfMonths) {
             return daysOfMonths(List.of(daysOfMonths));
         }
+        @CustomType.Setter
         public Builder hour(Integer hour) {
             this.hour = Objects.requireNonNull(hour);
             return this;
         }
+        @CustomType.Setter
         public Builder minute(Integer minute) {
             this.minute = Objects.requireNonNull(minute);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotsToKeep(Integer snapshotsToKeep) {
             this.snapshotsToKeep = Objects.requireNonNull(snapshotsToKeep);
             return this;
-        }        public SnapshotPolicyMonthlySchedule build() {
-            return new SnapshotPolicyMonthlySchedule(daysOfMonths, hour, minute, snapshotsToKeep);
+        }
+        public SnapshotPolicyMonthlySchedule build() {
+            final var o = new SnapshotPolicyMonthlySchedule();
+            o.daysOfMonths = daysOfMonths;
+            o.hour = hour;
+            o.minute = minute;
+            o.snapshotsToKeep = snapshotsToKeep;
+            return o;
         }
     }
 }

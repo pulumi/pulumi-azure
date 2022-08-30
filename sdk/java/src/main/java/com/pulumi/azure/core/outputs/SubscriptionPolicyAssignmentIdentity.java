@@ -16,35 +16,24 @@ public final class SubscriptionPolicyAssignmentIdentity {
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
      */
-    private final @Nullable List<String> identityIds;
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID of the Policy Assignment for this Subscription.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The Tenant ID of the Policy Assignment for this Subscription.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SubscriptionPolicyAssignmentIdentity(
-        @CustomType.Parameter("identityIds") @Nullable List<String> identityIds,
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private SubscriptionPolicyAssignmentIdentity() {}
     /**
      * @return A list of User Managed Identity IDs which should be assigned to the Policy Definition.
      * 
@@ -81,17 +70,13 @@ public final class SubscriptionPolicyAssignmentIdentity {
     public static Builder builder(SubscriptionPolicyAssignmentIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubscriptionPolicyAssignmentIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -100,6 +85,7 @@ public final class SubscriptionPolicyAssignmentIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
             this.identityIds = identityIds;
             return this;
@@ -107,19 +93,28 @@ public final class SubscriptionPolicyAssignmentIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SubscriptionPolicyAssignmentIdentity build() {
-            return new SubscriptionPolicyAssignmentIdentity(identityIds, principalId, tenantId, type);
+        }
+        public SubscriptionPolicyAssignmentIdentity build() {
+            final var o = new SubscriptionPolicyAssignmentIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

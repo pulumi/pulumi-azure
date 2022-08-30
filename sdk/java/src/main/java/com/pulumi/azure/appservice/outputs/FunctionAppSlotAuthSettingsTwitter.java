@@ -13,21 +13,14 @@ public final class FunctionAppSlotAuthSettingsTwitter {
      * @return The OAuth 1.0a consumer key of the Twitter application used for sign-in.
      * 
      */
-    private final String consumerKey;
+    private String consumerKey;
     /**
      * @return The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * 
      */
-    private final String consumerSecret;
+    private String consumerSecret;
 
-    @CustomType.Constructor
-    private FunctionAppSlotAuthSettingsTwitter(
-        @CustomType.Parameter("consumerKey") String consumerKey,
-        @CustomType.Parameter("consumerSecret") String consumerSecret) {
-        this.consumerKey = consumerKey;
-        this.consumerSecret = consumerSecret;
-    }
-
+    private FunctionAppSlotAuthSettingsTwitter() {}
     /**
      * @return The OAuth 1.0a consumer key of the Twitter application used for sign-in.
      * 
@@ -50,30 +43,32 @@ public final class FunctionAppSlotAuthSettingsTwitter {
     public static Builder builder(FunctionAppSlotAuthSettingsTwitter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consumerKey;
         private String consumerSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionAppSlotAuthSettingsTwitter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consumerKey = defaults.consumerKey;
     	      this.consumerSecret = defaults.consumerSecret;
         }
 
+        @CustomType.Setter
         public Builder consumerKey(String consumerKey) {
             this.consumerKey = Objects.requireNonNull(consumerKey);
             return this;
         }
+        @CustomType.Setter
         public Builder consumerSecret(String consumerSecret) {
             this.consumerSecret = Objects.requireNonNull(consumerSecret);
             return this;
-        }        public FunctionAppSlotAuthSettingsTwitter build() {
-            return new FunctionAppSlotAuthSettingsTwitter(consumerKey, consumerSecret);
+        }
+        public FunctionAppSlotAuthSettingsTwitter build() {
+            final var o = new FunctionAppSlotAuthSettingsTwitter();
+            o.consumerKey = consumerKey;
+            o.consumerSecret = consumerSecret;
+            return o;
         }
     }
 }

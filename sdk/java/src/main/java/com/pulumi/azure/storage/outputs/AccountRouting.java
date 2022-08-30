@@ -16,28 +16,19 @@ public final class AccountRouting {
      * @return Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
      * 
      */
-    private final @Nullable String choice;
+    private @Nullable String choice;
     /**
      * @return Should internet routing storage endpoints be published? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean publishInternetEndpoints;
+    private @Nullable Boolean publishInternetEndpoints;
     /**
      * @return Should Microsoft routing storage endpoints be published? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean publishMicrosoftEndpoints;
+    private @Nullable Boolean publishMicrosoftEndpoints;
 
-    @CustomType.Constructor
-    private AccountRouting(
-        @CustomType.Parameter("choice") @Nullable String choice,
-        @CustomType.Parameter("publishInternetEndpoints") @Nullable Boolean publishInternetEndpoints,
-        @CustomType.Parameter("publishMicrosoftEndpoints") @Nullable Boolean publishMicrosoftEndpoints) {
-        this.choice = choice;
-        this.publishInternetEndpoints = publishInternetEndpoints;
-        this.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
-    }
-
+    private AccountRouting() {}
     /**
      * @return Specifies the kind of network routing opted by the user. Possible values are `InternetRouting` and `MicrosoftRouting`. Defaults to `MicrosoftRouting`.
      * 
@@ -67,16 +58,12 @@ public final class AccountRouting {
     public static Builder builder(AccountRouting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String choice;
         private @Nullable Boolean publishInternetEndpoints;
         private @Nullable Boolean publishMicrosoftEndpoints;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.choice = defaults.choice;
@@ -84,19 +71,27 @@ public final class AccountRouting {
     	      this.publishMicrosoftEndpoints = defaults.publishMicrosoftEndpoints;
         }
 
+        @CustomType.Setter
         public Builder choice(@Nullable String choice) {
             this.choice = choice;
             return this;
         }
+        @CustomType.Setter
         public Builder publishInternetEndpoints(@Nullable Boolean publishInternetEndpoints) {
             this.publishInternetEndpoints = publishInternetEndpoints;
             return this;
         }
+        @CustomType.Setter
         public Builder publishMicrosoftEndpoints(@Nullable Boolean publishMicrosoftEndpoints) {
             this.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
             return this;
-        }        public AccountRouting build() {
-            return new AccountRouting(choice, publishInternetEndpoints, publishMicrosoftEndpoints);
+        }
+        public AccountRouting build() {
+            final var o = new AccountRouting();
+            o.choice = choice;
+            o.publishInternetEndpoints = publishInternetEndpoints;
+            o.publishMicrosoftEndpoints = publishMicrosoftEndpoints;
+            return o;
         }
     }
 }

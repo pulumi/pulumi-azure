@@ -15,49 +15,34 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
      * @return Specifies the fragment part of the URL. This value must not start with a `#`.
      * 
      */
-    private final @Nullable String fragment;
+    private @Nullable String fragment;
     /**
      * @return Specifies the hostname part of the URL.
      * 
      */
-    private final @Nullable String hostname;
+    private @Nullable String hostname;
     /**
      * @return Specifies the path part of the URL. This value must begin with a `/`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Specifies the protocol part of the URL. Valid values are `Http` and `Https`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return Specifies the query string part of the URL. This value must not start with a `?` or `&amp;` and must be in `&lt;key&gt;=&lt;value&gt;` format separated by `&amp;`.
      * 
      */
-    private final @Nullable String queryString;
+    private @Nullable String queryString;
     /**
      * @return Type of the redirect. Valid values are `Found`, `Moved`, `PermanentRedirect` and `TemporaryRedirect`.
      * 
      */
-    private final String redirectType;
+    private String redirectType;
 
-    @CustomType.Constructor
-    private EndpointGlobalDeliveryRuleUrlRedirectAction(
-        @CustomType.Parameter("fragment") @Nullable String fragment,
-        @CustomType.Parameter("hostname") @Nullable String hostname,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("queryString") @Nullable String queryString,
-        @CustomType.Parameter("redirectType") String redirectType) {
-        this.fragment = fragment;
-        this.hostname = hostname;
-        this.path = path;
-        this.protocol = protocol;
-        this.queryString = queryString;
-        this.redirectType = redirectType;
-    }
-
+    private EndpointGlobalDeliveryRuleUrlRedirectAction() {}
     /**
      * @return Specifies the fragment part of the URL. This value must not start with a `#`.
      * 
@@ -108,7 +93,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
     public static Builder builder(EndpointGlobalDeliveryRuleUrlRedirectAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fragment;
         private @Nullable String hostname;
@@ -116,11 +101,7 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
         private @Nullable String protocol;
         private @Nullable String queryString;
         private String redirectType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGlobalDeliveryRuleUrlRedirectAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fragment = defaults.fragment;
@@ -131,31 +112,45 @@ public final class EndpointGlobalDeliveryRuleUrlRedirectAction {
     	      this.redirectType = defaults.redirectType;
         }
 
+        @CustomType.Setter
         public Builder fragment(@Nullable String fragment) {
             this.fragment = fragment;
             return this;
         }
+        @CustomType.Setter
         public Builder hostname(@Nullable String hostname) {
             this.hostname = hostname;
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder queryString(@Nullable String queryString) {
             this.queryString = queryString;
             return this;
         }
+        @CustomType.Setter
         public Builder redirectType(String redirectType) {
             this.redirectType = Objects.requireNonNull(redirectType);
             return this;
-        }        public EndpointGlobalDeliveryRuleUrlRedirectAction build() {
-            return new EndpointGlobalDeliveryRuleUrlRedirectAction(fragment, hostname, path, protocol, queryString, redirectType);
+        }
+        public EndpointGlobalDeliveryRuleUrlRedirectAction build() {
+            final var o = new EndpointGlobalDeliveryRuleUrlRedirectAction();
+            o.fragment = fragment;
+            o.hostname = hostname;
+            o.path = path;
+            o.protocol = protocol;
+            o.queryString = queryString;
+            o.redirectType = redirectType;
+            return o;
         }
     }
 }

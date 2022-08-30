@@ -13,13 +13,9 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      * @return The Secret URL of a Key Vault Certificate.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate(@CustomType.Parameter("url") String url) {
-        this.url = url;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate() {}
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
@@ -35,24 +31,24 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate(url);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate();
+            o.url = url;
+            return o;
         }
     }
 }

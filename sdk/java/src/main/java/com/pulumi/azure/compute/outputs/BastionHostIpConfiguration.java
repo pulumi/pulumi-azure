@@ -13,28 +13,19 @@ public final class BastionHostIpConfiguration {
      * @return The name of the IP configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Reference to a Public IP Address to associate with this Bastion Host.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return Reference to a subnet in which this Bastion Host has been created.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private BastionHostIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private BastionHostIpConfiguration() {}
     /**
      * @return The name of the IP configuration.
      * 
@@ -64,16 +55,12 @@ public final class BastionHostIpConfiguration {
     public static Builder builder(BastionHostIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BastionHostIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class BastionHostIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public BastionHostIpConfiguration build() {
-            return new BastionHostIpConfiguration(name, publicIpAddressId, subnetId);
+        }
+        public BastionHostIpConfiguration build() {
+            final var o = new BastionHostIpConfiguration();
+            o.name = name;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -17,38 +17,25 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
      * @return The direction of required traffic. Possible values are `Inbound`, `Outbound`.
      * 
      */
-    private final @Nullable String direction;
+    private @Nullable String direction;
     /**
      * @return The FQDN list of required traffic.
      * 
      */
-    private final @Nullable List<String> fqdns;
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> fqdns;
+    private @Nullable List<String> ipAddresses;
     /**
      * @return The port of required traffic.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The protocol of required traffic.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
 
-    @CustomType.Constructor
-    private SpringCloudServiceRequiredNetworkTrafficRule(
-        @CustomType.Parameter("direction") @Nullable String direction,
-        @CustomType.Parameter("fqdns") @Nullable List<String> fqdns,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses,
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("protocol") @Nullable String protocol) {
-        this.direction = direction;
-        this.fqdns = fqdns;
-        this.ipAddresses = ipAddresses;
-        this.port = port;
-        this.protocol = protocol;
-    }
-
+    private SpringCloudServiceRequiredNetworkTrafficRule() {}
     /**
      * @return The direction of required traffic. Possible values are `Inbound`, `Outbound`.
      * 
@@ -88,18 +75,14 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
     public static Builder builder(SpringCloudServiceRequiredNetworkTrafficRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String direction;
         private @Nullable List<String> fqdns;
         private @Nullable List<String> ipAddresses;
         private @Nullable Integer port;
         private @Nullable String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceRequiredNetworkTrafficRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.direction = defaults.direction;
@@ -109,10 +92,12 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder direction(@Nullable String direction) {
             this.direction = direction;
             return this;
         }
+        @CustomType.Setter
         public Builder fqdns(@Nullable List<String> fqdns) {
             this.fqdns = fqdns;
             return this;
@@ -120,6 +105,7 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
         public Builder fqdns(String... fqdns) {
             return fqdns(List.of(fqdns));
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
@@ -127,15 +113,24 @@ public final class SpringCloudServiceRequiredNetworkTrafficRule {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
-        }        public SpringCloudServiceRequiredNetworkTrafficRule build() {
-            return new SpringCloudServiceRequiredNetworkTrafficRule(direction, fqdns, ipAddresses, port, protocol);
+        }
+        public SpringCloudServiceRequiredNetworkTrafficRule build() {
+            final var o = new SpringCloudServiceRequiredNetworkTrafficRule();
+            o.direction = direction;
+            o.fqdns = fqdns;
+            o.ipAddresses = ipAddresses;
+            o.port = port;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

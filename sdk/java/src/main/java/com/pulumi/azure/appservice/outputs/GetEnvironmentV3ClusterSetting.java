@@ -13,21 +13,14 @@ public final class GetEnvironmentV3ClusterSetting {
      * @return The name of this v3 App Service Environment.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value for the Cluster Setting.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetEnvironmentV3ClusterSetting(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private GetEnvironmentV3ClusterSetting() {}
     /**
      * @return The name of this v3 App Service Environment.
      * 
@@ -50,30 +43,32 @@ public final class GetEnvironmentV3ClusterSetting {
     public static Builder builder(GetEnvironmentV3ClusterSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnvironmentV3ClusterSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetEnvironmentV3ClusterSetting build() {
-            return new GetEnvironmentV3ClusterSetting(name, value);
+        }
+        public GetEnvironmentV3ClusterSetting build() {
+            final var o = new GetEnvironmentV3ClusterSetting();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

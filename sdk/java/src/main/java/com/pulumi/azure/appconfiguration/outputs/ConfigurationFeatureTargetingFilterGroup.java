@@ -14,21 +14,14 @@ public final class ConfigurationFeatureTargetingFilterGroup {
      * @return The name of the group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Rollout percentage of the group.
      * 
      */
-    private final Integer rolloutPercentage;
+    private Integer rolloutPercentage;
 
-    @CustomType.Constructor
-    private ConfigurationFeatureTargetingFilterGroup(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("rolloutPercentage") Integer rolloutPercentage) {
-        this.name = name;
-        this.rolloutPercentage = rolloutPercentage;
-    }
-
+    private ConfigurationFeatureTargetingFilterGroup() {}
     /**
      * @return The name of the group.
      * 
@@ -51,30 +44,32 @@ public final class ConfigurationFeatureTargetingFilterGroup {
     public static Builder builder(ConfigurationFeatureTargetingFilterGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Integer rolloutPercentage;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationFeatureTargetingFilterGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.rolloutPercentage = defaults.rolloutPercentage;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder rolloutPercentage(Integer rolloutPercentage) {
             this.rolloutPercentage = Objects.requireNonNull(rolloutPercentage);
             return this;
-        }        public ConfigurationFeatureTargetingFilterGroup build() {
-            return new ConfigurationFeatureTargetingFilterGroup(name, rolloutPercentage);
+        }
+        public ConfigurationFeatureTargetingFilterGroup build() {
+            final var o = new ConfigurationFeatureTargetingFilterGroup();
+            o.name = name;
+            o.rolloutPercentage = rolloutPercentage;
+            return o;
         }
     }
 }

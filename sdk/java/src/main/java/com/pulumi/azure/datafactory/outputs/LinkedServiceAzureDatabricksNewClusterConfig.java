@@ -18,77 +18,54 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
      * @return Spark version of a the cluster.
      * 
      */
-    private final String clusterVersion;
+    private String clusterVersion;
     /**
      * @return Tags for the cluster resource.
      * 
      */
-    private final @Nullable Map<String,String> customTags;
+    private @Nullable Map<String,String> customTags;
     /**
      * @return Driver node type for the cluster.
      * 
      */
-    private final @Nullable String driverNodeType;
+    private @Nullable String driverNodeType;
     /**
      * @return User defined initialization scripts for the cluster.
      * 
      */
-    private final @Nullable List<String> initScripts;
+    private @Nullable List<String> initScripts;
     /**
      * @return Location to deliver Spark driver, worker, and event logs.
      * 
      */
-    private final @Nullable String logDestination;
+    private @Nullable String logDestination;
     /**
      * @return The max number of worker nodes. Set this value if you want to enable autoscaling between the `min_number_of_workers` and this value. Omit this value to use a fixed number of workers defined in the `min_number_of_workers` property.
      * 
      */
-    private final @Nullable Integer maxNumberOfWorkers;
+    private @Nullable Integer maxNumberOfWorkers;
     /**
      * @return The minimum number of worker nodes. Defaults to 1.
      * 
      */
-    private final @Nullable Integer minNumberOfWorkers;
+    private @Nullable Integer minNumberOfWorkers;
     /**
      * @return Node type for the new cluster.
      * 
      */
-    private final String nodeType;
+    private String nodeType;
     /**
      * @return User-specified Spark configuration variables key-value pairs.
      * 
      */
-    private final @Nullable Map<String,String> sparkConfig;
+    private @Nullable Map<String,String> sparkConfig;
     /**
      * @return User-specified Spark environment variables key-value pairs.
      * 
      */
-    private final @Nullable Map<String,String> sparkEnvironmentVariables;
+    private @Nullable Map<String,String> sparkEnvironmentVariables;
 
-    @CustomType.Constructor
-    private LinkedServiceAzureDatabricksNewClusterConfig(
-        @CustomType.Parameter("clusterVersion") String clusterVersion,
-        @CustomType.Parameter("customTags") @Nullable Map<String,String> customTags,
-        @CustomType.Parameter("driverNodeType") @Nullable String driverNodeType,
-        @CustomType.Parameter("initScripts") @Nullable List<String> initScripts,
-        @CustomType.Parameter("logDestination") @Nullable String logDestination,
-        @CustomType.Parameter("maxNumberOfWorkers") @Nullable Integer maxNumberOfWorkers,
-        @CustomType.Parameter("minNumberOfWorkers") @Nullable Integer minNumberOfWorkers,
-        @CustomType.Parameter("nodeType") String nodeType,
-        @CustomType.Parameter("sparkConfig") @Nullable Map<String,String> sparkConfig,
-        @CustomType.Parameter("sparkEnvironmentVariables") @Nullable Map<String,String> sparkEnvironmentVariables) {
-        this.clusterVersion = clusterVersion;
-        this.customTags = customTags;
-        this.driverNodeType = driverNodeType;
-        this.initScripts = initScripts;
-        this.logDestination = logDestination;
-        this.maxNumberOfWorkers = maxNumberOfWorkers;
-        this.minNumberOfWorkers = minNumberOfWorkers;
-        this.nodeType = nodeType;
-        this.sparkConfig = sparkConfig;
-        this.sparkEnvironmentVariables = sparkEnvironmentVariables;
-    }
-
+    private LinkedServiceAzureDatabricksNewClusterConfig() {}
     /**
      * @return Spark version of a the cluster.
      * 
@@ -167,7 +144,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
     public static Builder builder(LinkedServiceAzureDatabricksNewClusterConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterVersion;
         private @Nullable Map<String,String> customTags;
@@ -179,11 +156,7 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
         private String nodeType;
         private @Nullable Map<String,String> sparkConfig;
         private @Nullable Map<String,String> sparkEnvironmentVariables;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceAzureDatabricksNewClusterConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterVersion = defaults.clusterVersion;
@@ -198,18 +171,22 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
     	      this.sparkEnvironmentVariables = defaults.sparkEnvironmentVariables;
         }
 
+        @CustomType.Setter
         public Builder clusterVersion(String clusterVersion) {
             this.clusterVersion = Objects.requireNonNull(clusterVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder customTags(@Nullable Map<String,String> customTags) {
             this.customTags = customTags;
             return this;
         }
+        @CustomType.Setter
         public Builder driverNodeType(@Nullable String driverNodeType) {
             this.driverNodeType = driverNodeType;
             return this;
         }
+        @CustomType.Setter
         public Builder initScripts(@Nullable List<String> initScripts) {
             this.initScripts = initScripts;
             return this;
@@ -217,31 +194,49 @@ public final class LinkedServiceAzureDatabricksNewClusterConfig {
         public Builder initScripts(String... initScripts) {
             return initScripts(List.of(initScripts));
         }
+        @CustomType.Setter
         public Builder logDestination(@Nullable String logDestination) {
             this.logDestination = logDestination;
             return this;
         }
+        @CustomType.Setter
         public Builder maxNumberOfWorkers(@Nullable Integer maxNumberOfWorkers) {
             this.maxNumberOfWorkers = maxNumberOfWorkers;
             return this;
         }
+        @CustomType.Setter
         public Builder minNumberOfWorkers(@Nullable Integer minNumberOfWorkers) {
             this.minNumberOfWorkers = minNumberOfWorkers;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeType(String nodeType) {
             this.nodeType = Objects.requireNonNull(nodeType);
             return this;
         }
+        @CustomType.Setter
         public Builder sparkConfig(@Nullable Map<String,String> sparkConfig) {
             this.sparkConfig = sparkConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder sparkEnvironmentVariables(@Nullable Map<String,String> sparkEnvironmentVariables) {
             this.sparkEnvironmentVariables = sparkEnvironmentVariables;
             return this;
-        }        public LinkedServiceAzureDatabricksNewClusterConfig build() {
-            return new LinkedServiceAzureDatabricksNewClusterConfig(clusterVersion, customTags, driverNodeType, initScripts, logDestination, maxNumberOfWorkers, minNumberOfWorkers, nodeType, sparkConfig, sparkEnvironmentVariables);
+        }
+        public LinkedServiceAzureDatabricksNewClusterConfig build() {
+            final var o = new LinkedServiceAzureDatabricksNewClusterConfig();
+            o.clusterVersion = clusterVersion;
+            o.customTags = customTags;
+            o.driverNodeType = driverNodeType;
+            o.initScripts = initScripts;
+            o.logDestination = logDestination;
+            o.maxNumberOfWorkers = maxNumberOfWorkers;
+            o.minNumberOfWorkers = minNumberOfWorkers;
+            o.nodeType = nodeType;
+            o.sparkConfig = sparkConfig;
+            o.sparkEnvironmentVariables = sparkEnvironmentVariables;
+            return o;
         }
     }
 }

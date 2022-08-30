@@ -15,21 +15,14 @@ public final class ApiOauth2Authorization {
      * @return OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
      * 
      */
-    private final String authorizationServerName;
+    private String authorizationServerName;
     /**
      * @return Operations scope.
      * 
      */
-    private final @Nullable String scope;
+    private @Nullable String scope;
 
-    @CustomType.Constructor
-    private ApiOauth2Authorization(
-        @CustomType.Parameter("authorizationServerName") String authorizationServerName,
-        @CustomType.Parameter("scope") @Nullable String scope) {
-        this.authorizationServerName = authorizationServerName;
-        this.scope = scope;
-    }
-
+    private ApiOauth2Authorization() {}
     /**
      * @return OAuth authorization server identifier. The name of an OAuth2 Authorization Server.
      * 
@@ -52,30 +45,32 @@ public final class ApiOauth2Authorization {
     public static Builder builder(ApiOauth2Authorization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String authorizationServerName;
         private @Nullable String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOauth2Authorization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizationServerName = defaults.authorizationServerName;
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder authorizationServerName(String authorizationServerName) {
             this.authorizationServerName = Objects.requireNonNull(authorizationServerName);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
-        }        public ApiOauth2Authorization build() {
-            return new ApiOauth2Authorization(authorizationServerName, scope);
+        }
+        public ApiOauth2Authorization build() {
+            final var o = new ApiOauth2Authorization();
+            o.authorizationServerName = authorizationServerName;
+            o.scope = scope;
+            return o;
         }
     }
 }

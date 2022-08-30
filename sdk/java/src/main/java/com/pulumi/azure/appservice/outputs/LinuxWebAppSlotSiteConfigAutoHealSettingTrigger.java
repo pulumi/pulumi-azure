@@ -18,28 +18,19 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
      * @return A `requests` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
+    private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
     /**
      * @return One or more `slow_request` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return One or more `status_code` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
+    private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(
-        @CustomType.Parameter("requests") @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests,
-        @CustomType.Parameter("slowRequests") @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
-        @CustomType.Parameter("statusCodes") @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-        this.requests = requests;
-        this.slowRequests = slowRequests;
-        this.statusCodes = statusCodes;
-    }
-
+    private LinuxWebAppSlotSiteConfigAutoHealSettingTrigger() {}
     /**
      * @return A `requests` block as defined above.
      * 
@@ -69,16 +60,12 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
     public static Builder builder(LinuxWebAppSlotSiteConfigAutoHealSettingTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests;
         private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requests = defaults.requests;
@@ -86,10 +73,12 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder requests(@Nullable LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequests requests) {
             this.requests = requests;
             return this;
         }
+        @CustomType.Setter
         public Builder slowRequests(@Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
             this.slowRequests = slowRequests;
             return this;
@@ -97,14 +86,20 @@ public final class LinuxWebAppSlotSiteConfigAutoHealSettingTrigger {
         public Builder slowRequests(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
             return slowRequests(List.of(slowRequests));
         }
+        @CustomType.Setter
         public Builder statusCodes(@Nullable List<LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
             this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public LinuxWebAppSlotSiteConfigAutoHealSettingTrigger build() {
-            return new LinuxWebAppSlotSiteConfigAutoHealSettingTrigger(requests, slowRequests, statusCodes);
+        }
+        public LinuxWebAppSlotSiteConfigAutoHealSettingTrigger build() {
+            final var o = new LinuxWebAppSlotSiteConfigAutoHealSettingTrigger();
+            o.requests = requests;
+            o.slowRequests = slowRequests;
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

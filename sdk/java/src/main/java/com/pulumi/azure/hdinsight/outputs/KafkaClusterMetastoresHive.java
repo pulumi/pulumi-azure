@@ -13,35 +13,24 @@ public final class KafkaClusterMetastoresHive {
      * @return The external Hive metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
      * 
      */
-    private final String databaseName;
+    private String databaseName;
     /**
      * @return The external Hive metastore&#39;s existing SQL server admin password.  Changing this forces a new resource to be created.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The fully-qualified domain name (FQDN) of the SQL server to use for the external Hive metastore.  Changing this forces a new resource to be created.
      * 
      */
-    private final String server;
+    private String server;
     /**
      * @return The external Hive metastore&#39;s existing SQL server admin username.  Changing this forces a new resource to be created.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private KafkaClusterMetastoresHive(
-        @CustomType.Parameter("databaseName") String databaseName,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("server") String server,
-        @CustomType.Parameter("username") String username) {
-        this.databaseName = databaseName;
-        this.password = password;
-        this.server = server;
-        this.username = username;
-    }
-
+    private KafkaClusterMetastoresHive() {}
     /**
      * @return The external Hive metastore&#39;s existing SQL database.  Changing this forces a new resource to be created.
      * 
@@ -78,17 +67,13 @@ public final class KafkaClusterMetastoresHive {
     public static Builder builder(KafkaClusterMetastoresHive defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String databaseName;
         private String password;
         private String server;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterMetastoresHive defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.databaseName = defaults.databaseName;
@@ -97,23 +82,33 @@ public final class KafkaClusterMetastoresHive {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder databaseName(String databaseName) {
             this.databaseName = Objects.requireNonNull(databaseName);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder server(String server) {
             this.server = Objects.requireNonNull(server);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public KafkaClusterMetastoresHive build() {
-            return new KafkaClusterMetastoresHive(databaseName, password, server, username);
+        }
+        public KafkaClusterMetastoresHive build() {
+            final var o = new KafkaClusterMetastoresHive();
+            o.databaseName = databaseName;
+            o.password = password;
+            o.server = server;
+            o.username = username;
+            return o;
         }
     }
 }

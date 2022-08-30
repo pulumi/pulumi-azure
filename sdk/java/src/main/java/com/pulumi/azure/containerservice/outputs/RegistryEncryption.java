@@ -16,28 +16,19 @@ public final class RegistryEncryption {
      * @return Boolean value that indicates whether encryption is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The client ID of the managed identity associated with the encryption key.
      * 
      */
-    private final String identityClientId;
+    private String identityClientId;
     /**
      * @return The ID of the Key Vault Key.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
 
-    @CustomType.Constructor
-    private RegistryEncryption(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("identityClientId") String identityClientId,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId) {
-        this.enabled = enabled;
-        this.identityClientId = identityClientId;
-        this.keyVaultKeyId = keyVaultKeyId;
-    }
-
+    private RegistryEncryption() {}
     /**
      * @return Boolean value that indicates whether encryption is enabled.
      * 
@@ -67,16 +58,12 @@ public final class RegistryEncryption {
     public static Builder builder(RegistryEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String identityClientId;
         private String keyVaultKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -84,19 +71,27 @@ public final class RegistryEncryption {
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder identityClientId(String identityClientId) {
             this.identityClientId = Objects.requireNonNull(identityClientId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
-        }        public RegistryEncryption build() {
-            return new RegistryEncryption(enabled, identityClientId, keyVaultKeyId);
+        }
+        public RegistryEncryption build() {
+            final var o = new RegistryEncryption();
+            o.enabled = enabled;
+            o.identityClientId = identityClientId;
+            o.keyVaultKeyId = keyVaultKeyId;
+            return o;
         }
     }
 }

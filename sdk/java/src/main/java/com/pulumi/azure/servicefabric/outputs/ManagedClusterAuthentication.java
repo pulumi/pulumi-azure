@@ -17,21 +17,14 @@ public final class ManagedClusterAuthentication {
      * @return A `active_directory` block as defined above.
      * 
      */
-    private final @Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory;
+    private @Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory;
     /**
      * @return One or more `certificate` blocks as defined below.
      * 
      */
-    private final @Nullable List<ManagedClusterAuthenticationCertificate> certificates;
+    private @Nullable List<ManagedClusterAuthenticationCertificate> certificates;
 
-    @CustomType.Constructor
-    private ManagedClusterAuthentication(
-        @CustomType.Parameter("activeDirectory") @Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory,
-        @CustomType.Parameter("certificates") @Nullable List<ManagedClusterAuthenticationCertificate> certificates) {
-        this.activeDirectory = activeDirectory;
-        this.certificates = certificates;
-    }
-
+    private ManagedClusterAuthentication() {}
     /**
      * @return A `active_directory` block as defined above.
      * 
@@ -54,33 +47,35 @@ public final class ManagedClusterAuthentication {
     public static Builder builder(ManagedClusterAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory;
         private @Nullable List<ManagedClusterAuthenticationCertificate> certificates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectory = defaults.activeDirectory;
     	      this.certificates = defaults.certificates;
         }
 
+        @CustomType.Setter
         public Builder activeDirectory(@Nullable ManagedClusterAuthenticationActiveDirectory activeDirectory) {
             this.activeDirectory = activeDirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder certificates(@Nullable List<ManagedClusterAuthenticationCertificate> certificates) {
             this.certificates = certificates;
             return this;
         }
         public Builder certificates(ManagedClusterAuthenticationCertificate... certificates) {
             return certificates(List.of(certificates));
-        }        public ManagedClusterAuthentication build() {
-            return new ManagedClusterAuthentication(activeDirectory, certificates);
+        }
+        public ManagedClusterAuthentication build() {
+            final var o = new ManagedClusterAuthentication();
+            o.activeDirectory = activeDirectory;
+            o.certificates = certificates;
+            return o;
         }
     }
 }

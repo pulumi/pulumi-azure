@@ -13,37 +13,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetSharedImageVersionsResult {
-    private final String galleryName;
+    private String galleryName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String imageName;
+    private String id;
+    private String imageName;
     /**
      * @return An `images` block as defined below:
      * 
      */
-    private final List<GetSharedImageVersionsImage> images;
-    private final String resourceGroupName;
-    private final @Nullable Map<String,String> tagsFilter;
+    private List<GetSharedImageVersionsImage> images;
+    private String resourceGroupName;
+    private @Nullable Map<String,String> tagsFilter;
 
-    @CustomType.Constructor
-    private GetSharedImageVersionsResult(
-        @CustomType.Parameter("galleryName") String galleryName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageName") String imageName,
-        @CustomType.Parameter("images") List<GetSharedImageVersionsImage> images,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tagsFilter") @Nullable Map<String,String> tagsFilter) {
-        this.galleryName = galleryName;
-        this.id = id;
-        this.imageName = imageName;
-        this.images = images;
-        this.resourceGroupName = resourceGroupName;
-        this.tagsFilter = tagsFilter;
-    }
-
+    private GetSharedImageVersionsResult() {}
     public String galleryName() {
         return this.galleryName;
     }
@@ -78,7 +63,7 @@ public final class GetSharedImageVersionsResult {
     public static Builder builder(GetSharedImageVersionsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String galleryName;
         private String id;
@@ -86,11 +71,7 @@ public final class GetSharedImageVersionsResult {
         private List<GetSharedImageVersionsImage> images;
         private String resourceGroupName;
         private @Nullable Map<String,String> tagsFilter;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedImageVersionsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.galleryName = defaults.galleryName;
@@ -101,18 +82,22 @@ public final class GetSharedImageVersionsResult {
     	      this.tagsFilter = defaults.tagsFilter;
         }
 
+        @CustomType.Setter
         public Builder galleryName(String galleryName) {
             this.galleryName = Objects.requireNonNull(galleryName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageName(String imageName) {
             this.imageName = Objects.requireNonNull(imageName);
             return this;
         }
+        @CustomType.Setter
         public Builder images(List<GetSharedImageVersionsImage> images) {
             this.images = Objects.requireNonNull(images);
             return this;
@@ -120,15 +105,25 @@ public final class GetSharedImageVersionsResult {
         public Builder images(GetSharedImageVersionsImage... images) {
             return images(List.of(images));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tagsFilter(@Nullable Map<String,String> tagsFilter) {
             this.tagsFilter = tagsFilter;
             return this;
-        }        public GetSharedImageVersionsResult build() {
-            return new GetSharedImageVersionsResult(galleryName, id, imageName, images, resourceGroupName, tagsFilter);
+        }
+        public GetSharedImageVersionsResult build() {
+            final var o = new GetSharedImageVersionsResult();
+            o.galleryName = galleryName;
+            o.id = id;
+            o.imageName = imageName;
+            o.images = images;
+            o.resourceGroupName = resourceGroupName;
+            o.tagsFilter = tagsFilter;
+            return o;
         }
     }
 }

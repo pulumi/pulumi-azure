@@ -14,76 +14,51 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceResult {
-    private final List<String> accessPolicyObjectIds;
+    private List<String> accessPolicyObjectIds;
     /**
      * @return An `authentication_configuration` block as defined below.
      * 
      */
-    private final List<GetServiceAuthenticationConfiguration> authenticationConfigurations;
+    private List<GetServiceAuthenticationConfiguration> authenticationConfigurations;
     /**
      * @return A `cors_configuration` block as defined below.
      * 
      */
-    private final List<GetServiceCorsConfiguration> corsConfigurations;
+    private List<GetServiceCorsConfiguration> corsConfigurations;
     /**
      * @return The versionless Key Vault Key ID for CMK encryption of the backing database.
      * 
      */
-    private final String cosmosdbKeyVaultKeyVersionlessId;
+    private String cosmosdbKeyVaultKeyVersionlessId;
     /**
      * @return The provisioned throughput for the backing database.
      * 
      */
-    private final Integer cosmosdbThroughput;
+    private Integer cosmosdbThroughput;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The type of the service.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region where the Service is located.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("accessPolicyObjectIds") List<String> accessPolicyObjectIds,
-        @CustomType.Parameter("authenticationConfigurations") List<GetServiceAuthenticationConfiguration> authenticationConfigurations,
-        @CustomType.Parameter("corsConfigurations") List<GetServiceCorsConfiguration> corsConfigurations,
-        @CustomType.Parameter("cosmosdbKeyVaultKeyVersionlessId") String cosmosdbKeyVaultKeyVersionlessId,
-        @CustomType.Parameter("cosmosdbThroughput") Integer cosmosdbThroughput,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.accessPolicyObjectIds = accessPolicyObjectIds;
-        this.authenticationConfigurations = authenticationConfigurations;
-        this.corsConfigurations = corsConfigurations;
-        this.cosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
-        this.cosmosdbThroughput = cosmosdbThroughput;
-        this.id = id;
-        this.kind = kind;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetServiceResult() {}
     public List<String> accessPolicyObjectIds() {
         return this.accessPolicyObjectIds;
     }
@@ -157,7 +132,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> accessPolicyObjectIds;
         private List<GetServiceAuthenticationConfiguration> authenticationConfigurations;
@@ -170,11 +145,7 @@ public final class GetServiceResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicyObjectIds = defaults.accessPolicyObjectIds;
@@ -190,6 +161,7 @@ public final class GetServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder accessPolicyObjectIds(List<String> accessPolicyObjectIds) {
             this.accessPolicyObjectIds = Objects.requireNonNull(accessPolicyObjectIds);
             return this;
@@ -197,6 +169,7 @@ public final class GetServiceResult {
         public Builder accessPolicyObjectIds(String... accessPolicyObjectIds) {
             return accessPolicyObjectIds(List.of(accessPolicyObjectIds));
         }
+        @CustomType.Setter
         public Builder authenticationConfigurations(List<GetServiceAuthenticationConfiguration> authenticationConfigurations) {
             this.authenticationConfigurations = Objects.requireNonNull(authenticationConfigurations);
             return this;
@@ -204,6 +177,7 @@ public final class GetServiceResult {
         public Builder authenticationConfigurations(GetServiceAuthenticationConfiguration... authenticationConfigurations) {
             return authenticationConfigurations(List.of(authenticationConfigurations));
         }
+        @CustomType.Setter
         public Builder corsConfigurations(List<GetServiceCorsConfiguration> corsConfigurations) {
             this.corsConfigurations = Objects.requireNonNull(corsConfigurations);
             return this;
@@ -211,39 +185,60 @@ public final class GetServiceResult {
         public Builder corsConfigurations(GetServiceCorsConfiguration... corsConfigurations) {
             return corsConfigurations(List.of(corsConfigurations));
         }
+        @CustomType.Setter
         public Builder cosmosdbKeyVaultKeyVersionlessId(String cosmosdbKeyVaultKeyVersionlessId) {
             this.cosmosdbKeyVaultKeyVersionlessId = Objects.requireNonNull(cosmosdbKeyVaultKeyVersionlessId);
             return this;
         }
+        @CustomType.Setter
         public Builder cosmosdbThroughput(Integer cosmosdbThroughput) {
             this.cosmosdbThroughput = Objects.requireNonNull(cosmosdbThroughput);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(accessPolicyObjectIds, authenticationConfigurations, corsConfigurations, cosmosdbKeyVaultKeyVersionlessId, cosmosdbThroughput, id, kind, location, name, resourceGroupName, tags);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.accessPolicyObjectIds = accessPolicyObjectIds;
+            o.authenticationConfigurations = authenticationConfigurations;
+            o.corsConfigurations = corsConfigurations;
+            o.cosmosdbKeyVaultKeyVersionlessId = cosmosdbKeyVaultKeyVersionlessId;
+            o.cosmosdbThroughput = cosmosdbThroughput;
+            o.id = id;
+            o.kind = kind;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

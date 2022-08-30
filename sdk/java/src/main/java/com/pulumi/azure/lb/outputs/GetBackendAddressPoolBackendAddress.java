@@ -15,35 +15,24 @@ public final class GetBackendAddressPoolBackendAddress {
      * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
      * 
      */
-    private final List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
+    private List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
     /**
      * @return The Static IP address for this Load Balancer within the Virtual Network.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return Specifies the name of the Backend Address Pool.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
      * 
      */
-    private final String virtualNetworkId;
+    private String virtualNetworkId;
 
-    @CustomType.Constructor
-    private GetBackendAddressPoolBackendAddress(
-        @CustomType.Parameter("inboundNatRulePortMappings") List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("virtualNetworkId") String virtualNetworkId) {
-        this.inboundNatRulePortMappings = inboundNatRulePortMappings;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.virtualNetworkId = virtualNetworkId;
-    }
-
+    private GetBackendAddressPoolBackendAddress() {}
     /**
      * @return A list of `inbound_nat_rule_port_mapping` block as defined below.
      * 
@@ -80,17 +69,13 @@ public final class GetBackendAddressPoolBackendAddress {
     public static Builder builder(GetBackendAddressPoolBackendAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings;
         private String ipAddress;
         private String name;
         private String virtualNetworkId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBackendAddressPoolBackendAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.inboundNatRulePortMappings = defaults.inboundNatRulePortMappings;
@@ -99,6 +84,7 @@ public final class GetBackendAddressPoolBackendAddress {
     	      this.virtualNetworkId = defaults.virtualNetworkId;
         }
 
+        @CustomType.Setter
         public Builder inboundNatRulePortMappings(List<GetBackendAddressPoolBackendAddressInboundNatRulePortMapping> inboundNatRulePortMappings) {
             this.inboundNatRulePortMappings = Objects.requireNonNull(inboundNatRulePortMappings);
             return this;
@@ -106,19 +92,28 @@ public final class GetBackendAddressPoolBackendAddress {
         public Builder inboundNatRulePortMappings(GetBackendAddressPoolBackendAddressInboundNatRulePortMapping... inboundNatRulePortMappings) {
             return inboundNatRulePortMappings(List.of(inboundNatRulePortMappings));
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkId(String virtualNetworkId) {
             this.virtualNetworkId = Objects.requireNonNull(virtualNetworkId);
             return this;
-        }        public GetBackendAddressPoolBackendAddress build() {
-            return new GetBackendAddressPoolBackendAddress(inboundNatRulePortMappings, ipAddress, name, virtualNetworkId);
+        }
+        public GetBackendAddressPoolBackendAddress build() {
+            final var o = new GetBackendAddressPoolBackendAddress();
+            o.inboundNatRulePortMappings = inboundNatRulePortMappings;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.virtualNetworkId = virtualNetworkId;
+            return o;
         }
     }
 }

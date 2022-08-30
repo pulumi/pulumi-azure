@@ -15,35 +15,24 @@ public final class SourceControlSlotGithubActionConfigurationContainerConfigurat
      * @return The image name for the build. Changing this forces a new resource to be created.
      * 
      */
-    private final String imageName;
+    private String imageName;
     /**
      * @return The password used to upload the image to the container registry. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String registryPassword;
+    private @Nullable String registryPassword;
     /**
      * @return The server URL for the container registry where the build will be hosted. Changing this forces a new resource to be created.
      * 
      */
-    private final String registryUrl;
+    private String registryUrl;
     /**
      * @return The username used to upload the image to the container registry. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String registryUsername;
+    private @Nullable String registryUsername;
 
-    @CustomType.Constructor
-    private SourceControlSlotGithubActionConfigurationContainerConfiguration(
-        @CustomType.Parameter("imageName") String imageName,
-        @CustomType.Parameter("registryPassword") @Nullable String registryPassword,
-        @CustomType.Parameter("registryUrl") String registryUrl,
-        @CustomType.Parameter("registryUsername") @Nullable String registryUsername) {
-        this.imageName = imageName;
-        this.registryPassword = registryPassword;
-        this.registryUrl = registryUrl;
-        this.registryUsername = registryUsername;
-    }
-
+    private SourceControlSlotGithubActionConfigurationContainerConfiguration() {}
     /**
      * @return The image name for the build. Changing this forces a new resource to be created.
      * 
@@ -80,17 +69,13 @@ public final class SourceControlSlotGithubActionConfigurationContainerConfigurat
     public static Builder builder(SourceControlSlotGithubActionConfigurationContainerConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String imageName;
         private @Nullable String registryPassword;
         private String registryUrl;
         private @Nullable String registryUsername;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SourceControlSlotGithubActionConfigurationContainerConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.imageName = defaults.imageName;
@@ -99,23 +84,33 @@ public final class SourceControlSlotGithubActionConfigurationContainerConfigurat
     	      this.registryUsername = defaults.registryUsername;
         }
 
+        @CustomType.Setter
         public Builder imageName(String imageName) {
             this.imageName = Objects.requireNonNull(imageName);
             return this;
         }
+        @CustomType.Setter
         public Builder registryPassword(@Nullable String registryPassword) {
             this.registryPassword = registryPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder registryUrl(String registryUrl) {
             this.registryUrl = Objects.requireNonNull(registryUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder registryUsername(@Nullable String registryUsername) {
             this.registryUsername = registryUsername;
             return this;
-        }        public SourceControlSlotGithubActionConfigurationContainerConfiguration build() {
-            return new SourceControlSlotGithubActionConfigurationContainerConfiguration(imageName, registryPassword, registryUrl, registryUsername);
+        }
+        public SourceControlSlotGithubActionConfigurationContainerConfiguration build() {
+            final var o = new SourceControlSlotGithubActionConfigurationContainerConfiguration();
+            o.imageName = imageName;
+            o.registryPassword = registryPassword;
+            o.registryUrl = registryUrl;
+            o.registryUsername = registryUsername;
+            return o;
         }
     }
 }

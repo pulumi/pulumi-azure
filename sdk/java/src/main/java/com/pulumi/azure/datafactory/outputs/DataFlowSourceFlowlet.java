@@ -12,28 +12,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DataFlowSourceFlowlet {
-    private final @Nullable String datasetParameters;
+    private @Nullable String datasetParameters;
     /**
      * @return The name for the Data Factory Flowlet.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the Data Factory Flowlet.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private DataFlowSourceFlowlet(
-        @CustomType.Parameter("datasetParameters") @Nullable String datasetParameters,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.datasetParameters = datasetParameters;
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private DataFlowSourceFlowlet() {}
     public Optional<String> datasetParameters() {
         return Optional.ofNullable(this.datasetParameters);
     }
@@ -59,16 +50,12 @@ public final class DataFlowSourceFlowlet {
     public static Builder builder(DataFlowSourceFlowlet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String datasetParameters;
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataFlowSourceFlowlet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.datasetParameters = defaults.datasetParameters;
@@ -76,19 +63,27 @@ public final class DataFlowSourceFlowlet {
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder datasetParameters(@Nullable String datasetParameters) {
             this.datasetParameters = datasetParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public DataFlowSourceFlowlet build() {
-            return new DataFlowSourceFlowlet(datasetParameters, name, parameters);
+        }
+        public DataFlowSourceFlowlet build() {
+            final var o = new DataFlowSourceFlowlet();
+            o.datasetParameters = datasetParameters;
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

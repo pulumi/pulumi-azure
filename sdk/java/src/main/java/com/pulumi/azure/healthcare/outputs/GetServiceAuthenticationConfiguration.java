@@ -14,28 +14,19 @@ public final class GetServiceAuthenticationConfiguration {
      * @return The intended audience to receive authentication tokens for the service.
      * 
      */
-    private final String audience;
+    private String audience;
     /**
      * @return The Azure Active Directory (tenant) that serves as the authentication authority to access the service.
      * 
      */
-    private final String authority;
+    private String authority;
     /**
      * @return Is the &#39;SMART on FHIR&#39; option for mobile and web implementations enabled?
      * 
      */
-    private final Boolean smartProxyEnabled;
+    private Boolean smartProxyEnabled;
 
-    @CustomType.Constructor
-    private GetServiceAuthenticationConfiguration(
-        @CustomType.Parameter("audience") String audience,
-        @CustomType.Parameter("authority") String authority,
-        @CustomType.Parameter("smartProxyEnabled") Boolean smartProxyEnabled) {
-        this.audience = audience;
-        this.authority = authority;
-        this.smartProxyEnabled = smartProxyEnabled;
-    }
-
+    private GetServiceAuthenticationConfiguration() {}
     /**
      * @return The intended audience to receive authentication tokens for the service.
      * 
@@ -65,16 +56,12 @@ public final class GetServiceAuthenticationConfiguration {
     public static Builder builder(GetServiceAuthenticationConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String audience;
         private String authority;
         private Boolean smartProxyEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceAuthenticationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audience = defaults.audience;
@@ -82,19 +69,27 @@ public final class GetServiceAuthenticationConfiguration {
     	      this.smartProxyEnabled = defaults.smartProxyEnabled;
         }
 
+        @CustomType.Setter
         public Builder audience(String audience) {
             this.audience = Objects.requireNonNull(audience);
             return this;
         }
+        @CustomType.Setter
         public Builder authority(String authority) {
             this.authority = Objects.requireNonNull(authority);
             return this;
         }
+        @CustomType.Setter
         public Builder smartProxyEnabled(Boolean smartProxyEnabled) {
             this.smartProxyEnabled = Objects.requireNonNull(smartProxyEnabled);
             return this;
-        }        public GetServiceAuthenticationConfiguration build() {
-            return new GetServiceAuthenticationConfiguration(audience, authority, smartProxyEnabled);
+        }
+        public GetServiceAuthenticationConfiguration build() {
+            final var o = new GetServiceAuthenticationConfiguration();
+            o.audience = audience;
+            o.authority = authority;
+            o.smartProxyEnabled = smartProxyEnabled;
+            return o;
         }
     }
 }

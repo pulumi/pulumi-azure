@@ -18,42 +18,29 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
      * @return A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> extendedKeyUsages;
+    private @Nullable List<String> extendedKeyUsages;
     /**
      * @return A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
      * 
      */
-    private final List<String> keyUsages;
+    private List<String> keyUsages;
     /**
      * @return The Certificate&#39;s Subject. Changing this forces a new resource to be created.
      * 
      */
-    private final String subject;
+    private String subject;
     /**
      * @return A `subject_alternative_names` block as defined below.
      * 
      */
-    private final @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
+    private @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
     /**
      * @return The Certificates Validity Period in Months. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer validityInMonths;
+    private Integer validityInMonths;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicyX509CertificateProperties(
-        @CustomType.Parameter("extendedKeyUsages") @Nullable List<String> extendedKeyUsages,
-        @CustomType.Parameter("keyUsages") List<String> keyUsages,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("subjectAlternativeNames") @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames,
-        @CustomType.Parameter("validityInMonths") Integer validityInMonths) {
-        this.extendedKeyUsages = extendedKeyUsages;
-        this.keyUsages = keyUsages;
-        this.subject = subject;
-        this.subjectAlternativeNames = subjectAlternativeNames;
-        this.validityInMonths = validityInMonths;
-    }
-
+    private CertificateCertificatePolicyX509CertificateProperties() {}
     /**
      * @return A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
      * 
@@ -97,18 +84,14 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
     public static Builder builder(CertificateCertificatePolicyX509CertificateProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> extendedKeyUsages;
         private List<String> keyUsages;
         private String subject;
         private @Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames;
         private Integer validityInMonths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicyX509CertificateProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.extendedKeyUsages = defaults.extendedKeyUsages;
@@ -118,6 +101,7 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
     	      this.validityInMonths = defaults.validityInMonths;
         }
 
+        @CustomType.Setter
         public Builder extendedKeyUsages(@Nullable List<String> extendedKeyUsages) {
             this.extendedKeyUsages = extendedKeyUsages;
             return this;
@@ -125,6 +109,7 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
         public Builder extendedKeyUsages(String... extendedKeyUsages) {
             return extendedKeyUsages(List.of(extendedKeyUsages));
         }
+        @CustomType.Setter
         public Builder keyUsages(List<String> keyUsages) {
             this.keyUsages = Objects.requireNonNull(keyUsages);
             return this;
@@ -132,19 +117,29 @@ public final class CertificateCertificatePolicyX509CertificateProperties {
         public Builder keyUsages(String... keyUsages) {
             return keyUsages(List.of(keyUsages));
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectAlternativeNames(@Nullable CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames subjectAlternativeNames) {
             this.subjectAlternativeNames = subjectAlternativeNames;
             return this;
         }
+        @CustomType.Setter
         public Builder validityInMonths(Integer validityInMonths) {
             this.validityInMonths = Objects.requireNonNull(validityInMonths);
             return this;
-        }        public CertificateCertificatePolicyX509CertificateProperties build() {
-            return new CertificateCertificatePolicyX509CertificateProperties(extendedKeyUsages, keyUsages, subject, subjectAlternativeNames, validityInMonths);
+        }
+        public CertificateCertificatePolicyX509CertificateProperties build() {
+            final var o = new CertificateCertificatePolicyX509CertificateProperties();
+            o.extendedKeyUsages = extendedKeyUsages;
+            o.keyUsages = keyUsages;
+            o.subject = subject;
+            o.subjectAlternativeNames = subjectAlternativeNames;
+            o.validityInMonths = validityInMonths;
+            return o;
         }
     }
 }

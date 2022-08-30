@@ -16,125 +16,86 @@ public final class GetKeyResult {
      * @return The EC Curve name of this Key Vault Key.
      * 
      */
-    private final String curve;
+    private String curve;
     /**
      * @return The RSA public exponent of this Key Vault Key.
      * 
      */
-    private final String e;
+    private String e;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A list of JSON web key operations assigned to this Key Vault Key
      * 
      */
-    private final List<String> keyOpts;
+    private List<String> keyOpts;
     /**
      * @return Specifies the Size of this Key Vault Key.
      * 
      */
-    private final Integer keySize;
+    private Integer keySize;
     /**
      * @return Specifies the Key Type of this Key Vault Key
      * 
      */
-    private final String keyType;
-    private final String keyVaultId;
+    private String keyType;
+    private String keyVaultId;
     /**
      * @return The RSA modulus of this Key Vault Key.
      * 
      */
-    private final String n;
-    private final String name;
+    private String n;
+    private String name;
     /**
      * @return The OpenSSH encoded public key of this Key Vault Key.
      * 
      */
-    private final String publicKeyOpenssh;
+    private String publicKeyOpenssh;
     /**
      * @return The PEM encoded public key of this Key Vault Key.
      * 
      */
-    private final String publicKeyPem;
+    private String publicKeyPem;
     /**
      * @return The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
      * 
      */
-    private final String resourceVersionlessId;
+    private String resourceVersionlessId;
     /**
      * @return A mapping of tags assigned to this Key Vault Key.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The current version of the Key Vault Key.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The Base ID of the Key Vault Key.
      * 
      */
-    private final String versionlessId;
+    private String versionlessId;
     /**
      * @return The EC X component of this Key Vault Key.
      * 
      */
-    private final String x;
+    private String x;
     /**
      * @return The EC Y component of this Key Vault Key.
      * 
      */
-    private final String y;
+    private String y;
 
-    @CustomType.Constructor
-    private GetKeyResult(
-        @CustomType.Parameter("curve") String curve,
-        @CustomType.Parameter("e") String e,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyOpts") List<String> keyOpts,
-        @CustomType.Parameter("keySize") Integer keySize,
-        @CustomType.Parameter("keyType") String keyType,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("n") String n,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicKeyOpenssh") String publicKeyOpenssh,
-        @CustomType.Parameter("publicKeyPem") String publicKeyPem,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("resourceVersionlessId") String resourceVersionlessId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("versionlessId") String versionlessId,
-        @CustomType.Parameter("x") String x,
-        @CustomType.Parameter("y") String y) {
-        this.curve = curve;
-        this.e = e;
-        this.id = id;
-        this.keyOpts = keyOpts;
-        this.keySize = keySize;
-        this.keyType = keyType;
-        this.keyVaultId = keyVaultId;
-        this.n = n;
-        this.name = name;
-        this.publicKeyOpenssh = publicKeyOpenssh;
-        this.publicKeyPem = publicKeyPem;
-        this.resourceId = resourceId;
-        this.resourceVersionlessId = resourceVersionlessId;
-        this.tags = tags;
-        this.version = version;
-        this.versionlessId = versionlessId;
-        this.x = x;
-        this.y = y;
-    }
-
+    private GetKeyResult() {}
     /**
      * @return The EC Curve name of this Key Vault Key.
      * 
@@ -261,7 +222,7 @@ public final class GetKeyResult {
     public static Builder builder(GetKeyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String curve;
         private String e;
@@ -281,11 +242,7 @@ public final class GetKeyResult {
         private String versionlessId;
         private String x;
         private String y;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.curve = defaults.curve;
@@ -308,18 +265,22 @@ public final class GetKeyResult {
     	      this.y = defaults.y;
         }
 
+        @CustomType.Setter
         public Builder curve(String curve) {
             this.curve = Objects.requireNonNull(curve);
             return this;
         }
+        @CustomType.Setter
         public Builder e(String e) {
             this.e = Objects.requireNonNull(e);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyOpts(List<String> keyOpts) {
             this.keyOpts = Objects.requireNonNull(keyOpts);
             return this;
@@ -327,63 +288,97 @@ public final class GetKeyResult {
         public Builder keyOpts(String... keyOpts) {
             return keyOpts(List.of(keyOpts));
         }
+        @CustomType.Setter
         public Builder keySize(Integer keySize) {
             this.keySize = Objects.requireNonNull(keySize);
             return this;
         }
+        @CustomType.Setter
         public Builder keyType(String keyType) {
             this.keyType = Objects.requireNonNull(keyType);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder n(String n) {
             this.n = Objects.requireNonNull(n);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKeyOpenssh(String publicKeyOpenssh) {
             this.publicKeyOpenssh = Objects.requireNonNull(publicKeyOpenssh);
             return this;
         }
+        @CustomType.Setter
         public Builder publicKeyPem(String publicKeyPem) {
             this.publicKeyPem = Objects.requireNonNull(publicKeyPem);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceVersionlessId(String resourceVersionlessId) {
             this.resourceVersionlessId = Objects.requireNonNull(resourceVersionlessId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder versionlessId(String versionlessId) {
             this.versionlessId = Objects.requireNonNull(versionlessId);
             return this;
         }
+        @CustomType.Setter
         public Builder x(String x) {
             this.x = Objects.requireNonNull(x);
             return this;
         }
+        @CustomType.Setter
         public Builder y(String y) {
             this.y = Objects.requireNonNull(y);
             return this;
-        }        public GetKeyResult build() {
-            return new GetKeyResult(curve, e, id, keyOpts, keySize, keyType, keyVaultId, n, name, publicKeyOpenssh, publicKeyPem, resourceId, resourceVersionlessId, tags, version, versionlessId, x, y);
+        }
+        public GetKeyResult build() {
+            final var o = new GetKeyResult();
+            o.curve = curve;
+            o.e = e;
+            o.id = id;
+            o.keyOpts = keyOpts;
+            o.keySize = keySize;
+            o.keyType = keyType;
+            o.keyVaultId = keyVaultId;
+            o.n = n;
+            o.name = name;
+            o.publicKeyOpenssh = publicKeyOpenssh;
+            o.publicKeyPem = publicKeyPem;
+            o.resourceId = resourceId;
+            o.resourceVersionlessId = resourceVersionlessId;
+            o.tags = tags;
+            o.version = version;
+            o.versionlessId = versionlessId;
+            o.x = x;
+            o.y = y;
+            return o;
         }
     }
 }

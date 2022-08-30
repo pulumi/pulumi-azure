@@ -13,13 +13,9 @@ public final class VolumeDataProtectionSnapshotPolicy {
      * @return Resource ID of the snapshot policy to apply to the volume.
      * 
      */
-    private final String snapshotPolicyId;
+    private String snapshotPolicyId;
 
-    @CustomType.Constructor
-    private VolumeDataProtectionSnapshotPolicy(@CustomType.Parameter("snapshotPolicyId") String snapshotPolicyId) {
-        this.snapshotPolicyId = snapshotPolicyId;
-    }
-
+    private VolumeDataProtectionSnapshotPolicy() {}
     /**
      * @return Resource ID of the snapshot policy to apply to the volume.
      * 
@@ -35,24 +31,24 @@ public final class VolumeDataProtectionSnapshotPolicy {
     public static Builder builder(VolumeDataProtectionSnapshotPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String snapshotPolicyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VolumeDataProtectionSnapshotPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.snapshotPolicyId = defaults.snapshotPolicyId;
         }
 
+        @CustomType.Setter
         public Builder snapshotPolicyId(String snapshotPolicyId) {
             this.snapshotPolicyId = Objects.requireNonNull(snapshotPolicyId);
             return this;
-        }        public VolumeDataProtectionSnapshotPolicy build() {
-            return new VolumeDataProtectionSnapshotPolicy(snapshotPolicyId);
+        }
+        public VolumeDataProtectionSnapshotPolicy build() {
+            final var o = new VolumeDataProtectionSnapshotPolicy();
+            o.snapshotPolicyId = snapshotPolicyId;
+            return o;
         }
     }
 }

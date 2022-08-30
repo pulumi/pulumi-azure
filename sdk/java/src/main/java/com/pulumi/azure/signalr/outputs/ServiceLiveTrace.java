@@ -15,35 +15,24 @@ public final class ServiceLiveTrace {
      * @return Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
      * 
      */
-    private final @Nullable Boolean connectivityLogsEnabled;
+    private @Nullable Boolean connectivityLogsEnabled;
     /**
      * @return Whether the live trace is enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Whether the log category `HttpRequestLogs` is enabled? Defaults to `true`
      * 
      */
-    private final @Nullable Boolean httpRequestLogsEnabled;
+    private @Nullable Boolean httpRequestLogsEnabled;
     /**
      * @return Whether the log category `MessagingLogs` is enabled? Defaults to `true`
      * 
      */
-    private final @Nullable Boolean messagingLogsEnabled;
+    private @Nullable Boolean messagingLogsEnabled;
 
-    @CustomType.Constructor
-    private ServiceLiveTrace(
-        @CustomType.Parameter("connectivityLogsEnabled") @Nullable Boolean connectivityLogsEnabled,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("httpRequestLogsEnabled") @Nullable Boolean httpRequestLogsEnabled,
-        @CustomType.Parameter("messagingLogsEnabled") @Nullable Boolean messagingLogsEnabled) {
-        this.connectivityLogsEnabled = connectivityLogsEnabled;
-        this.enabled = enabled;
-        this.httpRequestLogsEnabled = httpRequestLogsEnabled;
-        this.messagingLogsEnabled = messagingLogsEnabled;
-    }
-
+    private ServiceLiveTrace() {}
     /**
      * @return Whether the log category `ConnectivityLogs` is enabled? Defaults to `true`
      * 
@@ -80,17 +69,13 @@ public final class ServiceLiveTrace {
     public static Builder builder(ServiceLiveTrace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean connectivityLogsEnabled;
         private @Nullable Boolean enabled;
         private @Nullable Boolean httpRequestLogsEnabled;
         private @Nullable Boolean messagingLogsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceLiveTrace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectivityLogsEnabled = defaults.connectivityLogsEnabled;
@@ -99,23 +84,33 @@ public final class ServiceLiveTrace {
     	      this.messagingLogsEnabled = defaults.messagingLogsEnabled;
         }
 
+        @CustomType.Setter
         public Builder connectivityLogsEnabled(@Nullable Boolean connectivityLogsEnabled) {
             this.connectivityLogsEnabled = connectivityLogsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder httpRequestLogsEnabled(@Nullable Boolean httpRequestLogsEnabled) {
             this.httpRequestLogsEnabled = httpRequestLogsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder messagingLogsEnabled(@Nullable Boolean messagingLogsEnabled) {
             this.messagingLogsEnabled = messagingLogsEnabled;
             return this;
-        }        public ServiceLiveTrace build() {
-            return new ServiceLiveTrace(connectivityLogsEnabled, enabled, httpRequestLogsEnabled, messagingLogsEnabled);
+        }
+        public ServiceLiveTrace build() {
+            final var o = new ServiceLiveTrace();
+            o.connectivityLogsEnabled = connectivityLogsEnabled;
+            o.enabled = enabled;
+            o.httpRequestLogsEnabled = httpRequestLogsEnabled;
+            o.messagingLogsEnabled = messagingLogsEnabled;
+            return o;
         }
     }
 }

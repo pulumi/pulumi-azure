@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesVirtualMachineScaleSet {
-    private final @Nullable Boolean forceDelete;
-    private final Boolean rollInstancesWhenRequired;
-    private final @Nullable Boolean scaleToZeroBeforeDeletion;
+    private @Nullable Boolean forceDelete;
+    private Boolean rollInstancesWhenRequired;
+    private @Nullable Boolean scaleToZeroBeforeDeletion;
 
-    @CustomType.Constructor
-    private FeaturesVirtualMachineScaleSet(
-        @CustomType.Parameter("forceDelete") @Nullable Boolean forceDelete,
-        @CustomType.Parameter("rollInstancesWhenRequired") Boolean rollInstancesWhenRequired,
-        @CustomType.Parameter("scaleToZeroBeforeDeletion") @Nullable Boolean scaleToZeroBeforeDeletion) {
-        this.forceDelete = forceDelete;
-        this.rollInstancesWhenRequired = rollInstancesWhenRequired;
-        this.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
-    }
-
+    private FeaturesVirtualMachineScaleSet() {}
     public Optional<Boolean> forceDelete() {
         return Optional.ofNullable(this.forceDelete);
     }
@@ -42,16 +33,12 @@ public final class FeaturesVirtualMachineScaleSet {
     public static Builder builder(FeaturesVirtualMachineScaleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean forceDelete;
         private Boolean rollInstancesWhenRequired;
         private @Nullable Boolean scaleToZeroBeforeDeletion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesVirtualMachineScaleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.forceDelete = defaults.forceDelete;
@@ -59,19 +46,27 @@ public final class FeaturesVirtualMachineScaleSet {
     	      this.scaleToZeroBeforeDeletion = defaults.scaleToZeroBeforeDeletion;
         }
 
+        @CustomType.Setter
         public Builder forceDelete(@Nullable Boolean forceDelete) {
             this.forceDelete = forceDelete;
             return this;
         }
+        @CustomType.Setter
         public Builder rollInstancesWhenRequired(Boolean rollInstancesWhenRequired) {
             this.rollInstancesWhenRequired = Objects.requireNonNull(rollInstancesWhenRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder scaleToZeroBeforeDeletion(@Nullable Boolean scaleToZeroBeforeDeletion) {
             this.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
             return this;
-        }        public FeaturesVirtualMachineScaleSet build() {
-            return new FeaturesVirtualMachineScaleSet(forceDelete, rollInstancesWhenRequired, scaleToZeroBeforeDeletion);
+        }
+        public FeaturesVirtualMachineScaleSet build() {
+            final var o = new FeaturesVirtualMachineScaleSet();
+            o.forceDelete = forceDelete;
+            o.rollInstancesWhenRequired = rollInstancesWhenRequired;
+            o.scaleToZeroBeforeDeletion = scaleToZeroBeforeDeletion;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class NetworkConnectionMonitorEndpointFilterItem {
      * @return The address of the filter item.
      * 
      */
-    private final @Nullable String address;
+    private @Nullable String address;
     /**
      * @return The type of items included in the filter. Possible values are `AgentAddress`. Defaults to `AgentAddress`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorEndpointFilterItem(
-        @CustomType.Parameter("address") @Nullable String address,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.address = address;
-        this.type = type;
-    }
-
+    private NetworkConnectionMonitorEndpointFilterItem() {}
     /**
      * @return The address of the filter item.
      * 
@@ -52,30 +45,32 @@ public final class NetworkConnectionMonitorEndpointFilterItem {
     public static Builder builder(NetworkConnectionMonitorEndpointFilterItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String address;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorEndpointFilterItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder address(@Nullable String address) {
             this.address = address;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public NetworkConnectionMonitorEndpointFilterItem build() {
-            return new NetworkConnectionMonitorEndpointFilterItem(address, type);
+        }
+        public NetworkConnectionMonitorEndpointFilterItem build() {
+            final var o = new NetworkConnectionMonitorEndpointFilterItem();
+            o.address = address;
+            o.type = type;
+            return o;
         }
     }
 }

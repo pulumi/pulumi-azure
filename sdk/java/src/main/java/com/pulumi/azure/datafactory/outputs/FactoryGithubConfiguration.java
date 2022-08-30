@@ -13,42 +13,29 @@ public final class FactoryGithubConfiguration {
      * @return Specifies the GitHub account name.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Specifies the branch of the repository to get code from.
      * 
      */
-    private final String branchName;
+    private String branchName;
     /**
      * @return Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com. Use https://github.com for open source repositories.
      * 
      */
-    private final String gitUrl;
+    private String gitUrl;
     /**
      * @return Specifies the name of the git repository.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
      * 
      */
-    private final String rootFolder;
+    private String rootFolder;
 
-    @CustomType.Constructor
-    private FactoryGithubConfiguration(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("branchName") String branchName,
-        @CustomType.Parameter("gitUrl") String gitUrl,
-        @CustomType.Parameter("repositoryName") String repositoryName,
-        @CustomType.Parameter("rootFolder") String rootFolder) {
-        this.accountName = accountName;
-        this.branchName = branchName;
-        this.gitUrl = gitUrl;
-        this.repositoryName = repositoryName;
-        this.rootFolder = rootFolder;
-    }
-
+    private FactoryGithubConfiguration() {}
     /**
      * @return Specifies the GitHub account name.
      * 
@@ -92,18 +79,14 @@ public final class FactoryGithubConfiguration {
     public static Builder builder(FactoryGithubConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String branchName;
         private String gitUrl;
         private String repositoryName;
         private String rootFolder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FactoryGithubConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -113,27 +96,39 @@ public final class FactoryGithubConfiguration {
     	      this.rootFolder = defaults.rootFolder;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder branchName(String branchName) {
             this.branchName = Objects.requireNonNull(branchName);
             return this;
         }
+        @CustomType.Setter
         public Builder gitUrl(String gitUrl) {
             this.gitUrl = Objects.requireNonNull(gitUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
             this.rootFolder = Objects.requireNonNull(rootFolder);
             return this;
-        }        public FactoryGithubConfiguration build() {
-            return new FactoryGithubConfiguration(accountName, branchName, gitUrl, repositoryName, rootFolder);
+        }
+        public FactoryGithubConfiguration build() {
+            final var o = new FactoryGithubConfiguration();
+            o.accountName = accountName;
+            o.branchName = branchName;
+            o.gitUrl = gitUrl;
+            o.repositoryName = repositoryName;
+            o.rootFolder = rootFolder;
+            return o;
         }
     }
 }

@@ -15,42 +15,29 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
      * @return The parameter values for the referenced policy rule. This field is a JSON object.
      * 
      */
-    private final String parameterValues;
+    private String parameterValues;
     /**
      * @return The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
      * 
      */
-    private final Map<String,String> parameters;
+    private Map<String,String> parameters;
     /**
      * @return The ID of the policy definition or policy set definition that is included in this policy set definition.
      * 
      */
-    private final String policyDefinitionId;
+    private String policyDefinitionId;
     /**
      * @return The list of names of the policy definition groups that this policy definition reference belongs to.
      * 
      */
-    private final List<String> policyGroupNames;
+    private List<String> policyGroupNames;
     /**
      * @return The unique ID within this policy set definition for this policy definition reference.
      * 
      */
-    private final String referenceId;
+    private String referenceId;
 
-    @CustomType.Constructor
-    private GetPolicySetDefinitionPolicyDefinitionReference(
-        @CustomType.Parameter("parameterValues") String parameterValues,
-        @CustomType.Parameter("parameters") Map<String,String> parameters,
-        @CustomType.Parameter("policyDefinitionId") String policyDefinitionId,
-        @CustomType.Parameter("policyGroupNames") List<String> policyGroupNames,
-        @CustomType.Parameter("referenceId") String referenceId) {
-        this.parameterValues = parameterValues;
-        this.parameters = parameters;
-        this.policyDefinitionId = policyDefinitionId;
-        this.policyGroupNames = policyGroupNames;
-        this.referenceId = referenceId;
-    }
-
+    private GetPolicySetDefinitionPolicyDefinitionReference() {}
     /**
      * @return The parameter values for the referenced policy rule. This field is a JSON object.
      * 
@@ -94,18 +81,14 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
     public static Builder builder(GetPolicySetDefinitionPolicyDefinitionReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String parameterValues;
         private Map<String,String> parameters;
         private String policyDefinitionId;
         private List<String> policyGroupNames;
         private String referenceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicySetDefinitionPolicyDefinitionReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameterValues = defaults.parameterValues;
@@ -115,18 +98,22 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
     	      this.referenceId = defaults.referenceId;
         }
 
+        @CustomType.Setter
         public Builder parameterValues(String parameterValues) {
             this.parameterValues = Objects.requireNonNull(parameterValues);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(Map<String,String> parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
             this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
             return this;
         }
+        @CustomType.Setter
         public Builder policyGroupNames(List<String> policyGroupNames) {
             this.policyGroupNames = Objects.requireNonNull(policyGroupNames);
             return this;
@@ -134,11 +121,19 @@ public final class GetPolicySetDefinitionPolicyDefinitionReference {
         public Builder policyGroupNames(String... policyGroupNames) {
             return policyGroupNames(List.of(policyGroupNames));
         }
+        @CustomType.Setter
         public Builder referenceId(String referenceId) {
             this.referenceId = Objects.requireNonNull(referenceId);
             return this;
-        }        public GetPolicySetDefinitionPolicyDefinitionReference build() {
-            return new GetPolicySetDefinitionPolicyDefinitionReference(parameterValues, parameters, policyDefinitionId, policyGroupNames, referenceId);
+        }
+        public GetPolicySetDefinitionPolicyDefinitionReference build() {
+            final var o = new GetPolicySetDefinitionPolicyDefinitionReference();
+            o.parameterValues = parameterValues;
+            o.parameters = parameters;
+            o.policyDefinitionId = policyDefinitionId;
+            o.policyGroupNames = policyGroupNames;
+            o.referenceId = referenceId;
+            return o;
         }
     }
 }

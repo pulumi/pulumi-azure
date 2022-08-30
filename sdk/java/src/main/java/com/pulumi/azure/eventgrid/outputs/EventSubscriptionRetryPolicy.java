@@ -13,21 +13,14 @@ public final class EventSubscriptionRetryPolicy {
      * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
      */
-    private final Integer eventTimeToLive;
+    private Integer eventTimeToLive;
     /**
      * @return Specifies the maximum number of delivery retry attempts for events.
      * 
      */
-    private final Integer maxDeliveryAttempts;
+    private Integer maxDeliveryAttempts;
 
-    @CustomType.Constructor
-    private EventSubscriptionRetryPolicy(
-        @CustomType.Parameter("eventTimeToLive") Integer eventTimeToLive,
-        @CustomType.Parameter("maxDeliveryAttempts") Integer maxDeliveryAttempts) {
-        this.eventTimeToLive = eventTimeToLive;
-        this.maxDeliveryAttempts = maxDeliveryAttempts;
-    }
-
+    private EventSubscriptionRetryPolicy() {}
     /**
      * @return Specifies the time to live (in minutes) for events. Supported range is `1` to `1440`. Defaults to `1440`. See [official documentation](https://docs.microsoft.com/azure/event-grid/manage-event-delivery#set-retry-policy) for more details.
      * 
@@ -50,30 +43,32 @@ public final class EventSubscriptionRetryPolicy {
     public static Builder builder(EventSubscriptionRetryPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer eventTimeToLive;
         private Integer maxDeliveryAttempts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionRetryPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventTimeToLive = defaults.eventTimeToLive;
     	      this.maxDeliveryAttempts = defaults.maxDeliveryAttempts;
         }
 
+        @CustomType.Setter
         public Builder eventTimeToLive(Integer eventTimeToLive) {
             this.eventTimeToLive = Objects.requireNonNull(eventTimeToLive);
             return this;
         }
+        @CustomType.Setter
         public Builder maxDeliveryAttempts(Integer maxDeliveryAttempts) {
             this.maxDeliveryAttempts = Objects.requireNonNull(maxDeliveryAttempts);
             return this;
-        }        public EventSubscriptionRetryPolicy build() {
-            return new EventSubscriptionRetryPolicy(eventTimeToLive, maxDeliveryAttempts);
+        }
+        public EventSubscriptionRetryPolicy build() {
+            final var o = new EventSubscriptionRetryPolicy();
+            o.eventTimeToLive = eventTimeToLive;
+            o.maxDeliveryAttempts = maxDeliveryAttempts;
+            return o;
         }
     }
 }

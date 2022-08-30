@@ -15,28 +15,19 @@ public final class KubernetesClusterKubeletIdentity {
      * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically.
      * 
      */
-    private final @Nullable String objectId;
+    private @Nullable String objectId;
     /**
      * @return The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically.
      * 
      */
-    private final @Nullable String userAssignedIdentityId;
+    private @Nullable String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private KubernetesClusterKubeletIdentity(
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("objectId") @Nullable String objectId,
-        @CustomType.Parameter("userAssignedIdentityId") @Nullable String userAssignedIdentityId) {
-        this.clientId = clientId;
-        this.objectId = objectId;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private KubernetesClusterKubeletIdentity() {}
     /**
      * @return The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically.
      * 
@@ -66,16 +57,12 @@ public final class KubernetesClusterKubeletIdentity {
     public static Builder builder(KubernetesClusterKubeletIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientId;
         private @Nullable String objectId;
         private @Nullable String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterKubeletIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -83,19 +70,27 @@ public final class KubernetesClusterKubeletIdentity {
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder objectId(@Nullable String objectId) {
             this.objectId = objectId;
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(@Nullable String userAssignedIdentityId) {
             this.userAssignedIdentityId = userAssignedIdentityId;
             return this;
-        }        public KubernetesClusterKubeletIdentity build() {
-            return new KubernetesClusterKubeletIdentity(clientId, objectId, userAssignedIdentityId);
+        }
+        public KubernetesClusterKubeletIdentity build() {
+            final var o = new KubernetesClusterKubeletIdentity();
+            o.clientId = clientId;
+            o.objectId = objectId;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

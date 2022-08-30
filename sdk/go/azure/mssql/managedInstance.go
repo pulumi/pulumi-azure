@@ -272,7 +272,7 @@ type ManagedInstance struct {
 	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrOutput `pulumi:"collation"`
-	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrOutput `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
@@ -369,7 +369,7 @@ type managedInstanceState struct {
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn *string `pulumi:"fqdn"`
@@ -414,7 +414,7 @@ type ManagedInstanceState struct {
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
 	// The fully qualified domain name of the Azure Managed SQL Instance
 	Fqdn pulumi.StringPtrInput
@@ -463,7 +463,7 @@ type managedInstanceArgs struct {
 	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation *string `pulumi:"collation"`
-	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId *string `pulumi:"dnsZonePartnerId"`
 	// An `identity` block as defined below.
 	Identity *ManagedInstanceIdentity `pulumi:"identity"`
@@ -507,7 +507,7 @@ type ManagedInstanceArgs struct {
 	AdministratorLoginPassword pulumi.StringInput
 	// Specifies how the SQL Managed Instance will be collated. Default value is `SQL_Latin1_General_CP1_CI_AS`. Changing this forces a new resource to be created.
 	Collation pulumi.StringPtrInput
-	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+	// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 	DnsZonePartnerId pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity ManagedInstanceIdentityPtrInput
@@ -645,7 +645,7 @@ func (o ManagedInstanceOutput) Collation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.Collation }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `azurermManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
+// The ID of the SQL Managed Instance which will share the DNS zone. This is a prerequisite for creating an `sql.ManagedInstanceFailoverGroup`. Setting this after creation forces a new resource to be created.
 func (o ManagedInstanceOutput) DnsZonePartnerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstance) pulumi.StringPtrOutput { return v.DnsZonePartnerId }).(pulumi.StringPtrOutput)
 }

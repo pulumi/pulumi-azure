@@ -15,28 +15,19 @@ public final class ShareAclAccessPolicy {
      * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
      * 
      */
-    private final @Nullable String expiry;
+    private @Nullable String expiry;
     /**
      * @return The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
      * 
      */
-    private final String permissions;
+    private String permissions;
     /**
      * @return The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
      * 
      */
-    private final @Nullable String start;
+    private @Nullable String start;
 
-    @CustomType.Constructor
-    private ShareAclAccessPolicy(
-        @CustomType.Parameter("expiry") @Nullable String expiry,
-        @CustomType.Parameter("permissions") String permissions,
-        @CustomType.Parameter("start") @Nullable String start) {
-        this.expiry = expiry;
-        this.permissions = permissions;
-        this.start = start;
-    }
-
+    private ShareAclAccessPolicy() {}
     /**
      * @return The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
      * 
@@ -66,16 +57,12 @@ public final class ShareAclAccessPolicy {
     public static Builder builder(ShareAclAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String expiry;
         private String permissions;
         private @Nullable String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ShareAclAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expiry = defaults.expiry;
@@ -83,19 +70,27 @@ public final class ShareAclAccessPolicy {
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder expiry(@Nullable String expiry) {
             this.expiry = expiry;
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(String permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
         }
+        @CustomType.Setter
         public Builder start(@Nullable String start) {
             this.start = start;
             return this;
-        }        public ShareAclAccessPolicy build() {
-            return new ShareAclAccessPolicy(expiry, permissions, start);
+        }
+        public ShareAclAccessPolicy build() {
+            final var o = new ShareAclAccessPolicy();
+            o.expiry = expiry;
+            o.permissions = permissions;
+            o.start = start;
+            return o;
         }
     }
 }

@@ -15,56 +15,39 @@ public final class WorkspaceAzureDevopsRepo {
      * @return Specifies the Azure DevOps account name.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Specifies the collaboration branch of the repository to get code from.
      * 
      */
-    private final String branchName;
+    private String branchName;
     /**
      * @return The last commit ID.
      * 
      */
-    private final @Nullable String lastCommitId;
+    private @Nullable String lastCommitId;
     /**
      * @return Specifies the name of the Azure DevOps project.
      * 
      */
-    private final String projectName;
+    private String projectName;
     /**
      * @return Specifies the name of the git repository.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
      * 
      */
-    private final String rootFolder;
+    private String rootFolder;
     /**
      * @return the ID of the tenant for the Azure DevOps account.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
 
-    @CustomType.Constructor
-    private WorkspaceAzureDevopsRepo(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("branchName") String branchName,
-        @CustomType.Parameter("lastCommitId") @Nullable String lastCommitId,
-        @CustomType.Parameter("projectName") String projectName,
-        @CustomType.Parameter("repositoryName") String repositoryName,
-        @CustomType.Parameter("rootFolder") String rootFolder,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId) {
-        this.accountName = accountName;
-        this.branchName = branchName;
-        this.lastCommitId = lastCommitId;
-        this.projectName = projectName;
-        this.repositoryName = repositoryName;
-        this.rootFolder = rootFolder;
-        this.tenantId = tenantId;
-    }
-
+    private WorkspaceAzureDevopsRepo() {}
     /**
      * @return Specifies the Azure DevOps account name.
      * 
@@ -122,7 +105,7 @@ public final class WorkspaceAzureDevopsRepo {
     public static Builder builder(WorkspaceAzureDevopsRepo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String branchName;
@@ -131,11 +114,7 @@ public final class WorkspaceAzureDevopsRepo {
         private String repositoryName;
         private String rootFolder;
         private @Nullable String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceAzureDevopsRepo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -147,35 +126,51 @@ public final class WorkspaceAzureDevopsRepo {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder branchName(String branchName) {
             this.branchName = Objects.requireNonNull(branchName);
             return this;
         }
+        @CustomType.Setter
         public Builder lastCommitId(@Nullable String lastCommitId) {
             this.lastCommitId = lastCommitId;
             return this;
         }
+        @CustomType.Setter
         public Builder projectName(String projectName) {
             this.projectName = Objects.requireNonNull(projectName);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
             this.rootFolder = Objects.requireNonNull(rootFolder);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
-        }        public WorkspaceAzureDevopsRepo build() {
-            return new WorkspaceAzureDevopsRepo(accountName, branchName, lastCommitId, projectName, repositoryName, rootFolder, tenantId);
+        }
+        public WorkspaceAzureDevopsRepo build() {
+            final var o = new WorkspaceAzureDevopsRepo();
+            o.accountName = accountName;
+            o.branchName = branchName;
+            o.lastCommitId = lastCommitId;
+            o.projectName = projectName;
+            o.repositoryName = repositoryName;
+            o.rootFolder = rootFolder;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

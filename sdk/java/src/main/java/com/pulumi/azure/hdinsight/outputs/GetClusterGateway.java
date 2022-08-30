@@ -14,28 +14,19 @@ public final class GetClusterGateway {
      * @return Is the Ambari Portal enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The password used for the Ambari Portal.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username used for the Ambari Portal.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private GetClusterGateway(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.enabled = enabled;
-        this.password = password;
-        this.username = username;
-    }
-
+    private GetClusterGateway() {}
     /**
      * @return Is the Ambari Portal enabled?
      * 
@@ -65,16 +56,12 @@ public final class GetClusterGateway {
     public static Builder builder(GetClusterGateway defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterGateway defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -82,19 +69,27 @@ public final class GetClusterGateway {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetClusterGateway build() {
-            return new GetClusterGateway(enabled, password, username);
+        }
+        public GetClusterGateway build() {
+            final var o = new GetClusterGateway();
+            o.enabled = enabled;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

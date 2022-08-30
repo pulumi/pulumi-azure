@@ -13,28 +13,19 @@ public final class FactoryGlobalParameter {
      * @return Specifies the global parameter name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the global parameter type. Possible Values are `Array`, `Bool`, `Float`, `Int`, `Object` or `String`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return Specifies the global parameter value.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private FactoryGlobalParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private FactoryGlobalParameter() {}
     /**
      * @return Specifies the global parameter name.
      * 
@@ -64,16 +55,12 @@ public final class FactoryGlobalParameter {
     public static Builder builder(FactoryGlobalParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FactoryGlobalParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class FactoryGlobalParameter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public FactoryGlobalParameter build() {
-            return new FactoryGlobalParameter(name, type, value);
+        }
+        public FactoryGlobalParameter build() {
+            final var o = new FactoryGlobalParameter();
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

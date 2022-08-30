@@ -17,105 +17,74 @@ public final class CacheRedisConfiguration {
      * @return Enable or disable AOF persistence for this Redis Cache.
      * 
      */
-    private final @Nullable Boolean aofBackupEnabled;
+    private @Nullable Boolean aofBackupEnabled;
     /**
      * @return First Storage Account connection string for AOF persistence.
      * 
      */
-    private final @Nullable String aofStorageConnectionString0;
+    private @Nullable String aofStorageConnectionString0;
     /**
      * @return Second Storage Account connection string for AOF persistence.
      * 
      */
-    private final @Nullable String aofStorageConnectionString1;
+    private @Nullable String aofStorageConnectionString1;
     /**
      * @return If set to `false`, the Redis instance will be accessible without authentication. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enableAuthentication;
+    private @Nullable Boolean enableAuthentication;
     /**
      * @return Returns the max number of connected clients at the same time.
      * 
      */
-    private final @Nullable Integer maxclients;
+    private @Nullable Integer maxclients;
     /**
      * @return Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
      * 
      */
-    private final @Nullable Integer maxfragmentationmemoryReserved;
+    private @Nullable Integer maxfragmentationmemoryReserved;
     /**
      * @return The max-memory delta for this Redis instance. Defaults are shown below.
      * 
      */
-    private final @Nullable Integer maxmemoryDelta;
+    private @Nullable Integer maxmemoryDelta;
     /**
      * @return How Redis will select what to remove when `maxmemory` is reached. Defaults are shown below.
      * 
      */
-    private final @Nullable String maxmemoryPolicy;
+    private @Nullable String maxmemoryPolicy;
     /**
      * @return Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
      * 
      */
-    private final @Nullable Integer maxmemoryReserved;
+    private @Nullable Integer maxmemoryReserved;
     /**
      * @return Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
      * 
      */
-    private final @Nullable String notifyKeyspaceEvents;
+    private @Nullable String notifyKeyspaceEvents;
     /**
      * @return Is Backup Enabled? Only supported on Premium SKUs.
      * 
      */
-    private final @Nullable Boolean rdbBackupEnabled;
+    private @Nullable Boolean rdbBackupEnabled;
     /**
      * @return The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: `15`, `30`, `60`, `360`, `720` and `1440`.
      * 
      */
-    private final @Nullable Integer rdbBackupFrequency;
+    private @Nullable Integer rdbBackupFrequency;
     /**
      * @return The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
      * 
      */
-    private final @Nullable Integer rdbBackupMaxSnapshotCount;
+    private @Nullable Integer rdbBackupMaxSnapshotCount;
     /**
      * @return The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: `DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}`.
      * 
      */
-    private final @Nullable String rdbStorageConnectionString;
+    private @Nullable String rdbStorageConnectionString;
 
-    @CustomType.Constructor
-    private CacheRedisConfiguration(
-        @CustomType.Parameter("aofBackupEnabled") @Nullable Boolean aofBackupEnabled,
-        @CustomType.Parameter("aofStorageConnectionString0") @Nullable String aofStorageConnectionString0,
-        @CustomType.Parameter("aofStorageConnectionString1") @Nullable String aofStorageConnectionString1,
-        @CustomType.Parameter("enableAuthentication") @Nullable Boolean enableAuthentication,
-        @CustomType.Parameter("maxclients") @Nullable Integer maxclients,
-        @CustomType.Parameter("maxfragmentationmemoryReserved") @Nullable Integer maxfragmentationmemoryReserved,
-        @CustomType.Parameter("maxmemoryDelta") @Nullable Integer maxmemoryDelta,
-        @CustomType.Parameter("maxmemoryPolicy") @Nullable String maxmemoryPolicy,
-        @CustomType.Parameter("maxmemoryReserved") @Nullable Integer maxmemoryReserved,
-        @CustomType.Parameter("notifyKeyspaceEvents") @Nullable String notifyKeyspaceEvents,
-        @CustomType.Parameter("rdbBackupEnabled") @Nullable Boolean rdbBackupEnabled,
-        @CustomType.Parameter("rdbBackupFrequency") @Nullable Integer rdbBackupFrequency,
-        @CustomType.Parameter("rdbBackupMaxSnapshotCount") @Nullable Integer rdbBackupMaxSnapshotCount,
-        @CustomType.Parameter("rdbStorageConnectionString") @Nullable String rdbStorageConnectionString) {
-        this.aofBackupEnabled = aofBackupEnabled;
-        this.aofStorageConnectionString0 = aofStorageConnectionString0;
-        this.aofStorageConnectionString1 = aofStorageConnectionString1;
-        this.enableAuthentication = enableAuthentication;
-        this.maxclients = maxclients;
-        this.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
-        this.maxmemoryDelta = maxmemoryDelta;
-        this.maxmemoryPolicy = maxmemoryPolicy;
-        this.maxmemoryReserved = maxmemoryReserved;
-        this.notifyKeyspaceEvents = notifyKeyspaceEvents;
-        this.rdbBackupEnabled = rdbBackupEnabled;
-        this.rdbBackupFrequency = rdbBackupFrequency;
-        this.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
-        this.rdbStorageConnectionString = rdbStorageConnectionString;
-    }
-
+    private CacheRedisConfiguration() {}
     /**
      * @return Enable or disable AOF persistence for this Redis Cache.
      * 
@@ -222,7 +191,7 @@ public final class CacheRedisConfiguration {
     public static Builder builder(CacheRedisConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean aofBackupEnabled;
         private @Nullable String aofStorageConnectionString0;
@@ -238,11 +207,7 @@ public final class CacheRedisConfiguration {
         private @Nullable Integer rdbBackupFrequency;
         private @Nullable Integer rdbBackupMaxSnapshotCount;
         private @Nullable String rdbStorageConnectionString;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheRedisConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aofBackupEnabled = defaults.aofBackupEnabled;
@@ -261,63 +226,93 @@ public final class CacheRedisConfiguration {
     	      this.rdbStorageConnectionString = defaults.rdbStorageConnectionString;
         }
 
+        @CustomType.Setter
         public Builder aofBackupEnabled(@Nullable Boolean aofBackupEnabled) {
             this.aofBackupEnabled = aofBackupEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder aofStorageConnectionString0(@Nullable String aofStorageConnectionString0) {
             this.aofStorageConnectionString0 = aofStorageConnectionString0;
             return this;
         }
+        @CustomType.Setter
         public Builder aofStorageConnectionString1(@Nullable String aofStorageConnectionString1) {
             this.aofStorageConnectionString1 = aofStorageConnectionString1;
             return this;
         }
+        @CustomType.Setter
         public Builder enableAuthentication(@Nullable Boolean enableAuthentication) {
             this.enableAuthentication = enableAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder maxclients(@Nullable Integer maxclients) {
             this.maxclients = maxclients;
             return this;
         }
+        @CustomType.Setter
         public Builder maxfragmentationmemoryReserved(@Nullable Integer maxfragmentationmemoryReserved) {
             this.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryDelta(@Nullable Integer maxmemoryDelta) {
             this.maxmemoryDelta = maxmemoryDelta;
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryPolicy(@Nullable String maxmemoryPolicy) {
             this.maxmemoryPolicy = maxmemoryPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder maxmemoryReserved(@Nullable Integer maxmemoryReserved) {
             this.maxmemoryReserved = maxmemoryReserved;
             return this;
         }
+        @CustomType.Setter
         public Builder notifyKeyspaceEvents(@Nullable String notifyKeyspaceEvents) {
             this.notifyKeyspaceEvents = notifyKeyspaceEvents;
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupEnabled(@Nullable Boolean rdbBackupEnabled) {
             this.rdbBackupEnabled = rdbBackupEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupFrequency(@Nullable Integer rdbBackupFrequency) {
             this.rdbBackupFrequency = rdbBackupFrequency;
             return this;
         }
+        @CustomType.Setter
         public Builder rdbBackupMaxSnapshotCount(@Nullable Integer rdbBackupMaxSnapshotCount) {
             this.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             return this;
         }
+        @CustomType.Setter
         public Builder rdbStorageConnectionString(@Nullable String rdbStorageConnectionString) {
             this.rdbStorageConnectionString = rdbStorageConnectionString;
             return this;
-        }        public CacheRedisConfiguration build() {
-            return new CacheRedisConfiguration(aofBackupEnabled, aofStorageConnectionString0, aofStorageConnectionString1, enableAuthentication, maxclients, maxfragmentationmemoryReserved, maxmemoryDelta, maxmemoryPolicy, maxmemoryReserved, notifyKeyspaceEvents, rdbBackupEnabled, rdbBackupFrequency, rdbBackupMaxSnapshotCount, rdbStorageConnectionString);
+        }
+        public CacheRedisConfiguration build() {
+            final var o = new CacheRedisConfiguration();
+            o.aofBackupEnabled = aofBackupEnabled;
+            o.aofStorageConnectionString0 = aofStorageConnectionString0;
+            o.aofStorageConnectionString1 = aofStorageConnectionString1;
+            o.enableAuthentication = enableAuthentication;
+            o.maxclients = maxclients;
+            o.maxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
+            o.maxmemoryDelta = maxmemoryDelta;
+            o.maxmemoryPolicy = maxmemoryPolicy;
+            o.maxmemoryReserved = maxmemoryReserved;
+            o.notifyKeyspaceEvents = notifyKeyspaceEvents;
+            o.rdbBackupEnabled = rdbBackupEnabled;
+            o.rdbBackupFrequency = rdbBackupFrequency;
+            o.rdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
+            o.rdbStorageConnectionString = rdbStorageConnectionString;
+            return o;
         }
     }
 }

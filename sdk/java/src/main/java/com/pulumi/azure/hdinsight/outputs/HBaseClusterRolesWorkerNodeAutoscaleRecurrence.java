@@ -15,21 +15,14 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
      * @return A list of `schedule` blocks as defined below.
      * 
      */
-    private final List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
+    private List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
     /**
      * @return The time zone for the autoscale schedule times.
      * 
      */
-    private final String timezone;
+    private String timezone;
 
-    @CustomType.Constructor
-    private HBaseClusterRolesWorkerNodeAutoscaleRecurrence(
-        @CustomType.Parameter("schedules") List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules,
-        @CustomType.Parameter("timezone") String timezone) {
-        this.schedules = schedules;
-        this.timezone = timezone;
-    }
-
+    private HBaseClusterRolesWorkerNodeAutoscaleRecurrence() {}
     /**
      * @return A list of `schedule` blocks as defined below.
      * 
@@ -52,21 +45,18 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
     public static Builder builder(HBaseClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
         private String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.schedules = defaults.schedules;
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder schedules(List<HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -74,11 +64,16 @@ public final class HBaseClusterRolesWorkerNodeAutoscaleRecurrence {
         public Builder schedules(HBaseClusterRolesWorkerNodeAutoscaleRecurrenceSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             this.timezone = Objects.requireNonNull(timezone);
             return this;
-        }        public HBaseClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            return new HBaseClusterRolesWorkerNodeAutoscaleRecurrence(schedules, timezone);
+        }
+        public HBaseClusterRolesWorkerNodeAutoscaleRecurrence build() {
+            final var o = new HBaseClusterRolesWorkerNodeAutoscaleRecurrence();
+            o.schedules = schedules;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

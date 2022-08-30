@@ -17,70 +17,49 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
      * @return The audience for the token.
      * 
      */
-    private final @Nullable String audience;
+    private @Nullable String audience;
     /**
      * @return The token issuer.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
     /**
      * @return The OpenID connect discovery document.
      * 
      */
-    private final @Nullable String openIdConnectDiscoveryDocument;
+    private @Nullable String openIdConnectDiscoveryDocument;
     /**
      * @return The RSA Parameter exponent.
      * 
      */
-    private final @Nullable String primaryRsaTokenKeyExponent;
+    private @Nullable String primaryRsaTokenKeyExponent;
     /**
      * @return The RSA Parameter modulus.
      * 
      */
-    private final @Nullable String primaryRsaTokenKeyModulus;
+    private @Nullable String primaryRsaTokenKeyModulus;
     /**
      * @return The key value of the key. Specifies a symmetric key for token validation.
      * 
      */
-    private final @Nullable String primarySymmetricTokenKey;
+    private @Nullable String primarySymmetricTokenKey;
     /**
      * @return The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET). Specifies a certificate for token validation.
      * 
      */
-    private final @Nullable String primaryX509TokenKeyRaw;
+    private @Nullable String primaryX509TokenKeyRaw;
     /**
      * @return One or more `required_claim` blocks as defined above.
      * 
      */
-    private final @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims;
+    private @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims;
     /**
      * @return The type of token. Supported values are `Jwt` or `Swt`.
      * 
      */
-    private final @Nullable String tokenType;
+    private @Nullable String tokenType;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionTokenRestriction(
-        @CustomType.Parameter("audience") @Nullable String audience,
-        @CustomType.Parameter("issuer") @Nullable String issuer,
-        @CustomType.Parameter("openIdConnectDiscoveryDocument") @Nullable String openIdConnectDiscoveryDocument,
-        @CustomType.Parameter("primaryRsaTokenKeyExponent") @Nullable String primaryRsaTokenKeyExponent,
-        @CustomType.Parameter("primaryRsaTokenKeyModulus") @Nullable String primaryRsaTokenKeyModulus,
-        @CustomType.Parameter("primarySymmetricTokenKey") @Nullable String primarySymmetricTokenKey,
-        @CustomType.Parameter("primaryX509TokenKeyRaw") @Nullable String primaryX509TokenKeyRaw,
-        @CustomType.Parameter("requiredClaims") @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims,
-        @CustomType.Parameter("tokenType") @Nullable String tokenType) {
-        this.audience = audience;
-        this.issuer = issuer;
-        this.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
-        this.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
-        this.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
-        this.primarySymmetricTokenKey = primarySymmetricTokenKey;
-        this.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
-        this.requiredClaims = requiredClaims;
-        this.tokenType = tokenType;
-    }
-
+    private ContentKeyPolicyPolicyOptionTokenRestriction() {}
     /**
      * @return The audience for the token.
      * 
@@ -152,7 +131,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
     public static Builder builder(ContentKeyPolicyPolicyOptionTokenRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String audience;
         private @Nullable String issuer;
@@ -163,11 +142,7 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         private @Nullable String primaryX509TokenKeyRaw;
         private @Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims;
         private @Nullable String tokenType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionTokenRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audience = defaults.audience;
@@ -181,34 +156,42 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
     	      this.tokenType = defaults.tokenType;
         }
 
+        @CustomType.Setter
         public Builder audience(@Nullable String audience) {
             this.audience = audience;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
         }
+        @CustomType.Setter
         public Builder openIdConnectDiscoveryDocument(@Nullable String openIdConnectDiscoveryDocument) {
             this.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryRsaTokenKeyExponent(@Nullable String primaryRsaTokenKeyExponent) {
             this.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryRsaTokenKeyModulus(@Nullable String primaryRsaTokenKeyModulus) {
             this.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
             return this;
         }
+        @CustomType.Setter
         public Builder primarySymmetricTokenKey(@Nullable String primarySymmetricTokenKey) {
             this.primarySymmetricTokenKey = primarySymmetricTokenKey;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryX509TokenKeyRaw(@Nullable String primaryX509TokenKeyRaw) {
             this.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
             return this;
         }
+        @CustomType.Setter
         public Builder requiredClaims(@Nullable List<ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim> requiredClaims) {
             this.requiredClaims = requiredClaims;
             return this;
@@ -216,11 +199,23 @@ public final class ContentKeyPolicyPolicyOptionTokenRestriction {
         public Builder requiredClaims(ContentKeyPolicyPolicyOptionTokenRestrictionRequiredClaim... requiredClaims) {
             return requiredClaims(List.of(requiredClaims));
         }
+        @CustomType.Setter
         public Builder tokenType(@Nullable String tokenType) {
             this.tokenType = tokenType;
             return this;
-        }        public ContentKeyPolicyPolicyOptionTokenRestriction build() {
-            return new ContentKeyPolicyPolicyOptionTokenRestriction(audience, issuer, openIdConnectDiscoveryDocument, primaryRsaTokenKeyExponent, primaryRsaTokenKeyModulus, primarySymmetricTokenKey, primaryX509TokenKeyRaw, requiredClaims, tokenType);
+        }
+        public ContentKeyPolicyPolicyOptionTokenRestriction build() {
+            final var o = new ContentKeyPolicyPolicyOptionTokenRestriction();
+            o.audience = audience;
+            o.issuer = issuer;
+            o.openIdConnectDiscoveryDocument = openIdConnectDiscoveryDocument;
+            o.primaryRsaTokenKeyExponent = primaryRsaTokenKeyExponent;
+            o.primaryRsaTokenKeyModulus = primaryRsaTokenKeyModulus;
+            o.primarySymmetricTokenKey = primarySymmetricTokenKey;
+            o.primaryX509TokenKeyRaw = primaryX509TokenKeyRaw;
+            o.requiredClaims = requiredClaims;
+            o.tokenType = tokenType;
+            return o;
         }
     }
 }

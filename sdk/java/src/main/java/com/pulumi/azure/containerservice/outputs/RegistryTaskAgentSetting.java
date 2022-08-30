@@ -13,13 +13,9 @@ public final class RegistryTaskAgentSetting {
      * @return The number of cores required for the Container Registry Task.
      * 
      */
-    private final Integer cpu;
+    private Integer cpu;
 
-    @CustomType.Constructor
-    private RegistryTaskAgentSetting(@CustomType.Parameter("cpu") Integer cpu) {
-        this.cpu = cpu;
-    }
-
+    private RegistryTaskAgentSetting() {}
     /**
      * @return The number of cores required for the Container Registry Task.
      * 
@@ -35,24 +31,24 @@ public final class RegistryTaskAgentSetting {
     public static Builder builder(RegistryTaskAgentSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer cpu;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskAgentSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cpu = defaults.cpu;
         }
 
+        @CustomType.Setter
         public Builder cpu(Integer cpu) {
             this.cpu = Objects.requireNonNull(cpu);
             return this;
-        }        public RegistryTaskAgentSetting build() {
-            return new RegistryTaskAgentSetting(cpu);
+        }
+        public RegistryTaskAgentSetting build() {
+            final var o = new RegistryTaskAgentSetting();
+            o.cpu = cpu;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class GetApplicationGatewayIdentity {
      * @return A list of Managed Identity IDs assigned to this Application Gateway.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The type of Managed Identity assigned to this Application Gateway.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetApplicationGatewayIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private GetApplicationGatewayIdentity() {}
     /**
      * @return A list of Managed Identity IDs assigned to this Application Gateway.
      * 
@@ -51,21 +44,18 @@ public final class GetApplicationGatewayIdentity {
     public static Builder builder(GetApplicationGatewayIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApplicationGatewayIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,11 +63,16 @@ public final class GetApplicationGatewayIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetApplicationGatewayIdentity build() {
-            return new GetApplicationGatewayIdentity(identityIds, type);
+        }
+        public GetApplicationGatewayIdentity build() {
+            final var o = new GetApplicationGatewayIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasi
      * @return The password used to access the HTTP Basic Authentication Git repository server.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username used to access the HTTP Basic Authentication Git repository server.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth() {}
     /**
      * @return The password used to access the HTTP Basic Authentication Git repository server.
      * 
@@ -50,30 +43,32 @@ public final class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasi
     public static Builder builder(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth build() {
-            return new GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(password, username);
+        }
+        public GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth build() {
+            final var o = new GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

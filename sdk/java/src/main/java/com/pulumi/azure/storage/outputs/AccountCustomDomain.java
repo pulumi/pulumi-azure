@@ -16,21 +16,14 @@ public final class AccountCustomDomain {
      * @return The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Should the Custom Domain Name be validated by using indirect CNAME validation?
      * 
      */
-    private final @Nullable Boolean useSubdomain;
+    private @Nullable Boolean useSubdomain;
 
-    @CustomType.Constructor
-    private AccountCustomDomain(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("useSubdomain") @Nullable Boolean useSubdomain) {
-        this.name = name;
-        this.useSubdomain = useSubdomain;
-    }
-
+    private AccountCustomDomain() {}
     /**
      * @return The Custom Domain Name to use for the Storage Account, which will be validated by Azure.
      * 
@@ -53,30 +46,32 @@ public final class AccountCustomDomain {
     public static Builder builder(AccountCustomDomain defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Boolean useSubdomain;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountCustomDomain defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.useSubdomain = defaults.useSubdomain;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder useSubdomain(@Nullable Boolean useSubdomain) {
             this.useSubdomain = useSubdomain;
             return this;
-        }        public AccountCustomDomain build() {
-            return new AccountCustomDomain(name, useSubdomain);
+        }
+        public AccountCustomDomain build() {
+            final var o = new AccountCustomDomain();
+            o.name = name;
+            o.useSubdomain = useSubdomain;
+            return o;
         }
     }
 }

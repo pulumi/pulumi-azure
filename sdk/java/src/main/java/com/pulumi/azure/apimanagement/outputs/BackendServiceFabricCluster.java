@@ -18,49 +18,34 @@ public final class BackendServiceFabricCluster {
      * @return The client certificate resource id for the management endpoint.
      * 
      */
-    private final @Nullable String clientCertificateId;
+    private @Nullable String clientCertificateId;
     /**
      * @return The client certificate thumbprint for the management endpoint.
      * 
      */
-    private final @Nullable String clientCertificateThumbprint;
+    private @Nullable String clientCertificateThumbprint;
     /**
      * @return A list of cluster management endpoints.
      * 
      */
-    private final List<String> managementEndpoints;
+    private List<String> managementEndpoints;
     /**
      * @return The maximum number of retries when attempting resolve the partition.
      * 
      */
-    private final Integer maxPartitionResolutionRetries;
+    private Integer maxPartitionResolutionRetries;
     /**
      * @return A list of thumbprints of the server certificates of the Service Fabric cluster.
      * 
      */
-    private final @Nullable List<String> serverCertificateThumbprints;
+    private @Nullable List<String> serverCertificateThumbprints;
     /**
      * @return One or more `server_x509_name` blocks as documented below.
      * 
      */
-    private final @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names;
+    private @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names;
 
-    @CustomType.Constructor
-    private BackendServiceFabricCluster(
-        @CustomType.Parameter("clientCertificateId") @Nullable String clientCertificateId,
-        @CustomType.Parameter("clientCertificateThumbprint") @Nullable String clientCertificateThumbprint,
-        @CustomType.Parameter("managementEndpoints") List<String> managementEndpoints,
-        @CustomType.Parameter("maxPartitionResolutionRetries") Integer maxPartitionResolutionRetries,
-        @CustomType.Parameter("serverCertificateThumbprints") @Nullable List<String> serverCertificateThumbprints,
-        @CustomType.Parameter("serverX509Names") @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names) {
-        this.clientCertificateId = clientCertificateId;
-        this.clientCertificateThumbprint = clientCertificateThumbprint;
-        this.managementEndpoints = managementEndpoints;
-        this.maxPartitionResolutionRetries = maxPartitionResolutionRetries;
-        this.serverCertificateThumbprints = serverCertificateThumbprints;
-        this.serverX509Names = serverX509Names;
-    }
-
+    private BackendServiceFabricCluster() {}
     /**
      * @return The client certificate resource id for the management endpoint.
      * 
@@ -111,7 +96,7 @@ public final class BackendServiceFabricCluster {
     public static Builder builder(BackendServiceFabricCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientCertificateId;
         private @Nullable String clientCertificateThumbprint;
@@ -119,11 +104,7 @@ public final class BackendServiceFabricCluster {
         private Integer maxPartitionResolutionRetries;
         private @Nullable List<String> serverCertificateThumbprints;
         private @Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendServiceFabricCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientCertificateId = defaults.clientCertificateId;
@@ -134,14 +115,17 @@ public final class BackendServiceFabricCluster {
     	      this.serverX509Names = defaults.serverX509Names;
         }
 
+        @CustomType.Setter
         public Builder clientCertificateId(@Nullable String clientCertificateId) {
             this.clientCertificateId = clientCertificateId;
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertificateThumbprint(@Nullable String clientCertificateThumbprint) {
             this.clientCertificateThumbprint = clientCertificateThumbprint;
             return this;
         }
+        @CustomType.Setter
         public Builder managementEndpoints(List<String> managementEndpoints) {
             this.managementEndpoints = Objects.requireNonNull(managementEndpoints);
             return this;
@@ -149,10 +133,12 @@ public final class BackendServiceFabricCluster {
         public Builder managementEndpoints(String... managementEndpoints) {
             return managementEndpoints(List.of(managementEndpoints));
         }
+        @CustomType.Setter
         public Builder maxPartitionResolutionRetries(Integer maxPartitionResolutionRetries) {
             this.maxPartitionResolutionRetries = Objects.requireNonNull(maxPartitionResolutionRetries);
             return this;
         }
+        @CustomType.Setter
         public Builder serverCertificateThumbprints(@Nullable List<String> serverCertificateThumbprints) {
             this.serverCertificateThumbprints = serverCertificateThumbprints;
             return this;
@@ -160,14 +146,23 @@ public final class BackendServiceFabricCluster {
         public Builder serverCertificateThumbprints(String... serverCertificateThumbprints) {
             return serverCertificateThumbprints(List.of(serverCertificateThumbprints));
         }
+        @CustomType.Setter
         public Builder serverX509Names(@Nullable List<BackendServiceFabricClusterServerX509Name> serverX509Names) {
             this.serverX509Names = serverX509Names;
             return this;
         }
         public Builder serverX509Names(BackendServiceFabricClusterServerX509Name... serverX509Names) {
             return serverX509Names(List.of(serverX509Names));
-        }        public BackendServiceFabricCluster build() {
-            return new BackendServiceFabricCluster(clientCertificateId, clientCertificateThumbprint, managementEndpoints, maxPartitionResolutionRetries, serverCertificateThumbprints, serverX509Names);
+        }
+        public BackendServiceFabricCluster build() {
+            final var o = new BackendServiceFabricCluster();
+            o.clientCertificateId = clientCertificateId;
+            o.clientCertificateThumbprint = clientCertificateThumbprint;
+            o.managementEndpoints = managementEndpoints;
+            o.maxPartitionResolutionRetries = maxPartitionResolutionRetries;
+            o.serverCertificateThumbprints = serverCertificateThumbprints;
+            o.serverX509Names = serverX509Names;
+            return o;
         }
     }
 }

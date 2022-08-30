@@ -13,28 +13,19 @@ public final class GetWorkspaceIdentity {
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The Identity Type for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetWorkspaceIdentity(
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetWorkspaceIdentity() {}
     /**
      * @return The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace.
      * 
@@ -64,16 +55,12 @@ public final class GetWorkspaceIdentity {
     public static Builder builder(GetWorkspaceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspaceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.principalId = defaults.principalId;
@@ -81,19 +68,27 @@ public final class GetWorkspaceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetWorkspaceIdentity build() {
-            return new GetWorkspaceIdentity(principalId, tenantId, type);
+        }
+        public GetWorkspaceIdentity build() {
+            final var o = new GetWorkspaceIdentity();
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

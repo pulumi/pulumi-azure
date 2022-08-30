@@ -14,21 +14,14 @@ public final class EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Specifies a single value to compare to when using a single value operator.
      * 
      */
-    private final Double value;
+    private Double value;
 
-    @CustomType.Constructor
-    private EventSubscriptionAdvancedFilterNumberLessThanOrEqual(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("value") Double value) {
-        this.key = key;
-        this.value = value;
-    }
-
+    private EventSubscriptionAdvancedFilterNumberLessThanOrEqual() {}
     /**
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
@@ -51,30 +44,32 @@ public final class EventSubscriptionAdvancedFilterNumberLessThanOrEqual {
     public static Builder builder(EventSubscriptionAdvancedFilterNumberLessThanOrEqual defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private Double value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionAdvancedFilterNumberLessThanOrEqual defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Double value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public EventSubscriptionAdvancedFilterNumberLessThanOrEqual build() {
-            return new EventSubscriptionAdvancedFilterNumberLessThanOrEqual(key, value);
+        }
+        public EventSubscriptionAdvancedFilterNumberLessThanOrEqual build() {
+            final var o = new EventSubscriptionAdvancedFilterNumberLessThanOrEqual();
+            o.key = key;
+            o.value = value;
+            return o;
         }
     }
 }

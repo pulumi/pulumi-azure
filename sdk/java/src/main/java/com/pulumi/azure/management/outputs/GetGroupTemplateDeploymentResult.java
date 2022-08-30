@@ -13,27 +13,16 @@ public final class GetGroupTemplateDeploymentResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String managementGroupId;
-    private final String name;
+    private String id;
+    private String managementGroupId;
+    private String name;
     /**
      * @return The JSON Content of the Outputs of the ARM Template Deployment.
      * 
      */
-    private final String outputContent;
+    private String outputContent;
 
-    @CustomType.Constructor
-    private GetGroupTemplateDeploymentResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("managementGroupId") String managementGroupId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outputContent") String outputContent) {
-        this.id = id;
-        this.managementGroupId = managementGroupId;
-        this.name = name;
-        this.outputContent = outputContent;
-    }
-
+    private GetGroupTemplateDeploymentResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -62,17 +51,13 @@ public final class GetGroupTemplateDeploymentResult {
     public static Builder builder(GetGroupTemplateDeploymentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String managementGroupId;
         private String name;
         private String outputContent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGroupTemplateDeploymentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -81,23 +66,33 @@ public final class GetGroupTemplateDeploymentResult {
     	      this.outputContent = defaults.outputContent;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder managementGroupId(String managementGroupId) {
             this.managementGroupId = Objects.requireNonNull(managementGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outputContent(String outputContent) {
             this.outputContent = Objects.requireNonNull(outputContent);
             return this;
-        }        public GetGroupTemplateDeploymentResult build() {
-            return new GetGroupTemplateDeploymentResult(id, managementGroupId, name, outputContent);
+        }
+        public GetGroupTemplateDeploymentResult build() {
+            final var o = new GetGroupTemplateDeploymentResult();
+            o.id = id;
+            o.managementGroupId = managementGroupId;
+            o.name = name;
+            o.outputContent = outputContent;
+            return o;
         }
     }
 }

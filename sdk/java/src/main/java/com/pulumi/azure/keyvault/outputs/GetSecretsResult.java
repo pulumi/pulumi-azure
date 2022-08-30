@@ -14,28 +14,19 @@ public final class GetSecretsResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Key Vault ID.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return List containing names of secrets that exist in this Key Vault.
      * 
      */
-    private final List<String> names;
+    private List<String> names;
 
-    @CustomType.Constructor
-    private GetSecretsResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("names") List<String> names) {
-        this.id = id;
-        this.keyVaultId = keyVaultId;
-        this.names = names;
-    }
-
+    private GetSecretsResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -65,16 +56,12 @@ public final class GetSecretsResult {
     public static Builder builder(GetSecretsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String keyVaultId;
         private List<String> names;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -82,22 +69,30 @@ public final class GetSecretsResult {
     	      this.names = defaults.names;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder names(List<String> names) {
             this.names = Objects.requireNonNull(names);
             return this;
         }
         public Builder names(String... names) {
             return names(List.of(names));
-        }        public GetSecretsResult build() {
-            return new GetSecretsResult(id, keyVaultId, names);
+        }
+        public GetSecretsResult build() {
+            final var o = new GetSecretsResult();
+            o.id = id;
+            o.keyVaultId = keyVaultId;
+            o.names = names;
+            return o;
         }
     }
 }

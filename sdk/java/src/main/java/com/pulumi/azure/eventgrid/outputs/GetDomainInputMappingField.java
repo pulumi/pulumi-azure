@@ -13,49 +13,34 @@ public final class GetDomainInputMappingField {
      * @return Specifies the default data version of the EventGrid Event associated with the domain.
      * 
      */
-    private final String dataVersion;
+    private String dataVersion;
     /**
      * @return Specifies the event time of the EventGrid Event associated with the domain.
      * 
      */
-    private final String eventTime;
+    private String eventTime;
     /**
      * @return Specifies the default event type of the EventGrid Event associated with the domain.
      * 
      */
-    private final String eventType;
+    private String eventType;
     /**
      * @return Specifies the id of the EventGrid Event associated with the domain.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the default subject of the EventGrid Event associated with the domain.
      * 
      */
-    private final String subject;
+    private String subject;
     /**
      * @return Specifies the topic of the EventGrid Event associated with the domain.
      * 
      */
-    private final String topic;
+    private String topic;
 
-    @CustomType.Constructor
-    private GetDomainInputMappingField(
-        @CustomType.Parameter("dataVersion") String dataVersion,
-        @CustomType.Parameter("eventTime") String eventTime,
-        @CustomType.Parameter("eventType") String eventType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("topic") String topic) {
-        this.dataVersion = dataVersion;
-        this.eventTime = eventTime;
-        this.eventType = eventType;
-        this.id = id;
-        this.subject = subject;
-        this.topic = topic;
-    }
-
+    private GetDomainInputMappingField() {}
     /**
      * @return Specifies the default data version of the EventGrid Event associated with the domain.
      * 
@@ -106,7 +91,7 @@ public final class GetDomainInputMappingField {
     public static Builder builder(GetDomainInputMappingField defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataVersion;
         private String eventTime;
@@ -114,11 +99,7 @@ public final class GetDomainInputMappingField {
         private String id;
         private String subject;
         private String topic;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainInputMappingField defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataVersion = defaults.dataVersion;
@@ -129,31 +110,45 @@ public final class GetDomainInputMappingField {
     	      this.topic = defaults.topic;
         }
 
+        @CustomType.Setter
         public Builder dataVersion(String dataVersion) {
             this.dataVersion = Objects.requireNonNull(dataVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder eventTime(String eventTime) {
             this.eventTime = Objects.requireNonNull(eventTime);
             return this;
         }
+        @CustomType.Setter
         public Builder eventType(String eventType) {
             this.eventType = Objects.requireNonNull(eventType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder topic(String topic) {
             this.topic = Objects.requireNonNull(topic);
             return this;
-        }        public GetDomainInputMappingField build() {
-            return new GetDomainInputMappingField(dataVersion, eventTime, eventType, id, subject, topic);
+        }
+        public GetDomainInputMappingField build() {
+            final var o = new GetDomainInputMappingField();
+            o.dataVersion = dataVersion;
+            o.eventTime = eventTime;
+            o.eventType = eventType;
+            o.id = id;
+            o.subject = subject;
+            o.topic = topic;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class LinuxWebAppAuthSettingsMicrosoft {
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret_setting_name`.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication. Cannot be specified with `client_secret`.
      * 
      */
-    private final @Nullable String clientSecretSettingName;
+    private @Nullable String clientSecretSettingName;
     /**
      * @return Specifies a list of OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication. If not specified, &#34;wl.basic&#34; is used as the default scope.
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private LinuxWebAppAuthSettingsMicrosoft(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") @Nullable String clientSecretSettingName,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private LinuxWebAppAuthSettingsMicrosoft() {}
     /**
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
@@ -81,17 +70,13 @@ public final class LinuxWebAppAuthSettingsMicrosoft {
     public static Builder builder(LinuxWebAppAuthSettingsMicrosoft defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private @Nullable String clientSecret;
         private @Nullable String clientSecretSettingName;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppAuthSettingsMicrosoft defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -100,26 +85,36 @@ public final class LinuxWebAppAuthSettingsMicrosoft {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public LinuxWebAppAuthSettingsMicrosoft build() {
-            return new LinuxWebAppAuthSettingsMicrosoft(clientId, clientSecret, clientSecretSettingName, oauthScopes);
+        }
+        public LinuxWebAppAuthSettingsMicrosoft build() {
+            final var o = new LinuxWebAppAuthSettingsMicrosoft();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class ActionGroupWebhookReceiver {
      * @return The `aad_auth` block as defined below
      * 
      */
-    private final @Nullable ActionGroupWebhookReceiverAadAuth aadAuth;
+    private @Nullable ActionGroupWebhookReceiverAadAuth aadAuth;
     /**
      * @return The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The URI where webhooks should be sent.
      * 
      */
-    private final String serviceUri;
+    private String serviceUri;
     /**
      * @return Enables or disables the common alert schema.
      * 
      */
-    private final @Nullable Boolean useCommonAlertSchema;
+    private @Nullable Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private ActionGroupWebhookReceiver(
-        @CustomType.Parameter("aadAuth") @Nullable ActionGroupWebhookReceiverAadAuth aadAuth,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("serviceUri") String serviceUri,
-        @CustomType.Parameter("useCommonAlertSchema") @Nullable Boolean useCommonAlertSchema) {
-        this.aadAuth = aadAuth;
-        this.name = name;
-        this.serviceUri = serviceUri;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private ActionGroupWebhookReceiver() {}
     /**
      * @return The `aad_auth` block as defined below
      * 
@@ -82,17 +71,13 @@ public final class ActionGroupWebhookReceiver {
     public static Builder builder(ActionGroupWebhookReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ActionGroupWebhookReceiverAadAuth aadAuth;
         private String name;
         private String serviceUri;
         private @Nullable Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionGroupWebhookReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aadAuth = defaults.aadAuth;
@@ -101,23 +86,33 @@ public final class ActionGroupWebhookReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder aadAuth(@Nullable ActionGroupWebhookReceiverAadAuth aadAuth) {
             this.aadAuth = aadAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
             this.serviceUri = Objects.requireNonNull(serviceUri);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
-        }        public ActionGroupWebhookReceiver build() {
-            return new ActionGroupWebhookReceiver(aadAuth, name, serviceUri, useCommonAlertSchema);
+        }
+        public ActionGroupWebhookReceiver build() {
+            final var o = new ActionGroupWebhookReceiver();
+            o.aadAuth = aadAuth;
+            o.name = name;
+            o.serviceUri = serviceUri;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

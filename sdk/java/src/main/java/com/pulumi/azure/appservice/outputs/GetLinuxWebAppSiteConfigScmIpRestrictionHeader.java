@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
-    private final List<String> xAzureFdids;
-    private final List<String> xFdHealthProbes;
-    private final List<String> xForwardedFors;
-    private final List<String> xForwardedHosts;
+    private List<String> xAzureFdids;
+    private List<String> xFdHealthProbes;
+    private List<String> xForwardedFors;
+    private List<String> xForwardedHosts;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppSiteConfigScmIpRestrictionHeader(
-        @CustomType.Parameter("xAzureFdids") List<String> xAzureFdids,
-        @CustomType.Parameter("xFdHealthProbes") List<String> xFdHealthProbes,
-        @CustomType.Parameter("xForwardedFors") List<String> xForwardedFors,
-        @CustomType.Parameter("xForwardedHosts") List<String> xForwardedHosts) {
-        this.xAzureFdids = xAzureFdids;
-        this.xFdHealthProbes = xFdHealthProbes;
-        this.xForwardedFors = xForwardedFors;
-        this.xForwardedHosts = xForwardedHosts;
-    }
-
+    private GetLinuxWebAppSiteConfigScmIpRestrictionHeader() {}
     public List<String> xAzureFdids() {
         return this.xAzureFdids;
     }
@@ -47,17 +36,13 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
     public static Builder builder(GetLinuxWebAppSiteConfigScmIpRestrictionHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> xAzureFdids;
         private List<String> xFdHealthProbes;
         private List<String> xForwardedFors;
         private List<String> xForwardedHosts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppSiteConfigScmIpRestrictionHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.xAzureFdids = defaults.xAzureFdids;
@@ -66,6 +51,7 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
     	      this.xForwardedHosts = defaults.xForwardedHosts;
         }
 
+        @CustomType.Setter
         public Builder xAzureFdids(List<String> xAzureFdids) {
             this.xAzureFdids = Objects.requireNonNull(xAzureFdids);
             return this;
@@ -73,6 +59,7 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
         public Builder xAzureFdids(String... xAzureFdids) {
             return xAzureFdids(List.of(xAzureFdids));
         }
+        @CustomType.Setter
         public Builder xFdHealthProbes(List<String> xFdHealthProbes) {
             this.xFdHealthProbes = Objects.requireNonNull(xFdHealthProbes);
             return this;
@@ -80,6 +67,7 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
         public Builder xFdHealthProbes(String... xFdHealthProbes) {
             return xFdHealthProbes(List.of(xFdHealthProbes));
         }
+        @CustomType.Setter
         public Builder xForwardedFors(List<String> xForwardedFors) {
             this.xForwardedFors = Objects.requireNonNull(xForwardedFors);
             return this;
@@ -87,14 +75,21 @@ public final class GetLinuxWebAppSiteConfigScmIpRestrictionHeader {
         public Builder xForwardedFors(String... xForwardedFors) {
             return xForwardedFors(List.of(xForwardedFors));
         }
+        @CustomType.Setter
         public Builder xForwardedHosts(List<String> xForwardedHosts) {
             this.xForwardedHosts = Objects.requireNonNull(xForwardedHosts);
             return this;
         }
         public Builder xForwardedHosts(String... xForwardedHosts) {
             return xForwardedHosts(List.of(xForwardedHosts));
-        }        public GetLinuxWebAppSiteConfigScmIpRestrictionHeader build() {
-            return new GetLinuxWebAppSiteConfigScmIpRestrictionHeader(xAzureFdids, xFdHealthProbes, xForwardedFors, xForwardedHosts);
+        }
+        public GetLinuxWebAppSiteConfigScmIpRestrictionHeader build() {
+            final var o = new GetLinuxWebAppSiteConfigScmIpRestrictionHeader();
+            o.xAzureFdids = xAzureFdids;
+            o.xFdHealthProbes = xFdHealthProbes;
+            o.xForwardedFors = xForwardedFors;
+            o.xForwardedHosts = xForwardedHosts;
+            return o;
         }
     }
 }

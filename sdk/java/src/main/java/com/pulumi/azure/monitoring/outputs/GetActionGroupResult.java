@@ -27,115 +27,80 @@ public final class GetActionGroupResult {
      * @return One or more `arm_role_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupArmRoleReceiver> armRoleReceivers;
+    private List<GetActionGroupArmRoleReceiver> armRoleReceivers;
     /**
      * @return One or more `automation_runbook_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers;
+    private List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers;
     /**
      * @return One or more `azure_app_push_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers;
+    private List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers;
     /**
      * @return One or more `azure_function_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers;
+    private List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers;
     /**
      * @return One or more `email_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupEmailReceiver> emailReceivers;
+    private List<GetActionGroupEmailReceiver> emailReceivers;
     /**
      * @return Whether this action group is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return One or more `event_hub_receiver` blocks as defined below.
      * 
      */
-    private final @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers;
+    private @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return One or more `itsm_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupItsmReceiver> itsmReceivers;
+    private List<GetActionGroupItsmReceiver> itsmReceivers;
     /**
      * @return One or more `logic_app_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupLogicAppReceiver> logicAppReceivers;
+    private List<GetActionGroupLogicAppReceiver> logicAppReceivers;
     /**
      * @return The name of the webhook receiver.
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The short name of the action group.
      * 
      */
-    private final String shortName;
+    private String shortName;
     /**
      * @return One or more `sms_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupSmsReceiver> smsReceivers;
+    private List<GetActionGroupSmsReceiver> smsReceivers;
     /**
      * @return One or more `voice_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupVoiceReceiver> voiceReceivers;
+    private List<GetActionGroupVoiceReceiver> voiceReceivers;
     /**
      * @return One or more `webhook_receiver` blocks as defined below.
      * 
      */
-    private final List<GetActionGroupWebhookReceiver> webhookReceivers;
+    private List<GetActionGroupWebhookReceiver> webhookReceivers;
 
-    @CustomType.Constructor
-    private GetActionGroupResult(
-        @CustomType.Parameter("armRoleReceivers") List<GetActionGroupArmRoleReceiver> armRoleReceivers,
-        @CustomType.Parameter("automationRunbookReceivers") List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers,
-        @CustomType.Parameter("azureAppPushReceivers") List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers,
-        @CustomType.Parameter("azureFunctionReceivers") List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers,
-        @CustomType.Parameter("emailReceivers") List<GetActionGroupEmailReceiver> emailReceivers,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("eventHubReceivers") @Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("itsmReceivers") List<GetActionGroupItsmReceiver> itsmReceivers,
-        @CustomType.Parameter("logicAppReceivers") List<GetActionGroupLogicAppReceiver> logicAppReceivers,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("shortName") String shortName,
-        @CustomType.Parameter("smsReceivers") List<GetActionGroupSmsReceiver> smsReceivers,
-        @CustomType.Parameter("voiceReceivers") List<GetActionGroupVoiceReceiver> voiceReceivers,
-        @CustomType.Parameter("webhookReceivers") List<GetActionGroupWebhookReceiver> webhookReceivers) {
-        this.armRoleReceivers = armRoleReceivers;
-        this.automationRunbookReceivers = automationRunbookReceivers;
-        this.azureAppPushReceivers = azureAppPushReceivers;
-        this.azureFunctionReceivers = azureFunctionReceivers;
-        this.emailReceivers = emailReceivers;
-        this.enabled = enabled;
-        this.eventHubReceivers = eventHubReceivers;
-        this.id = id;
-        this.itsmReceivers = itsmReceivers;
-        this.logicAppReceivers = logicAppReceivers;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.shortName = shortName;
-        this.smsReceivers = smsReceivers;
-        this.voiceReceivers = voiceReceivers;
-        this.webhookReceivers = webhookReceivers;
-    }
-
+    private GetActionGroupResult() {}
     /**
      * @return One or more `arm_role_receiver` blocks as defined below.
      * 
@@ -252,7 +217,7 @@ public final class GetActionGroupResult {
     public static Builder builder(GetActionGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetActionGroupArmRoleReceiver> armRoleReceivers;
         private List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers;
@@ -270,11 +235,7 @@ public final class GetActionGroupResult {
         private List<GetActionGroupSmsReceiver> smsReceivers;
         private List<GetActionGroupVoiceReceiver> voiceReceivers;
         private List<GetActionGroupWebhookReceiver> webhookReceivers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.armRoleReceivers = defaults.armRoleReceivers;
@@ -295,6 +256,7 @@ public final class GetActionGroupResult {
     	      this.webhookReceivers = defaults.webhookReceivers;
         }
 
+        @CustomType.Setter
         public Builder armRoleReceivers(List<GetActionGroupArmRoleReceiver> armRoleReceivers) {
             this.armRoleReceivers = Objects.requireNonNull(armRoleReceivers);
             return this;
@@ -302,6 +264,7 @@ public final class GetActionGroupResult {
         public Builder armRoleReceivers(GetActionGroupArmRoleReceiver... armRoleReceivers) {
             return armRoleReceivers(List.of(armRoleReceivers));
         }
+        @CustomType.Setter
         public Builder automationRunbookReceivers(List<GetActionGroupAutomationRunbookReceiver> automationRunbookReceivers) {
             this.automationRunbookReceivers = Objects.requireNonNull(automationRunbookReceivers);
             return this;
@@ -309,6 +272,7 @@ public final class GetActionGroupResult {
         public Builder automationRunbookReceivers(GetActionGroupAutomationRunbookReceiver... automationRunbookReceivers) {
             return automationRunbookReceivers(List.of(automationRunbookReceivers));
         }
+        @CustomType.Setter
         public Builder azureAppPushReceivers(List<GetActionGroupAzureAppPushReceiver> azureAppPushReceivers) {
             this.azureAppPushReceivers = Objects.requireNonNull(azureAppPushReceivers);
             return this;
@@ -316,6 +280,7 @@ public final class GetActionGroupResult {
         public Builder azureAppPushReceivers(GetActionGroupAzureAppPushReceiver... azureAppPushReceivers) {
             return azureAppPushReceivers(List.of(azureAppPushReceivers));
         }
+        @CustomType.Setter
         public Builder azureFunctionReceivers(List<GetActionGroupAzureFunctionReceiver> azureFunctionReceivers) {
             this.azureFunctionReceivers = Objects.requireNonNull(azureFunctionReceivers);
             return this;
@@ -323,6 +288,7 @@ public final class GetActionGroupResult {
         public Builder azureFunctionReceivers(GetActionGroupAzureFunctionReceiver... azureFunctionReceivers) {
             return azureFunctionReceivers(List.of(azureFunctionReceivers));
         }
+        @CustomType.Setter
         public Builder emailReceivers(List<GetActionGroupEmailReceiver> emailReceivers) {
             this.emailReceivers = Objects.requireNonNull(emailReceivers);
             return this;
@@ -330,10 +296,12 @@ public final class GetActionGroupResult {
         public Builder emailReceivers(GetActionGroupEmailReceiver... emailReceivers) {
             return emailReceivers(List.of(emailReceivers));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder eventHubReceivers(@Nullable List<GetActionGroupEventHubReceiver> eventHubReceivers) {
             this.eventHubReceivers = eventHubReceivers;
             return this;
@@ -341,10 +309,12 @@ public final class GetActionGroupResult {
         public Builder eventHubReceivers(GetActionGroupEventHubReceiver... eventHubReceivers) {
             return eventHubReceivers(List.of(eventHubReceivers));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder itsmReceivers(List<GetActionGroupItsmReceiver> itsmReceivers) {
             this.itsmReceivers = Objects.requireNonNull(itsmReceivers);
             return this;
@@ -352,6 +322,7 @@ public final class GetActionGroupResult {
         public Builder itsmReceivers(GetActionGroupItsmReceiver... itsmReceivers) {
             return itsmReceivers(List.of(itsmReceivers));
         }
+        @CustomType.Setter
         public Builder logicAppReceivers(List<GetActionGroupLogicAppReceiver> logicAppReceivers) {
             this.logicAppReceivers = Objects.requireNonNull(logicAppReceivers);
             return this;
@@ -359,18 +330,22 @@ public final class GetActionGroupResult {
         public Builder logicAppReceivers(GetActionGroupLogicAppReceiver... logicAppReceivers) {
             return logicAppReceivers(List.of(logicAppReceivers));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder shortName(String shortName) {
             this.shortName = Objects.requireNonNull(shortName);
             return this;
         }
+        @CustomType.Setter
         public Builder smsReceivers(List<GetActionGroupSmsReceiver> smsReceivers) {
             this.smsReceivers = Objects.requireNonNull(smsReceivers);
             return this;
@@ -378,6 +353,7 @@ public final class GetActionGroupResult {
         public Builder smsReceivers(GetActionGroupSmsReceiver... smsReceivers) {
             return smsReceivers(List.of(smsReceivers));
         }
+        @CustomType.Setter
         public Builder voiceReceivers(List<GetActionGroupVoiceReceiver> voiceReceivers) {
             this.voiceReceivers = Objects.requireNonNull(voiceReceivers);
             return this;
@@ -385,14 +361,33 @@ public final class GetActionGroupResult {
         public Builder voiceReceivers(GetActionGroupVoiceReceiver... voiceReceivers) {
             return voiceReceivers(List.of(voiceReceivers));
         }
+        @CustomType.Setter
         public Builder webhookReceivers(List<GetActionGroupWebhookReceiver> webhookReceivers) {
             this.webhookReceivers = Objects.requireNonNull(webhookReceivers);
             return this;
         }
         public Builder webhookReceivers(GetActionGroupWebhookReceiver... webhookReceivers) {
             return webhookReceivers(List.of(webhookReceivers));
-        }        public GetActionGroupResult build() {
-            return new GetActionGroupResult(armRoleReceivers, automationRunbookReceivers, azureAppPushReceivers, azureFunctionReceivers, emailReceivers, enabled, eventHubReceivers, id, itsmReceivers, logicAppReceivers, name, resourceGroupName, shortName, smsReceivers, voiceReceivers, webhookReceivers);
+        }
+        public GetActionGroupResult build() {
+            final var o = new GetActionGroupResult();
+            o.armRoleReceivers = armRoleReceivers;
+            o.automationRunbookReceivers = automationRunbookReceivers;
+            o.azureAppPushReceivers = azureAppPushReceivers;
+            o.azureFunctionReceivers = azureFunctionReceivers;
+            o.emailReceivers = emailReceivers;
+            o.enabled = enabled;
+            o.eventHubReceivers = eventHubReceivers;
+            o.id = id;
+            o.itsmReceivers = itsmReceivers;
+            o.logicAppReceivers = logicAppReceivers;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.shortName = shortName;
+            o.smsReceivers = smsReceivers;
+            o.voiceReceivers = voiceReceivers;
+            o.webhookReceivers = webhookReceivers;
+            return o;
         }
     }
 }

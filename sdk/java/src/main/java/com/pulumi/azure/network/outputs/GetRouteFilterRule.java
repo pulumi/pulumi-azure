@@ -14,35 +14,24 @@ public final class GetRouteFilterRule {
      * @return The access type of the rule
      * 
      */
-    private final String access;
+    private String access;
     /**
      * @return The collection for bgp community values.
      * 
      */
-    private final List<String> communities;
+    private List<String> communities;
     /**
      * @return The Name of this Route Filter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Route Filter Rule Type.
      * 
      */
-    private final String ruleType;
+    private String ruleType;
 
-    @CustomType.Constructor
-    private GetRouteFilterRule(
-        @CustomType.Parameter("access") String access,
-        @CustomType.Parameter("communities") List<String> communities,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("ruleType") String ruleType) {
-        this.access = access;
-        this.communities = communities;
-        this.name = name;
-        this.ruleType = ruleType;
-    }
-
+    private GetRouteFilterRule() {}
     /**
      * @return The access type of the rule
      * 
@@ -79,17 +68,13 @@ public final class GetRouteFilterRule {
     public static Builder builder(GetRouteFilterRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String access;
         private List<String> communities;
         private String name;
         private String ruleType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRouteFilterRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.access = defaults.access;
@@ -98,10 +83,12 @@ public final class GetRouteFilterRule {
     	      this.ruleType = defaults.ruleType;
         }
 
+        @CustomType.Setter
         public Builder access(String access) {
             this.access = Objects.requireNonNull(access);
             return this;
         }
+        @CustomType.Setter
         public Builder communities(List<String> communities) {
             this.communities = Objects.requireNonNull(communities);
             return this;
@@ -109,15 +96,23 @@ public final class GetRouteFilterRule {
         public Builder communities(String... communities) {
             return communities(List.of(communities));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder ruleType(String ruleType) {
             this.ruleType = Objects.requireNonNull(ruleType);
             return this;
-        }        public GetRouteFilterRule build() {
-            return new GetRouteFilterRule(access, communities, name, ruleType);
+        }
+        public GetRouteFilterRule build() {
+            final var o = new GetRouteFilterRule();
+            o.access = access;
+            o.communities = communities;
+            o.name = name;
+            o.ruleType = ruleType;
+            return o;
         }
     }
 }

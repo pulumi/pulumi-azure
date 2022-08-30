@@ -15,21 +15,14 @@ public final class ClusterCertificateCommonNames {
      * @return A `common_names` block as defined below.
      * 
      */
-    private final List<ClusterCertificateCommonNamesCommonName> commonNames;
+    private List<ClusterCertificateCommonNamesCommonName> commonNames;
     /**
      * @return The X509 Store where the Certificate Exists, such as `My`.
      * 
      */
-    private final String x509StoreName;
+    private String x509StoreName;
 
-    @CustomType.Constructor
-    private ClusterCertificateCommonNames(
-        @CustomType.Parameter("commonNames") List<ClusterCertificateCommonNamesCommonName> commonNames,
-        @CustomType.Parameter("x509StoreName") String x509StoreName) {
-        this.commonNames = commonNames;
-        this.x509StoreName = x509StoreName;
-    }
-
+    private ClusterCertificateCommonNames() {}
     /**
      * @return A `common_names` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class ClusterCertificateCommonNames {
     public static Builder builder(ClusterCertificateCommonNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ClusterCertificateCommonNamesCommonName> commonNames;
         private String x509StoreName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterCertificateCommonNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commonNames = defaults.commonNames;
     	      this.x509StoreName = defaults.x509StoreName;
         }
 
+        @CustomType.Setter
         public Builder commonNames(List<ClusterCertificateCommonNamesCommonName> commonNames) {
             this.commonNames = Objects.requireNonNull(commonNames);
             return this;
@@ -74,11 +64,16 @@ public final class ClusterCertificateCommonNames {
         public Builder commonNames(ClusterCertificateCommonNamesCommonName... commonNames) {
             return commonNames(List.of(commonNames));
         }
+        @CustomType.Setter
         public Builder x509StoreName(String x509StoreName) {
             this.x509StoreName = Objects.requireNonNull(x509StoreName);
             return this;
-        }        public ClusterCertificateCommonNames build() {
-            return new ClusterCertificateCommonNames(commonNames, x509StoreName);
+        }
+        public ClusterCertificateCommonNames build() {
+            final var o = new ClusterCertificateCommonNames();
+            o.commonNames = commonNames;
+            o.x509StoreName = x509StoreName;
+            return o;
         }
     }
 }

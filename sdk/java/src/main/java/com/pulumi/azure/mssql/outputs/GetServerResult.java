@@ -16,69 +16,46 @@ public final class GetServerResult {
      * @return The server&#39;s administrator login name.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return The fully qualified domain name of the Azure SQL Server.
      * 
      */
-    private final String fullyQualifiedDomainName;
+    private String fullyQualifiedDomainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetServerIdentity> identities;
+    private List<GetServerIdentity> identities;
     /**
      * @return The Azure Region where the Microsoft SQL Server exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A list of dropped restorable database IDs on the server.
      * 
      */
-    private final List<String> restorableDroppedDatabaseIds;
+    private List<String> restorableDroppedDatabaseIds;
     /**
      * @return A mapping of tags assigned to this Microsoft SQL Server.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return This servers MS SQL version.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetServerResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("fullyQualifiedDomainName") String fullyQualifiedDomainName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetServerIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("restorableDroppedDatabaseIds") List<String> restorableDroppedDatabaseIds,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version) {
-        this.administratorLogin = administratorLogin;
-        this.fullyQualifiedDomainName = fullyQualifiedDomainName;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
-        this.tags = tags;
-        this.version = version;
-    }
-
+    private GetServerResult() {}
     /**
      * @return The server&#39;s administrator login name.
      * 
@@ -149,7 +126,7 @@ public final class GetServerResult {
     public static Builder builder(GetServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private String fullyQualifiedDomainName;
@@ -161,11 +138,7 @@ public final class GetServerResult {
         private List<String> restorableDroppedDatabaseIds;
         private Map<String,String> tags;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -180,18 +153,22 @@ public final class GetServerResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder fullyQualifiedDomainName(String fullyQualifiedDomainName) {
             this.fullyQualifiedDomainName = Objects.requireNonNull(fullyQualifiedDomainName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetServerIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -199,18 +176,22 @@ public final class GetServerResult {
         public Builder identities(GetServerIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder restorableDroppedDatabaseIds(List<String> restorableDroppedDatabaseIds) {
             this.restorableDroppedDatabaseIds = Objects.requireNonNull(restorableDroppedDatabaseIds);
             return this;
@@ -218,15 +199,29 @@ public final class GetServerResult {
         public Builder restorableDroppedDatabaseIds(String... restorableDroppedDatabaseIds) {
             return restorableDroppedDatabaseIds(List.of(restorableDroppedDatabaseIds));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetServerResult build() {
-            return new GetServerResult(administratorLogin, fullyQualifiedDomainName, id, identities, location, name, resourceGroupName, restorableDroppedDatabaseIds, tags, version);
+        }
+        public GetServerResult build() {
+            final var o = new GetServerResult();
+            o.administratorLogin = administratorLogin;
+            o.fullyQualifiedDomainName = fullyQualifiedDomainName;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.restorableDroppedDatabaseIds = restorableDroppedDatabaseIds;
+            o.tags = tags;
+            o.version = version;
+            return o;
         }
     }
 }

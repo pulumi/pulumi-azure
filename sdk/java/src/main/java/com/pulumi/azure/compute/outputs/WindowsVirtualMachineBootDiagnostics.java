@@ -15,13 +15,9 @@ public final class WindowsVirtualMachineBootDiagnostics {
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
      */
-    private final @Nullable String storageAccountUri;
+    private @Nullable String storageAccountUri;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineBootDiagnostics(@CustomType.Parameter("storageAccountUri") @Nullable String storageAccountUri) {
-        this.storageAccountUri = storageAccountUri;
-    }
-
+    private WindowsVirtualMachineBootDiagnostics() {}
     /**
      * @return The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor.
      * 
@@ -37,24 +33,24 @@ public final class WindowsVirtualMachineBootDiagnostics {
     public static Builder builder(WindowsVirtualMachineBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String storageAccountUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.storageAccountUri = defaults.storageAccountUri;
         }
 
+        @CustomType.Setter
         public Builder storageAccountUri(@Nullable String storageAccountUri) {
             this.storageAccountUri = storageAccountUri;
             return this;
-        }        public WindowsVirtualMachineBootDiagnostics build() {
-            return new WindowsVirtualMachineBootDiagnostics(storageAccountUri);
+        }
+        public WindowsVirtualMachineBootDiagnostics build() {
+            final var o = new WindowsVirtualMachineBootDiagnostics();
+            o.storageAccountUri = storageAccountUri;
+            return o;
         }
     }
 }

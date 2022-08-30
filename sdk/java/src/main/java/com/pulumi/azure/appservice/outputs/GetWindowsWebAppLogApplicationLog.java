@@ -15,21 +15,14 @@ public final class GetWindowsWebAppLogApplicationLog {
      * @return A `azure_blob_storage` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
+    private List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
     /**
      * @return The logging level.
      * 
      */
-    private final String fileSystemLevel;
+    private String fileSystemLevel;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppLogApplicationLog(
-        @CustomType.Parameter("azureBlobStorages") List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages,
-        @CustomType.Parameter("fileSystemLevel") String fileSystemLevel) {
-        this.azureBlobStorages = azureBlobStorages;
-        this.fileSystemLevel = fileSystemLevel;
-    }
-
+    private GetWindowsWebAppLogApplicationLog() {}
     /**
      * @return A `azure_blob_storage` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetWindowsWebAppLogApplicationLog {
     public static Builder builder(GetWindowsWebAppLogApplicationLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages;
         private String fileSystemLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppLogApplicationLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorages = defaults.azureBlobStorages;
     	      this.fileSystemLevel = defaults.fileSystemLevel;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorages(List<GetWindowsWebAppLogApplicationLogAzureBlobStorage> azureBlobStorages) {
             this.azureBlobStorages = Objects.requireNonNull(azureBlobStorages);
             return this;
@@ -74,11 +64,16 @@ public final class GetWindowsWebAppLogApplicationLog {
         public Builder azureBlobStorages(GetWindowsWebAppLogApplicationLogAzureBlobStorage... azureBlobStorages) {
             return azureBlobStorages(List.of(azureBlobStorages));
         }
+        @CustomType.Setter
         public Builder fileSystemLevel(String fileSystemLevel) {
             this.fileSystemLevel = Objects.requireNonNull(fileSystemLevel);
             return this;
-        }        public GetWindowsWebAppLogApplicationLog build() {
-            return new GetWindowsWebAppLogApplicationLog(azureBlobStorages, fileSystemLevel);
+        }
+        public GetWindowsWebAppLogApplicationLog build() {
+            final var o = new GetWindowsWebAppLogApplicationLog();
+            o.azureBlobStorages = azureBlobStorages;
+            o.fileSystemLevel = fileSystemLevel;
+            return o;
         }
     }
 }

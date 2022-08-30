@@ -16,28 +16,19 @@ public final class SystemTopicEventSubscriptionSubjectFilter {
      * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
      * 
      */
-    private final @Nullable Boolean caseSensitive;
+    private @Nullable Boolean caseSensitive;
     /**
      * @return A string to filter events for an event subscription based on a resource path prefix.
      * 
      */
-    private final @Nullable String subjectBeginsWith;
+    private @Nullable String subjectBeginsWith;
     /**
      * @return A string to filter events for an event subscription based on a resource path suffix.
      * 
      */
-    private final @Nullable String subjectEndsWith;
+    private @Nullable String subjectEndsWith;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionSubjectFilter(
-        @CustomType.Parameter("caseSensitive") @Nullable Boolean caseSensitive,
-        @CustomType.Parameter("subjectBeginsWith") @Nullable String subjectBeginsWith,
-        @CustomType.Parameter("subjectEndsWith") @Nullable String subjectEndsWith) {
-        this.caseSensitive = caseSensitive;
-        this.subjectBeginsWith = subjectBeginsWith;
-        this.subjectEndsWith = subjectEndsWith;
-    }
-
+    private SystemTopicEventSubscriptionSubjectFilter() {}
     /**
      * @return Specifies if `subject_begins_with` and `subject_ends_with` case sensitive. This value defaults to `false`.
      * 
@@ -67,16 +58,12 @@ public final class SystemTopicEventSubscriptionSubjectFilter {
     public static Builder builder(SystemTopicEventSubscriptionSubjectFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean caseSensitive;
         private @Nullable String subjectBeginsWith;
         private @Nullable String subjectEndsWith;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionSubjectFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caseSensitive = defaults.caseSensitive;
@@ -84,19 +71,27 @@ public final class SystemTopicEventSubscriptionSubjectFilter {
     	      this.subjectEndsWith = defaults.subjectEndsWith;
         }
 
+        @CustomType.Setter
         public Builder caseSensitive(@Nullable Boolean caseSensitive) {
             this.caseSensitive = caseSensitive;
             return this;
         }
+        @CustomType.Setter
         public Builder subjectBeginsWith(@Nullable String subjectBeginsWith) {
             this.subjectBeginsWith = subjectBeginsWith;
             return this;
         }
+        @CustomType.Setter
         public Builder subjectEndsWith(@Nullable String subjectEndsWith) {
             this.subjectEndsWith = subjectEndsWith;
             return this;
-        }        public SystemTopicEventSubscriptionSubjectFilter build() {
-            return new SystemTopicEventSubscriptionSubjectFilter(caseSensitive, subjectBeginsWith, subjectEndsWith);
+        }
+        public SystemTopicEventSubscriptionSubjectFilter build() {
+            final var o = new SystemTopicEventSubscriptionSubjectFilter();
+            o.caseSensitive = caseSensitive;
+            o.subjectBeginsWith = subjectBeginsWith;
+            o.subjectEndsWith = subjectEndsWith;
+            return o;
         }
     }
 }

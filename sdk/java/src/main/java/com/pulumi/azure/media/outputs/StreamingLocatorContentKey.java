@@ -15,42 +15,29 @@ public final class StreamingLocatorContentKey {
      * @return ID of Content Key. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    private final @Nullable String contentKeyId;
+    private @Nullable String contentKeyId;
     /**
      * @return Label of Content Key as specified in the Streaming Policy. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    private final @Nullable String labelReferenceInStreamingPolicy;
+    private @Nullable String labelReferenceInStreamingPolicy;
     /**
      * @return Content Key Policy used by Content Key. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    private final @Nullable String policyName;
+    private @Nullable String policyName;
     /**
      * @return Encryption type of Content Key. Supported values are `CommonEncryptionCbcs`, `CommonEncryptionCenc` or `EnvelopeEncryption`. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return Value of Content Key. Changing this forces a new Streaming Locator to be created.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private StreamingLocatorContentKey(
-        @CustomType.Parameter("contentKeyId") @Nullable String contentKeyId,
-        @CustomType.Parameter("labelReferenceInStreamingPolicy") @Nullable String labelReferenceInStreamingPolicy,
-        @CustomType.Parameter("policyName") @Nullable String policyName,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.contentKeyId = contentKeyId;
-        this.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
-        this.policyName = policyName;
-        this.type = type;
-        this.value = value;
-    }
-
+    private StreamingLocatorContentKey() {}
     /**
      * @return ID of Content Key. Changing this forces a new Streaming Locator to be created.
      * 
@@ -94,18 +81,14 @@ public final class StreamingLocatorContentKey {
     public static Builder builder(StreamingLocatorContentKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contentKeyId;
         private @Nullable String labelReferenceInStreamingPolicy;
         private @Nullable String policyName;
         private @Nullable String type;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingLocatorContentKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentKeyId = defaults.contentKeyId;
@@ -115,27 +98,39 @@ public final class StreamingLocatorContentKey {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder contentKeyId(@Nullable String contentKeyId) {
             this.contentKeyId = contentKeyId;
             return this;
         }
+        @CustomType.Setter
         public Builder labelReferenceInStreamingPolicy(@Nullable String labelReferenceInStreamingPolicy) {
             this.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
             this.policyName = policyName;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public StreamingLocatorContentKey build() {
-            return new StreamingLocatorContentKey(contentKeyId, labelReferenceInStreamingPolicy, policyName, type, value);
+        }
+        public StreamingLocatorContentKey build() {
+            final var o = new StreamingLocatorContentKey();
+            o.contentKeyId = contentKeyId;
+            o.labelReferenceInStreamingPolicy = labelReferenceInStreamingPolicy;
+            o.policyName = policyName;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

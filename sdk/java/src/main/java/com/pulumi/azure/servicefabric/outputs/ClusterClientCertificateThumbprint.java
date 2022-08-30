@@ -14,21 +14,14 @@ public final class ClusterClientCertificateThumbprint {
      * @return Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
      * 
      */
-    private final Boolean isAdmin;
+    private Boolean isAdmin;
     /**
      * @return The Thumbprint associated with the Client Certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
 
-    @CustomType.Constructor
-    private ClusterClientCertificateThumbprint(
-        @CustomType.Parameter("isAdmin") Boolean isAdmin,
-        @CustomType.Parameter("thumbprint") String thumbprint) {
-        this.isAdmin = isAdmin;
-        this.thumbprint = thumbprint;
-    }
-
+    private ClusterClientCertificateThumbprint() {}
     /**
      * @return Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
      * 
@@ -51,30 +44,32 @@ public final class ClusterClientCertificateThumbprint {
     public static Builder builder(ClusterClientCertificateThumbprint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean isAdmin;
         private String thumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClientCertificateThumbprint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isAdmin = defaults.isAdmin;
     	      this.thumbprint = defaults.thumbprint;
         }
 
+        @CustomType.Setter
         public Builder isAdmin(Boolean isAdmin) {
             this.isAdmin = Objects.requireNonNull(isAdmin);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
-        }        public ClusterClientCertificateThumbprint build() {
-            return new ClusterClientCertificateThumbprint(isAdmin, thumbprint);
+        }
+        public ClusterClientCertificateThumbprint build() {
+            final var o = new ClusterClientCertificateThumbprint();
+            o.isAdmin = isAdmin;
+            o.thumbprint = thumbprint;
+            return o;
         }
     }
 }

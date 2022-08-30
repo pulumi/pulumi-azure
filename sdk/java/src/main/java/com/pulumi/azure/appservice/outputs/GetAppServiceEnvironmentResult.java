@@ -17,80 +17,55 @@ public final class GetAppServiceEnvironmentResult {
      * @return Zero or more `cluster_setting` blocks as defined below.
      * 
      */
-    private final List<GetAppServiceEnvironmentClusterSetting> clusterSettings;
+    private List<GetAppServiceEnvironmentClusterSetting> clusterSettings;
     /**
      * @return The number of app instances per App Service Environment Front End.
      * 
      */
-    private final Integer frontEndScaleFactor;
+    private Integer frontEndScaleFactor;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return IP address of internal load balancer of the App Service Environment.
      * 
      */
-    private final String internalIpAddress;
+    private String internalIpAddress;
     /**
      * @return The Azure Region where the App Service Environment exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Cluster Setting.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return List of outbound IP addresses of the App Service Environment.
      * 
      */
-    private final List<String> outboundIpAddresses;
+    private List<String> outboundIpAddresses;
     /**
      * @return The Pricing Tier (Isolated SKU) of the App Service Environment.
      * 
      */
-    private final String pricingTier;
-    private final String resourceGroupName;
+    private String pricingTier;
+    private String resourceGroupName;
     /**
      * @return IP address of service endpoint of the App Service Environment.
      * 
      */
-    private final String serviceIpAddress;
+    private String serviceIpAddress;
     /**
      * @return A mapping of tags assigned to the App Service Environment.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAppServiceEnvironmentResult(
-        @CustomType.Parameter("clusterSettings") List<GetAppServiceEnvironmentClusterSetting> clusterSettings,
-        @CustomType.Parameter("frontEndScaleFactor") Integer frontEndScaleFactor,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("internalIpAddress") String internalIpAddress,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundIpAddresses") List<String> outboundIpAddresses,
-        @CustomType.Parameter("pricingTier") String pricingTier,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceIpAddress") String serviceIpAddress,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.clusterSettings = clusterSettings;
-        this.frontEndScaleFactor = frontEndScaleFactor;
-        this.id = id;
-        this.internalIpAddress = internalIpAddress;
-        this.location = location;
-        this.name = name;
-        this.outboundIpAddresses = outboundIpAddresses;
-        this.pricingTier = pricingTier;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceIpAddress = serviceIpAddress;
-        this.tags = tags;
-    }
-
+    private GetAppServiceEnvironmentResult() {}
     /**
      * @return Zero or more `cluster_setting` blocks as defined below.
      * 
@@ -172,7 +147,7 @@ public final class GetAppServiceEnvironmentResult {
     public static Builder builder(GetAppServiceEnvironmentResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetAppServiceEnvironmentClusterSetting> clusterSettings;
         private Integer frontEndScaleFactor;
@@ -185,11 +160,7 @@ public final class GetAppServiceEnvironmentResult {
         private String resourceGroupName;
         private String serviceIpAddress;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServiceEnvironmentResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterSettings = defaults.clusterSettings;
@@ -205,6 +176,7 @@ public final class GetAppServiceEnvironmentResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder clusterSettings(List<GetAppServiceEnvironmentClusterSetting> clusterSettings) {
             this.clusterSettings = Objects.requireNonNull(clusterSettings);
             return this;
@@ -212,26 +184,32 @@ public final class GetAppServiceEnvironmentResult {
         public Builder clusterSettings(GetAppServiceEnvironmentClusterSetting... clusterSettings) {
             return clusterSettings(List.of(clusterSettings));
         }
+        @CustomType.Setter
         public Builder frontEndScaleFactor(Integer frontEndScaleFactor) {
             this.frontEndScaleFactor = Objects.requireNonNull(frontEndScaleFactor);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder internalIpAddress(String internalIpAddress) {
             this.internalIpAddress = Objects.requireNonNull(internalIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundIpAddresses(List<String> outboundIpAddresses) {
             this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
             return this;
@@ -239,23 +217,40 @@ public final class GetAppServiceEnvironmentResult {
         public Builder outboundIpAddresses(String... outboundIpAddresses) {
             return outboundIpAddresses(List.of(outboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder pricingTier(String pricingTier) {
             this.pricingTier = Objects.requireNonNull(pricingTier);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceIpAddress(String serviceIpAddress) {
             this.serviceIpAddress = Objects.requireNonNull(serviceIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAppServiceEnvironmentResult build() {
-            return new GetAppServiceEnvironmentResult(clusterSettings, frontEndScaleFactor, id, internalIpAddress, location, name, outboundIpAddresses, pricingTier, resourceGroupName, serviceIpAddress, tags);
+        }
+        public GetAppServiceEnvironmentResult build() {
+            final var o = new GetAppServiceEnvironmentResult();
+            o.clusterSettings = clusterSettings;
+            o.frontEndScaleFactor = frontEndScaleFactor;
+            o.id = id;
+            o.internalIpAddress = internalIpAddress;
+            o.location = location;
+            o.name = name;
+            o.outboundIpAddresses = outboundIpAddresses;
+            o.pricingTier = pricingTier;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceIpAddress = serviceIpAddress;
+            o.tags = tags;
+            return o;
         }
     }
 }

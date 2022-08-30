@@ -14,35 +14,24 @@ public final class GetPoolCertificate {
      * @return The fully qualified ID of the certificate installed on the pool.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the certificate store on the compute node into which the certificate is installed, either `CurrentUser` or `LocalMachine`.
      * 
      */
-    private final String storeLocation;
+    private String storeLocation;
     /**
      * @return The name of the certificate store on the compute node into which the certificate is installed.
      * 
      */
-    private final String storeName;
+    private String storeName;
     /**
      * @return Which user accounts on the compute node have access to the private data of the certificate.
      * 
      */
-    private final List<String> visibilities;
+    private List<String> visibilities;
 
-    @CustomType.Constructor
-    private GetPoolCertificate(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("storeLocation") String storeLocation,
-        @CustomType.Parameter("storeName") String storeName,
-        @CustomType.Parameter("visibilities") List<String> visibilities) {
-        this.id = id;
-        this.storeLocation = storeLocation;
-        this.storeName = storeName;
-        this.visibilities = visibilities;
-    }
-
+    private GetPoolCertificate() {}
     /**
      * @return The fully qualified ID of the certificate installed on the pool.
      * 
@@ -79,17 +68,13 @@ public final class GetPoolCertificate {
     public static Builder builder(GetPoolCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String storeLocation;
         private String storeName;
         private List<String> visibilities;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -98,26 +83,36 @@ public final class GetPoolCertificate {
     	      this.visibilities = defaults.visibilities;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder storeLocation(String storeLocation) {
             this.storeLocation = Objects.requireNonNull(storeLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder storeName(String storeName) {
             this.storeName = Objects.requireNonNull(storeName);
             return this;
         }
+        @CustomType.Setter
         public Builder visibilities(List<String> visibilities) {
             this.visibilities = Objects.requireNonNull(visibilities);
             return this;
         }
         public Builder visibilities(String... visibilities) {
             return visibilities(List.of(visibilities));
-        }        public GetPoolCertificate build() {
-            return new GetPoolCertificate(id, storeLocation, storeName, visibilities);
+        }
+        public GetPoolCertificate build() {
+            final var o = new GetPoolCertificate();
+            o.id = id;
+            o.storeLocation = storeLocation;
+            o.storeName = storeName;
+            o.visibilities = visibilities;
+            return o;
         }
     }
 }

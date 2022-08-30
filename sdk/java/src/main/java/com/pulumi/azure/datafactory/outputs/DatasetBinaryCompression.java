@@ -15,21 +15,14 @@ public final class DatasetBinaryCompression {
      * @return The level of compression. Possible values are `Fastest` and `Optimal`.
      * 
      */
-    private final @Nullable String level;
+    private @Nullable String level;
     /**
      * @return The type of compression used during transport.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DatasetBinaryCompression(
-        @CustomType.Parameter("level") @Nullable String level,
-        @CustomType.Parameter("type") String type) {
-        this.level = level;
-        this.type = type;
-    }
-
+    private DatasetBinaryCompression() {}
     /**
      * @return The level of compression. Possible values are `Fastest` and `Optimal`.
      * 
@@ -52,30 +45,32 @@ public final class DatasetBinaryCompression {
     public static Builder builder(DatasetBinaryCompression defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String level;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetBinaryCompression defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.level = defaults.level;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder level(@Nullable String level) {
             this.level = level;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DatasetBinaryCompression build() {
-            return new DatasetBinaryCompression(level, type);
+        }
+        public DatasetBinaryCompression build() {
+            final var o = new DatasetBinaryCompression();
+            o.level = level;
+            o.type = type;
+            return o;
         }
     }
 }

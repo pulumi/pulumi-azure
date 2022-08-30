@@ -15,77 +15,54 @@ public final class GetVirtualMachineScaleSetInstance {
      * @return The Hostname of this Virtual Machine.
      * 
      */
-    private final String computerName;
+    private String computerName;
     /**
      * @return The Instance ID of this Virtual Machine.
      * 
      */
-    private final String instanceId;
+    private String instanceId;
     /**
      * @return Whether the latest model has been applied to this Virtual Machine.
      * 
      */
-    private final Boolean latestModelApplied;
+    private Boolean latestModelApplied;
     /**
      * @return The name of this Virtual Machine Scale Set.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Primary Private IP Address assigned to this Virtual Machine.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return A list of Private IP Addresses assigned to this Virtual Machine.
      * 
      */
-    private final List<String> privateIpAddresses;
+    private List<String> privateIpAddresses;
     /**
      * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
      * 
      */
-    private final String publicIpAddress;
+    private String publicIpAddress;
     /**
      * @return A list of the Public IP Addresses assigned to this Virtual Machine.
      * 
      */
-    private final List<String> publicIpAddresses;
+    private List<String> publicIpAddresses;
     /**
      * @return The unique ID of the virtual machine.
      * 
      */
-    private final String virtualMachineId;
+    private String virtualMachineId;
     /**
      * @return The zones of the virtual machine.
      * 
      */
-    private final String zone;
+    private String zone;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetInstance(
-        @CustomType.Parameter("computerName") String computerName,
-        @CustomType.Parameter("instanceId") String instanceId,
-        @CustomType.Parameter("latestModelApplied") Boolean latestModelApplied,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("publicIpAddress") String publicIpAddress,
-        @CustomType.Parameter("publicIpAddresses") List<String> publicIpAddresses,
-        @CustomType.Parameter("virtualMachineId") String virtualMachineId,
-        @CustomType.Parameter("zone") String zone) {
-        this.computerName = computerName;
-        this.instanceId = instanceId;
-        this.latestModelApplied = latestModelApplied;
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddresses = privateIpAddresses;
-        this.publicIpAddress = publicIpAddress;
-        this.publicIpAddresses = publicIpAddresses;
-        this.virtualMachineId = virtualMachineId;
-        this.zone = zone;
-    }
-
+    private GetVirtualMachineScaleSetInstance() {}
     /**
      * @return The Hostname of this Virtual Machine.
      * 
@@ -164,7 +141,7 @@ public final class GetVirtualMachineScaleSetInstance {
     public static Builder builder(GetVirtualMachineScaleSetInstance defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String computerName;
         private String instanceId;
@@ -176,11 +153,7 @@ public final class GetVirtualMachineScaleSetInstance {
         private List<String> publicIpAddresses;
         private String virtualMachineId;
         private String zone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetInstance defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.computerName = defaults.computerName;
@@ -195,26 +168,32 @@ public final class GetVirtualMachineScaleSetInstance {
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
         public Builder computerName(String computerName) {
             this.computerName = Objects.requireNonNull(computerName);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceId(String instanceId) {
             this.instanceId = Objects.requireNonNull(instanceId);
             return this;
         }
+        @CustomType.Setter
         public Builder latestModelApplied(Boolean latestModelApplied) {
             this.latestModelApplied = Objects.requireNonNull(latestModelApplied);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -222,10 +201,12 @@ public final class GetVirtualMachineScaleSetInstance {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder publicIpAddress(String publicIpAddress) {
             this.publicIpAddress = Objects.requireNonNull(publicIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(List<String> publicIpAddresses) {
             this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
             return this;
@@ -233,15 +214,29 @@ public final class GetVirtualMachineScaleSetInstance {
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder virtualMachineId(String virtualMachineId) {
             this.virtualMachineId = Objects.requireNonNull(virtualMachineId);
             return this;
         }
+        @CustomType.Setter
         public Builder zone(String zone) {
             this.zone = Objects.requireNonNull(zone);
             return this;
-        }        public GetVirtualMachineScaleSetInstance build() {
-            return new GetVirtualMachineScaleSetInstance(computerName, instanceId, latestModelApplied, name, privateIpAddress, privateIpAddresses, publicIpAddress, publicIpAddresses, virtualMachineId, zone);
+        }
+        public GetVirtualMachineScaleSetInstance build() {
+            final var o = new GetVirtualMachineScaleSetInstance();
+            o.computerName = computerName;
+            o.instanceId = instanceId;
+            o.latestModelApplied = latestModelApplied;
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddresses = privateIpAddresses;
+            o.publicIpAddress = publicIpAddress;
+            o.publicIpAddresses = publicIpAddresses;
+            o.virtualMachineId = virtualMachineId;
+            o.zone = zone;
+            return o;
         }
     }
 }

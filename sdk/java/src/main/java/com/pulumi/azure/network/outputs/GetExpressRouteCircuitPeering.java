@@ -14,56 +14,39 @@ public final class GetExpressRouteCircuitPeering {
      * @return The Either a 16-bit or a 32-bit ASN for Azure.
      * 
      */
-    private final Integer azureAsn;
+    private Integer azureAsn;
     /**
      * @return The Either a 16-bit or a 32-bit ASN. Can either be public or private.
      * 
      */
-    private final Integer peerAsn;
+    private Integer peerAsn;
     /**
      * @return The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. Changing this forces a new resource to be created.
      * 
      */
-    private final String peeringType;
+    private String peeringType;
     /**
      * @return A `/30` subnet for the primary link.
      * 
      */
-    private final String primaryPeerAddressPrefix;
+    private String primaryPeerAddressPrefix;
     /**
      * @return A `/30` subnet for the secondary link.
      * 
      */
-    private final String secondaryPeerAddressPrefix;
+    private String secondaryPeerAddressPrefix;
     /**
      * @return The shared key. Can be a maximum of 25 characters.
      * 
      */
-    private final String sharedKey;
+    private String sharedKey;
     /**
      * @return A valid VLAN ID to establish this peering on.
      * 
      */
-    private final Integer vlanId;
+    private Integer vlanId;
 
-    @CustomType.Constructor
-    private GetExpressRouteCircuitPeering(
-        @CustomType.Parameter("azureAsn") Integer azureAsn,
-        @CustomType.Parameter("peerAsn") Integer peerAsn,
-        @CustomType.Parameter("peeringType") String peeringType,
-        @CustomType.Parameter("primaryPeerAddressPrefix") String primaryPeerAddressPrefix,
-        @CustomType.Parameter("secondaryPeerAddressPrefix") String secondaryPeerAddressPrefix,
-        @CustomType.Parameter("sharedKey") String sharedKey,
-        @CustomType.Parameter("vlanId") Integer vlanId) {
-        this.azureAsn = azureAsn;
-        this.peerAsn = peerAsn;
-        this.peeringType = peeringType;
-        this.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
-        this.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
-        this.sharedKey = sharedKey;
-        this.vlanId = vlanId;
-    }
-
+    private GetExpressRouteCircuitPeering() {}
     /**
      * @return The Either a 16-bit or a 32-bit ASN for Azure.
      * 
@@ -121,7 +104,7 @@ public final class GetExpressRouteCircuitPeering {
     public static Builder builder(GetExpressRouteCircuitPeering defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer azureAsn;
         private Integer peerAsn;
@@ -130,11 +113,7 @@ public final class GetExpressRouteCircuitPeering {
         private String secondaryPeerAddressPrefix;
         private String sharedKey;
         private Integer vlanId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExpressRouteCircuitPeering defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureAsn = defaults.azureAsn;
@@ -146,35 +125,51 @@ public final class GetExpressRouteCircuitPeering {
     	      this.vlanId = defaults.vlanId;
         }
 
+        @CustomType.Setter
         public Builder azureAsn(Integer azureAsn) {
             this.azureAsn = Objects.requireNonNull(azureAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder peerAsn(Integer peerAsn) {
             this.peerAsn = Objects.requireNonNull(peerAsn);
             return this;
         }
+        @CustomType.Setter
         public Builder peeringType(String peeringType) {
             this.peeringType = Objects.requireNonNull(peeringType);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryPeerAddressPrefix(String primaryPeerAddressPrefix) {
             this.primaryPeerAddressPrefix = Objects.requireNonNull(primaryPeerAddressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryPeerAddressPrefix(String secondaryPeerAddressPrefix) {
             this.secondaryPeerAddressPrefix = Objects.requireNonNull(secondaryPeerAddressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder sharedKey(String sharedKey) {
             this.sharedKey = Objects.requireNonNull(sharedKey);
             return this;
         }
+        @CustomType.Setter
         public Builder vlanId(Integer vlanId) {
             this.vlanId = Objects.requireNonNull(vlanId);
             return this;
-        }        public GetExpressRouteCircuitPeering build() {
-            return new GetExpressRouteCircuitPeering(azureAsn, peerAsn, peeringType, primaryPeerAddressPrefix, secondaryPeerAddressPrefix, sharedKey, vlanId);
+        }
+        public GetExpressRouteCircuitPeering build() {
+            final var o = new GetExpressRouteCircuitPeering();
+            o.azureAsn = azureAsn;
+            o.peerAsn = peerAsn;
+            o.peeringType = peeringType;
+            o.primaryPeerAddressPrefix = primaryPeerAddressPrefix;
+            o.secondaryPeerAddressPrefix = secondaryPeerAddressPrefix;
+            o.sharedKey = sharedKey;
+            o.vlanId = vlanId;
+            return o;
         }
     }
 }

@@ -15,42 +15,29 @@ public final class NetworkPacketCaptureFilter {
      * @return The local IP Address to be filtered on. Notation: &#34;127.0.0.1&#34; for single address entry. &#34;127.0.0.1-127.0.0.255&#34; for range. &#34;127.0.0.1;127.0.0.5&#34; for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String localIpAddress;
+    private @Nullable String localIpAddress;
     /**
      * @return The local port to be filtered on. Notation: &#34;80&#34; for single port entry.&#34;80-85&#34; for range. &#34;80;443;&#34; for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String localPort;
+    private @Nullable String localPort;
     /**
      * @return The Protocol to be filtered on. Possible values include `Any`, `TCP` and `UDP`. Changing this forces a new resource to be created.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return The remote IP Address to be filtered on. Notation: &#34;127.0.0.1&#34; for single address entry. &#34;127.0.0.1-127.0.0.255&#34; for range. &#34;127.0.0.1;127.0.0.5;&#34; for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported.. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String remoteIpAddress;
+    private @Nullable String remoteIpAddress;
     /**
      * @return The remote port to be filtered on. Notation: &#34;80&#34; for single port entry.&#34;80-85&#34; for range. &#34;80;443;&#34; for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String remotePort;
+    private @Nullable String remotePort;
 
-    @CustomType.Constructor
-    private NetworkPacketCaptureFilter(
-        @CustomType.Parameter("localIpAddress") @Nullable String localIpAddress,
-        @CustomType.Parameter("localPort") @Nullable String localPort,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("remoteIpAddress") @Nullable String remoteIpAddress,
-        @CustomType.Parameter("remotePort") @Nullable String remotePort) {
-        this.localIpAddress = localIpAddress;
-        this.localPort = localPort;
-        this.protocol = protocol;
-        this.remoteIpAddress = remoteIpAddress;
-        this.remotePort = remotePort;
-    }
-
+    private NetworkPacketCaptureFilter() {}
     /**
      * @return The local IP Address to be filtered on. Notation: &#34;127.0.0.1&#34; for single address entry. &#34;127.0.0.1-127.0.0.255&#34; for range. &#34;127.0.0.1;127.0.0.5&#34; for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
      * 
@@ -94,18 +81,14 @@ public final class NetworkPacketCaptureFilter {
     public static Builder builder(NetworkPacketCaptureFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String localIpAddress;
         private @Nullable String localPort;
         private String protocol;
         private @Nullable String remoteIpAddress;
         private @Nullable String remotePort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkPacketCaptureFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.localIpAddress = defaults.localIpAddress;
@@ -115,27 +98,39 @@ public final class NetworkPacketCaptureFilter {
     	      this.remotePort = defaults.remotePort;
         }
 
+        @CustomType.Setter
         public Builder localIpAddress(@Nullable String localIpAddress) {
             this.localIpAddress = localIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder localPort(@Nullable String localPort) {
             this.localPort = localPort;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteIpAddress(@Nullable String remoteIpAddress) {
             this.remoteIpAddress = remoteIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder remotePort(@Nullable String remotePort) {
             this.remotePort = remotePort;
             return this;
-        }        public NetworkPacketCaptureFilter build() {
-            return new NetworkPacketCaptureFilter(localIpAddress, localPort, protocol, remoteIpAddress, remotePort);
+        }
+        public NetworkPacketCaptureFilter build() {
+            final var o = new NetworkPacketCaptureFilter();
+            o.localIpAddress = localIpAddress;
+            o.localPort = localPort;
+            o.protocol = protocol;
+            o.remoteIpAddress = remoteIpAddress;
+            o.remotePort = remotePort;
+            return o;
         }
     }
 }

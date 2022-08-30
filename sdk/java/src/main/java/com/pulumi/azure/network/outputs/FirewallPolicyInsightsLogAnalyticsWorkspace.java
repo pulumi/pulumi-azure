@@ -13,21 +13,14 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
      * @return The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
      * 
      */
-    private final String firewallLocation;
+    private String firewallLocation;
     /**
      * @return The ID of the Log Analytics Workspace that the Firewalls associated with this Firewall Policy will send their logs to when their locations match the `firewall_location`.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private FirewallPolicyInsightsLogAnalyticsWorkspace(
-        @CustomType.Parameter("firewallLocation") String firewallLocation,
-        @CustomType.Parameter("id") String id) {
-        this.firewallLocation = firewallLocation;
-        this.id = id;
-    }
-
+    private FirewallPolicyInsightsLogAnalyticsWorkspace() {}
     /**
      * @return The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs.
      * 
@@ -50,30 +43,32 @@ public final class FirewallPolicyInsightsLogAnalyticsWorkspace {
     public static Builder builder(FirewallPolicyInsightsLogAnalyticsWorkspace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String firewallLocation;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyInsightsLogAnalyticsWorkspace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.firewallLocation = defaults.firewallLocation;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder firewallLocation(String firewallLocation) {
             this.firewallLocation = Objects.requireNonNull(firewallLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public FirewallPolicyInsightsLogAnalyticsWorkspace build() {
-            return new FirewallPolicyInsightsLogAnalyticsWorkspace(firewallLocation, id);
+        }
+        public FirewallPolicyInsightsLogAnalyticsWorkspace build() {
+            final var o = new FirewallPolicyInsightsLogAnalyticsWorkspace();
+            o.firewallLocation = firewallLocation;
+            o.id = id;
+            return o;
         }
     }
 }

@@ -21,130 +21,85 @@ public final class FunctionAppSlotSiteConfig {
      * @return Should the Function App be loaded at all times? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean alwaysOn;
+    private @Nullable Boolean alwaysOn;
     /**
      * @return The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
      * 
      */
-    private final @Nullable Integer appScaleLimit;
+    private @Nullable Integer appScaleLimit;
     /**
      * @return The name of the slot to automatically swap to during deployment
      * 
      */
-    private final @Nullable String autoSwapSlotName;
+    private @Nullable String autoSwapSlotName;
     /**
      * @return A `cors` block as defined below.
      * 
      */
-    private final @Nullable FunctionAppSlotSiteConfigCors cors;
+    private @Nullable FunctionAppSlotSiteConfigCors cors;
     /**
      * @return The version of the .NET framework&#39;s CLR used in this function app. Possible values are `v4.0` (including .NET Core 2.1 and 3.1), `v5.0` and `v6.0`. [For more information on which .NET Framework version to use based on the runtime version you&#39;re targeting - please see this table](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-class-library#supported-versions). Defaults to `v4.0`.
      * 
      */
-    private final @Nullable String dotnetFrameworkVersion;
+    private @Nullable String dotnetFrameworkVersion;
     /**
      * @return The number of minimum instances for this function app. Only applicable to apps on the Premium plan.
      * 
      */
-    private final @Nullable Integer elasticInstanceMinimum;
+    private @Nullable Integer elasticInstanceMinimum;
     /**
      * @return State of FTP / FTPS service for this function app. Possible values include: `AllAllowed`, `FtpsOnly` and `Disabled`.
      * 
      */
-    private final @Nullable String ftpsState;
-    private final @Nullable String healthCheckPath;
+    private @Nullable String ftpsState;
+    private @Nullable String healthCheckPath;
     /**
      * @return Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean http2Enabled;
+    private @Nullable Boolean http2Enabled;
     /**
      * @return A [List of objects](https://www.terraform.io/docs/configuration/attr-as-blocks.html) representing IP restrictions as defined below.
      * 
      */
-    private final @Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions;
-    private final @Nullable String javaVersion;
+    private @Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions;
+    private @Nullable String javaVersion;
     /**
      * @return Linux App Framework and version for the AppService, e.g. `DOCKER|(golang:latest)`.
      * 
      */
-    private final @Nullable String linuxFxVersion;
+    private @Nullable String linuxFxVersion;
     /**
      * @return The minimum supported TLS version for the function app. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new function apps.
      * 
      */
-    private final @Nullable String minTlsVersion;
+    private @Nullable String minTlsVersion;
     /**
      * @return The number of pre-warmed instances for this function app. Only affects apps on the Premium plan.
      * 
      */
-    private final @Nullable Integer preWarmedInstanceCount;
+    private @Nullable Integer preWarmedInstanceCount;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean runtimeScaleMonitoringEnabled;
-    private final @Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
-    private final @Nullable String scmType;
-    private final @Nullable Boolean scmUseMainIpRestriction;
+    private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private @Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions;
+    private @Nullable String scmType;
+    private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Function App run in 32 bit mode, rather than 64 bit mode? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean use32BitWorkerProcess;
-    private final @Nullable Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean use32BitWorkerProcess;
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should WebSockets be enabled?
      * 
      */
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean websocketsEnabled;
 
-    @CustomType.Constructor
-    private FunctionAppSlotSiteConfig(
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("appScaleLimit") @Nullable Integer appScaleLimit,
-        @CustomType.Parameter("autoSwapSlotName") @Nullable String autoSwapSlotName,
-        @CustomType.Parameter("cors") @Nullable FunctionAppSlotSiteConfigCors cors,
-        @CustomType.Parameter("dotnetFrameworkVersion") @Nullable String dotnetFrameworkVersion,
-        @CustomType.Parameter("elasticInstanceMinimum") @Nullable Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") @Nullable String ftpsState,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") @Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("linuxFxVersion") @Nullable String linuxFxVersion,
-        @CustomType.Parameter("minTlsVersion") @Nullable String minTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") @Nullable Integer preWarmedInstanceCount,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") @Nullable Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("scmIpRestrictions") @Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmType") @Nullable String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") @Nullable Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorkerProcess") @Nullable Boolean use32BitWorkerProcess,
-        @CustomType.Parameter("vnetRouteAllEnabled") @Nullable Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled) {
-        this.alwaysOn = alwaysOn;
-        this.appScaleLimit = appScaleLimit;
-        this.autoSwapSlotName = autoSwapSlotName;
-        this.cors = cors;
-        this.dotnetFrameworkVersion = dotnetFrameworkVersion;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.javaVersion = javaVersion;
-        this.linuxFxVersion = linuxFxVersion;
-        this.minTlsVersion = minTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorkerProcess = use32BitWorkerProcess;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-    }
-
+    private FunctionAppSlotSiteConfig() {}
     /**
      * @return Should the Function App be loaded at all times? Defaults to `false`.
      * 
@@ -276,7 +231,7 @@ public final class FunctionAppSlotSiteConfig {
     public static Builder builder(FunctionAppSlotSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private @Nullable Integer appScaleLimit;
@@ -299,11 +254,7 @@ public final class FunctionAppSlotSiteConfig {
         private @Nullable Boolean use32BitWorkerProcess;
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionAppSlotSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -329,42 +280,52 @@ public final class FunctionAppSlotSiteConfig {
     	      this.websocketsEnabled = defaults.websocketsEnabled;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(@Nullable Integer appScaleLimit) {
             this.appScaleLimit = appScaleLimit;
             return this;
         }
+        @CustomType.Setter
         public Builder autoSwapSlotName(@Nullable String autoSwapSlotName) {
             this.autoSwapSlotName = autoSwapSlotName;
             return this;
         }
+        @CustomType.Setter
         public Builder cors(@Nullable FunctionAppSlotSiteConfigCors cors) {
             this.cors = cors;
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(@Nullable Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = elasticInstanceMinimum;
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
             this.ftpsState = ftpsState;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<FunctionAppSlotSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = ipRestrictions;
             return this;
@@ -372,26 +333,32 @@ public final class FunctionAppSlotSiteConfig {
         public Builder ipRestrictions(FunctionAppSlotSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(@Nullable String minTlsVersion) {
             this.minTlsVersion = minTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(@Nullable Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = preWarmedInstanceCount;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<FunctionAppSlotSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
@@ -399,27 +366,55 @@ public final class FunctionAppSlotSiteConfig {
         public Builder scmIpRestrictions(FunctionAppSlotSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
             this.scmType = scmType;
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
-        }        public FunctionAppSlotSiteConfig build() {
-            return new FunctionAppSlotSiteConfig(alwaysOn, appScaleLimit, autoSwapSlotName, cors, dotnetFrameworkVersion, elasticInstanceMinimum, ftpsState, healthCheckPath, http2Enabled, ipRestrictions, javaVersion, linuxFxVersion, minTlsVersion, preWarmedInstanceCount, runtimeScaleMonitoringEnabled, scmIpRestrictions, scmType, scmUseMainIpRestriction, use32BitWorkerProcess, vnetRouteAllEnabled, websocketsEnabled);
+        }
+        public FunctionAppSlotSiteConfig build() {
+            final var o = new FunctionAppSlotSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.appScaleLimit = appScaleLimit;
+            o.autoSwapSlotName = autoSwapSlotName;
+            o.cors = cors;
+            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.javaVersion = javaVersion;
+            o.linuxFxVersion = linuxFxVersion;
+            o.minTlsVersion = minTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorkerProcess = use32BitWorkerProcess;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            return o;
         }
     }
 }

@@ -18,42 +18,29 @@ public final class ApplicationGatewaySslProfile {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the SSL Profile that is unique within this Application Gateway.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return a `ssl policy` block as defined below.
      * 
      */
-    private final @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
+    private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
     /**
      * @return The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
      * 
      */
-    private final @Nullable List<String> trustedClientCertificateNames;
+    private @Nullable List<String> trustedClientCertificateNames;
     /**
      * @return Should client certificate issuer DN be verified?  Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean verifyClientCertIssuerDn;
+    private @Nullable Boolean verifyClientCertIssuerDn;
 
-    @CustomType.Constructor
-    private ApplicationGatewaySslProfile(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sslPolicy") @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy,
-        @CustomType.Parameter("trustedClientCertificateNames") @Nullable List<String> trustedClientCertificateNames,
-        @CustomType.Parameter("verifyClientCertIssuerDn") @Nullable Boolean verifyClientCertIssuerDn) {
-        this.id = id;
-        this.name = name;
-        this.sslPolicy = sslPolicy;
-        this.trustedClientCertificateNames = trustedClientCertificateNames;
-        this.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
-    }
-
+    private ApplicationGatewaySslProfile() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -97,18 +84,14 @@ public final class ApplicationGatewaySslProfile {
     public static Builder builder(ApplicationGatewaySslProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
         private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
         private @Nullable List<String> trustedClientCertificateNames;
         private @Nullable Boolean verifyClientCertIssuerDn;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewaySslProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -118,18 +101,22 @@ public final class ApplicationGatewaySslProfile {
     	      this.verifyClientCertIssuerDn = defaults.verifyClientCertIssuerDn;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sslPolicy(@Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy) {
             this.sslPolicy = sslPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder trustedClientCertificateNames(@Nullable List<String> trustedClientCertificateNames) {
             this.trustedClientCertificateNames = trustedClientCertificateNames;
             return this;
@@ -137,11 +124,19 @@ public final class ApplicationGatewaySslProfile {
         public Builder trustedClientCertificateNames(String... trustedClientCertificateNames) {
             return trustedClientCertificateNames(List.of(trustedClientCertificateNames));
         }
+        @CustomType.Setter
         public Builder verifyClientCertIssuerDn(@Nullable Boolean verifyClientCertIssuerDn) {
             this.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
             return this;
-        }        public ApplicationGatewaySslProfile build() {
-            return new ApplicationGatewaySslProfile(id, name, sslPolicy, trustedClientCertificateNames, verifyClientCertIssuerDn);
+        }
+        public ApplicationGatewaySslProfile build() {
+            final var o = new ApplicationGatewaySslProfile();
+            o.id = id;
+            o.name = name;
+            o.sslPolicy = sslPolicy;
+            o.trustedClientCertificateNames = trustedClientCertificateNames;
+            o.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
+            return o;
         }
     }
 }

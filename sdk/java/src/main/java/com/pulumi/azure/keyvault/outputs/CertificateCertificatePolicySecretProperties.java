@@ -13,13 +13,9 @@ public final class CertificateCertificatePolicySecretProperties {
      * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
      * 
      */
-    private final String contentType;
+    private String contentType;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicySecretProperties(@CustomType.Parameter("contentType") String contentType) {
-        this.contentType = contentType;
-    }
-
+    private CertificateCertificatePolicySecretProperties() {}
     /**
      * @return The Content-Type of the Certificate, such as `application/x-pkcs12` for a PFX or `application/x-pem-file` for a PEM. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class CertificateCertificatePolicySecretProperties {
     public static Builder builder(CertificateCertificatePolicySecretProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicySecretProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
-        }        public CertificateCertificatePolicySecretProperties build() {
-            return new CertificateCertificatePolicySecretProperties(contentType);
+        }
+        public CertificateCertificatePolicySecretProperties build() {
+            final var o = new CertificateCertificatePolicySecretProperties();
+            o.contentType = contentType;
+            return o;
         }
     }
 }

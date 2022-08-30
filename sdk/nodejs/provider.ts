@@ -58,15 +58,19 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly msiEndpoint!: pulumi.Output<string | undefined>;
     /**
-     * The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      */
     public readonly oidcRequestToken!: pulumi.Output<string | undefined>;
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      */
     public readonly oidcRequestUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     */
+    public readonly oidcToken!: pulumi.Output<string | undefined>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */
@@ -104,6 +108,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["msiEndpoint"] = args ? args.msiEndpoint : undefined;
             resourceInputs["oidcRequestToken"] = args ? args.oidcRequestToken : undefined;
             resourceInputs["oidcRequestUrl"] = args ? args.oidcRequestUrl : undefined;
+            resourceInputs["oidcToken"] = args ? args.oidcToken : undefined;
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["skipProviderRegistration"] = pulumi.output((args ? args.skipProviderRegistration : undefined) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             resourceInputs["storageUseAzuread"] = pulumi.output((args ? args.storageUseAzuread : undefined) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
@@ -163,15 +168,19 @@ export interface ProviderArgs {
      */
     msiEndpoint?: pulumi.Input<string>;
     /**
-     * The bearer token for the request to the OIDC provider. For use When authenticating as a Service Principal using OpenID
+     * The bearer token for the request to the OIDC provider. For use when authenticating as a Service Principal using OpenID
      * Connect.
      */
     oidcRequestToken?: pulumi.Input<string>;
     /**
-     * The URL for the OIDC provider from which to request an ID token. For use When authenticating as a Service Principal
+     * The URL for the OIDC provider from which to request an ID token. For use when authenticating as a Service Principal
      * using OpenID Connect.
      */
     oidcRequestUrl?: pulumi.Input<string>;
+    /**
+     * The OIDC ID token for use when authenticating as a Service Principal using OpenID Connect.
+     */
+    oidcToken?: pulumi.Input<string>;
     /**
      * A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
      */

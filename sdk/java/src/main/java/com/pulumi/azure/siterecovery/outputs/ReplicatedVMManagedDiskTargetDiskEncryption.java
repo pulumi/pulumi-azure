@@ -16,21 +16,14 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryption {
      * @return A `disk_encryption_key` block as defined below.
      * 
      */
-    private final ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey;
+    private ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
      */
-    private final @Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey;
+    private @Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey;
 
-    @CustomType.Constructor
-    private ReplicatedVMManagedDiskTargetDiskEncryption(
-        @CustomType.Parameter("diskEncryptionKey") ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey,
-        @CustomType.Parameter("keyEncryptionKey") @Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey) {
-        this.diskEncryptionKey = diskEncryptionKey;
-        this.keyEncryptionKey = keyEncryptionKey;
-    }
-
+    private ReplicatedVMManagedDiskTargetDiskEncryption() {}
     /**
      * @return A `disk_encryption_key` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class ReplicatedVMManagedDiskTargetDiskEncryption {
     public static Builder builder(ReplicatedVMManagedDiskTargetDiskEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey;
         private @Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ReplicatedVMManagedDiskTargetDiskEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKey = defaults.diskEncryptionKey;
     	      this.keyEncryptionKey = defaults.keyEncryptionKey;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionKey(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey diskEncryptionKey) {
             this.diskEncryptionKey = Objects.requireNonNull(diskEncryptionKey);
             return this;
         }
+        @CustomType.Setter
         public Builder keyEncryptionKey(@Nullable ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey keyEncryptionKey) {
             this.keyEncryptionKey = keyEncryptionKey;
             return this;
-        }        public ReplicatedVMManagedDiskTargetDiskEncryption build() {
-            return new ReplicatedVMManagedDiskTargetDiskEncryption(diskEncryptionKey, keyEncryptionKey);
+        }
+        public ReplicatedVMManagedDiskTargetDiskEncryption build() {
+            final var o = new ReplicatedVMManagedDiskTargetDiskEncryption();
+            o.diskEncryptionKey = diskEncryptionKey;
+            o.keyEncryptionKey = keyEncryptionKey;
+            return o;
         }
     }
 }

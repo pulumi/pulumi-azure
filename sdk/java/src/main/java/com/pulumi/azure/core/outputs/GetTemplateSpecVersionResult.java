@@ -14,37 +14,22 @@ public final class GetTemplateSpecVersionResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Template.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The ARM Template body of the Template Spec Version.
      * 
      */
-    private final String templateBody;
-    private final String version;
+    private String templateBody;
+    private String version;
 
-    @CustomType.Constructor
-    private GetTemplateSpecVersionResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("templateBody") String templateBody,
-        @CustomType.Parameter("version") String version) {
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.templateBody = templateBody;
-        this.version = version;
-    }
-
+    private GetTemplateSpecVersionResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -83,7 +68,7 @@ public final class GetTemplateSpecVersionResult {
     public static Builder builder(GetTemplateSpecVersionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -91,11 +76,7 @@ public final class GetTemplateSpecVersionResult {
         private Map<String,String> tags;
         private String templateBody;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTemplateSpecVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -106,31 +87,45 @@ public final class GetTemplateSpecVersionResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder templateBody(String templateBody) {
             this.templateBody = Objects.requireNonNull(templateBody);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetTemplateSpecVersionResult build() {
-            return new GetTemplateSpecVersionResult(id, name, resourceGroupName, tags, templateBody, version);
+        }
+        public GetTemplateSpecVersionResult build() {
+            final var o = new GetTemplateSpecVersionResult();
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.templateBody = templateBody;
+            o.version = version;
+            return o;
         }
     }
 }

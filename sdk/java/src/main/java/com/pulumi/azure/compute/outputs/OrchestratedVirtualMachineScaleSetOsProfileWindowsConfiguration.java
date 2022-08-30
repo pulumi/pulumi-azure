@@ -15,49 +15,26 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
-    private final String adminPassword;
-    private final String adminUsername;
-    private final @Nullable String computerNamePrefix;
-    private final @Nullable Boolean enableAutomaticUpdates;
+    private String adminPassword;
+    private String adminUsername;
+    private @Nullable String computerNamePrefix;
+    private @Nullable Boolean enableAutomaticUpdates;
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
      */
-    private final @Nullable Boolean hotpatchingEnabled;
+    private @Nullable Boolean hotpatchingEnabled;
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
-    private final @Nullable String patchMode;
-    private final @Nullable Boolean provisionVmAgent;
-    private final @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
-    private final @Nullable String timezone;
-    private final @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
+    private @Nullable String patchMode;
+    private @Nullable Boolean provisionVmAgent;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
+    private @Nullable String timezone;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(
-        @CustomType.Parameter("adminPassword") String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("computerNamePrefix") @Nullable String computerNamePrefix,
-        @CustomType.Parameter("enableAutomaticUpdates") @Nullable Boolean enableAutomaticUpdates,
-        @CustomType.Parameter("hotpatchingEnabled") @Nullable Boolean hotpatchingEnabled,
-        @CustomType.Parameter("patchMode") @Nullable String patchMode,
-        @CustomType.Parameter("provisionVmAgent") @Nullable Boolean provisionVmAgent,
-        @CustomType.Parameter("secrets") @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets,
-        @CustomType.Parameter("timezone") @Nullable String timezone,
-        @CustomType.Parameter("winrmListeners") @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners) {
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.computerNamePrefix = computerNamePrefix;
-        this.enableAutomaticUpdates = enableAutomaticUpdates;
-        this.hotpatchingEnabled = hotpatchingEnabled;
-        this.patchMode = patchMode;
-        this.provisionVmAgent = provisionVmAgent;
-        this.secrets = secrets;
-        this.timezone = timezone;
-        this.winrmListeners = winrmListeners;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration() {}
     public String adminPassword() {
         return this.adminPassword;
     }
@@ -104,7 +81,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String adminPassword;
         private String adminUsername;
@@ -116,11 +93,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
         private @Nullable String timezone;
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -135,34 +108,42 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     	      this.winrmListeners = defaults.winrmListeners;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(String adminPassword) {
             this.adminPassword = Objects.requireNonNull(adminPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
             this.computerNamePrefix = computerNamePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder enableAutomaticUpdates(@Nullable Boolean enableAutomaticUpdates) {
             this.enableAutomaticUpdates = enableAutomaticUpdates;
             return this;
         }
+        @CustomType.Setter
         public Builder hotpatchingEnabled(@Nullable Boolean hotpatchingEnabled) {
             this.hotpatchingEnabled = hotpatchingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder patchMode(@Nullable String patchMode) {
             this.patchMode = patchMode;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
+        @CustomType.Setter
         public Builder secrets(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets) {
             this.secrets = secrets;
             return this;
@@ -170,18 +151,32 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         public Builder secrets(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret... secrets) {
             return secrets(List.of(secrets));
         }
+        @CustomType.Setter
         public Builder timezone(@Nullable String timezone) {
             this.timezone = timezone;
             return this;
         }
+        @CustomType.Setter
         public Builder winrmListeners(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners) {
             this.winrmListeners = winrmListeners;
             return this;
         }
         public Builder winrmListeners(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener... winrmListeners) {
             return winrmListeners(List.of(winrmListeners));
-        }        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(adminPassword, adminUsername, computerNamePrefix, enableAutomaticUpdates, hotpatchingEnabled, patchMode, provisionVmAgent, secrets, timezone, winrmListeners);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration();
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.computerNamePrefix = computerNamePrefix;
+            o.enableAutomaticUpdates = enableAutomaticUpdates;
+            o.hotpatchingEnabled = hotpatchingEnabled;
+            o.patchMode = patchMode;
+            o.provisionVmAgent = provisionVmAgent;
+            o.secrets = secrets;
+            o.timezone = timezone;
+            o.winrmListeners = winrmListeners;
+            return o;
         }
     }
 }

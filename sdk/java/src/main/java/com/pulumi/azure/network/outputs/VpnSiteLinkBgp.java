@@ -14,21 +14,14 @@ public final class VpnSiteLinkBgp {
      * @return The BGP speaker&#39;s ASN.
      * 
      */
-    private final Integer asn;
+    private Integer asn;
     /**
      * @return The BGP peering IP address.
      * 
      */
-    private final String peeringAddress;
+    private String peeringAddress;
 
-    @CustomType.Constructor
-    private VpnSiteLinkBgp(
-        @CustomType.Parameter("asn") Integer asn,
-        @CustomType.Parameter("peeringAddress") String peeringAddress) {
-        this.asn = asn;
-        this.peeringAddress = peeringAddress;
-    }
-
+    private VpnSiteLinkBgp() {}
     /**
      * @return The BGP speaker&#39;s ASN.
      * 
@@ -51,30 +44,32 @@ public final class VpnSiteLinkBgp {
     public static Builder builder(VpnSiteLinkBgp defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer asn;
         private String peeringAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnSiteLinkBgp defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
     	      this.peeringAddress = defaults.peeringAddress;
         }
 
+        @CustomType.Setter
         public Builder asn(Integer asn) {
             this.asn = Objects.requireNonNull(asn);
             return this;
         }
+        @CustomType.Setter
         public Builder peeringAddress(String peeringAddress) {
             this.peeringAddress = Objects.requireNonNull(peeringAddress);
             return this;
-        }        public VpnSiteLinkBgp build() {
-            return new VpnSiteLinkBgp(asn, peeringAddress);
+        }
+        public VpnSiteLinkBgp build() {
+            final var o = new VpnSiteLinkBgp();
+            o.asn = asn;
+            o.peeringAddress = peeringAddress;
+            return o;
         }
     }
 }

@@ -11,20 +11,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesVirtualMachine {
-    private final @Nullable Boolean deleteOsDiskOnDeletion;
-    private final @Nullable Boolean gracefulShutdown;
-    private final @Nullable Boolean skipShutdownAndForceDelete;
+    private @Nullable Boolean deleteOsDiskOnDeletion;
+    private @Nullable Boolean gracefulShutdown;
+    private @Nullable Boolean skipShutdownAndForceDelete;
 
-    @CustomType.Constructor
-    private FeaturesVirtualMachine(
-        @CustomType.Parameter("deleteOsDiskOnDeletion") @Nullable Boolean deleteOsDiskOnDeletion,
-        @CustomType.Parameter("gracefulShutdown") @Nullable Boolean gracefulShutdown,
-        @CustomType.Parameter("skipShutdownAndForceDelete") @Nullable Boolean skipShutdownAndForceDelete) {
-        this.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
-        this.gracefulShutdown = gracefulShutdown;
-        this.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
-    }
-
+    private FeaturesVirtualMachine() {}
     public Optional<Boolean> deleteOsDiskOnDeletion() {
         return Optional.ofNullable(this.deleteOsDiskOnDeletion);
     }
@@ -42,16 +33,12 @@ public final class FeaturesVirtualMachine {
     public static Builder builder(FeaturesVirtualMachine defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean deleteOsDiskOnDeletion;
         private @Nullable Boolean gracefulShutdown;
         private @Nullable Boolean skipShutdownAndForceDelete;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesVirtualMachine defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.deleteOsDiskOnDeletion = defaults.deleteOsDiskOnDeletion;
@@ -59,19 +46,27 @@ public final class FeaturesVirtualMachine {
     	      this.skipShutdownAndForceDelete = defaults.skipShutdownAndForceDelete;
         }
 
+        @CustomType.Setter
         public Builder deleteOsDiskOnDeletion(@Nullable Boolean deleteOsDiskOnDeletion) {
             this.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
             return this;
         }
+        @CustomType.Setter
         public Builder gracefulShutdown(@Nullable Boolean gracefulShutdown) {
             this.gracefulShutdown = gracefulShutdown;
             return this;
         }
+        @CustomType.Setter
         public Builder skipShutdownAndForceDelete(@Nullable Boolean skipShutdownAndForceDelete) {
             this.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
             return this;
-        }        public FeaturesVirtualMachine build() {
-            return new FeaturesVirtualMachine(deleteOsDiskOnDeletion, gracefulShutdown, skipShutdownAndForceDelete);
+        }
+        public FeaturesVirtualMachine build() {
+            final var o = new FeaturesVirtualMachine();
+            o.deleteOsDiskOnDeletion = deleteOsDiskOnDeletion;
+            o.gracefulShutdown = gracefulShutdown;
+            o.skipShutdownAndForceDelete = skipShutdownAndForceDelete;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
      * @return The path on disk to the Virtual Directory
      * 
      */
-    private final String physicalPath;
+    private String physicalPath;
     /**
      * @return Is this Application Pre-loaded at startup.
      * 
      */
-    private final Boolean preload;
+    private Boolean preload;
     /**
      * @return A `virtual_directory` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories;
+    private List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories;
     /**
      * @return The Virtual Path of the Virtual Directory.
      * 
      */
-    private final String virtualPath;
+    private String virtualPath;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigVirtualApplication(
-        @CustomType.Parameter("physicalPath") String physicalPath,
-        @CustomType.Parameter("preload") Boolean preload,
-        @CustomType.Parameter("virtualDirectories") List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories,
-        @CustomType.Parameter("virtualPath") String virtualPath) {
-        this.physicalPath = physicalPath;
-        this.preload = preload;
-        this.virtualDirectories = virtualDirectories;
-        this.virtualPath = virtualPath;
-    }
-
+    private GetWindowsWebAppSiteConfigVirtualApplication() {}
     /**
      * @return The path on disk to the Virtual Directory
      * 
@@ -81,17 +70,13 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
     public static Builder builder(GetWindowsWebAppSiteConfigVirtualApplication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String physicalPath;
         private Boolean preload;
         private List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories;
         private String virtualPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigVirtualApplication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.physicalPath = defaults.physicalPath;
@@ -100,14 +85,17 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
     	      this.virtualPath = defaults.virtualPath;
         }
 
+        @CustomType.Setter
         public Builder physicalPath(String physicalPath) {
             this.physicalPath = Objects.requireNonNull(physicalPath);
             return this;
         }
+        @CustomType.Setter
         public Builder preload(Boolean preload) {
             this.preload = Objects.requireNonNull(preload);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualDirectories(List<GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory> virtualDirectories) {
             this.virtualDirectories = Objects.requireNonNull(virtualDirectories);
             return this;
@@ -115,11 +103,18 @@ public final class GetWindowsWebAppSiteConfigVirtualApplication {
         public Builder virtualDirectories(GetWindowsWebAppSiteConfigVirtualApplicationVirtualDirectory... virtualDirectories) {
             return virtualDirectories(List.of(virtualDirectories));
         }
+        @CustomType.Setter
         public Builder virtualPath(String virtualPath) {
             this.virtualPath = Objects.requireNonNull(virtualPath);
             return this;
-        }        public GetWindowsWebAppSiteConfigVirtualApplication build() {
-            return new GetWindowsWebAppSiteConfigVirtualApplication(physicalPath, preload, virtualDirectories, virtualPath);
+        }
+        public GetWindowsWebAppSiteConfigVirtualApplication build() {
+            final var o = new GetWindowsWebAppSiteConfigVirtualApplication();
+            o.physicalPath = physicalPath;
+            o.preload = preload;
+            o.virtualDirectories = virtualDirectories;
+            o.virtualPath = virtualPath;
+            return o;
         }
     }
 }

@@ -18,119 +18,84 @@ public final class ApplicationGatewayHttpListener {
      * @return One or more `custom_error_configuration` blocks as defined below.
      * 
      */
-    private final @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
+    private @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
     /**
      * @return The ID of the Web Application Firewall Policy which should be used for this HTTP Listener.
      * 
      */
-    private final @Nullable String firewallPolicyId;
+    private @Nullable String firewallPolicyId;
     /**
      * @return The ID of the associated Frontend Configuration.
      * 
      */
-    private final @Nullable String frontendIpConfigurationId;
+    private @Nullable String frontendIpConfigurationId;
     /**
      * @return The Name of the Frontend IP Configuration used for this HTTP Listener.
      * 
      */
-    private final String frontendIpConfigurationName;
+    private String frontendIpConfigurationName;
     /**
      * @return The ID of the associated Frontend Port.
      * 
      */
-    private final @Nullable String frontendPortId;
+    private @Nullable String frontendPortId;
     /**
      * @return The Name of the Frontend Port use for this HTTP Listener.
      * 
      */
-    private final String frontendPortName;
+    private String frontendPortName;
     /**
      * @return The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to &#39;Multi site&#39;.
      * 
      */
-    private final @Nullable String hostName;
+    private @Nullable String hostName;
     /**
      * @return A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
      * 
      */
-    private final @Nullable List<String> hostNames;
+    private @Nullable List<String> hostNames;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Name of the HTTP Listener.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Should Server Name Indication be Required? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean requireSni;
+    private @Nullable Boolean requireSni;
     /**
      * @return The ID of the associated SSL Certificate.
      * 
      */
-    private final @Nullable String sslCertificateId;
+    private @Nullable String sslCertificateId;
     /**
      * @return The name of the associated SSL Certificate which should be used for this HTTP Listener.
      * 
      */
-    private final @Nullable String sslCertificateName;
+    private @Nullable String sslCertificateName;
     /**
      * @return The ID of the associated SSL Certificate.
      * 
      */
-    private final @Nullable String sslProfileId;
+    private @Nullable String sslProfileId;
     /**
      * @return The name of the associated SSL Profile which should be used for this HTTP Listener.
      * 
      */
-    private final @Nullable String sslProfileName;
+    private @Nullable String sslProfileName;
 
-    @CustomType.Constructor
-    private ApplicationGatewayHttpListener(
-        @CustomType.Parameter("customErrorConfigurations") @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations,
-        @CustomType.Parameter("firewallPolicyId") @Nullable String firewallPolicyId,
-        @CustomType.Parameter("frontendIpConfigurationId") @Nullable String frontendIpConfigurationId,
-        @CustomType.Parameter("frontendIpConfigurationName") String frontendIpConfigurationName,
-        @CustomType.Parameter("frontendPortId") @Nullable String frontendPortId,
-        @CustomType.Parameter("frontendPortName") String frontendPortName,
-        @CustomType.Parameter("hostName") @Nullable String hostName,
-        @CustomType.Parameter("hostNames") @Nullable List<String> hostNames,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("requireSni") @Nullable Boolean requireSni,
-        @CustomType.Parameter("sslCertificateId") @Nullable String sslCertificateId,
-        @CustomType.Parameter("sslCertificateName") @Nullable String sslCertificateName,
-        @CustomType.Parameter("sslProfileId") @Nullable String sslProfileId,
-        @CustomType.Parameter("sslProfileName") @Nullable String sslProfileName) {
-        this.customErrorConfigurations = customErrorConfigurations;
-        this.firewallPolicyId = firewallPolicyId;
-        this.frontendIpConfigurationId = frontendIpConfigurationId;
-        this.frontendIpConfigurationName = frontendIpConfigurationName;
-        this.frontendPortId = frontendPortId;
-        this.frontendPortName = frontendPortName;
-        this.hostName = hostName;
-        this.hostNames = hostNames;
-        this.id = id;
-        this.name = name;
-        this.protocol = protocol;
-        this.requireSni = requireSni;
-        this.sslCertificateId = sslCertificateId;
-        this.sslCertificateName = sslCertificateName;
-        this.sslProfileId = sslProfileId;
-        this.sslProfileName = sslProfileName;
-    }
-
+    private ApplicationGatewayHttpListener() {}
     /**
      * @return One or more `custom_error_configuration` blocks as defined below.
      * 
@@ -251,7 +216,7 @@ public final class ApplicationGatewayHttpListener {
     public static Builder builder(ApplicationGatewayHttpListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations;
         private @Nullable String firewallPolicyId;
@@ -269,11 +234,7 @@ public final class ApplicationGatewayHttpListener {
         private @Nullable String sslCertificateName;
         private @Nullable String sslProfileId;
         private @Nullable String sslProfileName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayHttpListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customErrorConfigurations = defaults.customErrorConfigurations;
@@ -294,6 +255,7 @@ public final class ApplicationGatewayHttpListener {
     	      this.sslProfileName = defaults.sslProfileName;
         }
 
+        @CustomType.Setter
         public Builder customErrorConfigurations(@Nullable List<ApplicationGatewayHttpListenerCustomErrorConfiguration> customErrorConfigurations) {
             this.customErrorConfigurations = customErrorConfigurations;
             return this;
@@ -301,30 +263,37 @@ public final class ApplicationGatewayHttpListener {
         public Builder customErrorConfigurations(ApplicationGatewayHttpListenerCustomErrorConfiguration... customErrorConfigurations) {
             return customErrorConfigurations(List.of(customErrorConfigurations));
         }
+        @CustomType.Setter
         public Builder firewallPolicyId(@Nullable String firewallPolicyId) {
             this.firewallPolicyId = firewallPolicyId;
             return this;
         }
+        @CustomType.Setter
         public Builder frontendIpConfigurationId(@Nullable String frontendIpConfigurationId) {
             this.frontendIpConfigurationId = frontendIpConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder frontendIpConfigurationName(String frontendIpConfigurationName) {
             this.frontendIpConfigurationName = Objects.requireNonNull(frontendIpConfigurationName);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPortId(@Nullable String frontendPortId) {
             this.frontendPortId = frontendPortId;
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPortName(String frontendPortName) {
             this.frontendPortName = Objects.requireNonNull(frontendPortName);
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
             this.hostName = hostName;
             return this;
         }
+        @CustomType.Setter
         public Builder hostNames(@Nullable List<String> hostNames) {
             this.hostNames = hostNames;
             return this;
@@ -332,39 +301,65 @@ public final class ApplicationGatewayHttpListener {
         public Builder hostNames(String... hostNames) {
             return hostNames(List.of(hostNames));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder requireSni(@Nullable Boolean requireSni) {
             this.requireSni = requireSni;
             return this;
         }
+        @CustomType.Setter
         public Builder sslCertificateId(@Nullable String sslCertificateId) {
             this.sslCertificateId = sslCertificateId;
             return this;
         }
+        @CustomType.Setter
         public Builder sslCertificateName(@Nullable String sslCertificateName) {
             this.sslCertificateName = sslCertificateName;
             return this;
         }
+        @CustomType.Setter
         public Builder sslProfileId(@Nullable String sslProfileId) {
             this.sslProfileId = sslProfileId;
             return this;
         }
+        @CustomType.Setter
         public Builder sslProfileName(@Nullable String sslProfileName) {
             this.sslProfileName = sslProfileName;
             return this;
-        }        public ApplicationGatewayHttpListener build() {
-            return new ApplicationGatewayHttpListener(customErrorConfigurations, firewallPolicyId, frontendIpConfigurationId, frontendIpConfigurationName, frontendPortId, frontendPortName, hostName, hostNames, id, name, protocol, requireSni, sslCertificateId, sslCertificateName, sslProfileId, sslProfileName);
+        }
+        public ApplicationGatewayHttpListener build() {
+            final var o = new ApplicationGatewayHttpListener();
+            o.customErrorConfigurations = customErrorConfigurations;
+            o.firewallPolicyId = firewallPolicyId;
+            o.frontendIpConfigurationId = frontendIpConfigurationId;
+            o.frontendIpConfigurationName = frontendIpConfigurationName;
+            o.frontendPortId = frontendPortId;
+            o.frontendPortName = frontendPortName;
+            o.hostName = hostName;
+            o.hostNames = hostNames;
+            o.id = id;
+            o.name = name;
+            o.protocol = protocol;
+            o.requireSni = requireSni;
+            o.sslCertificateId = sslCertificateId;
+            o.sslCertificateName = sslCertificateName;
+            o.sslProfileId = sslProfileId;
+            o.sslProfileName = sslProfileName;
+            return o;
         }
     }
 }

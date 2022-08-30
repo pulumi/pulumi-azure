@@ -16,21 +16,14 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
      * @return A `capacity` block as defined below.
      * 
      */
-    private final @Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity;
+    private @Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity;
     /**
      * @return A `recurrence` block as defined below.
      * 
      */
-    private final @Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
+    private @Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
-    @CustomType.Constructor
-    private HadoopClusterRolesWorkerNodeAutoscale(
-        @CustomType.Parameter("capacity") @Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity,
-        @CustomType.Parameter("recurrence") @Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
-        this.capacity = capacity;
-        this.recurrence = recurrence;
-    }
-
+    private HadoopClusterRolesWorkerNodeAutoscale() {}
     /**
      * @return A `capacity` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class HadoopClusterRolesWorkerNodeAutoscale {
     public static Builder builder(HadoopClusterRolesWorkerNodeAutoscale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity;
         private @Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterRolesWorkerNodeAutoscale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.recurrence = defaults.recurrence;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable HadoopClusterRolesWorkerNodeAutoscaleCapacity capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(@Nullable HadoopClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
-        }        public HadoopClusterRolesWorkerNodeAutoscale build() {
-            return new HadoopClusterRolesWorkerNodeAutoscale(capacity, recurrence);
+        }
+        public HadoopClusterRolesWorkerNodeAutoscale build() {
+            final var o = new HadoopClusterRolesWorkerNodeAutoscale();
+            o.capacity = capacity;
+            o.recurrence = recurrence;
+            return o;
         }
     }
 }

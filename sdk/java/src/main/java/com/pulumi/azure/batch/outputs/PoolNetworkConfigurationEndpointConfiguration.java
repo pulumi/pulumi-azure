@@ -17,42 +17,29 @@ public final class PoolNetworkConfigurationEndpointConfiguration {
      * @return The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return The range of external ports that will be used to provide inbound access to the backendPort on individual compute nodes in the format of `1000-1100`. Acceptable values range between `1` and `65534` except ports from `50000` to `55000` which are reserved by the Batch service. All ranges within a pool must be distinct and cannot overlap. Values must be a range of at least `100` nodes. Changing this forces a new resource to be created.
      * 
      */
-    private final String frontendPortRange;
+    private String frontendPortRange;
     /**
      * @return The name of the endpoint. The name must be unique within a Batch pool, can contain letters, numbers, underscores, periods, and hyphens. Names must start with a letter or number, must end with a letter, number, or underscore, and cannot exceed 77 characters. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of network security group rules that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
+    private @Nullable List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
     /**
      * @return The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private PoolNetworkConfigurationEndpointConfiguration(
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("frontendPortRange") String frontendPortRange,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupRules") @Nullable List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.backendPort = backendPort;
-        this.frontendPortRange = frontendPortRange;
-        this.name = name;
-        this.networkSecurityGroupRules = networkSecurityGroupRules;
-        this.protocol = protocol;
-    }
-
+    private PoolNetworkConfigurationEndpointConfiguration() {}
     /**
      * @return The port number on the compute node. Acceptable values are between `1` and `65535` except for `29876`, `29877` as these are reserved. Changing this forces a new resource to be created.
      * 
@@ -96,18 +83,14 @@ public final class PoolNetworkConfigurationEndpointConfiguration {
     public static Builder builder(PoolNetworkConfigurationEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer backendPort;
         private String frontendPortRange;
         private String name;
         private @Nullable List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolNetworkConfigurationEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPort = defaults.backendPort;
@@ -117,18 +100,22 @@ public final class PoolNetworkConfigurationEndpointConfiguration {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPortRange(String frontendPortRange) {
             this.frontendPortRange = Objects.requireNonNull(frontendPortRange);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupRules(@Nullable List<PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules) {
             this.networkSecurityGroupRules = networkSecurityGroupRules;
             return this;
@@ -136,11 +123,19 @@ public final class PoolNetworkConfigurationEndpointConfiguration {
         public Builder networkSecurityGroupRules(PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule... networkSecurityGroupRules) {
             return networkSecurityGroupRules(List.of(networkSecurityGroupRules));
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public PoolNetworkConfigurationEndpointConfiguration build() {
-            return new PoolNetworkConfigurationEndpointConfiguration(backendPort, frontendPortRange, name, networkSecurityGroupRules, protocol);
+        }
+        public PoolNetworkConfigurationEndpointConfiguration build() {
+            final var o = new PoolNetworkConfigurationEndpointConfiguration();
+            o.backendPort = backendPort;
+            o.frontendPortRange = frontendPortRange;
+            o.name = name;
+            o.networkSecurityGroupRules = networkSecurityGroupRules;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

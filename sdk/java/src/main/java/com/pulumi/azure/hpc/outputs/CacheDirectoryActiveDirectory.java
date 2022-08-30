@@ -15,56 +15,39 @@ public final class CacheDirectoryActiveDirectory {
      * @return The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
      * 
      */
-    private final String cacheNetbiosName;
+    private String cacheNetbiosName;
     /**
      * @return The primary DNS IP address used to resolve the Active Directory domain controller&#39;s FQDN.
      * 
      */
-    private final String dnsPrimaryIp;
+    private String dnsPrimaryIp;
     /**
      * @return The secondary DNS IP address used to resolve the Active Directory domain controller&#39;s FQDN.
      * 
      */
-    private final @Nullable String dnsSecondaryIp;
+    private @Nullable String dnsSecondaryIp;
     /**
      * @return The fully qualified domain name of the Active Directory domain controller.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The Active Directory domain&#39;s NetBIOS name.
      * 
      */
-    private final String domainNetbiosName;
+    private String domainNetbiosName;
     /**
      * @return The password of the Active Directory domain administrator.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username of the Active Directory domain administrator.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private CacheDirectoryActiveDirectory(
-        @CustomType.Parameter("cacheNetbiosName") String cacheNetbiosName,
-        @CustomType.Parameter("dnsPrimaryIp") String dnsPrimaryIp,
-        @CustomType.Parameter("dnsSecondaryIp") @Nullable String dnsSecondaryIp,
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("domainNetbiosName") String domainNetbiosName,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.cacheNetbiosName = cacheNetbiosName;
-        this.dnsPrimaryIp = dnsPrimaryIp;
-        this.dnsSecondaryIp = dnsSecondaryIp;
-        this.domainName = domainName;
-        this.domainNetbiosName = domainNetbiosName;
-        this.password = password;
-        this.username = username;
-    }
-
+    private CacheDirectoryActiveDirectory() {}
     /**
      * @return The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server.
      * 
@@ -122,7 +105,7 @@ public final class CacheDirectoryActiveDirectory {
     public static Builder builder(CacheDirectoryActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cacheNetbiosName;
         private String dnsPrimaryIp;
@@ -131,11 +114,7 @@ public final class CacheDirectoryActiveDirectory {
         private String domainNetbiosName;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDirectoryActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cacheNetbiosName = defaults.cacheNetbiosName;
@@ -147,35 +126,51 @@ public final class CacheDirectoryActiveDirectory {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder cacheNetbiosName(String cacheNetbiosName) {
             this.cacheNetbiosName = Objects.requireNonNull(cacheNetbiosName);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsPrimaryIp(String dnsPrimaryIp) {
             this.dnsPrimaryIp = Objects.requireNonNull(dnsPrimaryIp);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsSecondaryIp(@Nullable String dnsSecondaryIp) {
             this.dnsSecondaryIp = dnsSecondaryIp;
             return this;
         }
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder domainNetbiosName(String domainNetbiosName) {
             this.domainNetbiosName = Objects.requireNonNull(domainNetbiosName);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public CacheDirectoryActiveDirectory build() {
-            return new CacheDirectoryActiveDirectory(cacheNetbiosName, dnsPrimaryIp, dnsSecondaryIp, domainName, domainNetbiosName, password, username);
+        }
+        public CacheDirectoryActiveDirectory build() {
+            final var o = new CacheDirectoryActiveDirectory();
+            o.cacheNetbiosName = cacheNetbiosName;
+            o.dnsPrimaryIp = dnsPrimaryIp;
+            o.dnsSecondaryIp = dnsSecondaryIp;
+            o.domainName = domainName;
+            o.domainNetbiosName = domainNetbiosName;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

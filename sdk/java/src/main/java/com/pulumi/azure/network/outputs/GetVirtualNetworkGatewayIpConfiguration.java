@@ -13,24 +13,24 @@ public final class GetVirtualNetworkGatewayIpConfiguration {
      * @return The resource ID of the IP configuration.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the name of the Virtual Network Gateway.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Defines how the private IP address
      * of the gateways virtual interface is assigned.
      * 
      */
-    private final String privateIpAddressAllocation;
+    private String privateIpAddressAllocation;
     /**
      * @return The ID of the Public IP Address associated
      * with the Virtual Network Gateway.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return The ID of the gateway subnet of a virtual network in
      * which the virtual network gateway will be created. It is mandatory that
@@ -38,22 +38,9 @@ public final class GetVirtualNetworkGatewayIpConfiguration {
      * network can contain at most a single Virtual Network Gateway.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayIpConfiguration(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddressAllocation") String privateIpAddressAllocation,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.id = id;
-        this.name = name;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private GetVirtualNetworkGatewayIpConfiguration() {}
     /**
      * @return The resource ID of the IP configuration.
      * 
@@ -102,18 +89,14 @@ public final class GetVirtualNetworkGatewayIpConfiguration {
     public static Builder builder(GetVirtualNetworkGatewayIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
         private String privateIpAddressAllocation;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -123,27 +106,39 @@ public final class GetVirtualNetworkGatewayIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetVirtualNetworkGatewayIpConfiguration build() {
-            return new GetVirtualNetworkGatewayIpConfiguration(id, name, privateIpAddressAllocation, publicIpAddressId, subnetId);
+        }
+        public GetVirtualNetworkGatewayIpConfiguration build() {
+            final var o = new GetVirtualNetworkGatewayIpConfiguration();
+            o.id = id;
+            o.name = name;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

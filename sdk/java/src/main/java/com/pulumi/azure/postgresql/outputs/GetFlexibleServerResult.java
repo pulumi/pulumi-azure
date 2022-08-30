@@ -16,90 +16,61 @@ public final class GetFlexibleServerResult {
      * @return The Administrator login for the PostgreSQL Flexible Server.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return The backup retention days for the PostgreSQL Flexible Server.
      * 
      */
-    private final Integer backupRetentionDays;
+    private Integer backupRetentionDays;
     /**
      * @return The ID of the virtual network subnet to create the PostgreSQL Flexible Server.
      * 
      */
-    private final String delegatedSubnetId;
+    private String delegatedSubnetId;
     /**
      * @return The FQDN of the PostgreSQL Flexible Server.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the PostgreSQL Flexible Server exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return Is public network access enabled?
      * 
      */
-    private final Boolean publicNetworkAccessEnabled;
-    private final String resourceGroupName;
+    private Boolean publicNetworkAccessEnabled;
+    private String resourceGroupName;
     /**
      * @return The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`).
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The max storage allowed for the PostgreSQL Flexible Server.
      * 
      */
-    private final Integer storageMb;
+    private Integer storageMb;
     /**
      * @return A mapping of tags assigned to the PostgreSQL Flexible Server.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The version of PostgreSQL Flexible Server to use.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private GetFlexibleServerResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("backupRetentionDays") Integer backupRetentionDays,
-        @CustomType.Parameter("delegatedSubnetId") String delegatedSubnetId,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("storageMb") Integer storageMb,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version) {
-        this.administratorLogin = administratorLogin;
-        this.backupRetentionDays = backupRetentionDays;
-        this.delegatedSubnetId = delegatedSubnetId;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.storageMb = storageMb;
-        this.tags = tags;
-        this.version = version;
-    }
-
+    private GetFlexibleServerResult() {}
     /**
      * @return The Administrator login for the PostgreSQL Flexible Server.
      * 
@@ -191,7 +162,7 @@ public final class GetFlexibleServerResult {
     public static Builder builder(GetFlexibleServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private Integer backupRetentionDays;
@@ -206,11 +177,7 @@ public final class GetFlexibleServerResult {
         private Integer storageMb;
         private Map<String,String> tags;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFlexibleServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -228,59 +195,87 @@ public final class GetFlexibleServerResult {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
             this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
             return this;
         }
+        @CustomType.Setter
         public Builder delegatedSubnetId(String delegatedSubnetId) {
             this.delegatedSubnetId = Objects.requireNonNull(delegatedSubnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
             this.storageMb = Objects.requireNonNull(storageMb);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetFlexibleServerResult build() {
-            return new GetFlexibleServerResult(administratorLogin, backupRetentionDays, delegatedSubnetId, fqdn, id, location, name, publicNetworkAccessEnabled, resourceGroupName, skuName, storageMb, tags, version);
+        }
+        public GetFlexibleServerResult build() {
+            final var o = new GetFlexibleServerResult();
+            o.administratorLogin = administratorLogin;
+            o.backupRetentionDays = backupRetentionDays;
+            o.delegatedSubnetId = delegatedSubnetId;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.storageMb = storageMb;
+            o.tags = tags;
+            o.version = version;
+            return o;
         }
     }
 }

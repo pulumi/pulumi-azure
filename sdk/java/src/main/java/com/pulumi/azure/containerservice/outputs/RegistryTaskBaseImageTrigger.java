@@ -16,42 +16,29 @@ public final class RegistryTaskBaseImageTrigger {
      * @return Should the trigger be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The name which should be used for this trigger.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The type of the trigger. Possible values are `All` and `Runtime`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The endpoint URL for receiving the trigger.
      * 
      */
-    private final @Nullable String updateTriggerEndpoint;
+    private @Nullable String updateTriggerEndpoint;
     /**
      * @return Type of payload body for the trigger. Possible values are `Default` and `Token`.
      * 
      */
-    private final @Nullable String updateTriggerPayloadType;
+    private @Nullable String updateTriggerPayloadType;
 
-    @CustomType.Constructor
-    private RegistryTaskBaseImageTrigger(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("updateTriggerEndpoint") @Nullable String updateTriggerEndpoint,
-        @CustomType.Parameter("updateTriggerPayloadType") @Nullable String updateTriggerPayloadType) {
-        this.enabled = enabled;
-        this.name = name;
-        this.type = type;
-        this.updateTriggerEndpoint = updateTriggerEndpoint;
-        this.updateTriggerPayloadType = updateTriggerPayloadType;
-    }
-
+    private RegistryTaskBaseImageTrigger() {}
     /**
      * @return Should the trigger be enabled? Defaults to `true`.
      * 
@@ -95,18 +82,14 @@ public final class RegistryTaskBaseImageTrigger {
     public static Builder builder(RegistryTaskBaseImageTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String name;
         private String type;
         private @Nullable String updateTriggerEndpoint;
         private @Nullable String updateTriggerPayloadType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskBaseImageTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -116,27 +99,39 @@ public final class RegistryTaskBaseImageTrigger {
     	      this.updateTriggerPayloadType = defaults.updateTriggerPayloadType;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder updateTriggerEndpoint(@Nullable String updateTriggerEndpoint) {
             this.updateTriggerEndpoint = updateTriggerEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder updateTriggerPayloadType(@Nullable String updateTriggerPayloadType) {
             this.updateTriggerPayloadType = updateTriggerPayloadType;
             return this;
-        }        public RegistryTaskBaseImageTrigger build() {
-            return new RegistryTaskBaseImageTrigger(enabled, name, type, updateTriggerEndpoint, updateTriggerPayloadType);
+        }
+        public RegistryTaskBaseImageTrigger build() {
+            final var o = new RegistryTaskBaseImageTrigger();
+            o.enabled = enabled;
+            o.name = name;
+            o.type = type;
+            o.updateTriggerEndpoint = updateTriggerEndpoint;
+            o.updateTriggerPayloadType = updateTriggerPayloadType;
+            return o;
         }
     }
 }

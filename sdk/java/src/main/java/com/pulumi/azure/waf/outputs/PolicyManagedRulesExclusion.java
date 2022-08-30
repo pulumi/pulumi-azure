@@ -16,35 +16,24 @@ public final class PolicyManagedRulesExclusion {
      * @return One or more `excluded_rule_set` block defined below.
      * 
      */
-    private final @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
+    private @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
     /**
      * @return The name of the Match Variable. Possible values: `RequestArgNames`, `RequestCookieNames`, `RequestHeaderNames`.
      * 
      */
-    private final String matchVariable;
+    private String matchVariable;
     /**
      * @return Describes field of the matchVariable collection.
      * 
      */
-    private final String selector;
+    private String selector;
     /**
      * @return Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
      * 
      */
-    private final String selectorMatchOperator;
+    private String selectorMatchOperator;
 
-    @CustomType.Constructor
-    private PolicyManagedRulesExclusion(
-        @CustomType.Parameter("excludedRuleSet") @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet,
-        @CustomType.Parameter("matchVariable") String matchVariable,
-        @CustomType.Parameter("selector") String selector,
-        @CustomType.Parameter("selectorMatchOperator") String selectorMatchOperator) {
-        this.excludedRuleSet = excludedRuleSet;
-        this.matchVariable = matchVariable;
-        this.selector = selector;
-        this.selectorMatchOperator = selectorMatchOperator;
-    }
-
+    private PolicyManagedRulesExclusion() {}
     /**
      * @return One or more `excluded_rule_set` block defined below.
      * 
@@ -81,17 +70,13 @@ public final class PolicyManagedRulesExclusion {
     public static Builder builder(PolicyManagedRulesExclusion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet;
         private String matchVariable;
         private String selector;
         private String selectorMatchOperator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRulesExclusion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludedRuleSet = defaults.excludedRuleSet;
@@ -100,23 +85,33 @@ public final class PolicyManagedRulesExclusion {
     	      this.selectorMatchOperator = defaults.selectorMatchOperator;
         }
 
+        @CustomType.Setter
         public Builder excludedRuleSet(@Nullable PolicyManagedRulesExclusionExcludedRuleSet excludedRuleSet) {
             this.excludedRuleSet = excludedRuleSet;
             return this;
         }
+        @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
             this.matchVariable = Objects.requireNonNull(matchVariable);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(String selector) {
             this.selector = Objects.requireNonNull(selector);
             return this;
         }
+        @CustomType.Setter
         public Builder selectorMatchOperator(String selectorMatchOperator) {
             this.selectorMatchOperator = Objects.requireNonNull(selectorMatchOperator);
             return this;
-        }        public PolicyManagedRulesExclusion build() {
-            return new PolicyManagedRulesExclusion(excludedRuleSet, matchVariable, selector, selectorMatchOperator);
+        }
+        public PolicyManagedRulesExclusion build() {
+            final var o = new PolicyManagedRulesExclusion();
+            o.excludedRuleSet = excludedRuleSet;
+            o.matchVariable = matchVariable;
+            o.selector = selector;
+            o.selectorMatchOperator = selectorMatchOperator;
+            return o;
         }
     }
 }

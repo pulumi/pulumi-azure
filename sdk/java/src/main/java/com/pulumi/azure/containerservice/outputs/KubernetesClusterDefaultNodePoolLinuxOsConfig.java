@@ -17,35 +17,24 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
      * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer swapFileSizeMb;
+    private @Nullable Integer swapFileSizeMb;
     /**
      * @return A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
+    private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
     /**
      * @return specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String transparentHugePageDefrag;
+    private @Nullable String transparentHugePageDefrag;
     /**
      * @return Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String transparentHugePageEnabled;
+    private @Nullable String transparentHugePageEnabled;
 
-    @CustomType.Constructor
-    private KubernetesClusterDefaultNodePoolLinuxOsConfig(
-        @CustomType.Parameter("swapFileSizeMb") @Nullable Integer swapFileSizeMb,
-        @CustomType.Parameter("sysctlConfig") @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig,
-        @CustomType.Parameter("transparentHugePageDefrag") @Nullable String transparentHugePageDefrag,
-        @CustomType.Parameter("transparentHugePageEnabled") @Nullable String transparentHugePageEnabled) {
-        this.swapFileSizeMb = swapFileSizeMb;
-        this.sysctlConfig = sysctlConfig;
-        this.transparentHugePageDefrag = transparentHugePageDefrag;
-        this.transparentHugePageEnabled = transparentHugePageEnabled;
-    }
-
+    private KubernetesClusterDefaultNodePoolLinuxOsConfig() {}
     /**
      * @return Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
      * 
@@ -82,17 +71,13 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
     public static Builder builder(KubernetesClusterDefaultNodePoolLinuxOsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer swapFileSizeMb;
         private @Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
         private @Nullable String transparentHugePageDefrag;
         private @Nullable String transparentHugePageEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterDefaultNodePoolLinuxOsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.swapFileSizeMb = defaults.swapFileSizeMb;
@@ -101,23 +86,33 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfig {
     	      this.transparentHugePageEnabled = defaults.transparentHugePageEnabled;
         }
 
+        @CustomType.Setter
         public Builder swapFileSizeMb(@Nullable Integer swapFileSizeMb) {
             this.swapFileSizeMb = swapFileSizeMb;
             return this;
         }
+        @CustomType.Setter
         public Builder sysctlConfig(@Nullable KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig sysctlConfig) {
             this.sysctlConfig = sysctlConfig;
             return this;
         }
+        @CustomType.Setter
         public Builder transparentHugePageDefrag(@Nullable String transparentHugePageDefrag) {
             this.transparentHugePageDefrag = transparentHugePageDefrag;
             return this;
         }
+        @CustomType.Setter
         public Builder transparentHugePageEnabled(@Nullable String transparentHugePageEnabled) {
             this.transparentHugePageEnabled = transparentHugePageEnabled;
             return this;
-        }        public KubernetesClusterDefaultNodePoolLinuxOsConfig build() {
-            return new KubernetesClusterDefaultNodePoolLinuxOsConfig(swapFileSizeMb, sysctlConfig, transparentHugePageDefrag, transparentHugePageEnabled);
+        }
+        public KubernetesClusterDefaultNodePoolLinuxOsConfig build() {
+            final var o = new KubernetesClusterDefaultNodePoolLinuxOsConfig();
+            o.swapFileSizeMb = swapFileSizeMb;
+            o.sysctlConfig = sysctlConfig;
+            o.transparentHugePageDefrag = transparentHugePageDefrag;
+            o.transparentHugePageEnabled = transparentHugePageEnabled;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class EndpointGlobalDeliveryRuleCacheExpirationAction {
      * @return The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
      */
-    private final String behavior;
+    private String behavior;
     /**
      * @return Duration of the cache. Only allowed when `behavior` is set to `Override` or `SetIfMissing`. Format: `[d.]hh:mm:ss`
      * 
      */
-    private final @Nullable String duration;
+    private @Nullable String duration;
 
-    @CustomType.Constructor
-    private EndpointGlobalDeliveryRuleCacheExpirationAction(
-        @CustomType.Parameter("behavior") String behavior,
-        @CustomType.Parameter("duration") @Nullable String duration) {
-        this.behavior = behavior;
-        this.duration = duration;
-    }
-
+    private EndpointGlobalDeliveryRuleCacheExpirationAction() {}
     /**
      * @return The behavior of the cache. Valid values are `BypassCache`, `Override` and `SetIfMissing`.
      * 
@@ -52,30 +45,32 @@ public final class EndpointGlobalDeliveryRuleCacheExpirationAction {
     public static Builder builder(EndpointGlobalDeliveryRuleCacheExpirationAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String behavior;
         private @Nullable String duration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGlobalDeliveryRuleCacheExpirationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.behavior = defaults.behavior;
     	      this.duration = defaults.duration;
         }
 
+        @CustomType.Setter
         public Builder behavior(String behavior) {
             this.behavior = Objects.requireNonNull(behavior);
             return this;
         }
+        @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
             return this;
-        }        public EndpointGlobalDeliveryRuleCacheExpirationAction build() {
-            return new EndpointGlobalDeliveryRuleCacheExpirationAction(behavior, duration);
+        }
+        public EndpointGlobalDeliveryRuleCacheExpirationAction build() {
+            final var o = new EndpointGlobalDeliveryRuleCacheExpirationAction();
+            o.behavior = behavior;
+            o.duration = duration;
+            return o;
         }
     }
 }

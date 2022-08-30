@@ -15,35 +15,24 @@ public final class RouteTableRoute {
      * @return The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      * 
      */
-    private final String addressPrefix;
+    private String addressPrefix;
     /**
      * @return The name of the route.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`.
      * 
      */
-    private final @Nullable String nextHopInIpAddress;
+    private @Nullable String nextHopInIpAddress;
     /**
      * @return The type of Azure hop the packet should be sent to. Possible values are `VirtualNetworkGateway`, `VnetLocal`, `Internet`, `VirtualAppliance` and `None`.
      * 
      */
-    private final String nextHopType;
+    private String nextHopType;
 
-    @CustomType.Constructor
-    private RouteTableRoute(
-        @CustomType.Parameter("addressPrefix") String addressPrefix,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("nextHopInIpAddress") @Nullable String nextHopInIpAddress,
-        @CustomType.Parameter("nextHopType") String nextHopType) {
-        this.addressPrefix = addressPrefix;
-        this.name = name;
-        this.nextHopInIpAddress = nextHopInIpAddress;
-        this.nextHopType = nextHopType;
-    }
-
+    private RouteTableRoute() {}
     /**
      * @return The destination to which the route applies. Can be CIDR (such as `10.1.0.0/16`) or [Azure Service Tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) (such as `ApiManagement`, `AzureBackup` or `AzureMonitor`) format.
      * 
@@ -80,17 +69,13 @@ public final class RouteTableRoute {
     public static Builder builder(RouteTableRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
         private String name;
         private @Nullable String nextHopInIpAddress;
         private String nextHopType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RouteTableRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
@@ -99,23 +84,33 @@ public final class RouteTableRoute {
     	      this.nextHopType = defaults.nextHopType;
         }
 
+        @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
             this.addressPrefix = Objects.requireNonNull(addressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopInIpAddress(@Nullable String nextHopInIpAddress) {
             this.nextHopInIpAddress = nextHopInIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopType(String nextHopType) {
             this.nextHopType = Objects.requireNonNull(nextHopType);
             return this;
-        }        public RouteTableRoute build() {
-            return new RouteTableRoute(addressPrefix, name, nextHopInIpAddress, nextHopType);
+        }
+        public RouteTableRoute build() {
+            final var o = new RouteTableRoute();
+            o.addressPrefix = addressPrefix;
+            o.name = name;
+            o.nextHopInIpAddress = nextHopInIpAddress;
+            o.nextHopType = nextHopType;
+            return o;
         }
     }
 }

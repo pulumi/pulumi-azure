@@ -16,80 +16,47 @@ public final class GetQueueAuthorizationRuleResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Boolean listen;
-    private final Boolean manage;
-    private final String name;
-    private final @Nullable String namespaceName;
+    private String id;
+    private Boolean listen;
+    private Boolean manage;
+    private String name;
+    private @Nullable String namespaceName;
     /**
      * @return The Primary Connection String for the ServiceBus Queue authorization Rule.
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The alias Primary Connection String for the ServiceBus Namespace, if the namespace is Geo DR paired.
      * 
      */
-    private final String primaryConnectionStringAlias;
+    private String primaryConnectionStringAlias;
     /**
      * @return The Primary Key for the ServiceBus Queue authorization Rule.
      * 
      */
-    private final String primaryKey;
-    private final @Nullable String queueId;
-    private final @Nullable String queueName;
-    private final @Nullable String resourceGroupName;
+    private String primaryKey;
+    private @Nullable String queueId;
+    private @Nullable String queueName;
+    private @Nullable String resourceGroupName;
     /**
      * @return The Secondary Connection String for the ServiceBus Queue authorization Rule.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The alias Secondary Connection String for the ServiceBus Namespace
      * 
      */
-    private final String secondaryConnectionStringAlias;
+    private String secondaryConnectionStringAlias;
     /**
      * @return The Secondary Key for the ServiceBus Queue authorization Rule.
      * 
      */
-    private final String secondaryKey;
-    private final Boolean send;
+    private String secondaryKey;
+    private Boolean send;
 
-    @CustomType.Constructor
-    private GetQueueAuthorizationRuleResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("listen") Boolean listen,
-        @CustomType.Parameter("manage") Boolean manage,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") @Nullable String namespaceName,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("primaryConnectionStringAlias") String primaryConnectionStringAlias,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("queueId") @Nullable String queueId,
-        @CustomType.Parameter("queueName") @Nullable String queueName,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("secondaryConnectionStringAlias") String secondaryConnectionStringAlias,
-        @CustomType.Parameter("secondaryKey") String secondaryKey,
-        @CustomType.Parameter("send") Boolean send) {
-        this.id = id;
-        this.listen = listen;
-        this.manage = manage;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.primaryConnectionString = primaryConnectionString;
-        this.primaryConnectionStringAlias = primaryConnectionStringAlias;
-        this.primaryKey = primaryKey;
-        this.queueId = queueId;
-        this.queueName = queueName;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
-        this.secondaryKey = secondaryKey;
-        this.send = send;
-    }
-
+    private GetQueueAuthorizationRuleResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -171,7 +138,7 @@ public final class GetQueueAuthorizationRuleResult {
     public static Builder builder(GetQueueAuthorizationRuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private Boolean listen;
@@ -188,11 +155,7 @@ public final class GetQueueAuthorizationRuleResult {
         private String secondaryConnectionStringAlias;
         private String secondaryKey;
         private Boolean send;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetQueueAuthorizationRuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -212,67 +175,99 @@ public final class GetQueueAuthorizationRuleResult {
     	      this.send = defaults.send;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder listen(Boolean listen) {
             this.listen = Objects.requireNonNull(listen);
             return this;
         }
+        @CustomType.Setter
         public Builder manage(Boolean manage) {
             this.manage = Objects.requireNonNull(manage);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
             this.namespaceName = namespaceName;
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionStringAlias(String primaryConnectionStringAlias) {
             this.primaryConnectionStringAlias = Objects.requireNonNull(primaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder queueId(@Nullable String queueId) {
             this.queueId = queueId;
             return this;
         }
+        @CustomType.Setter
         public Builder queueName(@Nullable String queueName) {
             this.queueName = queueName;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionStringAlias(String secondaryConnectionStringAlias) {
             this.secondaryConnectionStringAlias = Objects.requireNonNull(secondaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder send(Boolean send) {
             this.send = Objects.requireNonNull(send);
             return this;
-        }        public GetQueueAuthorizationRuleResult build() {
-            return new GetQueueAuthorizationRuleResult(id, listen, manage, name, namespaceName, primaryConnectionString, primaryConnectionStringAlias, primaryKey, queueId, queueName, resourceGroupName, secondaryConnectionString, secondaryConnectionStringAlias, secondaryKey, send);
+        }
+        public GetQueueAuthorizationRuleResult build() {
+            final var o = new GetQueueAuthorizationRuleResult();
+            o.id = id;
+            o.listen = listen;
+            o.manage = manage;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.primaryConnectionString = primaryConnectionString;
+            o.primaryConnectionStringAlias = primaryConnectionStringAlias;
+            o.primaryKey = primaryKey;
+            o.queueId = queueId;
+            o.queueName = queueName;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
+            o.secondaryKey = secondaryKey;
+            o.send = send;
+            return o;
         }
     }
 }

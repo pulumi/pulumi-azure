@@ -15,21 +15,14 @@ public final class VnpGatewayNatRuleExternalMapping {
      * @return The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
      * 
      */
-    private final String addressSpace;
+    private String addressSpace;
     /**
      * @return The single port range for the VPN Gateway Nat Rule external mapping.
      * 
      */
-    private final @Nullable String portRange;
+    private @Nullable String portRange;
 
-    @CustomType.Constructor
-    private VnpGatewayNatRuleExternalMapping(
-        @CustomType.Parameter("addressSpace") String addressSpace,
-        @CustomType.Parameter("portRange") @Nullable String portRange) {
-        this.addressSpace = addressSpace;
-        this.portRange = portRange;
-    }
-
+    private VnpGatewayNatRuleExternalMapping() {}
     /**
      * @return The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping.
      * 
@@ -52,30 +45,32 @@ public final class VnpGatewayNatRuleExternalMapping {
     public static Builder builder(VnpGatewayNatRuleExternalMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressSpace;
         private @Nullable String portRange;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VnpGatewayNatRuleExternalMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressSpace = defaults.addressSpace;
     	      this.portRange = defaults.portRange;
         }
 
+        @CustomType.Setter
         public Builder addressSpace(String addressSpace) {
             this.addressSpace = Objects.requireNonNull(addressSpace);
             return this;
         }
+        @CustomType.Setter
         public Builder portRange(@Nullable String portRange) {
             this.portRange = portRange;
             return this;
-        }        public VnpGatewayNatRuleExternalMapping build() {
-            return new VnpGatewayNatRuleExternalMapping(addressSpace, portRange);
+        }
+        public VnpGatewayNatRuleExternalMapping build() {
+            final var o = new VnpGatewayNatRuleExternalMapping();
+            o.addressSpace = addressSpace;
+            o.portRange = portRange;
+            return o;
         }
     }
 }

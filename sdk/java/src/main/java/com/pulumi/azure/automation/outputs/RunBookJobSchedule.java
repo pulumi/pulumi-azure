@@ -12,23 +12,12 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class RunBookJobSchedule {
-    private final @Nullable String jobScheduleId;
-    private final @Nullable Map<String,String> parameters;
-    private final @Nullable String runOn;
-    private final String scheduleName;
+    private @Nullable String jobScheduleId;
+    private @Nullable Map<String,String> parameters;
+    private @Nullable String runOn;
+    private String scheduleName;
 
-    @CustomType.Constructor
-    private RunBookJobSchedule(
-        @CustomType.Parameter("jobScheduleId") @Nullable String jobScheduleId,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters,
-        @CustomType.Parameter("runOn") @Nullable String runOn,
-        @CustomType.Parameter("scheduleName") String scheduleName) {
-        this.jobScheduleId = jobScheduleId;
-        this.parameters = parameters;
-        this.runOn = runOn;
-        this.scheduleName = scheduleName;
-    }
-
+    private RunBookJobSchedule() {}
     public Optional<String> jobScheduleId() {
         return Optional.ofNullable(this.jobScheduleId);
     }
@@ -49,17 +38,13 @@ public final class RunBookJobSchedule {
     public static Builder builder(RunBookJobSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String jobScheduleId;
         private @Nullable Map<String,String> parameters;
         private @Nullable String runOn;
         private String scheduleName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RunBookJobSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jobScheduleId = defaults.jobScheduleId;
@@ -68,23 +53,33 @@ public final class RunBookJobSchedule {
     	      this.scheduleName = defaults.scheduleName;
         }
 
+        @CustomType.Setter
         public Builder jobScheduleId(@Nullable String jobScheduleId) {
             this.jobScheduleId = jobScheduleId;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder runOn(@Nullable String runOn) {
             this.runOn = runOn;
             return this;
         }
+        @CustomType.Setter
         public Builder scheduleName(String scheduleName) {
             this.scheduleName = Objects.requireNonNull(scheduleName);
             return this;
-        }        public RunBookJobSchedule build() {
-            return new RunBookJobSchedule(jobScheduleId, parameters, runOn, scheduleName);
+        }
+        public RunBookJobSchedule build() {
+            final var o = new RunBookJobSchedule();
+            o.jobScheduleId = jobScheduleId;
+            o.parameters = parameters;
+            o.runOn = runOn;
+            o.scheduleName = scheduleName;
+            return o;
         }
     }
 }

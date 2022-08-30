@@ -18,56 +18,39 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
      * @return A `http_basic_auth` block as defined below.
      * 
      */
-    private final @Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth;
+    private @Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth;
     /**
      * @return The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return A name to identify on the Git repository, required only if repos exists.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
      * 
      */
-    private final @Nullable List<String> patterns;
+    private @Nullable List<String> patterns;
     /**
      * @return An array of strings used to search subdirectories of the Git repository.
      * 
      */
-    private final @Nullable List<String> searchPaths;
+    private @Nullable List<String> searchPaths;
     /**
      * @return A `ssh_auth` block as defined below.
      * 
      */
-    private final @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth;
+    private @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth;
     /**
      * @return The URI of the Git repository that&#39;s used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private SpringCloudServiceConfigServerGitSettingRepository(
-        @CustomType.Parameter("httpBasicAuth") @Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth,
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("patterns") @Nullable List<String> patterns,
-        @CustomType.Parameter("searchPaths") @Nullable List<String> searchPaths,
-        @CustomType.Parameter("sshAuth") @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth,
-        @CustomType.Parameter("uri") String uri) {
-        this.httpBasicAuth = httpBasicAuth;
-        this.label = label;
-        this.name = name;
-        this.patterns = patterns;
-        this.searchPaths = searchPaths;
-        this.sshAuth = sshAuth;
-        this.uri = uri;
-    }
-
+    private SpringCloudServiceConfigServerGitSettingRepository() {}
     /**
      * @return A `http_basic_auth` block as defined below.
      * 
@@ -125,7 +108,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
     public static Builder builder(SpringCloudServiceConfigServerGitSettingRepository defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth;
         private @Nullable String label;
@@ -134,11 +117,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         private @Nullable List<String> searchPaths;
         private @Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceConfigServerGitSettingRepository defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpBasicAuth = defaults.httpBasicAuth;
@@ -150,18 +129,22 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder httpBasicAuth(@Nullable SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth httpBasicAuth) {
             this.httpBasicAuth = httpBasicAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder patterns(@Nullable List<String> patterns) {
             this.patterns = patterns;
             return this;
@@ -169,6 +152,7 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         public Builder patterns(String... patterns) {
             return patterns(List.of(patterns));
         }
+        @CustomType.Setter
         public Builder searchPaths(@Nullable List<String> searchPaths) {
             this.searchPaths = searchPaths;
             return this;
@@ -176,15 +160,26 @@ public final class SpringCloudServiceConfigServerGitSettingRepository {
         public Builder searchPaths(String... searchPaths) {
             return searchPaths(List.of(searchPaths));
         }
+        @CustomType.Setter
         public Builder sshAuth(@Nullable SpringCloudServiceConfigServerGitSettingRepositorySshAuth sshAuth) {
             this.sshAuth = sshAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public SpringCloudServiceConfigServerGitSettingRepository build() {
-            return new SpringCloudServiceConfigServerGitSettingRepository(httpBasicAuth, label, name, patterns, searchPaths, sshAuth, uri);
+        }
+        public SpringCloudServiceConfigServerGitSettingRepository build() {
+            final var o = new SpringCloudServiceConfigServerGitSettingRepository();
+            o.httpBasicAuth = httpBasicAuth;
+            o.label = label;
+            o.name = name;
+            o.patterns = patterns;
+            o.searchPaths = searchPaths;
+            o.sshAuth = sshAuth;
+            o.uri = uri;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
      * @return Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The header name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of the header. Only needed when `action` is set to `Append` or `overwrite`.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private EndpointGlobalDeliveryRuleModifyResponseHeaderAction(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.action = action;
-        this.name = name;
-        this.value = value;
-    }
-
+    private EndpointGlobalDeliveryRuleModifyResponseHeaderAction() {}
     /**
      * @return Action to be executed on a header value. Valid values are `Append`, `Delete` and `Overwrite`.
      * 
@@ -66,16 +57,12 @@ public final class EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
     public static Builder builder(EndpointGlobalDeliveryRuleModifyResponseHeaderAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String name;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGlobalDeliveryRuleModifyResponseHeaderAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -83,19 +70,27 @@ public final class EndpointGlobalDeliveryRuleModifyResponseHeaderAction {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public EndpointGlobalDeliveryRuleModifyResponseHeaderAction build() {
-            return new EndpointGlobalDeliveryRuleModifyResponseHeaderAction(action, name, value);
+        }
+        public EndpointGlobalDeliveryRuleModifyResponseHeaderAction build() {
+            final var o = new EndpointGlobalDeliveryRuleModifyResponseHeaderAction();
+            o.action = action;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

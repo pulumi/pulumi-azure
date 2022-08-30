@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class LiveEventPreviewEndpoint {
-    private final @Nullable String protocol;
-    private final @Nullable String url;
+    private @Nullable String protocol;
+    private @Nullable String url;
 
-    @CustomType.Constructor
-    private LiveEventPreviewEndpoint(
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("url") @Nullable String url) {
-        this.protocol = protocol;
-        this.url = url;
-    }
-
+    private LiveEventPreviewEndpoint() {}
     public Optional<String> protocol() {
         return Optional.ofNullable(this.protocol);
     }
@@ -36,30 +29,32 @@ public final class LiveEventPreviewEndpoint {
     public static Builder builder(LiveEventPreviewEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String protocol;
         private @Nullable String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LiveEventPreviewEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.protocol = defaults.protocol;
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder url(@Nullable String url) {
             this.url = url;
             return this;
-        }        public LiveEventPreviewEndpoint build() {
-            return new LiveEventPreviewEndpoint(protocol, url);
+        }
+        public LiveEventPreviewEndpoint build() {
+            final var o = new LiveEventPreviewEndpoint();
+            o.protocol = protocol;
+            o.url = url;
+            return o;
         }
     }
 }

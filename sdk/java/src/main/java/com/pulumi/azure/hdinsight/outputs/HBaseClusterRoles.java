@@ -15,28 +15,19 @@ public final class HBaseClusterRoles {
      * @return A `head_node` block as defined above.
      * 
      */
-    private final HBaseClusterRolesHeadNode headNode;
+    private HBaseClusterRolesHeadNode headNode;
     /**
      * @return A `worker_node` block as defined below.
      * 
      */
-    private final HBaseClusterRolesWorkerNode workerNode;
+    private HBaseClusterRolesWorkerNode workerNode;
     /**
      * @return A `zookeeper_node` block as defined below.
      * 
      */
-    private final HBaseClusterRolesZookeeperNode zookeeperNode;
+    private HBaseClusterRolesZookeeperNode zookeeperNode;
 
-    @CustomType.Constructor
-    private HBaseClusterRoles(
-        @CustomType.Parameter("headNode") HBaseClusterRolesHeadNode headNode,
-        @CustomType.Parameter("workerNode") HBaseClusterRolesWorkerNode workerNode,
-        @CustomType.Parameter("zookeeperNode") HBaseClusterRolesZookeeperNode zookeeperNode) {
-        this.headNode = headNode;
-        this.workerNode = workerNode;
-        this.zookeeperNode = zookeeperNode;
-    }
-
+    private HBaseClusterRoles() {}
     /**
      * @return A `head_node` block as defined above.
      * 
@@ -66,16 +57,12 @@ public final class HBaseClusterRoles {
     public static Builder builder(HBaseClusterRoles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private HBaseClusterRolesHeadNode headNode;
         private HBaseClusterRolesWorkerNode workerNode;
         private HBaseClusterRolesZookeeperNode zookeeperNode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headNode = defaults.headNode;
@@ -83,19 +70,27 @@ public final class HBaseClusterRoles {
     	      this.zookeeperNode = defaults.zookeeperNode;
         }
 
+        @CustomType.Setter
         public Builder headNode(HBaseClusterRolesHeadNode headNode) {
             this.headNode = Objects.requireNonNull(headNode);
             return this;
         }
+        @CustomType.Setter
         public Builder workerNode(HBaseClusterRolesWorkerNode workerNode) {
             this.workerNode = Objects.requireNonNull(workerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperNode(HBaseClusterRolesZookeeperNode zookeeperNode) {
             this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
             return this;
-        }        public HBaseClusterRoles build() {
-            return new HBaseClusterRoles(headNode, workerNode, zookeeperNode);
+        }
+        public HBaseClusterRoles build() {
+            final var o = new HBaseClusterRoles();
+            o.headNode = headNode;
+            o.workerNode = workerNode;
+            o.zookeeperNode = zookeeperNode;
+            return o;
         }
     }
 }

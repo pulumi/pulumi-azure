@@ -15,21 +15,14 @@ public final class NetworkAclPublicNetwork {
      * @return The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
      */
-    private final @Nullable List<String> allowedRequestTypes;
+    private @Nullable List<String> allowedRequestTypes;
     /**
      * @return The denied request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
      */
-    private final @Nullable List<String> deniedRequestTypes;
+    private @Nullable List<String> deniedRequestTypes;
 
-    @CustomType.Constructor
-    private NetworkAclPublicNetwork(
-        @CustomType.Parameter("allowedRequestTypes") @Nullable List<String> allowedRequestTypes,
-        @CustomType.Parameter("deniedRequestTypes") @Nullable List<String> deniedRequestTypes) {
-        this.allowedRequestTypes = allowedRequestTypes;
-        this.deniedRequestTypes = deniedRequestTypes;
-    }
-
+    private NetworkAclPublicNetwork() {}
     /**
      * @return The allowed request types for the public network. Possible values are `ClientConnection`, `ServerConnection`, `RESTAPI` and `Trace`.
      * 
@@ -52,21 +45,18 @@ public final class NetworkAclPublicNetwork {
     public static Builder builder(NetworkAclPublicNetwork defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedRequestTypes;
         private @Nullable List<String> deniedRequestTypes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkAclPublicNetwork defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedRequestTypes = defaults.allowedRequestTypes;
     	      this.deniedRequestTypes = defaults.deniedRequestTypes;
         }
 
+        @CustomType.Setter
         public Builder allowedRequestTypes(@Nullable List<String> allowedRequestTypes) {
             this.allowedRequestTypes = allowedRequestTypes;
             return this;
@@ -74,14 +64,19 @@ public final class NetworkAclPublicNetwork {
         public Builder allowedRequestTypes(String... allowedRequestTypes) {
             return allowedRequestTypes(List.of(allowedRequestTypes));
         }
+        @CustomType.Setter
         public Builder deniedRequestTypes(@Nullable List<String> deniedRequestTypes) {
             this.deniedRequestTypes = deniedRequestTypes;
             return this;
         }
         public Builder deniedRequestTypes(String... deniedRequestTypes) {
             return deniedRequestTypes(List.of(deniedRequestTypes));
-        }        public NetworkAclPublicNetwork build() {
-            return new NetworkAclPublicNetwork(allowedRequestTypes, deniedRequestTypes);
+        }
+        public NetworkAclPublicNetwork build() {
+            final var o = new NetworkAclPublicNetwork();
+            o.allowedRequestTypes = allowedRequestTypes;
+            o.deniedRequestTypes = deniedRequestTypes;
+            return o;
         }
     }
 }

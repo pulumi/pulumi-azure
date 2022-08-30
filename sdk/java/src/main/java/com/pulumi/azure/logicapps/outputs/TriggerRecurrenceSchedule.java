@@ -16,28 +16,19 @@ public final class TriggerRecurrenceSchedule {
      * @return Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
      * 
      */
-    private final @Nullable List<Integer> atTheseHours;
+    private @Nullable List<Integer> atTheseHours;
     /**
      * @return Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59.
      * 
      */
-    private final @Nullable List<Integer> atTheseMinutes;
+    private @Nullable List<Integer> atTheseMinutes;
     /**
      * @return Specifies a list of days when the trigger should run. Valid values include `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`.
      * 
      */
-    private final @Nullable List<String> onTheseDays;
+    private @Nullable List<String> onTheseDays;
 
-    @CustomType.Constructor
-    private TriggerRecurrenceSchedule(
-        @CustomType.Parameter("atTheseHours") @Nullable List<Integer> atTheseHours,
-        @CustomType.Parameter("atTheseMinutes") @Nullable List<Integer> atTheseMinutes,
-        @CustomType.Parameter("onTheseDays") @Nullable List<String> onTheseDays) {
-        this.atTheseHours = atTheseHours;
-        this.atTheseMinutes = atTheseMinutes;
-        this.onTheseDays = onTheseDays;
-    }
-
+    private TriggerRecurrenceSchedule() {}
     /**
      * @return Specifies a list of hours when the trigger should run. Valid values are between 0 and 23.
      * 
@@ -67,16 +58,12 @@ public final class TriggerRecurrenceSchedule {
     public static Builder builder(TriggerRecurrenceSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<Integer> atTheseHours;
         private @Nullable List<Integer> atTheseMinutes;
         private @Nullable List<String> onTheseDays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerRecurrenceSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.atTheseHours = defaults.atTheseHours;
@@ -84,6 +71,7 @@ public final class TriggerRecurrenceSchedule {
     	      this.onTheseDays = defaults.onTheseDays;
         }
 
+        @CustomType.Setter
         public Builder atTheseHours(@Nullable List<Integer> atTheseHours) {
             this.atTheseHours = atTheseHours;
             return this;
@@ -91,6 +79,7 @@ public final class TriggerRecurrenceSchedule {
         public Builder atTheseHours(Integer... atTheseHours) {
             return atTheseHours(List.of(atTheseHours));
         }
+        @CustomType.Setter
         public Builder atTheseMinutes(@Nullable List<Integer> atTheseMinutes) {
             this.atTheseMinutes = atTheseMinutes;
             return this;
@@ -98,14 +87,20 @@ public final class TriggerRecurrenceSchedule {
         public Builder atTheseMinutes(Integer... atTheseMinutes) {
             return atTheseMinutes(List.of(atTheseMinutes));
         }
+        @CustomType.Setter
         public Builder onTheseDays(@Nullable List<String> onTheseDays) {
             this.onTheseDays = onTheseDays;
             return this;
         }
         public Builder onTheseDays(String... onTheseDays) {
             return onTheseDays(List.of(onTheseDays));
-        }        public TriggerRecurrenceSchedule build() {
-            return new TriggerRecurrenceSchedule(atTheseHours, atTheseMinutes, onTheseDays);
+        }
+        public TriggerRecurrenceSchedule build() {
+            final var o = new TriggerRecurrenceSchedule();
+            o.atTheseHours = atTheseHours;
+            o.atTheseMinutes = atTheseMinutes;
+            o.onTheseDays = onTheseDays;
+            return o;
         }
     }
 }

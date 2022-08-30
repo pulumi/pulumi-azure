@@ -15,35 +15,24 @@ public final class BackupPolicyPostgresqlRetentionRule {
      * @return A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final BackupPolicyPostgresqlRetentionRuleCriteria criteria;
+    private BackupPolicyPostgresqlRetentionRuleCriteria criteria;
     /**
      * @return Duration after which the backup is deleted. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final String duration;
+    private String duration;
     /**
      * @return The name which should be used for this retention rule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
-    private final Integer priority;
+    private Integer priority;
 
-    @CustomType.Constructor
-    private BackupPolicyPostgresqlRetentionRule(
-        @CustomType.Parameter("criteria") BackupPolicyPostgresqlRetentionRuleCriteria criteria,
-        @CustomType.Parameter("duration") String duration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") Integer priority) {
-        this.criteria = criteria;
-        this.duration = duration;
-        this.name = name;
-        this.priority = priority;
-    }
-
+    private BackupPolicyPostgresqlRetentionRule() {}
     /**
      * @return A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
@@ -80,17 +69,13 @@ public final class BackupPolicyPostgresqlRetentionRule {
     public static Builder builder(BackupPolicyPostgresqlRetentionRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private BackupPolicyPostgresqlRetentionRuleCriteria criteria;
         private String duration;
         private String name;
         private Integer priority;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackupPolicyPostgresqlRetentionRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.criteria = defaults.criteria;
@@ -99,23 +84,33 @@ public final class BackupPolicyPostgresqlRetentionRule {
     	      this.priority = defaults.priority;
         }
 
+        @CustomType.Setter
         public Builder criteria(BackupPolicyPostgresqlRetentionRuleCriteria criteria) {
             this.criteria = Objects.requireNonNull(criteria);
             return this;
         }
+        @CustomType.Setter
         public Builder duration(String duration) {
             this.duration = Objects.requireNonNull(duration);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(Integer priority) {
             this.priority = Objects.requireNonNull(priority);
             return this;
-        }        public BackupPolicyPostgresqlRetentionRule build() {
-            return new BackupPolicyPostgresqlRetentionRule(criteria, duration, name, priority);
+        }
+        public BackupPolicyPostgresqlRetentionRule build() {
+            final var o = new BackupPolicyPostgresqlRetentionRule();
+            o.criteria = criteria;
+            o.duration = duration;
+            o.name = name;
+            o.priority = priority;
+            return o;
         }
     }
 }

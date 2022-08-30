@@ -16,21 +16,14 @@ public final class AadDiagnosticSettingLogRetentionPolicy {
      * @return The number of days for which this Retention Policy should apply. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Is this Retention Policy enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private AadDiagnosticSettingLogRetentionPolicy(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private AadDiagnosticSettingLogRetentionPolicy() {}
     /**
      * @return The number of days for which this Retention Policy should apply. Defaults to `0`.
      * 
@@ -53,30 +46,32 @@ public final class AadDiagnosticSettingLogRetentionPolicy {
     public static Builder builder(AadDiagnosticSettingLogRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AadDiagnosticSettingLogRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public AadDiagnosticSettingLogRetentionPolicy build() {
-            return new AadDiagnosticSettingLogRetentionPolicy(days, enabled);
+        }
+        public AadDiagnosticSettingLogRetentionPolicy build() {
+            final var o = new AadDiagnosticSettingLogRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

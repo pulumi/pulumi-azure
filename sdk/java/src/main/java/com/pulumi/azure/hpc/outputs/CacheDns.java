@@ -16,21 +16,14 @@ public final class CacheDns {
      * @return The DNS search domain for the HPC Cache.
      * 
      */
-    private final @Nullable String searchDomain;
+    private @Nullable String searchDomain;
     /**
      * @return A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set.
      * 
      */
-    private final List<String> servers;
+    private List<String> servers;
 
-    @CustomType.Constructor
-    private CacheDns(
-        @CustomType.Parameter("searchDomain") @Nullable String searchDomain,
-        @CustomType.Parameter("servers") List<String> servers) {
-        this.searchDomain = searchDomain;
-        this.servers = servers;
-    }
-
+    private CacheDns() {}
     /**
      * @return The DNS search domain for the HPC Cache.
      * 
@@ -53,33 +46,35 @@ public final class CacheDns {
     public static Builder builder(CacheDns defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String searchDomain;
         private List<String> servers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheDns defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.searchDomain = defaults.searchDomain;
     	      this.servers = defaults.servers;
         }
 
+        @CustomType.Setter
         public Builder searchDomain(@Nullable String searchDomain) {
             this.searchDomain = searchDomain;
             return this;
         }
+        @CustomType.Setter
         public Builder servers(List<String> servers) {
             this.servers = Objects.requireNonNull(servers);
             return this;
         }
         public Builder servers(String... servers) {
             return servers(List.of(servers));
-        }        public CacheDns build() {
-            return new CacheDns(searchDomain, servers);
+        }
+        public CacheDns build() {
+            final var o = new CacheDns();
+            o.searchDomain = searchDomain;
+            o.servers = servers;
+            return o;
         }
     }
 }

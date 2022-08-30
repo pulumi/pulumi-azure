@@ -14,55 +14,36 @@ public final class GetUserAssignedIdentityResult {
      * @return The Client ID of the User Assigned Identity.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the User Assigned Identity exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The Service Principal ID of the User Assigned Identity.
      * 
      */
-    private final String principalId;
-    private final String resourceGroupName;
+    private String principalId;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the User Assigned Identity.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Tenant ID of the User Assigned Identity.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetUserAssignedIdentityResult(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.clientId = clientId;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.principalId = principalId;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.tenantId = tenantId;
-    }
-
+    private GetUserAssignedIdentityResult() {}
     /**
      * @return The Client ID of the User Assigned Identity.
      * 
@@ -119,7 +100,7 @@ public final class GetUserAssignedIdentityResult {
     public static Builder builder(GetUserAssignedIdentityResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String id;
@@ -129,11 +110,7 @@ public final class GetUserAssignedIdentityResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserAssignedIdentityResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -146,39 +123,57 @@ public final class GetUserAssignedIdentityResult {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetUserAssignedIdentityResult build() {
-            return new GetUserAssignedIdentityResult(clientId, id, location, name, principalId, resourceGroupName, tags, tenantId);
+        }
+        public GetUserAssignedIdentityResult build() {
+            final var o = new GetUserAssignedIdentityResult();
+            o.clientId = clientId;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.principalId = principalId;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

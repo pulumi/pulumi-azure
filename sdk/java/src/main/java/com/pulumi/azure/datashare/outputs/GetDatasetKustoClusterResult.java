@@ -13,41 +13,26 @@ public final class GetDatasetKustoClusterResult {
      * @return The name of the Data Share Dataset.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The resource ID of the Kusto Cluster to be shared with the receiver.
      * 
      */
-    private final String kustoClusterId;
+    private String kustoClusterId;
     /**
      * @return The location of the Kusto Cluster.
      * 
      */
-    private final String kustoClusterLocation;
-    private final String name;
-    private final String shareId;
+    private String kustoClusterLocation;
+    private String name;
+    private String shareId;
 
-    @CustomType.Constructor
-    private GetDatasetKustoClusterResult(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kustoClusterId") String kustoClusterId,
-        @CustomType.Parameter("kustoClusterLocation") String kustoClusterLocation,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("shareId") String shareId) {
-        this.displayName = displayName;
-        this.id = id;
-        this.kustoClusterId = kustoClusterId;
-        this.kustoClusterLocation = kustoClusterLocation;
-        this.name = name;
-        this.shareId = shareId;
-    }
-
+    private GetDatasetKustoClusterResult() {}
     /**
      * @return The name of the Data Share Dataset.
      * 
@@ -90,7 +75,7 @@ public final class GetDatasetKustoClusterResult {
     public static Builder builder(GetDatasetKustoClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String id;
@@ -98,11 +83,7 @@ public final class GetDatasetKustoClusterResult {
         private String kustoClusterLocation;
         private String name;
         private String shareId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatasetKustoClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -113,31 +94,45 @@ public final class GetDatasetKustoClusterResult {
     	      this.shareId = defaults.shareId;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kustoClusterId(String kustoClusterId) {
             this.kustoClusterId = Objects.requireNonNull(kustoClusterId);
             return this;
         }
+        @CustomType.Setter
         public Builder kustoClusterLocation(String kustoClusterLocation) {
             this.kustoClusterLocation = Objects.requireNonNull(kustoClusterLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder shareId(String shareId) {
             this.shareId = Objects.requireNonNull(shareId);
             return this;
-        }        public GetDatasetKustoClusterResult build() {
-            return new GetDatasetKustoClusterResult(displayName, id, kustoClusterId, kustoClusterLocation, name, shareId);
+        }
+        public GetDatasetKustoClusterResult build() {
+            final var o = new GetDatasetKustoClusterResult();
+            o.displayName = displayName;
+            o.id = id;
+            o.kustoClusterId = kustoClusterId;
+            o.kustoClusterLocation = kustoClusterLocation;
+            o.name = name;
+            o.shareId = shareId;
+            return o;
         }
     }
 }

@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * Service Bus Subscription Rule can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/microsoft.servicebus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
+ *  $ pulumi import azure:servicebus/subscriptionRule:SubscriptionRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceBus/namespaces/sbns1/topics/sntopic1/subscriptions/sbsub1/rules/sbrule1
  * ```
  */
 export class SubscriptionRule extends pulumi.CustomResource {

@@ -14,28 +14,19 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
      * @return The ID of the Application Insights Resource.
      * 
      */
-    private final String componentId;
+    private String componentId;
     /**
      * @return The number of failed locations.
      * 
      */
-    private final Integer failedLocationCount;
+    private Integer failedLocationCount;
     /**
      * @return The ID of the Application Insights Web Test.
      * 
      */
-    private final String webTestId;
+    private String webTestId;
 
-    @CustomType.Constructor
-    private MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(
-        @CustomType.Parameter("componentId") String componentId,
-        @CustomType.Parameter("failedLocationCount") Integer failedLocationCount,
-        @CustomType.Parameter("webTestId") String webTestId) {
-        this.componentId = componentId;
-        this.failedLocationCount = failedLocationCount;
-        this.webTestId = webTestId;
-    }
-
+    private MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria() {}
     /**
      * @return The ID of the Application Insights Resource.
      * 
@@ -65,16 +56,12 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
     public static Builder builder(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String componentId;
         private Integer failedLocationCount;
         private String webTestId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.componentId = defaults.componentId;
@@ -82,19 +69,27 @@ public final class MetricAlertApplicationInsightsWebTestLocationAvailabilityCrit
     	      this.webTestId = defaults.webTestId;
         }
 
+        @CustomType.Setter
         public Builder componentId(String componentId) {
             this.componentId = Objects.requireNonNull(componentId);
             return this;
         }
+        @CustomType.Setter
         public Builder failedLocationCount(Integer failedLocationCount) {
             this.failedLocationCount = Objects.requireNonNull(failedLocationCount);
             return this;
         }
+        @CustomType.Setter
         public Builder webTestId(String webTestId) {
             this.webTestId = Objects.requireNonNull(webTestId);
             return this;
-        }        public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria build() {
-            return new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria(componentId, failedLocationCount, webTestId);
+        }
+        public MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria build() {
+            final var o = new MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria();
+            o.componentId = componentId;
+            o.failedLocationCount = failedLocationCount;
+            o.webTestId = webTestId;
+            return o;
         }
     }
 }

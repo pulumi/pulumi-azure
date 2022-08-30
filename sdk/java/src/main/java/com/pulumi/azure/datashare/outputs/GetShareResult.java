@@ -11,56 +11,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetShareResult {
-    private final String accountId;
+    private String accountId;
     /**
      * @return The description of the Data Share.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The kind of the Data Share.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The name of the snapshot schedule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `snapshot_schedule` block as defined below.
      * 
      */
-    private final List<GetShareSnapshotSchedule> snapshotSchedules;
+    private List<GetShareSnapshotSchedule> snapshotSchedules;
     /**
      * @return The terms of the Data Share.
      * 
      */
-    private final String terms;
+    private String terms;
 
-    @CustomType.Constructor
-    private GetShareResult(
-        @CustomType.Parameter("accountId") String accountId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("snapshotSchedules") List<GetShareSnapshotSchedule> snapshotSchedules,
-        @CustomType.Parameter("terms") String terms) {
-        this.accountId = accountId;
-        this.description = description;
-        this.id = id;
-        this.kind = kind;
-        this.name = name;
-        this.snapshotSchedules = snapshotSchedules;
-        this.terms = terms;
-    }
-
+    private GetShareResult() {}
     public String accountId() {
         return this.accountId;
     }
@@ -114,7 +97,7 @@ public final class GetShareResult {
     public static Builder builder(GetShareResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountId;
         private String description;
@@ -123,11 +106,7 @@ public final class GetShareResult {
         private String name;
         private List<GetShareSnapshotSchedule> snapshotSchedules;
         private String terms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetShareResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountId = defaults.accountId;
@@ -139,26 +118,32 @@ public final class GetShareResult {
     	      this.terms = defaults.terms;
         }
 
+        @CustomType.Setter
         public Builder accountId(String accountId) {
             this.accountId = Objects.requireNonNull(accountId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder snapshotSchedules(List<GetShareSnapshotSchedule> snapshotSchedules) {
             this.snapshotSchedules = Objects.requireNonNull(snapshotSchedules);
             return this;
@@ -166,11 +151,21 @@ public final class GetShareResult {
         public Builder snapshotSchedules(GetShareSnapshotSchedule... snapshotSchedules) {
             return snapshotSchedules(List.of(snapshotSchedules));
         }
+        @CustomType.Setter
         public Builder terms(String terms) {
             this.terms = Objects.requireNonNull(terms);
             return this;
-        }        public GetShareResult build() {
-            return new GetShareResult(accountId, description, id, kind, name, snapshotSchedules, terms);
+        }
+        public GetShareResult build() {
+            final var o = new GetShareResult();
+            o.accountId = accountId;
+            o.description = description;
+            o.id = id;
+            o.kind = kind;
+            o.name = name;
+            o.snapshotSchedules = snapshotSchedules;
+            o.terms = terms;
+            return o;
         }
     }
 }

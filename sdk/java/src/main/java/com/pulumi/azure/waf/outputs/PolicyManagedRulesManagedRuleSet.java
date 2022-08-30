@@ -17,28 +17,19 @@ public final class PolicyManagedRulesManagedRuleSet {
      * @return One or more `rule_group_override` block defined below.
      * 
      */
-    private final @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
+    private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
     /**
      * @return The rule set type. Possible values: `Microsoft_BotManagerRuleSet` and `OWASP`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
     /**
      * @return The rule set version. Possible values: `0.1`, `1.0`, `2.2.9`, `3.0`, `3.1` and `3.2`.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private PolicyManagedRulesManagedRuleSet(
-        @CustomType.Parameter("ruleGroupOverrides") @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides,
-        @CustomType.Parameter("type") @Nullable String type,
-        @CustomType.Parameter("version") String version) {
-        this.ruleGroupOverrides = ruleGroupOverrides;
-        this.type = type;
-        this.version = version;
-    }
-
+    private PolicyManagedRulesManagedRuleSet() {}
     /**
      * @return One or more `rule_group_override` block defined below.
      * 
@@ -68,16 +59,12 @@ public final class PolicyManagedRulesManagedRuleSet {
     public static Builder builder(PolicyManagedRulesManagedRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides;
         private @Nullable String type;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRulesManagedRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ruleGroupOverrides = defaults.ruleGroupOverrides;
@@ -85,6 +72,7 @@ public final class PolicyManagedRulesManagedRuleSet {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder ruleGroupOverrides(@Nullable List<PolicyManagedRulesManagedRuleSetRuleGroupOverride> ruleGroupOverrides) {
             this.ruleGroupOverrides = ruleGroupOverrides;
             return this;
@@ -92,15 +80,22 @@ public final class PolicyManagedRulesManagedRuleSet {
         public Builder ruleGroupOverrides(PolicyManagedRulesManagedRuleSetRuleGroupOverride... ruleGroupOverrides) {
             return ruleGroupOverrides(List.of(ruleGroupOverrides));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public PolicyManagedRulesManagedRuleSet build() {
-            return new PolicyManagedRulesManagedRuleSet(ruleGroupOverrides, type, version);
+        }
+        public PolicyManagedRulesManagedRuleSet build() {
+            final var o = new PolicyManagedRulesManagedRuleSet();
+            o.ruleGroupOverrides = ruleGroupOverrides;
+            o.type = type;
+            o.version = version;
+            return o;
         }
     }
 }

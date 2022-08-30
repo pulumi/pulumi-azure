@@ -17,42 +17,29 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
      * @return Boolean flag to enable/disable traffic analytics.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return How frequently service should do flow analytics in minutes.
      * 
      */
-    private final @Nullable Integer intervalInMinutes;
+    private @Nullable Integer intervalInMinutes;
     /**
      * @return The resource GUID of the attached workspace.
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
     /**
      * @return The location of the attached workspace.
      * 
      */
-    private final String workspaceRegion;
+    private String workspaceRegion;
     /**
      * @return The resource ID of the attached workspace.
      * 
      */
-    private final String workspaceResourceId;
+    private String workspaceResourceId;
 
-    @CustomType.Constructor
-    private NetworkWatcherFlowLogTrafficAnalytics(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("intervalInMinutes") @Nullable Integer intervalInMinutes,
-        @CustomType.Parameter("workspaceId") String workspaceId,
-        @CustomType.Parameter("workspaceRegion") String workspaceRegion,
-        @CustomType.Parameter("workspaceResourceId") String workspaceResourceId) {
-        this.enabled = enabled;
-        this.intervalInMinutes = intervalInMinutes;
-        this.workspaceId = workspaceId;
-        this.workspaceRegion = workspaceRegion;
-        this.workspaceResourceId = workspaceResourceId;
-    }
-
+    private NetworkWatcherFlowLogTrafficAnalytics() {}
     /**
      * @return Boolean flag to enable/disable traffic analytics.
      * 
@@ -96,18 +83,14 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
     public static Builder builder(NetworkWatcherFlowLogTrafficAnalytics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable Integer intervalInMinutes;
         private String workspaceId;
         private String workspaceRegion;
         private String workspaceResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkWatcherFlowLogTrafficAnalytics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -117,27 +100,39 @@ public final class NetworkWatcherFlowLogTrafficAnalytics {
     	      this.workspaceResourceId = defaults.workspaceResourceId;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder intervalInMinutes(@Nullable Integer intervalInMinutes) {
             this.intervalInMinutes = intervalInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceRegion(String workspaceRegion) {
             this.workspaceRegion = Objects.requireNonNull(workspaceRegion);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceResourceId(String workspaceResourceId) {
             this.workspaceResourceId = Objects.requireNonNull(workspaceResourceId);
             return this;
-        }        public NetworkWatcherFlowLogTrafficAnalytics build() {
-            return new NetworkWatcherFlowLogTrafficAnalytics(enabled, intervalInMinutes, workspaceId, workspaceRegion, workspaceResourceId);
+        }
+        public NetworkWatcherFlowLogTrafficAnalytics build() {
+            final var o = new NetworkWatcherFlowLogTrafficAnalytics();
+            o.enabled = enabled;
+            o.intervalInMinutes = intervalInMinutes;
+            o.workspaceId = workspaceId;
+            o.workspaceRegion = workspaceRegion;
+            o.workspaceResourceId = workspaceResourceId;
+            return o;
         }
     }
 }

@@ -10,52 +10,35 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationResult {
-    private final String accountName;
+    private String accountName;
     /**
      * @return May packages within the application be overwritten using the same version string.
      * 
      */
-    private final Boolean allowUpdates;
+    private Boolean allowUpdates;
     /**
      * @return The package to use if a client requests the application but does not specify a version.
      * 
      */
-    private final String defaultVersion;
+    private String defaultVersion;
     /**
      * @return The display name for the application.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Batch application name.
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
+    private String name;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetApplicationResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("allowUpdates") Boolean allowUpdates,
-        @CustomType.Parameter("defaultVersion") String defaultVersion,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.accountName = accountName;
-        this.allowUpdates = allowUpdates;
-        this.defaultVersion = defaultVersion;
-        this.displayName = displayName;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetApplicationResult() {}
     public String accountName() {
         return this.accountName;
     }
@@ -105,7 +88,7 @@ public final class GetApplicationResult {
     public static Builder builder(GetApplicationResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private Boolean allowUpdates;
@@ -114,11 +97,7 @@ public final class GetApplicationResult {
         private String id;
         private String name;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApplicationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -130,35 +109,51 @@ public final class GetApplicationResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder allowUpdates(Boolean allowUpdates) {
             this.allowUpdates = Objects.requireNonNull(allowUpdates);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultVersion(String defaultVersion) {
             this.defaultVersion = Objects.requireNonNull(defaultVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetApplicationResult build() {
-            return new GetApplicationResult(accountName, allowUpdates, defaultVersion, displayName, id, name, resourceGroupName);
+        }
+        public GetApplicationResult build() {
+            final var o = new GetApplicationResult();
+            o.accountName = accountName;
+            o.allowUpdates = allowUpdates;
+            o.defaultVersion = defaultVersion;
+            o.displayName = displayName;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

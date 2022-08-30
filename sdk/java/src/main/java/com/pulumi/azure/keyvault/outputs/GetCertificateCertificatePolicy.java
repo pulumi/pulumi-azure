@@ -18,42 +18,29 @@ public final class GetCertificateCertificatePolicy {
      * @return A `issuer_parameters` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters;
+    private List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters;
     /**
      * @return A `key_properties` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyKeyProperty> keyProperties;
+    private List<GetCertificateCertificatePolicyKeyProperty> keyProperties;
     /**
      * @return A `lifetime_action` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions;
+    private List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions;
     /**
      * @return A `secret_properties` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicySecretProperty> secretProperties;
+    private List<GetCertificateCertificatePolicySecretProperty> secretProperties;
     /**
      * @return An `x509_certificate_properties` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties;
+    private List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicy(
-        @CustomType.Parameter("issuerParameters") List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters,
-        @CustomType.Parameter("keyProperties") List<GetCertificateCertificatePolicyKeyProperty> keyProperties,
-        @CustomType.Parameter("lifetimeActions") List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions,
-        @CustomType.Parameter("secretProperties") List<GetCertificateCertificatePolicySecretProperty> secretProperties,
-        @CustomType.Parameter("x509CertificateProperties") List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties) {
-        this.issuerParameters = issuerParameters;
-        this.keyProperties = keyProperties;
-        this.lifetimeActions = lifetimeActions;
-        this.secretProperties = secretProperties;
-        this.x509CertificateProperties = x509CertificateProperties;
-    }
-
+    private GetCertificateCertificatePolicy() {}
     /**
      * @return A `issuer_parameters` block as defined below.
      * 
@@ -97,18 +84,14 @@ public final class GetCertificateCertificatePolicy {
     public static Builder builder(GetCertificateCertificatePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters;
         private List<GetCertificateCertificatePolicyKeyProperty> keyProperties;
         private List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions;
         private List<GetCertificateCertificatePolicySecretProperty> secretProperties;
         private List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.issuerParameters = defaults.issuerParameters;
@@ -118,6 +101,7 @@ public final class GetCertificateCertificatePolicy {
     	      this.x509CertificateProperties = defaults.x509CertificateProperties;
         }
 
+        @CustomType.Setter
         public Builder issuerParameters(List<GetCertificateCertificatePolicyIssuerParameter> issuerParameters) {
             this.issuerParameters = Objects.requireNonNull(issuerParameters);
             return this;
@@ -125,6 +109,7 @@ public final class GetCertificateCertificatePolicy {
         public Builder issuerParameters(GetCertificateCertificatePolicyIssuerParameter... issuerParameters) {
             return issuerParameters(List.of(issuerParameters));
         }
+        @CustomType.Setter
         public Builder keyProperties(List<GetCertificateCertificatePolicyKeyProperty> keyProperties) {
             this.keyProperties = Objects.requireNonNull(keyProperties);
             return this;
@@ -132,6 +117,7 @@ public final class GetCertificateCertificatePolicy {
         public Builder keyProperties(GetCertificateCertificatePolicyKeyProperty... keyProperties) {
             return keyProperties(List.of(keyProperties));
         }
+        @CustomType.Setter
         public Builder lifetimeActions(List<GetCertificateCertificatePolicyLifetimeAction> lifetimeActions) {
             this.lifetimeActions = Objects.requireNonNull(lifetimeActions);
             return this;
@@ -139,6 +125,7 @@ public final class GetCertificateCertificatePolicy {
         public Builder lifetimeActions(GetCertificateCertificatePolicyLifetimeAction... lifetimeActions) {
             return lifetimeActions(List.of(lifetimeActions));
         }
+        @CustomType.Setter
         public Builder secretProperties(List<GetCertificateCertificatePolicySecretProperty> secretProperties) {
             this.secretProperties = Objects.requireNonNull(secretProperties);
             return this;
@@ -146,14 +133,22 @@ public final class GetCertificateCertificatePolicy {
         public Builder secretProperties(GetCertificateCertificatePolicySecretProperty... secretProperties) {
             return secretProperties(List.of(secretProperties));
         }
+        @CustomType.Setter
         public Builder x509CertificateProperties(List<GetCertificateCertificatePolicyX509CertificateProperty> x509CertificateProperties) {
             this.x509CertificateProperties = Objects.requireNonNull(x509CertificateProperties);
             return this;
         }
         public Builder x509CertificateProperties(GetCertificateCertificatePolicyX509CertificateProperty... x509CertificateProperties) {
             return x509CertificateProperties(List.of(x509CertificateProperties));
-        }        public GetCertificateCertificatePolicy build() {
-            return new GetCertificateCertificatePolicy(issuerParameters, keyProperties, lifetimeActions, secretProperties, x509CertificateProperties);
+        }
+        public GetCertificateCertificatePolicy build() {
+            final var o = new GetCertificateCertificatePolicy();
+            o.issuerParameters = issuerParameters;
+            o.keyProperties = keyProperties;
+            o.lifetimeActions = lifetimeActions;
+            o.secretProperties = secretProperties;
+            o.x509CertificateProperties = x509CertificateProperties;
+            return o;
         }
     }
 }

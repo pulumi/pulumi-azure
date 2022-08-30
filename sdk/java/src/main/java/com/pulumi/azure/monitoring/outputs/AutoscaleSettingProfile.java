@@ -20,42 +20,29 @@ public final class AutoscaleSettingProfile {
      * @return A `capacity` block as defined below.
      * 
      */
-    private final AutoscaleSettingProfileCapacity capacity;
+    private AutoscaleSettingProfileCapacity capacity;
     /**
      * @return A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
      * 
      */
-    private final @Nullable AutoscaleSettingProfileFixedDate fixedDate;
+    private @Nullable AutoscaleSettingProfileFixedDate fixedDate;
     /**
      * @return Specifies the name of the profile.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
      * 
      */
-    private final @Nullable AutoscaleSettingProfileRecurrence recurrence;
+    private @Nullable AutoscaleSettingProfileRecurrence recurrence;
     /**
      * @return One or more (up to 10) `rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<AutoscaleSettingProfileRule> rules;
+    private @Nullable List<AutoscaleSettingProfileRule> rules;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfile(
-        @CustomType.Parameter("capacity") AutoscaleSettingProfileCapacity capacity,
-        @CustomType.Parameter("fixedDate") @Nullable AutoscaleSettingProfileFixedDate fixedDate,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recurrence") @Nullable AutoscaleSettingProfileRecurrence recurrence,
-        @CustomType.Parameter("rules") @Nullable List<AutoscaleSettingProfileRule> rules) {
-        this.capacity = capacity;
-        this.fixedDate = fixedDate;
-        this.name = name;
-        this.recurrence = recurrence;
-        this.rules = rules;
-    }
-
+    private AutoscaleSettingProfile() {}
     /**
      * @return A `capacity` block as defined below.
      * 
@@ -99,18 +86,14 @@ public final class AutoscaleSettingProfile {
     public static Builder builder(AutoscaleSettingProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private AutoscaleSettingProfileCapacity capacity;
         private @Nullable AutoscaleSettingProfileFixedDate fixedDate;
         private String name;
         private @Nullable AutoscaleSettingProfileRecurrence recurrence;
         private @Nullable List<AutoscaleSettingProfileRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -120,30 +103,42 @@ public final class AutoscaleSettingProfile {
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder capacity(AutoscaleSettingProfileCapacity capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder fixedDate(@Nullable AutoscaleSettingProfileFixedDate fixedDate) {
             this.fixedDate = fixedDate;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(@Nullable AutoscaleSettingProfileRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
         }
+        @CustomType.Setter
         public Builder rules(@Nullable List<AutoscaleSettingProfileRule> rules) {
             this.rules = rules;
             return this;
         }
         public Builder rules(AutoscaleSettingProfileRule... rules) {
             return rules(List.of(rules));
-        }        public AutoscaleSettingProfile build() {
-            return new AutoscaleSettingProfile(capacity, fixedDate, name, recurrence, rules);
+        }
+        public AutoscaleSettingProfile build() {
+            final var o = new AutoscaleSettingProfile();
+            o.capacity = capacity;
+            o.fixedDate = fixedDate;
+            o.name = name;
+            o.recurrence = recurrence;
+            o.rules = rules;
+            return o;
         }
     }
 }

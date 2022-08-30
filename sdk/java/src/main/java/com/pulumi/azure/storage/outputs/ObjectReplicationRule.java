@@ -16,38 +16,25 @@ public final class ObjectReplicationRule {
      * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
      * 
      */
-    private final @Nullable String copyBlobsCreatedAfter;
+    private @Nullable String copyBlobsCreatedAfter;
     /**
      * @return The destination storage container name. Changing this forces a new Storage Object Replication to be created.
      * 
      */
-    private final String destinationContainerName;
+    private String destinationContainerName;
     /**
      * @return Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated.
      * 
      */
-    private final @Nullable List<String> filterOutBlobsWithPrefixes;
-    private final @Nullable String name;
+    private @Nullable List<String> filterOutBlobsWithPrefixes;
+    private @Nullable String name;
     /**
      * @return The source storage container name. Changing this forces a new Storage Object Replication to be created.
      * 
      */
-    private final String sourceContainerName;
+    private String sourceContainerName;
 
-    @CustomType.Constructor
-    private ObjectReplicationRule(
-        @CustomType.Parameter("copyBlobsCreatedAfter") @Nullable String copyBlobsCreatedAfter,
-        @CustomType.Parameter("destinationContainerName") String destinationContainerName,
-        @CustomType.Parameter("filterOutBlobsWithPrefixes") @Nullable List<String> filterOutBlobsWithPrefixes,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("sourceContainerName") String sourceContainerName) {
-        this.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
-        this.destinationContainerName = destinationContainerName;
-        this.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
-        this.name = name;
-        this.sourceContainerName = sourceContainerName;
-    }
-
+    private ObjectReplicationRule() {}
     /**
      * @return The time after which the Block Blobs created will be copies to the destination. Possible values are `OnlyNewObjects`, `Everything` and time in RFC3339 format: `2006-01-02T15:04:00Z`.
      * 
@@ -87,18 +74,14 @@ public final class ObjectReplicationRule {
     public static Builder builder(ObjectReplicationRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String copyBlobsCreatedAfter;
         private String destinationContainerName;
         private @Nullable List<String> filterOutBlobsWithPrefixes;
         private @Nullable String name;
         private String sourceContainerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ObjectReplicationRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.copyBlobsCreatedAfter = defaults.copyBlobsCreatedAfter;
@@ -108,14 +91,17 @@ public final class ObjectReplicationRule {
     	      this.sourceContainerName = defaults.sourceContainerName;
         }
 
+        @CustomType.Setter
         public Builder copyBlobsCreatedAfter(@Nullable String copyBlobsCreatedAfter) {
             this.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
             return this;
         }
+        @CustomType.Setter
         public Builder destinationContainerName(String destinationContainerName) {
             this.destinationContainerName = Objects.requireNonNull(destinationContainerName);
             return this;
         }
+        @CustomType.Setter
         public Builder filterOutBlobsWithPrefixes(@Nullable List<String> filterOutBlobsWithPrefixes) {
             this.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
             return this;
@@ -123,15 +109,24 @@ public final class ObjectReplicationRule {
         public Builder filterOutBlobsWithPrefixes(String... filterOutBlobsWithPrefixes) {
             return filterOutBlobsWithPrefixes(List.of(filterOutBlobsWithPrefixes));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder sourceContainerName(String sourceContainerName) {
             this.sourceContainerName = Objects.requireNonNull(sourceContainerName);
             return this;
-        }        public ObjectReplicationRule build() {
-            return new ObjectReplicationRule(copyBlobsCreatedAfter, destinationContainerName, filterOutBlobsWithPrefixes, name, sourceContainerName);
+        }
+        public ObjectReplicationRule build() {
+            final var o = new ObjectReplicationRule();
+            o.copyBlobsCreatedAfter = copyBlobsCreatedAfter;
+            o.destinationContainerName = destinationContainerName;
+            o.filterOutBlobsWithPrefixes = filterOutBlobsWithPrefixes;
+            o.name = name;
+            o.sourceContainerName = sourceContainerName;
+            return o;
         }
     }
 }

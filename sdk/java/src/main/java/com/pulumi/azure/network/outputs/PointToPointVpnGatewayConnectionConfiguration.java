@@ -18,35 +18,24 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
      * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
      * 
      */
-    private final @Nullable Boolean internetSecurityEnabled;
+    private @Nullable Boolean internetSecurityEnabled;
     /**
      * @return The Name which should be used for this Connection Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `route` block as defined below.
      * 
      */
-    private final @Nullable PointToPointVpnGatewayConnectionConfigurationRoute route;
+    private @Nullable PointToPointVpnGatewayConnectionConfigurationRoute route;
     /**
      * @return A `vpn_client_address_pool` block as defined below.
      * 
      */
-    private final PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool;
+    private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool;
 
-    @CustomType.Constructor
-    private PointToPointVpnGatewayConnectionConfiguration(
-        @CustomType.Parameter("internetSecurityEnabled") @Nullable Boolean internetSecurityEnabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("route") @Nullable PointToPointVpnGatewayConnectionConfigurationRoute route,
-        @CustomType.Parameter("vpnClientAddressPool") PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool) {
-        this.internetSecurityEnabled = internetSecurityEnabled;
-        this.name = name;
-        this.route = route;
-        this.vpnClientAddressPool = vpnClientAddressPool;
-    }
-
+    private PointToPointVpnGatewayConnectionConfiguration() {}
     /**
      * @return Should Internet Security be enabled to secure internet traffic? Changing this forces a new resource to be created. Defaults to false.
      * 
@@ -83,17 +72,13 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
     public static Builder builder(PointToPointVpnGatewayConnectionConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean internetSecurityEnabled;
         private String name;
         private @Nullable PointToPointVpnGatewayConnectionConfigurationRoute route;
         private PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PointToPointVpnGatewayConnectionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.internetSecurityEnabled = defaults.internetSecurityEnabled;
@@ -102,23 +87,33 @@ public final class PointToPointVpnGatewayConnectionConfiguration {
     	      this.vpnClientAddressPool = defaults.vpnClientAddressPool;
         }
 
+        @CustomType.Setter
         public Builder internetSecurityEnabled(@Nullable Boolean internetSecurityEnabled) {
             this.internetSecurityEnabled = internetSecurityEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder route(@Nullable PointToPointVpnGatewayConnectionConfigurationRoute route) {
             this.route = route;
             return this;
         }
+        @CustomType.Setter
         public Builder vpnClientAddressPool(PointToPointVpnGatewayConnectionConfigurationVpnClientAddressPool vpnClientAddressPool) {
             this.vpnClientAddressPool = Objects.requireNonNull(vpnClientAddressPool);
             return this;
-        }        public PointToPointVpnGatewayConnectionConfiguration build() {
-            return new PointToPointVpnGatewayConnectionConfiguration(internetSecurityEnabled, name, route, vpnClientAddressPool);
+        }
+        public PointToPointVpnGatewayConnectionConfiguration build() {
+            final var o = new PointToPointVpnGatewayConnectionConfiguration();
+            o.internetSecurityEnabled = internetSecurityEnabled;
+            o.name = name;
+            o.route = route;
+            o.vpnClientAddressPool = vpnClientAddressPool;
+            return o;
         }
     }
 }

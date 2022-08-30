@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMpaAccountScopeResult {
-    private final String billingAccountName;
-    private final String customerName;
+    private String billingAccountName;
+    private String customerName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetMpaAccountScopeResult(
-        @CustomType.Parameter("billingAccountName") String billingAccountName,
-        @CustomType.Parameter("customerName") String customerName,
-        @CustomType.Parameter("id") String id) {
-        this.billingAccountName = billingAccountName;
-        this.customerName = customerName;
-        this.id = id;
-    }
-
+    private GetMpaAccountScopeResult() {}
     public String billingAccountName() {
         return this.billingAccountName;
     }
@@ -48,16 +39,12 @@ public final class GetMpaAccountScopeResult {
     public static Builder builder(GetMpaAccountScopeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String billingAccountName;
         private String customerName;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMpaAccountScopeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingAccountName = defaults.billingAccountName;
@@ -65,19 +52,27 @@ public final class GetMpaAccountScopeResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder billingAccountName(String billingAccountName) {
             this.billingAccountName = Objects.requireNonNull(billingAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder customerName(String customerName) {
             this.customerName = Objects.requireNonNull(customerName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetMpaAccountScopeResult build() {
-            return new GetMpaAccountScopeResult(billingAccountName, customerName, id);
+        }
+        public GetMpaAccountScopeResult build() {
+            final var o = new GetMpaAccountScopeResult();
+            o.billingAccountName = billingAccountName;
+            o.customerName = customerName;
+            o.id = id;
+            return o;
         }
     }
 }

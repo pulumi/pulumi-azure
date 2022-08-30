@@ -16,21 +16,14 @@ public final class KubernetesClusterOmsAgent {
      * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
      * 
      */
-    private final String logAnalyticsWorkspaceId;
+    private String logAnalyticsWorkspaceId;
     /**
      * @return An `oms_agent_identity` block is exported. The exported attributes are defined below.
      * 
      */
-    private final @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
+    private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
 
-    @CustomType.Constructor
-    private KubernetesClusterOmsAgent(
-        @CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId,
-        @CustomType.Parameter("omsAgentIdentities") @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities) {
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-        this.omsAgentIdentities = omsAgentIdentities;
-    }
-
+    private KubernetesClusterOmsAgent() {}
     /**
      * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
      * 
@@ -53,33 +46,35 @@ public final class KubernetesClusterOmsAgent {
     public static Builder builder(KubernetesClusterOmsAgent defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logAnalyticsWorkspaceId;
         private @Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterOmsAgent defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
     	      this.omsAgentIdentities = defaults.omsAgentIdentities;
         }
 
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder omsAgentIdentities(@Nullable List<KubernetesClusterOmsAgentOmsAgentIdentity> omsAgentIdentities) {
             this.omsAgentIdentities = omsAgentIdentities;
             return this;
         }
         public Builder omsAgentIdentities(KubernetesClusterOmsAgentOmsAgentIdentity... omsAgentIdentities) {
             return omsAgentIdentities(List.of(omsAgentIdentities));
-        }        public KubernetesClusterOmsAgent build() {
-            return new KubernetesClusterOmsAgent(logAnalyticsWorkspaceId, omsAgentIdentities);
+        }
+        public KubernetesClusterOmsAgent build() {
+            final var o = new KubernetesClusterOmsAgent();
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            o.omsAgentIdentities = omsAgentIdentities;
+            return o;
         }
     }
 }

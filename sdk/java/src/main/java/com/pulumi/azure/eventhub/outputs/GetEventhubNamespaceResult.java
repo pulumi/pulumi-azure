@@ -16,125 +16,86 @@ public final class GetEventhubNamespaceResult {
      * @return Is Auto Inflate enabled for the EventHub Namespace?
      * 
      */
-    private final Boolean autoInflateEnabled;
+    private Boolean autoInflateEnabled;
     /**
      * @return The Capacity / Throughput Units for a `Standard` SKU namespace.
      * 
      */
-    private final Integer capacity;
+    private Integer capacity;
     /**
      * @return The ID of the EventHub Dedicated Cluster where this Namespace exists.
      * 
      */
-    private final String dedicatedClusterId;
+    private String dedicatedClusterId;
     /**
      * @return The primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultPrimaryConnectionString;
+    private String defaultPrimaryConnectionString;
     /**
      * @return The alias of the primary connection string for the authorization
      * rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultPrimaryConnectionStringAlias;
+    private String defaultPrimaryConnectionStringAlias;
     /**
      * @return The primary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultPrimaryKey;
+    private String defaultPrimaryKey;
     /**
      * @return The secondary connection string for the
      * authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultSecondaryConnectionString;
+    private String defaultSecondaryConnectionString;
     /**
      * @return The alias of the secondary connection string for the
      * authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultSecondaryConnectionStringAlias;
+    private String defaultSecondaryConnectionStringAlias;
     /**
      * @return The secondary access key for the authorization rule `RootManageSharedAccessKey`.
      * 
      */
-    private final String defaultSecondaryKey;
+    private String defaultSecondaryKey;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final Boolean kafkaEnabled;
+    private String id;
+    private Boolean kafkaEnabled;
     /**
      * @return The Azure location where the EventHub Namespace exists
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return Specifies the maximum number of throughput units when Auto Inflate is Enabled.
      * 
      */
-    private final Integer maximumThroughputUnits;
-    private final String name;
-    private final String resourceGroupName;
+    private Integer maximumThroughputUnits;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return Defines which tier to use.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags to assign to the EventHub Namespace.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Is this EventHub Namespace deployed across Availability Zones?
      * 
      */
-    private final Boolean zoneRedundant;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetEventhubNamespaceResult(
-        @CustomType.Parameter("autoInflateEnabled") Boolean autoInflateEnabled,
-        @CustomType.Parameter("capacity") Integer capacity,
-        @CustomType.Parameter("dedicatedClusterId") String dedicatedClusterId,
-        @CustomType.Parameter("defaultPrimaryConnectionString") String defaultPrimaryConnectionString,
-        @CustomType.Parameter("defaultPrimaryConnectionStringAlias") String defaultPrimaryConnectionStringAlias,
-        @CustomType.Parameter("defaultPrimaryKey") String defaultPrimaryKey,
-        @CustomType.Parameter("defaultSecondaryConnectionString") String defaultSecondaryConnectionString,
-        @CustomType.Parameter("defaultSecondaryConnectionStringAlias") String defaultSecondaryConnectionStringAlias,
-        @CustomType.Parameter("defaultSecondaryKey") String defaultSecondaryKey,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("kafkaEnabled") Boolean kafkaEnabled,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("maximumThroughputUnits") Integer maximumThroughputUnits,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.autoInflateEnabled = autoInflateEnabled;
-        this.capacity = capacity;
-        this.dedicatedClusterId = dedicatedClusterId;
-        this.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
-        this.defaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
-        this.defaultPrimaryKey = defaultPrimaryKey;
-        this.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
-        this.defaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
-        this.defaultSecondaryKey = defaultSecondaryKey;
-        this.id = id;
-        this.kafkaEnabled = kafkaEnabled;
-        this.location = location;
-        this.maximumThroughputUnits = maximumThroughputUnits;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetEventhubNamespaceResult() {}
     /**
      * @return Is Auto Inflate enabled for the EventHub Namespace?
      * 
@@ -261,7 +222,7 @@ public final class GetEventhubNamespaceResult {
     public static Builder builder(GetEventhubNamespaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean autoInflateEnabled;
         private Integer capacity;
@@ -281,11 +242,7 @@ public final class GetEventhubNamespaceResult {
         private String sku;
         private Map<String,String> tags;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventhubNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoInflateEnabled = defaults.autoInflateEnabled;
@@ -308,79 +265,117 @@ public final class GetEventhubNamespaceResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder autoInflateEnabled(Boolean autoInflateEnabled) {
             this.autoInflateEnabled = Objects.requireNonNull(autoInflateEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder capacity(Integer capacity) {
             this.capacity = Objects.requireNonNull(capacity);
             return this;
         }
+        @CustomType.Setter
         public Builder dedicatedClusterId(String dedicatedClusterId) {
             this.dedicatedClusterId = Objects.requireNonNull(dedicatedClusterId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPrimaryConnectionString(String defaultPrimaryConnectionString) {
             this.defaultPrimaryConnectionString = Objects.requireNonNull(defaultPrimaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPrimaryConnectionStringAlias(String defaultPrimaryConnectionStringAlias) {
             this.defaultPrimaryConnectionStringAlias = Objects.requireNonNull(defaultPrimaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPrimaryKey(String defaultPrimaryKey) {
             this.defaultPrimaryKey = Objects.requireNonNull(defaultPrimaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryConnectionString(String defaultSecondaryConnectionString) {
             this.defaultSecondaryConnectionString = Objects.requireNonNull(defaultSecondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryConnectionStringAlias(String defaultSecondaryConnectionStringAlias) {
             this.defaultSecondaryConnectionStringAlias = Objects.requireNonNull(defaultSecondaryConnectionStringAlias);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSecondaryKey(String defaultSecondaryKey) {
             this.defaultSecondaryKey = Objects.requireNonNull(defaultSecondaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder kafkaEnabled(Boolean kafkaEnabled) {
             this.kafkaEnabled = Objects.requireNonNull(kafkaEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder maximumThroughputUnits(Integer maximumThroughputUnits) {
             this.maximumThroughputUnits = Objects.requireNonNull(maximumThroughputUnits);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetEventhubNamespaceResult build() {
-            return new GetEventhubNamespaceResult(autoInflateEnabled, capacity, dedicatedClusterId, defaultPrimaryConnectionString, defaultPrimaryConnectionStringAlias, defaultPrimaryKey, defaultSecondaryConnectionString, defaultSecondaryConnectionStringAlias, defaultSecondaryKey, id, kafkaEnabled, location, maximumThroughputUnits, name, resourceGroupName, sku, tags, zoneRedundant);
+        }
+        public GetEventhubNamespaceResult build() {
+            final var o = new GetEventhubNamespaceResult();
+            o.autoInflateEnabled = autoInflateEnabled;
+            o.capacity = capacity;
+            o.dedicatedClusterId = dedicatedClusterId;
+            o.defaultPrimaryConnectionString = defaultPrimaryConnectionString;
+            o.defaultPrimaryConnectionStringAlias = defaultPrimaryConnectionStringAlias;
+            o.defaultPrimaryKey = defaultPrimaryKey;
+            o.defaultSecondaryConnectionString = defaultSecondaryConnectionString;
+            o.defaultSecondaryConnectionStringAlias = defaultSecondaryConnectionStringAlias;
+            o.defaultSecondaryKey = defaultSecondaryKey;
+            o.id = id;
+            o.kafkaEnabled = kafkaEnabled;
+            o.location = location;
+            o.maximumThroughputUnits = maximumThroughputUnits;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

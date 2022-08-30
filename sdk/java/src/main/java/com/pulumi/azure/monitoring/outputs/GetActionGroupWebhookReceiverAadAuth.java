@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetActionGroupWebhookReceiverAadAuth {
-    private final String identifierUri;
-    private final String objectId;
+    private String identifierUri;
+    private String objectId;
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetActionGroupWebhookReceiverAadAuth(
-        @CustomType.Parameter("identifierUri") String identifierUri,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.identifierUri = identifierUri;
-        this.objectId = objectId;
-        this.tenantId = tenantId;
-    }
-
+    private GetActionGroupWebhookReceiverAadAuth() {}
     public String identifierUri() {
         return this.identifierUri;
     }
@@ -48,16 +39,12 @@ public final class GetActionGroupWebhookReceiverAadAuth {
     public static Builder builder(GetActionGroupWebhookReceiverAadAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String identifierUri;
         private String objectId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupWebhookReceiverAadAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identifierUri = defaults.identifierUri;
@@ -65,19 +52,27 @@ public final class GetActionGroupWebhookReceiverAadAuth {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder identifierUri(String identifierUri) {
             this.identifierUri = Objects.requireNonNull(identifierUri);
             return this;
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetActionGroupWebhookReceiverAadAuth build() {
-            return new GetActionGroupWebhookReceiverAadAuth(identifierUri, objectId, tenantId);
+        }
+        public GetActionGroupWebhookReceiverAadAuth build() {
+            final var o = new GetActionGroupWebhookReceiverAadAuth();
+            o.identifierUri = identifierUri;
+            o.objectId = objectId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

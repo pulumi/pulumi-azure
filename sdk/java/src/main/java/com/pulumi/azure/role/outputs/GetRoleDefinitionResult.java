@@ -17,51 +17,32 @@ public final class GetRoleDefinitionResult {
      * @return One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
      */
-    private final List<String> assignableScopes;
+    private List<String> assignableScopes;
     /**
      * @return the Description of the built-in Role.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return a `permissions` block as documented below.
      * 
      */
-    private final List<GetRoleDefinitionPermission> permissions;
-    private final String roleDefinitionId;
-    private final @Nullable String scope;
+    private List<GetRoleDefinitionPermission> permissions;
+    private String roleDefinitionId;
+    private @Nullable String scope;
     /**
      * @return the Type of the Role.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetRoleDefinitionResult(
-        @CustomType.Parameter("assignableScopes") List<String> assignableScopes,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("permissions") List<GetRoleDefinitionPermission> permissions,
-        @CustomType.Parameter("roleDefinitionId") String roleDefinitionId,
-        @CustomType.Parameter("scope") @Nullable String scope,
-        @CustomType.Parameter("type") String type) {
-        this.assignableScopes = assignableScopes;
-        this.description = description;
-        this.id = id;
-        this.name = name;
-        this.permissions = permissions;
-        this.roleDefinitionId = roleDefinitionId;
-        this.scope = scope;
-        this.type = type;
-    }
-
+    private GetRoleDefinitionResult() {}
     /**
      * @return One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
      * 
@@ -114,7 +95,7 @@ public final class GetRoleDefinitionResult {
     public static Builder builder(GetRoleDefinitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> assignableScopes;
         private String description;
@@ -124,11 +105,7 @@ public final class GetRoleDefinitionResult {
         private String roleDefinitionId;
         private @Nullable String scope;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetRoleDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assignableScopes = defaults.assignableScopes;
@@ -141,6 +118,7 @@ public final class GetRoleDefinitionResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder assignableScopes(List<String> assignableScopes) {
             this.assignableScopes = Objects.requireNonNull(assignableScopes);
             return this;
@@ -148,18 +126,22 @@ public final class GetRoleDefinitionResult {
         public Builder assignableScopes(String... assignableScopes) {
             return assignableScopes(List.of(assignableScopes));
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder permissions(List<GetRoleDefinitionPermission> permissions) {
             this.permissions = Objects.requireNonNull(permissions);
             return this;
@@ -167,19 +149,32 @@ public final class GetRoleDefinitionResult {
         public Builder permissions(GetRoleDefinitionPermission... permissions) {
             return permissions(List.of(permissions));
         }
+        @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
             this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetRoleDefinitionResult build() {
-            return new GetRoleDefinitionResult(assignableScopes, description, id, name, permissions, roleDefinitionId, scope, type);
+        }
+        public GetRoleDefinitionResult build() {
+            final var o = new GetRoleDefinitionResult();
+            o.assignableScopes = assignableScopes;
+            o.description = description;
+            o.id = id;
+            o.name = name;
+            o.permissions = permissions;
+            o.roleDefinitionId = roleDefinitionId;
+            o.scope = scope;
+            o.type = type;
+            return o;
         }
     }
 }

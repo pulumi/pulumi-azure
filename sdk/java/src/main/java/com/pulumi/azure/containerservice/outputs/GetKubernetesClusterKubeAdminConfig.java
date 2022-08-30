@@ -13,49 +13,34 @@ public final class GetKubernetesClusterKubeAdminConfig {
      * @return Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
      * 
      */
-    private final String clientCertificate;
+    private String clientCertificate;
     /**
      * @return Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
      * 
      */
-    private final String clientKey;
+    private String clientKey;
     /**
      * @return Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
      * 
      */
-    private final String clusterCaCertificate;
+    private String clusterCaCertificate;
     /**
      * @return The Kubernetes cluster server host.
      * 
      */
-    private final String host;
+    private String host;
     /**
      * @return A password or token used to authenticate to the Kubernetes cluster.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return A username used to authenticate to the Kubernetes cluster.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterKubeAdminConfig(
-        @CustomType.Parameter("clientCertificate") String clientCertificate,
-        @CustomType.Parameter("clientKey") String clientKey,
-        @CustomType.Parameter("clusterCaCertificate") String clusterCaCertificate,
-        @CustomType.Parameter("host") String host,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.clientCertificate = clientCertificate;
-        this.clientKey = clientKey;
-        this.clusterCaCertificate = clusterCaCertificate;
-        this.host = host;
-        this.password = password;
-        this.username = username;
-    }
-
+    private GetKubernetesClusterKubeAdminConfig() {}
     /**
      * @return Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
      * 
@@ -106,7 +91,7 @@ public final class GetKubernetesClusterKubeAdminConfig {
     public static Builder builder(GetKubernetesClusterKubeAdminConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientCertificate;
         private String clientKey;
@@ -114,11 +99,7 @@ public final class GetKubernetesClusterKubeAdminConfig {
         private String host;
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterKubeAdminConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientCertificate = defaults.clientCertificate;
@@ -129,31 +110,45 @@ public final class GetKubernetesClusterKubeAdminConfig {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder clientCertificate(String clientCertificate) {
             this.clientCertificate = Objects.requireNonNull(clientCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder clientKey(String clientKey) {
             this.clientKey = Objects.requireNonNull(clientKey);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterCaCertificate(String clusterCaCertificate) {
             this.clusterCaCertificate = Objects.requireNonNull(clusterCaCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder host(String host) {
             this.host = Objects.requireNonNull(host);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetKubernetesClusterKubeAdminConfig build() {
-            return new GetKubernetesClusterKubeAdminConfig(clientCertificate, clientKey, clusterCaCertificate, host, password, username);
+        }
+        public GetKubernetesClusterKubeAdminConfig build() {
+            final var o = new GetKubernetesClusterKubeAdminConfig();
+            o.clientCertificate = clientCertificate;
+            o.clientKey = clientKey;
+            o.clusterCaCertificate = clusterCaCertificate;
+            o.host = host;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

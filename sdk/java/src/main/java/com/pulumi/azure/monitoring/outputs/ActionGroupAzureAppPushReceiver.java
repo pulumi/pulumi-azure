@@ -13,21 +13,14 @@ public final class ActionGroupAzureAppPushReceiver {
      * @return The email address of the user signed into the mobile app who will receive push notifications from this receiver.
      * 
      */
-    private final String emailAddress;
+    private String emailAddress;
     /**
      * @return The name of the Azure app push receiver.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ActionGroupAzureAppPushReceiver(
-        @CustomType.Parameter("emailAddress") String emailAddress,
-        @CustomType.Parameter("name") String name) {
-        this.emailAddress = emailAddress;
-        this.name = name;
-    }
-
+    private ActionGroupAzureAppPushReceiver() {}
     /**
      * @return The email address of the user signed into the mobile app who will receive push notifications from this receiver.
      * 
@@ -50,30 +43,32 @@ public final class ActionGroupAzureAppPushReceiver {
     public static Builder builder(ActionGroupAzureAppPushReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String emailAddress;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionGroupAzureAppPushReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emailAddress = defaults.emailAddress;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder emailAddress(String emailAddress) {
             this.emailAddress = Objects.requireNonNull(emailAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ActionGroupAzureAppPushReceiver build() {
-            return new ActionGroupAzureAppPushReceiver(emailAddress, name);
+        }
+        public ActionGroupAzureAppPushReceiver build() {
+            final var o = new ActionGroupAzureAppPushReceiver();
+            o.emailAddress = emailAddress;
+            o.name = name;
+            return o;
         }
     }
 }

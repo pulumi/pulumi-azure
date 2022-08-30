@@ -18,70 +18,49 @@ public final class GroupContainerVolume {
      * @return Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean emptyDir;
+    private @Nullable Boolean emptyDir;
     /**
      * @return A `git_repo` block as defined below.
      * 
      */
-    private final @Nullable GroupContainerVolumeGitRepo gitRepo;
+    private @Nullable GroupContainerVolumeGitRepo gitRepo;
     /**
      * @return The path on which this volume is to be mounted. Changing this forces a new resource to be created.
      * 
      */
-    private final String mountPath;
+    private String mountPath;
     /**
      * @return Specifies the name of the Container Group. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean readOnly;
+    private @Nullable Boolean readOnly;
     /**
      * @return A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Map<String,String> secret;
+    private @Nullable Map<String,String> secret;
     /**
      * @return The Azure storage share that is to be mounted as a volume. This must be created on the storage account specified as above. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String shareName;
+    private @Nullable String shareName;
     /**
      * @return The access key for the Azure Storage account specified as above. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String storageAccountKey;
+    private @Nullable String storageAccountKey;
     /**
      * @return The Azure storage account from which the volume is to be mounted. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String storageAccountName;
+    private @Nullable String storageAccountName;
 
-    @CustomType.Constructor
-    private GroupContainerVolume(
-        @CustomType.Parameter("emptyDir") @Nullable Boolean emptyDir,
-        @CustomType.Parameter("gitRepo") @Nullable GroupContainerVolumeGitRepo gitRepo,
-        @CustomType.Parameter("mountPath") String mountPath,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("readOnly") @Nullable Boolean readOnly,
-        @CustomType.Parameter("secret") @Nullable Map<String,String> secret,
-        @CustomType.Parameter("shareName") @Nullable String shareName,
-        @CustomType.Parameter("storageAccountKey") @Nullable String storageAccountKey,
-        @CustomType.Parameter("storageAccountName") @Nullable String storageAccountName) {
-        this.emptyDir = emptyDir;
-        this.gitRepo = gitRepo;
-        this.mountPath = mountPath;
-        this.name = name;
-        this.readOnly = readOnly;
-        this.secret = secret;
-        this.shareName = shareName;
-        this.storageAccountKey = storageAccountKey;
-        this.storageAccountName = storageAccountName;
-    }
-
+    private GroupContainerVolume() {}
     /**
      * @return Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
      * 
@@ -153,7 +132,7 @@ public final class GroupContainerVolume {
     public static Builder builder(GroupContainerVolume defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean emptyDir;
         private @Nullable GroupContainerVolumeGitRepo gitRepo;
@@ -164,11 +143,7 @@ public final class GroupContainerVolume {
         private @Nullable String shareName;
         private @Nullable String storageAccountKey;
         private @Nullable String storageAccountName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerVolume defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emptyDir = defaults.emptyDir;
@@ -182,43 +157,63 @@ public final class GroupContainerVolume {
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
+        @CustomType.Setter
         public Builder emptyDir(@Nullable Boolean emptyDir) {
             this.emptyDir = emptyDir;
             return this;
         }
+        @CustomType.Setter
         public Builder gitRepo(@Nullable GroupContainerVolumeGitRepo gitRepo) {
             this.gitRepo = gitRepo;
             return this;
         }
+        @CustomType.Setter
         public Builder mountPath(String mountPath) {
             this.mountPath = Objects.requireNonNull(mountPath);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder readOnly(@Nullable Boolean readOnly) {
             this.readOnly = readOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder secret(@Nullable Map<String,String> secret) {
             this.secret = secret;
             return this;
         }
+        @CustomType.Setter
         public Builder shareName(@Nullable String shareName) {
             this.shareName = shareName;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountKey(@Nullable String storageAccountKey) {
             this.storageAccountKey = storageAccountKey;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(@Nullable String storageAccountName) {
             this.storageAccountName = storageAccountName;
             return this;
-        }        public GroupContainerVolume build() {
-            return new GroupContainerVolume(emptyDir, gitRepo, mountPath, name, readOnly, secret, shareName, storageAccountKey, storageAccountName);
+        }
+        public GroupContainerVolume build() {
+            final var o = new GroupContainerVolume();
+            o.emptyDir = emptyDir;
+            o.gitRepo = gitRepo;
+            o.mountPath = mountPath;
+            o.name = name;
+            o.readOnly = readOnly;
+            o.secret = secret;
+            o.shareName = shareName;
+            o.storageAccountKey = storageAccountKey;
+            o.storageAccountName = storageAccountName;
+            return o;
         }
     }
 }

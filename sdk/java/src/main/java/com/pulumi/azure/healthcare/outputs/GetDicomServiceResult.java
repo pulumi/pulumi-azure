@@ -18,54 +18,33 @@ public final class GetDicomServiceResult {
      * @return The `authentication` block as defined below.
      * 
      */
-    private final List<GetDicomServiceAuthentication> authentications;
+    private List<GetDicomServiceAuthentication> authentications;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final List<GetDicomServiceIdentity> identities;
+    private String id;
+    private List<GetDicomServiceIdentity> identities;
     /**
      * @return The Azure Region where the Healthcare DICOM Service is located.
      * 
      */
-    private final String location;
-    private final String name;
-    private final List<GetDicomServicePrivateEndpoint> privateEndpoints;
+    private String location;
+    private String name;
+    private List<GetDicomServicePrivateEndpoint> privateEndpoints;
     /**
      * @return The url of the Healthcare DICOM Services.
      * 
      */
-    private final String serviceUrl;
+    private String serviceUrl;
     /**
      * @return A map of tags assigned to the Healthcare DICOM Service.
      * 
      */
-    private final Map<String,String> tags;
-    private final String workspaceId;
+    private Map<String,String> tags;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetDicomServiceResult(
-        @CustomType.Parameter("authentications") List<GetDicomServiceAuthentication> authentications,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetDicomServiceIdentity> identities,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateEndpoints") List<GetDicomServicePrivateEndpoint> privateEndpoints,
-        @CustomType.Parameter("serviceUrl") String serviceUrl,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.authentications = authentications;
-        this.id = id;
-        this.identities = identities;
-        this.location = location;
-        this.name = name;
-        this.privateEndpoints = privateEndpoints;
-        this.serviceUrl = serviceUrl;
-        this.tags = tags;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetDicomServiceResult() {}
     /**
      * @return The `authentication` block as defined below.
      * 
@@ -121,7 +100,7 @@ public final class GetDicomServiceResult {
     public static Builder builder(GetDicomServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetDicomServiceAuthentication> authentications;
         private String id;
@@ -132,11 +111,7 @@ public final class GetDicomServiceResult {
         private String serviceUrl;
         private Map<String,String> tags;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDicomServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authentications = defaults.authentications;
@@ -150,6 +125,7 @@ public final class GetDicomServiceResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder authentications(List<GetDicomServiceAuthentication> authentications) {
             this.authentications = Objects.requireNonNull(authentications);
             return this;
@@ -157,10 +133,12 @@ public final class GetDicomServiceResult {
         public Builder authentications(GetDicomServiceAuthentication... authentications) {
             return authentications(List.of(authentications));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetDicomServiceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -168,14 +146,17 @@ public final class GetDicomServiceResult {
         public Builder identities(GetDicomServiceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpoints(List<GetDicomServicePrivateEndpoint> privateEndpoints) {
             this.privateEndpoints = Objects.requireNonNull(privateEndpoints);
             return this;
@@ -183,19 +164,33 @@ public final class GetDicomServiceResult {
         public Builder privateEndpoints(GetDicomServicePrivateEndpoint... privateEndpoints) {
             return privateEndpoints(List.of(privateEndpoints));
         }
+        @CustomType.Setter
         public Builder serviceUrl(String serviceUrl) {
             this.serviceUrl = Objects.requireNonNull(serviceUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetDicomServiceResult build() {
-            return new GetDicomServiceResult(authentications, id, identities, location, name, privateEndpoints, serviceUrl, tags, workspaceId);
+        }
+        public GetDicomServiceResult build() {
+            final var o = new GetDicomServiceResult();
+            o.authentications = authentications;
+            o.id = id;
+            o.identities = identities;
+            o.location = location;
+            o.name = name;
+            o.privateEndpoints = privateEndpoints;
+            o.serviceUrl = serviceUrl;
+            o.tags = tags;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

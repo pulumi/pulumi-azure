@@ -16,21 +16,14 @@ public final class BudgetSubscriptionFilterNot {
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
      */
-    private final @Nullable BudgetSubscriptionFilterNotDimension dimension;
+    private @Nullable BudgetSubscriptionFilterNotDimension dimension;
     /**
      * @return One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
      * 
      */
-    private final @Nullable BudgetSubscriptionFilterNotTag tag;
+    private @Nullable BudgetSubscriptionFilterNotTag tag;
 
-    @CustomType.Constructor
-    private BudgetSubscriptionFilterNot(
-        @CustomType.Parameter("dimension") @Nullable BudgetSubscriptionFilterNotDimension dimension,
-        @CustomType.Parameter("tag") @Nullable BudgetSubscriptionFilterNotTag tag) {
-        this.dimension = dimension;
-        this.tag = tag;
-    }
-
+    private BudgetSubscriptionFilterNot() {}
     /**
      * @return One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
      * 
@@ -53,30 +46,32 @@ public final class BudgetSubscriptionFilterNot {
     public static Builder builder(BudgetSubscriptionFilterNot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BudgetSubscriptionFilterNotDimension dimension;
         private @Nullable BudgetSubscriptionFilterNotTag tag;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetSubscriptionFilterNot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimension = defaults.dimension;
     	      this.tag = defaults.tag;
         }
 
+        @CustomType.Setter
         public Builder dimension(@Nullable BudgetSubscriptionFilterNotDimension dimension) {
             this.dimension = dimension;
             return this;
         }
+        @CustomType.Setter
         public Builder tag(@Nullable BudgetSubscriptionFilterNotTag tag) {
             this.tag = tag;
             return this;
-        }        public BudgetSubscriptionFilterNot build() {
-            return new BudgetSubscriptionFilterNot(dimension, tag);
+        }
+        public BudgetSubscriptionFilterNot build() {
+            final var o = new BudgetSubscriptionFilterNot();
+            o.dimension = dimension;
+            o.tag = tag;
+            return o;
         }
     }
 }

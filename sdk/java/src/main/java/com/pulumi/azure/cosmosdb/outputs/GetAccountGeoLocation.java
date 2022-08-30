@@ -10,28 +10,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAccountGeoLocation {
-    private final Integer failoverPriority;
+    private Integer failoverPriority;
     /**
      * @return The ID of the virtual network subnet.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the Azure region hosting replicated data.
      * 
      */
-    private final String location;
+    private String location;
 
-    @CustomType.Constructor
-    private GetAccountGeoLocation(
-        @CustomType.Parameter("failoverPriority") Integer failoverPriority,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location) {
-        this.failoverPriority = failoverPriority;
-        this.id = id;
-        this.location = location;
-    }
-
+    private GetAccountGeoLocation() {}
     public Integer failoverPriority() {
         return this.failoverPriority;
     }
@@ -57,16 +48,12 @@ public final class GetAccountGeoLocation {
     public static Builder builder(GetAccountGeoLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer failoverPriority;
         private String id;
         private String location;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountGeoLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failoverPriority = defaults.failoverPriority;
@@ -74,19 +61,27 @@ public final class GetAccountGeoLocation {
     	      this.location = defaults.location;
         }
 
+        @CustomType.Setter
         public Builder failoverPriority(Integer failoverPriority) {
             this.failoverPriority = Objects.requireNonNull(failoverPriority);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
-        }        public GetAccountGeoLocation build() {
-            return new GetAccountGeoLocation(failoverPriority, id, location);
+        }
+        public GetAccountGeoLocation build() {
+            final var o = new GetAccountGeoLocation();
+            o.failoverPriority = failoverPriority;
+            o.id = id;
+            o.location = location;
+            return o;
         }
     }
 }

@@ -13,49 +13,34 @@ public final class GetWindowsWebAppStorageAccount {
      * @return The Access key for the storage account.
      * 
      */
-    private final String accessKey;
+    private String accessKey;
     /**
      * @return The Name of the Storage Account.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return The path at which to mount the Storage Share.
      * 
      */
-    private final String mountPath;
+    private String mountPath;
     /**
      * @return The name of this Windows Web App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Name of the File Share.
      * 
      */
-    private final String shareName;
+    private String shareName;
     /**
      * @return The Azure Storage Type.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppStorageAccount(
-        @CustomType.Parameter("accessKey") String accessKey,
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("mountPath") String mountPath,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("shareName") String shareName,
-        @CustomType.Parameter("type") String type) {
-        this.accessKey = accessKey;
-        this.accountName = accountName;
-        this.mountPath = mountPath;
-        this.name = name;
-        this.shareName = shareName;
-        this.type = type;
-    }
-
+    private GetWindowsWebAppStorageAccount() {}
     /**
      * @return The Access key for the storage account.
      * 
@@ -106,7 +91,7 @@ public final class GetWindowsWebAppStorageAccount {
     public static Builder builder(GetWindowsWebAppStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessKey;
         private String accountName;
@@ -114,11 +99,7 @@ public final class GetWindowsWebAppStorageAccount {
         private String name;
         private String shareName;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessKey = defaults.accessKey;
@@ -129,31 +110,45 @@ public final class GetWindowsWebAppStorageAccount {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder accessKey(String accessKey) {
             this.accessKey = Objects.requireNonNull(accessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder mountPath(String mountPath) {
             this.mountPath = Objects.requireNonNull(mountPath);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder shareName(String shareName) {
             this.shareName = Objects.requireNonNull(shareName);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetWindowsWebAppStorageAccount build() {
-            return new GetWindowsWebAppStorageAccount(accessKey, accountName, mountPath, name, shareName, type);
+        }
+        public GetWindowsWebAppStorageAccount build() {
+            final var o = new GetWindowsWebAppStorageAccount();
+            o.accessKey = accessKey;
+            o.accountName = accountName;
+            o.mountPath = mountPath;
+            o.name = name;
+            o.shareName = shareName;
+            o.type = type;
+            return o;
         }
     }
 }

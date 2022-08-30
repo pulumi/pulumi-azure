@@ -18,28 +18,19 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
      * @return An `secret_identity` block is exported. The exported attributes are defined below.
      * 
      */
-    private final @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
+    private @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
     /**
      * @return Is secret rotation enabled?
      * 
      */
-    private final @Nullable Boolean secretRotationEnabled;
+    private @Nullable Boolean secretRotationEnabled;
     /**
      * @return The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
      * 
      */
-    private final @Nullable String secretRotationInterval;
+    private @Nullable String secretRotationInterval;
 
-    @CustomType.Constructor
-    private KubernetesClusterKeyVaultSecretsProvider(
-        @CustomType.Parameter("secretIdentities") @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities,
-        @CustomType.Parameter("secretRotationEnabled") @Nullable Boolean secretRotationEnabled,
-        @CustomType.Parameter("secretRotationInterval") @Nullable String secretRotationInterval) {
-        this.secretIdentities = secretIdentities;
-        this.secretRotationEnabled = secretRotationEnabled;
-        this.secretRotationInterval = secretRotationInterval;
-    }
-
+    private KubernetesClusterKeyVaultSecretsProvider() {}
     /**
      * @return An `secret_identity` block is exported. The exported attributes are defined below.
      * 
@@ -69,16 +60,12 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
     public static Builder builder(KubernetesClusterKeyVaultSecretsProvider defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities;
         private @Nullable Boolean secretRotationEnabled;
         private @Nullable String secretRotationInterval;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterKeyVaultSecretsProvider defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.secretIdentities = defaults.secretIdentities;
@@ -86,6 +73,7 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
     	      this.secretRotationInterval = defaults.secretRotationInterval;
         }
 
+        @CustomType.Setter
         public Builder secretIdentities(@Nullable List<KubernetesClusterKeyVaultSecretsProviderSecretIdentity> secretIdentities) {
             this.secretIdentities = secretIdentities;
             return this;
@@ -93,15 +81,22 @@ public final class KubernetesClusterKeyVaultSecretsProvider {
         public Builder secretIdentities(KubernetesClusterKeyVaultSecretsProviderSecretIdentity... secretIdentities) {
             return secretIdentities(List.of(secretIdentities));
         }
+        @CustomType.Setter
         public Builder secretRotationEnabled(@Nullable Boolean secretRotationEnabled) {
             this.secretRotationEnabled = secretRotationEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder secretRotationInterval(@Nullable String secretRotationInterval) {
             this.secretRotationInterval = secretRotationInterval;
             return this;
-        }        public KubernetesClusterKeyVaultSecretsProvider build() {
-            return new KubernetesClusterKeyVaultSecretsProvider(secretIdentities, secretRotationEnabled, secretRotationInterval);
+        }
+        public KubernetesClusterKeyVaultSecretsProvider build() {
+            final var o = new KubernetesClusterKeyVaultSecretsProvider();
+            o.secretIdentities = secretIdentities;
+            o.secretRotationEnabled = secretRotationEnabled;
+            o.secretRotationInterval = secretRotationInterval;
+            return o;
         }
     }
 }

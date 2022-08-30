@@ -17,77 +17,54 @@ public final class ZoneSoaRecord {
      * @return The email contact for the SOA record.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The expire time for the SOA record. Defaults to `2419200`.
      * 
      */
-    private final @Nullable Integer expireTime;
+    private @Nullable Integer expireTime;
     /**
      * @return The fully qualified domain name of the Record Set.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return The domain name of the authoritative name server for the SOA record.
      * 
      */
-    private final @Nullable String hostName;
+    private @Nullable String hostName;
     /**
      * @return The minimum Time To Live for the SOA record. By convention, it is used to determine the negative caching duration. Defaults to `10`.
      * 
      */
-    private final @Nullable Integer minimumTtl;
+    private @Nullable Integer minimumTtl;
     /**
      * @return The refresh time for the SOA record. Defaults to `3600`.
      * 
      */
-    private final @Nullable Integer refreshTime;
+    private @Nullable Integer refreshTime;
     /**
      * @return The retry time for the SOA record. Defaults to `300`.
      * 
      */
-    private final @Nullable Integer retryTime;
+    private @Nullable Integer retryTime;
     /**
      * @return The serial number for the SOA record.
      * 
      */
-    private final @Nullable Integer serialNumber;
+    private @Nullable Integer serialNumber;
     /**
      * @return A mapping of tags to assign to the Record Set.
      * 
      */
-    private final @Nullable Map<String,String> tags;
+    private @Nullable Map<String,String> tags;
     /**
      * @return The Time To Live of the SOA Record in seconds. Defaults to `3600`.
      * 
      */
-    private final @Nullable Integer ttl;
+    private @Nullable Integer ttl;
 
-    @CustomType.Constructor
-    private ZoneSoaRecord(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("expireTime") @Nullable Integer expireTime,
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("hostName") @Nullable String hostName,
-        @CustomType.Parameter("minimumTtl") @Nullable Integer minimumTtl,
-        @CustomType.Parameter("refreshTime") @Nullable Integer refreshTime,
-        @CustomType.Parameter("retryTime") @Nullable Integer retryTime,
-        @CustomType.Parameter("serialNumber") @Nullable Integer serialNumber,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("ttl") @Nullable Integer ttl) {
-        this.email = email;
-        this.expireTime = expireTime;
-        this.fqdn = fqdn;
-        this.hostName = hostName;
-        this.minimumTtl = minimumTtl;
-        this.refreshTime = refreshTime;
-        this.retryTime = retryTime;
-        this.serialNumber = serialNumber;
-        this.tags = tags;
-        this.ttl = ttl;
-    }
-
+    private ZoneSoaRecord() {}
     /**
      * @return The email contact for the SOA record.
      * 
@@ -166,7 +143,7 @@ public final class ZoneSoaRecord {
     public static Builder builder(ZoneSoaRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private @Nullable Integer expireTime;
@@ -178,11 +155,7 @@ public final class ZoneSoaRecord {
         private @Nullable Integer serialNumber;
         private @Nullable Map<String,String> tags;
         private @Nullable Integer ttl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ZoneSoaRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -197,47 +170,69 @@ public final class ZoneSoaRecord {
     	      this.ttl = defaults.ttl;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder expireTime(@Nullable Integer expireTime) {
             this.expireTime = expireTime;
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(@Nullable String hostName) {
             this.hostName = hostName;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTtl(@Nullable Integer minimumTtl) {
             this.minimumTtl = minimumTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder refreshTime(@Nullable Integer refreshTime) {
             this.refreshTime = refreshTime;
             return this;
         }
+        @CustomType.Setter
         public Builder retryTime(@Nullable Integer retryTime) {
             this.retryTime = retryTime;
             return this;
         }
+        @CustomType.Setter
         public Builder serialNumber(@Nullable Integer serialNumber) {
             this.serialNumber = serialNumber;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(@Nullable Integer ttl) {
             this.ttl = ttl;
             return this;
-        }        public ZoneSoaRecord build() {
-            return new ZoneSoaRecord(email, expireTime, fqdn, hostName, minimumTtl, refreshTime, retryTime, serialNumber, tags, ttl);
+        }
+        public ZoneSoaRecord build() {
+            final var o = new ZoneSoaRecord();
+            o.email = email;
+            o.expireTime = expireTime;
+            o.fqdn = fqdn;
+            o.hostName = hostName;
+            o.minimumTtl = minimumTtl;
+            o.refreshTime = refreshTime;
+            o.retryTime = retryTime;
+            o.serialNumber = serialNumber;
+            o.tags = tags;
+            o.ttl = ttl;
+            return o;
         }
     }
 }

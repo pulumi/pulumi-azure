@@ -16,35 +16,24 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
      * @return Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
      * 
      */
-    private final @Nullable String parameterValues;
+    private @Nullable String parameterValues;
     /**
      * @return The ID of the policy definition or policy set definition that will be included in this policy set definition.
      * 
      */
-    private final String policyDefinitionId;
+    private String policyDefinitionId;
     /**
      * @return A list of names of the policy definition groups that this policy definition reference belongs to.
      * 
      */
-    private final @Nullable List<String> policyGroupNames;
+    private @Nullable List<String> policyGroupNames;
     /**
      * @return A unique ID within this policy set definition for this policy definition reference.
      * 
      */
-    private final @Nullable String referenceId;
+    private @Nullable String referenceId;
 
-    @CustomType.Constructor
-    private PolicySetDefinitionPolicyDefinitionReference(
-        @CustomType.Parameter("parameterValues") @Nullable String parameterValues,
-        @CustomType.Parameter("policyDefinitionId") String policyDefinitionId,
-        @CustomType.Parameter("policyGroupNames") @Nullable List<String> policyGroupNames,
-        @CustomType.Parameter("referenceId") @Nullable String referenceId) {
-        this.parameterValues = parameterValues;
-        this.policyDefinitionId = policyDefinitionId;
-        this.policyGroupNames = policyGroupNames;
-        this.referenceId = referenceId;
-    }
-
+    private PolicySetDefinitionPolicyDefinitionReference() {}
     /**
      * @return Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
      * 
@@ -81,17 +70,13 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
     public static Builder builder(PolicySetDefinitionPolicyDefinitionReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String parameterValues;
         private String policyDefinitionId;
         private @Nullable List<String> policyGroupNames;
         private @Nullable String referenceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicySetDefinitionPolicyDefinitionReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameterValues = defaults.parameterValues;
@@ -100,14 +85,17 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
     	      this.referenceId = defaults.referenceId;
         }
 
+        @CustomType.Setter
         public Builder parameterValues(@Nullable String parameterValues) {
             this.parameterValues = parameterValues;
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionId(String policyDefinitionId) {
             this.policyDefinitionId = Objects.requireNonNull(policyDefinitionId);
             return this;
         }
+        @CustomType.Setter
         public Builder policyGroupNames(@Nullable List<String> policyGroupNames) {
             this.policyGroupNames = policyGroupNames;
             return this;
@@ -115,11 +103,18 @@ public final class PolicySetDefinitionPolicyDefinitionReference {
         public Builder policyGroupNames(String... policyGroupNames) {
             return policyGroupNames(List.of(policyGroupNames));
         }
+        @CustomType.Setter
         public Builder referenceId(@Nullable String referenceId) {
             this.referenceId = referenceId;
             return this;
-        }        public PolicySetDefinitionPolicyDefinitionReference build() {
-            return new PolicySetDefinitionPolicyDefinitionReference(parameterValues, policyDefinitionId, policyGroupNames, referenceId);
+        }
+        public PolicySetDefinitionPolicyDefinitionReference build() {
+            final var o = new PolicySetDefinitionPolicyDefinitionReference();
+            o.parameterValues = parameterValues;
+            o.policyDefinitionId = policyDefinitionId;
+            o.policyGroupNames = policyGroupNames;
+            o.referenceId = referenceId;
+            return o;
         }
     }
 }

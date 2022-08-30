@@ -13,13 +13,9 @@ public final class CustomProviderValidation {
      * @return The endpoint where the validation specification is located.
      * 
      */
-    private final String specification;
+    private String specification;
 
-    @CustomType.Constructor
-    private CustomProviderValidation(@CustomType.Parameter("specification") String specification) {
-        this.specification = specification;
-    }
-
+    private CustomProviderValidation() {}
     /**
      * @return The endpoint where the validation specification is located.
      * 
@@ -35,24 +31,24 @@ public final class CustomProviderValidation {
     public static Builder builder(CustomProviderValidation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String specification;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomProviderValidation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.specification = defaults.specification;
         }
 
+        @CustomType.Setter
         public Builder specification(String specification) {
             this.specification = Objects.requireNonNull(specification);
             return this;
-        }        public CustomProviderValidation build() {
-            return new CustomProviderValidation(specification);
+        }
+        public CustomProviderValidation build() {
+            final var o = new CustomProviderValidation();
+            o.specification = specification;
+            return o;
         }
     }
 }

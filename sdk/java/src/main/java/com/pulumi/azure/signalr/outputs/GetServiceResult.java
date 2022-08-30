@@ -15,86 +15,57 @@ public final class GetServiceResult {
      * @return The FQDN of the SignalR service.
      * 
      */
-    private final String hostname;
+    private String hostname;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The publicly accessible IP of the SignalR service.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return Specifies the supported Azure location where the SignalR service exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The primary access key of the SignalR service.
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @return The primary connection string of the SignalR service.
      * 
      */
-    private final String primaryConnectionString;
+    private String primaryConnectionString;
     /**
      * @return The publicly accessible port of the SignalR service which is designed for browser/client use.
      * 
      */
-    private final Integer publicPort;
-    private final String resourceGroupName;
+    private Integer publicPort;
+    private String resourceGroupName;
     /**
      * @return The secondary access key of the SignalR service.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
     /**
      * @return The secondary connection string of the SignalR service.
      * 
      */
-    private final String secondaryConnectionString;
+    private String secondaryConnectionString;
     /**
      * @return The publicly accessible port of the SignalR service which is designed for customer server side use.
      * 
      */
-    private final Integer serverPort;
-    private final Map<String,String> tags;
+    private Integer serverPort;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetServiceResult(
-        @CustomType.Parameter("hostname") String hostname,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("primaryConnectionString") String primaryConnectionString,
-        @CustomType.Parameter("publicPort") Integer publicPort,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("secondaryConnectionString") String secondaryConnectionString,
-        @CustomType.Parameter("serverPort") Integer serverPort,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.hostname = hostname;
-        this.id = id;
-        this.ipAddress = ipAddress;
-        this.location = location;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.primaryConnectionString = primaryConnectionString;
-        this.publicPort = publicPort;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.secondaryConnectionString = secondaryConnectionString;
-        this.serverPort = serverPort;
-        this.tags = tags;
-    }
-
+    private GetServiceResult() {}
     /**
      * @return The FQDN of the SignalR service.
      * 
@@ -182,7 +153,7 @@ public final class GetServiceResult {
     public static Builder builder(GetServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostname;
         private String id;
@@ -197,11 +168,7 @@ public final class GetServiceResult {
         private String secondaryConnectionString;
         private Integer serverPort;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostname = defaults.hostname;
@@ -219,59 +186,87 @@ public final class GetServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder hostname(String hostname) {
             this.hostname = Objects.requireNonNull(hostname);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryConnectionString(String primaryConnectionString) {
             this.primaryConnectionString = Objects.requireNonNull(primaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder publicPort(Integer publicPort) {
             this.publicPort = Objects.requireNonNull(publicPort);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryConnectionString(String secondaryConnectionString) {
             this.secondaryConnectionString = Objects.requireNonNull(secondaryConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder serverPort(Integer serverPort) {
             this.serverPort = Objects.requireNonNull(serverPort);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetServiceResult build() {
-            return new GetServiceResult(hostname, id, ipAddress, location, name, primaryAccessKey, primaryConnectionString, publicPort, resourceGroupName, secondaryAccessKey, secondaryConnectionString, serverPort, tags);
+        }
+        public GetServiceResult build() {
+            final var o = new GetServiceResult();
+            o.hostname = hostname;
+            o.id = id;
+            o.ipAddress = ipAddress;
+            o.location = location;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.primaryConnectionString = primaryConnectionString;
+            o.publicPort = publicPort;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.secondaryConnectionString = secondaryConnectionString;
+            o.serverPort = serverPort;
+            o.tags = tags;
+            return o;
         }
     }
 }

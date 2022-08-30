@@ -15,21 +15,14 @@ public final class ProfileContainerNetworkInterface {
      * @return One or more `ip_configuration` blocks as documented below.
      * 
      */
-    private final List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations;
+    private List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
      * @return Specifies the name of the IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ProfileContainerNetworkInterface(
-        @CustomType.Parameter("ipConfigurations") List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("name") String name) {
-        this.ipConfigurations = ipConfigurations;
-        this.name = name;
-    }
-
+    private ProfileContainerNetworkInterface() {}
     /**
      * @return One or more `ip_configuration` blocks as documented below.
      * 
@@ -52,21 +45,18 @@ public final class ProfileContainerNetworkInterface {
     public static Builder builder(ProfileContainerNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProfileContainerNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ipConfigurations = defaults.ipConfigurations;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder ipConfigurations(List<ProfileContainerNetworkInterfaceIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -74,11 +64,16 @@ public final class ProfileContainerNetworkInterface {
         public Builder ipConfigurations(ProfileContainerNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ProfileContainerNetworkInterface build() {
-            return new ProfileContainerNetworkInterface(ipConfigurations, name);
+        }
+        public ProfileContainerNetworkInterface build() {
+            final var o = new ProfileContainerNetworkInterface();
+            o.ipConfigurations = ipConfigurations;
+            o.name = name;
+            return o;
         }
     }
 }

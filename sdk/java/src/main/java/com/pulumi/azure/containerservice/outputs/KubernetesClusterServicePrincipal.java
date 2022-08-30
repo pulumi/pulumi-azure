@@ -13,21 +13,14 @@ public final class KubernetesClusterServicePrincipal {
      * @return The Client ID for the Service Principal.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The Client Secret for the Service Principal.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
 
-    @CustomType.Constructor
-    private KubernetesClusterServicePrincipal(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-    }
-
+    private KubernetesClusterServicePrincipal() {}
     /**
      * @return The Client ID for the Service Principal.
      * 
@@ -50,30 +43,32 @@ public final class KubernetesClusterServicePrincipal {
     public static Builder builder(KubernetesClusterServicePrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterServicePrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
     	      this.clientSecret = defaults.clientSecret;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
-        }        public KubernetesClusterServicePrincipal build() {
-            return new KubernetesClusterServicePrincipal(clientId, clientSecret);
+        }
+        public KubernetesClusterServicePrincipal build() {
+            final var o = new KubernetesClusterServicePrincipal();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            return o;
         }
     }
 }

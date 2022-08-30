@@ -16,35 +16,24 @@ public final class ScaleSetRollingUpgradePolicy {
      * @return The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
      * 
      */
-    private final @Nullable Integer maxBatchInstancePercent;
+    private @Nullable Integer maxBatchInstancePercent;
     /**
      * @return The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch. Defaults to `20`.
      * 
      */
-    private final @Nullable Integer maxUnhealthyInstancePercent;
+    private @Nullable Integer maxUnhealthyInstancePercent;
     /**
      * @return The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts. Defaults to `20`.
      * 
      */
-    private final @Nullable Integer maxUnhealthyUpgradedInstancePercent;
+    private @Nullable Integer maxUnhealthyUpgradedInstancePercent;
     /**
      * @return The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format for duration (&lt;https://en.wikipedia.org/wiki/ISO_8601#Durations&gt;). Defaults to `0` seconds represented as `PT0S`.
      * 
      */
-    private final @Nullable String pauseTimeBetweenBatches;
+    private @Nullable String pauseTimeBetweenBatches;
 
-    @CustomType.Constructor
-    private ScaleSetRollingUpgradePolicy(
-        @CustomType.Parameter("maxBatchInstancePercent") @Nullable Integer maxBatchInstancePercent,
-        @CustomType.Parameter("maxUnhealthyInstancePercent") @Nullable Integer maxUnhealthyInstancePercent,
-        @CustomType.Parameter("maxUnhealthyUpgradedInstancePercent") @Nullable Integer maxUnhealthyUpgradedInstancePercent,
-        @CustomType.Parameter("pauseTimeBetweenBatches") @Nullable String pauseTimeBetweenBatches) {
-        this.maxBatchInstancePercent = maxBatchInstancePercent;
-        this.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
-        this.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
-        this.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
-    }
-
+    private ScaleSetRollingUpgradePolicy() {}
     /**
      * @return The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability. Defaults to `20`.
      * 
@@ -81,17 +70,13 @@ public final class ScaleSetRollingUpgradePolicy {
     public static Builder builder(ScaleSetRollingUpgradePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxBatchInstancePercent;
         private @Nullable Integer maxUnhealthyInstancePercent;
         private @Nullable Integer maxUnhealthyUpgradedInstancePercent;
         private @Nullable String pauseTimeBetweenBatches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetRollingUpgradePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxBatchInstancePercent = defaults.maxBatchInstancePercent;
@@ -100,23 +85,33 @@ public final class ScaleSetRollingUpgradePolicy {
     	      this.pauseTimeBetweenBatches = defaults.pauseTimeBetweenBatches;
         }
 
+        @CustomType.Setter
         public Builder maxBatchInstancePercent(@Nullable Integer maxBatchInstancePercent) {
             this.maxBatchInstancePercent = maxBatchInstancePercent;
             return this;
         }
+        @CustomType.Setter
         public Builder maxUnhealthyInstancePercent(@Nullable Integer maxUnhealthyInstancePercent) {
             this.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
             return this;
         }
+        @CustomType.Setter
         public Builder maxUnhealthyUpgradedInstancePercent(@Nullable Integer maxUnhealthyUpgradedInstancePercent) {
             this.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
             return this;
         }
+        @CustomType.Setter
         public Builder pauseTimeBetweenBatches(@Nullable String pauseTimeBetweenBatches) {
             this.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
             return this;
-        }        public ScaleSetRollingUpgradePolicy build() {
-            return new ScaleSetRollingUpgradePolicy(maxBatchInstancePercent, maxUnhealthyInstancePercent, maxUnhealthyUpgradedInstancePercent, pauseTimeBetweenBatches);
+        }
+        public ScaleSetRollingUpgradePolicy build() {
+            final var o = new ScaleSetRollingUpgradePolicy();
+            o.maxBatchInstancePercent = maxBatchInstancePercent;
+            o.maxUnhealthyInstancePercent = maxUnhealthyInstancePercent;
+            o.maxUnhealthyUpgradedInstancePercent = maxUnhealthyUpgradedInstancePercent;
+            o.pauseTimeBetweenBatches = pauseTimeBetweenBatches;
+            return o;
         }
     }
 }

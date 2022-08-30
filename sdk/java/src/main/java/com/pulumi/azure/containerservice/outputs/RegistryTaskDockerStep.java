@@ -18,70 +18,49 @@ public final class RegistryTaskDockerStep {
      * @return Specifies a map of arguments to be used when executing this step.
      * 
      */
-    private final @Nullable Map<String,String> arguments;
+    private @Nullable Map<String,String> arguments;
     /**
      * @return Should the image cache be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean cacheEnabled;
+    private @Nullable Boolean cacheEnabled;
     /**
      * @return The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
      * 
      */
-    private final String contextAccessToken;
+    private String contextAccessToken;
     /**
      * @return The URL (absolute or relative) of the source context for this step.
      * 
      */
-    private final String contextPath;
+    private String contextPath;
     /**
      * @return The  Dockerfile path relative to the source context.
      * 
      */
-    private final String dockerfilePath;
+    private String dockerfilePath;
     /**
      * @return Specifies a list of fully qualified image names including the repository and tag.
      * 
      */
-    private final @Nullable List<String> imageNames;
+    private @Nullable List<String> imageNames;
     /**
      * @return Should the image built be pushed to the registry or not? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean pushEnabled;
+    private @Nullable Boolean pushEnabled;
     /**
      * @return Specifies a map of *secret* arguments to be used when executing this step.
      * 
      */
-    private final @Nullable Map<String,String> secretArguments;
+    private @Nullable Map<String,String> secretArguments;
     /**
      * @return The name of the target build stage for the docker build.
      * 
      */
-    private final @Nullable String target;
+    private @Nullable String target;
 
-    @CustomType.Constructor
-    private RegistryTaskDockerStep(
-        @CustomType.Parameter("arguments") @Nullable Map<String,String> arguments,
-        @CustomType.Parameter("cacheEnabled") @Nullable Boolean cacheEnabled,
-        @CustomType.Parameter("contextAccessToken") String contextAccessToken,
-        @CustomType.Parameter("contextPath") String contextPath,
-        @CustomType.Parameter("dockerfilePath") String dockerfilePath,
-        @CustomType.Parameter("imageNames") @Nullable List<String> imageNames,
-        @CustomType.Parameter("pushEnabled") @Nullable Boolean pushEnabled,
-        @CustomType.Parameter("secretArguments") @Nullable Map<String,String> secretArguments,
-        @CustomType.Parameter("target") @Nullable String target) {
-        this.arguments = arguments;
-        this.cacheEnabled = cacheEnabled;
-        this.contextAccessToken = contextAccessToken;
-        this.contextPath = contextPath;
-        this.dockerfilePath = dockerfilePath;
-        this.imageNames = imageNames;
-        this.pushEnabled = pushEnabled;
-        this.secretArguments = secretArguments;
-        this.target = target;
-    }
-
+    private RegistryTaskDockerStep() {}
     /**
      * @return Specifies a map of arguments to be used when executing this step.
      * 
@@ -153,7 +132,7 @@ public final class RegistryTaskDockerStep {
     public static Builder builder(RegistryTaskDockerStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Map<String,String> arguments;
         private @Nullable Boolean cacheEnabled;
@@ -164,11 +143,7 @@ public final class RegistryTaskDockerStep {
         private @Nullable Boolean pushEnabled;
         private @Nullable Map<String,String> secretArguments;
         private @Nullable String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskDockerStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arguments = defaults.arguments;
@@ -182,26 +157,32 @@ public final class RegistryTaskDockerStep {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder arguments(@Nullable Map<String,String> arguments) {
             this.arguments = arguments;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheEnabled(@Nullable Boolean cacheEnabled) {
             this.cacheEnabled = cacheEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder contextAccessToken(String contextAccessToken) {
             this.contextAccessToken = Objects.requireNonNull(contextAccessToken);
             return this;
         }
+        @CustomType.Setter
         public Builder contextPath(String contextPath) {
             this.contextPath = Objects.requireNonNull(contextPath);
             return this;
         }
+        @CustomType.Setter
         public Builder dockerfilePath(String dockerfilePath) {
             this.dockerfilePath = Objects.requireNonNull(dockerfilePath);
             return this;
         }
+        @CustomType.Setter
         public Builder imageNames(@Nullable List<String> imageNames) {
             this.imageNames = imageNames;
             return this;
@@ -209,19 +190,33 @@ public final class RegistryTaskDockerStep {
         public Builder imageNames(String... imageNames) {
             return imageNames(List.of(imageNames));
         }
+        @CustomType.Setter
         public Builder pushEnabled(@Nullable Boolean pushEnabled) {
             this.pushEnabled = pushEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder secretArguments(@Nullable Map<String,String> secretArguments) {
             this.secretArguments = secretArguments;
             return this;
         }
+        @CustomType.Setter
         public Builder target(@Nullable String target) {
             this.target = target;
             return this;
-        }        public RegistryTaskDockerStep build() {
-            return new RegistryTaskDockerStep(arguments, cacheEnabled, contextAccessToken, contextPath, dockerfilePath, imageNames, pushEnabled, secretArguments, target);
+        }
+        public RegistryTaskDockerStep build() {
+            final var o = new RegistryTaskDockerStep();
+            o.arguments = arguments;
+            o.cacheEnabled = cacheEnabled;
+            o.contextAccessToken = contextAccessToken;
+            o.contextPath = contextPath;
+            o.dockerfilePath = dockerfilePath;
+            o.imageNames = imageNames;
+            o.pushEnabled = pushEnabled;
+            o.secretArguments = secretArguments;
+            o.target = target;
+            return o;
         }
     }
 }

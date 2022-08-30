@@ -17,49 +17,34 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
      * @return A `http_basic_auth` block as defined below.
      * 
      */
-    private final List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths;
+    private List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths;
     /**
      * @return The default label of the Git repository, which is a branch name, tag name, or commit-id of the repository
      * 
      */
-    private final String label;
+    private String label;
     /**
      * @return One or more `repository` blocks as defined below.
      * 
      */
-    private final List<GetSpringCloudServiceConfigServerGitSettingRepository> repositories;
+    private List<GetSpringCloudServiceConfigServerGitSettingRepository> repositories;
     /**
      * @return An array of strings used to search subdirectories of the Git repository.
      * 
      */
-    private final List<String> searchPaths;
+    private List<String> searchPaths;
     /**
      * @return A `ssh_auth` block as defined below.
      * 
      */
-    private final List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths;
+    private List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths;
     /**
      * @return The URI of the Git repository
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private GetSpringCloudServiceConfigServerGitSetting(
-        @CustomType.Parameter("httpBasicAuths") List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths,
-        @CustomType.Parameter("label") String label,
-        @CustomType.Parameter("repositories") List<GetSpringCloudServiceConfigServerGitSettingRepository> repositories,
-        @CustomType.Parameter("searchPaths") List<String> searchPaths,
-        @CustomType.Parameter("sshAuths") List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths,
-        @CustomType.Parameter("uri") String uri) {
-        this.httpBasicAuths = httpBasicAuths;
-        this.label = label;
-        this.repositories = repositories;
-        this.searchPaths = searchPaths;
-        this.sshAuths = sshAuths;
-        this.uri = uri;
-    }
-
+    private GetSpringCloudServiceConfigServerGitSetting() {}
     /**
      * @return A `http_basic_auth` block as defined below.
      * 
@@ -110,7 +95,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
     public static Builder builder(GetSpringCloudServiceConfigServerGitSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths;
         private String label;
@@ -118,11 +103,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         private List<String> searchPaths;
         private List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudServiceConfigServerGitSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpBasicAuths = defaults.httpBasicAuths;
@@ -133,6 +114,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder httpBasicAuths(List<GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth> httpBasicAuths) {
             this.httpBasicAuths = Objects.requireNonNull(httpBasicAuths);
             return this;
@@ -140,10 +122,12 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         public Builder httpBasicAuths(GetSpringCloudServiceConfigServerGitSettingHttpBasicAuth... httpBasicAuths) {
             return httpBasicAuths(List.of(httpBasicAuths));
         }
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
         }
+        @CustomType.Setter
         public Builder repositories(List<GetSpringCloudServiceConfigServerGitSettingRepository> repositories) {
             this.repositories = Objects.requireNonNull(repositories);
             return this;
@@ -151,6 +135,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         public Builder repositories(GetSpringCloudServiceConfigServerGitSettingRepository... repositories) {
             return repositories(List.of(repositories));
         }
+        @CustomType.Setter
         public Builder searchPaths(List<String> searchPaths) {
             this.searchPaths = Objects.requireNonNull(searchPaths);
             return this;
@@ -158,6 +143,7 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         public Builder searchPaths(String... searchPaths) {
             return searchPaths(List.of(searchPaths));
         }
+        @CustomType.Setter
         public Builder sshAuths(List<GetSpringCloudServiceConfigServerGitSettingSshAuth> sshAuths) {
             this.sshAuths = Objects.requireNonNull(sshAuths);
             return this;
@@ -165,11 +151,20 @@ public final class GetSpringCloudServiceConfigServerGitSetting {
         public Builder sshAuths(GetSpringCloudServiceConfigServerGitSettingSshAuth... sshAuths) {
             return sshAuths(List.of(sshAuths));
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public GetSpringCloudServiceConfigServerGitSetting build() {
-            return new GetSpringCloudServiceConfigServerGitSetting(httpBasicAuths, label, repositories, searchPaths, sshAuths, uri);
+        }
+        public GetSpringCloudServiceConfigServerGitSetting build() {
+            final var o = new GetSpringCloudServiceConfigServerGitSetting();
+            o.httpBasicAuths = httpBasicAuths;
+            o.label = label;
+            o.repositories = repositories;
+            o.searchPaths = searchPaths;
+            o.sshAuths = sshAuths;
+            o.uri = uri;
+            return o;
         }
     }
 }

@@ -14,13 +14,9 @@ public final class WorkflowAccessControlWorkflowManagement {
      * @return A list of the allowed caller IP address ranges.
      * 
      */
-    private final List<String> allowedCallerIpAddressRanges;
+    private List<String> allowedCallerIpAddressRanges;
 
-    @CustomType.Constructor
-    private WorkflowAccessControlWorkflowManagement(@CustomType.Parameter("allowedCallerIpAddressRanges") List<String> allowedCallerIpAddressRanges) {
-        this.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
-    }
-
+    private WorkflowAccessControlWorkflowManagement() {}
     /**
      * @return A list of the allowed caller IP address ranges.
      * 
@@ -36,27 +32,27 @@ public final class WorkflowAccessControlWorkflowManagement {
     public static Builder builder(WorkflowAccessControlWorkflowManagement defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedCallerIpAddressRanges;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowAccessControlWorkflowManagement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedCallerIpAddressRanges = defaults.allowedCallerIpAddressRanges;
         }
 
+        @CustomType.Setter
         public Builder allowedCallerIpAddressRanges(List<String> allowedCallerIpAddressRanges) {
             this.allowedCallerIpAddressRanges = Objects.requireNonNull(allowedCallerIpAddressRanges);
             return this;
         }
         public Builder allowedCallerIpAddressRanges(String... allowedCallerIpAddressRanges) {
             return allowedCallerIpAddressRanges(List.of(allowedCallerIpAddressRanges));
-        }        public WorkflowAccessControlWorkflowManagement build() {
-            return new WorkflowAccessControlWorkflowManagement(allowedCallerIpAddressRanges);
+        }
+        public WorkflowAccessControlWorkflowManagement build() {
+            final var o = new WorkflowAccessControlWorkflowManagement();
+            o.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            return o;
         }
     }
 }

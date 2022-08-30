@@ -15,42 +15,29 @@ public final class VirtualMachineStorageImageReference {
      * @return Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the offer of the image used to create the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String offer;
+    private @Nullable String offer;
     /**
      * @return Specifies the publisher of the image used to create the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String publisher;
+    private @Nullable String publisher;
     /**
      * @return Specifies the SKU of the image used to create the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String sku;
+    private @Nullable String sku;
     /**
      * @return Specifies the version of the image used to create the virtual machine. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private VirtualMachineStorageImageReference(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("offer") @Nullable String offer,
-        @CustomType.Parameter("publisher") @Nullable String publisher,
-        @CustomType.Parameter("sku") @Nullable String sku,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.id = id;
-        this.offer = offer;
-        this.publisher = publisher;
-        this.sku = sku;
-        this.version = version;
-    }
-
+    private VirtualMachineStorageImageReference() {}
     /**
      * @return Specifies the ID of the Custom Image which the Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
@@ -94,18 +81,14 @@ public final class VirtualMachineStorageImageReference {
     public static Builder builder(VirtualMachineStorageImageReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String offer;
         private @Nullable String publisher;
         private @Nullable String sku;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineStorageImageReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -115,27 +98,39 @@ public final class VirtualMachineStorageImageReference {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder offer(@Nullable String offer) {
             this.offer = offer;
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(@Nullable String publisher) {
             this.publisher = publisher;
             return this;
         }
+        @CustomType.Setter
         public Builder sku(@Nullable String sku) {
             this.sku = sku;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public VirtualMachineStorageImageReference build() {
-            return new VirtualMachineStorageImageReference(id, offer, publisher, sku, version);
+        }
+        public VirtualMachineStorageImageReference build() {
+            final var o = new VirtualMachineStorageImageReference();
+            o.id = id;
+            o.offer = offer;
+            o.publisher = publisher;
+            o.sku = sku;
+            o.version = version;
+            return o;
         }
     }
 }

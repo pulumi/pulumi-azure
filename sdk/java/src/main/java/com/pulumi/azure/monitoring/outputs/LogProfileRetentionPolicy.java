@@ -16,21 +16,14 @@ public final class LogProfileRetentionPolicy {
      * @return The number of days for the retention policy. Defaults to 0.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return A boolean value to indicate whether the retention policy is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private LogProfileRetentionPolicy(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("enabled") Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private LogProfileRetentionPolicy() {}
     /**
      * @return The number of days for the retention policy. Defaults to 0.
      * 
@@ -53,30 +46,32 @@ public final class LogProfileRetentionPolicy {
     public static Builder builder(LogProfileRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogProfileRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public LogProfileRetentionPolicy build() {
-            return new LogProfileRetentionPolicy(days, enabled);
+        }
+        public LogProfileRetentionPolicy build() {
+            final var o = new LogProfileRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

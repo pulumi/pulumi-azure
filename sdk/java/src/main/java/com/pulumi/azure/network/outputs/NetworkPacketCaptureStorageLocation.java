@@ -15,28 +15,19 @@ public final class NetworkPacketCaptureStorageLocation {
      * @return A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
      * 
      */
-    private final @Nullable String filePath;
+    private @Nullable String filePath;
     /**
      * @return The ID of the storage account to save the packet capture session
      * 
      */
-    private final @Nullable String storageAccountId;
+    private @Nullable String storageAccountId;
     /**
      * @return The URI of the storage path to save the packet capture.
      * 
      */
-    private final @Nullable String storagePath;
+    private @Nullable String storagePath;
 
-    @CustomType.Constructor
-    private NetworkPacketCaptureStorageLocation(
-        @CustomType.Parameter("filePath") @Nullable String filePath,
-        @CustomType.Parameter("storageAccountId") @Nullable String storageAccountId,
-        @CustomType.Parameter("storagePath") @Nullable String storagePath) {
-        this.filePath = filePath;
-        this.storageAccountId = storageAccountId;
-        this.storagePath = storagePath;
-    }
-
+    private NetworkPacketCaptureStorageLocation() {}
     /**
      * @return A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with `/var/captures`.
      * 
@@ -66,16 +57,12 @@ public final class NetworkPacketCaptureStorageLocation {
     public static Builder builder(NetworkPacketCaptureStorageLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String filePath;
         private @Nullable String storageAccountId;
         private @Nullable String storagePath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkPacketCaptureStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filePath = defaults.filePath;
@@ -83,19 +70,27 @@ public final class NetworkPacketCaptureStorageLocation {
     	      this.storagePath = defaults.storagePath;
         }
 
+        @CustomType.Setter
         public Builder filePath(@Nullable String filePath) {
             this.filePath = filePath;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(@Nullable String storageAccountId) {
             this.storageAccountId = storageAccountId;
             return this;
         }
+        @CustomType.Setter
         public Builder storagePath(@Nullable String storagePath) {
             this.storagePath = storagePath;
             return this;
-        }        public NetworkPacketCaptureStorageLocation build() {
-            return new NetworkPacketCaptureStorageLocation(filePath, storageAccountId, storagePath);
+        }
+        public NetworkPacketCaptureStorageLocation build() {
+            final var o = new NetworkPacketCaptureStorageLocation();
+            o.filePath = filePath;
+            o.storageAccountId = storageAccountId;
+            o.storagePath = storagePath;
+            return o;
         }
     }
 }

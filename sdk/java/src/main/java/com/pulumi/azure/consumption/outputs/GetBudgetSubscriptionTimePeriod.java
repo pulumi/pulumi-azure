@@ -13,21 +13,14 @@ public final class GetBudgetSubscriptionTimePeriod {
      * @return The end date for the budget.
      * 
      */
-    private final String endDate;
+    private String endDate;
     /**
      * @return The start date for the budget.
      * 
      */
-    private final String startDate;
+    private String startDate;
 
-    @CustomType.Constructor
-    private GetBudgetSubscriptionTimePeriod(
-        @CustomType.Parameter("endDate") String endDate,
-        @CustomType.Parameter("startDate") String startDate) {
-        this.endDate = endDate;
-        this.startDate = startDate;
-    }
-
+    private GetBudgetSubscriptionTimePeriod() {}
     /**
      * @return The end date for the budget.
      * 
@@ -50,30 +43,32 @@ public final class GetBudgetSubscriptionTimePeriod {
     public static Builder builder(GetBudgetSubscriptionTimePeriod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endDate;
         private String startDate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBudgetSubscriptionTimePeriod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDate = defaults.endDate;
     	      this.startDate = defaults.startDate;
         }
 
+        @CustomType.Setter
         public Builder endDate(String endDate) {
             this.endDate = Objects.requireNonNull(endDate);
             return this;
         }
+        @CustomType.Setter
         public Builder startDate(String startDate) {
             this.startDate = Objects.requireNonNull(startDate);
             return this;
-        }        public GetBudgetSubscriptionTimePeriod build() {
-            return new GetBudgetSubscriptionTimePeriod(endDate, startDate);
+        }
+        public GetBudgetSubscriptionTimePeriod build() {
+            final var o = new GetBudgetSubscriptionTimePeriod();
+            o.endDate = endDate;
+            o.startDate = startDate;
+            return o;
         }
     }
 }

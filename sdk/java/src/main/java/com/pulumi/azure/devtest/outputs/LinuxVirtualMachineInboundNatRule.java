@@ -16,28 +16,19 @@ public final class LinuxVirtualMachineInboundNatRule {
      * @return The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return The frontend port associated with this Inbound NAT Rule.
      * 
      */
-    private final @Nullable Integer frontendPort;
+    private @Nullable Integer frontendPort;
     /**
      * @return The Protocol used for this NAT Rule. Possible values are `Tcp` and `Udp`. Changing this forces a new resource to be created.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineInboundNatRule(
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("frontendPort") @Nullable Integer frontendPort,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.backendPort = backendPort;
-        this.frontendPort = frontendPort;
-        this.protocol = protocol;
-    }
-
+    private LinuxVirtualMachineInboundNatRule() {}
     /**
      * @return The Backend Port associated with this NAT Rule. Changing this forces a new resource to be created.
      * 
@@ -67,16 +58,12 @@ public final class LinuxVirtualMachineInboundNatRule {
     public static Builder builder(LinuxVirtualMachineInboundNatRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer backendPort;
         private @Nullable Integer frontendPort;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineInboundNatRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPort = defaults.backendPort;
@@ -84,19 +71,27 @@ public final class LinuxVirtualMachineInboundNatRule {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPort(@Nullable Integer frontendPort) {
             this.frontendPort = frontendPort;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public LinuxVirtualMachineInboundNatRule build() {
-            return new LinuxVirtualMachineInboundNatRule(backendPort, frontendPort, protocol);
+        }
+        public LinuxVirtualMachineInboundNatRule build() {
+            final var o = new LinuxVirtualMachineInboundNatRule();
+            o.backendPort = backendPort;
+            o.frontendPort = frontendPort;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

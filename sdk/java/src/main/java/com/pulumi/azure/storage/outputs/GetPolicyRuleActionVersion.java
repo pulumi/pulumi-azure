@@ -13,28 +13,19 @@ public final class GetPolicyRuleActionVersion {
      * @return The age in days after creation to tier blob version to archive storage.
      * 
      */
-    private final Integer changeTierToArchiveAfterDaysSinceCreation;
+    private Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
      * @return The age in days after creation to tier blob version to cool storage.
      * 
      */
-    private final Integer changeTierToCoolAfterDaysSinceCreation;
+    private Integer changeTierToCoolAfterDaysSinceCreation;
     /**
      * @return The age in days after creation to delete the blob version.
      * 
      */
-    private final Integer deleteAfterDaysSinceCreation;
+    private Integer deleteAfterDaysSinceCreation;
 
-    @CustomType.Constructor
-    private GetPolicyRuleActionVersion(
-        @CustomType.Parameter("changeTierToArchiveAfterDaysSinceCreation") Integer changeTierToArchiveAfterDaysSinceCreation,
-        @CustomType.Parameter("changeTierToCoolAfterDaysSinceCreation") Integer changeTierToCoolAfterDaysSinceCreation,
-        @CustomType.Parameter("deleteAfterDaysSinceCreation") Integer deleteAfterDaysSinceCreation) {
-        this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
-        this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
-        this.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
-    }
-
+    private GetPolicyRuleActionVersion() {}
     /**
      * @return The age in days after creation to tier blob version to archive storage.
      * 
@@ -64,16 +55,12 @@ public final class GetPolicyRuleActionVersion {
     public static Builder builder(GetPolicyRuleActionVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer changeTierToArchiveAfterDaysSinceCreation;
         private Integer changeTierToCoolAfterDaysSinceCreation;
         private Integer deleteAfterDaysSinceCreation;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRuleActionVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeTierToArchiveAfterDaysSinceCreation = defaults.changeTierToArchiveAfterDaysSinceCreation;
@@ -81,19 +68,27 @@ public final class GetPolicyRuleActionVersion {
     	      this.deleteAfterDaysSinceCreation = defaults.deleteAfterDaysSinceCreation;
         }
 
+        @CustomType.Setter
         public Builder changeTierToArchiveAfterDaysSinceCreation(Integer changeTierToArchiveAfterDaysSinceCreation) {
             this.changeTierToArchiveAfterDaysSinceCreation = Objects.requireNonNull(changeTierToArchiveAfterDaysSinceCreation);
             return this;
         }
+        @CustomType.Setter
         public Builder changeTierToCoolAfterDaysSinceCreation(Integer changeTierToCoolAfterDaysSinceCreation) {
             this.changeTierToCoolAfterDaysSinceCreation = Objects.requireNonNull(changeTierToCoolAfterDaysSinceCreation);
             return this;
         }
+        @CustomType.Setter
         public Builder deleteAfterDaysSinceCreation(Integer deleteAfterDaysSinceCreation) {
             this.deleteAfterDaysSinceCreation = Objects.requireNonNull(deleteAfterDaysSinceCreation);
             return this;
-        }        public GetPolicyRuleActionVersion build() {
-            return new GetPolicyRuleActionVersion(changeTierToArchiveAfterDaysSinceCreation, changeTierToCoolAfterDaysSinceCreation, deleteAfterDaysSinceCreation);
+        }
+        public GetPolicyRuleActionVersion build() {
+            final var o = new GetPolicyRuleActionVersion();
+            o.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            o.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
+            o.deleteAfterDaysSinceCreation = deleteAfterDaysSinceCreation;
+            return o;
         }
     }
 }

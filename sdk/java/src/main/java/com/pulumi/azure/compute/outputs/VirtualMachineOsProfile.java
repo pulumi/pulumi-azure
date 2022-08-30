@@ -15,35 +15,24 @@ public final class VirtualMachineOsProfile {
      * @return The password associated with the local administrator account.
      * 
      */
-    private final @Nullable String adminPassword;
+    private @Nullable String adminPassword;
     /**
      * @return Specifies the name of the local administrator account.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return Specifies the name of the Virtual Machine.
      * 
      */
-    private final String computerName;
+    private String computerName;
     /**
      * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
      * 
      */
-    private final @Nullable String customData;
+    private @Nullable String customData;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfile(
-        @CustomType.Parameter("adminPassword") @Nullable String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("computerName") String computerName,
-        @CustomType.Parameter("customData") @Nullable String customData) {
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.computerName = computerName;
-        this.customData = customData;
-    }
-
+    private VirtualMachineOsProfile() {}
     /**
      * @return The password associated with the local administrator account.
      * 
@@ -80,17 +69,13 @@ public final class VirtualMachineOsProfile {
     public static Builder builder(VirtualMachineOsProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
         private String adminUsername;
         private String computerName;
         private @Nullable String customData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -99,23 +84,33 @@ public final class VirtualMachineOsProfile {
     	      this.customData = defaults.customData;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
             this.adminPassword = adminPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder computerName(String computerName) {
             this.computerName = Objects.requireNonNull(computerName);
             return this;
         }
+        @CustomType.Setter
         public Builder customData(@Nullable String customData) {
             this.customData = customData;
             return this;
-        }        public VirtualMachineOsProfile build() {
-            return new VirtualMachineOsProfile(adminPassword, adminUsername, computerName, customData);
+        }
+        public VirtualMachineOsProfile build() {
+            final var o = new VirtualMachineOsProfile();
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.computerName = computerName;
+            o.customData = customData;
+            return o;
         }
     }
 }

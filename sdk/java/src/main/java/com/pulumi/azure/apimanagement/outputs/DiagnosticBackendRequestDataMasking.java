@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DiagnosticBackendRequestDataMasking {
-    private final @Nullable List<DiagnosticBackendRequestDataMaskingHeader> headers;
-    private final @Nullable List<DiagnosticBackendRequestDataMaskingQueryParam> queryParams;
+    private @Nullable List<DiagnosticBackendRequestDataMaskingHeader> headers;
+    private @Nullable List<DiagnosticBackendRequestDataMaskingQueryParam> queryParams;
 
-    @CustomType.Constructor
-    private DiagnosticBackendRequestDataMasking(
-        @CustomType.Parameter("headers") @Nullable List<DiagnosticBackendRequestDataMaskingHeader> headers,
-        @CustomType.Parameter("queryParams") @Nullable List<DiagnosticBackendRequestDataMaskingQueryParam> queryParams) {
-        this.headers = headers;
-        this.queryParams = queryParams;
-    }
-
+    private DiagnosticBackendRequestDataMasking() {}
     public List<DiagnosticBackendRequestDataMaskingHeader> headers() {
         return this.headers == null ? List.of() : this.headers;
     }
@@ -37,21 +30,18 @@ public final class DiagnosticBackendRequestDataMasking {
     public static Builder builder(DiagnosticBackendRequestDataMasking defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DiagnosticBackendRequestDataMaskingHeader> headers;
         private @Nullable List<DiagnosticBackendRequestDataMaskingQueryParam> queryParams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticBackendRequestDataMasking defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headers = defaults.headers;
     	      this.queryParams = defaults.queryParams;
         }
 
+        @CustomType.Setter
         public Builder headers(@Nullable List<DiagnosticBackendRequestDataMaskingHeader> headers) {
             this.headers = headers;
             return this;
@@ -59,14 +49,19 @@ public final class DiagnosticBackendRequestDataMasking {
         public Builder headers(DiagnosticBackendRequestDataMaskingHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryParams(@Nullable List<DiagnosticBackendRequestDataMaskingQueryParam> queryParams) {
             this.queryParams = queryParams;
             return this;
         }
         public Builder queryParams(DiagnosticBackendRequestDataMaskingQueryParam... queryParams) {
             return queryParams(List.of(queryParams));
-        }        public DiagnosticBackendRequestDataMasking build() {
-            return new DiagnosticBackendRequestDataMasking(headers, queryParams);
+        }
+        public DiagnosticBackendRequestDataMasking build() {
+            final var o = new DiagnosticBackendRequestDataMasking();
+            o.headers = headers;
+            o.queryParams = queryParams;
+            return o;
         }
     }
 }

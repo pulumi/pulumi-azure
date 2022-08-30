@@ -13,13 +13,9 @@ public final class AccountEncryption {
      * @return The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
 
-    @CustomType.Constructor
-    private AccountEncryption(@CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId) {
-        this.keyVaultKeyId = keyVaultKeyId;
-    }
-
+    private AccountEncryption() {}
     /**
      * @return The Azure key vault reference id with version that should be used to encrypt data, as documented [here](https://docs.microsoft.com/azure/batch/batch-customer-managed-key). Key rotation is not yet supported.
      * 
@@ -35,24 +31,24 @@ public final class AccountEncryption {
     public static Builder builder(AccountEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyVaultKeyId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
         }
 
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
-        }        public AccountEncryption build() {
-            return new AccountEncryption(keyVaultKeyId);
+        }
+        public AccountEncryption build() {
+            final var o = new AccountEncryption();
+            o.keyVaultKeyId = keyVaultKeyId;
+            return o;
         }
     }
 }

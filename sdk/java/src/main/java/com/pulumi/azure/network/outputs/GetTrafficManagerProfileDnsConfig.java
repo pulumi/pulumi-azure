@@ -14,21 +14,14 @@ public final class GetTrafficManagerProfileDnsConfig {
      * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
      * 
      */
-    private final String relativeName;
+    private String relativeName;
     /**
      * @return The TTL value of the Profile used by Local DNS resolvers and clients.
      * 
      */
-    private final Integer ttl;
+    private Integer ttl;
 
-    @CustomType.Constructor
-    private GetTrafficManagerProfileDnsConfig(
-        @CustomType.Parameter("relativeName") String relativeName,
-        @CustomType.Parameter("ttl") Integer ttl) {
-        this.relativeName = relativeName;
-        this.ttl = ttl;
-    }
-
+    private GetTrafficManagerProfileDnsConfig() {}
     /**
      * @return The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
      * 
@@ -51,30 +44,32 @@ public final class GetTrafficManagerProfileDnsConfig {
     public static Builder builder(GetTrafficManagerProfileDnsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String relativeName;
         private Integer ttl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTrafficManagerProfileDnsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.relativeName = defaults.relativeName;
     	      this.ttl = defaults.ttl;
         }
 
+        @CustomType.Setter
         public Builder relativeName(String relativeName) {
             this.relativeName = Objects.requireNonNull(relativeName);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
-        }        public GetTrafficManagerProfileDnsConfig build() {
-            return new GetTrafficManagerProfileDnsConfig(relativeName, ttl);
+        }
+        public GetTrafficManagerProfileDnsConfig build() {
+            final var o = new GetTrafficManagerProfileDnsConfig();
+            o.relativeName = relativeName;
+            o.ttl = ttl;
+            return o;
         }
     }
 }

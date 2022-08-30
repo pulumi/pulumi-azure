@@ -19,35 +19,24 @@ public final class ApiOperationRequest {
      * @return A description of the HTTP Request, which may include HTML tags.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return One or more `header` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApiOperationRequestHeader> headers;
+    private @Nullable List<ApiOperationRequestHeader> headers;
     /**
      * @return One or more `query_parameter` blocks as defined above.
      * 
      */
-    private final @Nullable List<ApiOperationRequestQueryParameter> queryParameters;
+    private @Nullable List<ApiOperationRequestQueryParameter> queryParameters;
     /**
      * @return One or more `representation` blocks as defined below.
      * 
      */
-    private final @Nullable List<ApiOperationRequestRepresentation> representations;
+    private @Nullable List<ApiOperationRequestRepresentation> representations;
 
-    @CustomType.Constructor
-    private ApiOperationRequest(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("headers") @Nullable List<ApiOperationRequestHeader> headers,
-        @CustomType.Parameter("queryParameters") @Nullable List<ApiOperationRequestQueryParameter> queryParameters,
-        @CustomType.Parameter("representations") @Nullable List<ApiOperationRequestRepresentation> representations) {
-        this.description = description;
-        this.headers = headers;
-        this.queryParameters = queryParameters;
-        this.representations = representations;
-    }
-
+    private ApiOperationRequest() {}
     /**
      * @return A description of the HTTP Request, which may include HTML tags.
      * 
@@ -84,17 +73,13 @@ public final class ApiOperationRequest {
     public static Builder builder(ApiOperationRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable List<ApiOperationRequestHeader> headers;
         private @Nullable List<ApiOperationRequestQueryParameter> queryParameters;
         private @Nullable List<ApiOperationRequestRepresentation> representations;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOperationRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -103,10 +88,12 @@ public final class ApiOperationRequest {
     	      this.representations = defaults.representations;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable List<ApiOperationRequestHeader> headers) {
             this.headers = headers;
             return this;
@@ -114,6 +101,7 @@ public final class ApiOperationRequest {
         public Builder headers(ApiOperationRequestHeader... headers) {
             return headers(List.of(headers));
         }
+        @CustomType.Setter
         public Builder queryParameters(@Nullable List<ApiOperationRequestQueryParameter> queryParameters) {
             this.queryParameters = queryParameters;
             return this;
@@ -121,14 +109,21 @@ public final class ApiOperationRequest {
         public Builder queryParameters(ApiOperationRequestQueryParameter... queryParameters) {
             return queryParameters(List.of(queryParameters));
         }
+        @CustomType.Setter
         public Builder representations(@Nullable List<ApiOperationRequestRepresentation> representations) {
             this.representations = representations;
             return this;
         }
         public Builder representations(ApiOperationRequestRepresentation... representations) {
             return representations(List.of(representations));
-        }        public ApiOperationRequest build() {
-            return new ApiOperationRequest(description, headers, queryParameters, representations);
+        }
+        public ApiOperationRequest build() {
+            final var o = new ApiOperationRequest();
+            o.description = description;
+            o.headers = headers;
+            o.queryParameters = queryParameters;
+            o.representations = representations;
+            return o;
         }
     }
 }

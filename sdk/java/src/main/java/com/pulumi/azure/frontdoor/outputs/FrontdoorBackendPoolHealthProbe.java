@@ -17,56 +17,39 @@ public final class FrontdoorBackendPoolHealthProbe {
      * @return Is this health probe enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The ID of the FrontDoor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The number of seconds between each Health Probe. Defaults to `120`.
      * 
      */
-    private final @Nullable Integer intervalInSeconds;
+    private @Nullable Integer intervalInSeconds;
     /**
      * @return Specifies the name of the Health Probe.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The path to use for the Health Probe. Default is `/`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: `Get` and `Head`. Defaults to `Get`.
      * 
      */
-    private final @Nullable String probeMethod;
+    private @Nullable String probeMethod;
     /**
      * @return Protocol scheme to use for the Health Probe. Defaults to `Http`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
 
-    @CustomType.Constructor
-    private FrontdoorBackendPoolHealthProbe(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("intervalInSeconds") @Nullable Integer intervalInSeconds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("probeMethod") @Nullable String probeMethod,
-        @CustomType.Parameter("protocol") @Nullable String protocol) {
-        this.enabled = enabled;
-        this.id = id;
-        this.intervalInSeconds = intervalInSeconds;
-        this.name = name;
-        this.path = path;
-        this.probeMethod = probeMethod;
-        this.protocol = protocol;
-    }
-
+    private FrontdoorBackendPoolHealthProbe() {}
     /**
      * @return Is this health probe enabled? Defaults to `true`.
      * 
@@ -124,7 +107,7 @@ public final class FrontdoorBackendPoolHealthProbe {
     public static Builder builder(FrontdoorBackendPoolHealthProbe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private @Nullable String id;
@@ -133,11 +116,7 @@ public final class FrontdoorBackendPoolHealthProbe {
         private @Nullable String path;
         private @Nullable String probeMethod;
         private @Nullable String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorBackendPoolHealthProbe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -149,35 +128,51 @@ public final class FrontdoorBackendPoolHealthProbe {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder intervalInSeconds(@Nullable Integer intervalInSeconds) {
             this.intervalInSeconds = intervalInSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder probeMethod(@Nullable String probeMethod) {
             this.probeMethod = probeMethod;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
-        }        public FrontdoorBackendPoolHealthProbe build() {
-            return new FrontdoorBackendPoolHealthProbe(enabled, id, intervalInSeconds, name, path, probeMethod, protocol);
+        }
+        public FrontdoorBackendPoolHealthProbe build() {
+            final var o = new FrontdoorBackendPoolHealthProbe();
+            o.enabled = enabled;
+            o.id = id;
+            o.intervalInSeconds = intervalInSeconds;
+            o.name = name;
+            o.path = path;
+            o.probeMethod = probeMethod;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

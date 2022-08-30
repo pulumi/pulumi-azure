@@ -17,35 +17,24 @@ public final class AccountQueuePropertiesHourMetrics {
      * @return Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Indicates whether metrics should generate summary statistics for called API operations.
      * 
      */
-    private final @Nullable Boolean includeApis;
+    private @Nullable Boolean includeApis;
     /**
      * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
      * 
      */
-    private final @Nullable Integer retentionPolicyDays;
+    private @Nullable Integer retentionPolicyDays;
     /**
      * @return The version of storage analytics to configure. Changing this forces a new resource.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private AccountQueuePropertiesHourMetrics(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("includeApis") @Nullable Boolean includeApis,
-        @CustomType.Parameter("retentionPolicyDays") @Nullable Integer retentionPolicyDays,
-        @CustomType.Parameter("version") String version) {
-        this.enabled = enabled;
-        this.includeApis = includeApis;
-        this.retentionPolicyDays = retentionPolicyDays;
-        this.version = version;
-    }
-
+    private AccountQueuePropertiesHourMetrics() {}
     /**
      * @return Indicates whether hour metrics are enabled for the Queue service. Changing this forces a new resource.
      * 
@@ -82,17 +71,13 @@ public final class AccountQueuePropertiesHourMetrics {
     public static Builder builder(AccountQueuePropertiesHourMetrics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable Boolean includeApis;
         private @Nullable Integer retentionPolicyDays;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountQueuePropertiesHourMetrics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -101,23 +86,33 @@ public final class AccountQueuePropertiesHourMetrics {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder includeApis(@Nullable Boolean includeApis) {
             this.includeApis = includeApis;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicyDays(@Nullable Integer retentionPolicyDays) {
             this.retentionPolicyDays = retentionPolicyDays;
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public AccountQueuePropertiesHourMetrics build() {
-            return new AccountQueuePropertiesHourMetrics(enabled, includeApis, retentionPolicyDays, version);
+        }
+        public AccountQueuePropertiesHourMetrics build() {
+            final var o = new AccountQueuePropertiesHourMetrics();
+            o.enabled = enabled;
+            o.includeApis = includeApis;
+            o.retentionPolicyDays = retentionPolicyDays;
+            o.version = version;
+            return o;
         }
     }
 }

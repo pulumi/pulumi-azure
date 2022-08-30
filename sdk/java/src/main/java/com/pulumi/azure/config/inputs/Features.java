@@ -20,41 +20,18 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class Features {
-    private final @Nullable FeaturesApiManagement apiManagement;
-    private final @Nullable FeaturesApplicationInsights applicationInsights;
-    private final @Nullable FeaturesCognitiveAccount cognitiveAccount;
-    private final @Nullable FeaturesKeyVault keyVault;
-    private final @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
-    private final @Nullable FeaturesNetwork network;
-    private final @Nullable FeaturesResourceGroup resourceGroup;
-    private final @Nullable FeaturesTemplateDeployment templateDeployment;
-    private final @Nullable FeaturesVirtualMachine virtualMachine;
-    private final @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet;
+    private @Nullable FeaturesApiManagement apiManagement;
+    private @Nullable FeaturesApplicationInsights applicationInsights;
+    private @Nullable FeaturesCognitiveAccount cognitiveAccount;
+    private @Nullable FeaturesKeyVault keyVault;
+    private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
+    private @Nullable FeaturesNetwork network;
+    private @Nullable FeaturesResourceGroup resourceGroup;
+    private @Nullable FeaturesTemplateDeployment templateDeployment;
+    private @Nullable FeaturesVirtualMachine virtualMachine;
+    private @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet;
 
-    @CustomType.Constructor
-    private Features(
-        @CustomType.Parameter("apiManagement") @Nullable FeaturesApiManagement apiManagement,
-        @CustomType.Parameter("applicationInsights") @Nullable FeaturesApplicationInsights applicationInsights,
-        @CustomType.Parameter("cognitiveAccount") @Nullable FeaturesCognitiveAccount cognitiveAccount,
-        @CustomType.Parameter("keyVault") @Nullable FeaturesKeyVault keyVault,
-        @CustomType.Parameter("logAnalyticsWorkspace") @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace,
-        @CustomType.Parameter("network") @Nullable FeaturesNetwork network,
-        @CustomType.Parameter("resourceGroup") @Nullable FeaturesResourceGroup resourceGroup,
-        @CustomType.Parameter("templateDeployment") @Nullable FeaturesTemplateDeployment templateDeployment,
-        @CustomType.Parameter("virtualMachine") @Nullable FeaturesVirtualMachine virtualMachine,
-        @CustomType.Parameter("virtualMachineScaleSet") @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet) {
-        this.apiManagement = apiManagement;
-        this.applicationInsights = applicationInsights;
-        this.cognitiveAccount = cognitiveAccount;
-        this.keyVault = keyVault;
-        this.logAnalyticsWorkspace = logAnalyticsWorkspace;
-        this.network = network;
-        this.resourceGroup = resourceGroup;
-        this.templateDeployment = templateDeployment;
-        this.virtualMachine = virtualMachine;
-        this.virtualMachineScaleSet = virtualMachineScaleSet;
-    }
-
+    private Features() {}
     public Optional<FeaturesApiManagement> apiManagement() {
         return Optional.ofNullable(this.apiManagement);
     }
@@ -93,7 +70,7 @@ public final class Features {
     public static Builder builder(Features defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable FeaturesApiManagement apiManagement;
         private @Nullable FeaturesApplicationInsights applicationInsights;
@@ -105,11 +82,7 @@ public final class Features {
         private @Nullable FeaturesTemplateDeployment templateDeployment;
         private @Nullable FeaturesVirtualMachine virtualMachine;
         private @Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(Features defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagement = defaults.apiManagement;
@@ -124,47 +97,69 @@ public final class Features {
     	      this.virtualMachineScaleSet = defaults.virtualMachineScaleSet;
         }
 
+        @CustomType.Setter
         public Builder apiManagement(@Nullable FeaturesApiManagement apiManagement) {
             this.apiManagement = apiManagement;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationInsights(@Nullable FeaturesApplicationInsights applicationInsights) {
             this.applicationInsights = applicationInsights;
             return this;
         }
+        @CustomType.Setter
         public Builder cognitiveAccount(@Nullable FeaturesCognitiveAccount cognitiveAccount) {
             this.cognitiveAccount = cognitiveAccount;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVault(@Nullable FeaturesKeyVault keyVault) {
             this.keyVault = keyVault;
             return this;
         }
+        @CustomType.Setter
         public Builder logAnalyticsWorkspace(@Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace) {
             this.logAnalyticsWorkspace = logAnalyticsWorkspace;
             return this;
         }
+        @CustomType.Setter
         public Builder network(@Nullable FeaturesNetwork network) {
             this.network = network;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroup(@Nullable FeaturesResourceGroup resourceGroup) {
             this.resourceGroup = resourceGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder templateDeployment(@Nullable FeaturesTemplateDeployment templateDeployment) {
             this.templateDeployment = templateDeployment;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualMachine(@Nullable FeaturesVirtualMachine virtualMachine) {
             this.virtualMachine = virtualMachine;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualMachineScaleSet(@Nullable FeaturesVirtualMachineScaleSet virtualMachineScaleSet) {
             this.virtualMachineScaleSet = virtualMachineScaleSet;
             return this;
-        }        public Features build() {
-            return new Features(apiManagement, applicationInsights, cognitiveAccount, keyVault, logAnalyticsWorkspace, network, resourceGroup, templateDeployment, virtualMachine, virtualMachineScaleSet);
+        }
+        public Features build() {
+            final var o = new Features();
+            o.apiManagement = apiManagement;
+            o.applicationInsights = applicationInsights;
+            o.cognitiveAccount = cognitiveAccount;
+            o.keyVault = keyVault;
+            o.logAnalyticsWorkspace = logAnalyticsWorkspace;
+            o.network = network;
+            o.resourceGroup = resourceGroup;
+            o.templateDeployment = templateDeployment;
+            o.virtualMachine = virtualMachine;
+            o.virtualMachineScaleSet = virtualMachineScaleSet;
+            return o;
         }
     }
 }

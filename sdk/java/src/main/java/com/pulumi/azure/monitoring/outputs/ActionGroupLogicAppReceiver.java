@@ -16,35 +16,24 @@ public final class ActionGroupLogicAppReceiver {
      * @return The callback url where HTTP request sent to.
      * 
      */
-    private final String callbackUrl;
+    private String callbackUrl;
     /**
      * @return The name of the logic app receiver.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Azure resource ID of the logic app.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return Enables or disables the common alert schema.
      * 
      */
-    private final @Nullable Boolean useCommonAlertSchema;
+    private @Nullable Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private ActionGroupLogicAppReceiver(
-        @CustomType.Parameter("callbackUrl") String callbackUrl,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("useCommonAlertSchema") @Nullable Boolean useCommonAlertSchema) {
-        this.callbackUrl = callbackUrl;
-        this.name = name;
-        this.resourceId = resourceId;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private ActionGroupLogicAppReceiver() {}
     /**
      * @return The callback url where HTTP request sent to.
      * 
@@ -81,17 +70,13 @@ public final class ActionGroupLogicAppReceiver {
     public static Builder builder(ActionGroupLogicAppReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String callbackUrl;
         private String name;
         private String resourceId;
         private @Nullable Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionGroupLogicAppReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.callbackUrl = defaults.callbackUrl;
@@ -100,23 +85,33 @@ public final class ActionGroupLogicAppReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder callbackUrl(String callbackUrl) {
             this.callbackUrl = Objects.requireNonNull(callbackUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
-        }        public ActionGroupLogicAppReceiver build() {
-            return new ActionGroupLogicAppReceiver(callbackUrl, name, resourceId, useCommonAlertSchema);
+        }
+        public ActionGroupLogicAppReceiver build() {
+            final var o = new ActionGroupLogicAppReceiver();
+            o.callbackUrl = callbackUrl;
+            o.name = name;
+            o.resourceId = resourceId;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

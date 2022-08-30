@@ -15,84 +15,59 @@ public final class WindowsWebAppSiteConfigApplicationStack {
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
      */
-    private final @Nullable String currentStack;
+    private @Nullable String currentStack;
     /**
      * @return The name of the Docker Container. For example `azure-app-service/samples/aspnethelloworld`
      * 
      */
-    private final @Nullable String dockerContainerName;
+    private @Nullable String dockerContainerName;
     /**
      * @return The registry Host on which the specified Docker Container can be located. For example `mcr.microsoft.com`
      * 
      */
-    private final @Nullable String dockerContainerRegistry;
+    private @Nullable String dockerContainerRegistry;
     /**
      * @return The Image Tag of the specified Docker Container to use. For example `latest`
      * 
      */
-    private final @Nullable String dockerContainerTag;
+    private @Nullable String dockerContainerTag;
     /**
      * @return The version of .NET to use when `current_stack` is set to `dotnet`. Possible values include  `v2.0`,`v3.0`,`core3.1`, `v4.0`, `v5.0`, and `v6.0`.
      * 
      */
-    private final @Nullable String dotnetVersion;
+    private @Nullable String dotnetVersion;
     /**
      * @return The Java container type to use when `current_stack` is set to `java`. Possible values include `JAVA`, `JETTY`, and `TOMCAT`. Required with `java_version` and `java_container_version`.
      * 
      */
-    private final @Nullable String javaContainer;
+    private @Nullable String javaContainer;
     /**
      * @return The Version of the `java_container` to use. Required with `java_version` and `java_container`.
      * 
      */
-    private final @Nullable String javaContainerVersion;
+    private @Nullable String javaContainerVersion;
     /**
      * @return The version of Java to use when `current_stack` is set to `java`. Possible values include `1.7`, `1.8` and `11`. Required with `java_container` and `java_container_version`.
      * 
      */
-    private final @Nullable String javaVersion;
+    private @Nullable String javaVersion;
     /**
      * @return The version of node to use when `current_stack` is set to `node`. Possible values include `12-LTS`, `14-LTS`, and `16-LTS`.
      * 
      */
-    private final @Nullable String nodeVersion;
+    private @Nullable String nodeVersion;
     /**
      * @return The version of PHP to use when `current_stack` is set to `php`. Possible values include `v7.4`.
      * 
      */
-    private final @Nullable String phpVersion;
+    private @Nullable String phpVersion;
     /**
      * @return The version of Python to use when `current_stack` is set to `python`. Possible values include `2.7` and `3.4.0`.
      * 
      */
-    private final @Nullable String pythonVersion;
+    private @Nullable String pythonVersion;
 
-    @CustomType.Constructor
-    private WindowsWebAppSiteConfigApplicationStack(
-        @CustomType.Parameter("currentStack") @Nullable String currentStack,
-        @CustomType.Parameter("dockerContainerName") @Nullable String dockerContainerName,
-        @CustomType.Parameter("dockerContainerRegistry") @Nullable String dockerContainerRegistry,
-        @CustomType.Parameter("dockerContainerTag") @Nullable String dockerContainerTag,
-        @CustomType.Parameter("dotnetVersion") @Nullable String dotnetVersion,
-        @CustomType.Parameter("javaContainer") @Nullable String javaContainer,
-        @CustomType.Parameter("javaContainerVersion") @Nullable String javaContainerVersion,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("nodeVersion") @Nullable String nodeVersion,
-        @CustomType.Parameter("phpVersion") @Nullable String phpVersion,
-        @CustomType.Parameter("pythonVersion") @Nullable String pythonVersion) {
-        this.currentStack = currentStack;
-        this.dockerContainerName = dockerContainerName;
-        this.dockerContainerRegistry = dockerContainerRegistry;
-        this.dockerContainerTag = dockerContainerTag;
-        this.dotnetVersion = dotnetVersion;
-        this.javaContainer = javaContainer;
-        this.javaContainerVersion = javaContainerVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.phpVersion = phpVersion;
-        this.pythonVersion = pythonVersion;
-    }
-
+    private WindowsWebAppSiteConfigApplicationStack() {}
     /**
      * @return The Application Stack for the Windows Web App. Possible values include `dotnet`, `dotnetcore`, `node`, `python`, `php`, and `java`.
      * 
@@ -178,7 +153,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     public static Builder builder(WindowsWebAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String currentStack;
         private @Nullable String dockerContainerName;
@@ -191,11 +166,7 @@ public final class WindowsWebAppSiteConfigApplicationStack {
         private @Nullable String nodeVersion;
         private @Nullable String phpVersion;
         private @Nullable String pythonVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.currentStack = defaults.currentStack;
@@ -211,51 +182,75 @@ public final class WindowsWebAppSiteConfigApplicationStack {
     	      this.pythonVersion = defaults.pythonVersion;
         }
 
+        @CustomType.Setter
         public Builder currentStack(@Nullable String currentStack) {
             this.currentStack = currentStack;
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerName(@Nullable String dockerContainerName) {
             this.dockerContainerName = dockerContainerName;
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerRegistry(@Nullable String dockerContainerRegistry) {
             this.dockerContainerRegistry = dockerContainerRegistry;
             return this;
         }
+        @CustomType.Setter
         public Builder dockerContainerTag(@Nullable String dockerContainerTag) {
             this.dockerContainerTag = dockerContainerTag;
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaContainer(@Nullable String javaContainer) {
             this.javaContainer = javaContainer;
             return this;
         }
+        @CustomType.Setter
         public Builder javaContainerVersion(@Nullable String javaContainerVersion) {
             this.javaContainerVersion = javaContainerVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
             this.nodeVersion = nodeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder phpVersion(@Nullable String phpVersion) {
             this.phpVersion = phpVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder pythonVersion(@Nullable String pythonVersion) {
             this.pythonVersion = pythonVersion;
             return this;
-        }        public WindowsWebAppSiteConfigApplicationStack build() {
-            return new WindowsWebAppSiteConfigApplicationStack(currentStack, dockerContainerName, dockerContainerRegistry, dockerContainerTag, dotnetVersion, javaContainer, javaContainerVersion, javaVersion, nodeVersion, phpVersion, pythonVersion);
+        }
+        public WindowsWebAppSiteConfigApplicationStack build() {
+            final var o = new WindowsWebAppSiteConfigApplicationStack();
+            o.currentStack = currentStack;
+            o.dockerContainerName = dockerContainerName;
+            o.dockerContainerRegistry = dockerContainerRegistry;
+            o.dockerContainerTag = dockerContainerTag;
+            o.dotnetVersion = dotnetVersion;
+            o.javaContainer = javaContainer;
+            o.javaContainerVersion = javaContainerVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.phpVersion = phpVersion;
+            o.pythonVersion = pythonVersion;
+            return o;
         }
     }
 }

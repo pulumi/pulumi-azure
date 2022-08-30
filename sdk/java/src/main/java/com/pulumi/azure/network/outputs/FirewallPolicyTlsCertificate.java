@@ -13,21 +13,14 @@ public final class FirewallPolicyTlsCertificate {
      * @return The ID of the Key Vault, where the secret or certificate is stored.
      * 
      */
-    private final String keyVaultSecretId;
+    private String keyVaultSecretId;
     /**
      * @return The name of the certificate.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private FirewallPolicyTlsCertificate(
-        @CustomType.Parameter("keyVaultSecretId") String keyVaultSecretId,
-        @CustomType.Parameter("name") String name) {
-        this.keyVaultSecretId = keyVaultSecretId;
-        this.name = name;
-    }
-
+    private FirewallPolicyTlsCertificate() {}
     /**
      * @return The ID of the Key Vault, where the secret or certificate is stored.
      * 
@@ -50,30 +43,32 @@ public final class FirewallPolicyTlsCertificate {
     public static Builder builder(FirewallPolicyTlsCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyVaultSecretId;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyTlsCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultSecretId = defaults.keyVaultSecretId;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder keyVaultSecretId(String keyVaultSecretId) {
             this.keyVaultSecretId = Objects.requireNonNull(keyVaultSecretId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public FirewallPolicyTlsCertificate build() {
-            return new FirewallPolicyTlsCertificate(keyVaultSecretId, name);
+        }
+        public FirewallPolicyTlsCertificate build() {
+            final var o = new FirewallPolicyTlsCertificate();
+            o.keyVaultSecretId = keyVaultSecretId;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -14,21 +14,14 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
      * @return List of local CIDRs.
      * 
      */
-    private final List<String> localAddressCidrs;
+    private List<String> localAddressCidrs;
     /**
      * @return List of remote CIDRs.
      * 
      */
-    private final List<String> remoteAddressCidrs;
+    private List<String> remoteAddressCidrs;
 
-    @CustomType.Constructor
-    private GetGatewayConnectionTrafficSelectorPolicy(
-        @CustomType.Parameter("localAddressCidrs") List<String> localAddressCidrs,
-        @CustomType.Parameter("remoteAddressCidrs") List<String> remoteAddressCidrs) {
-        this.localAddressCidrs = localAddressCidrs;
-        this.remoteAddressCidrs = remoteAddressCidrs;
-    }
-
+    private GetGatewayConnectionTrafficSelectorPolicy() {}
     /**
      * @return List of local CIDRs.
      * 
@@ -51,21 +44,18 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
     public static Builder builder(GetGatewayConnectionTrafficSelectorPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> localAddressCidrs;
         private List<String> remoteAddressCidrs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetGatewayConnectionTrafficSelectorPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.localAddressCidrs = defaults.localAddressCidrs;
     	      this.remoteAddressCidrs = defaults.remoteAddressCidrs;
         }
 
+        @CustomType.Setter
         public Builder localAddressCidrs(List<String> localAddressCidrs) {
             this.localAddressCidrs = Objects.requireNonNull(localAddressCidrs);
             return this;
@@ -73,14 +63,19 @@ public final class GetGatewayConnectionTrafficSelectorPolicy {
         public Builder localAddressCidrs(String... localAddressCidrs) {
             return localAddressCidrs(List.of(localAddressCidrs));
         }
+        @CustomType.Setter
         public Builder remoteAddressCidrs(List<String> remoteAddressCidrs) {
             this.remoteAddressCidrs = Objects.requireNonNull(remoteAddressCidrs);
             return this;
         }
         public Builder remoteAddressCidrs(String... remoteAddressCidrs) {
             return remoteAddressCidrs(List.of(remoteAddressCidrs));
-        }        public GetGatewayConnectionTrafficSelectorPolicy build() {
-            return new GetGatewayConnectionTrafficSelectorPolicy(localAddressCidrs, remoteAddressCidrs);
+        }
+        public GetGatewayConnectionTrafficSelectorPolicy build() {
+            final var o = new GetGatewayConnectionTrafficSelectorPolicy();
+            o.localAddressCidrs = localAddressCidrs;
+            o.remoteAddressCidrs = remoteAddressCidrs;
+            return o;
         }
     }
 }

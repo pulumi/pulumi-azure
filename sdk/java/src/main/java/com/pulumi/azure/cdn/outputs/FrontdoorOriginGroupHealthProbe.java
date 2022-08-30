@@ -16,35 +16,24 @@ public final class FrontdoorOriginGroupHealthProbe {
      * @return Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
      * 
      */
-    private final Integer intervalInSeconds;
+    private Integer intervalInSeconds;
     /**
      * @return Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to `/`.
      * 
      */
-    private final @Nullable String path;
+    private @Nullable String path;
     /**
      * @return Specifies the protocol to use for health probe. Possible values are `Http` and `Https`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Specifies the type of health probe request that is made. Possible values are `GET` and `HEAD`. Defaults to `HEAD`.
      * 
      */
-    private final @Nullable String requestType;
+    private @Nullable String requestType;
 
-    @CustomType.Constructor
-    private FrontdoorOriginGroupHealthProbe(
-        @CustomType.Parameter("intervalInSeconds") Integer intervalInSeconds,
-        @CustomType.Parameter("path") @Nullable String path,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("requestType") @Nullable String requestType) {
-        this.intervalInSeconds = intervalInSeconds;
-        this.path = path;
-        this.protocol = protocol;
-        this.requestType = requestType;
-    }
-
+    private FrontdoorOriginGroupHealthProbe() {}
     /**
      * @return Specifies the number of seconds between health probes. Possible values are between `5` and `31536000` seconds (inclusive).
      * 
@@ -81,17 +70,13 @@ public final class FrontdoorOriginGroupHealthProbe {
     public static Builder builder(FrontdoorOriginGroupHealthProbe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer intervalInSeconds;
         private @Nullable String path;
         private String protocol;
         private @Nullable String requestType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorOriginGroupHealthProbe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intervalInSeconds = defaults.intervalInSeconds;
@@ -100,23 +85,33 @@ public final class FrontdoorOriginGroupHealthProbe {
     	      this.requestType = defaults.requestType;
         }
 
+        @CustomType.Setter
         public Builder intervalInSeconds(Integer intervalInSeconds) {
             this.intervalInSeconds = Objects.requireNonNull(intervalInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder path(@Nullable String path) {
             this.path = path;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder requestType(@Nullable String requestType) {
             this.requestType = requestType;
             return this;
-        }        public FrontdoorOriginGroupHealthProbe build() {
-            return new FrontdoorOriginGroupHealthProbe(intervalInSeconds, path, protocol, requestType);
+        }
+        public FrontdoorOriginGroupHealthProbe build() {
+            final var o = new FrontdoorOriginGroupHealthProbe();
+            o.intervalInSeconds = intervalInSeconds;
+            o.path = path;
+            o.protocol = protocol;
+            o.requestType = requestType;
+            return o;
         }
     }
 }

@@ -16,43 +16,30 @@ public final class ApplicationGatewaySslPolicy {
      * @return A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
      * 
      */
-    private final @Nullable List<String> cipherSuites;
+    private @Nullable List<String> cipherSuites;
     /**
      * @return A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
      * 
      */
-    private final @Nullable List<String> disabledProtocols;
+    private @Nullable List<String> disabledProtocols;
     /**
      * @return The minimal TLS version. Possible values are `TLSv1_0`, `TLSv1_1` and `TLSv1_2`.
      * 
      */
-    private final @Nullable String minProtocolVersion;
+    private @Nullable String minProtocolVersion;
     /**
      * @return The Name of the Policy e.g AppGwSslPolicy20170401S. Required if `policy_type` is set to `Predefined`. Possible values can change over time and
      * are published here https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview. Not compatible with `disabled_protocols`.
      * 
      */
-    private final @Nullable String policyName;
+    private @Nullable String policyName;
     /**
      * @return The Type of the Policy. Possible values are `Predefined` and `Custom`.
      * 
      */
-    private final @Nullable String policyType;
+    private @Nullable String policyType;
 
-    @CustomType.Constructor
-    private ApplicationGatewaySslPolicy(
-        @CustomType.Parameter("cipherSuites") @Nullable List<String> cipherSuites,
-        @CustomType.Parameter("disabledProtocols") @Nullable List<String> disabledProtocols,
-        @CustomType.Parameter("minProtocolVersion") @Nullable String minProtocolVersion,
-        @CustomType.Parameter("policyName") @Nullable String policyName,
-        @CustomType.Parameter("policyType") @Nullable String policyType) {
-        this.cipherSuites = cipherSuites;
-        this.disabledProtocols = disabledProtocols;
-        this.minProtocolVersion = minProtocolVersion;
-        this.policyName = policyName;
-        this.policyType = policyType;
-    }
-
+    private ApplicationGatewaySslPolicy() {}
     /**
      * @return A List of accepted cipher suites. Possible values are: `TLS_DHE_DSS_WITH_AES_128_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_128_CBC_SHA256`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA`, `TLS_DHE_DSS_WITH_AES_256_CBC_SHA256`, `TLS_DHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_128_GCM_SHA256`, `TLS_DHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`, `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA`, `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`, `TLS_RSA_WITH_3DES_EDE_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA`, `TLS_RSA_WITH_AES_128_CBC_SHA256`, `TLS_RSA_WITH_AES_128_GCM_SHA256`, `TLS_RSA_WITH_AES_256_CBC_SHA`, `TLS_RSA_WITH_AES_256_CBC_SHA256` and `TLS_RSA_WITH_AES_256_GCM_SHA384`.
      * 
@@ -97,18 +84,14 @@ public final class ApplicationGatewaySslPolicy {
     public static Builder builder(ApplicationGatewaySslPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> cipherSuites;
         private @Nullable List<String> disabledProtocols;
         private @Nullable String minProtocolVersion;
         private @Nullable String policyName;
         private @Nullable String policyType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewaySslPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cipherSuites = defaults.cipherSuites;
@@ -118,6 +101,7 @@ public final class ApplicationGatewaySslPolicy {
     	      this.policyType = defaults.policyType;
         }
 
+        @CustomType.Setter
         public Builder cipherSuites(@Nullable List<String> cipherSuites) {
             this.cipherSuites = cipherSuites;
             return this;
@@ -125,6 +109,7 @@ public final class ApplicationGatewaySslPolicy {
         public Builder cipherSuites(String... cipherSuites) {
             return cipherSuites(List.of(cipherSuites));
         }
+        @CustomType.Setter
         public Builder disabledProtocols(@Nullable List<String> disabledProtocols) {
             this.disabledProtocols = disabledProtocols;
             return this;
@@ -132,19 +117,29 @@ public final class ApplicationGatewaySslPolicy {
         public Builder disabledProtocols(String... disabledProtocols) {
             return disabledProtocols(List.of(disabledProtocols));
         }
+        @CustomType.Setter
         public Builder minProtocolVersion(@Nullable String minProtocolVersion) {
             this.minProtocolVersion = minProtocolVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder policyName(@Nullable String policyName) {
             this.policyName = policyName;
             return this;
         }
+        @CustomType.Setter
         public Builder policyType(@Nullable String policyType) {
             this.policyType = policyType;
             return this;
-        }        public ApplicationGatewaySslPolicy build() {
-            return new ApplicationGatewaySslPolicy(cipherSuites, disabledProtocols, minProtocolVersion, policyName, policyType);
+        }
+        public ApplicationGatewaySslPolicy build() {
+            final var o = new ApplicationGatewaySslPolicy();
+            o.cipherSuites = cipherSuites;
+            o.disabledProtocols = disabledProtocols;
+            o.minProtocolVersion = minProtocolVersion;
+            o.policyName = policyName;
+            o.policyType = policyType;
+            return o;
         }
     }
 }

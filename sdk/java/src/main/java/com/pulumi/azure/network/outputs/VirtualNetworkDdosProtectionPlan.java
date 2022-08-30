@@ -14,21 +14,14 @@ public final class VirtualNetworkDdosProtectionPlan {
      * @return Enable/disable DDoS Protection Plan on Virtual Network.
      * 
      */
-    private final Boolean enable;
+    private Boolean enable;
     /**
      * @return The ID of DDoS Protection Plan.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private VirtualNetworkDdosProtectionPlan(
-        @CustomType.Parameter("enable") Boolean enable,
-        @CustomType.Parameter("id") String id) {
-        this.enable = enable;
-        this.id = id;
-    }
-
+    private VirtualNetworkDdosProtectionPlan() {}
     /**
      * @return Enable/disable DDoS Protection Plan on Virtual Network.
      * 
@@ -51,30 +44,32 @@ public final class VirtualNetworkDdosProtectionPlan {
     public static Builder builder(VirtualNetworkDdosProtectionPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enable;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkDdosProtectionPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enable = defaults.enable;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder enable(Boolean enable) {
             this.enable = Objects.requireNonNull(enable);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public VirtualNetworkDdosProtectionPlan build() {
-            return new VirtualNetworkDdosProtectionPlan(enable, id);
+        }
+        public VirtualNetworkDdosProtectionPlan build() {
+            final var o = new VirtualNetworkDdosProtectionPlan();
+            o.enable = enable;
+            o.id = id;
+            return o;
         }
     }
 }

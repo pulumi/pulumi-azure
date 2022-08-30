@@ -18,42 +18,29 @@ public final class PolicyCustomRuleMatchCondition {
      * @return A list of match values.
      * 
      */
-    private final List<String> matchValues;
+    private List<String> matchValues;
     /**
      * @return One or more `match_variables` blocks as defined below.
      * 
      */
-    private final List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables;
+    private List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables;
     /**
      * @return Describes if this is negate condition or not
      * 
      */
-    private final @Nullable Boolean negationCondition;
+    private @Nullable Boolean negationCondition;
     /**
      * @return Describes operator to be matched.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return A list of transformations to do before the match is attempted.
      * 
      */
-    private final @Nullable List<String> transforms;
+    private @Nullable List<String> transforms;
 
-    @CustomType.Constructor
-    private PolicyCustomRuleMatchCondition(
-        @CustomType.Parameter("matchValues") List<String> matchValues,
-        @CustomType.Parameter("matchVariables") List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables,
-        @CustomType.Parameter("negationCondition") @Nullable Boolean negationCondition,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("transforms") @Nullable List<String> transforms) {
-        this.matchValues = matchValues;
-        this.matchVariables = matchVariables;
-        this.negationCondition = negationCondition;
-        this.operator = operator;
-        this.transforms = transforms;
-    }
-
+    private PolicyCustomRuleMatchCondition() {}
     /**
      * @return A list of match values.
      * 
@@ -97,18 +84,14 @@ public final class PolicyCustomRuleMatchCondition {
     public static Builder builder(PolicyCustomRuleMatchCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> matchValues;
         private List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables;
         private @Nullable Boolean negationCondition;
         private String operator;
         private @Nullable List<String> transforms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyCustomRuleMatchCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -118,6 +101,7 @@ public final class PolicyCustomRuleMatchCondition {
     	      this.transforms = defaults.transforms;
         }
 
+        @CustomType.Setter
         public Builder matchValues(List<String> matchValues) {
             this.matchValues = Objects.requireNonNull(matchValues);
             return this;
@@ -125,6 +109,7 @@ public final class PolicyCustomRuleMatchCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder matchVariables(List<PolicyCustomRuleMatchConditionMatchVariable> matchVariables) {
             this.matchVariables = Objects.requireNonNull(matchVariables);
             return this;
@@ -132,22 +117,32 @@ public final class PolicyCustomRuleMatchCondition {
         public Builder matchVariables(PolicyCustomRuleMatchConditionMatchVariable... matchVariables) {
             return matchVariables(List.of(matchVariables));
         }
+        @CustomType.Setter
         public Builder negationCondition(@Nullable Boolean negationCondition) {
             this.negationCondition = negationCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
             this.transforms = transforms;
             return this;
         }
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
-        }        public PolicyCustomRuleMatchCondition build() {
-            return new PolicyCustomRuleMatchCondition(matchValues, matchVariables, negationCondition, operator, transforms);
+        }
+        public PolicyCustomRuleMatchCondition build() {
+            final var o = new PolicyCustomRuleMatchCondition();
+            o.matchValues = matchValues;
+            o.matchVariables = matchVariables;
+            o.negationCondition = negationCondition;
+            o.operator = operator;
+            o.transforms = transforms;
+            return o;
         }
     }
 }

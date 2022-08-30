@@ -15,21 +15,14 @@ public final class ClusterUpgradePolicyHealthPolicy {
      * @return Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer maxUnhealthyApplicationsPercent;
+    private @Nullable Integer maxUnhealthyApplicationsPercent;
     /**
      * @return Specifies the maximum tolerated percentage of nodes that can have aggregated health states of error. If an upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer maxUnhealthyNodesPercent;
+    private @Nullable Integer maxUnhealthyNodesPercent;
 
-    @CustomType.Constructor
-    private ClusterUpgradePolicyHealthPolicy(
-        @CustomType.Parameter("maxUnhealthyApplicationsPercent") @Nullable Integer maxUnhealthyApplicationsPercent,
-        @CustomType.Parameter("maxUnhealthyNodesPercent") @Nullable Integer maxUnhealthyNodesPercent) {
-        this.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
-        this.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
-    }
-
+    private ClusterUpgradePolicyHealthPolicy() {}
     /**
      * @return Specifies the maximum tolerated percentage of applications that can have aggregated health state of error. If the upgrade exceeds this percentage, the cluster is unhealthy. Defaults to `0`.
      * 
@@ -52,30 +45,32 @@ public final class ClusterUpgradePolicyHealthPolicy {
     public static Builder builder(ClusterUpgradePolicyHealthPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxUnhealthyApplicationsPercent;
         private @Nullable Integer maxUnhealthyNodesPercent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterUpgradePolicyHealthPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxUnhealthyApplicationsPercent = defaults.maxUnhealthyApplicationsPercent;
     	      this.maxUnhealthyNodesPercent = defaults.maxUnhealthyNodesPercent;
         }
 
+        @CustomType.Setter
         public Builder maxUnhealthyApplicationsPercent(@Nullable Integer maxUnhealthyApplicationsPercent) {
             this.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder maxUnhealthyNodesPercent(@Nullable Integer maxUnhealthyNodesPercent) {
             this.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
             return this;
-        }        public ClusterUpgradePolicyHealthPolicy build() {
-            return new ClusterUpgradePolicyHealthPolicy(maxUnhealthyApplicationsPercent, maxUnhealthyNodesPercent);
+        }
+        public ClusterUpgradePolicyHealthPolicy build() {
+            final var o = new ClusterUpgradePolicyHealthPolicy();
+            o.maxUnhealthyApplicationsPercent = maxUnhealthyApplicationsPercent;
+            o.maxUnhealthyNodesPercent = maxUnhealthyNodesPercent;
+            return o;
         }
     }
 }

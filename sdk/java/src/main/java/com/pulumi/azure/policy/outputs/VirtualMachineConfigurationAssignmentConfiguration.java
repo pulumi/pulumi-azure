@@ -17,42 +17,29 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
      * @return The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
      * 
      */
-    private final @Nullable String assignmentType;
+    private @Nullable String assignmentType;
     /**
      * @return The content hash for the Guest Configuration package.
      * 
      */
-    private final @Nullable String contentHash;
+    private @Nullable String contentHash;
     /**
      * @return The content URI where the Guest Configuration package is stored.
      * 
      */
-    private final @Nullable String contentUri;
+    private @Nullable String contentUri;
     /**
      * @return One or more `parameter` blocks which define what configuration parameters and values against.
      * 
      */
-    private final @Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters;
+    private @Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters;
     /**
      * @return The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private VirtualMachineConfigurationAssignmentConfiguration(
-        @CustomType.Parameter("assignmentType") @Nullable String assignmentType,
-        @CustomType.Parameter("contentHash") @Nullable String contentHash,
-        @CustomType.Parameter("contentUri") @Nullable String contentUri,
-        @CustomType.Parameter("parameters") @Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.assignmentType = assignmentType;
-        this.contentHash = contentHash;
-        this.contentUri = contentUri;
-        this.parameters = parameters;
-        this.version = version;
-    }
-
+    private VirtualMachineConfigurationAssignmentConfiguration() {}
     /**
      * @return The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
      * 
@@ -96,18 +83,14 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
     public static Builder builder(VirtualMachineConfigurationAssignmentConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String assignmentType;
         private @Nullable String contentHash;
         private @Nullable String contentUri;
         private @Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineConfigurationAssignmentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.assignmentType = defaults.assignmentType;
@@ -117,18 +100,22 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder assignmentType(@Nullable String assignmentType) {
             this.assignmentType = assignmentType;
             return this;
         }
+        @CustomType.Setter
         public Builder contentHash(@Nullable String contentHash) {
             this.contentHash = contentHash;
             return this;
         }
+        @CustomType.Setter
         public Builder contentUri(@Nullable String contentUri) {
             this.contentUri = contentUri;
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable List<VirtualMachineConfigurationAssignmentConfigurationParameter> parameters) {
             this.parameters = parameters;
             return this;
@@ -136,11 +123,19 @@ public final class VirtualMachineConfigurationAssignmentConfiguration {
         public Builder parameters(VirtualMachineConfigurationAssignmentConfigurationParameter... parameters) {
             return parameters(List.of(parameters));
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public VirtualMachineConfigurationAssignmentConfiguration build() {
-            return new VirtualMachineConfigurationAssignmentConfiguration(assignmentType, contentHash, contentUri, parameters, version);
+        }
+        public VirtualMachineConfigurationAssignmentConfiguration build() {
+            final var o = new VirtualMachineConfigurationAssignmentConfiguration();
+            o.assignmentType = assignmentType;
+            o.contentHash = contentHash;
+            o.contentUri = contentUri;
+            o.parameters = parameters;
+            o.version = version;
+            return o;
         }
     }
 }

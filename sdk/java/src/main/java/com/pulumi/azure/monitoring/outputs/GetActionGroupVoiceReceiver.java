@@ -13,28 +13,19 @@ public final class GetActionGroupVoiceReceiver {
      * @return The country code of the voice receiver.
      * 
      */
-    private final String countryCode;
+    private String countryCode;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The phone number of the voice receiver.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private GetActionGroupVoiceReceiver(
-        @CustomType.Parameter("countryCode") String countryCode,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.countryCode = countryCode;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private GetActionGroupVoiceReceiver() {}
     /**
      * @return The country code of the voice receiver.
      * 
@@ -64,16 +55,12 @@ public final class GetActionGroupVoiceReceiver {
     public static Builder builder(GetActionGroupVoiceReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String countryCode;
         private String name;
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupVoiceReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.countryCode = defaults.countryCode;
@@ -81,19 +68,27 @@ public final class GetActionGroupVoiceReceiver {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder countryCode(String countryCode) {
             this.countryCode = Objects.requireNonNull(countryCode);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public GetActionGroupVoiceReceiver build() {
-            return new GetActionGroupVoiceReceiver(countryCode, name, phoneNumber);
+        }
+        public GetActionGroupVoiceReceiver build() {
+            final var o = new GetActionGroupVoiceReceiver();
+            o.countryCode = countryCode;
+            o.name = name;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

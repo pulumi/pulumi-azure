@@ -16,35 +16,24 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
      * @return Specifies a list of Azure Front Door IDs.
      * 
      */
-    private final @Nullable List<String> xAzureFdids;
+    private @Nullable List<String> xAzureFdids;
     /**
      * @return Specifies if a Front Door Health Probe should be expected.
      * 
      */
-    private final @Nullable String xFdHealthProbe;
+    private @Nullable String xFdHealthProbe;
     /**
      * @return Specifies a list of addresses for which matching should be applied. Omitting this value means allow any.
      * 
      */
-    private final @Nullable List<String> xForwardedFors;
+    private @Nullable List<String> xForwardedFors;
     /**
      * @return Specifies a list of Hosts for which matching should be applied.
      * 
      */
-    private final @Nullable List<String> xForwardedHosts;
+    private @Nullable List<String> xForwardedHosts;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotSiteConfigIpRestrictionHeaders(
-        @CustomType.Parameter("xAzureFdids") @Nullable List<String> xAzureFdids,
-        @CustomType.Parameter("xFdHealthProbe") @Nullable String xFdHealthProbe,
-        @CustomType.Parameter("xForwardedFors") @Nullable List<String> xForwardedFors,
-        @CustomType.Parameter("xForwardedHosts") @Nullable List<String> xForwardedHosts) {
-        this.xAzureFdids = xAzureFdids;
-        this.xFdHealthProbe = xFdHealthProbe;
-        this.xForwardedFors = xForwardedFors;
-        this.xForwardedHosts = xForwardedHosts;
-    }
-
+    private LinuxWebAppSlotSiteConfigIpRestrictionHeaders() {}
     /**
      * @return Specifies a list of Azure Front Door IDs.
      * 
@@ -81,17 +70,13 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
     public static Builder builder(LinuxWebAppSlotSiteConfigIpRestrictionHeaders defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> xAzureFdids;
         private @Nullable String xFdHealthProbe;
         private @Nullable List<String> xForwardedFors;
         private @Nullable List<String> xForwardedHosts;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotSiteConfigIpRestrictionHeaders defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.xAzureFdids = defaults.xAzureFdids;
@@ -100,6 +85,7 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
     	      this.xForwardedHosts = defaults.xForwardedHosts;
         }
 
+        @CustomType.Setter
         public Builder xAzureFdids(@Nullable List<String> xAzureFdids) {
             this.xAzureFdids = xAzureFdids;
             return this;
@@ -107,10 +93,12 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
         public Builder xAzureFdids(String... xAzureFdids) {
             return xAzureFdids(List.of(xAzureFdids));
         }
+        @CustomType.Setter
         public Builder xFdHealthProbe(@Nullable String xFdHealthProbe) {
             this.xFdHealthProbe = xFdHealthProbe;
             return this;
         }
+        @CustomType.Setter
         public Builder xForwardedFors(@Nullable List<String> xForwardedFors) {
             this.xForwardedFors = xForwardedFors;
             return this;
@@ -118,14 +106,21 @@ public final class LinuxWebAppSlotSiteConfigIpRestrictionHeaders {
         public Builder xForwardedFors(String... xForwardedFors) {
             return xForwardedFors(List.of(xForwardedFors));
         }
+        @CustomType.Setter
         public Builder xForwardedHosts(@Nullable List<String> xForwardedHosts) {
             this.xForwardedHosts = xForwardedHosts;
             return this;
         }
         public Builder xForwardedHosts(String... xForwardedHosts) {
             return xForwardedHosts(List.of(xForwardedHosts));
-        }        public LinuxWebAppSlotSiteConfigIpRestrictionHeaders build() {
-            return new LinuxWebAppSlotSiteConfigIpRestrictionHeaders(xAzureFdids, xFdHealthProbe, xForwardedFors, xForwardedHosts);
+        }
+        public LinuxWebAppSlotSiteConfigIpRestrictionHeaders build() {
+            final var o = new LinuxWebAppSlotSiteConfigIpRestrictionHeaders();
+            o.xAzureFdids = xAzureFdids;
+            o.xFdHealthProbe = xFdHealthProbe;
+            o.xForwardedFors = xForwardedFors;
+            o.xForwardedHosts = xForwardedHosts;
+            return o;
         }
     }
 }

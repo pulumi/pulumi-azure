@@ -20,70 +20,49 @@ public final class ApplicationGatewayWafConfiguration {
      * @return one or more `disabled_rule_group` blocks as defined below.
      * 
      */
-    private final @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
+    private @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
     /**
      * @return Is the Web Application Firewall enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return one or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions;
+    private @Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions;
     /**
      * @return The File Upload Limit in MB. Accepted values are in the range `1`MB to `750`MB for the `WAF_v2` SKU, and `1`MB to `500`MB for all other SKUs. Defaults to `100`MB.
      * 
      */
-    private final @Nullable Integer fileUploadLimitMb;
+    private @Nullable Integer fileUploadLimitMb;
     /**
      * @return The Web Application Firewall Mode. Possible values are `Detection` and `Prevention`.
      * 
      */
-    private final String firewallMode;
+    private String firewallMode;
     /**
      * @return The Maximum Request Body Size in KB.  Accepted values are in the range `1`KB to `128`KB.  Defaults to `128`KB.
      * 
      */
-    private final @Nullable Integer maxRequestBodySizeKb;
+    private @Nullable Integer maxRequestBodySizeKb;
     /**
      * @return Is Request Body Inspection enabled?  Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean requestBodyCheck;
+    private @Nullable Boolean requestBodyCheck;
     /**
      * @return The Type of the Rule Set used for this Web Application Firewall. Currently, only `OWASP` is supported.
      * 
      */
-    private final @Nullable String ruleSetType;
+    private @Nullable String ruleSetType;
     /**
      * @return The Version of the Rule Set used for this Web Application Firewall. Possible values are `2.2.9`, `3.0`, `3.1`,  and `3.2`.
      * 
      */
-    private final String ruleSetVersion;
+    private String ruleSetVersion;
 
-    @CustomType.Constructor
-    private ApplicationGatewayWafConfiguration(
-        @CustomType.Parameter("disabledRuleGroups") @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("exclusions") @Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions,
-        @CustomType.Parameter("fileUploadLimitMb") @Nullable Integer fileUploadLimitMb,
-        @CustomType.Parameter("firewallMode") String firewallMode,
-        @CustomType.Parameter("maxRequestBodySizeKb") @Nullable Integer maxRequestBodySizeKb,
-        @CustomType.Parameter("requestBodyCheck") @Nullable Boolean requestBodyCheck,
-        @CustomType.Parameter("ruleSetType") @Nullable String ruleSetType,
-        @CustomType.Parameter("ruleSetVersion") String ruleSetVersion) {
-        this.disabledRuleGroups = disabledRuleGroups;
-        this.enabled = enabled;
-        this.exclusions = exclusions;
-        this.fileUploadLimitMb = fileUploadLimitMb;
-        this.firewallMode = firewallMode;
-        this.maxRequestBodySizeKb = maxRequestBodySizeKb;
-        this.requestBodyCheck = requestBodyCheck;
-        this.ruleSetType = ruleSetType;
-        this.ruleSetVersion = ruleSetVersion;
-    }
-
+    private ApplicationGatewayWafConfiguration() {}
     /**
      * @return one or more `disabled_rule_group` blocks as defined below.
      * 
@@ -155,7 +134,7 @@ public final class ApplicationGatewayWafConfiguration {
     public static Builder builder(ApplicationGatewayWafConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups;
         private Boolean enabled;
@@ -166,11 +145,7 @@ public final class ApplicationGatewayWafConfiguration {
         private @Nullable Boolean requestBodyCheck;
         private @Nullable String ruleSetType;
         private String ruleSetVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayWafConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabledRuleGroups = defaults.disabledRuleGroups;
@@ -184,6 +159,7 @@ public final class ApplicationGatewayWafConfiguration {
     	      this.ruleSetVersion = defaults.ruleSetVersion;
         }
 
+        @CustomType.Setter
         public Builder disabledRuleGroups(@Nullable List<ApplicationGatewayWafConfigurationDisabledRuleGroup> disabledRuleGroups) {
             this.disabledRuleGroups = disabledRuleGroups;
             return this;
@@ -191,10 +167,12 @@ public final class ApplicationGatewayWafConfiguration {
         public Builder disabledRuleGroups(ApplicationGatewayWafConfigurationDisabledRuleGroup... disabledRuleGroups) {
             return disabledRuleGroups(List.of(disabledRuleGroups));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<ApplicationGatewayWafConfigurationExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -202,31 +180,48 @@ public final class ApplicationGatewayWafConfiguration {
         public Builder exclusions(ApplicationGatewayWafConfigurationExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder fileUploadLimitMb(@Nullable Integer fileUploadLimitMb) {
             this.fileUploadLimitMb = fileUploadLimitMb;
             return this;
         }
+        @CustomType.Setter
         public Builder firewallMode(String firewallMode) {
             this.firewallMode = Objects.requireNonNull(firewallMode);
             return this;
         }
+        @CustomType.Setter
         public Builder maxRequestBodySizeKb(@Nullable Integer maxRequestBodySizeKb) {
             this.maxRequestBodySizeKb = maxRequestBodySizeKb;
             return this;
         }
+        @CustomType.Setter
         public Builder requestBodyCheck(@Nullable Boolean requestBodyCheck) {
             this.requestBodyCheck = requestBodyCheck;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleSetType(@Nullable String ruleSetType) {
             this.ruleSetType = ruleSetType;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleSetVersion(String ruleSetVersion) {
             this.ruleSetVersion = Objects.requireNonNull(ruleSetVersion);
             return this;
-        }        public ApplicationGatewayWafConfiguration build() {
-            return new ApplicationGatewayWafConfiguration(disabledRuleGroups, enabled, exclusions, fileUploadLimitMb, firewallMode, maxRequestBodySizeKb, requestBodyCheck, ruleSetType, ruleSetVersion);
+        }
+        public ApplicationGatewayWafConfiguration build() {
+            final var o = new ApplicationGatewayWafConfiguration();
+            o.disabledRuleGroups = disabledRuleGroups;
+            o.enabled = enabled;
+            o.exclusions = exclusions;
+            o.fileUploadLimitMb = fileUploadLimitMb;
+            o.firewallMode = firewallMode;
+            o.maxRequestBodySizeKb = maxRequestBodySizeKb;
+            o.requestBodyCheck = requestBodyCheck;
+            o.ruleSetType = ruleSetType;
+            o.ruleSetVersion = ruleSetVersion;
+            return o;
         }
     }
 }

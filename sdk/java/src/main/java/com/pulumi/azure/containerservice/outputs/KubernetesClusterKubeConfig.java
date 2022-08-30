@@ -15,49 +15,34 @@ public final class KubernetesClusterKubeConfig {
      * @return Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
      * 
      */
-    private final @Nullable String clientCertificate;
+    private @Nullable String clientCertificate;
     /**
      * @return Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
      * 
      */
-    private final @Nullable String clientKey;
+    private @Nullable String clientKey;
     /**
      * @return Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
      * 
      */
-    private final @Nullable String clusterCaCertificate;
+    private @Nullable String clusterCaCertificate;
     /**
      * @return The Kubernetes cluster server host.
      * 
      */
-    private final @Nullable String host;
+    private @Nullable String host;
     /**
      * @return A password or token used to authenticate to the Kubernetes cluster.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return A username used to authenticate to the Kubernetes cluster.
      * 
      */
-    private final @Nullable String username;
+    private @Nullable String username;
 
-    @CustomType.Constructor
-    private KubernetesClusterKubeConfig(
-        @CustomType.Parameter("clientCertificate") @Nullable String clientCertificate,
-        @CustomType.Parameter("clientKey") @Nullable String clientKey,
-        @CustomType.Parameter("clusterCaCertificate") @Nullable String clusterCaCertificate,
-        @CustomType.Parameter("host") @Nullable String host,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("username") @Nullable String username) {
-        this.clientCertificate = clientCertificate;
-        this.clientKey = clientKey;
-        this.clusterCaCertificate = clusterCaCertificate;
-        this.host = host;
-        this.password = password;
-        this.username = username;
-    }
-
+    private KubernetesClusterKubeConfig() {}
     /**
      * @return Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
      * 
@@ -108,7 +93,7 @@ public final class KubernetesClusterKubeConfig {
     public static Builder builder(KubernetesClusterKubeConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientCertificate;
         private @Nullable String clientKey;
@@ -116,11 +101,7 @@ public final class KubernetesClusterKubeConfig {
         private @Nullable String host;
         private @Nullable String password;
         private @Nullable String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterKubeConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientCertificate = defaults.clientCertificate;
@@ -131,31 +112,45 @@ public final class KubernetesClusterKubeConfig {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder clientCertificate(@Nullable String clientCertificate) {
             this.clientCertificate = clientCertificate;
             return this;
         }
+        @CustomType.Setter
         public Builder clientKey(@Nullable String clientKey) {
             this.clientKey = clientKey;
             return this;
         }
+        @CustomType.Setter
         public Builder clusterCaCertificate(@Nullable String clusterCaCertificate) {
             this.clusterCaCertificate = clusterCaCertificate;
             return this;
         }
+        @CustomType.Setter
         public Builder host(@Nullable String host) {
             this.host = host;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder username(@Nullable String username) {
             this.username = username;
             return this;
-        }        public KubernetesClusterKubeConfig build() {
-            return new KubernetesClusterKubeConfig(clientCertificate, clientKey, clusterCaCertificate, host, password, username);
+        }
+        public KubernetesClusterKubeConfig build() {
+            final var o = new KubernetesClusterKubeConfig();
+            o.clientCertificate = clientCertificate;
+            o.clientKey = clientKey;
+            o.clusterCaCertificate = clusterCaCertificate;
+            o.host = host;
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

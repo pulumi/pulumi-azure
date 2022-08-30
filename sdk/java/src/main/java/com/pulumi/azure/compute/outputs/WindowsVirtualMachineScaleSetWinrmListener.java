@@ -15,21 +15,14 @@ public final class WindowsVirtualMachineScaleSetWinrmListener {
      * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
      * 
      */
-    private final @Nullable String certificateUrl;
+    private @Nullable String certificateUrl;
     /**
      * @return The Protocol of the WinRM Listener. Possible values are `Http` and `Https`.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetWinrmListener(
-        @CustomType.Parameter("certificateUrl") @Nullable String certificateUrl,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.certificateUrl = certificateUrl;
-        this.protocol = protocol;
-    }
-
+    private WindowsVirtualMachineScaleSetWinrmListener() {}
     /**
      * @return The Secret URL of a Key Vault Certificate, which must be specified when `protocol` is set to `Https`.
      * 
@@ -52,30 +45,32 @@ public final class WindowsVirtualMachineScaleSetWinrmListener {
     public static Builder builder(WindowsVirtualMachineScaleSetWinrmListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateUrl;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetWinrmListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateUrl = defaults.certificateUrl;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder certificateUrl(@Nullable String certificateUrl) {
             this.certificateUrl = certificateUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public WindowsVirtualMachineScaleSetWinrmListener build() {
-            return new WindowsVirtualMachineScaleSetWinrmListener(certificateUrl, protocol);
+        }
+        public WindowsVirtualMachineScaleSetWinrmListener build() {
+            final var o = new WindowsVirtualMachineScaleSetWinrmListener();
+            o.certificateUrl = certificateUrl;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class EndpointGeoFilter {
      * @return The Action of the Geo Filter. Possible values include `Allow` and `Block`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return A List of two letter country codes (e.g. `US`, `GB`) to be associated with this Geo Filter.
      * 
      */
-    private final List<String> countryCodes;
+    private List<String> countryCodes;
     /**
      * @return The relative path applicable to geo filter.
      * 
      */
-    private final String relativePath;
+    private String relativePath;
 
-    @CustomType.Constructor
-    private EndpointGeoFilter(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("countryCodes") List<String> countryCodes,
-        @CustomType.Parameter("relativePath") String relativePath) {
-        this.action = action;
-        this.countryCodes = countryCodes;
-        this.relativePath = relativePath;
-    }
-
+    private EndpointGeoFilter() {}
     /**
      * @return The Action of the Geo Filter. Possible values include `Allow` and `Block`.
      * 
@@ -65,16 +56,12 @@ public final class EndpointGeoFilter {
     public static Builder builder(EndpointGeoFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private List<String> countryCodes;
         private String relativePath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGeoFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -82,10 +69,12 @@ public final class EndpointGeoFilter {
     	      this.relativePath = defaults.relativePath;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder countryCodes(List<String> countryCodes) {
             this.countryCodes = Objects.requireNonNull(countryCodes);
             return this;
@@ -93,11 +82,17 @@ public final class EndpointGeoFilter {
         public Builder countryCodes(String... countryCodes) {
             return countryCodes(List.of(countryCodes));
         }
+        @CustomType.Setter
         public Builder relativePath(String relativePath) {
             this.relativePath = Objects.requireNonNull(relativePath);
             return this;
-        }        public EndpointGeoFilter build() {
-            return new EndpointGeoFilter(action, countryCodes, relativePath);
+        }
+        public EndpointGeoFilter build() {
+            final var o = new EndpointGeoFilter();
+            o.action = action;
+            o.countryCodes = countryCodes;
+            o.relativePath = relativePath;
+            return o;
         }
     }
 }

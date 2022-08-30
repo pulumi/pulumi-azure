@@ -15,21 +15,14 @@ public final class LinuxVirtualMachineScaleSetSecret {
      * @return One or more `certificate` blocks as defined above.
      * 
      */
-    private final List<LinuxVirtualMachineScaleSetSecretCertificate> certificates;
+    private List<LinuxVirtualMachineScaleSetSecretCertificate> certificates;
     /**
      * @return The ID of the Key Vault from which all Secrets should be sourced.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetSecret(
-        @CustomType.Parameter("certificates") List<LinuxVirtualMachineScaleSetSecretCertificate> certificates,
-        @CustomType.Parameter("keyVaultId") String keyVaultId) {
-        this.certificates = certificates;
-        this.keyVaultId = keyVaultId;
-    }
-
+    private LinuxVirtualMachineScaleSetSecret() {}
     /**
      * @return One or more `certificate` blocks as defined above.
      * 
@@ -52,21 +45,18 @@ public final class LinuxVirtualMachineScaleSetSecret {
     public static Builder builder(LinuxVirtualMachineScaleSetSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<LinuxVirtualMachineScaleSetSecretCertificate> certificates;
         private String keyVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.keyVaultId = defaults.keyVaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<LinuxVirtualMachineScaleSetSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -74,11 +64,16 @@ public final class LinuxVirtualMachineScaleSetSecret {
         public Builder certificates(LinuxVirtualMachineScaleSetSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
-        }        public LinuxVirtualMachineScaleSetSecret build() {
-            return new LinuxVirtualMachineScaleSetSecret(certificates, keyVaultId);
+        }
+        public LinuxVirtualMachineScaleSetSecret build() {
+            final var o = new LinuxVirtualMachineScaleSetSecret();
+            o.certificates = certificates;
+            o.keyVaultId = keyVaultId;
+            return o;
         }
     }
 }

@@ -17,35 +17,24 @@ public final class AccountGeoLocation {
      * @return The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
      * 
      */
-    private final Integer failoverPriority;
+    private Integer failoverPriority;
     /**
      * @return The ID of the virtual network subnet.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the Azure region to host replicated data.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean zoneRedundant;
+    private @Nullable Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private AccountGeoLocation(
-        @CustomType.Parameter("failoverPriority") Integer failoverPriority,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("zoneRedundant") @Nullable Boolean zoneRedundant) {
-        this.failoverPriority = failoverPriority;
-        this.id = id;
-        this.location = location;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private AccountGeoLocation() {}
     /**
      * @return The failover priority of the region. A failover priority of `0` indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority `0`.
      * 
@@ -82,17 +71,13 @@ public final class AccountGeoLocation {
     public static Builder builder(AccountGeoLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer failoverPriority;
         private @Nullable String id;
         private String location;
         private @Nullable Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountGeoLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failoverPriority = defaults.failoverPriority;
@@ -101,23 +86,33 @@ public final class AccountGeoLocation {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder failoverPriority(Integer failoverPriority) {
             this.failoverPriority = Objects.requireNonNull(failoverPriority);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(@Nullable Boolean zoneRedundant) {
             this.zoneRedundant = zoneRedundant;
             return this;
-        }        public AccountGeoLocation build() {
-            return new AccountGeoLocation(failoverPriority, id, location, zoneRedundant);
+        }
+        public AccountGeoLocation build() {
+            final var o = new AccountGeoLocation();
+            o.failoverPriority = failoverPriority;
+            o.id = id;
+            o.location = location;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

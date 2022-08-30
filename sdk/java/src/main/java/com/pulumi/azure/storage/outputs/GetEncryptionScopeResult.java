@@ -13,34 +13,21 @@ public final class GetEncryptionScopeResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the Key Vault Key.
      * 
      */
-    private final String keyVaultKeyId;
-    private final String name;
+    private String keyVaultKeyId;
+    private String name;
     /**
      * @return The source of the Storage Encryption Scope.
      * 
      */
-    private final String source;
-    private final String storageAccountId;
+    private String source;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private GetEncryptionScopeResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("source") String source,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.id = id;
-        this.keyVaultKeyId = keyVaultKeyId;
-        this.name = name;
-        this.source = source;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private GetEncryptionScopeResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -76,18 +63,14 @@ public final class GetEncryptionScopeResult {
     public static Builder builder(GetEncryptionScopeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String keyVaultKeyId;
         private String name;
         private String source;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEncryptionScopeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -97,27 +80,39 @@ public final class GetEncryptionScopeResult {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder source(String source) {
             this.source = Objects.requireNonNull(source);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public GetEncryptionScopeResult build() {
-            return new GetEncryptionScopeResult(id, keyVaultKeyId, name, source, storageAccountId);
+        }
+        public GetEncryptionScopeResult build() {
+            final var o = new GetEncryptionScopeResult();
+            o.id = id;
+            o.keyVaultKeyId = keyVaultKeyId;
+            o.name = name;
+            o.source = source;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

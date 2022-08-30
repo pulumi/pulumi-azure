@@ -20,42 +20,29 @@ public final class SqlContainerIndexingPolicy {
      * @return One or more `composite_index` blocks as defined below.
      * 
      */
-    private final @Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices;
+    private @Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices;
     /**
      * @return One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
      * 
      */
-    private final @Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths;
+    private @Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths;
     /**
      * @return One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
      * 
      */
-    private final @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths;
+    private @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths;
     /**
      * @return Indicates the indexing mode. Possible values include: `Consistent` and `None`. Defaults to `Consistent`.
      * 
      */
-    private final @Nullable String indexingMode;
+    private @Nullable String indexingMode;
     /**
      * @return One or more `spatial_index` blocks as defined below.
      * 
      */
-    private final @Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices;
+    private @Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices;
 
-    @CustomType.Constructor
-    private SqlContainerIndexingPolicy(
-        @CustomType.Parameter("compositeIndices") @Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices,
-        @CustomType.Parameter("excludedPaths") @Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths,
-        @CustomType.Parameter("includedPaths") @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths,
-        @CustomType.Parameter("indexingMode") @Nullable String indexingMode,
-        @CustomType.Parameter("spatialIndices") @Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices) {
-        this.compositeIndices = compositeIndices;
-        this.excludedPaths = excludedPaths;
-        this.includedPaths = includedPaths;
-        this.indexingMode = indexingMode;
-        this.spatialIndices = spatialIndices;
-    }
-
+    private SqlContainerIndexingPolicy() {}
     /**
      * @return One or more `composite_index` blocks as defined below.
      * 
@@ -99,18 +86,14 @@ public final class SqlContainerIndexingPolicy {
     public static Builder builder(SqlContainerIndexingPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices;
         private @Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths;
         private @Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths;
         private @Nullable String indexingMode;
         private @Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SqlContainerIndexingPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.compositeIndices = defaults.compositeIndices;
@@ -120,6 +103,7 @@ public final class SqlContainerIndexingPolicy {
     	      this.spatialIndices = defaults.spatialIndices;
         }
 
+        @CustomType.Setter
         public Builder compositeIndices(@Nullable List<SqlContainerIndexingPolicyCompositeIndex> compositeIndices) {
             this.compositeIndices = compositeIndices;
             return this;
@@ -127,6 +111,7 @@ public final class SqlContainerIndexingPolicy {
         public Builder compositeIndices(SqlContainerIndexingPolicyCompositeIndex... compositeIndices) {
             return compositeIndices(List.of(compositeIndices));
         }
+        @CustomType.Setter
         public Builder excludedPaths(@Nullable List<SqlContainerIndexingPolicyExcludedPath> excludedPaths) {
             this.excludedPaths = excludedPaths;
             return this;
@@ -134,6 +119,7 @@ public final class SqlContainerIndexingPolicy {
         public Builder excludedPaths(SqlContainerIndexingPolicyExcludedPath... excludedPaths) {
             return excludedPaths(List.of(excludedPaths));
         }
+        @CustomType.Setter
         public Builder includedPaths(@Nullable List<SqlContainerIndexingPolicyIncludedPath> includedPaths) {
             this.includedPaths = includedPaths;
             return this;
@@ -141,18 +127,27 @@ public final class SqlContainerIndexingPolicy {
         public Builder includedPaths(SqlContainerIndexingPolicyIncludedPath... includedPaths) {
             return includedPaths(List.of(includedPaths));
         }
+        @CustomType.Setter
         public Builder indexingMode(@Nullable String indexingMode) {
             this.indexingMode = indexingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder spatialIndices(@Nullable List<SqlContainerIndexingPolicySpatialIndex> spatialIndices) {
             this.spatialIndices = spatialIndices;
             return this;
         }
         public Builder spatialIndices(SqlContainerIndexingPolicySpatialIndex... spatialIndices) {
             return spatialIndices(List.of(spatialIndices));
-        }        public SqlContainerIndexingPolicy build() {
-            return new SqlContainerIndexingPolicy(compositeIndices, excludedPaths, includedPaths, indexingMode, spatialIndices);
+        }
+        public SqlContainerIndexingPolicy build() {
+            final var o = new SqlContainerIndexingPolicy();
+            o.compositeIndices = compositeIndices;
+            o.excludedPaths = excludedPaths;
+            o.includedPaths = includedPaths;
+            o.indexingMode = indexingMode;
+            o.spatialIndices = spatialIndices;
+            return o;
         }
     }
 }

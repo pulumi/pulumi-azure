@@ -14,28 +14,19 @@ public final class GetAccountConsistencyPolicy {
      * @return The Consistency Level used by this CosmosDB Account.
      * 
      */
-    private final String consistencyLevel;
+    private String consistencyLevel;
     /**
      * @return The amount of staleness (in seconds) tolerated when the consistency level is Bounded Staleness.
      * 
      */
-    private final Integer maxIntervalInSeconds;
+    private Integer maxIntervalInSeconds;
     /**
      * @return The number of stale requests tolerated when the consistency level is Bounded Staleness.
      * 
      */
-    private final Integer maxStalenessPrefix;
+    private Integer maxStalenessPrefix;
 
-    @CustomType.Constructor
-    private GetAccountConsistencyPolicy(
-        @CustomType.Parameter("consistencyLevel") String consistencyLevel,
-        @CustomType.Parameter("maxIntervalInSeconds") Integer maxIntervalInSeconds,
-        @CustomType.Parameter("maxStalenessPrefix") Integer maxStalenessPrefix) {
-        this.consistencyLevel = consistencyLevel;
-        this.maxIntervalInSeconds = maxIntervalInSeconds;
-        this.maxStalenessPrefix = maxStalenessPrefix;
-    }
-
+    private GetAccountConsistencyPolicy() {}
     /**
      * @return The Consistency Level used by this CosmosDB Account.
      * 
@@ -65,16 +56,12 @@ public final class GetAccountConsistencyPolicy {
     public static Builder builder(GetAccountConsistencyPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String consistencyLevel;
         private Integer maxIntervalInSeconds;
         private Integer maxStalenessPrefix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountConsistencyPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.consistencyLevel = defaults.consistencyLevel;
@@ -82,19 +69,27 @@ public final class GetAccountConsistencyPolicy {
     	      this.maxStalenessPrefix = defaults.maxStalenessPrefix;
         }
 
+        @CustomType.Setter
         public Builder consistencyLevel(String consistencyLevel) {
             this.consistencyLevel = Objects.requireNonNull(consistencyLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder maxIntervalInSeconds(Integer maxIntervalInSeconds) {
             this.maxIntervalInSeconds = Objects.requireNonNull(maxIntervalInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder maxStalenessPrefix(Integer maxStalenessPrefix) {
             this.maxStalenessPrefix = Objects.requireNonNull(maxStalenessPrefix);
             return this;
-        }        public GetAccountConsistencyPolicy build() {
-            return new GetAccountConsistencyPolicy(consistencyLevel, maxIntervalInSeconds, maxStalenessPrefix);
+        }
+        public GetAccountConsistencyPolicy build() {
+            final var o = new GetAccountConsistencyPolicy();
+            o.consistencyLevel = consistencyLevel;
+            o.maxIntervalInSeconds = maxIntervalInSeconds;
+            o.maxStalenessPrefix = maxStalenessPrefix;
+            return o;
         }
     }
 }

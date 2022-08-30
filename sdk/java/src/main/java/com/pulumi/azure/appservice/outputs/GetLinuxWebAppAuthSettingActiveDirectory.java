@@ -14,35 +14,24 @@ public final class GetLinuxWebAppAuthSettingActiveDirectory {
      * @return An `allowed_audiences` block as defined below.
      * 
      */
-    private final List<String> allowedAudiences;
+    private List<String> allowedAudiences;
     /**
      * @return The OAuth 2.0 client ID used by the app for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret used by the app for authentication.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
      * 
      */
-    private final String clientSecretSettingName;
+    private String clientSecretSettingName;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppAuthSettingActiveDirectory(
-        @CustomType.Parameter("allowedAudiences") List<String> allowedAudiences,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") String clientSecretSettingName) {
-        this.allowedAudiences = allowedAudiences;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-    }
-
+    private GetLinuxWebAppAuthSettingActiveDirectory() {}
     /**
      * @return An `allowed_audiences` block as defined below.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxWebAppAuthSettingActiveDirectory {
     public static Builder builder(GetLinuxWebAppAuthSettingActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedAudiences;
         private String clientId;
         private String clientSecret;
         private String clientSecretSettingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppAuthSettingActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
@@ -98,6 +83,7 @@ public final class GetLinuxWebAppAuthSettingActiveDirectory {
     	      this.clientSecretSettingName = defaults.clientSecretSettingName;
         }
 
+        @CustomType.Setter
         public Builder allowedAudiences(List<String> allowedAudiences) {
             this.allowedAudiences = Objects.requireNonNull(allowedAudiences);
             return this;
@@ -105,19 +91,28 @@ public final class GetLinuxWebAppAuthSettingActiveDirectory {
         public Builder allowedAudiences(String... allowedAudiences) {
             return allowedAudiences(List.of(allowedAudiences));
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
             this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
             return this;
-        }        public GetLinuxWebAppAuthSettingActiveDirectory build() {
-            return new GetLinuxWebAppAuthSettingActiveDirectory(allowedAudiences, clientId, clientSecret, clientSecretSettingName);
+        }
+        public GetLinuxWebAppAuthSettingActiveDirectory build() {
+            final var o = new GetLinuxWebAppAuthSettingActiveDirectory();
+            o.allowedAudiences = allowedAudiences;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            return o;
         }
     }
 }

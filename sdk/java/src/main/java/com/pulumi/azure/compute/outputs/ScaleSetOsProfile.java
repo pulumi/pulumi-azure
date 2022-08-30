@@ -15,35 +15,24 @@ public final class ScaleSetOsProfile {
      * @return Specifies the administrator password to use for all the instances of virtual machines in a scale set.
      * 
      */
-    private final @Nullable String adminPassword;
+    private @Nullable String adminPassword;
     /**
      * @return Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
     /**
      * @return Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
      * 
      */
-    private final String computerNamePrefix;
+    private String computerNamePrefix;
     /**
      * @return Specifies custom data to supply to the machine. On Linux-based systems, this can be used as a cloud-init script. On other systems, this will be copied as a file on disk. Internally, this provider will base64 encode this value before sending it to the API. The maximum length of the binary array is 65535 bytes.
      * 
      */
-    private final @Nullable String customData;
+    private @Nullable String customData;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfile(
-        @CustomType.Parameter("adminPassword") @Nullable String adminPassword,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("computerNamePrefix") String computerNamePrefix,
-        @CustomType.Parameter("customData") @Nullable String customData) {
-        this.adminPassword = adminPassword;
-        this.adminUsername = adminUsername;
-        this.computerNamePrefix = computerNamePrefix;
-        this.customData = customData;
-    }
-
+    private ScaleSetOsProfile() {}
     /**
      * @return Specifies the administrator password to use for all the instances of virtual machines in a scale set.
      * 
@@ -80,17 +69,13 @@ public final class ScaleSetOsProfile {
     public static Builder builder(ScaleSetOsProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
         private String adminUsername;
         private String computerNamePrefix;
         private @Nullable String customData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -99,23 +84,33 @@ public final class ScaleSetOsProfile {
     	      this.customData = defaults.customData;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
             this.adminPassword = adminPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder computerNamePrefix(String computerNamePrefix) {
             this.computerNamePrefix = Objects.requireNonNull(computerNamePrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder customData(@Nullable String customData) {
             this.customData = customData;
             return this;
-        }        public ScaleSetOsProfile build() {
-            return new ScaleSetOsProfile(adminPassword, adminUsername, computerNamePrefix, customData);
+        }
+        public ScaleSetOsProfile build() {
+            final var o = new ScaleSetOsProfile();
+            o.adminPassword = adminPassword;
+            o.adminUsername = adminUsername;
+            o.computerNamePrefix = computerNamePrefix;
+            o.customData = customData;
+            return o;
         }
     }
 }

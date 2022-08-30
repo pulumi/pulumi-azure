@@ -20,112 +20,79 @@ public final class VpnGatewayConnectionVpnLink {
      * @return The expected connection bandwidth in MBPS. Defaults to `10`.
      * 
      */
-    private final @Nullable Integer bandwidthMbps;
+    private @Nullable Integer bandwidthMbps;
     /**
      * @return Should the BGP be enabled? Defaults to `false`. Changing this forces a new VPN Gateway Connection to be created.
      * 
      */
-    private final @Nullable Boolean bgpEnabled;
+    private @Nullable Boolean bgpEnabled;
     /**
      * @return The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
      * 
      */
-    private final @Nullable String connectionMode;
+    private @Nullable String connectionMode;
     /**
      * @return One or more `custom_bgp_address` blocks as defined below.
      * 
      */
-    private final @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses;
+    private @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses;
     /**
      * @return A list of the egress NAT Rule Ids.
      * 
      */
-    private final @Nullable List<String> egressNatRuleIds;
+    private @Nullable List<String> egressNatRuleIds;
     /**
      * @return A list of the ingress NAT Rule Ids.
      * 
      */
-    private final @Nullable List<String> ingressNatRuleIds;
+    private @Nullable List<String> ingressNatRuleIds;
     /**
      * @return One or more `ipsec_policy` blocks as defined above.
      * 
      */
-    private final @Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies;
+    private @Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies;
     /**
      * @return Whether to use local Azure IP to initiate connection? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean localAzureIpAddressEnabled;
+    private @Nullable Boolean localAzureIpAddressEnabled;
     /**
      * @return The name which should be used for this VPN Link Connection.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether to enable policy-based traffic selectors? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean policyBasedTrafficSelectorEnabled;
+    private @Nullable Boolean policyBasedTrafficSelectorEnabled;
     /**
      * @return The protocol used for this VPN Link Connection. Possible values are `IKEv1` and `IKEv2`. Defaults to `IKEv2`.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
     /**
      * @return Should the rate limit be enabled? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ratelimitEnabled;
+    private @Nullable Boolean ratelimitEnabled;
     /**
      * @return Routing weight for this VPN Link Connection. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer routeWeight;
+    private @Nullable Integer routeWeight;
     /**
      * @return SharedKey for this VPN Link Connection.
      * 
      */
-    private final @Nullable String sharedKey;
+    private @Nullable String sharedKey;
     /**
      * @return The ID of the connected VPN Site Link. Changing this forces a new VPN Gateway Connection to be created.
      * 
      */
-    private final String vpnSiteLinkId;
+    private String vpnSiteLinkId;
 
-    @CustomType.Constructor
-    private VpnGatewayConnectionVpnLink(
-        @CustomType.Parameter("bandwidthMbps") @Nullable Integer bandwidthMbps,
-        @CustomType.Parameter("bgpEnabled") @Nullable Boolean bgpEnabled,
-        @CustomType.Parameter("connectionMode") @Nullable String connectionMode,
-        @CustomType.Parameter("customBgpAddresses") @Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses,
-        @CustomType.Parameter("egressNatRuleIds") @Nullable List<String> egressNatRuleIds,
-        @CustomType.Parameter("ingressNatRuleIds") @Nullable List<String> ingressNatRuleIds,
-        @CustomType.Parameter("ipsecPolicies") @Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies,
-        @CustomType.Parameter("localAzureIpAddressEnabled") @Nullable Boolean localAzureIpAddressEnabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("policyBasedTrafficSelectorEnabled") @Nullable Boolean policyBasedTrafficSelectorEnabled,
-        @CustomType.Parameter("protocol") @Nullable String protocol,
-        @CustomType.Parameter("ratelimitEnabled") @Nullable Boolean ratelimitEnabled,
-        @CustomType.Parameter("routeWeight") @Nullable Integer routeWeight,
-        @CustomType.Parameter("sharedKey") @Nullable String sharedKey,
-        @CustomType.Parameter("vpnSiteLinkId") String vpnSiteLinkId) {
-        this.bandwidthMbps = bandwidthMbps;
-        this.bgpEnabled = bgpEnabled;
-        this.connectionMode = connectionMode;
-        this.customBgpAddresses = customBgpAddresses;
-        this.egressNatRuleIds = egressNatRuleIds;
-        this.ingressNatRuleIds = ingressNatRuleIds;
-        this.ipsecPolicies = ipsecPolicies;
-        this.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
-        this.name = name;
-        this.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
-        this.protocol = protocol;
-        this.ratelimitEnabled = ratelimitEnabled;
-        this.routeWeight = routeWeight;
-        this.sharedKey = sharedKey;
-        this.vpnSiteLinkId = vpnSiteLinkId;
-    }
-
+    private VpnGatewayConnectionVpnLink() {}
     /**
      * @return The expected connection bandwidth in MBPS. Defaults to `10`.
      * 
@@ -239,7 +206,7 @@ public final class VpnGatewayConnectionVpnLink {
     public static Builder builder(VpnGatewayConnectionVpnLink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer bandwidthMbps;
         private @Nullable Boolean bgpEnabled;
@@ -256,11 +223,7 @@ public final class VpnGatewayConnectionVpnLink {
         private @Nullable Integer routeWeight;
         private @Nullable String sharedKey;
         private String vpnSiteLinkId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnGatewayConnectionVpnLink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bandwidthMbps = defaults.bandwidthMbps;
@@ -280,18 +243,22 @@ public final class VpnGatewayConnectionVpnLink {
     	      this.vpnSiteLinkId = defaults.vpnSiteLinkId;
         }
 
+        @CustomType.Setter
         public Builder bandwidthMbps(@Nullable Integer bandwidthMbps) {
             this.bandwidthMbps = bandwidthMbps;
             return this;
         }
+        @CustomType.Setter
         public Builder bgpEnabled(@Nullable Boolean bgpEnabled) {
             this.bgpEnabled = bgpEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionMode(@Nullable String connectionMode) {
             this.connectionMode = connectionMode;
             return this;
         }
+        @CustomType.Setter
         public Builder customBgpAddresses(@Nullable List<VpnGatewayConnectionVpnLinkCustomBgpAddress> customBgpAddresses) {
             this.customBgpAddresses = customBgpAddresses;
             return this;
@@ -299,6 +266,7 @@ public final class VpnGatewayConnectionVpnLink {
         public Builder customBgpAddresses(VpnGatewayConnectionVpnLinkCustomBgpAddress... customBgpAddresses) {
             return customBgpAddresses(List.of(customBgpAddresses));
         }
+        @CustomType.Setter
         public Builder egressNatRuleIds(@Nullable List<String> egressNatRuleIds) {
             this.egressNatRuleIds = egressNatRuleIds;
             return this;
@@ -306,6 +274,7 @@ public final class VpnGatewayConnectionVpnLink {
         public Builder egressNatRuleIds(String... egressNatRuleIds) {
             return egressNatRuleIds(List.of(egressNatRuleIds));
         }
+        @CustomType.Setter
         public Builder ingressNatRuleIds(@Nullable List<String> ingressNatRuleIds) {
             this.ingressNatRuleIds = ingressNatRuleIds;
             return this;
@@ -313,6 +282,7 @@ public final class VpnGatewayConnectionVpnLink {
         public Builder ingressNatRuleIds(String... ingressNatRuleIds) {
             return ingressNatRuleIds(List.of(ingressNatRuleIds));
         }
+        @CustomType.Setter
         public Builder ipsecPolicies(@Nullable List<VpnGatewayConnectionVpnLinkIpsecPolicy> ipsecPolicies) {
             this.ipsecPolicies = ipsecPolicies;
             return this;
@@ -320,39 +290,64 @@ public final class VpnGatewayConnectionVpnLink {
         public Builder ipsecPolicies(VpnGatewayConnectionVpnLinkIpsecPolicy... ipsecPolicies) {
             return ipsecPolicies(List.of(ipsecPolicies));
         }
+        @CustomType.Setter
         public Builder localAzureIpAddressEnabled(@Nullable Boolean localAzureIpAddressEnabled) {
             this.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder policyBasedTrafficSelectorEnabled(@Nullable Boolean policyBasedTrafficSelectorEnabled) {
             this.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
         }
+        @CustomType.Setter
         public Builder ratelimitEnabled(@Nullable Boolean ratelimitEnabled) {
             this.ratelimitEnabled = ratelimitEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder routeWeight(@Nullable Integer routeWeight) {
             this.routeWeight = routeWeight;
             return this;
         }
+        @CustomType.Setter
         public Builder sharedKey(@Nullable String sharedKey) {
             this.sharedKey = sharedKey;
             return this;
         }
+        @CustomType.Setter
         public Builder vpnSiteLinkId(String vpnSiteLinkId) {
             this.vpnSiteLinkId = Objects.requireNonNull(vpnSiteLinkId);
             return this;
-        }        public VpnGatewayConnectionVpnLink build() {
-            return new VpnGatewayConnectionVpnLink(bandwidthMbps, bgpEnabled, connectionMode, customBgpAddresses, egressNatRuleIds, ingressNatRuleIds, ipsecPolicies, localAzureIpAddressEnabled, name, policyBasedTrafficSelectorEnabled, protocol, ratelimitEnabled, routeWeight, sharedKey, vpnSiteLinkId);
+        }
+        public VpnGatewayConnectionVpnLink build() {
+            final var o = new VpnGatewayConnectionVpnLink();
+            o.bandwidthMbps = bandwidthMbps;
+            o.bgpEnabled = bgpEnabled;
+            o.connectionMode = connectionMode;
+            o.customBgpAddresses = customBgpAddresses;
+            o.egressNatRuleIds = egressNatRuleIds;
+            o.ingressNatRuleIds = ingressNatRuleIds;
+            o.ipsecPolicies = ipsecPolicies;
+            o.localAzureIpAddressEnabled = localAzureIpAddressEnabled;
+            o.name = name;
+            o.policyBasedTrafficSelectorEnabled = policyBasedTrafficSelectorEnabled;
+            o.protocol = protocol;
+            o.ratelimitEnabled = ratelimitEnabled;
+            o.routeWeight = routeWeight;
+            o.sharedKey = sharedKey;
+            o.vpnSiteLinkId = vpnSiteLinkId;
+            return o;
         }
     }
 }

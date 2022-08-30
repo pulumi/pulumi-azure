@@ -14,21 +14,14 @@ public final class ModuleNetworkProfile {
      * @return The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    private final List<String> networkInterfacePrivateIpAddresses;
+    private List<String> networkInterfacePrivateIpAddresses;
     /**
      * @return The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ModuleNetworkProfile(
-        @CustomType.Parameter("networkInterfacePrivateIpAddresses") List<String> networkInterfacePrivateIpAddresses,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.networkInterfacePrivateIpAddresses = networkInterfacePrivateIpAddresses;
-        this.subnetId = subnetId;
-    }
-
+    private ModuleNetworkProfile() {}
     /**
      * @return The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
      * 
@@ -51,21 +44,18 @@ public final class ModuleNetworkProfile {
     public static Builder builder(ModuleNetworkProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> networkInterfacePrivateIpAddresses;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModuleNetworkProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.networkInterfacePrivateIpAddresses = defaults.networkInterfacePrivateIpAddresses;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder networkInterfacePrivateIpAddresses(List<String> networkInterfacePrivateIpAddresses) {
             this.networkInterfacePrivateIpAddresses = Objects.requireNonNull(networkInterfacePrivateIpAddresses);
             return this;
@@ -73,11 +63,16 @@ public final class ModuleNetworkProfile {
         public Builder networkInterfacePrivateIpAddresses(String... networkInterfacePrivateIpAddresses) {
             return networkInterfacePrivateIpAddresses(List.of(networkInterfacePrivateIpAddresses));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ModuleNetworkProfile build() {
-            return new ModuleNetworkProfile(networkInterfacePrivateIpAddresses, subnetId);
+        }
+        public ModuleNetworkProfile build() {
+            final var o = new ModuleNetworkProfile();
+            o.networkInterfacePrivateIpAddresses = networkInterfacePrivateIpAddresses;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class KafkaClusterRestProxy {
      * @return The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
      * 
      */
-    private final String securityGroupId;
+    private String securityGroupId;
     /**
      * @return The Azure Active Directory Security Group name. Changing this forces a new resource to be created.
      * 
      */
-    private final String securityGroupName;
+    private String securityGroupName;
 
-    @CustomType.Constructor
-    private KafkaClusterRestProxy(
-        @CustomType.Parameter("securityGroupId") String securityGroupId,
-        @CustomType.Parameter("securityGroupName") String securityGroupName) {
-        this.securityGroupId = securityGroupId;
-        this.securityGroupName = securityGroupName;
-    }
-
+    private KafkaClusterRestProxy() {}
     /**
      * @return The Azure Active Directory Security Group ID. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class KafkaClusterRestProxy {
     public static Builder builder(KafkaClusterRestProxy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String securityGroupId;
         private String securityGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterRestProxy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.securityGroupId = defaults.securityGroupId;
     	      this.securityGroupName = defaults.securityGroupName;
         }
 
+        @CustomType.Setter
         public Builder securityGroupId(String securityGroupId) {
             this.securityGroupId = Objects.requireNonNull(securityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroupName(String securityGroupName) {
             this.securityGroupName = Objects.requireNonNull(securityGroupName);
             return this;
-        }        public KafkaClusterRestProxy build() {
-            return new KafkaClusterRestProxy(securityGroupId, securityGroupName);
+        }
+        public KafkaClusterRestProxy build() {
+            final var o = new KafkaClusterRestProxy();
+            o.securityGroupId = securityGroupId;
+            o.securityGroupName = securityGroupName;
+            return o;
         }
     }
 }

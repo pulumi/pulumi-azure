@@ -15,21 +15,14 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
      * @return A list of `schedule` blocks as defined below.
      * 
      */
-    private final List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
+    private List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
     /**
      * @return The time zone for the autoscale schedule times.
      * 
      */
-    private final String timezone;
+    private String timezone;
 
-    @CustomType.Constructor
-    private SparkClusterRolesWorkerNodeAutoscaleRecurrence(
-        @CustomType.Parameter("schedules") List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules,
-        @CustomType.Parameter("timezone") String timezone) {
-        this.schedules = schedules;
-        this.timezone = timezone;
-    }
-
+    private SparkClusterRolesWorkerNodeAutoscaleRecurrence() {}
     /**
      * @return A list of `schedule` blocks as defined below.
      * 
@@ -52,21 +45,18 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
     public static Builder builder(SparkClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules;
         private String timezone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterRolesWorkerNodeAutoscaleRecurrence defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.schedules = defaults.schedules;
     	      this.timezone = defaults.timezone;
         }
 
+        @CustomType.Setter
         public Builder schedules(List<SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -74,11 +64,16 @@ public final class SparkClusterRolesWorkerNodeAutoscaleRecurrence {
         public Builder schedules(SparkClusterRolesWorkerNodeAutoscaleRecurrenceSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder timezone(String timezone) {
             this.timezone = Objects.requireNonNull(timezone);
             return this;
-        }        public SparkClusterRolesWorkerNodeAutoscaleRecurrence build() {
-            return new SparkClusterRolesWorkerNodeAutoscaleRecurrence(schedules, timezone);
+        }
+        public SparkClusterRolesWorkerNodeAutoscaleRecurrence build() {
+            final var o = new SparkClusterRolesWorkerNodeAutoscaleRecurrence();
+            o.schedules = schedules;
+            o.timezone = timezone;
+            return o;
         }
     }
 }

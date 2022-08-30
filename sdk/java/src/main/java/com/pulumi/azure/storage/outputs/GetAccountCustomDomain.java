@@ -13,13 +13,9 @@ public final class GetAccountCustomDomain {
      * @return Specifies the name of the Storage Account
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetAccountCustomDomain(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private GetAccountCustomDomain() {}
     /**
      * @return Specifies the name of the Storage Account
      * 
@@ -35,24 +31,24 @@ public final class GetAccountCustomDomain {
     public static Builder builder(GetAccountCustomDomain defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountCustomDomain defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetAccountCustomDomain build() {
-            return new GetAccountCustomDomain(name);
+        }
+        public GetAccountCustomDomain build() {
+            final var o = new GetAccountCustomDomain();
+            o.name = name;
+            return o;
         }
     }
 }

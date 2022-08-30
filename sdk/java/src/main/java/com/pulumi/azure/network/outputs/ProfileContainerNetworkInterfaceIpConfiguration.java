@@ -13,21 +13,14 @@ public final class ProfileContainerNetworkInterfaceIpConfiguration {
      * @return Specifies the name of the IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Reference to the subnet associated with the IP Configuration.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ProfileContainerNetworkInterfaceIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.subnetId = subnetId;
-    }
-
+    private ProfileContainerNetworkInterfaceIpConfiguration() {}
     /**
      * @return Specifies the name of the IP Configuration.
      * 
@@ -50,30 +43,32 @@ public final class ProfileContainerNetworkInterfaceIpConfiguration {
     public static Builder builder(ProfileContainerNetworkInterfaceIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ProfileContainerNetworkInterfaceIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ProfileContainerNetworkInterfaceIpConfiguration build() {
-            return new ProfileContainerNetworkInterfaceIpConfiguration(name, subnetId);
+        }
+        public ProfileContainerNetworkInterfaceIpConfiguration build() {
+            final var o = new ProfileContainerNetworkInterfaceIpConfiguration();
+            o.name = name;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

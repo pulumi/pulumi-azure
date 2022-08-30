@@ -13,30 +13,17 @@ public final class GetFabricResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the Site Recovery Replication Fabric resides.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String recoveryVaultName;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String recoveryVaultName;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetFabricResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("recoveryVaultName") String recoveryVaultName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.recoveryVaultName = recoveryVaultName;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetFabricResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -68,18 +55,14 @@ public final class GetFabricResult {
     public static Builder builder(GetFabricResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
         private String name;
         private String recoveryVaultName;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFabricResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -89,27 +72,39 @@ public final class GetFabricResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder recoveryVaultName(String recoveryVaultName) {
             this.recoveryVaultName = Objects.requireNonNull(recoveryVaultName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetFabricResult build() {
-            return new GetFabricResult(id, location, name, recoveryVaultName, resourceGroupName);
+        }
+        public GetFabricResult build() {
+            final var o = new GetFabricResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.recoveryVaultName = recoveryVaultName;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

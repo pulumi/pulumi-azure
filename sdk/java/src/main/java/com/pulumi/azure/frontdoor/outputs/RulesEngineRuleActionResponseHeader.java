@@ -15,28 +15,19 @@ public final class RulesEngineRuleActionResponseHeader {
      * @return can be set to `Overwrite`, `Append` or `Delete`.
      * 
      */
-    private final @Nullable String headerActionType;
+    private @Nullable String headerActionType;
     /**
      * @return header name (string).
      * 
      */
-    private final @Nullable String headerName;
+    private @Nullable String headerName;
     /**
      * @return value name (string).
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private RulesEngineRuleActionResponseHeader(
-        @CustomType.Parameter("headerActionType") @Nullable String headerActionType,
-        @CustomType.Parameter("headerName") @Nullable String headerName,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.headerActionType = headerActionType;
-        this.headerName = headerName;
-        this.value = value;
-    }
-
+    private RulesEngineRuleActionResponseHeader() {}
     /**
      * @return can be set to `Overwrite`, `Append` or `Delete`.
      * 
@@ -66,16 +57,12 @@ public final class RulesEngineRuleActionResponseHeader {
     public static Builder builder(RulesEngineRuleActionResponseHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String headerActionType;
         private @Nullable String headerName;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesEngineRuleActionResponseHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerActionType = defaults.headerActionType;
@@ -83,19 +70,27 @@ public final class RulesEngineRuleActionResponseHeader {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder headerActionType(@Nullable String headerActionType) {
             this.headerActionType = headerActionType;
             return this;
         }
+        @CustomType.Setter
         public Builder headerName(@Nullable String headerName) {
             this.headerName = headerName;
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public RulesEngineRuleActionResponseHeader build() {
-            return new RulesEngineRuleActionResponseHeader(headerActionType, headerName, value);
+        }
+        public RulesEngineRuleActionResponseHeader build() {
+            final var o = new RulesEngineRuleActionResponseHeader();
+            o.headerActionType = headerActionType;
+            o.headerName = headerName;
+            o.value = value;
+            return o;
         }
     }
 }

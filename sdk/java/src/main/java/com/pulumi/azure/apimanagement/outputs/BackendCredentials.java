@@ -18,35 +18,24 @@ public final class BackendCredentials {
      * @return An `authorization` block as defined below.
      * 
      */
-    private final @Nullable BackendCredentialsAuthorization authorization;
+    private @Nullable BackendCredentialsAuthorization authorization;
     /**
      * @return A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
      * 
      */
-    private final @Nullable List<String> certificates;
+    private @Nullable List<String> certificates;
     /**
      * @return A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
      * 
      */
-    private final @Nullable Map<String,String> header;
+    private @Nullable Map<String,String> header;
     /**
      * @return A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
      * 
      */
-    private final @Nullable Map<String,String> query;
+    private @Nullable Map<String,String> query;
 
-    @CustomType.Constructor
-    private BackendCredentials(
-        @CustomType.Parameter("authorization") @Nullable BackendCredentialsAuthorization authorization,
-        @CustomType.Parameter("certificates") @Nullable List<String> certificates,
-        @CustomType.Parameter("header") @Nullable Map<String,String> header,
-        @CustomType.Parameter("query") @Nullable Map<String,String> query) {
-        this.authorization = authorization;
-        this.certificates = certificates;
-        this.header = header;
-        this.query = query;
-    }
-
+    private BackendCredentials() {}
     /**
      * @return An `authorization` block as defined below.
      * 
@@ -83,17 +72,13 @@ public final class BackendCredentials {
     public static Builder builder(BackendCredentials defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BackendCredentialsAuthorization authorization;
         private @Nullable List<String> certificates;
         private @Nullable Map<String,String> header;
         private @Nullable Map<String,String> query;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorization = defaults.authorization;
@@ -102,10 +87,12 @@ public final class BackendCredentials {
     	      this.query = defaults.query;
         }
 
+        @CustomType.Setter
         public Builder authorization(@Nullable BackendCredentialsAuthorization authorization) {
             this.authorization = authorization;
             return this;
         }
+        @CustomType.Setter
         public Builder certificates(@Nullable List<String> certificates) {
             this.certificates = certificates;
             return this;
@@ -113,15 +100,23 @@ public final class BackendCredentials {
         public Builder certificates(String... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder header(@Nullable Map<String,String> header) {
             this.header = header;
             return this;
         }
+        @CustomType.Setter
         public Builder query(@Nullable Map<String,String> query) {
             this.query = query;
             return this;
-        }        public BackendCredentials build() {
-            return new BackendCredentials(authorization, certificates, header, query);
+        }
+        public BackendCredentials build() {
+            final var o = new BackendCredentials();
+            o.authorization = authorization;
+            o.certificates = certificates;
+            o.header = header;
+            o.query = query;
+            return o;
         }
     }
 }

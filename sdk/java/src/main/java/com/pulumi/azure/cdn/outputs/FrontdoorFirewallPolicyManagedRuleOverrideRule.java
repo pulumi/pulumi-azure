@@ -18,35 +18,24 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
      * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return Is the managed rule override enabled or disabled. Defaults to `false`
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return One or more `exclusion` blocks as defined below.
      * 
      */
-    private final @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
+    private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
     /**
      * @return Identifier for the managed rule.
      * 
      */
-    private final String ruleId;
+    private String ruleId;
 
-    @CustomType.Constructor
-    private FrontdoorFirewallPolicyManagedRuleOverrideRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("exclusions") @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion> exclusions,
-        @CustomType.Parameter("ruleId") String ruleId) {
-        this.action = action;
-        this.enabled = enabled;
-        this.exclusions = exclusions;
-        this.ruleId = ruleId;
-    }
-
+    private FrontdoorFirewallPolicyManagedRuleOverrideRule() {}
     /**
      * @return The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
      * 
@@ -83,17 +72,13 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
     public static Builder builder(FrontdoorFirewallPolicyManagedRuleOverrideRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private @Nullable Boolean enabled;
         private @Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion> exclusions;
         private String ruleId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorFirewallPolicyManagedRuleOverrideRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -102,14 +87,17 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
     	      this.ruleId = defaults.ruleId;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -117,11 +105,18 @@ public final class FrontdoorFirewallPolicyManagedRuleOverrideRule {
         public Builder exclusions(FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder ruleId(String ruleId) {
             this.ruleId = Objects.requireNonNull(ruleId);
             return this;
-        }        public FrontdoorFirewallPolicyManagedRuleOverrideRule build() {
-            return new FrontdoorFirewallPolicyManagedRuleOverrideRule(action, enabled, exclusions, ruleId);
+        }
+        public FrontdoorFirewallPolicyManagedRuleOverrideRule build() {
+            final var o = new FrontdoorFirewallPolicyManagedRuleOverrideRule();
+            o.action = action;
+            o.enabled = enabled;
+            o.exclusions = exclusions;
+            o.ruleId = ruleId;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class VirtualMachineIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
      * 
      */
-    private final @Nullable List<String> identityIds;
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Virtual Machine. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned` (to enable both).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private VirtualMachineIdentity(
-        @CustomType.Parameter("identityIds") @Nullable List<String> identityIds,
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.type = type;
-    }
-
+    private VirtualMachineIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Virtual Machine.
      * 
@@ -67,16 +58,12 @@ public final class VirtualMachineIdentity {
     public static Builder builder(VirtualMachineIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -84,6 +71,7 @@ public final class VirtualMachineIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
             this.identityIds = identityIds;
             return this;
@@ -91,15 +79,22 @@ public final class VirtualMachineIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public VirtualMachineIdentity build() {
-            return new VirtualMachineIdentity(identityIds, principalId, type);
+        }
+        public VirtualMachineIdentity build() {
+            final var o = new VirtualMachineIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -13,13 +13,9 @@ public final class GetKubernetesClusterAgentPoolProfileUpgradeSetting {
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    private final String maxSurge;
+    private String maxSurge;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterAgentPoolProfileUpgradeSetting(@CustomType.Parameter("maxSurge") String maxSurge) {
-        this.maxSurge = maxSurge;
-    }
-
+    private GetKubernetesClusterAgentPoolProfileUpgradeSetting() {}
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterAgentPoolProfileUpgradeSetting {
     public static Builder builder(GetKubernetesClusterAgentPoolProfileUpgradeSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String maxSurge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterAgentPoolProfileUpgradeSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxSurge = defaults.maxSurge;
         }
 
+        @CustomType.Setter
         public Builder maxSurge(String maxSurge) {
             this.maxSurge = Objects.requireNonNull(maxSurge);
             return this;
-        }        public GetKubernetesClusterAgentPoolProfileUpgradeSetting build() {
-            return new GetKubernetesClusterAgentPoolProfileUpgradeSetting(maxSurge);
+        }
+        public GetKubernetesClusterAgentPoolProfileUpgradeSetting build() {
+            final var o = new GetKubernetesClusterAgentPoolProfileUpgradeSetting();
+            o.maxSurge = maxSurge;
+            return o;
         }
     }
 }

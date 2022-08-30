@@ -15,28 +15,19 @@ public final class TriggerTumblingWindowTriggerDependency {
      * @return The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
      * 
      */
-    private final @Nullable String offset;
+    private @Nullable String offset;
     /**
      * @return The size of the dependency tumbling window. Must be in Timespan format (hh:mm:ss).
      * 
      */
-    private final @Nullable String size;
+    private @Nullable String size;
     /**
      * @return The dependency trigger name. If not specified, it will use self dependency.
      * 
      */
-    private final @Nullable String triggerName;
+    private @Nullable String triggerName;
 
-    @CustomType.Constructor
-    private TriggerTumblingWindowTriggerDependency(
-        @CustomType.Parameter("offset") @Nullable String offset,
-        @CustomType.Parameter("size") @Nullable String size,
-        @CustomType.Parameter("triggerName") @Nullable String triggerName) {
-        this.offset = offset;
-        this.size = size;
-        this.triggerName = triggerName;
-    }
-
+    private TriggerTumblingWindowTriggerDependency() {}
     /**
      * @return The offset of the dependency trigger. Must be in Timespan format (±hh:mm:ss) and must be a negative offset for a self dependency.
      * 
@@ -66,16 +57,12 @@ public final class TriggerTumblingWindowTriggerDependency {
     public static Builder builder(TriggerTumblingWindowTriggerDependency defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String offset;
         private @Nullable String size;
         private @Nullable String triggerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerTumblingWindowTriggerDependency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.offset = defaults.offset;
@@ -83,19 +70,27 @@ public final class TriggerTumblingWindowTriggerDependency {
     	      this.triggerName = defaults.triggerName;
         }
 
+        @CustomType.Setter
         public Builder offset(@Nullable String offset) {
             this.offset = offset;
             return this;
         }
+        @CustomType.Setter
         public Builder size(@Nullable String size) {
             this.size = size;
             return this;
         }
+        @CustomType.Setter
         public Builder triggerName(@Nullable String triggerName) {
             this.triggerName = triggerName;
             return this;
-        }        public TriggerTumblingWindowTriggerDependency build() {
-            return new TriggerTumblingWindowTriggerDependency(offset, size, triggerName);
+        }
+        public TriggerTumblingWindowTriggerDependency build() {
+            final var o = new TriggerTumblingWindowTriggerDependency();
+            o.offset = offset;
+            o.size = size;
+            o.triggerName = triggerName;
+            return o;
         }
     }
 }

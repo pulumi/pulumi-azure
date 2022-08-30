@@ -15,21 +15,14 @@ public final class DomainInboundIpRule {
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return The IP mask (CIDR) to match on.
      * 
      */
-    private final String ipMask;
+    private String ipMask;
 
-    @CustomType.Constructor
-    private DomainInboundIpRule(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("ipMask") String ipMask) {
-        this.action = action;
-        this.ipMask = ipMask;
-    }
-
+    private DomainInboundIpRule() {}
     /**
      * @return The action to take when the rule is matched. Possible values are `Allow`.
      * 
@@ -52,30 +45,32 @@ public final class DomainInboundIpRule {
     public static Builder builder(DomainInboundIpRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private String ipMask;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DomainInboundIpRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
     	      this.ipMask = defaults.ipMask;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder ipMask(String ipMask) {
             this.ipMask = Objects.requireNonNull(ipMask);
             return this;
-        }        public DomainInboundIpRule build() {
-            return new DomainInboundIpRule(action, ipMask);
+        }
+        public DomainInboundIpRule build() {
+            final var o = new DomainInboundIpRule();
+            o.action = action;
+            o.ipMask = ipMask;
+            return o;
         }
     }
 }

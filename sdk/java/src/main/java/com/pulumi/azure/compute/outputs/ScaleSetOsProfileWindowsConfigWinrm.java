@@ -15,21 +15,14 @@ public final class ScaleSetOsProfileWindowsConfigWinrm {
      * @return Specifies URL of the certificate with which new Virtual Machines is provisioned.
      * 
      */
-    private final @Nullable String certificateUrl;
+    private @Nullable String certificateUrl;
     /**
      * @return Specifies the protocol of listener
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileWindowsConfigWinrm(
-        @CustomType.Parameter("certificateUrl") @Nullable String certificateUrl,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.certificateUrl = certificateUrl;
-        this.protocol = protocol;
-    }
-
+    private ScaleSetOsProfileWindowsConfigWinrm() {}
     /**
      * @return Specifies URL of the certificate with which new Virtual Machines is provisioned.
      * 
@@ -52,30 +45,32 @@ public final class ScaleSetOsProfileWindowsConfigWinrm {
     public static Builder builder(ScaleSetOsProfileWindowsConfigWinrm defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateUrl;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileWindowsConfigWinrm defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateUrl = defaults.certificateUrl;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder certificateUrl(@Nullable String certificateUrl) {
             this.certificateUrl = certificateUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public ScaleSetOsProfileWindowsConfigWinrm build() {
-            return new ScaleSetOsProfileWindowsConfigWinrm(certificateUrl, protocol);
+        }
+        public ScaleSetOsProfileWindowsConfigWinrm build() {
+            final var o = new ScaleSetOsProfileWindowsConfigWinrm();
+            o.certificateUrl = certificateUrl;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetAccountPrivateEndpointConnection {
      * @return The ID of the Automation Account
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the Automation Account.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetAccountPrivateEndpointConnection(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetAccountPrivateEndpointConnection() {}
     /**
      * @return The ID of the Automation Account
      * 
@@ -50,30 +43,32 @@ public final class GetAccountPrivateEndpointConnection {
     public static Builder builder(GetAccountPrivateEndpointConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountPrivateEndpointConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetAccountPrivateEndpointConnection build() {
-            return new GetAccountPrivateEndpointConnection(id, name);
+        }
+        public GetAccountPrivateEndpointConnection build() {
+            final var o = new GetAccountPrivateEndpointConnection();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

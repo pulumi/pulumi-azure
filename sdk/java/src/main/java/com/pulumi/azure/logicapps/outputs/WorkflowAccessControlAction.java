@@ -14,13 +14,9 @@ public final class WorkflowAccessControlAction {
      * @return A list of the allowed caller IP address ranges.
      * 
      */
-    private final List<String> allowedCallerIpAddressRanges;
+    private List<String> allowedCallerIpAddressRanges;
 
-    @CustomType.Constructor
-    private WorkflowAccessControlAction(@CustomType.Parameter("allowedCallerIpAddressRanges") List<String> allowedCallerIpAddressRanges) {
-        this.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
-    }
-
+    private WorkflowAccessControlAction() {}
     /**
      * @return A list of the allowed caller IP address ranges.
      * 
@@ -36,27 +32,27 @@ public final class WorkflowAccessControlAction {
     public static Builder builder(WorkflowAccessControlAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedCallerIpAddressRanges;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowAccessControlAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedCallerIpAddressRanges = defaults.allowedCallerIpAddressRanges;
         }
 
+        @CustomType.Setter
         public Builder allowedCallerIpAddressRanges(List<String> allowedCallerIpAddressRanges) {
             this.allowedCallerIpAddressRanges = Objects.requireNonNull(allowedCallerIpAddressRanges);
             return this;
         }
         public Builder allowedCallerIpAddressRanges(String... allowedCallerIpAddressRanges) {
             return allowedCallerIpAddressRanges(List.of(allowedCallerIpAddressRanges));
-        }        public WorkflowAccessControlAction build() {
-            return new WorkflowAccessControlAction(allowedCallerIpAddressRanges);
+        }
+        public WorkflowAccessControlAction build() {
+            final var o = new WorkflowAccessControlAction();
+            o.allowedCallerIpAddressRanges = allowedCallerIpAddressRanges;
+            return o;
         }
     }
 }

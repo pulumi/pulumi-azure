@@ -15,13 +15,9 @@ public final class NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
      * @return Should path evaluation with trace route be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean traceRouteEnabled;
+    private @Nullable Boolean traceRouteEnabled;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestConfigurationIcmpConfiguration(@CustomType.Parameter("traceRouteEnabled") @Nullable Boolean traceRouteEnabled) {
-        this.traceRouteEnabled = traceRouteEnabled;
-    }
-
+    private NetworkConnectionMonitorTestConfigurationIcmpConfiguration() {}
     /**
      * @return Should path evaluation with trace route be enabled? Defaults to `true`.
      * 
@@ -37,24 +33,24 @@ public final class NetworkConnectionMonitorTestConfigurationIcmpConfiguration {
     public static Builder builder(NetworkConnectionMonitorTestConfigurationIcmpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean traceRouteEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestConfigurationIcmpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.traceRouteEnabled = defaults.traceRouteEnabled;
         }
 
+        @CustomType.Setter
         public Builder traceRouteEnabled(@Nullable Boolean traceRouteEnabled) {
             this.traceRouteEnabled = traceRouteEnabled;
             return this;
-        }        public NetworkConnectionMonitorTestConfigurationIcmpConfiguration build() {
-            return new NetworkConnectionMonitorTestConfigurationIcmpConfiguration(traceRouteEnabled);
+        }
+        public NetworkConnectionMonitorTestConfigurationIcmpConfiguration build() {
+            final var o = new NetworkConnectionMonitorTestConfigurationIcmpConfiguration();
+            o.traceRouteEnabled = traceRouteEnabled;
+            return o;
         }
     }
 }

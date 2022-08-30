@@ -16,28 +16,19 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
      * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
      * 
      */
-    private final String actionType;
+    private String actionType;
     /**
      * @return A `custom_action` block as defined below.
      * 
      */
-    private final @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction;
+    private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction;
     /**
      * @return The minimum amount of time in `hh:mm:ss` the Windows Web App Slot must have been running before the defined action will be run in the event of a trigger.
      * 
      */
-    private final @Nullable String minimumProcessExecutionTime;
+    private @Nullable String minimumProcessExecutionTime;
 
-    @CustomType.Constructor
-    private WindowsWebAppSlotSiteConfigAutoHealSettingAction(
-        @CustomType.Parameter("actionType") String actionType,
-        @CustomType.Parameter("customAction") @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction,
-        @CustomType.Parameter("minimumProcessExecutionTime") @Nullable String minimumProcessExecutionTime) {
-        this.actionType = actionType;
-        this.customAction = customAction;
-        this.minimumProcessExecutionTime = minimumProcessExecutionTime;
-    }
-
+    private WindowsWebAppSlotSiteConfigAutoHealSettingAction() {}
     /**
      * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
      * 
@@ -67,16 +58,12 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
     public static Builder builder(WindowsWebAppSlotSiteConfigAutoHealSettingAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
         private @Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction;
         private @Nullable String minimumProcessExecutionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSlotSiteConfigAutoHealSettingAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
@@ -84,19 +71,27 @@ public final class WindowsWebAppSlotSiteConfigAutoHealSettingAction {
     	      this.minimumProcessExecutionTime = defaults.minimumProcessExecutionTime;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
         }
+        @CustomType.Setter
         public Builder customAction(@Nullable WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomAction customAction) {
             this.customAction = customAction;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumProcessExecutionTime(@Nullable String minimumProcessExecutionTime) {
             this.minimumProcessExecutionTime = minimumProcessExecutionTime;
             return this;
-        }        public WindowsWebAppSlotSiteConfigAutoHealSettingAction build() {
-            return new WindowsWebAppSlotSiteConfigAutoHealSettingAction(actionType, customAction, minimumProcessExecutionTime);
+        }
+        public WindowsWebAppSlotSiteConfigAutoHealSettingAction build() {
+            final var o = new WindowsWebAppSlotSiteConfigAutoHealSettingAction();
+            o.actionType = actionType;
+            o.customAction = customAction;
+            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return o;
         }
     }
 }

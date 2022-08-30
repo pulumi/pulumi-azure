@@ -14,13 +14,9 @@ public final class AutomationSourceRuleSet {
      * @return One or more `rule` blocks as defined below.
      * 
      */
-    private final List<AutomationSourceRuleSetRule> rules;
+    private List<AutomationSourceRuleSetRule> rules;
 
-    @CustomType.Constructor
-    private AutomationSourceRuleSet(@CustomType.Parameter("rules") List<AutomationSourceRuleSetRule> rules) {
-        this.rules = rules;
-    }
-
+    private AutomationSourceRuleSet() {}
     /**
      * @return One or more `rule` blocks as defined below.
      * 
@@ -36,27 +32,27 @@ public final class AutomationSourceRuleSet {
     public static Builder builder(AutomationSourceRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<AutomationSourceRuleSetRule> rules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationSourceRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.rules = defaults.rules;
         }
 
+        @CustomType.Setter
         public Builder rules(List<AutomationSourceRuleSetRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
         }
         public Builder rules(AutomationSourceRuleSetRule... rules) {
             return rules(List.of(rules));
-        }        public AutomationSourceRuleSet build() {
-            return new AutomationSourceRuleSet(rules);
+        }
+        public AutomationSourceRuleSet build() {
+            final var o = new AutomationSourceRuleSet();
+            o.rules = rules;
+            return o;
         }
     }
 }

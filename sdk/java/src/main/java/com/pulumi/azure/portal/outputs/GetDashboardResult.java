@@ -16,44 +16,27 @@ public final class GetDashboardResult {
      * @return JSON data representing dashboard body.
      * 
      */
-    private final String dashboardProperties;
-    private final @Nullable String displayName;
+    private String dashboardProperties;
+    private @Nullable String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the shared Azure Portal dashboard exists.
      * 
      */
-    private final String location;
-    private final @Nullable String name;
-    private final String resourceGroupName;
+    private String location;
+    private @Nullable String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the shared Azure Portal dashboard.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDashboardResult(
-        @CustomType.Parameter("dashboardProperties") String dashboardProperties,
-        @CustomType.Parameter("displayName") @Nullable String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.dashboardProperties = dashboardProperties;
-        this.displayName = displayName;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetDashboardResult() {}
     /**
      * @return JSON data representing dashboard body.
      * 
@@ -99,7 +82,7 @@ public final class GetDashboardResult {
     public static Builder builder(GetDashboardResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dashboardProperties;
         private @Nullable String displayName;
@@ -108,11 +91,7 @@ public final class GetDashboardResult {
         private @Nullable String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDashboardResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dashboardProperties = defaults.dashboardProperties;
@@ -124,35 +103,51 @@ public final class GetDashboardResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder dashboardProperties(String dashboardProperties) {
             this.dashboardProperties = Objects.requireNonNull(dashboardProperties);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
             this.displayName = displayName;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetDashboardResult build() {
-            return new GetDashboardResult(dashboardProperties, displayName, id, location, name, resourceGroupName, tags);
+        }
+        public GetDashboardResult build() {
+            final var o = new GetDashboardResult();
+            o.dashboardProperties = dashboardProperties;
+            o.displayName = displayName;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

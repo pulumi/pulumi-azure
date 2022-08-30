@@ -17,28 +17,19 @@ public final class KafkaClusterMetastores {
      * @return An `ambari` block as defined below.
      * 
      */
-    private final @Nullable KafkaClusterMetastoresAmbari ambari;
+    private @Nullable KafkaClusterMetastoresAmbari ambari;
     /**
      * @return A `hive` block as defined below.
      * 
      */
-    private final @Nullable KafkaClusterMetastoresHive hive;
+    private @Nullable KafkaClusterMetastoresHive hive;
     /**
      * @return An `oozie` block as defined below.
      * 
      */
-    private final @Nullable KafkaClusterMetastoresOozie oozie;
+    private @Nullable KafkaClusterMetastoresOozie oozie;
 
-    @CustomType.Constructor
-    private KafkaClusterMetastores(
-        @CustomType.Parameter("ambari") @Nullable KafkaClusterMetastoresAmbari ambari,
-        @CustomType.Parameter("hive") @Nullable KafkaClusterMetastoresHive hive,
-        @CustomType.Parameter("oozie") @Nullable KafkaClusterMetastoresOozie oozie) {
-        this.ambari = ambari;
-        this.hive = hive;
-        this.oozie = oozie;
-    }
-
+    private KafkaClusterMetastores() {}
     /**
      * @return An `ambari` block as defined below.
      * 
@@ -68,16 +59,12 @@ public final class KafkaClusterMetastores {
     public static Builder builder(KafkaClusterMetastores defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable KafkaClusterMetastoresAmbari ambari;
         private @Nullable KafkaClusterMetastoresHive hive;
         private @Nullable KafkaClusterMetastoresOozie oozie;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterMetastores defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ambari = defaults.ambari;
@@ -85,19 +72,27 @@ public final class KafkaClusterMetastores {
     	      this.oozie = defaults.oozie;
         }
 
+        @CustomType.Setter
         public Builder ambari(@Nullable KafkaClusterMetastoresAmbari ambari) {
             this.ambari = ambari;
             return this;
         }
+        @CustomType.Setter
         public Builder hive(@Nullable KafkaClusterMetastoresHive hive) {
             this.hive = hive;
             return this;
         }
+        @CustomType.Setter
         public Builder oozie(@Nullable KafkaClusterMetastoresOozie oozie) {
             this.oozie = oozie;
             return this;
-        }        public KafkaClusterMetastores build() {
-            return new KafkaClusterMetastores(ambari, hive, oozie);
+        }
+        public KafkaClusterMetastores build() {
+            final var o = new KafkaClusterMetastores();
+            o.ambari = ambari;
+            o.hive = hive;
+            o.oozie = oozie;
+            return o;
         }
     }
 }

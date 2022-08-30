@@ -14,28 +14,19 @@ public final class SlotLogsApplicationLogsAzureBlobStorage {
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
      */
-    private final String level;
+    private String level;
     /**
      * @return The number of days to retain logs for.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private SlotLogsApplicationLogsAzureBlobStorage(
-        @CustomType.Parameter("level") String level,
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.level = level;
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private SlotLogsApplicationLogsAzureBlobStorage() {}
     /**
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
@@ -65,16 +56,12 @@ public final class SlotLogsApplicationLogsAzureBlobStorage {
     public static Builder builder(SlotLogsApplicationLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String level;
         private Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotLogsApplicationLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.level = defaults.level;
@@ -82,19 +69,27 @@ public final class SlotLogsApplicationLogsAzureBlobStorage {
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder level(String level) {
             this.level = Objects.requireNonNull(level);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public SlotLogsApplicationLogsAzureBlobStorage build() {
-            return new SlotLogsApplicationLogsAzureBlobStorage(level, retentionInDays, sasUrl);
+        }
+        public SlotLogsApplicationLogsAzureBlobStorage build() {
+            final var o = new SlotLogsApplicationLogsAzureBlobStorage();
+            o.level = level;
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

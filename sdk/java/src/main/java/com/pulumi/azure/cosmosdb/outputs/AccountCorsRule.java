@@ -15,42 +15,29 @@ public final class AccountCorsRule {
      * @return A list of headers that are allowed to be a part of the cross-origin request.
      * 
      */
-    private final List<String> allowedHeaders;
+    private List<String> allowedHeaders;
     /**
      * @return A list of HTTP headers that are allowed to be executed by the origin. Valid options are  `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS`, `PUT` or `PATCH`.
      * 
      */
-    private final List<String> allowedMethods;
+    private List<String> allowedMethods;
     /**
      * @return A list of origin domains that will be allowed by CORS.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return A list of response headers that are exposed to CORS clients.
      * 
      */
-    private final List<String> exposedHeaders;
+    private List<String> exposedHeaders;
     /**
      * @return The number of seconds the client should cache a preflight response.
      * 
      */
-    private final Integer maxAgeInSeconds;
+    private Integer maxAgeInSeconds;
 
-    @CustomType.Constructor
-    private AccountCorsRule(
-        @CustomType.Parameter("allowedHeaders") List<String> allowedHeaders,
-        @CustomType.Parameter("allowedMethods") List<String> allowedMethods,
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("exposedHeaders") List<String> exposedHeaders,
-        @CustomType.Parameter("maxAgeInSeconds") Integer maxAgeInSeconds) {
-        this.allowedHeaders = allowedHeaders;
-        this.allowedMethods = allowedMethods;
-        this.allowedOrigins = allowedOrigins;
-        this.exposedHeaders = exposedHeaders;
-        this.maxAgeInSeconds = maxAgeInSeconds;
-    }
-
+    private AccountCorsRule() {}
     /**
      * @return A list of headers that are allowed to be a part of the cross-origin request.
      * 
@@ -94,18 +81,14 @@ public final class AccountCorsRule {
     public static Builder builder(AccountCorsRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedHeaders;
         private List<String> allowedMethods;
         private List<String> allowedOrigins;
         private List<String> exposedHeaders;
         private Integer maxAgeInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountCorsRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedHeaders = defaults.allowedHeaders;
@@ -115,6 +98,7 @@ public final class AccountCorsRule {
     	      this.maxAgeInSeconds = defaults.maxAgeInSeconds;
         }
 
+        @CustomType.Setter
         public Builder allowedHeaders(List<String> allowedHeaders) {
             this.allowedHeaders = Objects.requireNonNull(allowedHeaders);
             return this;
@@ -122,6 +106,7 @@ public final class AccountCorsRule {
         public Builder allowedHeaders(String... allowedHeaders) {
             return allowedHeaders(List.of(allowedHeaders));
         }
+        @CustomType.Setter
         public Builder allowedMethods(List<String> allowedMethods) {
             this.allowedMethods = Objects.requireNonNull(allowedMethods);
             return this;
@@ -129,6 +114,7 @@ public final class AccountCorsRule {
         public Builder allowedMethods(String... allowedMethods) {
             return allowedMethods(List.of(allowedMethods));
         }
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -136,6 +122,7 @@ public final class AccountCorsRule {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder exposedHeaders(List<String> exposedHeaders) {
             this.exposedHeaders = Objects.requireNonNull(exposedHeaders);
             return this;
@@ -143,11 +130,19 @@ public final class AccountCorsRule {
         public Builder exposedHeaders(String... exposedHeaders) {
             return exposedHeaders(List.of(exposedHeaders));
         }
+        @CustomType.Setter
         public Builder maxAgeInSeconds(Integer maxAgeInSeconds) {
             this.maxAgeInSeconds = Objects.requireNonNull(maxAgeInSeconds);
             return this;
-        }        public AccountCorsRule build() {
-            return new AccountCorsRule(allowedHeaders, allowedMethods, allowedOrigins, exposedHeaders, maxAgeInSeconds);
+        }
+        public AccountCorsRule build() {
+            final var o = new AccountCorsRule();
+            o.allowedHeaders = allowedHeaders;
+            o.allowedMethods = allowedMethods;
+            o.allowedOrigins = allowedOrigins;
+            o.exposedHeaders = exposedHeaders;
+            o.maxAgeInSeconds = maxAgeInSeconds;
+            return o;
         }
     }
 }

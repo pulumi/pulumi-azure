@@ -16,35 +16,24 @@ public final class PoolCertificate {
      * @return The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of the certificate store on the compute node into which to install the certificate. Possible values are `CurrentUser` or `LocalMachine`.
      * 
      */
-    private final String storeLocation;
+    private String storeLocation;
     /**
      * @return The name of the certificate store on the compute node into which to install the certificate. This property is applicable only for pools configured with Windows nodes (that is, created with cloudServiceConfiguration, or with virtualMachineConfiguration using a Windows image reference). Common store names include: `My`, `Root`, `CA`, `Trust`, `Disallowed`, `TrustedPeople`, `TrustedPublisher`, `AuthRoot`, `AddressBook`, but any custom store name can also be used. The default value is `My`.
      * 
      */
-    private final @Nullable String storeName;
+    private @Nullable String storeName;
     /**
      * @return Which user accounts on the compute node should have access to the private data of the certificate.
      * 
      */
-    private final @Nullable List<String> visibilities;
+    private @Nullable List<String> visibilities;
 
-    @CustomType.Constructor
-    private PoolCertificate(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("storeLocation") String storeLocation,
-        @CustomType.Parameter("storeName") @Nullable String storeName,
-        @CustomType.Parameter("visibilities") @Nullable List<String> visibilities) {
-        this.id = id;
-        this.storeLocation = storeLocation;
-        this.storeName = storeName;
-        this.visibilities = visibilities;
-    }
-
+    private PoolCertificate() {}
     /**
      * @return The ID of the Batch Certificate to install on the Batch Pool, which must be inside the same Batch Account.
      * 
@@ -81,17 +70,13 @@ public final class PoolCertificate {
     public static Builder builder(PoolCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String storeLocation;
         private @Nullable String storeName;
         private @Nullable List<String> visibilities;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PoolCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -100,26 +85,36 @@ public final class PoolCertificate {
     	      this.visibilities = defaults.visibilities;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder storeLocation(String storeLocation) {
             this.storeLocation = Objects.requireNonNull(storeLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder storeName(@Nullable String storeName) {
             this.storeName = storeName;
             return this;
         }
+        @CustomType.Setter
         public Builder visibilities(@Nullable List<String> visibilities) {
             this.visibilities = visibilities;
             return this;
         }
         public Builder visibilities(String... visibilities) {
             return visibilities(List.of(visibilities));
-        }        public PoolCertificate build() {
-            return new PoolCertificate(id, storeLocation, storeName, visibilities);
+        }
+        public PoolCertificate build() {
+            final var o = new PoolCertificate();
+            o.id = id;
+            o.storeLocation = storeLocation;
+            o.storeName = storeName;
+            o.visibilities = visibilities;
+            return o;
         }
     }
 }

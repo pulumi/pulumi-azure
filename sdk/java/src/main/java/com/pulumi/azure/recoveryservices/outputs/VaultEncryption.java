@@ -16,28 +16,19 @@ public final class VaultEncryption {
      * @return Enabling/Disabling the Double Encryption state.
      * 
      */
-    private final Boolean infrastructureEncryptionEnabled;
+    private Boolean infrastructureEncryptionEnabled;
     /**
      * @return The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
      * 
      */
-    private final String keyId;
+    private String keyId;
     /**
      * @return Indicate that system assigned identity should be used or not. At this time the only possible value is `true`. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean useSystemAssignedIdentity;
+    private @Nullable Boolean useSystemAssignedIdentity;
 
-    @CustomType.Constructor
-    private VaultEncryption(
-        @CustomType.Parameter("infrastructureEncryptionEnabled") Boolean infrastructureEncryptionEnabled,
-        @CustomType.Parameter("keyId") String keyId,
-        @CustomType.Parameter("useSystemAssignedIdentity") @Nullable Boolean useSystemAssignedIdentity) {
-        this.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
-        this.keyId = keyId;
-        this.useSystemAssignedIdentity = useSystemAssignedIdentity;
-    }
-
+    private VaultEncryption() {}
     /**
      * @return Enabling/Disabling the Double Encryption state.
      * 
@@ -67,16 +58,12 @@ public final class VaultEncryption {
     public static Builder builder(VaultEncryption defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean infrastructureEncryptionEnabled;
         private String keyId;
         private @Nullable Boolean useSystemAssignedIdentity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VaultEncryption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.infrastructureEncryptionEnabled = defaults.infrastructureEncryptionEnabled;
@@ -84,19 +71,27 @@ public final class VaultEncryption {
     	      this.useSystemAssignedIdentity = defaults.useSystemAssignedIdentity;
         }
 
+        @CustomType.Setter
         public Builder infrastructureEncryptionEnabled(Boolean infrastructureEncryptionEnabled) {
             this.infrastructureEncryptionEnabled = Objects.requireNonNull(infrastructureEncryptionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyId(String keyId) {
             this.keyId = Objects.requireNonNull(keyId);
             return this;
         }
+        @CustomType.Setter
         public Builder useSystemAssignedIdentity(@Nullable Boolean useSystemAssignedIdentity) {
             this.useSystemAssignedIdentity = useSystemAssignedIdentity;
             return this;
-        }        public VaultEncryption build() {
-            return new VaultEncryption(infrastructureEncryptionEnabled, keyId, useSystemAssignedIdentity);
+        }
+        public VaultEncryption build() {
+            final var o = new VaultEncryption();
+            o.infrastructureEncryptionEnabled = infrastructureEncryptionEnabled;
+            o.keyId = keyId;
+            o.useSystemAssignedIdentity = useSystemAssignedIdentity;
+            return o;
         }
     }
 }

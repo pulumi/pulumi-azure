@@ -25,212 +25,147 @@ public final class GetLinuxWebAppResult {
      * @return An `app_metadata` block as defined below.
      * 
      */
-    private final Map<String,String> appMetadata;
+    private Map<String,String> appMetadata;
     /**
      * @return An `app_settings` block as defined below.
      * 
      */
-    private final Map<String,String> appSettings;
+    private Map<String,String> appSettings;
     /**
      * @return An `auth_settings` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppAuthSetting> authSettings;
+    private List<GetLinuxWebAppAuthSetting> authSettings;
     /**
      * @return A `backup` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppBackup> backups;
+    private List<GetLinuxWebAppBackup> backups;
     /**
      * @return Is Client Affinity enabled?
      * 
      */
-    private final Boolean clientAffinityEnabled;
+    private Boolean clientAffinityEnabled;
     /**
      * @return Are Client Certificates enabled?
      * 
      */
-    private final Boolean clientCertificateEnabled;
+    private Boolean clientCertificateEnabled;
     /**
      * @return The Client Certificate mode.
      * 
      */
-    private final String clientCertificateMode;
+    private String clientCertificateMode;
     /**
      * @return A `connection_string` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppConnectionString> connectionStrings;
+    private List<GetLinuxWebAppConnectionString> connectionStrings;
     /**
      * @return The identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    private final String customDomainVerificationId;
+    private String customDomainVerificationId;
     /**
      * @return The default hostname of the Linux Web App.
      * 
      */
-    private final String defaultHostname;
+    private String defaultHostname;
     /**
      * @return Is the Backup enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Should the Linux Web App require HTTPS connections.
      * 
      */
-    private final Boolean httpsOnly;
+    private Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `identity` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppIdentity> identities;
-    private final String keyVaultReferenceIdentityId;
+    private List<GetLinuxWebAppIdentity> identities;
+    private String keyVaultReferenceIdentityId;
     /**
      * @return The Kind value for this Linux Web App.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region where the Linux Web App exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `logs` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppLog> logs;
+    private List<GetLinuxWebAppLog> logs;
     /**
      * @return The name of this Storage Account.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `outbound_ip_address_list` block as defined below.
      * 
      */
-    private final List<String> outboundIpAddressLists;
+    private List<String> outboundIpAddressLists;
     /**
      * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`.
      * 
      */
-    private final String outboundIpAddresses;
+    private String outboundIpAddresses;
     /**
      * @return A `possible_outbound_ip_address_list` block as defined below.
      * 
      */
-    private final List<String> possibleOutboundIpAddressLists;
+    private List<String> possibleOutboundIpAddressLists;
     /**
      * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    private final String possibleOutboundIpAddresses;
-    private final String resourceGroupName;
+    private String possibleOutboundIpAddresses;
+    private String resourceGroupName;
     /**
      * @return The ID of the Service Plan that this Linux Web App exists in.
      * 
      */
-    private final String servicePlanId;
+    private String servicePlanId;
     /**
      * @return A `site_config` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppSiteConfig> siteConfigs;
+    private List<GetLinuxWebAppSiteConfig> siteConfigs;
     /**
      * @return A `site_credential` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppSiteCredential> siteCredentials;
+    private List<GetLinuxWebAppSiteCredential> siteCredentials;
     /**
      * @return A `sticky_settings` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppStickySetting> stickySettings;
+    private List<GetLinuxWebAppStickySetting> stickySettings;
     /**
      * @return A `storage_account` block as defined below.
      * 
      */
-    private final List<GetLinuxWebAppStorageAccount> storageAccounts;
+    private List<GetLinuxWebAppStorageAccount> storageAccounts;
     /**
      * @return A mapping of tags assigned to the Linux Web App.
      * 
      */
-    private final Map<String,String> tags;
-    private final String virtualNetworkSubnetId;
+    private Map<String,String> tags;
+    private String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppResult(
-        @CustomType.Parameter("appMetadata") Map<String,String> appMetadata,
-        @CustomType.Parameter("appSettings") Map<String,String> appSettings,
-        @CustomType.Parameter("authSettings") List<GetLinuxWebAppAuthSetting> authSettings,
-        @CustomType.Parameter("backups") List<GetLinuxWebAppBackup> backups,
-        @CustomType.Parameter("clientAffinityEnabled") Boolean clientAffinityEnabled,
-        @CustomType.Parameter("clientCertificateEnabled") Boolean clientCertificateEnabled,
-        @CustomType.Parameter("clientCertificateMode") String clientCertificateMode,
-        @CustomType.Parameter("connectionStrings") List<GetLinuxWebAppConnectionString> connectionStrings,
-        @CustomType.Parameter("customDomainVerificationId") String customDomainVerificationId,
-        @CustomType.Parameter("defaultHostname") String defaultHostname,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("httpsOnly") Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetLinuxWebAppIdentity> identities,
-        @CustomType.Parameter("keyVaultReferenceIdentityId") String keyVaultReferenceIdentityId,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("logs") List<GetLinuxWebAppLog> logs,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundIpAddressLists") List<String> outboundIpAddressLists,
-        @CustomType.Parameter("outboundIpAddresses") String outboundIpAddresses,
-        @CustomType.Parameter("possibleOutboundIpAddressLists") List<String> possibleOutboundIpAddressLists,
-        @CustomType.Parameter("possibleOutboundIpAddresses") String possibleOutboundIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("servicePlanId") String servicePlanId,
-        @CustomType.Parameter("siteConfigs") List<GetLinuxWebAppSiteConfig> siteConfigs,
-        @CustomType.Parameter("siteCredentials") List<GetLinuxWebAppSiteCredential> siteCredentials,
-        @CustomType.Parameter("stickySettings") List<GetLinuxWebAppStickySetting> stickySettings,
-        @CustomType.Parameter("storageAccounts") List<GetLinuxWebAppStorageAccount> storageAccounts,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("virtualNetworkSubnetId") String virtualNetworkSubnetId) {
-        this.appMetadata = appMetadata;
-        this.appSettings = appSettings;
-        this.authSettings = authSettings;
-        this.backups = backups;
-        this.clientAffinityEnabled = clientAffinityEnabled;
-        this.clientCertificateEnabled = clientCertificateEnabled;
-        this.clientCertificateMode = clientCertificateMode;
-        this.connectionStrings = connectionStrings;
-        this.customDomainVerificationId = customDomainVerificationId;
-        this.defaultHostname = defaultHostname;
-        this.enabled = enabled;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.identities = identities;
-        this.keyVaultReferenceIdentityId = keyVaultReferenceIdentityId;
-        this.kind = kind;
-        this.location = location;
-        this.logs = logs;
-        this.name = name;
-        this.outboundIpAddressLists = outboundIpAddressLists;
-        this.outboundIpAddresses = outboundIpAddresses;
-        this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
-        this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.servicePlanId = servicePlanId;
-        this.siteConfigs = siteConfigs;
-        this.siteCredentials = siteCredentials;
-        this.stickySettings = stickySettings;
-        this.storageAccounts = storageAccounts;
-        this.tags = tags;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private GetLinuxWebAppResult() {}
     /**
      * @return An `app_metadata` block as defined below.
      * 
@@ -444,7 +379,7 @@ public final class GetLinuxWebAppResult {
     public static Builder builder(GetLinuxWebAppResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Map<String,String> appMetadata;
         private Map<String,String> appSettings;
@@ -477,11 +412,7 @@ public final class GetLinuxWebAppResult {
         private List<GetLinuxWebAppStorageAccount> storageAccounts;
         private Map<String,String> tags;
         private String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appMetadata = defaults.appMetadata;
@@ -517,14 +448,17 @@ public final class GetLinuxWebAppResult {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder appMetadata(Map<String,String> appMetadata) {
             this.appMetadata = Objects.requireNonNull(appMetadata);
             return this;
         }
+        @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
             this.appSettings = Objects.requireNonNull(appSettings);
             return this;
         }
+        @CustomType.Setter
         public Builder authSettings(List<GetLinuxWebAppAuthSetting> authSettings) {
             this.authSettings = Objects.requireNonNull(authSettings);
             return this;
@@ -532,6 +466,7 @@ public final class GetLinuxWebAppResult {
         public Builder authSettings(GetLinuxWebAppAuthSetting... authSettings) {
             return authSettings(List.of(authSettings));
         }
+        @CustomType.Setter
         public Builder backups(List<GetLinuxWebAppBackup> backups) {
             this.backups = Objects.requireNonNull(backups);
             return this;
@@ -539,18 +474,22 @@ public final class GetLinuxWebAppResult {
         public Builder backups(GetLinuxWebAppBackup... backups) {
             return backups(List.of(backups));
         }
+        @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
             this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertificateEnabled(Boolean clientCertificateEnabled) {
             this.clientCertificateEnabled = Objects.requireNonNull(clientCertificateEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertificateMode(String clientCertificateMode) {
             this.clientCertificateMode = Objects.requireNonNull(clientCertificateMode);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionStrings(List<GetLinuxWebAppConnectionString> connectionStrings) {
             this.connectionStrings = Objects.requireNonNull(connectionStrings);
             return this;
@@ -558,26 +497,32 @@ public final class GetLinuxWebAppResult {
         public Builder connectionStrings(GetLinuxWebAppConnectionString... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
         }
+        @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
             this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultHostname(String defaultHostname) {
             this.defaultHostname = Objects.requireNonNull(defaultHostname);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
             this.httpsOnly = Objects.requireNonNull(httpsOnly);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetLinuxWebAppIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -585,18 +530,22 @@ public final class GetLinuxWebAppResult {
         public Builder identities(GetLinuxWebAppIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder keyVaultReferenceIdentityId(String keyVaultReferenceIdentityId) {
             this.keyVaultReferenceIdentityId = Objects.requireNonNull(keyVaultReferenceIdentityId);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder logs(List<GetLinuxWebAppLog> logs) {
             this.logs = Objects.requireNonNull(logs);
             return this;
@@ -604,10 +553,12 @@ public final class GetLinuxWebAppResult {
         public Builder logs(GetLinuxWebAppLog... logs) {
             return logs(List.of(logs));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
             this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
             return this;
@@ -615,10 +566,12 @@ public final class GetLinuxWebAppResult {
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
             return outboundIpAddressLists(List.of(outboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
             this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
             this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
             return this;
@@ -626,18 +579,22 @@ public final class GetLinuxWebAppResult {
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
             return possibleOutboundIpAddressLists(List.of(possibleOutboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePlanId(String servicePlanId) {
             this.servicePlanId = Objects.requireNonNull(servicePlanId);
             return this;
         }
+        @CustomType.Setter
         public Builder siteConfigs(List<GetLinuxWebAppSiteConfig> siteConfigs) {
             this.siteConfigs = Objects.requireNonNull(siteConfigs);
             return this;
@@ -645,6 +602,7 @@ public final class GetLinuxWebAppResult {
         public Builder siteConfigs(GetLinuxWebAppSiteConfig... siteConfigs) {
             return siteConfigs(List.of(siteConfigs));
         }
+        @CustomType.Setter
         public Builder siteCredentials(List<GetLinuxWebAppSiteCredential> siteCredentials) {
             this.siteCredentials = Objects.requireNonNull(siteCredentials);
             return this;
@@ -652,6 +610,7 @@ public final class GetLinuxWebAppResult {
         public Builder siteCredentials(GetLinuxWebAppSiteCredential... siteCredentials) {
             return siteCredentials(List.of(siteCredentials));
         }
+        @CustomType.Setter
         public Builder stickySettings(List<GetLinuxWebAppStickySetting> stickySettings) {
             this.stickySettings = Objects.requireNonNull(stickySettings);
             return this;
@@ -659,6 +618,7 @@ public final class GetLinuxWebAppResult {
         public Builder stickySettings(GetLinuxWebAppStickySetting... stickySettings) {
             return stickySettings(List.of(stickySettings));
         }
+        @CustomType.Setter
         public Builder storageAccounts(List<GetLinuxWebAppStorageAccount> storageAccounts) {
             this.storageAccounts = Objects.requireNonNull(storageAccounts);
             return this;
@@ -666,15 +626,50 @@ public final class GetLinuxWebAppResult {
         public Builder storageAccounts(GetLinuxWebAppStorageAccount... storageAccounts) {
             return storageAccounts(List.of(storageAccounts));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = Objects.requireNonNull(virtualNetworkSubnetId);
             return this;
-        }        public GetLinuxWebAppResult build() {
-            return new GetLinuxWebAppResult(appMetadata, appSettings, authSettings, backups, clientAffinityEnabled, clientCertificateEnabled, clientCertificateMode, connectionStrings, customDomainVerificationId, defaultHostname, enabled, httpsOnly, id, identities, keyVaultReferenceIdentityId, kind, location, logs, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, servicePlanId, siteConfigs, siteCredentials, stickySettings, storageAccounts, tags, virtualNetworkSubnetId);
+        }
+        public GetLinuxWebAppResult build() {
+            final var o = new GetLinuxWebAppResult();
+            o.appMetadata = appMetadata;
+            o.appSettings = appSettings;
+            o.authSettings = authSettings;
+            o.backups = backups;
+            o.clientAffinityEnabled = clientAffinityEnabled;
+            o.clientCertificateEnabled = clientCertificateEnabled;
+            o.clientCertificateMode = clientCertificateMode;
+            o.connectionStrings = connectionStrings;
+            o.customDomainVerificationId = customDomainVerificationId;
+            o.defaultHostname = defaultHostname;
+            o.enabled = enabled;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.identities = identities;
+            o.keyVaultReferenceIdentityId = keyVaultReferenceIdentityId;
+            o.kind = kind;
+            o.location = location;
+            o.logs = logs;
+            o.name = name;
+            o.outboundIpAddressLists = outboundIpAddressLists;
+            o.outboundIpAddresses = outboundIpAddresses;
+            o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
+            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.servicePlanId = servicePlanId;
+            o.siteConfigs = siteConfigs;
+            o.siteCredentials = siteCredentials;
+            o.stickySettings = stickySettings;
+            o.storageAccounts = storageAccounts;
+            o.tags = tags;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

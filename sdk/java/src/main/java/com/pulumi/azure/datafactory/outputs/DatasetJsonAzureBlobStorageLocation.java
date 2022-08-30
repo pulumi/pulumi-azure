@@ -16,49 +16,34 @@ public final class DatasetJsonAzureBlobStorageLocation {
      * @return The container on the Azure Blob Storage Account hosting the file.
      * 
      */
-    private final String container;
+    private String container;
     /**
      * @return Is the `container` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicContainerEnabled;
+    private @Nullable Boolean dynamicContainerEnabled;
     /**
      * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicFilenameEnabled;
+    private @Nullable Boolean dynamicFilenameEnabled;
     /**
      * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicPathEnabled;
+    private @Nullable Boolean dynamicPathEnabled;
     /**
      * @return The filename of the file on the web server.
      * 
      */
-    private final String filename;
+    private String filename;
     /**
      * @return The folder path to the file on the web server.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private DatasetJsonAzureBlobStorageLocation(
-        @CustomType.Parameter("container") String container,
-        @CustomType.Parameter("dynamicContainerEnabled") @Nullable Boolean dynamicContainerEnabled,
-        @CustomType.Parameter("dynamicFilenameEnabled") @Nullable Boolean dynamicFilenameEnabled,
-        @CustomType.Parameter("dynamicPathEnabled") @Nullable Boolean dynamicPathEnabled,
-        @CustomType.Parameter("filename") String filename,
-        @CustomType.Parameter("path") String path) {
-        this.container = container;
-        this.dynamicContainerEnabled = dynamicContainerEnabled;
-        this.dynamicFilenameEnabled = dynamicFilenameEnabled;
-        this.dynamicPathEnabled = dynamicPathEnabled;
-        this.filename = filename;
-        this.path = path;
-    }
-
+    private DatasetJsonAzureBlobStorageLocation() {}
     /**
      * @return The container on the Azure Blob Storage Account hosting the file.
      * 
@@ -109,7 +94,7 @@ public final class DatasetJsonAzureBlobStorageLocation {
     public static Builder builder(DatasetJsonAzureBlobStorageLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String container;
         private @Nullable Boolean dynamicContainerEnabled;
@@ -117,11 +102,7 @@ public final class DatasetJsonAzureBlobStorageLocation {
         private @Nullable Boolean dynamicPathEnabled;
         private String filename;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetJsonAzureBlobStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.container = defaults.container;
@@ -132,31 +113,45 @@ public final class DatasetJsonAzureBlobStorageLocation {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder container(String container) {
             this.container = Objects.requireNonNull(container);
             return this;
         }
+        @CustomType.Setter
         public Builder dynamicContainerEnabled(@Nullable Boolean dynamicContainerEnabled) {
             this.dynamicContainerEnabled = dynamicContainerEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder filename(String filename) {
             this.filename = Objects.requireNonNull(filename);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public DatasetJsonAzureBlobStorageLocation build() {
-            return new DatasetJsonAzureBlobStorageLocation(container, dynamicContainerEnabled, dynamicFilenameEnabled, dynamicPathEnabled, filename, path);
+        }
+        public DatasetJsonAzureBlobStorageLocation build() {
+            final var o = new DatasetJsonAzureBlobStorageLocation();
+            o.container = container;
+            o.dynamicContainerEnabled = dynamicContainerEnabled;
+            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            o.dynamicPathEnabled = dynamicPathEnabled;
+            o.filename = filename;
+            o.path = path;
+            return o;
         }
     }
 }

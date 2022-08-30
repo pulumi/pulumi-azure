@@ -13,21 +13,14 @@ public final class WindowsWebAppLogsHttpLogsFileSystem {
      * @return The retention period in days. A values of `0` means no retention.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The maximum size in megabytes that log files can use.
      * 
      */
-    private final Integer retentionInMb;
+    private Integer retentionInMb;
 
-    @CustomType.Constructor
-    private WindowsWebAppLogsHttpLogsFileSystem(
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("retentionInMb") Integer retentionInMb) {
-        this.retentionInDays = retentionInDays;
-        this.retentionInMb = retentionInMb;
-    }
-
+    private WindowsWebAppLogsHttpLogsFileSystem() {}
     /**
      * @return The retention period in days. A values of `0` means no retention.
      * 
@@ -50,30 +43,32 @@ public final class WindowsWebAppLogsHttpLogsFileSystem {
     public static Builder builder(WindowsWebAppLogsHttpLogsFileSystem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer retentionInDays;
         private Integer retentionInMb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppLogsHttpLogsFileSystem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.retentionInMb = defaults.retentionInMb;
         }
 
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInMb(Integer retentionInMb) {
             this.retentionInMb = Objects.requireNonNull(retentionInMb);
             return this;
-        }        public WindowsWebAppLogsHttpLogsFileSystem build() {
-            return new WindowsWebAppLogsHttpLogsFileSystem(retentionInDays, retentionInMb);
+        }
+        public WindowsWebAppLogsHttpLogsFileSystem build() {
+            final var o = new WindowsWebAppLogsHttpLogsFileSystem();
+            o.retentionInDays = retentionInDays;
+            o.retentionInMb = retentionInMb;
+            return o;
         }
     }
 }

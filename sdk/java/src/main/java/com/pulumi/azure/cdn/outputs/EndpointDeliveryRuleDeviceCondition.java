@@ -17,28 +17,19 @@ public final class EndpointDeliveryRuleDeviceCondition {
      * @return Valid values are `Desktop` and `Mobile`.
      * 
      */
-    private final List<String> matchValues;
+    private List<String> matchValues;
     /**
      * @return Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean negateCondition;
+    private @Nullable Boolean negateCondition;
     /**
      * @return Valid values are `Equal`.
      * 
      */
-    private final @Nullable String operator;
+    private @Nullable String operator;
 
-    @CustomType.Constructor
-    private EndpointDeliveryRuleDeviceCondition(
-        @CustomType.Parameter("matchValues") List<String> matchValues,
-        @CustomType.Parameter("negateCondition") @Nullable Boolean negateCondition,
-        @CustomType.Parameter("operator") @Nullable String operator) {
-        this.matchValues = matchValues;
-        this.negateCondition = negateCondition;
-        this.operator = operator;
-    }
-
+    private EndpointDeliveryRuleDeviceCondition() {}
     /**
      * @return Valid values are `Desktop` and `Mobile`.
      * 
@@ -68,16 +59,12 @@ public final class EndpointDeliveryRuleDeviceCondition {
     public static Builder builder(EndpointDeliveryRuleDeviceCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> matchValues;
         private @Nullable Boolean negateCondition;
         private @Nullable String operator;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointDeliveryRuleDeviceCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -85,6 +72,7 @@ public final class EndpointDeliveryRuleDeviceCondition {
     	      this.operator = defaults.operator;
         }
 
+        @CustomType.Setter
         public Builder matchValues(List<String> matchValues) {
             this.matchValues = Objects.requireNonNull(matchValues);
             return this;
@@ -92,15 +80,22 @@ public final class EndpointDeliveryRuleDeviceCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder negateCondition(@Nullable Boolean negateCondition) {
             this.negateCondition = negateCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(@Nullable String operator) {
             this.operator = operator;
             return this;
-        }        public EndpointDeliveryRuleDeviceCondition build() {
-            return new EndpointDeliveryRuleDeviceCondition(matchValues, negateCondition, operator);
+        }
+        public EndpointDeliveryRuleDeviceCondition build() {
+            final var o = new EndpointDeliveryRuleDeviceCondition();
+            o.matchValues = matchValues;
+            o.negateCondition = negateCondition;
+            o.operator = operator;
+            return o;
         }
     }
 }

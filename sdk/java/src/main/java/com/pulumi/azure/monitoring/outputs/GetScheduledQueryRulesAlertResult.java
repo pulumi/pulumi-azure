@@ -19,106 +19,69 @@ public final class GetScheduledQueryRulesAlertResult {
      * @return An `action` block as defined below.
      * 
      */
-    private final List<GetScheduledQueryRulesAlertAction> actions;
+    private List<GetScheduledQueryRulesAlertAction> actions;
     /**
      * @return The list of Resource IDs referred into query.
      * 
      */
-    private final List<String> authorizedResourceIds;
+    private List<String> authorizedResourceIds;
     /**
      * @return The resource URI over which log search query is to be run.
      * 
      */
-    private final String dataSourceId;
+    private String dataSourceId;
     /**
      * @return The description of the scheduled query rule.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Whether this scheduled query rule is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Frequency at which rule condition should be evaluated.
      * 
      */
-    private final Integer frequency;
+    private Integer frequency;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
-    private final String name;
+    private String id;
+    private String location;
+    private String name;
     /**
      * @return Log search query.
      * 
      */
-    private final String query;
-    private final String queryType;
-    private final String resourceGroupName;
+    private String query;
+    private String queryType;
+    private String resourceGroupName;
     /**
      * @return Severity of the alert.
      * 
      */
-    private final Integer severity;
-    private final Map<String,String> tags;
+    private Integer severity;
+    private Map<String,String> tags;
     /**
      * @return Time for which alerts should be throttled or suppressed.
      * 
      */
-    private final Integer throttling;
+    private Integer throttling;
     /**
      * @return Time window for which data needs to be fetched for query.
      * 
      */
-    private final Integer timeWindow;
+    private Integer timeWindow;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final List<GetScheduledQueryRulesAlertTrigger> triggers;
+    private List<GetScheduledQueryRulesAlertTrigger> triggers;
 
-    @CustomType.Constructor
-    private GetScheduledQueryRulesAlertResult(
-        @CustomType.Parameter("actions") List<GetScheduledQueryRulesAlertAction> actions,
-        @CustomType.Parameter("authorizedResourceIds") List<String> authorizedResourceIds,
-        @CustomType.Parameter("dataSourceId") String dataSourceId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("frequency") Integer frequency,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("query") String query,
-        @CustomType.Parameter("queryType") String queryType,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("severity") Integer severity,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("throttling") Integer throttling,
-        @CustomType.Parameter("timeWindow") Integer timeWindow,
-        @CustomType.Parameter("triggers") List<GetScheduledQueryRulesAlertTrigger> triggers) {
-        this.actions = actions;
-        this.authorizedResourceIds = authorizedResourceIds;
-        this.dataSourceId = dataSourceId;
-        this.description = description;
-        this.enabled = enabled;
-        this.frequency = frequency;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.query = query;
-        this.queryType = queryType;
-        this.resourceGroupName = resourceGroupName;
-        this.severity = severity;
-        this.tags = tags;
-        this.throttling = throttling;
-        this.timeWindow = timeWindow;
-        this.triggers = triggers;
-    }
-
+    private GetScheduledQueryRulesAlertResult() {}
     /**
      * @return An `action` block as defined below.
      * 
@@ -226,7 +189,7 @@ public final class GetScheduledQueryRulesAlertResult {
     public static Builder builder(GetScheduledQueryRulesAlertResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetScheduledQueryRulesAlertAction> actions;
         private List<String> authorizedResourceIds;
@@ -245,11 +208,7 @@ public final class GetScheduledQueryRulesAlertResult {
         private Integer throttling;
         private Integer timeWindow;
         private List<GetScheduledQueryRulesAlertTrigger> triggers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduledQueryRulesAlertResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -271,6 +230,7 @@ public final class GetScheduledQueryRulesAlertResult {
     	      this.triggers = defaults.triggers;
         }
 
+        @CustomType.Setter
         public Builder actions(List<GetScheduledQueryRulesAlertAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -278,6 +238,7 @@ public final class GetScheduledQueryRulesAlertResult {
         public Builder actions(GetScheduledQueryRulesAlertAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder authorizedResourceIds(List<String> authorizedResourceIds) {
             this.authorizedResourceIds = Objects.requireNonNull(authorizedResourceIds);
             return this;
@@ -285,70 +246,104 @@ public final class GetScheduledQueryRulesAlertResult {
         public Builder authorizedResourceIds(String... authorizedResourceIds) {
             return authorizedResourceIds(List.of(authorizedResourceIds));
         }
+        @CustomType.Setter
         public Builder dataSourceId(String dataSourceId) {
             this.dataSourceId = Objects.requireNonNull(dataSourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder frequency(Integer frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
         }
+        @CustomType.Setter
         public Builder queryType(String queryType) {
             this.queryType = Objects.requireNonNull(queryType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder severity(Integer severity) {
             this.severity = Objects.requireNonNull(severity);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder throttling(Integer throttling) {
             this.throttling = Objects.requireNonNull(throttling);
             return this;
         }
+        @CustomType.Setter
         public Builder timeWindow(Integer timeWindow) {
             this.timeWindow = Objects.requireNonNull(timeWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder triggers(List<GetScheduledQueryRulesAlertTrigger> triggers) {
             this.triggers = Objects.requireNonNull(triggers);
             return this;
         }
         public Builder triggers(GetScheduledQueryRulesAlertTrigger... triggers) {
             return triggers(List.of(triggers));
-        }        public GetScheduledQueryRulesAlertResult build() {
-            return new GetScheduledQueryRulesAlertResult(actions, authorizedResourceIds, dataSourceId, description, enabled, frequency, id, location, name, query, queryType, resourceGroupName, severity, tags, throttling, timeWindow, triggers);
+        }
+        public GetScheduledQueryRulesAlertResult build() {
+            final var o = new GetScheduledQueryRulesAlertResult();
+            o.actions = actions;
+            o.authorizedResourceIds = authorizedResourceIds;
+            o.dataSourceId = dataSourceId;
+            o.description = description;
+            o.enabled = enabled;
+            o.frequency = frequency;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.query = query;
+            o.queryType = queryType;
+            o.resourceGroupName = resourceGroupName;
+            o.severity = severity;
+            o.tags = tags;
+            o.throttling = throttling;
+            o.timeWindow = timeWindow;
+            o.triggers = triggers;
+            return o;
         }
     }
 }

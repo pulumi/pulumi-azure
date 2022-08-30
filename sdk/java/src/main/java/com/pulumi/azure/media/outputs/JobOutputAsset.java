@@ -15,21 +15,14 @@ public final class JobOutputAsset {
      * @return A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of &#39;{presetName}_{outputIndex}&#39; will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
      * 
      */
-    private final @Nullable String label;
+    private @Nullable String label;
     /**
      * @return The name of the output Asset. Changing this forces a new Media Job to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private JobOutputAsset(
-        @CustomType.Parameter("label") @Nullable String label,
-        @CustomType.Parameter("name") String name) {
-        this.label = label;
-        this.name = name;
-    }
-
+    private JobOutputAsset() {}
     /**
      * @return A label that is assigned to a JobOutput in order to help uniquely identify it. This is useful when your Transform has more than one TransformOutput, whereby your Job has more than one JobOutput. In such cases, when you submit the Job, you will add two or more JobOutputs, in the same order as TransformOutputs in the Transform. Subsequently, when you retrieve the Job, either through events or on a GET request, you can use the label to easily identify the JobOutput. If a label is not provided, a default value of &#39;{presetName}_{outputIndex}&#39; will be used, where the preset name is the name of the preset in the corresponding TransformOutput and the output index is the relative index of the this JobOutput within the Job. Note that this index is the same as the relative index of the corresponding TransformOutput within its Transform.
      * 
@@ -52,30 +45,32 @@ public final class JobOutputAsset {
     public static Builder builder(JobOutputAsset defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String label;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(JobOutputAsset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.label = defaults.label;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder label(@Nullable String label) {
             this.label = label;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public JobOutputAsset build() {
-            return new JobOutputAsset(label, name);
+        }
+        public JobOutputAsset build() {
+            final var o = new JobOutputAsset();
+            o.label = label;
+            o.name = name;
+            return o;
         }
     }
 }

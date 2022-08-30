@@ -14,21 +14,14 @@ public final class FirewallApplicationRuleCollectionRuleProtocol {
      * @return Specify a port for the connection.
      * 
      */
-    private final Integer port;
+    private Integer port;
     /**
      * @return Specifies the type of connection. Possible values are `Http`, `Https` and `Mssql`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private FirewallApplicationRuleCollectionRuleProtocol(
-        @CustomType.Parameter("port") Integer port,
-        @CustomType.Parameter("type") String type) {
-        this.port = port;
-        this.type = type;
-    }
-
+    private FirewallApplicationRuleCollectionRuleProtocol() {}
     /**
      * @return Specify a port for the connection.
      * 
@@ -51,30 +44,32 @@ public final class FirewallApplicationRuleCollectionRuleProtocol {
     public static Builder builder(FirewallApplicationRuleCollectionRuleProtocol defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer port;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallApplicationRuleCollectionRuleProtocol defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public FirewallApplicationRuleCollectionRuleProtocol build() {
-            return new FirewallApplicationRuleCollectionRuleProtocol(port, type);
+        }
+        public FirewallApplicationRuleCollectionRuleProtocol build() {
+            final var o = new FirewallApplicationRuleCollectionRuleProtocol();
+            o.port = port;
+            o.type = type;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class DiagnosticSettingLog {
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return Is this Diagnostic Log enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A `retention_policy` block as defined below.
      * 
      */
-    private final @Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy;
+    private @Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy;
 
-    @CustomType.Constructor
-    private DiagnosticSettingLog(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retentionPolicy") @Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy) {
-        this.category = category;
-        this.enabled = enabled;
-        this.retentionPolicy = retentionPolicy;
-    }
-
+    private DiagnosticSettingLog() {}
     /**
      * @return The name of a Diagnostic Log Category for this Resource.
      * 
@@ -68,16 +59,12 @@ public final class DiagnosticSettingLog {
     public static Builder builder(DiagnosticSettingLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private @Nullable Boolean enabled;
         private @Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticSettingLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -85,19 +72,27 @@ public final class DiagnosticSettingLog {
     	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicy(@Nullable DiagnosticSettingLogRetentionPolicy retentionPolicy) {
             this.retentionPolicy = retentionPolicy;
             return this;
-        }        public DiagnosticSettingLog build() {
-            return new DiagnosticSettingLog(category, enabled, retentionPolicy);
+        }
+        public DiagnosticSettingLog build() {
+            final var o = new DiagnosticSettingLog();
+            o.category = category;
+            o.enabled = enabled;
+            o.retentionPolicy = retentionPolicy;
+            return o;
         }
     }
 }

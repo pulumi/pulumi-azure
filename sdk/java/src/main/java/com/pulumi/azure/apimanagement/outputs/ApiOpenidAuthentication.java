@@ -15,21 +15,14 @@ public final class ApiOpenidAuthentication {
      * @return How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
      * 
      */
-    private final @Nullable List<String> bearerTokenSendingMethods;
+    private @Nullable List<String> bearerTokenSendingMethods;
     /**
      * @return OpenID Connect provider identifier. The name of an OpenID Connect Provider.
      * 
      */
-    private final String openidProviderName;
+    private String openidProviderName;
 
-    @CustomType.Constructor
-    private ApiOpenidAuthentication(
-        @CustomType.Parameter("bearerTokenSendingMethods") @Nullable List<String> bearerTokenSendingMethods,
-        @CustomType.Parameter("openidProviderName") String openidProviderName) {
-        this.bearerTokenSendingMethods = bearerTokenSendingMethods;
-        this.openidProviderName = openidProviderName;
-    }
-
+    private ApiOpenidAuthentication() {}
     /**
      * @return How to send token to the server. A list of zero or more methods. Valid values are `authorizationHeader` and `query`.
      * 
@@ -52,21 +45,18 @@ public final class ApiOpenidAuthentication {
     public static Builder builder(ApiOpenidAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> bearerTokenSendingMethods;
         private String openidProviderName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApiOpenidAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bearerTokenSendingMethods = defaults.bearerTokenSendingMethods;
     	      this.openidProviderName = defaults.openidProviderName;
         }
 
+        @CustomType.Setter
         public Builder bearerTokenSendingMethods(@Nullable List<String> bearerTokenSendingMethods) {
             this.bearerTokenSendingMethods = bearerTokenSendingMethods;
             return this;
@@ -74,11 +64,16 @@ public final class ApiOpenidAuthentication {
         public Builder bearerTokenSendingMethods(String... bearerTokenSendingMethods) {
             return bearerTokenSendingMethods(List.of(bearerTokenSendingMethods));
         }
+        @CustomType.Setter
         public Builder openidProviderName(String openidProviderName) {
             this.openidProviderName = Objects.requireNonNull(openidProviderName);
             return this;
-        }        public ApiOpenidAuthentication build() {
-            return new ApiOpenidAuthentication(bearerTokenSendingMethods, openidProviderName);
+        }
+        public ApiOpenidAuthentication build() {
+            final var o = new ApiOpenidAuthentication();
+            o.bearerTokenSendingMethods = bearerTokenSendingMethods;
+            o.openidProviderName = openidProviderName;
+            return o;
         }
     }
 }

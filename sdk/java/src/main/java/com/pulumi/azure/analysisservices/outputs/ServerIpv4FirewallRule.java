@@ -13,28 +13,19 @@ public final class ServerIpv4FirewallRule {
      * @return Specifies the name of the firewall rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return End of the firewall rule range as IPv4 address.
      * 
      */
-    private final String rangeEnd;
+    private String rangeEnd;
     /**
      * @return Start of the firewall rule range as IPv4 address.
      * 
      */
-    private final String rangeStart;
+    private String rangeStart;
 
-    @CustomType.Constructor
-    private ServerIpv4FirewallRule(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("rangeEnd") String rangeEnd,
-        @CustomType.Parameter("rangeStart") String rangeStart) {
-        this.name = name;
-        this.rangeEnd = rangeEnd;
-        this.rangeStart = rangeStart;
-    }
-
+    private ServerIpv4FirewallRule() {}
     /**
      * @return Specifies the name of the firewall rule.
      * 
@@ -64,16 +55,12 @@ public final class ServerIpv4FirewallRule {
     public static Builder builder(ServerIpv4FirewallRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String rangeEnd;
         private String rangeStart;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerIpv4FirewallRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class ServerIpv4FirewallRule {
     	      this.rangeStart = defaults.rangeStart;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeEnd(String rangeEnd) {
             this.rangeEnd = Objects.requireNonNull(rangeEnd);
             return this;
         }
+        @CustomType.Setter
         public Builder rangeStart(String rangeStart) {
             this.rangeStart = Objects.requireNonNull(rangeStart);
             return this;
-        }        public ServerIpv4FirewallRule build() {
-            return new ServerIpv4FirewallRule(name, rangeEnd, rangeStart);
+        }
+        public ServerIpv4FirewallRule build() {
+            final var o = new ServerIpv4FirewallRule();
+            o.name = name;
+            o.rangeEnd = rangeEnd;
+            o.rangeStart = rangeStart;
+            return o;
         }
     }
 }

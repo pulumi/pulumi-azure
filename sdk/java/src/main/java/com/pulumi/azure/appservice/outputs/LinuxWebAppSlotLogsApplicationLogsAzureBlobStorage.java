@@ -14,28 +14,19 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
      */
-    private final String level;
+    private String level;
     /**
      * @return The time in days after which to remove blobs. A value of `0` means no retention.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return SAS url to an Azure blob container with read/write/list/delete permissions.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(
-        @CustomType.Parameter("level") String level,
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.level = level;
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage() {}
     /**
      * @return The level at which to log. Possible values include `Error`, `Warning`, `Information`, `Verbose` and `Off`. **NOTE:** this field is not available for `http_logs`
      * 
@@ -65,16 +56,12 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
     public static Builder builder(LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String level;
         private Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.level = defaults.level;
@@ -82,19 +69,27 @@ public final class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage {
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder level(String level) {
             this.level = Objects.requireNonNull(level);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage build() {
-            return new LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage(level, retentionInDays, sasUrl);
+        }
+        public LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage build() {
+            final var o = new LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage();
+            o.level = level;
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

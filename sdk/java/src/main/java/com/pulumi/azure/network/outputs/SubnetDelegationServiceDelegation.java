@@ -15,21 +15,14 @@ public final class SubnetDelegationServiceDelegation {
      * @return A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
      * 
      */
-    private final @Nullable List<String> actions;
+    private @Nullable List<String> actions;
     /**
      * @return The name of service to delegate to. Possible values include `Microsoft.ApiManagement/service`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/managedResolvers`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments` and `PaloAltoNetworks.Cloudngfw/firewalls`.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private SubnetDelegationServiceDelegation(
-        @CustomType.Parameter("actions") @Nullable List<String> actions,
-        @CustomType.Parameter("name") String name) {
-        this.actions = actions;
-        this.name = name;
-    }
-
+    private SubnetDelegationServiceDelegation() {}
     /**
      * @return A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values include `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action` and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
      * 
@@ -52,21 +45,18 @@ public final class SubnetDelegationServiceDelegation {
     public static Builder builder(SubnetDelegationServiceDelegation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> actions;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubnetDelegationServiceDelegation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder actions(@Nullable List<String> actions) {
             this.actions = actions;
             return this;
@@ -74,11 +64,16 @@ public final class SubnetDelegationServiceDelegation {
         public Builder actions(String... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public SubnetDelegationServiceDelegation build() {
-            return new SubnetDelegationServiceDelegation(actions, name);
+        }
+        public SubnetDelegationServiceDelegation build() {
+            final var o = new SubnetDelegationServiceDelegation();
+            o.actions = actions;
+            o.name = name;
+            return o;
         }
     }
 }

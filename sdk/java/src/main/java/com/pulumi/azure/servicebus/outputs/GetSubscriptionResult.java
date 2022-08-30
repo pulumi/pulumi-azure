@@ -17,99 +17,64 @@ public final class GetSubscriptionResult {
      * @return The idle interval after which the topic is automatically deleted.
      * 
      */
-    private final String autoDeleteOnIdle;
+    private String autoDeleteOnIdle;
     /**
      * @return Does the ServiceBus Subscription have dead letter support on filter evaluation exceptions?
      * 
      */
-    private final Boolean deadLetteringOnFilterEvaluationError;
+    private Boolean deadLetteringOnFilterEvaluationError;
     /**
      * @return Does the Service Bus Subscription have dead letter support when a message expires?
      * 
      */
-    private final Boolean deadLetteringOnMessageExpiration;
+    private Boolean deadLetteringOnMessageExpiration;
     /**
      * @return The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      * 
      */
-    private final String defaultMessageTtl;
+    private String defaultMessageTtl;
     /**
      * @return Are batched operations enabled on this ServiceBus Subscription?
      * 
      */
-    private final Boolean enableBatchedOperations;
+    private Boolean enableBatchedOperations;
     /**
      * @return The name of a Queue or Topic to automatically forward Dead Letter messages to.
      * 
      */
-    private final String forwardDeadLetteredMessagesTo;
+    private String forwardDeadLetteredMessagesTo;
     /**
      * @return The name of a ServiceBus Queue or ServiceBus Topic where messages are automatically forwarded.
      * 
      */
-    private final String forwardTo;
+    private String forwardTo;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The lock duration for the subscription.
      * 
      */
-    private final String lockDuration;
+    private String lockDuration;
     /**
      * @return The maximum number of deliveries.
      * 
      */
-    private final Integer maxDeliveryCount;
-    private final String name;
-    private final @Nullable String namespaceName;
+    private Integer maxDeliveryCount;
+    private String name;
+    private @Nullable String namespaceName;
     /**
      * @return Whether or not this ServiceBus Subscription supports session.
      * 
      */
-    private final Boolean requiresSession;
-    private final @Nullable String resourceGroupName;
-    private final @Nullable String topicId;
-    private final @Nullable String topicName;
+    private Boolean requiresSession;
+    private @Nullable String resourceGroupName;
+    private @Nullable String topicId;
+    private @Nullable String topicName;
 
-    @CustomType.Constructor
-    private GetSubscriptionResult(
-        @CustomType.Parameter("autoDeleteOnIdle") String autoDeleteOnIdle,
-        @CustomType.Parameter("deadLetteringOnFilterEvaluationError") Boolean deadLetteringOnFilterEvaluationError,
-        @CustomType.Parameter("deadLetteringOnMessageExpiration") Boolean deadLetteringOnMessageExpiration,
-        @CustomType.Parameter("defaultMessageTtl") String defaultMessageTtl,
-        @CustomType.Parameter("enableBatchedOperations") Boolean enableBatchedOperations,
-        @CustomType.Parameter("forwardDeadLetteredMessagesTo") String forwardDeadLetteredMessagesTo,
-        @CustomType.Parameter("forwardTo") String forwardTo,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lockDuration") String lockDuration,
-        @CustomType.Parameter("maxDeliveryCount") Integer maxDeliveryCount,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") @Nullable String namespaceName,
-        @CustomType.Parameter("requiresSession") Boolean requiresSession,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("topicId") @Nullable String topicId,
-        @CustomType.Parameter("topicName") @Nullable String topicName) {
-        this.autoDeleteOnIdle = autoDeleteOnIdle;
-        this.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
-        this.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
-        this.defaultMessageTtl = defaultMessageTtl;
-        this.enableBatchedOperations = enableBatchedOperations;
-        this.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
-        this.forwardTo = forwardTo;
-        this.id = id;
-        this.lockDuration = lockDuration;
-        this.maxDeliveryCount = maxDeliveryCount;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.requiresSession = requiresSession;
-        this.resourceGroupName = resourceGroupName;
-        this.topicId = topicId;
-        this.topicName = topicName;
-    }
-
+    private GetSubscriptionResult() {}
     /**
      * @return The idle interval after which the topic is automatically deleted.
      * 
@@ -210,7 +175,7 @@ public final class GetSubscriptionResult {
     public static Builder builder(GetSubscriptionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoDeleteOnIdle;
         private Boolean deadLetteringOnFilterEvaluationError;
@@ -228,11 +193,7 @@ public final class GetSubscriptionResult {
         private @Nullable String resourceGroupName;
         private @Nullable String topicId;
         private @Nullable String topicName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubscriptionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoDeleteOnIdle = defaults.autoDeleteOnIdle;
@@ -253,71 +214,105 @@ public final class GetSubscriptionResult {
     	      this.topicName = defaults.topicName;
         }
 
+        @CustomType.Setter
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
             this.autoDeleteOnIdle = Objects.requireNonNull(autoDeleteOnIdle);
             return this;
         }
+        @CustomType.Setter
         public Builder deadLetteringOnFilterEvaluationError(Boolean deadLetteringOnFilterEvaluationError) {
             this.deadLetteringOnFilterEvaluationError = Objects.requireNonNull(deadLetteringOnFilterEvaluationError);
             return this;
         }
+        @CustomType.Setter
         public Builder deadLetteringOnMessageExpiration(Boolean deadLetteringOnMessageExpiration) {
             this.deadLetteringOnMessageExpiration = Objects.requireNonNull(deadLetteringOnMessageExpiration);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultMessageTtl(String defaultMessageTtl) {
             this.defaultMessageTtl = Objects.requireNonNull(defaultMessageTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
             this.enableBatchedOperations = Objects.requireNonNull(enableBatchedOperations);
             return this;
         }
+        @CustomType.Setter
         public Builder forwardDeadLetteredMessagesTo(String forwardDeadLetteredMessagesTo) {
             this.forwardDeadLetteredMessagesTo = Objects.requireNonNull(forwardDeadLetteredMessagesTo);
             return this;
         }
+        @CustomType.Setter
         public Builder forwardTo(String forwardTo) {
             this.forwardTo = Objects.requireNonNull(forwardTo);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lockDuration(String lockDuration) {
             this.lockDuration = Objects.requireNonNull(lockDuration);
             return this;
         }
+        @CustomType.Setter
         public Builder maxDeliveryCount(Integer maxDeliveryCount) {
             this.maxDeliveryCount = Objects.requireNonNull(maxDeliveryCount);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
             this.namespaceName = namespaceName;
             return this;
         }
+        @CustomType.Setter
         public Builder requiresSession(Boolean requiresSession) {
             this.requiresSession = Objects.requireNonNull(requiresSession);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder topicId(@Nullable String topicId) {
             this.topicId = topicId;
             return this;
         }
+        @CustomType.Setter
         public Builder topicName(@Nullable String topicName) {
             this.topicName = topicName;
             return this;
-        }        public GetSubscriptionResult build() {
-            return new GetSubscriptionResult(autoDeleteOnIdle, deadLetteringOnFilterEvaluationError, deadLetteringOnMessageExpiration, defaultMessageTtl, enableBatchedOperations, forwardDeadLetteredMessagesTo, forwardTo, id, lockDuration, maxDeliveryCount, name, namespaceName, requiresSession, resourceGroupName, topicId, topicName);
+        }
+        public GetSubscriptionResult build() {
+            final var o = new GetSubscriptionResult();
+            o.autoDeleteOnIdle = autoDeleteOnIdle;
+            o.deadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
+            o.deadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
+            o.defaultMessageTtl = defaultMessageTtl;
+            o.enableBatchedOperations = enableBatchedOperations;
+            o.forwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
+            o.forwardTo = forwardTo;
+            o.id = id;
+            o.lockDuration = lockDuration;
+            o.maxDeliveryCount = maxDeliveryCount;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.requiresSession = requiresSession;
+            o.resourceGroupName = resourceGroupName;
+            o.topicId = topicId;
+            o.topicName = topicName;
+            return o;
         }
     }
 }

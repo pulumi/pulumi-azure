@@ -16,21 +16,14 @@ public final class ClusterSku {
      * @return Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
      */
-    private final @Nullable Integer capacity;
+    private @Nullable Integer capacity;
     /**
      * @return The name of the SKU. Valid values are: `Dev(No SLA)_Standard_D11_v2`, `Dev(No SLA)_Standard_E2a_v4`, `Standard_D11_v2`, `Standard_D12_v2`, `Standard_D13_v2`, `Standard_D14_v2`, `Standard_DS13_v2+1TB_PS`, `Standard_DS13_v2+2TB_PS`, `Standard_DS14_v2+3TB_PS`, `Standard_DS14_v2+4TB_PS`, `Standard_E16as_v4+3TB_PS`, `Standard_E16as_v4+4TB_PS`, `Standard_E16a_v4`, `Standard_E2a_v4`, `Standard_E4a_v4`, `Standard_E64i_v3`, `Standard_E8as_v4+1TB_PS`, `Standard_E8as_v4+2TB_PS`, `Standard_E8a_v4`, `Standard_L16s`, `Standard_L4s`, `Standard_L8s`, `Standard_L16s_v2` and `Standard_L8s_v2`.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ClusterSku(
-        @CustomType.Parameter("capacity") @Nullable Integer capacity,
-        @CustomType.Parameter("name") String name) {
-        this.capacity = capacity;
-        this.name = name;
-    }
-
+    private ClusterSku() {}
     /**
      * @return Specifies the node count for the cluster. Boundaries depend on the SKU name.
      * 
@@ -53,30 +46,32 @@ public final class ClusterSku {
     public static Builder builder(ClusterSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ClusterSku build() {
-            return new ClusterSku(capacity, name);
+        }
+        public ClusterSku build() {
+            final var o = new ClusterSku();
+            o.capacity = capacity;
+            o.name = name;
+            return o;
         }
     }
 }

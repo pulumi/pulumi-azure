@@ -13,21 +13,14 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
      */
-    private final String keyData;
+    private String keyData;
     /**
      * @return The path of the destination file on the virtual machine
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileLinuxConfigSshKey(
-        @CustomType.Parameter("keyData") String keyData,
-        @CustomType.Parameter("path") String path) {
-        this.keyData = keyData;
-        this.path = path;
-    }
-
+    private VirtualMachineOsProfileLinuxConfigSshKey() {}
     /**
      * @return The Public SSH Key which should be written to the `path` defined above.
      * 
@@ -50,30 +43,32 @@ public final class VirtualMachineOsProfileLinuxConfigSshKey {
     public static Builder builder(VirtualMachineOsProfileLinuxConfigSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyData;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileLinuxConfigSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyData = defaults.keyData;
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder keyData(String keyData) {
             this.keyData = Objects.requireNonNull(keyData);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public VirtualMachineOsProfileLinuxConfigSshKey build() {
-            return new VirtualMachineOsProfileLinuxConfigSshKey(keyData, path);
+        }
+        public VirtualMachineOsProfileLinuxConfigSshKey build() {
+            final var o = new VirtualMachineOsProfileLinuxConfigSshKey();
+            o.keyData = keyData;
+            o.path = path;
+            return o;
         }
     }
 }

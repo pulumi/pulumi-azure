@@ -13,36 +13,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfigIpRestriction {
-    private final @Nullable String action;
-    private final GetStandardSiteConfigIpRestrictionHeaders headers;
-    private final @Nullable String ipAddress;
+    private @Nullable String action;
+    private GetStandardSiteConfigIpRestrictionHeaders headers;
+    private @Nullable String ipAddress;
     /**
      * @return The name of this Logic App.
      * 
      */
-    private final String name;
-    private final @Nullable Integer priority;
-    private final @Nullable String serviceTag;
-    private final @Nullable String virtualNetworkSubnetId;
+    private String name;
+    private @Nullable Integer priority;
+    private @Nullable String serviceTag;
+    private @Nullable String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private GetStandardSiteConfigIpRestriction(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("headers") GetStandardSiteConfigIpRestrictionHeaders headers,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("serviceTag") @Nullable String serviceTag,
-        @CustomType.Parameter("virtualNetworkSubnetId") @Nullable String virtualNetworkSubnetId) {
-        this.action = action;
-        this.headers = headers;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.priority = priority;
-        this.serviceTag = serviceTag;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private GetStandardSiteConfigIpRestriction() {}
     public Optional<String> action() {
         return Optional.ofNullable(this.action);
     }
@@ -76,7 +59,7 @@ public final class GetStandardSiteConfigIpRestriction {
     public static Builder builder(GetStandardSiteConfigIpRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private GetStandardSiteConfigIpRestrictionHeaders headers;
@@ -85,11 +68,7 @@ public final class GetStandardSiteConfigIpRestriction {
         private @Nullable Integer priority;
         private @Nullable String serviceTag;
         private @Nullable String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStandardSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -101,35 +80,51 @@ public final class GetStandardSiteConfigIpRestriction {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(GetStandardSiteConfigIpRestrictionHeaders headers) {
             this.headers = Objects.requireNonNull(headers);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceTag(@Nullable String serviceTag) {
             this.serviceTag = serviceTag;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
-        }        public GetStandardSiteConfigIpRestriction build() {
-            return new GetStandardSiteConfigIpRestriction(action, headers, ipAddress, name, priority, serviceTag, virtualNetworkSubnetId);
+        }
+        public GetStandardSiteConfigIpRestriction build() {
+            final var o = new GetStandardSiteConfigIpRestriction();
+            o.action = action;
+            o.headers = headers;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.priority = priority;
+            o.serviceTag = serviceTag;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class DatasetBinarySftpServerLocation {
      * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicFilenameEnabled;
+    private @Nullable Boolean dynamicFilenameEnabled;
     /**
      * @return Is the `path` using dynamic expression, function or system variables? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean dynamicPathEnabled;
+    private @Nullable Boolean dynamicPathEnabled;
     /**
      * @return The filename of the file on the SFTP server.
      * 
      */
-    private final String filename;
+    private String filename;
     /**
      * @return The folder path to the file on the SFTP server.
      * 
      */
-    private final String path;
+    private String path;
 
-    @CustomType.Constructor
-    private DatasetBinarySftpServerLocation(
-        @CustomType.Parameter("dynamicFilenameEnabled") @Nullable Boolean dynamicFilenameEnabled,
-        @CustomType.Parameter("dynamicPathEnabled") @Nullable Boolean dynamicPathEnabled,
-        @CustomType.Parameter("filename") String filename,
-        @CustomType.Parameter("path") String path) {
-        this.dynamicFilenameEnabled = dynamicFilenameEnabled;
-        this.dynamicPathEnabled = dynamicPathEnabled;
-        this.filename = filename;
-        this.path = path;
-    }
-
+    private DatasetBinarySftpServerLocation() {}
     /**
      * @return Is the `filename` using dynamic expression, function or system variables? Defaults to `false`.
      * 
@@ -81,17 +70,13 @@ public final class DatasetBinarySftpServerLocation {
     public static Builder builder(DatasetBinarySftpServerLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean dynamicFilenameEnabled;
         private @Nullable Boolean dynamicPathEnabled;
         private String filename;
         private String path;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatasetBinarySftpServerLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dynamicFilenameEnabled = defaults.dynamicFilenameEnabled;
@@ -100,23 +85,33 @@ public final class DatasetBinarySftpServerLocation {
     	      this.path = defaults.path;
         }
 
+        @CustomType.Setter
         public Builder dynamicFilenameEnabled(@Nullable Boolean dynamicFilenameEnabled) {
             this.dynamicFilenameEnabled = dynamicFilenameEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder dynamicPathEnabled(@Nullable Boolean dynamicPathEnabled) {
             this.dynamicPathEnabled = dynamicPathEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder filename(String filename) {
             this.filename = Objects.requireNonNull(filename);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
-        }        public DatasetBinarySftpServerLocation build() {
-            return new DatasetBinarySftpServerLocation(dynamicFilenameEnabled, dynamicPathEnabled, filename, path);
+        }
+        public DatasetBinarySftpServerLocation build() {
+            final var o = new DatasetBinarySftpServerLocation();
+            o.dynamicFilenameEnabled = dynamicFilenameEnabled;
+            o.dynamicPathEnabled = dynamicPathEnabled;
+            o.filename = filename;
+            o.path = path;
+            return o;
         }
     }
 }

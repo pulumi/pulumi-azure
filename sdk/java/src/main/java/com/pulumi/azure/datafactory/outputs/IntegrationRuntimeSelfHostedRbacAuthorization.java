@@ -13,13 +13,9 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorization {
      * @return The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSelfHostedRbacAuthorization(@CustomType.Parameter("resourceId") String resourceId) {
-        this.resourceId = resourceId;
-    }
-
+    private IntegrationRuntimeSelfHostedRbacAuthorization() {}
     /**
      * @return The resource identifier of the integration runtime to be shared. Changing this forces a new Data Factory to be created.
      * 
@@ -35,24 +31,24 @@ public final class IntegrationRuntimeSelfHostedRbacAuthorization {
     public static Builder builder(IntegrationRuntimeSelfHostedRbacAuthorization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String resourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSelfHostedRbacAuthorization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceId = defaults.resourceId;
         }
 
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
-        }        public IntegrationRuntimeSelfHostedRbacAuthorization build() {
-            return new IntegrationRuntimeSelfHostedRbacAuthorization(resourceId);
+        }
+        public IntegrationRuntimeSelfHostedRbacAuthorization build() {
+            final var o = new IntegrationRuntimeSelfHostedRbacAuthorization();
+            o.resourceId = resourceId;
+            return o;
         }
     }
 }

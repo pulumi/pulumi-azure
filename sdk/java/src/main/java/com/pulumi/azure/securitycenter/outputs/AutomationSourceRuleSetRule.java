@@ -13,35 +13,24 @@ public final class AutomationSourceRuleSetRule {
      * @return A value that will be compared with the value in `property_path`.
      * 
      */
-    private final String expectedValue;
+    private String expectedValue;
     /**
      * @return The comparison operator to use, must be one of: `Contains`, `EndsWith`, `Equals`, `GreaterThan`, `GreaterThanOrEqualTo`, `LesserThan`, `LesserThanOrEqualTo`, `NotEquals`, `StartsWith`
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return The JPath of the entity model property that should be checked.
      * 
      */
-    private final String propertyPath;
+    private String propertyPath;
     /**
      * @return The data type of the compared operands, must be one of: `Integer`, `String`, `Boolean` or `Number`.
      * 
      */
-    private final String propertyType;
+    private String propertyType;
 
-    @CustomType.Constructor
-    private AutomationSourceRuleSetRule(
-        @CustomType.Parameter("expectedValue") String expectedValue,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("propertyPath") String propertyPath,
-        @CustomType.Parameter("propertyType") String propertyType) {
-        this.expectedValue = expectedValue;
-        this.operator = operator;
-        this.propertyPath = propertyPath;
-        this.propertyType = propertyType;
-    }
-
+    private AutomationSourceRuleSetRule() {}
     /**
      * @return A value that will be compared with the value in `property_path`.
      * 
@@ -78,17 +67,13 @@ public final class AutomationSourceRuleSetRule {
     public static Builder builder(AutomationSourceRuleSetRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String expectedValue;
         private String operator;
         private String propertyPath;
         private String propertyType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationSourceRuleSetRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.expectedValue = defaults.expectedValue;
@@ -97,23 +82,33 @@ public final class AutomationSourceRuleSetRule {
     	      this.propertyType = defaults.propertyType;
         }
 
+        @CustomType.Setter
         public Builder expectedValue(String expectedValue) {
             this.expectedValue = Objects.requireNonNull(expectedValue);
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder propertyPath(String propertyPath) {
             this.propertyPath = Objects.requireNonNull(propertyPath);
             return this;
         }
+        @CustomType.Setter
         public Builder propertyType(String propertyType) {
             this.propertyType = Objects.requireNonNull(propertyType);
             return this;
-        }        public AutomationSourceRuleSetRule build() {
-            return new AutomationSourceRuleSetRule(expectedValue, operator, propertyPath, propertyType);
+        }
+        public AutomationSourceRuleSetRule build() {
+            final var o = new AutomationSourceRuleSetRule();
+            o.expectedValue = expectedValue;
+            o.operator = operator;
+            o.propertyPath = propertyPath;
+            o.propertyType = propertyType;
+            return o;
         }
     }
 }

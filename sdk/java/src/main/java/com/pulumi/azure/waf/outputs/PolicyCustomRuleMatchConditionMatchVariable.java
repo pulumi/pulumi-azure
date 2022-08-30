@@ -15,21 +15,14 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
      * @return Describes field of the matchVariable collection
      * 
      */
-    private final @Nullable String selector;
+    private @Nullable String selector;
     /**
      * @return The name of the Match Variable
      * 
      */
-    private final String variableName;
+    private String variableName;
 
-    @CustomType.Constructor
-    private PolicyCustomRuleMatchConditionMatchVariable(
-        @CustomType.Parameter("selector") @Nullable String selector,
-        @CustomType.Parameter("variableName") String variableName) {
-        this.selector = selector;
-        this.variableName = variableName;
-    }
-
+    private PolicyCustomRuleMatchConditionMatchVariable() {}
     /**
      * @return Describes field of the matchVariable collection
      * 
@@ -52,30 +45,32 @@ public final class PolicyCustomRuleMatchConditionMatchVariable {
     public static Builder builder(PolicyCustomRuleMatchConditionMatchVariable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String selector;
         private String variableName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyCustomRuleMatchConditionMatchVariable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.selector = defaults.selector;
     	      this.variableName = defaults.variableName;
         }
 
+        @CustomType.Setter
         public Builder selector(@Nullable String selector) {
             this.selector = selector;
             return this;
         }
+        @CustomType.Setter
         public Builder variableName(String variableName) {
             this.variableName = Objects.requireNonNull(variableName);
             return this;
-        }        public PolicyCustomRuleMatchConditionMatchVariable build() {
-            return new PolicyCustomRuleMatchConditionMatchVariable(selector, variableName);
+        }
+        public PolicyCustomRuleMatchConditionMatchVariable build() {
+            final var o = new PolicyCustomRuleMatchConditionMatchVariable();
+            o.selector = selector;
+            o.variableName = variableName;
+            return o;
         }
     }
 }

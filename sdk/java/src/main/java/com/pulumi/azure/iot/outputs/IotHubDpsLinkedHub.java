@@ -17,42 +17,29 @@ public final class IotHubDpsLinkedHub {
      * @return The weight applied to the IoT Hub. Defaults to 0.
      * 
      */
-    private final @Nullable Integer allocationWeight;
+    private @Nullable Integer allocationWeight;
     /**
      * @return Determines whether to apply allocation policies to the IoT Hub. Defaults to true.
      * 
      */
-    private final @Nullable Boolean applyAllocationPolicy;
+    private @Nullable Boolean applyAllocationPolicy;
     /**
      * @return The connection string to connect to the IoT Hub.
      * 
      */
-    private final String connectionString;
+    private String connectionString;
     /**
      * @return The IoT Hub hostname.
      * 
      */
-    private final @Nullable String hostname;
+    private @Nullable String hostname;
     /**
      * @return The location of the IoT hub.
      * 
      */
-    private final String location;
+    private String location;
 
-    @CustomType.Constructor
-    private IotHubDpsLinkedHub(
-        @CustomType.Parameter("allocationWeight") @Nullable Integer allocationWeight,
-        @CustomType.Parameter("applyAllocationPolicy") @Nullable Boolean applyAllocationPolicy,
-        @CustomType.Parameter("connectionString") String connectionString,
-        @CustomType.Parameter("hostname") @Nullable String hostname,
-        @CustomType.Parameter("location") String location) {
-        this.allocationWeight = allocationWeight;
-        this.applyAllocationPolicy = applyAllocationPolicy;
-        this.connectionString = connectionString;
-        this.hostname = hostname;
-        this.location = location;
-    }
-
+    private IotHubDpsLinkedHub() {}
     /**
      * @return The weight applied to the IoT Hub. Defaults to 0.
      * 
@@ -96,18 +83,14 @@ public final class IotHubDpsLinkedHub {
     public static Builder builder(IotHubDpsLinkedHub defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer allocationWeight;
         private @Nullable Boolean applyAllocationPolicy;
         private String connectionString;
         private @Nullable String hostname;
         private String location;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IotHubDpsLinkedHub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationWeight = defaults.allocationWeight;
@@ -117,27 +100,39 @@ public final class IotHubDpsLinkedHub {
     	      this.location = defaults.location;
         }
 
+        @CustomType.Setter
         public Builder allocationWeight(@Nullable Integer allocationWeight) {
             this.allocationWeight = allocationWeight;
             return this;
         }
+        @CustomType.Setter
         public Builder applyAllocationPolicy(@Nullable Boolean applyAllocationPolicy) {
             this.applyAllocationPolicy = applyAllocationPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder connectionString(String connectionString) {
             this.connectionString = Objects.requireNonNull(connectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder hostname(@Nullable String hostname) {
             this.hostname = hostname;
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
-        }        public IotHubDpsLinkedHub build() {
-            return new IotHubDpsLinkedHub(allocationWeight, applyAllocationPolicy, connectionString, hostname, location);
+        }
+        public IotHubDpsLinkedHub build() {
+            final var o = new IotHubDpsLinkedHub();
+            o.allocationWeight = allocationWeight;
+            o.applyAllocationPolicy = applyAllocationPolicy;
+            o.connectionString = connectionString;
+            o.hostname = hostname;
+            o.location = location;
+            return o;
         }
     }
 }

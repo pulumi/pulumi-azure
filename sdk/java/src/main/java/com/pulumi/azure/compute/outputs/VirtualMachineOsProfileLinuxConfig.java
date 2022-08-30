@@ -16,21 +16,14 @@ public final class VirtualMachineOsProfileLinuxConfig {
      * @return Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
      * 
      */
-    private final Boolean disablePasswordAuthentication;
+    private Boolean disablePasswordAuthentication;
     /**
      * @return One or more `ssh_keys` blocks. This field is required if `disable_password_authentication` is set to `true`.
      * 
      */
-    private final @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys;
+    private @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileLinuxConfig(
-        @CustomType.Parameter("disablePasswordAuthentication") Boolean disablePasswordAuthentication,
-        @CustomType.Parameter("sshKeys") @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys) {
-        this.disablePasswordAuthentication = disablePasswordAuthentication;
-        this.sshKeys = sshKeys;
-    }
-
+    private VirtualMachineOsProfileLinuxConfig() {}
     /**
      * @return Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
      * 
@@ -53,33 +46,35 @@ public final class VirtualMachineOsProfileLinuxConfig {
     public static Builder builder(VirtualMachineOsProfileLinuxConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean disablePasswordAuthentication;
         private @Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileLinuxConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disablePasswordAuthentication = defaults.disablePasswordAuthentication;
     	      this.sshKeys = defaults.sshKeys;
         }
 
+        @CustomType.Setter
         public Builder disablePasswordAuthentication(Boolean disablePasswordAuthentication) {
             this.disablePasswordAuthentication = Objects.requireNonNull(disablePasswordAuthentication);
             return this;
         }
+        @CustomType.Setter
         public Builder sshKeys(@Nullable List<VirtualMachineOsProfileLinuxConfigSshKey> sshKeys) {
             this.sshKeys = sshKeys;
             return this;
         }
         public Builder sshKeys(VirtualMachineOsProfileLinuxConfigSshKey... sshKeys) {
             return sshKeys(List.of(sshKeys));
-        }        public VirtualMachineOsProfileLinuxConfig build() {
-            return new VirtualMachineOsProfileLinuxConfig(disablePasswordAuthentication, sshKeys);
+        }
+        public VirtualMachineOsProfileLinuxConfig build() {
+            final var o = new VirtualMachineOsProfileLinuxConfig();
+            o.disablePasswordAuthentication = disablePasswordAuthentication;
+            o.sshKeys = sshKeys;
+            return o;
         }
     }
 }

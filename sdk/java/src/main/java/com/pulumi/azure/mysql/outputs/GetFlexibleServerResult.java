@@ -20,142 +20,97 @@ public final class GetFlexibleServerResult {
      * @return The Administrator login of the MySQL Flexible Server.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return The backup retention days of the MySQL Flexible Server.
      * 
      */
-    private final Integer backupRetentionDays;
+    private Integer backupRetentionDays;
     /**
      * @return The ID of the virtual network subnet the MySQL Flexible Server is created in.
      * 
      */
-    private final String delegatedSubnetId;
+    private String delegatedSubnetId;
     /**
      * @return The fully qualified domain name of the MySQL Flexible Server.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return Is geo redundant backup enabled?
      * 
      */
-    private final Boolean geoRedundantBackupEnabled;
+    private Boolean geoRedundantBackupEnabled;
     /**
      * @return A `high_availability` block for this MySQL Flexible Server as defined below.
      * 
      */
-    private final List<GetFlexibleServerHighAvailability> highAvailabilities;
+    private List<GetFlexibleServerHighAvailability> highAvailabilities;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region of the MySQL Flexible Server.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `maintenance_window` block for this MySQL Flexible Server as defined below.
      * 
      */
-    private final List<GetFlexibleServerMaintenanceWindow> maintenanceWindows;
-    private final String name;
+    private List<GetFlexibleServerMaintenanceWindow> maintenanceWindows;
+    private String name;
     /**
      * @return The ID of the Private DNS zone of the MySQL Flexible Server.
      * 
      */
-    private final String privateDnsZoneId;
+    private String privateDnsZoneId;
     /**
      * @return Is the public network access enabled?
      * 
      */
-    private final Boolean publicNetworkAccessEnabled;
+    private Boolean publicNetworkAccessEnabled;
     /**
      * @return The maximum number of replicas that a primary MySQL Flexible Server can have.
      * 
      */
-    private final Integer replicaCapacity;
+    private Integer replicaCapacity;
     /**
      * @return The replication role of the MySQL Flexible Server.
      * 
      */
-    private final String replicationRole;
-    private final String resourceGroupName;
-    private final String restorePointInTime;
+    private String replicationRole;
+    private String resourceGroupName;
+    private String restorePointInTime;
     /**
      * @return The SKU Name of the MySQL Flexible Server.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return A `storage` block for this MySQL Flexible Server as defined below.
      * 
      */
-    private final List<GetFlexibleServerStorage> storages;
+    private List<GetFlexibleServerStorage> storages;
     /**
      * @return A mapping of tags which are assigned to the MySQL Flexible Server.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The version of the MySQL Flexible Server.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The Availability Zones where this MySQL Flexible Server is located.
      * 
      */
-    private final String zone;
+    private String zone;
 
-    @CustomType.Constructor
-    private GetFlexibleServerResult(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("backupRetentionDays") Integer backupRetentionDays,
-        @CustomType.Parameter("delegatedSubnetId") String delegatedSubnetId,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("geoRedundantBackupEnabled") Boolean geoRedundantBackupEnabled,
-        @CustomType.Parameter("highAvailabilities") List<GetFlexibleServerHighAvailability> highAvailabilities,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("maintenanceWindows") List<GetFlexibleServerMaintenanceWindow> maintenanceWindows,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateDnsZoneId") String privateDnsZoneId,
-        @CustomType.Parameter("publicNetworkAccessEnabled") Boolean publicNetworkAccessEnabled,
-        @CustomType.Parameter("replicaCapacity") Integer replicaCapacity,
-        @CustomType.Parameter("replicationRole") String replicationRole,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("restorePointInTime") String restorePointInTime,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("storages") List<GetFlexibleServerStorage> storages,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("zone") String zone) {
-        this.administratorLogin = administratorLogin;
-        this.backupRetentionDays = backupRetentionDays;
-        this.delegatedSubnetId = delegatedSubnetId;
-        this.fqdn = fqdn;
-        this.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
-        this.highAvailabilities = highAvailabilities;
-        this.id = id;
-        this.location = location;
-        this.maintenanceWindows = maintenanceWindows;
-        this.name = name;
-        this.privateDnsZoneId = privateDnsZoneId;
-        this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-        this.replicaCapacity = replicaCapacity;
-        this.replicationRole = replicationRole;
-        this.resourceGroupName = resourceGroupName;
-        this.restorePointInTime = restorePointInTime;
-        this.skuName = skuName;
-        this.storages = storages;
-        this.tags = tags;
-        this.version = version;
-        this.zone = zone;
-    }
-
+    private GetFlexibleServerResult() {}
     /**
      * @return The Administrator login of the MySQL Flexible Server.
      * 
@@ -299,7 +254,7 @@ public final class GetFlexibleServerResult {
     public static Builder builder(GetFlexibleServerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private Integer backupRetentionDays;
@@ -322,11 +277,7 @@ public final class GetFlexibleServerResult {
         private Map<String,String> tags;
         private String version;
         private String zone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFlexibleServerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -352,26 +303,32 @@ public final class GetFlexibleServerResult {
     	      this.zone = defaults.zone;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
             this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
             return this;
         }
+        @CustomType.Setter
         public Builder delegatedSubnetId(String delegatedSubnetId) {
             this.delegatedSubnetId = Objects.requireNonNull(delegatedSubnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder geoRedundantBackupEnabled(Boolean geoRedundantBackupEnabled) {
             this.geoRedundantBackupEnabled = Objects.requireNonNull(geoRedundantBackupEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder highAvailabilities(List<GetFlexibleServerHighAvailability> highAvailabilities) {
             this.highAvailabilities = Objects.requireNonNull(highAvailabilities);
             return this;
@@ -379,14 +336,17 @@ public final class GetFlexibleServerResult {
         public Builder highAvailabilities(GetFlexibleServerHighAvailability... highAvailabilities) {
             return highAvailabilities(List.of(highAvailabilities));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindows(List<GetFlexibleServerMaintenanceWindow> maintenanceWindows) {
             this.maintenanceWindows = Objects.requireNonNull(maintenanceWindows);
             return this;
@@ -394,38 +354,47 @@ public final class GetFlexibleServerResult {
         public Builder maintenanceWindows(GetFlexibleServerMaintenanceWindow... maintenanceWindows) {
             return maintenanceWindows(List.of(maintenanceWindows));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateDnsZoneId(String privateDnsZoneId) {
             this.privateDnsZoneId = Objects.requireNonNull(privateDnsZoneId);
             return this;
         }
+        @CustomType.Setter
         public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
             this.publicNetworkAccessEnabled = Objects.requireNonNull(publicNetworkAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder replicaCapacity(Integer replicaCapacity) {
             this.replicaCapacity = Objects.requireNonNull(replicaCapacity);
             return this;
         }
+        @CustomType.Setter
         public Builder replicationRole(String replicationRole) {
             this.replicationRole = Objects.requireNonNull(replicationRole);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder restorePointInTime(String restorePointInTime) {
             this.restorePointInTime = Objects.requireNonNull(restorePointInTime);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder storages(List<GetFlexibleServerStorage> storages) {
             this.storages = Objects.requireNonNull(storages);
             return this;
@@ -433,19 +402,45 @@ public final class GetFlexibleServerResult {
         public Builder storages(GetFlexibleServerStorage... storages) {
             return storages(List.of(storages));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder zone(String zone) {
             this.zone = Objects.requireNonNull(zone);
             return this;
-        }        public GetFlexibleServerResult build() {
-            return new GetFlexibleServerResult(administratorLogin, backupRetentionDays, delegatedSubnetId, fqdn, geoRedundantBackupEnabled, highAvailabilities, id, location, maintenanceWindows, name, privateDnsZoneId, publicNetworkAccessEnabled, replicaCapacity, replicationRole, resourceGroupName, restorePointInTime, skuName, storages, tags, version, zone);
+        }
+        public GetFlexibleServerResult build() {
+            final var o = new GetFlexibleServerResult();
+            o.administratorLogin = administratorLogin;
+            o.backupRetentionDays = backupRetentionDays;
+            o.delegatedSubnetId = delegatedSubnetId;
+            o.fqdn = fqdn;
+            o.geoRedundantBackupEnabled = geoRedundantBackupEnabled;
+            o.highAvailabilities = highAvailabilities;
+            o.id = id;
+            o.location = location;
+            o.maintenanceWindows = maintenanceWindows;
+            o.name = name;
+            o.privateDnsZoneId = privateDnsZoneId;
+            o.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
+            o.replicaCapacity = replicaCapacity;
+            o.replicationRole = replicationRole;
+            o.resourceGroupName = resourceGroupName;
+            o.restorePointInTime = restorePointInTime;
+            o.skuName = skuName;
+            o.storages = storages;
+            o.tags = tags;
+            o.version = version;
+            o.zone = zone;
+            return o;
         }
     }
 }

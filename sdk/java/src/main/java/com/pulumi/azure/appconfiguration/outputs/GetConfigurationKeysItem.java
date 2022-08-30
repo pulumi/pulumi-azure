@@ -15,70 +15,49 @@ public final class GetConfigurationKeysItem {
      * @return The content type of the App Configuration Key.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The ETag of the key.
      * 
      */
-    private final String etag;
+    private String etag;
     /**
      * @return The name of the App Configuration Keys to look up.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return The label of the App Configuration Keys tp look up.
      * 
      */
-    private final String label;
+    private String label;
     /**
      * @return Is this App Configuration Key be Locked to prevent changes.
      * 
      */
-    private final Boolean locked;
+    private Boolean locked;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The type of the App Configuration Key. It can either be `kv` (simple [key/value](https://docs.microsoft.com/azure/azure-app-configuration/concept-key-value)) or `vault` (where the value is a reference to a [Key Vault Secret](https://azure.microsoft.com/en-gb/services/key-vault/).
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The value of the App Configuration Key.
      * 
      */
-    private final String value;
+    private String value;
     /**
      * @return The ID of the vault secret this App Configuration Key refers to, when `type` is `vault`.
      * 
      */
-    private final String vaultKeyReference;
+    private String vaultKeyReference;
 
-    @CustomType.Constructor
-    private GetConfigurationKeysItem(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("etag") String etag,
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("label") String label,
-        @CustomType.Parameter("locked") Boolean locked,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("vaultKeyReference") String vaultKeyReference) {
-        this.contentType = contentType;
-        this.etag = etag;
-        this.key = key;
-        this.label = label;
-        this.locked = locked;
-        this.tags = tags;
-        this.type = type;
-        this.value = value;
-        this.vaultKeyReference = vaultKeyReference;
-    }
-
+    private GetConfigurationKeysItem() {}
     /**
      * @return The content type of the App Configuration Key.
      * 
@@ -150,7 +129,7 @@ public final class GetConfigurationKeysItem {
     public static Builder builder(GetConfigurationKeysItem defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private String etag;
@@ -161,11 +140,7 @@ public final class GetConfigurationKeysItem {
         private String type;
         private String value;
         private String vaultKeyReference;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfigurationKeysItem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -179,43 +154,63 @@ public final class GetConfigurationKeysItem {
     	      this.vaultKeyReference = defaults.vaultKeyReference;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder etag(String etag) {
             this.etag = Objects.requireNonNull(etag);
             return this;
         }
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder label(String label) {
             this.label = Objects.requireNonNull(label);
             return this;
         }
+        @CustomType.Setter
         public Builder locked(Boolean locked) {
             this.locked = Objects.requireNonNull(locked);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultKeyReference(String vaultKeyReference) {
             this.vaultKeyReference = Objects.requireNonNull(vaultKeyReference);
             return this;
-        }        public GetConfigurationKeysItem build() {
-            return new GetConfigurationKeysItem(contentType, etag, key, label, locked, tags, type, value, vaultKeyReference);
+        }
+        public GetConfigurationKeysItem build() {
+            final var o = new GetConfigurationKeysItem();
+            o.contentType = contentType;
+            o.etag = etag;
+            o.key = key;
+            o.label = label;
+            o.locked = locked;
+            o.tags = tags;
+            o.type = type;
+            o.value = value;
+            o.vaultKeyReference = vaultKeyReference;
+            return o;
         }
     }
 }

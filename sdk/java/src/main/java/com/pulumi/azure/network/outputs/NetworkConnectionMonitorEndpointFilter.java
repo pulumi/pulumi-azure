@@ -17,21 +17,14 @@ public final class NetworkConnectionMonitorEndpointFilter {
      * @return A `item` block as defined below.
      * 
      */
-    private final @Nullable List<NetworkConnectionMonitorEndpointFilterItem> items;
+    private @Nullable List<NetworkConnectionMonitorEndpointFilterItem> items;
     /**
      * @return The behaviour type of this endpoint filter. Currently the only allowed value is `Include`. Defaults to `Include`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorEndpointFilter(
-        @CustomType.Parameter("items") @Nullable List<NetworkConnectionMonitorEndpointFilterItem> items,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.items = items;
-        this.type = type;
-    }
-
+    private NetworkConnectionMonitorEndpointFilter() {}
     /**
      * @return A `item` block as defined below.
      * 
@@ -54,21 +47,18 @@ public final class NetworkConnectionMonitorEndpointFilter {
     public static Builder builder(NetworkConnectionMonitorEndpointFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<NetworkConnectionMonitorEndpointFilterItem> items;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorEndpointFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.items = defaults.items;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder items(@Nullable List<NetworkConnectionMonitorEndpointFilterItem> items) {
             this.items = items;
             return this;
@@ -76,11 +66,16 @@ public final class NetworkConnectionMonitorEndpointFilter {
         public Builder items(NetworkConnectionMonitorEndpointFilterItem... items) {
             return items(List.of(items));
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public NetworkConnectionMonitorEndpointFilter build() {
-            return new NetworkConnectionMonitorEndpointFilter(items, type);
+        }
+        public NetworkConnectionMonitorEndpointFilter build() {
+            final var o = new NetworkConnectionMonitorEndpointFilter();
+            o.items = items;
+            o.type = type;
+            return o;
         }
     }
 }

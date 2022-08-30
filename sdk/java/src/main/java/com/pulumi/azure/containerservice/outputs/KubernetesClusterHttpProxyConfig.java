@@ -16,35 +16,24 @@ public final class KubernetesClusterHttpProxyConfig {
      * @return The proxy address to be used when communicating over HTTP.
      * 
      */
-    private final @Nullable String httpProxy;
+    private @Nullable String httpProxy;
     /**
      * @return The proxy address to be used when communicating over HTTPS.
      * 
      */
-    private final @Nullable String httpsProxy;
+    private @Nullable String httpsProxy;
     /**
      * @return The list of domains that will not use the proxy for communication.
      * 
      */
-    private final @Nullable List<String> noProxies;
+    private @Nullable List<String> noProxies;
     /**
      * @return The base64 encoded alternative CA certificate content in PEM format.
      * 
      */
-    private final @Nullable String trustedCa;
+    private @Nullable String trustedCa;
 
-    @CustomType.Constructor
-    private KubernetesClusterHttpProxyConfig(
-        @CustomType.Parameter("httpProxy") @Nullable String httpProxy,
-        @CustomType.Parameter("httpsProxy") @Nullable String httpsProxy,
-        @CustomType.Parameter("noProxies") @Nullable List<String> noProxies,
-        @CustomType.Parameter("trustedCa") @Nullable String trustedCa) {
-        this.httpProxy = httpProxy;
-        this.httpsProxy = httpsProxy;
-        this.noProxies = noProxies;
-        this.trustedCa = trustedCa;
-    }
-
+    private KubernetesClusterHttpProxyConfig() {}
     /**
      * @return The proxy address to be used when communicating over HTTP.
      * 
@@ -81,17 +70,13 @@ public final class KubernetesClusterHttpProxyConfig {
     public static Builder builder(KubernetesClusterHttpProxyConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String httpProxy;
         private @Nullable String httpsProxy;
         private @Nullable List<String> noProxies;
         private @Nullable String trustedCa;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterHttpProxyConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpProxy = defaults.httpProxy;
@@ -100,14 +85,17 @@ public final class KubernetesClusterHttpProxyConfig {
     	      this.trustedCa = defaults.trustedCa;
         }
 
+        @CustomType.Setter
         public Builder httpProxy(@Nullable String httpProxy) {
             this.httpProxy = httpProxy;
             return this;
         }
+        @CustomType.Setter
         public Builder httpsProxy(@Nullable String httpsProxy) {
             this.httpsProxy = httpsProxy;
             return this;
         }
+        @CustomType.Setter
         public Builder noProxies(@Nullable List<String> noProxies) {
             this.noProxies = noProxies;
             return this;
@@ -115,11 +103,18 @@ public final class KubernetesClusterHttpProxyConfig {
         public Builder noProxies(String... noProxies) {
             return noProxies(List.of(noProxies));
         }
+        @CustomType.Setter
         public Builder trustedCa(@Nullable String trustedCa) {
             this.trustedCa = trustedCa;
             return this;
-        }        public KubernetesClusterHttpProxyConfig build() {
-            return new KubernetesClusterHttpProxyConfig(httpProxy, httpsProxy, noProxies, trustedCa);
+        }
+        public KubernetesClusterHttpProxyConfig build() {
+            final var o = new KubernetesClusterHttpProxyConfig();
+            o.httpProxy = httpProxy;
+            o.httpsProxy = httpsProxy;
+            o.noProxies = noProxies;
+            o.trustedCa = trustedCa;
+            return o;
         }
     }
 }

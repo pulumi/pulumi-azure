@@ -17,42 +17,29 @@ public final class AccountQueuePropertiesLogging {
      * @return Indicates whether all delete requests should be logged. Changing this forces a new resource.
      * 
      */
-    private final Boolean delete;
+    private Boolean delete;
     /**
      * @return Indicates whether all read requests should be logged. Changing this forces a new resource.
      * 
      */
-    private final Boolean read;
+    private Boolean read;
     /**
      * @return Specifies the number of days that logs will be retained. Changing this forces a new resource.
      * 
      */
-    private final @Nullable Integer retentionPolicyDays;
+    private @Nullable Integer retentionPolicyDays;
     /**
      * @return The version of storage analytics to configure. Changing this forces a new resource.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return Indicates whether all write requests should be logged. Changing this forces a new resource.
      * 
      */
-    private final Boolean write;
+    private Boolean write;
 
-    @CustomType.Constructor
-    private AccountQueuePropertiesLogging(
-        @CustomType.Parameter("delete") Boolean delete,
-        @CustomType.Parameter("read") Boolean read,
-        @CustomType.Parameter("retentionPolicyDays") @Nullable Integer retentionPolicyDays,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("write") Boolean write) {
-        this.delete = delete;
-        this.read = read;
-        this.retentionPolicyDays = retentionPolicyDays;
-        this.version = version;
-        this.write = write;
-    }
-
+    private AccountQueuePropertiesLogging() {}
     /**
      * @return Indicates whether all delete requests should be logged. Changing this forces a new resource.
      * 
@@ -96,18 +83,14 @@ public final class AccountQueuePropertiesLogging {
     public static Builder builder(AccountQueuePropertiesLogging defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean delete;
         private Boolean read;
         private @Nullable Integer retentionPolicyDays;
         private String version;
         private Boolean write;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountQueuePropertiesLogging defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delete = defaults.delete;
@@ -117,27 +100,39 @@ public final class AccountQueuePropertiesLogging {
     	      this.write = defaults.write;
         }
 
+        @CustomType.Setter
         public Builder delete(Boolean delete) {
             this.delete = Objects.requireNonNull(delete);
             return this;
         }
+        @CustomType.Setter
         public Builder read(Boolean read) {
             this.read = Objects.requireNonNull(read);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicyDays(@Nullable Integer retentionPolicyDays) {
             this.retentionPolicyDays = retentionPolicyDays;
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder write(Boolean write) {
             this.write = Objects.requireNonNull(write);
             return this;
-        }        public AccountQueuePropertiesLogging build() {
-            return new AccountQueuePropertiesLogging(delete, read, retentionPolicyDays, version, write);
+        }
+        public AccountQueuePropertiesLogging build() {
+            final var o = new AccountQueuePropertiesLogging();
+            o.delete = delete;
+            o.read = read;
+            o.retentionPolicyDays = retentionPolicyDays;
+            o.version = version;
+            o.write = write;
+            return o;
         }
     }
 }

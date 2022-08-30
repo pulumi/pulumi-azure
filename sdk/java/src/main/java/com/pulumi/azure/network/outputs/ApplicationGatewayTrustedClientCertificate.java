@@ -15,28 +15,19 @@ public final class ApplicationGatewayTrustedClientCertificate {
      * @return The base-64 encoded certificate.
      * 
      */
-    private final String data;
+    private String data;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the Trusted Client Certificate that is unique within this Application Gateway.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ApplicationGatewayTrustedClientCertificate(
-        @CustomType.Parameter("data") String data,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name) {
-        this.data = data;
-        this.id = id;
-        this.name = name;
-    }
-
+    private ApplicationGatewayTrustedClientCertificate() {}
     /**
      * @return The base-64 encoded certificate.
      * 
@@ -66,16 +57,12 @@ public final class ApplicationGatewayTrustedClientCertificate {
     public static Builder builder(ApplicationGatewayTrustedClientCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String data;
         private @Nullable String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayTrustedClientCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
@@ -83,19 +70,27 @@ public final class ApplicationGatewayTrustedClientCertificate {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder data(String data) {
             this.data = Objects.requireNonNull(data);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ApplicationGatewayTrustedClientCertificate build() {
-            return new ApplicationGatewayTrustedClientCertificate(data, id, name);
+        }
+        public ApplicationGatewayTrustedClientCertificate build() {
+            final var o = new ApplicationGatewayTrustedClientCertificate();
+            o.data = data;
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

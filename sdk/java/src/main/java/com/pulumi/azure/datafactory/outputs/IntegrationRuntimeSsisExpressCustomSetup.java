@@ -19,35 +19,24 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
      * @return One or more `command_key` blocks as defined below.
      * 
      */
-    private final @Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys;
+    private @Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys;
     /**
      * @return One or more `component` blocks as defined below.
      * 
      */
-    private final @Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components;
+    private @Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components;
     /**
      * @return The Environment Variables for the Azure-SSIS Integration Runtime.
      * 
      */
-    private final @Nullable Map<String,String> environment;
+    private @Nullable Map<String,String> environment;
     /**
      * @return The version of Azure Powershell installed for the Azure-SSIS Integration Runtime.
      * 
      */
-    private final @Nullable String powershellVersion;
+    private @Nullable String powershellVersion;
 
-    @CustomType.Constructor
-    private IntegrationRuntimeSsisExpressCustomSetup(
-        @CustomType.Parameter("commandKeys") @Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys,
-        @CustomType.Parameter("components") @Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components,
-        @CustomType.Parameter("environment") @Nullable Map<String,String> environment,
-        @CustomType.Parameter("powershellVersion") @Nullable String powershellVersion) {
-        this.commandKeys = commandKeys;
-        this.components = components;
-        this.environment = environment;
-        this.powershellVersion = powershellVersion;
-    }
-
+    private IntegrationRuntimeSsisExpressCustomSetup() {}
     /**
      * @return One or more `command_key` blocks as defined below.
      * 
@@ -84,17 +73,13 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
     public static Builder builder(IntegrationRuntimeSsisExpressCustomSetup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys;
         private @Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components;
         private @Nullable Map<String,String> environment;
         private @Nullable String powershellVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationRuntimeSsisExpressCustomSetup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commandKeys = defaults.commandKeys;
@@ -103,6 +88,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
     	      this.powershellVersion = defaults.powershellVersion;
         }
 
+        @CustomType.Setter
         public Builder commandKeys(@Nullable List<IntegrationRuntimeSsisExpressCustomSetupCommandKey> commandKeys) {
             this.commandKeys = commandKeys;
             return this;
@@ -110,6 +96,7 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
         public Builder commandKeys(IntegrationRuntimeSsisExpressCustomSetupCommandKey... commandKeys) {
             return commandKeys(List.of(commandKeys));
         }
+        @CustomType.Setter
         public Builder components(@Nullable List<IntegrationRuntimeSsisExpressCustomSetupComponent> components) {
             this.components = components;
             return this;
@@ -117,15 +104,23 @@ public final class IntegrationRuntimeSsisExpressCustomSetup {
         public Builder components(IntegrationRuntimeSsisExpressCustomSetupComponent... components) {
             return components(List.of(components));
         }
+        @CustomType.Setter
         public Builder environment(@Nullable Map<String,String> environment) {
             this.environment = environment;
             return this;
         }
+        @CustomType.Setter
         public Builder powershellVersion(@Nullable String powershellVersion) {
             this.powershellVersion = powershellVersion;
             return this;
-        }        public IntegrationRuntimeSsisExpressCustomSetup build() {
-            return new IntegrationRuntimeSsisExpressCustomSetup(commandKeys, components, environment, powershellVersion);
+        }
+        public IntegrationRuntimeSsisExpressCustomSetup build() {
+            final var o = new IntegrationRuntimeSsisExpressCustomSetup();
+            o.commandKeys = commandKeys;
+            o.components = components;
+            o.environment = environment;
+            o.powershellVersion = powershellVersion;
+            return o;
         }
     }
 }

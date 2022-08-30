@@ -13,35 +13,24 @@ public final class LinuxVirtualMachineSourceImageReference {
      * @return Specifies the offer of the image used to create the virtual machines.
      * 
      */
-    private final String offer;
+    private String offer;
     /**
      * @return Specifies the publisher of the image used to create the virtual machines.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return Specifies the SKU of the image used to create the virtual machines.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return Specifies the version of the image used to create the virtual machines.
      * 
      */
-    private final String version;
+    private String version;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineSourceImageReference(
-        @CustomType.Parameter("offer") String offer,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("version") String version) {
-        this.offer = offer;
-        this.publisher = publisher;
-        this.sku = sku;
-        this.version = version;
-    }
-
+    private LinuxVirtualMachineSourceImageReference() {}
     /**
      * @return Specifies the offer of the image used to create the virtual machines.
      * 
@@ -78,17 +67,13 @@ public final class LinuxVirtualMachineSourceImageReference {
     public static Builder builder(LinuxVirtualMachineSourceImageReference defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String offer;
         private String publisher;
         private String sku;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineSourceImageReference defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.offer = defaults.offer;
@@ -97,23 +82,33 @@ public final class LinuxVirtualMachineSourceImageReference {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder offer(String offer) {
             this.offer = Objects.requireNonNull(offer);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public LinuxVirtualMachineSourceImageReference build() {
-            return new LinuxVirtualMachineSourceImageReference(offer, publisher, sku, version);
+        }
+        public LinuxVirtualMachineSourceImageReference build() {
+            final var o = new LinuxVirtualMachineSourceImageReference();
+            o.offer = offer;
+            o.publisher = publisher;
+            o.sku = sku;
+            o.version = version;
+            return o;
         }
     }
 }

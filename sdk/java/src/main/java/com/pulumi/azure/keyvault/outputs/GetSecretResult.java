@@ -14,65 +14,42 @@ public final class GetSecretResult {
      * @return The content type for the Key Vault Secret.
      * 
      */
-    private final String contentType;
+    private String contentType;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String keyVaultId;
-    private final String name;
+    private String id;
+    private String keyVaultId;
+    private String name;
     /**
      * @return The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won&#39;t auto-rotate values if used in other Azure Services.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated.
      * 
      */
-    private final String resourceVersionlessId;
+    private String resourceVersionlessId;
     /**
      * @return Any tags assigned to this resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The value of the Key Vault Secret.
      * 
      */
-    private final String value;
+    private String value;
     /**
      * @return The current version of the Key Vault Secret.
      * 
      */
-    private final String version;
-    private final String versionlessId;
+    private String version;
+    private String versionlessId;
 
-    @CustomType.Constructor
-    private GetSecretResult(
-        @CustomType.Parameter("contentType") String contentType,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("resourceVersionlessId") String resourceVersionlessId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("value") String value,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("versionlessId") String versionlessId) {
-        this.contentType = contentType;
-        this.id = id;
-        this.keyVaultId = keyVaultId;
-        this.name = name;
-        this.resourceId = resourceId;
-        this.resourceVersionlessId = resourceVersionlessId;
-        this.tags = tags;
-        this.value = value;
-        this.version = version;
-        this.versionlessId = versionlessId;
-    }
-
+    private GetSecretResult() {}
     /**
      * @return The content type for the Key Vault Secret.
      * 
@@ -139,7 +116,7 @@ public final class GetSecretResult {
     public static Builder builder(GetSecretResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contentType;
         private String id;
@@ -151,11 +128,7 @@ public final class GetSecretResult {
         private String value;
         private String version;
         private String versionlessId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSecretResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contentType = defaults.contentType;
@@ -170,47 +143,69 @@ public final class GetSecretResult {
     	      this.versionlessId = defaults.versionlessId;
         }
 
+        @CustomType.Setter
         public Builder contentType(String contentType) {
             this.contentType = Objects.requireNonNull(contentType);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceVersionlessId(String resourceVersionlessId) {
             this.resourceVersionlessId = Objects.requireNonNull(resourceVersionlessId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder versionlessId(String versionlessId) {
             this.versionlessId = Objects.requireNonNull(versionlessId);
             return this;
-        }        public GetSecretResult build() {
-            return new GetSecretResult(contentType, id, keyVaultId, name, resourceId, resourceVersionlessId, tags, value, version, versionlessId);
+        }
+        public GetSecretResult build() {
+            final var o = new GetSecretResult();
+            o.contentType = contentType;
+            o.id = id;
+            o.keyVaultId = keyVaultId;
+            o.name = name;
+            o.resourceId = resourceId;
+            o.resourceVersionlessId = resourceVersionlessId;
+            o.tags = tags;
+            o.value = value;
+            o.version = version;
+            o.versionlessId = versionlessId;
+            return o;
         }
     }
 }

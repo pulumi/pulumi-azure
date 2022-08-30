@@ -15,35 +15,24 @@ public final class CacheNfsTargetNamespaceJunction {
      * @return The name of the access policy applied to this target. Defaults to `default`.
      * 
      */
-    private final @Nullable String accessPolicyName;
+    private @Nullable String accessPolicyName;
     /**
      * @return The client-facing file path of this NFS target within the HPC Cache NFS Target.
      * 
      */
-    private final String namespacePath;
+    private String namespacePath;
     /**
      * @return The NFS export of this NFS target within the HPC Cache NFS Target.
      * 
      */
-    private final String nfsExport;
+    private String nfsExport;
     /**
      * @return The relative subdirectory path from the `nfs_export` to map to the `namespace_path`. Defaults to `&#34;&#34;`, in which case the whole `nfs_export` is exported.
      * 
      */
-    private final @Nullable String targetPath;
+    private @Nullable String targetPath;
 
-    @CustomType.Constructor
-    private CacheNfsTargetNamespaceJunction(
-        @CustomType.Parameter("accessPolicyName") @Nullable String accessPolicyName,
-        @CustomType.Parameter("namespacePath") String namespacePath,
-        @CustomType.Parameter("nfsExport") String nfsExport,
-        @CustomType.Parameter("targetPath") @Nullable String targetPath) {
-        this.accessPolicyName = accessPolicyName;
-        this.namespacePath = namespacePath;
-        this.nfsExport = nfsExport;
-        this.targetPath = targetPath;
-    }
-
+    private CacheNfsTargetNamespaceJunction() {}
     /**
      * @return The name of the access policy applied to this target. Defaults to `default`.
      * 
@@ -80,17 +69,13 @@ public final class CacheNfsTargetNamespaceJunction {
     public static Builder builder(CacheNfsTargetNamespaceJunction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String accessPolicyName;
         private String namespacePath;
         private String nfsExport;
         private @Nullable String targetPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheNfsTargetNamespaceJunction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicyName = defaults.accessPolicyName;
@@ -99,23 +84,33 @@ public final class CacheNfsTargetNamespaceJunction {
     	      this.targetPath = defaults.targetPath;
         }
 
+        @CustomType.Setter
         public Builder accessPolicyName(@Nullable String accessPolicyName) {
             this.accessPolicyName = accessPolicyName;
             return this;
         }
+        @CustomType.Setter
         public Builder namespacePath(String namespacePath) {
             this.namespacePath = Objects.requireNonNull(namespacePath);
             return this;
         }
+        @CustomType.Setter
         public Builder nfsExport(String nfsExport) {
             this.nfsExport = Objects.requireNonNull(nfsExport);
             return this;
         }
+        @CustomType.Setter
         public Builder targetPath(@Nullable String targetPath) {
             this.targetPath = targetPath;
             return this;
-        }        public CacheNfsTargetNamespaceJunction build() {
-            return new CacheNfsTargetNamespaceJunction(accessPolicyName, namespacePath, nfsExport, targetPath);
+        }
+        public CacheNfsTargetNamespaceJunction build() {
+            final var o = new CacheNfsTargetNamespaceJunction();
+            o.accessPolicyName = accessPolicyName;
+            o.namespacePath = namespacePath;
+            o.nfsExport = nfsExport;
+            o.targetPath = targetPath;
+            return o;
         }
     }
 }

@@ -16,62 +16,41 @@ public final class GetNamespaceResult {
      * @return Is this Notification Hub Namespace enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which this Notification Hub Namespace exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the SKU to use for this Notification Hub Namespace. Possible values are `Free`, `Basic` or `Standard.`
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Type of Namespace, such as `Messaging` or `NotificationHub`.
      * 
      */
-    private final String namespaceType;
-    private final String resourceGroupName;
-    private final String servicebusEndpoint;
+    private String namespaceType;
+    private String resourceGroupName;
+    private String servicebusEndpoint;
     /**
      * @return A `sku` block as defined below.
      * 
      */
-    private final GetNamespaceSku sku;
+    private GetNamespaceSku sku;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetNamespaceResult(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceType") String namespaceType,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("servicebusEndpoint") String servicebusEndpoint,
-        @CustomType.Parameter("sku") GetNamespaceSku sku,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.enabled = enabled;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.namespaceType = namespaceType;
-        this.resourceGroupName = resourceGroupName;
-        this.servicebusEndpoint = servicebusEndpoint;
-        this.sku = sku;
-        this.tags = tags;
-    }
-
+    private GetNamespaceResult() {}
     /**
      * @return Is this Notification Hub Namespace enabled?
      * 
@@ -135,7 +114,7 @@ public final class GetNamespaceResult {
     public static Builder builder(GetNamespaceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String id;
@@ -146,11 +125,7 @@ public final class GetNamespaceResult {
         private String servicebusEndpoint;
         private GetNamespaceSku sku;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetNamespaceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -164,43 +139,63 @@ public final class GetNamespaceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceType(String namespaceType) {
             this.namespaceType = Objects.requireNonNull(namespaceType);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder servicebusEndpoint(String servicebusEndpoint) {
             this.servicebusEndpoint = Objects.requireNonNull(servicebusEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(GetNamespaceSku sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetNamespaceResult build() {
-            return new GetNamespaceResult(enabled, id, location, name, namespaceType, resourceGroupName, servicebusEndpoint, sku, tags);
+        }
+        public GetNamespaceResult build() {
+            final var o = new GetNamespaceResult();
+            o.enabled = enabled;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.namespaceType = namespaceType;
+            o.resourceGroupName = resourceGroupName;
+            o.servicebusEndpoint = servicebusEndpoint;
+            o.sku = sku;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -25,112 +25,79 @@ public final class LinuxWebAppAuthSettings {
      * @return An `active_directory` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory;
+    private @Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory;
     /**
      * @return Specifies a map of login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
      * 
      */
-    private final @Nullable Map<String,String> additionalLoginParameters;
+    private @Nullable Map<String,String> additionalLoginParameters;
     /**
      * @return Specifies a list of External URLs that can be redirected to as part of logging in or logging out of the Linux Web App.
      * 
      */
-    private final @Nullable List<String> allowedExternalRedirectUrls;
+    private @Nullable List<String> allowedExternalRedirectUrls;
     /**
      * @return The default authentication provider to use when multiple providers are configured. Possible values include: `BuiltInAuthenticationProviderAzureActiveDirectory`, `BuiltInAuthenticationProviderFacebook`, `BuiltInAuthenticationProviderGoogle`, `BuiltInAuthenticationProviderMicrosoftAccount`, `BuiltInAuthenticationProviderTwitter`, `BuiltInAuthenticationProviderGithub`
      * 
      */
-    private final @Nullable String defaultProvider;
+    private @Nullable String defaultProvider;
     /**
      * @return Should the Authentication / Authorization feature be enabled for the Linux Web App?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `facebook` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsFacebook facebook;
+    private @Nullable LinuxWebAppAuthSettingsFacebook facebook;
     /**
      * @return A `github` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsGithub github;
+    private @Nullable LinuxWebAppAuthSettingsGithub github;
     /**
      * @return A `google` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsGoogle google;
+    private @Nullable LinuxWebAppAuthSettingsGoogle google;
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Linux Web App.
      * 
      */
-    private final @Nullable String issuer;
+    private @Nullable String issuer;
     /**
      * @return A `microsoft` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsMicrosoft microsoft;
+    private @Nullable LinuxWebAppAuthSettingsMicrosoft microsoft;
     /**
      * @return The RuntimeVersion of the Authentication / Authorization feature in use for the Linux Web App.
      * 
      */
-    private final @Nullable String runtimeVersion;
+    private @Nullable String runtimeVersion;
     /**
      * @return The number of hours after session token expiration that a session token can be used to call the token refresh API. Defaults to `72` hours.
      * 
      */
-    private final @Nullable Double tokenRefreshExtensionHours;
+    private @Nullable Double tokenRefreshExtensionHours;
     /**
      * @return Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tokenStoreEnabled;
+    private @Nullable Boolean tokenStoreEnabled;
     /**
      * @return A `twitter` block as defined below.
      * 
      */
-    private final @Nullable LinuxWebAppAuthSettingsTwitter twitter;
+    private @Nullable LinuxWebAppAuthSettingsTwitter twitter;
     /**
      * @return The action to take when an unauthenticated client attempts to access the app. Possible values include: `RedirectToLoginPage`, `AllowAnonymous`.
      * 
      */
-    private final @Nullable String unauthenticatedClientAction;
+    private @Nullable String unauthenticatedClientAction;
 
-    @CustomType.Constructor
-    private LinuxWebAppAuthSettings(
-        @CustomType.Parameter("activeDirectory") @Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory,
-        @CustomType.Parameter("additionalLoginParameters") @Nullable Map<String,String> additionalLoginParameters,
-        @CustomType.Parameter("allowedExternalRedirectUrls") @Nullable List<String> allowedExternalRedirectUrls,
-        @CustomType.Parameter("defaultProvider") @Nullable String defaultProvider,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("facebook") @Nullable LinuxWebAppAuthSettingsFacebook facebook,
-        @CustomType.Parameter("github") @Nullable LinuxWebAppAuthSettingsGithub github,
-        @CustomType.Parameter("google") @Nullable LinuxWebAppAuthSettingsGoogle google,
-        @CustomType.Parameter("issuer") @Nullable String issuer,
-        @CustomType.Parameter("microsoft") @Nullable LinuxWebAppAuthSettingsMicrosoft microsoft,
-        @CustomType.Parameter("runtimeVersion") @Nullable String runtimeVersion,
-        @CustomType.Parameter("tokenRefreshExtensionHours") @Nullable Double tokenRefreshExtensionHours,
-        @CustomType.Parameter("tokenStoreEnabled") @Nullable Boolean tokenStoreEnabled,
-        @CustomType.Parameter("twitter") @Nullable LinuxWebAppAuthSettingsTwitter twitter,
-        @CustomType.Parameter("unauthenticatedClientAction") @Nullable String unauthenticatedClientAction) {
-        this.activeDirectory = activeDirectory;
-        this.additionalLoginParameters = additionalLoginParameters;
-        this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-        this.defaultProvider = defaultProvider;
-        this.enabled = enabled;
-        this.facebook = facebook;
-        this.github = github;
-        this.google = google;
-        this.issuer = issuer;
-        this.microsoft = microsoft;
-        this.runtimeVersion = runtimeVersion;
-        this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-        this.tokenStoreEnabled = tokenStoreEnabled;
-        this.twitter = twitter;
-        this.unauthenticatedClientAction = unauthenticatedClientAction;
-    }
-
+    private LinuxWebAppAuthSettings() {}
     /**
      * @return An `active_directory` block as defined above.
      * 
@@ -244,7 +211,7 @@ public final class LinuxWebAppAuthSettings {
     public static Builder builder(LinuxWebAppAuthSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory;
         private @Nullable Map<String,String> additionalLoginParameters;
@@ -261,11 +228,7 @@ public final class LinuxWebAppAuthSettings {
         private @Nullable Boolean tokenStoreEnabled;
         private @Nullable LinuxWebAppAuthSettingsTwitter twitter;
         private @Nullable String unauthenticatedClientAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppAuthSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectory = defaults.activeDirectory;
@@ -285,14 +248,17 @@ public final class LinuxWebAppAuthSettings {
     	      this.unauthenticatedClientAction = defaults.unauthenticatedClientAction;
         }
 
+        @CustomType.Setter
         public Builder activeDirectory(@Nullable LinuxWebAppAuthSettingsActiveDirectory activeDirectory) {
             this.activeDirectory = activeDirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder additionalLoginParameters(@Nullable Map<String,String> additionalLoginParameters) {
             this.additionalLoginParameters = additionalLoginParameters;
             return this;
         }
+        @CustomType.Setter
         public Builder allowedExternalRedirectUrls(@Nullable List<String> allowedExternalRedirectUrls) {
             this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
             return this;
@@ -300,55 +266,84 @@ public final class LinuxWebAppAuthSettings {
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
             return allowedExternalRedirectUrls(List.of(allowedExternalRedirectUrls));
         }
+        @CustomType.Setter
         public Builder defaultProvider(@Nullable String defaultProvider) {
             this.defaultProvider = defaultProvider;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder facebook(@Nullable LinuxWebAppAuthSettingsFacebook facebook) {
             this.facebook = facebook;
             return this;
         }
+        @CustomType.Setter
         public Builder github(@Nullable LinuxWebAppAuthSettingsGithub github) {
             this.github = github;
             return this;
         }
+        @CustomType.Setter
         public Builder google(@Nullable LinuxWebAppAuthSettingsGoogle google) {
             this.google = google;
             return this;
         }
+        @CustomType.Setter
         public Builder issuer(@Nullable String issuer) {
             this.issuer = issuer;
             return this;
         }
+        @CustomType.Setter
         public Builder microsoft(@Nullable LinuxWebAppAuthSettingsMicrosoft microsoft) {
             this.microsoft = microsoft;
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeVersion(@Nullable String runtimeVersion) {
             this.runtimeVersion = runtimeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder tokenRefreshExtensionHours(@Nullable Double tokenRefreshExtensionHours) {
             this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
             return this;
         }
+        @CustomType.Setter
         public Builder tokenStoreEnabled(@Nullable Boolean tokenStoreEnabled) {
             this.tokenStoreEnabled = tokenStoreEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder twitter(@Nullable LinuxWebAppAuthSettingsTwitter twitter) {
             this.twitter = twitter;
             return this;
         }
+        @CustomType.Setter
         public Builder unauthenticatedClientAction(@Nullable String unauthenticatedClientAction) {
             this.unauthenticatedClientAction = unauthenticatedClientAction;
             return this;
-        }        public LinuxWebAppAuthSettings build() {
-            return new LinuxWebAppAuthSettings(activeDirectory, additionalLoginParameters, allowedExternalRedirectUrls, defaultProvider, enabled, facebook, github, google, issuer, microsoft, runtimeVersion, tokenRefreshExtensionHours, tokenStoreEnabled, twitter, unauthenticatedClientAction);
+        }
+        public LinuxWebAppAuthSettings build() {
+            final var o = new LinuxWebAppAuthSettings();
+            o.activeDirectory = activeDirectory;
+            o.additionalLoginParameters = additionalLoginParameters;
+            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            o.defaultProvider = defaultProvider;
+            o.enabled = enabled;
+            o.facebook = facebook;
+            o.github = github;
+            o.google = google;
+            o.issuer = issuer;
+            o.microsoft = microsoft;
+            o.runtimeVersion = runtimeVersion;
+            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            o.tokenStoreEnabled = tokenStoreEnabled;
+            o.twitter = twitter;
+            o.unauthenticatedClientAction = unauthenticatedClientAction;
+            return o;
         }
     }
 }

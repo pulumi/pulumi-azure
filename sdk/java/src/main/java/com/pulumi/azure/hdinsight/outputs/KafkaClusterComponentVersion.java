@@ -13,13 +13,9 @@ public final class KafkaClusterComponentVersion {
      * @return The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      * 
      */
-    private final String kafka;
+    private String kafka;
 
-    @CustomType.Constructor
-    private KafkaClusterComponentVersion(@CustomType.Parameter("kafka") String kafka) {
-        this.kafka = kafka;
-    }
-
+    private KafkaClusterComponentVersion() {}
     /**
      * @return The version of Kafka which should be used for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class KafkaClusterComponentVersion {
     public static Builder builder(KafkaClusterComponentVersion defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String kafka;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterComponentVersion defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kafka = defaults.kafka;
         }
 
+        @CustomType.Setter
         public Builder kafka(String kafka) {
             this.kafka = Objects.requireNonNull(kafka);
             return this;
-        }        public KafkaClusterComponentVersion build() {
-            return new KafkaClusterComponentVersion(kafka);
+        }
+        public KafkaClusterComponentVersion build() {
+            final var o = new KafkaClusterComponentVersion();
+            o.kafka = kafka;
+            return o;
         }
     }
 }

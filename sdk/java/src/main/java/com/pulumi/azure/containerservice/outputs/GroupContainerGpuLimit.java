@@ -16,21 +16,14 @@ public final class GroupContainerGpuLimit {
      * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer count;
+    private @Nullable Integer count;
     /**
      * @return The SKU which should be used for the GPU. Possible values are `K80`, `P100`, or `V100`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String sku;
+    private @Nullable String sku;
 
-    @CustomType.Constructor
-    private GroupContainerGpuLimit(
-        @CustomType.Parameter("count") @Nullable Integer count,
-        @CustomType.Parameter("sku") @Nullable String sku) {
-        this.count = count;
-        this.sku = sku;
-    }
-
+    private GroupContainerGpuLimit() {}
     /**
      * @return The number of GPUs which should be assigned to this container. Allowed values are `1`, `2`, or `4`. Changing this forces a new resource to be created.
      * 
@@ -53,30 +46,32 @@ public final class GroupContainerGpuLimit {
     public static Builder builder(GroupContainerGpuLimit defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer count;
         private @Nullable String sku;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerGpuLimit defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
     	      this.sku = defaults.sku;
         }
 
+        @CustomType.Setter
         public Builder count(@Nullable Integer count) {
             this.count = count;
             return this;
         }
+        @CustomType.Setter
         public Builder sku(@Nullable String sku) {
             this.sku = sku;
             return this;
-        }        public GroupContainerGpuLimit build() {
-            return new GroupContainerGpuLimit(count, sku);
+        }
+        public GroupContainerGpuLimit build() {
+            final var o = new GroupContainerGpuLimit();
+            o.count = count;
+            o.sku = sku;
+            return o;
         }
     }
 }

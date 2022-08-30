@@ -15,21 +15,14 @@ public final class FlowletDataFlowSourceSchemaLinkedService {
      * @return The name for the Data Factory Linked Service with schema.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the Data Factory Linked Service.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private FlowletDataFlowSourceSchemaLinkedService(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private FlowletDataFlowSourceSchemaLinkedService() {}
     /**
      * @return The name for the Data Factory Linked Service with schema.
      * 
@@ -52,30 +45,32 @@ public final class FlowletDataFlowSourceSchemaLinkedService {
     public static Builder builder(FlowletDataFlowSourceSchemaLinkedService defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlowletDataFlowSourceSchemaLinkedService defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public FlowletDataFlowSourceSchemaLinkedService build() {
-            return new FlowletDataFlowSourceSchemaLinkedService(name, parameters);
+        }
+        public FlowletDataFlowSourceSchemaLinkedService build() {
+            final var o = new FlowletDataFlowSourceSchemaLinkedService();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

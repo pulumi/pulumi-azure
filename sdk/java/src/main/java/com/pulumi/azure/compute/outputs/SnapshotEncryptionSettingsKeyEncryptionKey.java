@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class SnapshotEncryptionSettingsKeyEncryptionKey {
-    private final String keyUrl;
-    private final String sourceVaultId;
+    private String keyUrl;
+    private String sourceVaultId;
 
-    @CustomType.Constructor
-    private SnapshotEncryptionSettingsKeyEncryptionKey(
-        @CustomType.Parameter("keyUrl") String keyUrl,
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId) {
-        this.keyUrl = keyUrl;
-        this.sourceVaultId = sourceVaultId;
-    }
-
+    private SnapshotEncryptionSettingsKeyEncryptionKey() {}
     public String keyUrl() {
         return this.keyUrl;
     }
@@ -34,30 +27,32 @@ public final class SnapshotEncryptionSettingsKeyEncryptionKey {
     public static Builder builder(SnapshotEncryptionSettingsKeyEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyUrl;
         private String sourceVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SnapshotEncryptionSettingsKeyEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyUrl = defaults.keyUrl;
     	      this.sourceVaultId = defaults.sourceVaultId;
         }
 
+        @CustomType.Setter
         public Builder keyUrl(String keyUrl) {
             this.keyUrl = Objects.requireNonNull(keyUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
-        }        public SnapshotEncryptionSettingsKeyEncryptionKey build() {
-            return new SnapshotEncryptionSettingsKeyEncryptionKey(keyUrl, sourceVaultId);
+        }
+        public SnapshotEncryptionSettingsKeyEncryptionKey build() {
+            final var o = new SnapshotEncryptionSettingsKeyEncryptionKey();
+            o.keyUrl = keyUrl;
+            o.sourceVaultId = sourceVaultId;
+            return o;
         }
     }
 }

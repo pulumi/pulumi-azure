@@ -13,21 +13,14 @@ public final class ClusterOptimizedAutoScale {
      * @return The maximum number of allowed instances. Must between `0` and `1000`.
      * 
      */
-    private final Integer maximumInstances;
+    private Integer maximumInstances;
     /**
      * @return The minimum number of allowed instances. Must between `0` and `1000`.
      * 
      */
-    private final Integer minimumInstances;
+    private Integer minimumInstances;
 
-    @CustomType.Constructor
-    private ClusterOptimizedAutoScale(
-        @CustomType.Parameter("maximumInstances") Integer maximumInstances,
-        @CustomType.Parameter("minimumInstances") Integer minimumInstances) {
-        this.maximumInstances = maximumInstances;
-        this.minimumInstances = minimumInstances;
-    }
-
+    private ClusterOptimizedAutoScale() {}
     /**
      * @return The maximum number of allowed instances. Must between `0` and `1000`.
      * 
@@ -50,30 +43,32 @@ public final class ClusterOptimizedAutoScale {
     public static Builder builder(ClusterOptimizedAutoScale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer maximumInstances;
         private Integer minimumInstances;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterOptimizedAutoScale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maximumInstances = defaults.maximumInstances;
     	      this.minimumInstances = defaults.minimumInstances;
         }
 
+        @CustomType.Setter
         public Builder maximumInstances(Integer maximumInstances) {
             this.maximumInstances = Objects.requireNonNull(maximumInstances);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumInstances(Integer minimumInstances) {
             this.minimumInstances = Objects.requireNonNull(minimumInstances);
             return this;
-        }        public ClusterOptimizedAutoScale build() {
-            return new ClusterOptimizedAutoScale(maximumInstances, minimumInstances);
+        }
+        public ClusterOptimizedAutoScale build() {
+            final var o = new ClusterOptimizedAutoScale();
+            o.maximumInstances = maximumInstances;
+            o.minimumInstances = minimumInstances;
+            return o;
         }
     }
 }

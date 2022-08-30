@@ -17,59 +17,40 @@ public final class GetSpringCloudServiceResult {
      * @return A `config_server_git_setting` block as defined below.
      * 
      */
-    private final List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings;
+    private List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location of Spring Cloud Service.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name to identify on the Git repository.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of the outbound Public IP Addresses used by this Spring Cloud Service.
      * 
      */
-    private final List<String> outboundPublicIpAddresses;
+    private List<String> outboundPublicIpAddresses;
     /**
      * @return A list of `required_network_traffic_rules` blocks as defined below.
      * 
      */
-    private final List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules;
-    private final String resourceGroupName;
+    private List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to Spring Cloud Service.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSpringCloudServiceResult(
-        @CustomType.Parameter("configServerGitSettings") List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundPublicIpAddresses") List<String> outboundPublicIpAddresses,
-        @CustomType.Parameter("requiredNetworkTrafficRules") List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.configServerGitSettings = configServerGitSettings;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.outboundPublicIpAddresses = outboundPublicIpAddresses;
-        this.requiredNetworkTrafficRules = requiredNetworkTrafficRules;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetSpringCloudServiceResult() {}
     /**
      * @return A `config_server_git_setting` block as defined below.
      * 
@@ -130,7 +111,7 @@ public final class GetSpringCloudServiceResult {
     public static Builder builder(GetSpringCloudServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings;
         private String id;
@@ -140,11 +121,7 @@ public final class GetSpringCloudServiceResult {
         private List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSpringCloudServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configServerGitSettings = defaults.configServerGitSettings;
@@ -157,6 +134,7 @@ public final class GetSpringCloudServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder configServerGitSettings(List<GetSpringCloudServiceConfigServerGitSetting> configServerGitSettings) {
             this.configServerGitSettings = Objects.requireNonNull(configServerGitSettings);
             return this;
@@ -164,18 +142,22 @@ public final class GetSpringCloudServiceResult {
         public Builder configServerGitSettings(GetSpringCloudServiceConfigServerGitSetting... configServerGitSettings) {
             return configServerGitSettings(List.of(configServerGitSettings));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundPublicIpAddresses(List<String> outboundPublicIpAddresses) {
             this.outboundPublicIpAddresses = Objects.requireNonNull(outboundPublicIpAddresses);
             return this;
@@ -183,6 +165,7 @@ public final class GetSpringCloudServiceResult {
         public Builder outboundPublicIpAddresses(String... outboundPublicIpAddresses) {
             return outboundPublicIpAddresses(List.of(outboundPublicIpAddresses));
         }
+        @CustomType.Setter
         public Builder requiredNetworkTrafficRules(List<GetSpringCloudServiceRequiredNetworkTrafficRule> requiredNetworkTrafficRules) {
             this.requiredNetworkTrafficRules = Objects.requireNonNull(requiredNetworkTrafficRules);
             return this;
@@ -190,15 +173,27 @@ public final class GetSpringCloudServiceResult {
         public Builder requiredNetworkTrafficRules(GetSpringCloudServiceRequiredNetworkTrafficRule... requiredNetworkTrafficRules) {
             return requiredNetworkTrafficRules(List.of(requiredNetworkTrafficRules));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSpringCloudServiceResult build() {
-            return new GetSpringCloudServiceResult(configServerGitSettings, id, location, name, outboundPublicIpAddresses, requiredNetworkTrafficRules, resourceGroupName, tags);
+        }
+        public GetSpringCloudServiceResult build() {
+            final var o = new GetSpringCloudServiceResult();
+            o.configServerGitSettings = configServerGitSettings;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.outboundPublicIpAddresses = outboundPublicIpAddresses;
+            o.requiredNetworkTrafficRules = requiredNetworkTrafficRules;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

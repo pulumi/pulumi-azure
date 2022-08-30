@@ -14,35 +14,24 @@ public final class ServiceUpstreamEndpoint {
      * @return The categories to match on, or `*` for all.
      * 
      */
-    private final List<String> categoryPatterns;
+    private List<String> categoryPatterns;
     /**
      * @return The events to match on, or `*` for all.
      * 
      */
-    private final List<String> eventPatterns;
+    private List<String> eventPatterns;
     /**
      * @return The hubs to match on, or `*` for all.
      * 
      */
-    private final List<String> hubPatterns;
+    private List<String> hubPatterns;
     /**
      * @return The upstream URL Template. This can be a url or a template such as `http://host.com/{hub}/api/{category}/{event}`.
      * 
      */
-    private final String urlTemplate;
+    private String urlTemplate;
 
-    @CustomType.Constructor
-    private ServiceUpstreamEndpoint(
-        @CustomType.Parameter("categoryPatterns") List<String> categoryPatterns,
-        @CustomType.Parameter("eventPatterns") List<String> eventPatterns,
-        @CustomType.Parameter("hubPatterns") List<String> hubPatterns,
-        @CustomType.Parameter("urlTemplate") String urlTemplate) {
-        this.categoryPatterns = categoryPatterns;
-        this.eventPatterns = eventPatterns;
-        this.hubPatterns = hubPatterns;
-        this.urlTemplate = urlTemplate;
-    }
-
+    private ServiceUpstreamEndpoint() {}
     /**
      * @return The categories to match on, or `*` for all.
      * 
@@ -79,17 +68,13 @@ public final class ServiceUpstreamEndpoint {
     public static Builder builder(ServiceUpstreamEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> categoryPatterns;
         private List<String> eventPatterns;
         private List<String> hubPatterns;
         private String urlTemplate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceUpstreamEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.categoryPatterns = defaults.categoryPatterns;
@@ -98,6 +83,7 @@ public final class ServiceUpstreamEndpoint {
     	      this.urlTemplate = defaults.urlTemplate;
         }
 
+        @CustomType.Setter
         public Builder categoryPatterns(List<String> categoryPatterns) {
             this.categoryPatterns = Objects.requireNonNull(categoryPatterns);
             return this;
@@ -105,6 +91,7 @@ public final class ServiceUpstreamEndpoint {
         public Builder categoryPatterns(String... categoryPatterns) {
             return categoryPatterns(List.of(categoryPatterns));
         }
+        @CustomType.Setter
         public Builder eventPatterns(List<String> eventPatterns) {
             this.eventPatterns = Objects.requireNonNull(eventPatterns);
             return this;
@@ -112,6 +99,7 @@ public final class ServiceUpstreamEndpoint {
         public Builder eventPatterns(String... eventPatterns) {
             return eventPatterns(List.of(eventPatterns));
         }
+        @CustomType.Setter
         public Builder hubPatterns(List<String> hubPatterns) {
             this.hubPatterns = Objects.requireNonNull(hubPatterns);
             return this;
@@ -119,11 +107,18 @@ public final class ServiceUpstreamEndpoint {
         public Builder hubPatterns(String... hubPatterns) {
             return hubPatterns(List.of(hubPatterns));
         }
+        @CustomType.Setter
         public Builder urlTemplate(String urlTemplate) {
             this.urlTemplate = Objects.requireNonNull(urlTemplate);
             return this;
-        }        public ServiceUpstreamEndpoint build() {
-            return new ServiceUpstreamEndpoint(categoryPatterns, eventPatterns, hubPatterns, urlTemplate);
+        }
+        public ServiceUpstreamEndpoint build() {
+            final var o = new ServiceUpstreamEndpoint();
+            o.categoryPatterns = categoryPatterns;
+            o.eventPatterns = eventPatterns;
+            o.hubPatterns = hubPatterns;
+            o.urlTemplate = urlTemplate;
+            return o;
         }
     }
 }

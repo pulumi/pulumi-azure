@@ -14,35 +14,24 @@ public final class GetActionGroupLogicAppReceiver {
      * @return The callback url where HTTP request sent to.
      * 
      */
-    private final String callbackUrl;
+    private String callbackUrl;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Azure resource ID of the logic app.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private GetActionGroupLogicAppReceiver(
-        @CustomType.Parameter("callbackUrl") String callbackUrl,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema) {
-        this.callbackUrl = callbackUrl;
-        this.name = name;
-        this.resourceId = resourceId;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private GetActionGroupLogicAppReceiver() {}
     /**
      * @return The callback url where HTTP request sent to.
      * 
@@ -79,17 +68,13 @@ public final class GetActionGroupLogicAppReceiver {
     public static Builder builder(GetActionGroupLogicAppReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String callbackUrl;
         private String name;
         private String resourceId;
         private Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupLogicAppReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.callbackUrl = defaults.callbackUrl;
@@ -98,23 +83,33 @@ public final class GetActionGroupLogicAppReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder callbackUrl(String callbackUrl) {
             this.callbackUrl = Objects.requireNonNull(callbackUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
-        }        public GetActionGroupLogicAppReceiver build() {
-            return new GetActionGroupLogicAppReceiver(callbackUrl, name, resourceId, useCommonAlertSchema);
+        }
+        public GetActionGroupLogicAppReceiver build() {
+            final var o = new GetActionGroupLogicAppReceiver();
+            o.callbackUrl = callbackUrl;
+            o.name = name;
+            o.resourceId = resourceId;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

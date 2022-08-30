@@ -15,21 +15,14 @@ public final class ConfigurationFeatureTimewindowFilter {
      * @return The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
      * 
      */
-    private final @Nullable String end;
+    private @Nullable String end;
     /**
      * @return The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format.
      * 
      */
-    private final @Nullable String start;
+    private @Nullable String start;
 
-    @CustomType.Constructor
-    private ConfigurationFeatureTimewindowFilter(
-        @CustomType.Parameter("end") @Nullable String end,
-        @CustomType.Parameter("start") @Nullable String start) {
-        this.end = end;
-        this.start = start;
-    }
-
+    private ConfigurationFeatureTimewindowFilter() {}
     /**
      * @return The latest timestamp the feature is enabled.  The timestamp must be in RFC3339 format.
      * 
@@ -52,30 +45,32 @@ public final class ConfigurationFeatureTimewindowFilter {
     public static Builder builder(ConfigurationFeatureTimewindowFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String end;
         private @Nullable String start;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationFeatureTimewindowFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.end = defaults.end;
     	      this.start = defaults.start;
         }
 
+        @CustomType.Setter
         public Builder end(@Nullable String end) {
             this.end = end;
             return this;
         }
+        @CustomType.Setter
         public Builder start(@Nullable String start) {
             this.start = start;
             return this;
-        }        public ConfigurationFeatureTimewindowFilter build() {
-            return new ConfigurationFeatureTimewindowFilter(end, start);
+        }
+        public ConfigurationFeatureTimewindowFilter build() {
+            final var o = new ConfigurationFeatureTimewindowFilter();
+            o.end = end;
+            o.start = start;
+            return o;
         }
     }
 }

@@ -15,42 +15,29 @@ public final class SpringCloudGatewayApiMetadata {
      * @return Detailed description of the APIs available on the Gateway instance.
      * 
      */
-    private final @Nullable String description;
+    private @Nullable String description;
     /**
      * @return Location of additional documentation for the APIs available on the Gateway instance.
      * 
      */
-    private final @Nullable String documentationUrl;
+    private @Nullable String documentationUrl;
     /**
      * @return Base URL that API consumers will use to access APIs on the Gateway instance.
      * 
      */
-    private final @Nullable String serverUrl;
+    private @Nullable String serverUrl;
     /**
      * @return Specifies the title describing the context of the APIs available on the Gateway instance.
      * 
      */
-    private final @Nullable String title;
+    private @Nullable String title;
     /**
      * @return Specifies the version of APIs available on this Gateway instance.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private SpringCloudGatewayApiMetadata(
-        @CustomType.Parameter("description") @Nullable String description,
-        @CustomType.Parameter("documentationUrl") @Nullable String documentationUrl,
-        @CustomType.Parameter("serverUrl") @Nullable String serverUrl,
-        @CustomType.Parameter("title") @Nullable String title,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.description = description;
-        this.documentationUrl = documentationUrl;
-        this.serverUrl = serverUrl;
-        this.title = title;
-        this.version = version;
-    }
-
+    private SpringCloudGatewayApiMetadata() {}
     /**
      * @return Detailed description of the APIs available on the Gateway instance.
      * 
@@ -94,18 +81,14 @@ public final class SpringCloudGatewayApiMetadata {
     public static Builder builder(SpringCloudGatewayApiMetadata defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String description;
         private @Nullable String documentationUrl;
         private @Nullable String serverUrl;
         private @Nullable String title;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudGatewayApiMetadata defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -115,27 +98,39 @@ public final class SpringCloudGatewayApiMetadata {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder description(@Nullable String description) {
             this.description = description;
             return this;
         }
+        @CustomType.Setter
         public Builder documentationUrl(@Nullable String documentationUrl) {
             this.documentationUrl = documentationUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder serverUrl(@Nullable String serverUrl) {
             this.serverUrl = serverUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder title(@Nullable String title) {
             this.title = title;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public SpringCloudGatewayApiMetadata build() {
-            return new SpringCloudGatewayApiMetadata(description, documentationUrl, serverUrl, title, version);
+        }
+        public SpringCloudGatewayApiMetadata build() {
+            final var o = new SpringCloudGatewayApiMetadata();
+            o.description = description;
+            o.documentationUrl = documentationUrl;
+            o.serverUrl = serverUrl;
+            o.title = title;
+            o.version = version;
+            return o;
         }
     }
 }

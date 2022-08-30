@@ -15,21 +15,14 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
      * @return A `action` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions;
+    private List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions;
     /**
      * @return A `trigger` block as defined below.
      * 
      */
-    private final List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers;
+    private List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppSiteConfigAutoHealSetting(
-        @CustomType.Parameter("actions") List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions,
-        @CustomType.Parameter("triggers") List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers) {
-        this.actions = actions;
-        this.triggers = triggers;
-    }
-
+    private GetWindowsWebAppSiteConfigAutoHealSetting() {}
     /**
      * @return A `action` block as defined above.
      * 
@@ -52,21 +45,18 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
     public static Builder builder(GetWindowsWebAppSiteConfigAutoHealSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions;
         private List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppSiteConfigAutoHealSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.triggers = defaults.triggers;
         }
 
+        @CustomType.Setter
         public Builder actions(List<GetWindowsWebAppSiteConfigAutoHealSettingAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -74,14 +64,19 @@ public final class GetWindowsWebAppSiteConfigAutoHealSetting {
         public Builder actions(GetWindowsWebAppSiteConfigAutoHealSettingAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder triggers(List<GetWindowsWebAppSiteConfigAutoHealSettingTrigger> triggers) {
             this.triggers = Objects.requireNonNull(triggers);
             return this;
         }
         public Builder triggers(GetWindowsWebAppSiteConfigAutoHealSettingTrigger... triggers) {
             return triggers(List.of(triggers));
-        }        public GetWindowsWebAppSiteConfigAutoHealSetting build() {
-            return new GetWindowsWebAppSiteConfigAutoHealSetting(actions, triggers);
+        }
+        public GetWindowsWebAppSiteConfigAutoHealSetting build() {
+            final var o = new GetWindowsWebAppSiteConfigAutoHealSetting();
+            o.actions = actions;
+            o.triggers = triggers;
+            return o;
         }
     }
 }

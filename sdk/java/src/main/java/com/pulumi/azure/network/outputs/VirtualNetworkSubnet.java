@@ -15,35 +15,24 @@ public final class VirtualNetworkSubnet {
      * @return The address prefix to use for the subnet.
      * 
      */
-    private final String addressPrefix;
+    private String addressPrefix;
     /**
      * @return The ID of DDoS Protection Plan.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the virtual network. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
      * 
      */
-    private final @Nullable String securityGroup;
+    private @Nullable String securityGroup;
 
-    @CustomType.Constructor
-    private VirtualNetworkSubnet(
-        @CustomType.Parameter("addressPrefix") String addressPrefix,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("securityGroup") @Nullable String securityGroup) {
-        this.addressPrefix = addressPrefix;
-        this.id = id;
-        this.name = name;
-        this.securityGroup = securityGroup;
-    }
-
+    private VirtualNetworkSubnet() {}
     /**
      * @return The address prefix to use for the subnet.
      * 
@@ -80,17 +69,13 @@ public final class VirtualNetworkSubnet {
     public static Builder builder(VirtualNetworkSubnet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
         private @Nullable String id;
         private String name;
         private @Nullable String securityGroup;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkSubnet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
@@ -99,23 +84,33 @@ public final class VirtualNetworkSubnet {
     	      this.securityGroup = defaults.securityGroup;
         }
 
+        @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
             this.addressPrefix = Objects.requireNonNull(addressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder securityGroup(@Nullable String securityGroup) {
             this.securityGroup = securityGroup;
             return this;
-        }        public VirtualNetworkSubnet build() {
-            return new VirtualNetworkSubnet(addressPrefix, id, name, securityGroup);
+        }
+        public VirtualNetworkSubnet build() {
+            final var o = new VirtualNetworkSubnet();
+            o.addressPrefix = addressPrefix;
+            o.id = id;
+            o.name = name;
+            o.securityGroup = securityGroup;
+            return o;
         }
     }
 }

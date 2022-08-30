@@ -16,49 +16,34 @@ public final class RegistryTaskFileStep {
      * @return The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
      * 
      */
-    private final @Nullable String contextAccessToken;
+    private @Nullable String contextAccessToken;
     /**
      * @return The URL (absolute or relative) of the source context for this step.
      * 
      */
-    private final @Nullable String contextPath;
+    private @Nullable String contextPath;
     /**
      * @return Specifies a map of secret values that can be passed when running a task.
      * 
      */
-    private final @Nullable Map<String,String> secretValues;
+    private @Nullable Map<String,String> secretValues;
     /**
      * @return The task template file path relative to the source context.
      * 
      */
-    private final String taskFilePath;
+    private String taskFilePath;
     /**
      * @return The parameters file path relative to the source context.
      * 
      */
-    private final @Nullable String valueFilePath;
+    private @Nullable String valueFilePath;
     /**
      * @return Specifies a map of values that can be passed when running a task.
      * 
      */
-    private final @Nullable Map<String,String> values;
+    private @Nullable Map<String,String> values;
 
-    @CustomType.Constructor
-    private RegistryTaskFileStep(
-        @CustomType.Parameter("contextAccessToken") @Nullable String contextAccessToken,
-        @CustomType.Parameter("contextPath") @Nullable String contextPath,
-        @CustomType.Parameter("secretValues") @Nullable Map<String,String> secretValues,
-        @CustomType.Parameter("taskFilePath") String taskFilePath,
-        @CustomType.Parameter("valueFilePath") @Nullable String valueFilePath,
-        @CustomType.Parameter("values") @Nullable Map<String,String> values) {
-        this.contextAccessToken = contextAccessToken;
-        this.contextPath = contextPath;
-        this.secretValues = secretValues;
-        this.taskFilePath = taskFilePath;
-        this.valueFilePath = valueFilePath;
-        this.values = values;
-    }
-
+    private RegistryTaskFileStep() {}
     /**
      * @return The token (Git PAT or SAS token of storage account blob) associated with the context for this step.
      * 
@@ -109,7 +94,7 @@ public final class RegistryTaskFileStep {
     public static Builder builder(RegistryTaskFileStep defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String contextAccessToken;
         private @Nullable String contextPath;
@@ -117,11 +102,7 @@ public final class RegistryTaskFileStep {
         private String taskFilePath;
         private @Nullable String valueFilePath;
         private @Nullable Map<String,String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskFileStep defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contextAccessToken = defaults.contextAccessToken;
@@ -132,31 +113,45 @@ public final class RegistryTaskFileStep {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder contextAccessToken(@Nullable String contextAccessToken) {
             this.contextAccessToken = contextAccessToken;
             return this;
         }
+        @CustomType.Setter
         public Builder contextPath(@Nullable String contextPath) {
             this.contextPath = contextPath;
             return this;
         }
+        @CustomType.Setter
         public Builder secretValues(@Nullable Map<String,String> secretValues) {
             this.secretValues = secretValues;
             return this;
         }
+        @CustomType.Setter
         public Builder taskFilePath(String taskFilePath) {
             this.taskFilePath = Objects.requireNonNull(taskFilePath);
             return this;
         }
+        @CustomType.Setter
         public Builder valueFilePath(@Nullable String valueFilePath) {
             this.valueFilePath = valueFilePath;
             return this;
         }
+        @CustomType.Setter
         public Builder values(@Nullable Map<String,String> values) {
             this.values = values;
             return this;
-        }        public RegistryTaskFileStep build() {
-            return new RegistryTaskFileStep(contextAccessToken, contextPath, secretValues, taskFilePath, valueFilePath, values);
+        }
+        public RegistryTaskFileStep build() {
+            final var o = new RegistryTaskFileStep();
+            o.contextAccessToken = contextAccessToken;
+            o.contextPath = contextPath;
+            o.secretValues = secretValues;
+            o.taskFilePath = taskFilePath;
+            o.valueFilePath = valueFilePath;
+            o.values = values;
+            return o;
         }
     }
 }

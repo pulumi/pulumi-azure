@@ -14,83 +14,56 @@ public final class GetLabResult {
      * @return The ID of the Storage Account used for Artifact Storage.
      * 
      */
-    private final String artifactsStorageAccountId;
+    private String artifactsStorageAccountId;
     /**
      * @return The ID of the Default Premium Storage Account for this Dev Test Lab.
      * 
      */
-    private final String defaultPremiumStorageAccountId;
+    private String defaultPremiumStorageAccountId;
     /**
      * @return The ID of the Default Storage Account for this Dev Test Lab.
      * 
      */
-    private final String defaultStorageAccountId;
+    private String defaultStorageAccountId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The ID of the Key used for this Dev Test Lab.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return The Azure location where the Dev Test Lab exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The ID of the Storage Account used for Storage of Premium Data Disk.
      * 
      */
-    private final String premiumDataDiskStorageAccountId;
-    private final String resourceGroupName;
+    private String premiumDataDiskStorageAccountId;
+    private String resourceGroupName;
     /**
      * @return The type of storage used by the Dev Test Lab.
      * 
      */
-    private final String storageType;
+    private String storageType;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The unique immutable identifier of the Dev Test Lab.
      * 
      */
-    private final String uniqueIdentifier;
+    private String uniqueIdentifier;
 
-    @CustomType.Constructor
-    private GetLabResult(
-        @CustomType.Parameter("artifactsStorageAccountId") String artifactsStorageAccountId,
-        @CustomType.Parameter("defaultPremiumStorageAccountId") String defaultPremiumStorageAccountId,
-        @CustomType.Parameter("defaultStorageAccountId") String defaultStorageAccountId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("premiumDataDiskStorageAccountId") String premiumDataDiskStorageAccountId,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("storageType") String storageType,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("uniqueIdentifier") String uniqueIdentifier) {
-        this.artifactsStorageAccountId = artifactsStorageAccountId;
-        this.defaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
-        this.defaultStorageAccountId = defaultStorageAccountId;
-        this.id = id;
-        this.keyVaultId = keyVaultId;
-        this.location = location;
-        this.name = name;
-        this.premiumDataDiskStorageAccountId = premiumDataDiskStorageAccountId;
-        this.resourceGroupName = resourceGroupName;
-        this.storageType = storageType;
-        this.tags = tags;
-        this.uniqueIdentifier = uniqueIdentifier;
-    }
-
+    private GetLabResult() {}
     /**
      * @return The ID of the Storage Account used for Artifact Storage.
      * 
@@ -175,7 +148,7 @@ public final class GetLabResult {
     public static Builder builder(GetLabResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String artifactsStorageAccountId;
         private String defaultPremiumStorageAccountId;
@@ -189,11 +162,7 @@ public final class GetLabResult {
         private String storageType;
         private Map<String,String> tags;
         private String uniqueIdentifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLabResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.artifactsStorageAccountId = defaults.artifactsStorageAccountId;
@@ -210,55 +179,81 @@ public final class GetLabResult {
     	      this.uniqueIdentifier = defaults.uniqueIdentifier;
         }
 
+        @CustomType.Setter
         public Builder artifactsStorageAccountId(String artifactsStorageAccountId) {
             this.artifactsStorageAccountId = Objects.requireNonNull(artifactsStorageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultPremiumStorageAccountId(String defaultPremiumStorageAccountId) {
             this.defaultPremiumStorageAccountId = Objects.requireNonNull(defaultPremiumStorageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultStorageAccountId(String defaultStorageAccountId) {
             this.defaultStorageAccountId = Objects.requireNonNull(defaultStorageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder premiumDataDiskStorageAccountId(String premiumDataDiskStorageAccountId) {
             this.premiumDataDiskStorageAccountId = Objects.requireNonNull(premiumDataDiskStorageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageType(String storageType) {
             this.storageType = Objects.requireNonNull(storageType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder uniqueIdentifier(String uniqueIdentifier) {
             this.uniqueIdentifier = Objects.requireNonNull(uniqueIdentifier);
             return this;
-        }        public GetLabResult build() {
-            return new GetLabResult(artifactsStorageAccountId, defaultPremiumStorageAccountId, defaultStorageAccountId, id, keyVaultId, location, name, premiumDataDiskStorageAccountId, resourceGroupName, storageType, tags, uniqueIdentifier);
+        }
+        public GetLabResult build() {
+            final var o = new GetLabResult();
+            o.artifactsStorageAccountId = artifactsStorageAccountId;
+            o.defaultPremiumStorageAccountId = defaultPremiumStorageAccountId;
+            o.defaultStorageAccountId = defaultStorageAccountId;
+            o.id = id;
+            o.keyVaultId = keyVaultId;
+            o.location = location;
+            o.name = name;
+            o.premiumDataDiskStorageAccountId = premiumDataDiskStorageAccountId;
+            o.resourceGroupName = resourceGroupName;
+            o.storageType = storageType;
+            o.tags = tags;
+            o.uniqueIdentifier = uniqueIdentifier;
+            return o;
         }
     }
 }

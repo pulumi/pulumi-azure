@@ -16,21 +16,14 @@ public final class PolicyManagedRules {
      * @return One or more `exclusion` block defined below.
      * 
      */
-    private final @Nullable List<PolicyManagedRulesExclusion> exclusions;
+    private @Nullable List<PolicyManagedRulesExclusion> exclusions;
     /**
      * @return One or more `managed_rule_set` block defined below.
      * 
      */
-    private final List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
+    private List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
 
-    @CustomType.Constructor
-    private PolicyManagedRules(
-        @CustomType.Parameter("exclusions") @Nullable List<PolicyManagedRulesExclusion> exclusions,
-        @CustomType.Parameter("managedRuleSets") List<PolicyManagedRulesManagedRuleSet> managedRuleSets) {
-        this.exclusions = exclusions;
-        this.managedRuleSets = managedRuleSets;
-    }
-
+    private PolicyManagedRules() {}
     /**
      * @return One or more `exclusion` block defined below.
      * 
@@ -53,21 +46,18 @@ public final class PolicyManagedRules {
     public static Builder builder(PolicyManagedRules defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<PolicyManagedRulesExclusion> exclusions;
         private List<PolicyManagedRulesManagedRuleSet> managedRuleSets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRules defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.exclusions = defaults.exclusions;
     	      this.managedRuleSets = defaults.managedRuleSets;
         }
 
+        @CustomType.Setter
         public Builder exclusions(@Nullable List<PolicyManagedRulesExclusion> exclusions) {
             this.exclusions = exclusions;
             return this;
@@ -75,14 +65,19 @@ public final class PolicyManagedRules {
         public Builder exclusions(PolicyManagedRulesExclusion... exclusions) {
             return exclusions(List.of(exclusions));
         }
+        @CustomType.Setter
         public Builder managedRuleSets(List<PolicyManagedRulesManagedRuleSet> managedRuleSets) {
             this.managedRuleSets = Objects.requireNonNull(managedRuleSets);
             return this;
         }
         public Builder managedRuleSets(PolicyManagedRulesManagedRuleSet... managedRuleSets) {
             return managedRuleSets(List.of(managedRuleSets));
-        }        public PolicyManagedRules build() {
-            return new PolicyManagedRules(exclusions, managedRuleSets);
+        }
+        public PolicyManagedRules build() {
+            final var o = new PolicyManagedRules();
+            o.exclusions = exclusions;
+            o.managedRuleSets = managedRuleSets;
+            return o;
         }
     }
 }

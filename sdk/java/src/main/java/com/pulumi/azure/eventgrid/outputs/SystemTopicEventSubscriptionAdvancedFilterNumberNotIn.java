@@ -15,21 +15,14 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
      */
-    private final String key;
+    private String key;
     /**
      * @return Specifies an array of values to compare to when using a multiple values operator.
      * 
      */
-    private final List<Double> values;
+    private List<Double> values;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(
-        @CustomType.Parameter("key") String key,
-        @CustomType.Parameter("values") List<Double> values) {
-        this.key = key;
-        this.values = values;
-    }
-
+    private SystemTopicEventSubscriptionAdvancedFilterNumberNotIn() {}
     /**
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
@@ -52,33 +45,35 @@ public final class SystemTopicEventSubscriptionAdvancedFilterNumberNotIn {
     public static Builder builder(SystemTopicEventSubscriptionAdvancedFilterNumberNotIn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
         private List<Double> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionAdvancedFilterNumberNotIn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<Double> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(Double... values) {
             return values(List.of(values));
-        }        public SystemTopicEventSubscriptionAdvancedFilterNumberNotIn build() {
-            return new SystemTopicEventSubscriptionAdvancedFilterNumberNotIn(key, values);
+        }
+        public SystemTopicEventSubscriptionAdvancedFilterNumberNotIn build() {
+            final var o = new SystemTopicEventSubscriptionAdvancedFilterNumberNotIn();
+            o.key = key;
+            o.values = values;
+            return o;
         }
     }
 }

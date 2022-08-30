@@ -14,40 +14,23 @@ public final class GetClusterResult {
      * @return The Kusto Cluster URI to be used for data ingestion.
      * 
      */
-    private final String dataIngestionUri;
+    private String dataIngestionUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
-    private final Map<String,String> tags;
+    private String id;
+    private String location;
+    private String name;
+    private String resourceGroupName;
+    private Map<String,String> tags;
     /**
      * @return The FQDN of the Azure Kusto Cluster.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private GetClusterResult(
-        @CustomType.Parameter("dataIngestionUri") String dataIngestionUri,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("uri") String uri) {
-        this.dataIngestionUri = dataIngestionUri;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.uri = uri;
-    }
-
+    private GetClusterResult() {}
     /**
      * @return The Kusto Cluster URI to be used for data ingestion.
      * 
@@ -89,7 +72,7 @@ public final class GetClusterResult {
     public static Builder builder(GetClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dataIngestionUri;
         private String id;
@@ -98,11 +81,7 @@ public final class GetClusterResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataIngestionUri = defaults.dataIngestionUri;
@@ -114,35 +93,51 @@ public final class GetClusterResult {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder dataIngestionUri(String dataIngestionUri) {
             this.dataIngestionUri = Objects.requireNonNull(dataIngestionUri);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public GetClusterResult build() {
-            return new GetClusterResult(dataIngestionUri, id, location, name, resourceGroupName, tags, uri);
+        }
+        public GetClusterResult build() {
+            final var o = new GetClusterResult();
+            o.dataIngestionUri = dataIngestionUri;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.uri = uri;
+            return o;
         }
     }
 }

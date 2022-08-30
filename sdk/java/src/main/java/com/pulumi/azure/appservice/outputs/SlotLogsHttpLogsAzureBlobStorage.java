@@ -14,21 +14,14 @@ public final class SlotLogsHttpLogsAzureBlobStorage {
      * @return The number of days to retain logs for.
      * 
      */
-    private final Integer retentionInDays;
+    private Integer retentionInDays;
     /**
      * @return The URL to the storage container, with a Service SAS token appended. **NOTE:** there is currently no means of generating Service SAS tokens with the `azurerm` provider.
      * 
      */
-    private final String sasUrl;
+    private String sasUrl;
 
-    @CustomType.Constructor
-    private SlotLogsHttpLogsAzureBlobStorage(
-        @CustomType.Parameter("retentionInDays") Integer retentionInDays,
-        @CustomType.Parameter("sasUrl") String sasUrl) {
-        this.retentionInDays = retentionInDays;
-        this.sasUrl = sasUrl;
-    }
-
+    private SlotLogsHttpLogsAzureBlobStorage() {}
     /**
      * @return The number of days to retain logs for.
      * 
@@ -51,30 +44,32 @@ public final class SlotLogsHttpLogsAzureBlobStorage {
     public static Builder builder(SlotLogsHttpLogsAzureBlobStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer retentionInDays;
         private String sasUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotLogsHttpLogsAzureBlobStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.retentionInDays = defaults.retentionInDays;
     	      this.sasUrl = defaults.sasUrl;
         }
 
+        @CustomType.Setter
         public Builder retentionInDays(Integer retentionInDays) {
             this.retentionInDays = Objects.requireNonNull(retentionInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder sasUrl(String sasUrl) {
             this.sasUrl = Objects.requireNonNull(sasUrl);
             return this;
-        }        public SlotLogsHttpLogsAzureBlobStorage build() {
-            return new SlotLogsHttpLogsAzureBlobStorage(retentionInDays, sasUrl);
+        }
+        public SlotLogsHttpLogsAzureBlobStorage build() {
+            final var o = new SlotLogsHttpLogsAzureBlobStorage();
+            o.retentionInDays = retentionInDays;
+            o.sasUrl = sasUrl;
+            return o;
         }
     }
 }

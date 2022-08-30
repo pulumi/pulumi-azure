@@ -15,21 +15,14 @@ public final class ClusterFabricSetting {
      * @return The name of the Fabric Setting, such as `Security` or `Federation`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map containing settings for the specified Fabric Setting.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private ClusterFabricSetting(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private ClusterFabricSetting() {}
     /**
      * @return The name of the Fabric Setting, such as `Security` or `Federation`.
      * 
@@ -52,30 +45,32 @@ public final class ClusterFabricSetting {
     public static Builder builder(ClusterFabricSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterFabricSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public ClusterFabricSetting build() {
-            return new ClusterFabricSetting(name, parameters);
+        }
+        public ClusterFabricSetting build() {
+            final var o = new ClusterFabricSetting();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

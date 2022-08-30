@@ -16,66 +16,45 @@ public final class GetLBResult {
      * @return A `frontend_ip_configuration` block as documented below.
      * 
      */
-    private final List<GetLBFrontendIpConfiguration> frontendIpConfigurations;
+    private List<GetLBFrontendIpConfiguration> frontendIpConfigurations;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the Load Balancer exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Frontend IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Private IP Address to assign to the Load Balancer.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The list of private IP address assigned to the load balancer in `frontend_ip_configuration` blocks, if any.
      * 
      */
-    private final List<String> privateIpAddresses;
-    private final String resourceGroupName;
+    private List<String> privateIpAddresses;
+    private String resourceGroupName;
     /**
      * @return The SKU of the Load Balancer.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetLBResult(
-        @CustomType.Parameter("frontendIpConfigurations") List<GetLBFrontendIpConfiguration> frontendIpConfigurations,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddresses") List<String> privateIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.frontendIpConfigurations = frontendIpConfigurations;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddresses = privateIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-    }
-
+    private GetLBResult() {}
     /**
      * @return A `frontend_ip_configuration` block as documented below.
      * 
@@ -143,7 +122,7 @@ public final class GetLBResult {
     public static Builder builder(GetLBResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetLBFrontendIpConfiguration> frontendIpConfigurations;
         private String id;
@@ -154,11 +133,7 @@ public final class GetLBResult {
         private String resourceGroupName;
         private String sku;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLBResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frontendIpConfigurations = defaults.frontendIpConfigurations;
@@ -172,6 +147,7 @@ public final class GetLBResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder frontendIpConfigurations(List<GetLBFrontendIpConfiguration> frontendIpConfigurations) {
             this.frontendIpConfigurations = Objects.requireNonNull(frontendIpConfigurations);
             return this;
@@ -179,22 +155,27 @@ public final class GetLBResult {
         public Builder frontendIpConfigurations(GetLBFrontendIpConfiguration... frontendIpConfigurations) {
             return frontendIpConfigurations(List.of(frontendIpConfigurations));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddresses(List<String> privateIpAddresses) {
             this.privateIpAddresses = Objects.requireNonNull(privateIpAddresses);
             return this;
@@ -202,19 +183,33 @@ public final class GetLBResult {
         public Builder privateIpAddresses(String... privateIpAddresses) {
             return privateIpAddresses(List.of(privateIpAddresses));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetLBResult build() {
-            return new GetLBResult(frontendIpConfigurations, id, location, name, privateIpAddress, privateIpAddresses, resourceGroupName, sku, tags);
+        }
+        public GetLBResult build() {
+            final var o = new GetLBResult();
+            o.frontendIpConfigurations = frontendIpConfigurations;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddresses = privateIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            return o;
         }
     }
 }

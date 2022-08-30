@@ -13,65 +13,42 @@ import java.util.Objects;
 
 @CustomType
 public final class GetConfidentialLedgerResult {
-    private final List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals;
-    private final List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals;
+    private List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals;
+    private List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Identity Service Endpoint for this Confidential Ledger.
      * 
      */
-    private final String identityServiceEndpoint;
+    private String identityServiceEndpoint;
     /**
      * @return The Endpoint for this Confidential Ledger.
      * 
      */
-    private final String ledgerEndpoint;
+    private String ledgerEndpoint;
     /**
      * @return The type of Confidential Ledger.
      * 
      */
-    private final String ledgerType;
+    private String ledgerType;
     /**
      * @return The supported Azure location where the Confidential Ledger exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags to assign to the Confidential Ledger.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetConfidentialLedgerResult(
-        @CustomType.Parameter("azureadBasedServicePrincipals") List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals,
-        @CustomType.Parameter("certificateBasedSecurityPrincipals") List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identityServiceEndpoint") String identityServiceEndpoint,
-        @CustomType.Parameter("ledgerEndpoint") String ledgerEndpoint,
-        @CustomType.Parameter("ledgerType") String ledgerType,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
-        this.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
-        this.id = id;
-        this.identityServiceEndpoint = identityServiceEndpoint;
-        this.ledgerEndpoint = ledgerEndpoint;
-        this.ledgerType = ledgerType;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetConfidentialLedgerResult() {}
     public List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals() {
         return this.azureadBasedServicePrincipals;
     }
@@ -134,7 +111,7 @@ public final class GetConfidentialLedgerResult {
     public static Builder builder(GetConfidentialLedgerResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals;
         private List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals;
@@ -146,11 +123,7 @@ public final class GetConfidentialLedgerResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetConfidentialLedgerResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureadBasedServicePrincipals = defaults.azureadBasedServicePrincipals;
@@ -165,6 +138,7 @@ public final class GetConfidentialLedgerResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder azureadBasedServicePrincipals(List<GetConfidentialLedgerAzureadBasedServicePrincipal> azureadBasedServicePrincipals) {
             this.azureadBasedServicePrincipals = Objects.requireNonNull(azureadBasedServicePrincipals);
             return this;
@@ -172,6 +146,7 @@ public final class GetConfidentialLedgerResult {
         public Builder azureadBasedServicePrincipals(GetConfidentialLedgerAzureadBasedServicePrincipal... azureadBasedServicePrincipals) {
             return azureadBasedServicePrincipals(List.of(azureadBasedServicePrincipals));
         }
+        @CustomType.Setter
         public Builder certificateBasedSecurityPrincipals(List<GetConfidentialLedgerCertificateBasedSecurityPrincipal> certificateBasedSecurityPrincipals) {
             this.certificateBasedSecurityPrincipals = Objects.requireNonNull(certificateBasedSecurityPrincipals);
             return this;
@@ -179,39 +154,59 @@ public final class GetConfidentialLedgerResult {
         public Builder certificateBasedSecurityPrincipals(GetConfidentialLedgerCertificateBasedSecurityPrincipal... certificateBasedSecurityPrincipals) {
             return certificateBasedSecurityPrincipals(List.of(certificateBasedSecurityPrincipals));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identityServiceEndpoint(String identityServiceEndpoint) {
             this.identityServiceEndpoint = Objects.requireNonNull(identityServiceEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder ledgerEndpoint(String ledgerEndpoint) {
             this.ledgerEndpoint = Objects.requireNonNull(ledgerEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder ledgerType(String ledgerType) {
             this.ledgerType = Objects.requireNonNull(ledgerType);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetConfidentialLedgerResult build() {
-            return new GetConfidentialLedgerResult(azureadBasedServicePrincipals, certificateBasedSecurityPrincipals, id, identityServiceEndpoint, ledgerEndpoint, ledgerType, location, name, resourceGroupName, tags);
+        }
+        public GetConfidentialLedgerResult build() {
+            final var o = new GetConfidentialLedgerResult();
+            o.azureadBasedServicePrincipals = azureadBasedServicePrincipals;
+            o.certificateBasedSecurityPrincipals = certificateBasedSecurityPrincipals;
+            o.id = id;
+            o.identityServiceEndpoint = identityServiceEndpoint;
+            o.ledgerEndpoint = ledgerEndpoint;
+            o.ledgerType = ledgerType;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

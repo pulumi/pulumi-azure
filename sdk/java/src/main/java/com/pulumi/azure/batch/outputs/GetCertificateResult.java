@@ -9,55 +9,36 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCertificateResult {
-    private final String accountName;
+    private String accountName;
     /**
      * @return The format of the certificate, such as `Cer` or `Pfx`.
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The public key of the certificate.
      * 
      */
-    private final String publicData;
-    private final String resourceGroupName;
+    private String publicData;
+    private String resourceGroupName;
     /**
      * @return The thumbprint of the certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
     /**
      * @return The algorithm of the certificate thumbprint.
      * 
      */
-    private final String thumbprintAlgorithm;
+    private String thumbprintAlgorithm;
 
-    @CustomType.Constructor
-    private GetCertificateResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicData") String publicData,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("thumbprint") String thumbprint,
-        @CustomType.Parameter("thumbprintAlgorithm") String thumbprintAlgorithm) {
-        this.accountName = accountName;
-        this.format = format;
-        this.id = id;
-        this.name = name;
-        this.publicData = publicData;
-        this.resourceGroupName = resourceGroupName;
-        this.thumbprint = thumbprint;
-        this.thumbprintAlgorithm = thumbprintAlgorithm;
-    }
-
+    private GetCertificateResult() {}
     public String accountName() {
         return this.accountName;
     }
@@ -110,7 +91,7 @@ public final class GetCertificateResult {
     public static Builder builder(GetCertificateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String format;
@@ -120,11 +101,7 @@ public final class GetCertificateResult {
         private String resourceGroupName;
         private String thumbprint;
         private String thumbprintAlgorithm;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -137,39 +114,57 @@ public final class GetCertificateResult {
     	      this.thumbprintAlgorithm = defaults.thumbprintAlgorithm;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicData(String publicData) {
             this.publicData = Objects.requireNonNull(publicData);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprintAlgorithm(String thumbprintAlgorithm) {
             this.thumbprintAlgorithm = Objects.requireNonNull(thumbprintAlgorithm);
             return this;
-        }        public GetCertificateResult build() {
-            return new GetCertificateResult(accountName, format, id, name, publicData, resourceGroupName, thumbprint, thumbprintAlgorithm);
+        }
+        public GetCertificateResult build() {
+            final var o = new GetCertificateResult();
+            o.accountName = accountName;
+            o.format = format;
+            o.id = id;
+            o.name = name;
+            o.publicData = publicData;
+            o.resourceGroupName = resourceGroupName;
+            o.thumbprint = thumbprint;
+            o.thumbprintAlgorithm = thumbprintAlgorithm;
+            return o;
         }
     }
 }

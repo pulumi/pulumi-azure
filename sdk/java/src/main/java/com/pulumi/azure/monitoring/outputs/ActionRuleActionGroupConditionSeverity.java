@@ -14,21 +14,14 @@ public final class ActionRuleActionGroupConditionSeverity {
      * @return The operator for a given condition. Possible values are `Equals`and `NotEquals`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return A list of values to match for a given condition. Possible values are `Sev0`, `Sev1`, `Sev2`, `Sev3`, and `Sev4`.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private ActionRuleActionGroupConditionSeverity(
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("values") List<String> values) {
-        this.operator = operator;
-        this.values = values;
-    }
-
+    private ActionRuleActionGroupConditionSeverity() {}
     /**
      * @return The operator for a given condition. Possible values are `Equals`and `NotEquals`.
      * 
@@ -51,33 +44,35 @@ public final class ActionRuleActionGroupConditionSeverity {
     public static Builder builder(ActionRuleActionGroupConditionSeverity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String operator;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleActionGroupConditionSeverity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ActionRuleActionGroupConditionSeverity build() {
-            return new ActionRuleActionGroupConditionSeverity(operator, values);
+        }
+        public ActionRuleActionGroupConditionSeverity build() {
+            final var o = new ActionRuleActionGroupConditionSeverity();
+            o.operator = operator;
+            o.values = values;
+            return o;
         }
     }
 }

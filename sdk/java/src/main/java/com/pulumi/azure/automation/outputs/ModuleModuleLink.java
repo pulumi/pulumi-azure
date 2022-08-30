@@ -12,21 +12,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ModuleModuleLink {
-    private final @Nullable ModuleModuleLinkHash hash;
+    private @Nullable ModuleModuleLinkHash hash;
     /**
      * @return The URI of the module content (zip or nupkg).
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private ModuleModuleLink(
-        @CustomType.Parameter("hash") @Nullable ModuleModuleLinkHash hash,
-        @CustomType.Parameter("uri") String uri) {
-        this.hash = hash;
-        this.uri = uri;
-    }
-
+    private ModuleModuleLink() {}
     public Optional<ModuleModuleLinkHash> hash() {
         return Optional.ofNullable(this.hash);
     }
@@ -45,30 +38,32 @@ public final class ModuleModuleLink {
     public static Builder builder(ModuleModuleLink defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ModuleModuleLinkHash hash;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ModuleModuleLink defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hash = defaults.hash;
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder hash(@Nullable ModuleModuleLinkHash hash) {
             this.hash = hash;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public ModuleModuleLink build() {
-            return new ModuleModuleLink(hash, uri);
+        }
+        public ModuleModuleLink build() {
+            final var o = new ModuleModuleLink();
+            o.hash = hash;
+            o.uri = uri;
+            return o;
         }
     }
 }

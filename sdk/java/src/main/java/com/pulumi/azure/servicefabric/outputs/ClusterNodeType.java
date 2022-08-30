@@ -20,98 +20,69 @@ public final class ClusterNodeType {
      * @return A `application_ports` block as defined below.
      * 
      */
-    private final @Nullable ClusterNodeTypeApplicationPorts applicationPorts;
+    private @Nullable ClusterNodeTypeApplicationPorts applicationPorts;
     /**
      * @return The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      * 
      */
-    private final @Nullable Map<String,String> capacities;
+    private @Nullable Map<String,String> capacities;
     /**
      * @return The Port used for the Client Endpoint for this Node Type. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer clientEndpointPort;
+    private Integer clientEndpointPort;
     /**
      * @return The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String durabilityLevel;
+    private @Nullable String durabilityLevel;
     /**
      * @return A `ephemeral_ports` block as defined below.
      * 
      */
-    private final @Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts;
+    private @Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts;
     /**
      * @return The Port used for the HTTP Endpoint for this Node Type. Changing this forces a new resource to be created.
      * 
      */
-    private final Integer httpEndpointPort;
+    private Integer httpEndpointPort;
     /**
      * @return The number of nodes for this Node Type.
      * 
      */
-    private final Integer instanceCount;
+    private Integer instanceCount;
     /**
      * @return Is this the Primary Node Type? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean isPrimary;
+    private Boolean isPrimary;
     /**
      * @return Should this node type run only stateless services?
      * 
      */
-    private final @Nullable Boolean isStateless;
+    private @Nullable Boolean isStateless;
     /**
      * @return Does this node type span availability zones?
      * 
      */
-    private final @Nullable Boolean multipleAvailabilityZones;
+    private @Nullable Boolean multipleAvailabilityZones;
     /**
      * @return The name of the Node Type. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      * 
      */
-    private final @Nullable Map<String,String> placementProperties;
+    private @Nullable Map<String,String> placementProperties;
     /**
      * @return The Port used for the Reverse Proxy Endpoint  for this Node Type. Changing this will upgrade the cluster.
      * 
      */
-    private final @Nullable Integer reverseProxyEndpointPort;
+    private @Nullable Integer reverseProxyEndpointPort;
 
-    @CustomType.Constructor
-    private ClusterNodeType(
-        @CustomType.Parameter("applicationPorts") @Nullable ClusterNodeTypeApplicationPorts applicationPorts,
-        @CustomType.Parameter("capacities") @Nullable Map<String,String> capacities,
-        @CustomType.Parameter("clientEndpointPort") Integer clientEndpointPort,
-        @CustomType.Parameter("durabilityLevel") @Nullable String durabilityLevel,
-        @CustomType.Parameter("ephemeralPorts") @Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts,
-        @CustomType.Parameter("httpEndpointPort") Integer httpEndpointPort,
-        @CustomType.Parameter("instanceCount") Integer instanceCount,
-        @CustomType.Parameter("isPrimary") Boolean isPrimary,
-        @CustomType.Parameter("isStateless") @Nullable Boolean isStateless,
-        @CustomType.Parameter("multipleAvailabilityZones") @Nullable Boolean multipleAvailabilityZones,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("placementProperties") @Nullable Map<String,String> placementProperties,
-        @CustomType.Parameter("reverseProxyEndpointPort") @Nullable Integer reverseProxyEndpointPort) {
-        this.applicationPorts = applicationPorts;
-        this.capacities = capacities;
-        this.clientEndpointPort = clientEndpointPort;
-        this.durabilityLevel = durabilityLevel;
-        this.ephemeralPorts = ephemeralPorts;
-        this.httpEndpointPort = httpEndpointPort;
-        this.instanceCount = instanceCount;
-        this.isPrimary = isPrimary;
-        this.isStateless = isStateless;
-        this.multipleAvailabilityZones = multipleAvailabilityZones;
-        this.name = name;
-        this.placementProperties = placementProperties;
-        this.reverseProxyEndpointPort = reverseProxyEndpointPort;
-    }
-
+    private ClusterNodeType() {}
     /**
      * @return A `application_ports` block as defined below.
      * 
@@ -211,7 +182,7 @@ public final class ClusterNodeType {
     public static Builder builder(ClusterNodeType defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable ClusterNodeTypeApplicationPorts applicationPorts;
         private @Nullable Map<String,String> capacities;
@@ -226,11 +197,7 @@ public final class ClusterNodeType {
         private String name;
         private @Nullable Map<String,String> placementProperties;
         private @Nullable Integer reverseProxyEndpointPort;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterNodeType defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationPorts = defaults.applicationPorts;
@@ -248,59 +215,87 @@ public final class ClusterNodeType {
     	      this.reverseProxyEndpointPort = defaults.reverseProxyEndpointPort;
         }
 
+        @CustomType.Setter
         public Builder applicationPorts(@Nullable ClusterNodeTypeApplicationPorts applicationPorts) {
             this.applicationPorts = applicationPorts;
             return this;
         }
+        @CustomType.Setter
         public Builder capacities(@Nullable Map<String,String> capacities) {
             this.capacities = capacities;
             return this;
         }
+        @CustomType.Setter
         public Builder clientEndpointPort(Integer clientEndpointPort) {
             this.clientEndpointPort = Objects.requireNonNull(clientEndpointPort);
             return this;
         }
+        @CustomType.Setter
         public Builder durabilityLevel(@Nullable String durabilityLevel) {
             this.durabilityLevel = durabilityLevel;
             return this;
         }
+        @CustomType.Setter
         public Builder ephemeralPorts(@Nullable ClusterNodeTypeEphemeralPorts ephemeralPorts) {
             this.ephemeralPorts = ephemeralPorts;
             return this;
         }
+        @CustomType.Setter
         public Builder httpEndpointPort(Integer httpEndpointPort) {
             this.httpEndpointPort = Objects.requireNonNull(httpEndpointPort);
             return this;
         }
+        @CustomType.Setter
         public Builder instanceCount(Integer instanceCount) {
             this.instanceCount = Objects.requireNonNull(instanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder isPrimary(Boolean isPrimary) {
             this.isPrimary = Objects.requireNonNull(isPrimary);
             return this;
         }
+        @CustomType.Setter
         public Builder isStateless(@Nullable Boolean isStateless) {
             this.isStateless = isStateless;
             return this;
         }
+        @CustomType.Setter
         public Builder multipleAvailabilityZones(@Nullable Boolean multipleAvailabilityZones) {
             this.multipleAvailabilityZones = multipleAvailabilityZones;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder placementProperties(@Nullable Map<String,String> placementProperties) {
             this.placementProperties = placementProperties;
             return this;
         }
+        @CustomType.Setter
         public Builder reverseProxyEndpointPort(@Nullable Integer reverseProxyEndpointPort) {
             this.reverseProxyEndpointPort = reverseProxyEndpointPort;
             return this;
-        }        public ClusterNodeType build() {
-            return new ClusterNodeType(applicationPorts, capacities, clientEndpointPort, durabilityLevel, ephemeralPorts, httpEndpointPort, instanceCount, isPrimary, isStateless, multipleAvailabilityZones, name, placementProperties, reverseProxyEndpointPort);
+        }
+        public ClusterNodeType build() {
+            final var o = new ClusterNodeType();
+            o.applicationPorts = applicationPorts;
+            o.capacities = capacities;
+            o.clientEndpointPort = clientEndpointPort;
+            o.durabilityLevel = durabilityLevel;
+            o.ephemeralPorts = ephemeralPorts;
+            o.httpEndpointPort = httpEndpointPort;
+            o.instanceCount = instanceCount;
+            o.isPrimary = isPrimary;
+            o.isStateless = isStateless;
+            o.multipleAvailabilityZones = multipleAvailabilityZones;
+            o.name = name;
+            o.placementProperties = placementProperties;
+            o.reverseProxyEndpointPort = reverseProxyEndpointPort;
+            return o;
         }
     }
 }

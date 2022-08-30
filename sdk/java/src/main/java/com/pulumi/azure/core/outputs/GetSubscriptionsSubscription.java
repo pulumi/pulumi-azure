@@ -14,70 +14,49 @@ public final class GetSubscriptionsSubscription {
      * @return The subscription display name.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The ID of this subscription.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The subscription location placement ID.
      * 
      */
-    private final String locationPlacementId;
+    private String locationPlacementId;
     /**
      * @return The subscription quota ID.
      * 
      */
-    private final String quotaId;
+    private String quotaId;
     /**
      * @return The subscription spending limit.
      * 
      */
-    private final String spendingLimit;
+    private String spendingLimit;
     /**
      * @return The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted.
      * 
      */
-    private final String state;
+    private String state;
     /**
      * @return The subscription GUID.
      * 
      */
-    private final String subscriptionId;
+    private String subscriptionId;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The subscription tenant ID.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetSubscriptionsSubscription(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("locationPlacementId") String locationPlacementId,
-        @CustomType.Parameter("quotaId") String quotaId,
-        @CustomType.Parameter("spendingLimit") String spendingLimit,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("subscriptionId") String subscriptionId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.displayName = displayName;
-        this.id = id;
-        this.locationPlacementId = locationPlacementId;
-        this.quotaId = quotaId;
-        this.spendingLimit = spendingLimit;
-        this.state = state;
-        this.subscriptionId = subscriptionId;
-        this.tags = tags;
-        this.tenantId = tenantId;
-    }
-
+    private GetSubscriptionsSubscription() {}
     /**
      * @return The subscription display name.
      * 
@@ -149,7 +128,7 @@ public final class GetSubscriptionsSubscription {
     public static Builder builder(GetSubscriptionsSubscription defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String id;
@@ -160,11 +139,7 @@ public final class GetSubscriptionsSubscription {
         private String subscriptionId;
         private Map<String,String> tags;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubscriptionsSubscription defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -178,43 +153,63 @@ public final class GetSubscriptionsSubscription {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder locationPlacementId(String locationPlacementId) {
             this.locationPlacementId = Objects.requireNonNull(locationPlacementId);
             return this;
         }
+        @CustomType.Setter
         public Builder quotaId(String quotaId) {
             this.quotaId = Objects.requireNonNull(quotaId);
             return this;
         }
+        @CustomType.Setter
         public Builder spendingLimit(String spendingLimit) {
             this.spendingLimit = Objects.requireNonNull(spendingLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
             this.subscriptionId = Objects.requireNonNull(subscriptionId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetSubscriptionsSubscription build() {
-            return new GetSubscriptionsSubscription(displayName, id, locationPlacementId, quotaId, spendingLimit, state, subscriptionId, tags, tenantId);
+        }
+        public GetSubscriptionsSubscription build() {
+            final var o = new GetSubscriptionsSubscription();
+            o.displayName = displayName;
+            o.id = id;
+            o.locationPlacementId = locationPlacementId;
+            o.quotaId = quotaId;
+            o.spendingLimit = spendingLimit;
+            o.state = state;
+            o.subscriptionId = subscriptionId;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

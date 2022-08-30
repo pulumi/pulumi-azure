@@ -13,37 +13,22 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetPublicIPsResult {
-    private final @Nullable String allocationType;
-    private final @Nullable String attachmentStatus;
+    private @Nullable String allocationType;
+    private @Nullable String attachmentStatus;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String namePrefix;
+    private String id;
+    private @Nullable String namePrefix;
     /**
      * @return A List of `public_ips` blocks as defined below filtered by the criteria above.
      * 
      */
-    private final List<GetPublicIPsPublicIp> publicIps;
-    private final String resourceGroupName;
+    private List<GetPublicIPsPublicIp> publicIps;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetPublicIPsResult(
-        @CustomType.Parameter("allocationType") @Nullable String allocationType,
-        @CustomType.Parameter("attachmentStatus") @Nullable String attachmentStatus,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("namePrefix") @Nullable String namePrefix,
-        @CustomType.Parameter("publicIps") List<GetPublicIPsPublicIp> publicIps,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.allocationType = allocationType;
-        this.attachmentStatus = attachmentStatus;
-        this.id = id;
-        this.namePrefix = namePrefix;
-        this.publicIps = publicIps;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetPublicIPsResult() {}
     public Optional<String> allocationType() {
         return Optional.ofNullable(this.allocationType);
     }
@@ -78,7 +63,7 @@ public final class GetPublicIPsResult {
     public static Builder builder(GetPublicIPsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String allocationType;
         private @Nullable String attachmentStatus;
@@ -86,11 +71,7 @@ public final class GetPublicIPsResult {
         private @Nullable String namePrefix;
         private List<GetPublicIPsPublicIp> publicIps;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicIPsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationType = defaults.allocationType;
@@ -101,22 +82,27 @@ public final class GetPublicIPsResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder allocationType(@Nullable String allocationType) {
             this.allocationType = allocationType;
             return this;
         }
+        @CustomType.Setter
         public Builder attachmentStatus(@Nullable String attachmentStatus) {
             this.attachmentStatus = attachmentStatus;
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder namePrefix(@Nullable String namePrefix) {
             this.namePrefix = namePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIps(List<GetPublicIPsPublicIp> publicIps) {
             this.publicIps = Objects.requireNonNull(publicIps);
             return this;
@@ -124,11 +110,20 @@ public final class GetPublicIPsResult {
         public Builder publicIps(GetPublicIPsPublicIp... publicIps) {
             return publicIps(List.of(publicIps));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetPublicIPsResult build() {
-            return new GetPublicIPsResult(allocationType, attachmentStatus, id, namePrefix, publicIps, resourceGroupName);
+        }
+        public GetPublicIPsResult build() {
+            final var o = new GetPublicIPsResult();
+            o.allocationType = allocationType;
+            o.attachmentStatus = attachmentStatus;
+            o.id = id;
+            o.namePrefix = namePrefix;
+            o.publicIps = publicIps;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

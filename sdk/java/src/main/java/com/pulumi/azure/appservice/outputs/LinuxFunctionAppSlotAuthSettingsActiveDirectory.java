@@ -16,35 +16,24 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
      * @return an `allowed_audiences` block as detailed below.
      * 
      */
-    private final @Nullable List<String> allowedAudiences;
+    private @Nullable List<String> allowedAudiences;
     /**
      * @return The ID of the Client to use to authenticate with Azure Active Directory.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The Client Secret for the Client ID. Cannot be used with `client_secret_setting_name`.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The App Setting name that contains the client secret of the Client. Cannot be used with `client_secret`.
      * 
      */
-    private final @Nullable String clientSecretSettingName;
+    private @Nullable String clientSecretSettingName;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppSlotAuthSettingsActiveDirectory(
-        @CustomType.Parameter("allowedAudiences") @Nullable List<String> allowedAudiences,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") @Nullable String clientSecretSettingName) {
-        this.allowedAudiences = allowedAudiences;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-    }
-
+    private LinuxFunctionAppSlotAuthSettingsActiveDirectory() {}
     /**
      * @return an `allowed_audiences` block as detailed below.
      * 
@@ -81,17 +70,13 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
     public static Builder builder(LinuxFunctionAppSlotAuthSettingsActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedAudiences;
         private String clientId;
         private @Nullable String clientSecret;
         private @Nullable String clientSecretSettingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppSlotAuthSettingsActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
@@ -100,6 +85,7 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
     	      this.clientSecretSettingName = defaults.clientSecretSettingName;
         }
 
+        @CustomType.Setter
         public Builder allowedAudiences(@Nullable List<String> allowedAudiences) {
             this.allowedAudiences = allowedAudiences;
             return this;
@@ -107,19 +93,28 @@ public final class LinuxFunctionAppSlotAuthSettingsActiveDirectory {
         public Builder allowedAudiences(String... allowedAudiences) {
             return allowedAudiences(List.of(allowedAudiences));
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
-        }        public LinuxFunctionAppSlotAuthSettingsActiveDirectory build() {
-            return new LinuxFunctionAppSlotAuthSettingsActiveDirectory(allowedAudiences, clientId, clientSecret, clientSecretSettingName);
+        }
+        public LinuxFunctionAppSlotAuthSettingsActiveDirectory build() {
+            final var o = new LinuxFunctionAppSlotAuthSettingsActiveDirectory();
+            o.allowedAudiences = allowedAudiences;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAu
      * @return The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username that&#39;s used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth() {}
     /**
      * @return The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
      * 
@@ -50,30 +43,32 @@ public final class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAu
     public static Builder builder(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth build() {
-            return new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(password, username);
+        }
+        public SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth build() {
+            final var o = new SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

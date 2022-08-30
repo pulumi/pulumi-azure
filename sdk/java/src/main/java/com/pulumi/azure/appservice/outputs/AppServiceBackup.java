@@ -17,35 +17,24 @@ public final class AppServiceBackup {
      * @return Is this Backup enabled?
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return Specifies the name for this Backup.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schedule` block as defined below.
      * 
      */
-    private final AppServiceBackupSchedule schedule;
+    private AppServiceBackupSchedule schedule;
     /**
      * @return The SAS URL to a Storage Container where Backups should be saved.
      * 
      */
-    private final String storageAccountUrl;
+    private String storageAccountUrl;
 
-    @CustomType.Constructor
-    private AppServiceBackup(
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedule") AppServiceBackupSchedule schedule,
-        @CustomType.Parameter("storageAccountUrl") String storageAccountUrl) {
-        this.enabled = enabled;
-        this.name = name;
-        this.schedule = schedule;
-        this.storageAccountUrl = storageAccountUrl;
-    }
-
+    private AppServiceBackup() {}
     /**
      * @return Is this Backup enabled?
      * 
@@ -82,17 +71,13 @@ public final class AppServiceBackup {
     public static Builder builder(AppServiceBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean enabled;
         private String name;
         private AppServiceBackupSchedule schedule;
         private String storageAccountUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -101,23 +86,33 @@ public final class AppServiceBackup {
     	      this.storageAccountUrl = defaults.storageAccountUrl;
         }
 
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(AppServiceBackupSchedule schedule) {
             this.schedule = Objects.requireNonNull(schedule);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
             this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
             return this;
-        }        public AppServiceBackup build() {
-            return new AppServiceBackup(enabled, name, schedule, storageAccountUrl);
+        }
+        public AppServiceBackup build() {
+            final var o = new AppServiceBackup();
+            o.enabled = enabled;
+            o.name = name;
+            o.schedule = schedule;
+            o.storageAccountUrl = storageAccountUrl;
+            return o;
         }
     }
 }

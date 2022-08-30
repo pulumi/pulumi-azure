@@ -13,21 +13,14 @@ public final class ChannelFacebookPage {
      * @return The Facebook Page Access Token for the Facebook Channel.
      * 
      */
-    private final String accessToken;
+    private String accessToken;
     /**
      * @return The Facebook Page ID for the Facebook Channel.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private ChannelFacebookPage(
-        @CustomType.Parameter("accessToken") String accessToken,
-        @CustomType.Parameter("id") String id) {
-        this.accessToken = accessToken;
-        this.id = id;
-    }
-
+    private ChannelFacebookPage() {}
     /**
      * @return The Facebook Page Access Token for the Facebook Channel.
      * 
@@ -50,30 +43,32 @@ public final class ChannelFacebookPage {
     public static Builder builder(ChannelFacebookPage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accessToken;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ChannelFacebookPage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accessToken(String accessToken) {
             this.accessToken = Objects.requireNonNull(accessToken);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public ChannelFacebookPage build() {
-            return new ChannelFacebookPage(accessToken, id);
+        }
+        public ChannelFacebookPage build() {
+            final var o = new ChannelFacebookPage();
+            o.accessToken = accessToken;
+            o.id = id;
+            return o;
         }
     }
 }

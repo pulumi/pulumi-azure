@@ -14,21 +14,14 @@ public final class CacheIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Only possible value is `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private CacheIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.type = type;
-    }
-
+    private CacheIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache.
      * 
@@ -51,21 +44,18 @@ public final class CacheIdentity {
     public static Builder builder(CacheIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CacheIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,11 +63,16 @@ public final class CacheIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public CacheIdentity build() {
-            return new CacheIdentity(identityIds, type);
+        }
+        public CacheIdentity build() {
+            final var o = new CacheIdentity();
+            o.identityIds = identityIds;
+            o.type = type;
+            return o;
         }
     }
 }

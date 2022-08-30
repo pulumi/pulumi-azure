@@ -16,28 +16,19 @@ public final class ManagementPolicyRuleFilters {
      * @return An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
      * 
      */
-    private final List<String> blobTypes;
+    private List<String> blobTypes;
     /**
      * @return A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
      */
-    private final @Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags;
+    private @Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags;
     /**
      * @return An array of strings for prefixes to be matched.
      * 
      */
-    private final @Nullable List<String> prefixMatches;
+    private @Nullable List<String> prefixMatches;
 
-    @CustomType.Constructor
-    private ManagementPolicyRuleFilters(
-        @CustomType.Parameter("blobTypes") List<String> blobTypes,
-        @CustomType.Parameter("matchBlobIndexTags") @Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags,
-        @CustomType.Parameter("prefixMatches") @Nullable List<String> prefixMatches) {
-        this.blobTypes = blobTypes;
-        this.matchBlobIndexTags = matchBlobIndexTags;
-        this.prefixMatches = prefixMatches;
-    }
-
+    private ManagementPolicyRuleFilters() {}
     /**
      * @return An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
      * 
@@ -67,16 +58,12 @@ public final class ManagementPolicyRuleFilters {
     public static Builder builder(ManagementPolicyRuleFilters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> blobTypes;
         private @Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags;
         private @Nullable List<String> prefixMatches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagementPolicyRuleFilters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
@@ -84,6 +71,7 @@ public final class ManagementPolicyRuleFilters {
     	      this.prefixMatches = defaults.prefixMatches;
         }
 
+        @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
             this.blobTypes = Objects.requireNonNull(blobTypes);
             return this;
@@ -91,6 +79,7 @@ public final class ManagementPolicyRuleFilters {
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
         }
+        @CustomType.Setter
         public Builder matchBlobIndexTags(@Nullable List<ManagementPolicyRuleFiltersMatchBlobIndexTag> matchBlobIndexTags) {
             this.matchBlobIndexTags = matchBlobIndexTags;
             return this;
@@ -98,14 +87,20 @@ public final class ManagementPolicyRuleFilters {
         public Builder matchBlobIndexTags(ManagementPolicyRuleFiltersMatchBlobIndexTag... matchBlobIndexTags) {
             return matchBlobIndexTags(List.of(matchBlobIndexTags));
         }
+        @CustomType.Setter
         public Builder prefixMatches(@Nullable List<String> prefixMatches) {
             this.prefixMatches = prefixMatches;
             return this;
         }
         public Builder prefixMatches(String... prefixMatches) {
             return prefixMatches(List.of(prefixMatches));
-        }        public ManagementPolicyRuleFilters build() {
-            return new ManagementPolicyRuleFilters(blobTypes, matchBlobIndexTags, prefixMatches);
+        }
+        public ManagementPolicyRuleFilters build() {
+            final var o = new ManagementPolicyRuleFilters();
+            o.blobTypes = blobTypes;
+            o.matchBlobIndexTags = matchBlobIndexTags;
+            o.prefixMatches = prefixMatches;
+            return o;
         }
     }
 }

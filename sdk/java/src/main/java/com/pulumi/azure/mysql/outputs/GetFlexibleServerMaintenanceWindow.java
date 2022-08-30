@@ -13,28 +13,19 @@ public final class GetFlexibleServerMaintenanceWindow {
      * @return The day of week of the maintenance window.
      * 
      */
-    private final Integer dayOfWeek;
+    private Integer dayOfWeek;
     /**
      * @return The start hour of the maintenance window.
      * 
      */
-    private final Integer startHour;
+    private Integer startHour;
     /**
      * @return The start minute of the maintenance window.
      * 
      */
-    private final Integer startMinute;
+    private Integer startMinute;
 
-    @CustomType.Constructor
-    private GetFlexibleServerMaintenanceWindow(
-        @CustomType.Parameter("dayOfWeek") Integer dayOfWeek,
-        @CustomType.Parameter("startHour") Integer startHour,
-        @CustomType.Parameter("startMinute") Integer startMinute) {
-        this.dayOfWeek = dayOfWeek;
-        this.startHour = startHour;
-        this.startMinute = startMinute;
-    }
-
+    private GetFlexibleServerMaintenanceWindow() {}
     /**
      * @return The day of week of the maintenance window.
      * 
@@ -64,16 +55,12 @@ public final class GetFlexibleServerMaintenanceWindow {
     public static Builder builder(GetFlexibleServerMaintenanceWindow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer dayOfWeek;
         private Integer startHour;
         private Integer startMinute;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFlexibleServerMaintenanceWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfWeek = defaults.dayOfWeek;
@@ -81,19 +68,27 @@ public final class GetFlexibleServerMaintenanceWindow {
     	      this.startMinute = defaults.startMinute;
         }
 
+        @CustomType.Setter
         public Builder dayOfWeek(Integer dayOfWeek) {
             this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
             return this;
         }
+        @CustomType.Setter
         public Builder startHour(Integer startHour) {
             this.startHour = Objects.requireNonNull(startHour);
             return this;
         }
+        @CustomType.Setter
         public Builder startMinute(Integer startMinute) {
             this.startMinute = Objects.requireNonNull(startMinute);
             return this;
-        }        public GetFlexibleServerMaintenanceWindow build() {
-            return new GetFlexibleServerMaintenanceWindow(dayOfWeek, startHour, startMinute);
+        }
+        public GetFlexibleServerMaintenanceWindow build() {
+            final var o = new GetFlexibleServerMaintenanceWindow();
+            o.dayOfWeek = dayOfWeek;
+            o.startHour = startHour;
+            o.startMinute = startMinute;
+            return o;
         }
     }
 }

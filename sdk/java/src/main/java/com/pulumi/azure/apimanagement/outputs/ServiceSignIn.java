@@ -13,13 +13,9 @@ public final class ServiceSignIn {
      * @return Should anonymous users be redirected to the sign in page?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
 
-    @CustomType.Constructor
-    private ServiceSignIn(@CustomType.Parameter("enabled") Boolean enabled) {
-        this.enabled = enabled;
-    }
-
+    private ServiceSignIn() {}
     /**
      * @return Should anonymous users be redirected to the sign in page?
      * 
@@ -35,24 +31,24 @@ public final class ServiceSignIn {
     public static Builder builder(ServiceSignIn defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSignIn defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
-        }        public ServiceSignIn build() {
-            return new ServiceSignIn(enabled);
+        }
+        public ServiceSignIn build() {
+            final var o = new ServiceSignIn();
+            o.enabled = enabled;
+            return o;
         }
     }
 }

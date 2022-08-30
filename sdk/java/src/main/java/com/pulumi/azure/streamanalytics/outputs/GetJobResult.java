@@ -16,118 +16,81 @@ public final class GetJobResult {
      * @return The compatibility level for this job.
      * 
      */
-    private final String compatibilityLevel;
+    private String compatibilityLevel;
     /**
      * @return The Data Locale of the Job.
      * 
      */
-    private final String dataLocale;
+    private String dataLocale;
     /**
      * @return The maximum tolerable delay in seconds where events arriving late could be included.
      * 
      */
-    private final Integer eventsLateArrivalMaxDelayInSeconds;
+    private Integer eventsLateArrivalMaxDelayInSeconds;
     /**
      * @return The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
      * 
      */
-    private final Integer eventsOutOfOrderMaxDelayInSeconds;
+    private Integer eventsOutOfOrderMaxDelayInSeconds;
     /**
      * @return The policy which should be applied to events which arrive out of order in the input event stream.
      * 
      */
-    private final String eventsOutOfOrderPolicy;
+    private String eventsOutOfOrderPolicy;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as defined below.
      * 
      */
-    private final List<GetJobIdentity> identities;
+    private List<GetJobIdentity> identities;
     /**
      * @return The Job ID assigned by the Stream Analytics Job.
      * 
      */
-    private final String jobId;
+    private String jobId;
     /**
      * @return The time at which the Stream Analytics job last produced an output.
      * 
      */
-    private final String lastOutputTime;
+    private String lastOutputTime;
     /**
      * @return The Azure location where the Stream Analytics Job exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The policy which should be applied to events which arrive at the output and cannot be written to the external storage due to being malformed (such as missing column values, column values of wrong type or size).
      * 
      */
-    private final String outputErrorPolicy;
-    private final String resourceGroupName;
+    private String outputErrorPolicy;
+    private String resourceGroupName;
     /**
      * @return The starting mode set for this Stream Analytics Job.
      * 
      */
-    private final String startMode;
+    private String startMode;
     /**
      * @return The time at which this Stream Analytics Job was scheduled to start.
      * 
      */
-    private final String startTime;
+    private String startTime;
     /**
      * @return The number of streaming units that this Stream Analytics Job uses.
      * 
      */
-    private final Integer streamingUnits;
+    private Integer streamingUnits;
     /**
      * @return The query that will be run in this Stream Analytics Job, [written in Stream Analytics Query Language (SAQL)](https://msdn.microsoft.com/library/azure/dn834998).
      * 
      */
-    private final String transformationQuery;
+    private String transformationQuery;
 
-    @CustomType.Constructor
-    private GetJobResult(
-        @CustomType.Parameter("compatibilityLevel") String compatibilityLevel,
-        @CustomType.Parameter("dataLocale") String dataLocale,
-        @CustomType.Parameter("eventsLateArrivalMaxDelayInSeconds") Integer eventsLateArrivalMaxDelayInSeconds,
-        @CustomType.Parameter("eventsOutOfOrderMaxDelayInSeconds") Integer eventsOutOfOrderMaxDelayInSeconds,
-        @CustomType.Parameter("eventsOutOfOrderPolicy") String eventsOutOfOrderPolicy,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetJobIdentity> identities,
-        @CustomType.Parameter("jobId") String jobId,
-        @CustomType.Parameter("lastOutputTime") String lastOutputTime,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outputErrorPolicy") String outputErrorPolicy,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("startMode") String startMode,
-        @CustomType.Parameter("startTime") String startTime,
-        @CustomType.Parameter("streamingUnits") Integer streamingUnits,
-        @CustomType.Parameter("transformationQuery") String transformationQuery) {
-        this.compatibilityLevel = compatibilityLevel;
-        this.dataLocale = dataLocale;
-        this.eventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
-        this.eventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
-        this.eventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
-        this.id = id;
-        this.identities = identities;
-        this.jobId = jobId;
-        this.lastOutputTime = lastOutputTime;
-        this.location = location;
-        this.name = name;
-        this.outputErrorPolicy = outputErrorPolicy;
-        this.resourceGroupName = resourceGroupName;
-        this.startMode = startMode;
-        this.startTime = startTime;
-        this.streamingUnits = streamingUnits;
-        this.transformationQuery = transformationQuery;
-    }
-
+    private GetJobResult() {}
     /**
      * @return The compatibility level for this job.
      * 
@@ -247,7 +210,7 @@ public final class GetJobResult {
     public static Builder builder(GetJobResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String compatibilityLevel;
         private String dataLocale;
@@ -266,11 +229,7 @@ public final class GetJobResult {
         private String startTime;
         private Integer streamingUnits;
         private String transformationQuery;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetJobResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.compatibilityLevel = defaults.compatibilityLevel;
@@ -292,30 +251,37 @@ public final class GetJobResult {
     	      this.transformationQuery = defaults.transformationQuery;
         }
 
+        @CustomType.Setter
         public Builder compatibilityLevel(String compatibilityLevel) {
             this.compatibilityLevel = Objects.requireNonNull(compatibilityLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder dataLocale(String dataLocale) {
             this.dataLocale = Objects.requireNonNull(dataLocale);
             return this;
         }
+        @CustomType.Setter
         public Builder eventsLateArrivalMaxDelayInSeconds(Integer eventsLateArrivalMaxDelayInSeconds) {
             this.eventsLateArrivalMaxDelayInSeconds = Objects.requireNonNull(eventsLateArrivalMaxDelayInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder eventsOutOfOrderMaxDelayInSeconds(Integer eventsOutOfOrderMaxDelayInSeconds) {
             this.eventsOutOfOrderMaxDelayInSeconds = Objects.requireNonNull(eventsOutOfOrderMaxDelayInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder eventsOutOfOrderPolicy(String eventsOutOfOrderPolicy) {
             this.eventsOutOfOrderPolicy = Objects.requireNonNull(eventsOutOfOrderPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetJobIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -323,47 +289,76 @@ public final class GetJobResult {
         public Builder identities(GetJobIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder jobId(String jobId) {
             this.jobId = Objects.requireNonNull(jobId);
             return this;
         }
+        @CustomType.Setter
         public Builder lastOutputTime(String lastOutputTime) {
             this.lastOutputTime = Objects.requireNonNull(lastOutputTime);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outputErrorPolicy(String outputErrorPolicy) {
             this.outputErrorPolicy = Objects.requireNonNull(outputErrorPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder startMode(String startMode) {
             this.startMode = Objects.requireNonNull(startMode);
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(String startTime) {
             this.startTime = Objects.requireNonNull(startTime);
             return this;
         }
+        @CustomType.Setter
         public Builder streamingUnits(Integer streamingUnits) {
             this.streamingUnits = Objects.requireNonNull(streamingUnits);
             return this;
         }
+        @CustomType.Setter
         public Builder transformationQuery(String transformationQuery) {
             this.transformationQuery = Objects.requireNonNull(transformationQuery);
             return this;
-        }        public GetJobResult build() {
-            return new GetJobResult(compatibilityLevel, dataLocale, eventsLateArrivalMaxDelayInSeconds, eventsOutOfOrderMaxDelayInSeconds, eventsOutOfOrderPolicy, id, identities, jobId, lastOutputTime, location, name, outputErrorPolicy, resourceGroupName, startMode, startTime, streamingUnits, transformationQuery);
+        }
+        public GetJobResult build() {
+            final var o = new GetJobResult();
+            o.compatibilityLevel = compatibilityLevel;
+            o.dataLocale = dataLocale;
+            o.eventsLateArrivalMaxDelayInSeconds = eventsLateArrivalMaxDelayInSeconds;
+            o.eventsOutOfOrderMaxDelayInSeconds = eventsOutOfOrderMaxDelayInSeconds;
+            o.eventsOutOfOrderPolicy = eventsOutOfOrderPolicy;
+            o.id = id;
+            o.identities = identities;
+            o.jobId = jobId;
+            o.lastOutputTime = lastOutputTime;
+            o.location = location;
+            o.name = name;
+            o.outputErrorPolicy = outputErrorPolicy;
+            o.resourceGroupName = resourceGroupName;
+            o.startMode = startMode;
+            o.startTime = startTime;
+            o.streamingUnits = streamingUnits;
+            o.transformationQuery = transformationQuery;
+            return o;
         }
     }
 }

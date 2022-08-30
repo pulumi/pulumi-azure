@@ -16,21 +16,14 @@ public final class EndpointCustomDnsConfig {
      * @return The fully qualified domain name to the `private_dns_zone`.
      * 
      */
-    private final @Nullable String fqdn;
+    private @Nullable String fqdn;
     /**
      * @return A list of all IP Addresses that map to the `private_dns_zone` fqdn.
      * 
      */
-    private final @Nullable List<String> ipAddresses;
+    private @Nullable List<String> ipAddresses;
 
-    @CustomType.Constructor
-    private EndpointCustomDnsConfig(
-        @CustomType.Parameter("fqdn") @Nullable String fqdn,
-        @CustomType.Parameter("ipAddresses") @Nullable List<String> ipAddresses) {
-        this.fqdn = fqdn;
-        this.ipAddresses = ipAddresses;
-    }
-
+    private EndpointCustomDnsConfig() {}
     /**
      * @return The fully qualified domain name to the `private_dns_zone`.
      * 
@@ -53,33 +46,35 @@ public final class EndpointCustomDnsConfig {
     public static Builder builder(EndpointCustomDnsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String fqdn;
         private @Nullable List<String> ipAddresses;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointCustomDnsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
     	      this.ipAddresses = defaults.ipAddresses;
         }
 
+        @CustomType.Setter
         public Builder fqdn(@Nullable String fqdn) {
             this.fqdn = fqdn;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(@Nullable List<String> ipAddresses) {
             this.ipAddresses = ipAddresses;
             return this;
         }
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
-        }        public EndpointCustomDnsConfig build() {
-            return new EndpointCustomDnsConfig(fqdn, ipAddresses);
+        }
+        public EndpointCustomDnsConfig build() {
+            final var o = new EndpointCustomDnsConfig();
+            o.fqdn = fqdn;
+            o.ipAddresses = ipAddresses;
+            return o;
         }
     }
 }

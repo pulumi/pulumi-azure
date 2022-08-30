@@ -17,28 +17,19 @@ public final class ConfigurationFeatureTargetingFilter {
      * @return A number representing the percentage of the entire user base.
      * 
      */
-    private final Integer defaultRolloutPercentage;
+    private Integer defaultRolloutPercentage;
     /**
      * @return One or more blocks of type `groups` as defined below.
      * 
      */
-    private final @Nullable List<ConfigurationFeatureTargetingFilterGroup> groups;
+    private @Nullable List<ConfigurationFeatureTargetingFilterGroup> groups;
     /**
      * @return A list of users to target for this feature.
      * 
      */
-    private final @Nullable List<String> users;
+    private @Nullable List<String> users;
 
-    @CustomType.Constructor
-    private ConfigurationFeatureTargetingFilter(
-        @CustomType.Parameter("defaultRolloutPercentage") Integer defaultRolloutPercentage,
-        @CustomType.Parameter("groups") @Nullable List<ConfigurationFeatureTargetingFilterGroup> groups,
-        @CustomType.Parameter("users") @Nullable List<String> users) {
-        this.defaultRolloutPercentage = defaultRolloutPercentage;
-        this.groups = groups;
-        this.users = users;
-    }
-
+    private ConfigurationFeatureTargetingFilter() {}
     /**
      * @return A number representing the percentage of the entire user base.
      * 
@@ -68,16 +59,12 @@ public final class ConfigurationFeatureTargetingFilter {
     public static Builder builder(ConfigurationFeatureTargetingFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer defaultRolloutPercentage;
         private @Nullable List<ConfigurationFeatureTargetingFilterGroup> groups;
         private @Nullable List<String> users;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationFeatureTargetingFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultRolloutPercentage = defaults.defaultRolloutPercentage;
@@ -85,10 +72,12 @@ public final class ConfigurationFeatureTargetingFilter {
     	      this.users = defaults.users;
         }
 
+        @CustomType.Setter
         public Builder defaultRolloutPercentage(Integer defaultRolloutPercentage) {
             this.defaultRolloutPercentage = Objects.requireNonNull(defaultRolloutPercentage);
             return this;
         }
+        @CustomType.Setter
         public Builder groups(@Nullable List<ConfigurationFeatureTargetingFilterGroup> groups) {
             this.groups = groups;
             return this;
@@ -96,14 +85,20 @@ public final class ConfigurationFeatureTargetingFilter {
         public Builder groups(ConfigurationFeatureTargetingFilterGroup... groups) {
             return groups(List.of(groups));
         }
+        @CustomType.Setter
         public Builder users(@Nullable List<String> users) {
             this.users = users;
             return this;
         }
         public Builder users(String... users) {
             return users(List.of(users));
-        }        public ConfigurationFeatureTargetingFilter build() {
-            return new ConfigurationFeatureTargetingFilter(defaultRolloutPercentage, groups, users);
+        }
+        public ConfigurationFeatureTargetingFilter build() {
+            final var o = new ConfigurationFeatureTargetingFilter();
+            o.defaultRolloutPercentage = defaultRolloutPercentage;
+            o.groups = groups;
+            o.users = users;
+            return o;
         }
     }
 }

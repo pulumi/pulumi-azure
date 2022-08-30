@@ -16,28 +16,19 @@ public final class ScheduledQueryRulesAlertAction {
      * @return List of action group reference resource IDs.
      * 
      */
-    private final List<String> actionGroups;
+    private List<String> actionGroups;
     /**
      * @return Custom payload to be sent for all webhook payloads in alerting action.
      * 
      */
-    private final @Nullable String customWebhookPayload;
+    private @Nullable String customWebhookPayload;
     /**
      * @return Custom subject override for all email ids in Azure action group.
      * 
      */
-    private final @Nullable String emailSubject;
+    private @Nullable String emailSubject;
 
-    @CustomType.Constructor
-    private ScheduledQueryRulesAlertAction(
-        @CustomType.Parameter("actionGroups") List<String> actionGroups,
-        @CustomType.Parameter("customWebhookPayload") @Nullable String customWebhookPayload,
-        @CustomType.Parameter("emailSubject") @Nullable String emailSubject) {
-        this.actionGroups = actionGroups;
-        this.customWebhookPayload = customWebhookPayload;
-        this.emailSubject = emailSubject;
-    }
-
+    private ScheduledQueryRulesAlertAction() {}
     /**
      * @return List of action group reference resource IDs.
      * 
@@ -67,16 +58,12 @@ public final class ScheduledQueryRulesAlertAction {
     public static Builder builder(ScheduledQueryRulesAlertAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> actionGroups;
         private @Nullable String customWebhookPayload;
         private @Nullable String emailSubject;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScheduledQueryRulesAlertAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionGroups = defaults.actionGroups;
@@ -84,6 +71,7 @@ public final class ScheduledQueryRulesAlertAction {
     	      this.emailSubject = defaults.emailSubject;
         }
 
+        @CustomType.Setter
         public Builder actionGroups(List<String> actionGroups) {
             this.actionGroups = Objects.requireNonNull(actionGroups);
             return this;
@@ -91,15 +79,22 @@ public final class ScheduledQueryRulesAlertAction {
         public Builder actionGroups(String... actionGroups) {
             return actionGroups(List.of(actionGroups));
         }
+        @CustomType.Setter
         public Builder customWebhookPayload(@Nullable String customWebhookPayload) {
             this.customWebhookPayload = customWebhookPayload;
             return this;
         }
+        @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
             this.emailSubject = emailSubject;
             return this;
-        }        public ScheduledQueryRulesAlertAction build() {
-            return new ScheduledQueryRulesAlertAction(actionGroups, customWebhookPayload, emailSubject);
+        }
+        public ScheduledQueryRulesAlertAction build() {
+            final var o = new ScheduledQueryRulesAlertAction();
+            o.actionGroups = actionGroups;
+            o.customWebhookPayload = customWebhookPayload;
+            o.emailSubject = emailSubject;
+            return o;
         }
     }
 }

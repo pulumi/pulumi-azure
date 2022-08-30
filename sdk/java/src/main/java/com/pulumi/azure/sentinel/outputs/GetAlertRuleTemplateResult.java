@@ -12,41 +12,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAlertRuleTemplateResult {
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String logAnalyticsWorkspaceId;
-    private final String name;
+    private String id;
+    private String logAnalyticsWorkspaceId;
+    private String name;
     /**
      * @return A `scheduled_template` block as defined below. This only applies to Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates;
+    private List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates;
     /**
      * @return A `security_incident_template` block as defined below. This only applies to Sentinel MS Security Incident Alert Rule Template.
      * 
      */
-    private final List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates;
+    private List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates;
 
-    @CustomType.Constructor
-    private GetAlertRuleTemplateResult(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("scheduledTemplates") List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates,
-        @CustomType.Parameter("securityIncidentTemplates") List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates) {
-        this.displayName = displayName;
-        this.id = id;
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-        this.name = name;
-        this.scheduledTemplates = scheduledTemplates;
-        this.securityIncidentTemplates = securityIncidentTemplates;
-    }
-
+    private GetAlertRuleTemplateResult() {}
     public String displayName() {
         return this.displayName;
     }
@@ -85,7 +70,7 @@ public final class GetAlertRuleTemplateResult {
     public static Builder builder(GetAlertRuleTemplateResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String id;
@@ -93,11 +78,7 @@ public final class GetAlertRuleTemplateResult {
         private String name;
         private List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates;
         private List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAlertRuleTemplateResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -108,22 +89,27 @@ public final class GetAlertRuleTemplateResult {
     	      this.securityIncidentTemplates = defaults.securityIncidentTemplates;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder scheduledTemplates(List<GetAlertRuleTemplateScheduledTemplate> scheduledTemplates) {
             this.scheduledTemplates = Objects.requireNonNull(scheduledTemplates);
             return this;
@@ -131,14 +117,23 @@ public final class GetAlertRuleTemplateResult {
         public Builder scheduledTemplates(GetAlertRuleTemplateScheduledTemplate... scheduledTemplates) {
             return scheduledTemplates(List.of(scheduledTemplates));
         }
+        @CustomType.Setter
         public Builder securityIncidentTemplates(List<GetAlertRuleTemplateSecurityIncidentTemplate> securityIncidentTemplates) {
             this.securityIncidentTemplates = Objects.requireNonNull(securityIncidentTemplates);
             return this;
         }
         public Builder securityIncidentTemplates(GetAlertRuleTemplateSecurityIncidentTemplate... securityIncidentTemplates) {
             return securityIncidentTemplates(List.of(securityIncidentTemplates));
-        }        public GetAlertRuleTemplateResult build() {
-            return new GetAlertRuleTemplateResult(displayName, id, logAnalyticsWorkspaceId, name, scheduledTemplates, securityIncidentTemplates);
+        }
+        public GetAlertRuleTemplateResult build() {
+            final var o = new GetAlertRuleTemplateResult();
+            o.displayName = displayName;
+            o.id = id;
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            o.name = name;
+            o.scheduledTemplates = scheduledTemplates;
+            o.securityIncidentTemplates = securityIncidentTemplates;
+            return o;
         }
     }
 }

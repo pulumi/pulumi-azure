@@ -15,44 +15,27 @@ public final class GetAccountResult {
      * @return The Endpoint for this Automation Account.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The Primary Access Key for the Automation Account.
      * 
      */
-    private final String primaryKey;
-    private final List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
-    private final String resourceGroupName;
+    private String primaryKey;
+    private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
+    private String resourceGroupName;
     /**
      * @return The Secondary Access Key for the Automation Account.
      * 
      */
-    private final String secondaryKey;
+    private String secondaryKey;
 
-    @CustomType.Constructor
-    private GetAccountResult(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryKey") String primaryKey,
-        @CustomType.Parameter("privateEndpointConnections") List<GetAccountPrivateEndpointConnection> privateEndpointConnections,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryKey") String secondaryKey) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.name = name;
-        this.primaryKey = primaryKey;
-        this.privateEndpointConnections = privateEndpointConnections;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryKey = secondaryKey;
-    }
-
+    private GetAccountResult() {}
     /**
      * @return The Endpoint for this Automation Account.
      * 
@@ -98,7 +81,7 @@ public final class GetAccountResult {
     public static Builder builder(GetAccountResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
@@ -107,11 +90,7 @@ public final class GetAccountResult {
         private List<GetAccountPrivateEndpointConnection> privateEndpointConnections;
         private String resourceGroupName;
         private String secondaryKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -123,22 +102,27 @@ public final class GetAccountResult {
     	      this.secondaryKey = defaults.secondaryKey;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryKey(String primaryKey) {
             this.primaryKey = Objects.requireNonNull(primaryKey);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpointConnections(List<GetAccountPrivateEndpointConnection> privateEndpointConnections) {
             this.privateEndpointConnections = Objects.requireNonNull(privateEndpointConnections);
             return this;
@@ -146,15 +130,26 @@ public final class GetAccountResult {
         public Builder privateEndpointConnections(GetAccountPrivateEndpointConnection... privateEndpointConnections) {
             return privateEndpointConnections(List.of(privateEndpointConnections));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryKey(String secondaryKey) {
             this.secondaryKey = Objects.requireNonNull(secondaryKey);
             return this;
-        }        public GetAccountResult build() {
-            return new GetAccountResult(endpoint, id, name, primaryKey, privateEndpointConnections, resourceGroupName, secondaryKey);
+        }
+        public GetAccountResult build() {
+            final var o = new GetAccountResult();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.name = name;
+            o.primaryKey = primaryKey;
+            o.privateEndpointConnections = privateEndpointConnections;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryKey = secondaryKey;
+            return o;
         }
     }
 }

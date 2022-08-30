@@ -14,45 +14,30 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
      * @return The version of .Net to use.
      * 
      */
-    private final String dotnetVersion;
+    private String dotnetVersion;
     /**
      * @return The version of Java to use.
      * 
      */
-    private final String javaVersion;
+    private String javaVersion;
     /**
      * @return The version of Node to use.
      * 
      */
-    private final String nodeVersion;
+    private String nodeVersion;
     /**
      * @return The version of PowerShell Core to use.
      * 
      */
-    private final String powershellCoreVersion;
+    private String powershellCoreVersion;
     /**
      * @return Is the Windows Function App using a custom runtime?.
      * 
      */
-    private final Boolean useCustomRuntime;
-    private final Boolean useDotnetIsolatedRuntime;
+    private Boolean useCustomRuntime;
+    private Boolean useDotnetIsolatedRuntime;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteConfigApplicationStack(
-        @CustomType.Parameter("dotnetVersion") String dotnetVersion,
-        @CustomType.Parameter("javaVersion") String javaVersion,
-        @CustomType.Parameter("nodeVersion") String nodeVersion,
-        @CustomType.Parameter("powershellCoreVersion") String powershellCoreVersion,
-        @CustomType.Parameter("useCustomRuntime") Boolean useCustomRuntime,
-        @CustomType.Parameter("useDotnetIsolatedRuntime") Boolean useDotnetIsolatedRuntime) {
-        this.dotnetVersion = dotnetVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.powershellCoreVersion = powershellCoreVersion;
-        this.useCustomRuntime = useCustomRuntime;
-        this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
-    }
-
+    private GetWindowsFunctionAppSiteConfigApplicationStack() {}
     /**
      * @return The version of .Net to use.
      * 
@@ -99,7 +84,7 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
     public static Builder builder(GetWindowsFunctionAppSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dotnetVersion;
         private String javaVersion;
@@ -107,11 +92,7 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
         private String powershellCoreVersion;
         private Boolean useCustomRuntime;
         private Boolean useDotnetIsolatedRuntime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dotnetVersion = defaults.dotnetVersion;
@@ -122,31 +103,45 @@ public final class GetWindowsFunctionAppSiteConfigApplicationStack {
     	      this.useDotnetIsolatedRuntime = defaults.useDotnetIsolatedRuntime;
         }
 
+        @CustomType.Setter
         public Builder dotnetVersion(String dotnetVersion) {
             this.dotnetVersion = Objects.requireNonNull(dotnetVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(String javaVersion) {
             this.javaVersion = Objects.requireNonNull(javaVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(String nodeVersion) {
             this.nodeVersion = Objects.requireNonNull(nodeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder powershellCoreVersion(String powershellCoreVersion) {
             this.powershellCoreVersion = Objects.requireNonNull(powershellCoreVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder useCustomRuntime(Boolean useCustomRuntime) {
             this.useCustomRuntime = Objects.requireNonNull(useCustomRuntime);
             return this;
         }
+        @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(Boolean useDotnetIsolatedRuntime) {
             this.useDotnetIsolatedRuntime = Objects.requireNonNull(useDotnetIsolatedRuntime);
             return this;
-        }        public GetWindowsFunctionAppSiteConfigApplicationStack build() {
-            return new GetWindowsFunctionAppSiteConfigApplicationStack(dotnetVersion, javaVersion, nodeVersion, powershellCoreVersion, useCustomRuntime, useDotnetIsolatedRuntime);
+        }
+        public GetWindowsFunctionAppSiteConfigApplicationStack build() {
+            final var o = new GetWindowsFunctionAppSiteConfigApplicationStack();
+            o.dotnetVersion = dotnetVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.powershellCoreVersion = powershellCoreVersion;
+            o.useCustomRuntime = useCustomRuntime;
+            o.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
+            return o;
         }
     }
 }

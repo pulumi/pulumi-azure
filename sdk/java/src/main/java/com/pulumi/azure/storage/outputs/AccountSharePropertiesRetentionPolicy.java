@@ -15,13 +15,9 @@ public final class AccountSharePropertiesRetentionPolicy {
      * @return Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
 
-    @CustomType.Constructor
-    private AccountSharePropertiesRetentionPolicy(@CustomType.Parameter("days") @Nullable Integer days) {
-        this.days = days;
-    }
-
+    private AccountSharePropertiesRetentionPolicy() {}
     /**
      * @return Specifies the number of days that the `azure.storage.Share` should be retained, between `1` and `365` days. Defaults to `7`.
      * 
@@ -37,24 +33,24 @@ public final class AccountSharePropertiesRetentionPolicy {
     public static Builder builder(AccountSharePropertiesRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountSharePropertiesRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
-        }        public AccountSharePropertiesRetentionPolicy build() {
-            return new AccountSharePropertiesRetentionPolicy(days);
+        }
+        public AccountSharePropertiesRetentionPolicy build() {
+            final var o = new AccountSharePropertiesRetentionPolicy();
+            o.days = days;
+            return o;
         }
     }
 }

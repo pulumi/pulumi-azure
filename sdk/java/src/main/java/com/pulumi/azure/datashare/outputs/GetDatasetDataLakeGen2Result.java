@@ -13,55 +13,36 @@ public final class GetDatasetDataLakeGen2Result {
      * @return The name of the Data Share Dataset.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The path of the file in the data lake file system to be shared with the receiver.
      * 
      */
-    private final String filePath;
+    private String filePath;
     /**
      * @return The name of the data lake file system to be shared with the receiver.
      * 
      */
-    private final String fileSystemName;
+    private String fileSystemName;
     /**
      * @return The folder path in the data lake file system to be shared with the receiver.
      * 
      */
-    private final String folderPath;
+    private String folderPath;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String shareId;
+    private String id;
+    private String name;
+    private String shareId;
     /**
      * @return The resource ID of the storage account of the data lake file system to be shared with the receiver.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private GetDatasetDataLakeGen2Result(
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("filePath") String filePath,
-        @CustomType.Parameter("fileSystemName") String fileSystemName,
-        @CustomType.Parameter("folderPath") String folderPath,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("shareId") String shareId,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.displayName = displayName;
-        this.filePath = filePath;
-        this.fileSystemName = fileSystemName;
-        this.folderPath = folderPath;
-        this.id = id;
-        this.name = name;
-        this.shareId = shareId;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private GetDatasetDataLakeGen2Result() {}
     /**
      * @return The name of the Data Share Dataset.
      * 
@@ -118,7 +99,7 @@ public final class GetDatasetDataLakeGen2Result {
     public static Builder builder(GetDatasetDataLakeGen2Result defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String displayName;
         private String filePath;
@@ -128,11 +109,7 @@ public final class GetDatasetDataLakeGen2Result {
         private String name;
         private String shareId;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatasetDataLakeGen2Result defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.displayName = defaults.displayName;
@@ -145,39 +122,57 @@ public final class GetDatasetDataLakeGen2Result {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder filePath(String filePath) {
             this.filePath = Objects.requireNonNull(filePath);
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemName(String fileSystemName) {
             this.fileSystemName = Objects.requireNonNull(fileSystemName);
             return this;
         }
+        @CustomType.Setter
         public Builder folderPath(String folderPath) {
             this.folderPath = Objects.requireNonNull(folderPath);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder shareId(String shareId) {
             this.shareId = Objects.requireNonNull(shareId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public GetDatasetDataLakeGen2Result build() {
-            return new GetDatasetDataLakeGen2Result(displayName, filePath, fileSystemName, folderPath, id, name, shareId, storageAccountId);
+        }
+        public GetDatasetDataLakeGen2Result build() {
+            final var o = new GetDatasetDataLakeGen2Result();
+            o.displayName = displayName;
+            o.filePath = filePath;
+            o.fileSystemName = fileSystemName;
+            o.folderPath = folderPath;
+            o.id = id;
+            o.name = name;
+            o.shareId = shareId;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class LinuxVirtualMachineScaleSetAdminSshKey {
      * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
      * 
      */
-    private final String publicKey;
+    private String publicKey;
     /**
      * @return The Username for which this Public SSH Key should be configured.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetAdminSshKey(
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("username") String username) {
-        this.publicKey = publicKey;
-        this.username = username;
-    }
-
+    private LinuxVirtualMachineScaleSetAdminSshKey() {}
     /**
      * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format.
      * 
@@ -50,30 +43,32 @@ public final class LinuxVirtualMachineScaleSetAdminSshKey {
     public static Builder builder(LinuxVirtualMachineScaleSetAdminSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String publicKey;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetAdminSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publicKey = defaults.publicKey;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public LinuxVirtualMachineScaleSetAdminSshKey build() {
-            return new LinuxVirtualMachineScaleSetAdminSshKey(publicKey, username);
+        }
+        public LinuxVirtualMachineScaleSetAdminSshKey build() {
+            final var o = new LinuxVirtualMachineScaleSetAdminSshKey();
+            o.publicKey = publicKey;
+            o.username = username;
+            return o;
         }
     }
 }

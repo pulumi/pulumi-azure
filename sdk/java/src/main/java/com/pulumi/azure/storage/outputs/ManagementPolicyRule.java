@@ -18,35 +18,24 @@ public final class ManagementPolicyRule {
      * @return An `actions` block as documented below.
      * 
      */
-    private final ManagementPolicyRuleActions actions;
+    private ManagementPolicyRuleActions actions;
     /**
      * @return Boolean to specify whether the rule is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `filter` block as documented below.
      * 
      */
-    private final @Nullable ManagementPolicyRuleFilters filters;
+    private @Nullable ManagementPolicyRuleFilters filters;
     /**
      * @return The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ManagementPolicyRule(
-        @CustomType.Parameter("actions") ManagementPolicyRuleActions actions,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("filters") @Nullable ManagementPolicyRuleFilters filters,
-        @CustomType.Parameter("name") String name) {
-        this.actions = actions;
-        this.enabled = enabled;
-        this.filters = filters;
-        this.name = name;
-    }
-
+    private ManagementPolicyRule() {}
     /**
      * @return An `actions` block as documented below.
      * 
@@ -83,17 +72,13 @@ public final class ManagementPolicyRule {
     public static Builder builder(ManagementPolicyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private ManagementPolicyRuleActions actions;
         private Boolean enabled;
         private @Nullable ManagementPolicyRuleFilters filters;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagementPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -102,23 +87,33 @@ public final class ManagementPolicyRule {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder actions(ManagementPolicyRuleActions actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(@Nullable ManagementPolicyRuleFilters filters) {
             this.filters = filters;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ManagementPolicyRule build() {
-            return new ManagementPolicyRule(actions, enabled, filters, name);
+        }
+        public ManagementPolicyRule build() {
+            final var o = new ManagementPolicyRule();
+            o.actions = actions;
+            o.enabled = enabled;
+            o.filters = filters;
+            o.name = name;
+            return o;
         }
     }
 }

@@ -17,49 +17,34 @@ public final class FirewallPolicyCustomRuleMatchCondition {
      * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
      * 
      */
-    private final List<String> matchValues;
+    private List<String> matchValues;
     /**
      * @return The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
      * 
      */
-    private final String matchVariable;
+    private String matchVariable;
     /**
      * @return Should the result of the condition be negated.
      * 
      */
-    private final @Nullable Boolean negationCondition;
+    private @Nullable Boolean negationCondition;
     /**
      * @return Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual` or `RegEx`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader` or `Cookies`.
      * 
      */
-    private final @Nullable String selector;
+    private @Nullable String selector;
     /**
      * @return Up to `5` transforms to apply. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `URLDecode` or`URLEncode`.
      * 
      */
-    private final @Nullable List<String> transforms;
+    private @Nullable List<String> transforms;
 
-    @CustomType.Constructor
-    private FirewallPolicyCustomRuleMatchCondition(
-        @CustomType.Parameter("matchValues") List<String> matchValues,
-        @CustomType.Parameter("matchVariable") String matchVariable,
-        @CustomType.Parameter("negationCondition") @Nullable Boolean negationCondition,
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("selector") @Nullable String selector,
-        @CustomType.Parameter("transforms") @Nullable List<String> transforms) {
-        this.matchValues = matchValues;
-        this.matchVariable = matchVariable;
-        this.negationCondition = negationCondition;
-        this.operator = operator;
-        this.selector = selector;
-        this.transforms = transforms;
-    }
-
+    private FirewallPolicyCustomRuleMatchCondition() {}
     /**
      * @return Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters long.
      * 
@@ -110,7 +95,7 @@ public final class FirewallPolicyCustomRuleMatchCondition {
     public static Builder builder(FirewallPolicyCustomRuleMatchCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> matchValues;
         private String matchVariable;
@@ -118,11 +103,7 @@ public final class FirewallPolicyCustomRuleMatchCondition {
         private String operator;
         private @Nullable String selector;
         private @Nullable List<String> transforms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FirewallPolicyCustomRuleMatchCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.matchValues = defaults.matchValues;
@@ -133,6 +114,7 @@ public final class FirewallPolicyCustomRuleMatchCondition {
     	      this.transforms = defaults.transforms;
         }
 
+        @CustomType.Setter
         public Builder matchValues(List<String> matchValues) {
             this.matchValues = Objects.requireNonNull(matchValues);
             return this;
@@ -140,30 +122,43 @@ public final class FirewallPolicyCustomRuleMatchCondition {
         public Builder matchValues(String... matchValues) {
             return matchValues(List.of(matchValues));
         }
+        @CustomType.Setter
         public Builder matchVariable(String matchVariable) {
             this.matchVariable = Objects.requireNonNull(matchVariable);
             return this;
         }
+        @CustomType.Setter
         public Builder negationCondition(@Nullable Boolean negationCondition) {
             this.negationCondition = negationCondition;
             return this;
         }
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder selector(@Nullable String selector) {
             this.selector = selector;
             return this;
         }
+        @CustomType.Setter
         public Builder transforms(@Nullable List<String> transforms) {
             this.transforms = transforms;
             return this;
         }
         public Builder transforms(String... transforms) {
             return transforms(List.of(transforms));
-        }        public FirewallPolicyCustomRuleMatchCondition build() {
-            return new FirewallPolicyCustomRuleMatchCondition(matchValues, matchVariable, negationCondition, operator, selector, transforms);
+        }
+        public FirewallPolicyCustomRuleMatchCondition build() {
+            final var o = new FirewallPolicyCustomRuleMatchCondition();
+            o.matchValues = matchValues;
+            o.matchVariable = matchVariable;
+            o.negationCondition = negationCondition;
+            o.operator = operator;
+            o.selector = selector;
+            o.transforms = transforms;
+            return o;
         }
     }
 }

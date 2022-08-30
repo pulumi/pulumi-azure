@@ -18,80 +18,55 @@ public final class GetPolicySetDefinitionResult {
      * @return The description of this policy definition group.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of this policy definition group.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String managementGroupName;
+    private String id;
+    private @Nullable String managementGroupName;
     /**
      * @return Any Metadata defined in the Policy Set Definition.
      * 
      */
-    private final String metadata;
+    private String metadata;
     /**
      * @return The name of this policy definition group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The mapping of the parameter values for the referenced policy rule. The keys are the parameter names.
      * 
      */
-    private final String parameters;
+    private String parameters;
     /**
      * @return One or more `policy_definition_group` blocks as defined below.
      * 
      */
-    private final List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups;
+    private List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups;
     /**
      * @return One or more `policy_definition_reference` blocks as defined below.
      * 
      */
-    private final List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences;
+    private List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences;
     /**
      * @return The policy definitions contained within the policy set definition.
      * 
      */
-    private final String policyDefinitions;
+    private String policyDefinitions;
     /**
      * @return The Type of the Policy Set Definition.
      * 
      */
-    private final String policyType;
+    private String policyType;
 
-    @CustomType.Constructor
-    private GetPolicySetDefinitionResult(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("managementGroupName") @Nullable String managementGroupName,
-        @CustomType.Parameter("metadata") String metadata,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") String parameters,
-        @CustomType.Parameter("policyDefinitionGroups") List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups,
-        @CustomType.Parameter("policyDefinitionReferences") List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences,
-        @CustomType.Parameter("policyDefinitions") String policyDefinitions,
-        @CustomType.Parameter("policyType") String policyType) {
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.managementGroupName = managementGroupName;
-        this.metadata = metadata;
-        this.name = name;
-        this.parameters = parameters;
-        this.policyDefinitionGroups = policyDefinitionGroups;
-        this.policyDefinitionReferences = policyDefinitionReferences;
-        this.policyDefinitions = policyDefinitions;
-        this.policyType = policyType;
-    }
-
+    private GetPolicySetDefinitionResult() {}
     /**
      * @return The description of this policy definition group.
      * 
@@ -173,7 +148,7 @@ public final class GetPolicySetDefinitionResult {
     public static Builder builder(GetPolicySetDefinitionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String displayName;
@@ -186,11 +161,7 @@ public final class GetPolicySetDefinitionResult {
         private List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences;
         private String policyDefinitions;
         private String policyType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicySetDefinitionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -206,34 +177,42 @@ public final class GetPolicySetDefinitionResult {
     	      this.policyType = defaults.policyType;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder managementGroupName(@Nullable String managementGroupName) {
             this.managementGroupName = managementGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(String metadata) {
             this.metadata = Objects.requireNonNull(metadata);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(String parameters) {
             this.parameters = Objects.requireNonNull(parameters);
             return this;
         }
+        @CustomType.Setter
         public Builder policyDefinitionGroups(List<GetPolicySetDefinitionPolicyDefinitionGroup> policyDefinitionGroups) {
             this.policyDefinitionGroups = Objects.requireNonNull(policyDefinitionGroups);
             return this;
@@ -241,6 +220,7 @@ public final class GetPolicySetDefinitionResult {
         public Builder policyDefinitionGroups(GetPolicySetDefinitionPolicyDefinitionGroup... policyDefinitionGroups) {
             return policyDefinitionGroups(List.of(policyDefinitionGroups));
         }
+        @CustomType.Setter
         public Builder policyDefinitionReferences(List<GetPolicySetDefinitionPolicyDefinitionReference> policyDefinitionReferences) {
             this.policyDefinitionReferences = Objects.requireNonNull(policyDefinitionReferences);
             return this;
@@ -248,15 +228,30 @@ public final class GetPolicySetDefinitionResult {
         public Builder policyDefinitionReferences(GetPolicySetDefinitionPolicyDefinitionReference... policyDefinitionReferences) {
             return policyDefinitionReferences(List.of(policyDefinitionReferences));
         }
+        @CustomType.Setter
         public Builder policyDefinitions(String policyDefinitions) {
             this.policyDefinitions = Objects.requireNonNull(policyDefinitions);
             return this;
         }
+        @CustomType.Setter
         public Builder policyType(String policyType) {
             this.policyType = Objects.requireNonNull(policyType);
             return this;
-        }        public GetPolicySetDefinitionResult build() {
-            return new GetPolicySetDefinitionResult(description, displayName, id, managementGroupName, metadata, name, parameters, policyDefinitionGroups, policyDefinitionReferences, policyDefinitions, policyType);
+        }
+        public GetPolicySetDefinitionResult build() {
+            final var o = new GetPolicySetDefinitionResult();
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.managementGroupName = managementGroupName;
+            o.metadata = metadata;
+            o.name = name;
+            o.parameters = parameters;
+            o.policyDefinitionGroups = policyDefinitionGroups;
+            o.policyDefinitionReferences = policyDefinitionReferences;
+            o.policyDefinitions = policyDefinitions;
+            o.policyType = policyType;
+            return o;
         }
     }
 }

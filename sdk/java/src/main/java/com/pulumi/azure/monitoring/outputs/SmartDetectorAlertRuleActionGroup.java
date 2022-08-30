@@ -16,28 +16,19 @@ public final class SmartDetectorAlertRuleActionGroup {
      * @return Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
      * 
      */
-    private final @Nullable String emailSubject;
+    private @Nullable String emailSubject;
     /**
      * @return Specifies the action group ids.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
     /**
      * @return A JSON String which Specifies the custom webhook payload if Webhook Receiver is specified in Monitor Action Group resource.
      * 
      */
-    private final @Nullable String webhookPayload;
+    private @Nullable String webhookPayload;
 
-    @CustomType.Constructor
-    private SmartDetectorAlertRuleActionGroup(
-        @CustomType.Parameter("emailSubject") @Nullable String emailSubject,
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("webhookPayload") @Nullable String webhookPayload) {
-        this.emailSubject = emailSubject;
-        this.ids = ids;
-        this.webhookPayload = webhookPayload;
-    }
-
+    private SmartDetectorAlertRuleActionGroup() {}
     /**
      * @return Specifies a custom email subject if Email Receiver is specified in Monitor Action Group resource.
      * 
@@ -67,16 +58,12 @@ public final class SmartDetectorAlertRuleActionGroup {
     public static Builder builder(SmartDetectorAlertRuleActionGroup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String emailSubject;
         private List<String> ids;
         private @Nullable String webhookPayload;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SmartDetectorAlertRuleActionGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.emailSubject = defaults.emailSubject;
@@ -84,10 +71,12 @@ public final class SmartDetectorAlertRuleActionGroup {
     	      this.webhookPayload = defaults.webhookPayload;
         }
 
+        @CustomType.Setter
         public Builder emailSubject(@Nullable String emailSubject) {
             this.emailSubject = emailSubject;
             return this;
         }
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -95,11 +84,17 @@ public final class SmartDetectorAlertRuleActionGroup {
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder webhookPayload(@Nullable String webhookPayload) {
             this.webhookPayload = webhookPayload;
             return this;
-        }        public SmartDetectorAlertRuleActionGroup build() {
-            return new SmartDetectorAlertRuleActionGroup(emailSubject, ids, webhookPayload);
+        }
+        public SmartDetectorAlertRuleActionGroup build() {
+            final var o = new SmartDetectorAlertRuleActionGroup();
+            o.emailSubject = emailSubject;
+            o.ids = ids;
+            o.webhookPayload = webhookPayload;
+            return o;
         }
     }
 }

@@ -16,42 +16,29 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
      * @return The port number on the compute node.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return The range of external ports that are used to provide inbound access to the backendPort on the individual compute nodes in the format of `1000-1100`.
      * 
      */
-    private final String frontendPortRange;
+    private String frontendPortRange;
     /**
      * @return The name of the endpoint.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The list of network security group rules that are applied to the endpoint.
      * 
      */
-    private final List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
+    private List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
     /**
      * @return The protocol of the endpoint.
      * 
      */
-    private final String protocol;
+    private String protocol;
 
-    @CustomType.Constructor
-    private GetPoolNetworkConfigurationEndpointConfiguration(
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("frontendPortRange") String frontendPortRange,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupRules") List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.backendPort = backendPort;
-        this.frontendPortRange = frontendPortRange;
-        this.name = name;
-        this.networkSecurityGroupRules = networkSecurityGroupRules;
-        this.protocol = protocol;
-    }
-
+    private GetPoolNetworkConfigurationEndpointConfiguration() {}
     /**
      * @return The port number on the compute node.
      * 
@@ -95,18 +82,14 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
     public static Builder builder(GetPoolNetworkConfigurationEndpointConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer backendPort;
         private String frontendPortRange;
         private String name;
         private List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolNetworkConfigurationEndpointConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPort = defaults.backendPort;
@@ -116,18 +99,22 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPortRange(String frontendPortRange) {
             this.frontendPortRange = Objects.requireNonNull(frontendPortRange);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupRules(List<GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule> networkSecurityGroupRules) {
             this.networkSecurityGroupRules = Objects.requireNonNull(networkSecurityGroupRules);
             return this;
@@ -135,11 +122,19 @@ public final class GetPoolNetworkConfigurationEndpointConfiguration {
         public Builder networkSecurityGroupRules(GetPoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRule... networkSecurityGroupRules) {
             return networkSecurityGroupRules(List.of(networkSecurityGroupRules));
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public GetPoolNetworkConfigurationEndpointConfiguration build() {
-            return new GetPoolNetworkConfigurationEndpointConfiguration(backendPort, frontendPortRange, name, networkSecurityGroupRules, protocol);
+        }
+        public GetPoolNetworkConfigurationEndpointConfiguration build() {
+            final var o = new GetPoolNetworkConfigurationEndpointConfiguration();
+            o.backendPort = backendPort;
+            o.frontendPortRange = frontendPortRange;
+            o.name = name;
+            o.networkSecurityGroupRules = networkSecurityGroupRules;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

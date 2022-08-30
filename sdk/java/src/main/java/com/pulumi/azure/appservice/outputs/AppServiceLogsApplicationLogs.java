@@ -16,21 +16,14 @@ public final class AppServiceLogsApplicationLogs {
      * @return An `azure_blob_storage` block as defined below.
      * 
      */
-    private final @Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return Log level for filesystem based logging. Supported values are `Error`, `Information`, `Verbose`, `Warning` and `Off`. Defaults to `Off`.
      * 
      */
-    private final @Nullable String fileSystemLevel;
+    private @Nullable String fileSystemLevel;
 
-    @CustomType.Constructor
-    private AppServiceLogsApplicationLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystemLevel") @Nullable String fileSystemLevel) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystemLevel = fileSystemLevel;
-    }
-
+    private AppServiceLogsApplicationLogs() {}
     /**
      * @return An `azure_blob_storage` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class AppServiceLogsApplicationLogs {
     public static Builder builder(AppServiceLogsApplicationLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage;
         private @Nullable String fileSystemLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceLogsApplicationLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystemLevel = defaults.fileSystemLevel;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable AppServiceLogsApplicationLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemLevel(@Nullable String fileSystemLevel) {
             this.fileSystemLevel = fileSystemLevel;
             return this;
-        }        public AppServiceLogsApplicationLogs build() {
-            return new AppServiceLogsApplicationLogs(azureBlobStorage, fileSystemLevel);
+        }
+        public AppServiceLogsApplicationLogs build() {
+            final var o = new AppServiceLogsApplicationLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystemLevel = fileSystemLevel;
+            return o;
         }
     }
 }

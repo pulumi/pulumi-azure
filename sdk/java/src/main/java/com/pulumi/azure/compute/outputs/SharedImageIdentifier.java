@@ -13,28 +13,19 @@ public final class SharedImageIdentifier {
      * @return The Offer Name for this Shared Image. Changing this forces a new resource to be created.
      * 
      */
-    private final String offer;
+    private String offer;
     /**
      * @return The Publisher Name for this Gallery Image. Changing this forces a new resource to be created.
      * 
      */
-    private final String publisher;
+    private String publisher;
     /**
      * @return The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created.
      * 
      */
-    private final String sku;
+    private String sku;
 
-    @CustomType.Constructor
-    private SharedImageIdentifier(
-        @CustomType.Parameter("offer") String offer,
-        @CustomType.Parameter("publisher") String publisher,
-        @CustomType.Parameter("sku") String sku) {
-        this.offer = offer;
-        this.publisher = publisher;
-        this.sku = sku;
-    }
-
+    private SharedImageIdentifier() {}
     /**
      * @return The Offer Name for this Shared Image. Changing this forces a new resource to be created.
      * 
@@ -64,16 +55,12 @@ public final class SharedImageIdentifier {
     public static Builder builder(SharedImageIdentifier defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String offer;
         private String publisher;
         private String sku;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SharedImageIdentifier defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.offer = defaults.offer;
@@ -81,19 +68,27 @@ public final class SharedImageIdentifier {
     	      this.sku = defaults.sku;
         }
 
+        @CustomType.Setter
         public Builder offer(String offer) {
             this.offer = Objects.requireNonNull(offer);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
-        }        public SharedImageIdentifier build() {
-            return new SharedImageIdentifier(offer, publisher, sku);
+        }
+        public SharedImageIdentifier build() {
+            final var o = new SharedImageIdentifier();
+            o.offer = offer;
+            o.publisher = publisher;
+            o.sku = sku;
+            return o;
         }
     }
 }

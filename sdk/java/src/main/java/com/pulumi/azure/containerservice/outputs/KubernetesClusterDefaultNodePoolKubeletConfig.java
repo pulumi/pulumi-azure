@@ -18,77 +18,54 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
      * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> allowedUnsafeSysctls;
+    private @Nullable List<String> allowedUnsafeSysctls;
     /**
      * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer containerLogMaxLine;
+    private @Nullable Integer containerLogMaxLine;
     /**
      * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer containerLogMaxSizeMb;
+    private @Nullable Integer containerLogMaxSizeMb;
     /**
      * @return Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean cpuCfsQuotaEnabled;
+    private @Nullable Boolean cpuCfsQuotaEnabled;
     /**
      * @return Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String cpuCfsQuotaPeriod;
+    private @Nullable String cpuCfsQuotaPeriod;
     /**
      * @return Specifies the CPU Manager policy to use. Possible values are `none` and `static`, Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String cpuManagerPolicy;
+    private @Nullable String cpuManagerPolicy;
     /**
      * @return Specifies the percent of disk usage above which image garbage collection is always run. Must be between `0` and `100`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer imageGcHighThreshold;
+    private @Nullable Integer imageGcHighThreshold;
     /**
      * @return Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between `0` and `100`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer imageGcLowThreshold;
+    private @Nullable Integer imageGcLowThreshold;
     /**
      * @return Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer podMaxPid;
+    private @Nullable Integer podMaxPid;
     /**
      * @return Specifies the Topology Manager policy to use. Possible values are `none`, `best-effort`, `restricted` or `single-numa-node`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String topologyManagerPolicy;
+    private @Nullable String topologyManagerPolicy;
 
-    @CustomType.Constructor
-    private KubernetesClusterDefaultNodePoolKubeletConfig(
-        @CustomType.Parameter("allowedUnsafeSysctls") @Nullable List<String> allowedUnsafeSysctls,
-        @CustomType.Parameter("containerLogMaxLine") @Nullable Integer containerLogMaxLine,
-        @CustomType.Parameter("containerLogMaxSizeMb") @Nullable Integer containerLogMaxSizeMb,
-        @CustomType.Parameter("cpuCfsQuotaEnabled") @Nullable Boolean cpuCfsQuotaEnabled,
-        @CustomType.Parameter("cpuCfsQuotaPeriod") @Nullable String cpuCfsQuotaPeriod,
-        @CustomType.Parameter("cpuManagerPolicy") @Nullable String cpuManagerPolicy,
-        @CustomType.Parameter("imageGcHighThreshold") @Nullable Integer imageGcHighThreshold,
-        @CustomType.Parameter("imageGcLowThreshold") @Nullable Integer imageGcLowThreshold,
-        @CustomType.Parameter("podMaxPid") @Nullable Integer podMaxPid,
-        @CustomType.Parameter("topologyManagerPolicy") @Nullable String topologyManagerPolicy) {
-        this.allowedUnsafeSysctls = allowedUnsafeSysctls;
-        this.containerLogMaxLine = containerLogMaxLine;
-        this.containerLogMaxSizeMb = containerLogMaxSizeMb;
-        this.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
-        this.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
-        this.cpuManagerPolicy = cpuManagerPolicy;
-        this.imageGcHighThreshold = imageGcHighThreshold;
-        this.imageGcLowThreshold = imageGcLowThreshold;
-        this.podMaxPid = podMaxPid;
-        this.topologyManagerPolicy = topologyManagerPolicy;
-    }
-
+    private KubernetesClusterDefaultNodePoolKubeletConfig() {}
     /**
      * @return Specifies the allow list of unsafe sysctls command or patterns (ending in `*`). Changing this forces a new resource to be created.
      * 
@@ -167,7 +144,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
     public static Builder builder(KubernetesClusterDefaultNodePoolKubeletConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedUnsafeSysctls;
         private @Nullable Integer containerLogMaxLine;
@@ -179,11 +156,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         private @Nullable Integer imageGcLowThreshold;
         private @Nullable Integer podMaxPid;
         private @Nullable String topologyManagerPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KubernetesClusterDefaultNodePoolKubeletConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedUnsafeSysctls = defaults.allowedUnsafeSysctls;
@@ -198,6 +171,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
     	      this.topologyManagerPolicy = defaults.topologyManagerPolicy;
         }
 
+        @CustomType.Setter
         public Builder allowedUnsafeSysctls(@Nullable List<String> allowedUnsafeSysctls) {
             this.allowedUnsafeSysctls = allowedUnsafeSysctls;
             return this;
@@ -205,43 +179,64 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfig {
         public Builder allowedUnsafeSysctls(String... allowedUnsafeSysctls) {
             return allowedUnsafeSysctls(List.of(allowedUnsafeSysctls));
         }
+        @CustomType.Setter
         public Builder containerLogMaxLine(@Nullable Integer containerLogMaxLine) {
             this.containerLogMaxLine = containerLogMaxLine;
             return this;
         }
+        @CustomType.Setter
         public Builder containerLogMaxSizeMb(@Nullable Integer containerLogMaxSizeMb) {
             this.containerLogMaxSizeMb = containerLogMaxSizeMb;
             return this;
         }
+        @CustomType.Setter
         public Builder cpuCfsQuotaEnabled(@Nullable Boolean cpuCfsQuotaEnabled) {
             this.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder cpuCfsQuotaPeriod(@Nullable String cpuCfsQuotaPeriod) {
             this.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
             return this;
         }
+        @CustomType.Setter
         public Builder cpuManagerPolicy(@Nullable String cpuManagerPolicy) {
             this.cpuManagerPolicy = cpuManagerPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder imageGcHighThreshold(@Nullable Integer imageGcHighThreshold) {
             this.imageGcHighThreshold = imageGcHighThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder imageGcLowThreshold(@Nullable Integer imageGcLowThreshold) {
             this.imageGcLowThreshold = imageGcLowThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder podMaxPid(@Nullable Integer podMaxPid) {
             this.podMaxPid = podMaxPid;
             return this;
         }
+        @CustomType.Setter
         public Builder topologyManagerPolicy(@Nullable String topologyManagerPolicy) {
             this.topologyManagerPolicy = topologyManagerPolicy;
             return this;
-        }        public KubernetesClusterDefaultNodePoolKubeletConfig build() {
-            return new KubernetesClusterDefaultNodePoolKubeletConfig(allowedUnsafeSysctls, containerLogMaxLine, containerLogMaxSizeMb, cpuCfsQuotaEnabled, cpuCfsQuotaPeriod, cpuManagerPolicy, imageGcHighThreshold, imageGcLowThreshold, podMaxPid, topologyManagerPolicy);
+        }
+        public KubernetesClusterDefaultNodePoolKubeletConfig build() {
+            final var o = new KubernetesClusterDefaultNodePoolKubeletConfig();
+            o.allowedUnsafeSysctls = allowedUnsafeSysctls;
+            o.containerLogMaxLine = containerLogMaxLine;
+            o.containerLogMaxSizeMb = containerLogMaxSizeMb;
+            o.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;
+            o.cpuCfsQuotaPeriod = cpuCfsQuotaPeriod;
+            o.cpuManagerPolicy = cpuManagerPolicy;
+            o.imageGcHighThreshold = imageGcHighThreshold;
+            o.imageGcLowThreshold = imageGcLowThreshold;
+            o.podMaxPid = podMaxPid;
+            o.topologyManagerPolicy = topologyManagerPolicy;
+            return o;
         }
     }
 }

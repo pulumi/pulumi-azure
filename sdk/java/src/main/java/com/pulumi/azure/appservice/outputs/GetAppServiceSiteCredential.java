@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetAppServiceSiteCredential {
-    private final String password;
-    private final String username;
+    private String password;
+    private String username;
 
-    @CustomType.Constructor
-    private GetAppServiceSiteCredential(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private GetAppServiceSiteCredential() {}
     public String password() {
         return this.password;
     }
@@ -34,30 +27,32 @@ public final class GetAppServiceSiteCredential {
     public static Builder builder(GetAppServiceSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServiceSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GetAppServiceSiteCredential build() {
-            return new GetAppServiceSiteCredential(password, username);
+        }
+        public GetAppServiceSiteCredential build() {
+            final var o = new GetAppServiceSiteCredential();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

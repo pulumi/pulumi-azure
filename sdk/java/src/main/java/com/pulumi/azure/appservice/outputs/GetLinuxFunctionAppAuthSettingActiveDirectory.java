@@ -14,35 +14,24 @@ public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
      * @return A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      */
-    private final List<String> allowedAudiences;
+    private List<String> allowedAudiences;
     /**
      * @return The OAuth 2.0 client ID that was created for the app used for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret that was created for the app used for authentication.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
      * 
      */
-    private final String clientSecretSettingName;
+    private String clientSecretSettingName;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppAuthSettingActiveDirectory(
-        @CustomType.Parameter("allowedAudiences") List<String> allowedAudiences,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") String clientSecretSettingName) {
-        this.allowedAudiences = allowedAudiences;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-    }
-
+    private GetLinuxFunctionAppAuthSettingActiveDirectory() {}
     /**
      * @return A list of Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
     public static Builder builder(GetLinuxFunctionAppAuthSettingActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedAudiences;
         private String clientId;
         private String clientSecret;
         private String clientSecretSettingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppAuthSettingActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
@@ -98,6 +83,7 @@ public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
     	      this.clientSecretSettingName = defaults.clientSecretSettingName;
         }
 
+        @CustomType.Setter
         public Builder allowedAudiences(List<String> allowedAudiences) {
             this.allowedAudiences = Objects.requireNonNull(allowedAudiences);
             return this;
@@ -105,19 +91,28 @@ public final class GetLinuxFunctionAppAuthSettingActiveDirectory {
         public Builder allowedAudiences(String... allowedAudiences) {
             return allowedAudiences(List.of(allowedAudiences));
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
             this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
             return this;
-        }        public GetLinuxFunctionAppAuthSettingActiveDirectory build() {
-            return new GetLinuxFunctionAppAuthSettingActiveDirectory(allowedAudiences, clientId, clientSecret, clientSecretSettingName);
+        }
+        public GetLinuxFunctionAppAuthSettingActiveDirectory build() {
+            final var o = new GetLinuxFunctionAppAuthSettingActiveDirectory();
+            o.allowedAudiences = allowedAudiences;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class AccountNetworkRulesPrivateLinkAccessRule {
      * @return The resource id of the resource access rule to be granted access.
      * 
      */
-    private final String endpointResourceId;
+    private String endpointResourceId;
     /**
      * @return The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
      * 
      */
-    private final @Nullable String endpointTenantId;
+    private @Nullable String endpointTenantId;
 
-    @CustomType.Constructor
-    private AccountNetworkRulesPrivateLinkAccessRule(
-        @CustomType.Parameter("endpointResourceId") String endpointResourceId,
-        @CustomType.Parameter("endpointTenantId") @Nullable String endpointTenantId) {
-        this.endpointResourceId = endpointResourceId;
-        this.endpointTenantId = endpointTenantId;
-    }
-
+    private AccountNetworkRulesPrivateLinkAccessRule() {}
     /**
      * @return The resource id of the resource access rule to be granted access.
      * 
@@ -52,30 +45,32 @@ public final class AccountNetworkRulesPrivateLinkAccessRule {
     public static Builder builder(AccountNetworkRulesPrivateLinkAccessRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpointResourceId;
         private @Nullable String endpointTenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountNetworkRulesPrivateLinkAccessRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpointResourceId = defaults.endpointResourceId;
     	      this.endpointTenantId = defaults.endpointTenantId;
         }
 
+        @CustomType.Setter
         public Builder endpointResourceId(String endpointResourceId) {
             this.endpointResourceId = Objects.requireNonNull(endpointResourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder endpointTenantId(@Nullable String endpointTenantId) {
             this.endpointTenantId = endpointTenantId;
             return this;
-        }        public AccountNetworkRulesPrivateLinkAccessRule build() {
-            return new AccountNetworkRulesPrivateLinkAccessRule(endpointResourceId, endpointTenantId);
+        }
+        public AccountNetworkRulesPrivateLinkAccessRule build() {
+            final var o = new AccountNetworkRulesPrivateLinkAccessRule();
+            o.endpointResourceId = endpointResourceId;
+            o.endpointTenantId = endpointTenantId;
+            return o;
         }
     }
 }

@@ -14,35 +14,24 @@ public final class OrderContact {
      * @return The name of the company. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    private final String companyName;
+    private String companyName;
     /**
      * @return A list of email address to send order notification to. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    private final List<String> emails;
+    private List<String> emails;
     /**
      * @return The contact person name. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The phone number. Changing this forces a new Databox Edge Order to be created.
      * 
      */
-    private final String phoneNumber;
+    private String phoneNumber;
 
-    @CustomType.Constructor
-    private OrderContact(
-        @CustomType.Parameter("companyName") String companyName,
-        @CustomType.Parameter("emails") List<String> emails,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("phoneNumber") String phoneNumber) {
-        this.companyName = companyName;
-        this.emails = emails;
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-
+    private OrderContact() {}
     /**
      * @return The name of the company. Changing this forces a new Databox Edge Order to be created.
      * 
@@ -79,17 +68,13 @@ public final class OrderContact {
     public static Builder builder(OrderContact defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String companyName;
         private List<String> emails;
         private String name;
         private String phoneNumber;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrderContact defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.companyName = defaults.companyName;
@@ -98,10 +83,12 @@ public final class OrderContact {
     	      this.phoneNumber = defaults.phoneNumber;
         }
 
+        @CustomType.Setter
         public Builder companyName(String companyName) {
             this.companyName = Objects.requireNonNull(companyName);
             return this;
         }
+        @CustomType.Setter
         public Builder emails(List<String> emails) {
             this.emails = Objects.requireNonNull(emails);
             return this;
@@ -109,15 +96,23 @@ public final class OrderContact {
         public Builder emails(String... emails) {
             return emails(List.of(emails));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder phoneNumber(String phoneNumber) {
             this.phoneNumber = Objects.requireNonNull(phoneNumber);
             return this;
-        }        public OrderContact build() {
-            return new OrderContact(companyName, emails, name, phoneNumber);
+        }
+        public OrderContact build() {
+            final var o = new OrderContact();
+            o.companyName = companyName;
+            o.emails = emails;
+            o.name = name;
+            o.phoneNumber = phoneNumber;
+            return o;
         }
     }
 }

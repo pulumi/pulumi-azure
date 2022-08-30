@@ -17,42 +17,29 @@ public final class AppServiceBackupSchedule {
      * @return Sets how often the backup should be executed.
      * 
      */
-    private final Integer frequencyInterval;
+    private Integer frequencyInterval;
     /**
      * @return Sets the unit of time for how often the backup should be executed. Possible values are `Day` or `Hour`.
      * 
      */
-    private final String frequencyUnit;
+    private String frequencyUnit;
     /**
      * @return Should at least one backup always be kept in the Storage Account by the Retention Policy, regardless of how old it is?
      * 
      */
-    private final @Nullable Boolean keepAtLeastOneBackup;
+    private @Nullable Boolean keepAtLeastOneBackup;
     /**
      * @return Specifies the number of days after which Backups should be deleted.
      * 
      */
-    private final @Nullable Integer retentionPeriodInDays;
+    private @Nullable Integer retentionPeriodInDays;
     /**
      * @return Sets when the schedule should start working.
      * 
      */
-    private final @Nullable String startTime;
+    private @Nullable String startTime;
 
-    @CustomType.Constructor
-    private AppServiceBackupSchedule(
-        @CustomType.Parameter("frequencyInterval") Integer frequencyInterval,
-        @CustomType.Parameter("frequencyUnit") String frequencyUnit,
-        @CustomType.Parameter("keepAtLeastOneBackup") @Nullable Boolean keepAtLeastOneBackup,
-        @CustomType.Parameter("retentionPeriodInDays") @Nullable Integer retentionPeriodInDays,
-        @CustomType.Parameter("startTime") @Nullable String startTime) {
-        this.frequencyInterval = frequencyInterval;
-        this.frequencyUnit = frequencyUnit;
-        this.keepAtLeastOneBackup = keepAtLeastOneBackup;
-        this.retentionPeriodInDays = retentionPeriodInDays;
-        this.startTime = startTime;
-    }
-
+    private AppServiceBackupSchedule() {}
     /**
      * @return Sets how often the backup should be executed.
      * 
@@ -96,18 +83,14 @@ public final class AppServiceBackupSchedule {
     public static Builder builder(AppServiceBackupSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer frequencyInterval;
         private String frequencyUnit;
         private @Nullable Boolean keepAtLeastOneBackup;
         private @Nullable Integer retentionPeriodInDays;
         private @Nullable String startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceBackupSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequencyInterval = defaults.frequencyInterval;
@@ -117,27 +100,39 @@ public final class AppServiceBackupSchedule {
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder frequencyInterval(Integer frequencyInterval) {
             this.frequencyInterval = Objects.requireNonNull(frequencyInterval);
             return this;
         }
+        @CustomType.Setter
         public Builder frequencyUnit(String frequencyUnit) {
             this.frequencyUnit = Objects.requireNonNull(frequencyUnit);
             return this;
         }
+        @CustomType.Setter
         public Builder keepAtLeastOneBackup(@Nullable Boolean keepAtLeastOneBackup) {
             this.keepAtLeastOneBackup = keepAtLeastOneBackup;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodInDays(@Nullable Integer retentionPeriodInDays) {
             this.retentionPeriodInDays = retentionPeriodInDays;
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(@Nullable String startTime) {
             this.startTime = startTime;
             return this;
-        }        public AppServiceBackupSchedule build() {
-            return new AppServiceBackupSchedule(frequencyInterval, frequencyUnit, keepAtLeastOneBackup, retentionPeriodInDays, startTime);
+        }
+        public AppServiceBackupSchedule build() {
+            final var o = new AppServiceBackupSchedule();
+            o.frequencyInterval = frequencyInterval;
+            o.frequencyUnit = frequencyUnit;
+            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            o.retentionPeriodInDays = retentionPeriodInDays;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

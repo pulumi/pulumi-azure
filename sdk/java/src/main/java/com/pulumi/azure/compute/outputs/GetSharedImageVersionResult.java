@@ -20,82 +20,53 @@ public final class GetSharedImageVersionResult {
      * @return Is this Image Version excluded from the `latest` filter?
      * 
      */
-    private final Boolean excludeFromLatest;
-    private final String galleryName;
+    private Boolean excludeFromLatest;
+    private String galleryName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String imageName;
+    private String id;
+    private String imageName;
     /**
      * @return The supported Azure location where the Shared Image Gallery exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The ID of the Managed Image which was the source of this Shared Image Version.
      * 
      */
-    private final String managedImageId;
+    private String managedImageId;
     /**
      * @return The Azure Region in which this Image Version exists.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The size of the OS disk snapshot (in Gigabytes) which was the source of this Shared Image Version.
      * 
      */
-    private final Integer osDiskImageSizeGb;
+    private Integer osDiskImageSizeGb;
     /**
      * @return The ID of the OS disk snapshot which was the source of this Shared Image Version.
      * 
      */
-    private final String osDiskSnapshotId;
-    private final String resourceGroupName;
-    private final @Nullable Boolean sortVersionsBySemver;
+    private String osDiskSnapshotId;
+    private String resourceGroupName;
+    private @Nullable Boolean sortVersionsBySemver;
     /**
      * @return A mapping of tags assigned to the Shared Image.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return One or more `target_region` blocks as documented below.
      * 
      */
-    private final List<GetSharedImageVersionTargetRegion> targetRegions;
+    private List<GetSharedImageVersionTargetRegion> targetRegions;
 
-    @CustomType.Constructor
-    private GetSharedImageVersionResult(
-        @CustomType.Parameter("excludeFromLatest") Boolean excludeFromLatest,
-        @CustomType.Parameter("galleryName") String galleryName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("imageName") String imageName,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("managedImageId") String managedImageId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osDiskImageSizeGb") Integer osDiskImageSizeGb,
-        @CustomType.Parameter("osDiskSnapshotId") String osDiskSnapshotId,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sortVersionsBySemver") @Nullable Boolean sortVersionsBySemver,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetRegions") List<GetSharedImageVersionTargetRegion> targetRegions) {
-        this.excludeFromLatest = excludeFromLatest;
-        this.galleryName = galleryName;
-        this.id = id;
-        this.imageName = imageName;
-        this.location = location;
-        this.managedImageId = managedImageId;
-        this.name = name;
-        this.osDiskImageSizeGb = osDiskImageSizeGb;
-        this.osDiskSnapshotId = osDiskSnapshotId;
-        this.resourceGroupName = resourceGroupName;
-        this.sortVersionsBySemver = sortVersionsBySemver;
-        this.tags = tags;
-        this.targetRegions = targetRegions;
-    }
-
+    private GetSharedImageVersionResult() {}
     /**
      * @return Is this Image Version excluded from the `latest` filter?
      * 
@@ -179,7 +150,7 @@ public final class GetSharedImageVersionResult {
     public static Builder builder(GetSharedImageVersionResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean excludeFromLatest;
         private String galleryName;
@@ -194,11 +165,7 @@ public final class GetSharedImageVersionResult {
         private @Nullable Boolean sortVersionsBySemver;
         private Map<String,String> tags;
         private List<GetSharedImageVersionTargetRegion> targetRegions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSharedImageVersionResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.excludeFromLatest = defaults.excludeFromLatest;
@@ -216,62 +183,90 @@ public final class GetSharedImageVersionResult {
     	      this.targetRegions = defaults.targetRegions;
         }
 
+        @CustomType.Setter
         public Builder excludeFromLatest(Boolean excludeFromLatest) {
             this.excludeFromLatest = Objects.requireNonNull(excludeFromLatest);
             return this;
         }
+        @CustomType.Setter
         public Builder galleryName(String galleryName) {
             this.galleryName = Objects.requireNonNull(galleryName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder imageName(String imageName) {
             this.imageName = Objects.requireNonNull(imageName);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder managedImageId(String managedImageId) {
             this.managedImageId = Objects.requireNonNull(managedImageId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskImageSizeGb(Integer osDiskImageSizeGb) {
             this.osDiskImageSizeGb = Objects.requireNonNull(osDiskImageSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder osDiskSnapshotId(String osDiskSnapshotId) {
             this.osDiskSnapshotId = Objects.requireNonNull(osDiskSnapshotId);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sortVersionsBySemver(@Nullable Boolean sortVersionsBySemver) {
             this.sortVersionsBySemver = sortVersionsBySemver;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetRegions(List<GetSharedImageVersionTargetRegion> targetRegions) {
             this.targetRegions = Objects.requireNonNull(targetRegions);
             return this;
         }
         public Builder targetRegions(GetSharedImageVersionTargetRegion... targetRegions) {
             return targetRegions(List.of(targetRegions));
-        }        public GetSharedImageVersionResult build() {
-            return new GetSharedImageVersionResult(excludeFromLatest, galleryName, id, imageName, location, managedImageId, name, osDiskImageSizeGb, osDiskSnapshotId, resourceGroupName, sortVersionsBySemver, tags, targetRegions);
+        }
+        public GetSharedImageVersionResult build() {
+            final var o = new GetSharedImageVersionResult();
+            o.excludeFromLatest = excludeFromLatest;
+            o.galleryName = galleryName;
+            o.id = id;
+            o.imageName = imageName;
+            o.location = location;
+            o.managedImageId = managedImageId;
+            o.name = name;
+            o.osDiskImageSizeGb = osDiskImageSizeGb;
+            o.osDiskSnapshotId = osDiskSnapshotId;
+            o.resourceGroupName = resourceGroupName;
+            o.sortVersionsBySemver = sortVersionsBySemver;
+            o.tags = tags;
+            o.targetRegions = targetRegions;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class DataCollectionRuleDestinations {
      * @return A `azure_monitor_metrics` block as defined above.
      * 
      */
-    private final @Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics;
+    private @Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics;
     /**
      * @return One or more `log_analytics` blocks as defined below.
      * 
      */
-    private final @Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics;
+    private @Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDestinations(
-        @CustomType.Parameter("azureMonitorMetrics") @Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics,
-        @CustomType.Parameter("logAnalytics") @Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics) {
-        this.azureMonitorMetrics = azureMonitorMetrics;
-        this.logAnalytics = logAnalytics;
-    }
-
+    private DataCollectionRuleDestinations() {}
     /**
      * @return A `azure_monitor_metrics` block as defined above.
      * 
@@ -54,33 +47,35 @@ public final class DataCollectionRuleDestinations {
     public static Builder builder(DataCollectionRuleDestinations defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics;
         private @Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDestinations defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureMonitorMetrics = defaults.azureMonitorMetrics;
     	      this.logAnalytics = defaults.logAnalytics;
         }
 
+        @CustomType.Setter
         public Builder azureMonitorMetrics(@Nullable DataCollectionRuleDestinationsAzureMonitorMetrics azureMonitorMetrics) {
             this.azureMonitorMetrics = azureMonitorMetrics;
             return this;
         }
+        @CustomType.Setter
         public Builder logAnalytics(@Nullable List<DataCollectionRuleDestinationsLogAnalytic> logAnalytics) {
             this.logAnalytics = logAnalytics;
             return this;
         }
         public Builder logAnalytics(DataCollectionRuleDestinationsLogAnalytic... logAnalytics) {
             return logAnalytics(List.of(logAnalytics));
-        }        public DataCollectionRuleDestinations build() {
-            return new DataCollectionRuleDestinations(azureMonitorMetrics, logAnalytics);
+        }
+        public DataCollectionRuleDestinations build() {
+            final var o = new DataCollectionRuleDestinations();
+            o.azureMonitorMetrics = azureMonitorMetrics;
+            o.logAnalytics = logAnalytics;
+            return o;
         }
     }
 }

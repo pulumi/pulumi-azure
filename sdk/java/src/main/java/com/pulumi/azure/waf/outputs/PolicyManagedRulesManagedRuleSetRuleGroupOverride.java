@@ -15,21 +15,14 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
      * @return One or more Rule IDs
      * 
      */
-    private final @Nullable List<String> disabledRules;
+    private @Nullable List<String> disabledRules;
     /**
      * @return The name of the Rule Group
      * 
      */
-    private final String ruleGroupName;
+    private String ruleGroupName;
 
-    @CustomType.Constructor
-    private PolicyManagedRulesManagedRuleSetRuleGroupOverride(
-        @CustomType.Parameter("disabledRules") @Nullable List<String> disabledRules,
-        @CustomType.Parameter("ruleGroupName") String ruleGroupName) {
-        this.disabledRules = disabledRules;
-        this.ruleGroupName = ruleGroupName;
-    }
-
+    private PolicyManagedRulesManagedRuleSetRuleGroupOverride() {}
     /**
      * @return One or more Rule IDs
      * 
@@ -52,21 +45,18 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
     public static Builder builder(PolicyManagedRulesManagedRuleSetRuleGroupOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> disabledRules;
         private String ruleGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyManagedRulesManagedRuleSetRuleGroupOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabledRules = defaults.disabledRules;
     	      this.ruleGroupName = defaults.ruleGroupName;
         }
 
+        @CustomType.Setter
         public Builder disabledRules(@Nullable List<String> disabledRules) {
             this.disabledRules = disabledRules;
             return this;
@@ -74,11 +64,16 @@ public final class PolicyManagedRulesManagedRuleSetRuleGroupOverride {
         public Builder disabledRules(String... disabledRules) {
             return disabledRules(List.of(disabledRules));
         }
+        @CustomType.Setter
         public Builder ruleGroupName(String ruleGroupName) {
             this.ruleGroupName = Objects.requireNonNull(ruleGroupName);
             return this;
-        }        public PolicyManagedRulesManagedRuleSetRuleGroupOverride build() {
-            return new PolicyManagedRulesManagedRuleSetRuleGroupOverride(disabledRules, ruleGroupName);
+        }
+        public PolicyManagedRulesManagedRuleSetRuleGroupOverride build() {
+            final var o = new PolicyManagedRulesManagedRuleSetRuleGroupOverride();
+            o.disabledRules = disabledRules;
+            o.ruleGroupName = ruleGroupName;
+            return o;
         }
     }
 }

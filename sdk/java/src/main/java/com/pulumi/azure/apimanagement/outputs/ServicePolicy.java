@@ -15,21 +15,14 @@ public final class ServicePolicy {
      * @return The XML Content for this Policy.
      * 
      */
-    private final @Nullable String xmlContent;
+    private @Nullable String xmlContent;
     /**
      * @return A link to an API Management Policy XML Document, which must be publicly available.
      * 
      */
-    private final @Nullable String xmlLink;
+    private @Nullable String xmlLink;
 
-    @CustomType.Constructor
-    private ServicePolicy(
-        @CustomType.Parameter("xmlContent") @Nullable String xmlContent,
-        @CustomType.Parameter("xmlLink") @Nullable String xmlLink) {
-        this.xmlContent = xmlContent;
-        this.xmlLink = xmlLink;
-    }
-
+    private ServicePolicy() {}
     /**
      * @return The XML Content for this Policy.
      * 
@@ -52,30 +45,32 @@ public final class ServicePolicy {
     public static Builder builder(ServicePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String xmlContent;
         private @Nullable String xmlLink;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServicePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.xmlContent = defaults.xmlContent;
     	      this.xmlLink = defaults.xmlLink;
         }
 
+        @CustomType.Setter
         public Builder xmlContent(@Nullable String xmlContent) {
             this.xmlContent = xmlContent;
             return this;
         }
+        @CustomType.Setter
         public Builder xmlLink(@Nullable String xmlLink) {
             this.xmlLink = xmlLink;
             return this;
-        }        public ServicePolicy build() {
-            return new ServicePolicy(xmlContent, xmlLink);
+        }
+        public ServicePolicy build() {
+            final var o = new ServicePolicy();
+            o.xmlContent = xmlContent;
+            o.xmlLink = xmlLink;
+            return o;
         }
     }
 }

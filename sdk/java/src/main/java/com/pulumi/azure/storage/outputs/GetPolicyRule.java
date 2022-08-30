@@ -17,35 +17,24 @@ public final class GetPolicyRule {
      * @return An `actions` block as documented below.
      * 
      */
-    private final List<GetPolicyRuleAction> actions;
+    private List<GetPolicyRuleAction> actions;
     /**
      * @return Boolean to specify whether the rule is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `filter` block as documented below.
      * 
      */
-    private final List<GetPolicyRuleFilter> filters;
+    private List<GetPolicyRuleFilter> filters;
     /**
      * @return The filter tag name used for tag based filtering for blob objects.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetPolicyRule(
-        @CustomType.Parameter("actions") List<GetPolicyRuleAction> actions,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("filters") List<GetPolicyRuleFilter> filters,
-        @CustomType.Parameter("name") String name) {
-        this.actions = actions;
-        this.enabled = enabled;
-        this.filters = filters;
-        this.name = name;
-    }
-
+    private GetPolicyRule() {}
     /**
      * @return An `actions` block as documented below.
      * 
@@ -82,17 +71,13 @@ public final class GetPolicyRule {
     public static Builder builder(GetPolicyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPolicyRuleAction> actions;
         private Boolean enabled;
         private List<GetPolicyRuleFilter> filters;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
@@ -101,6 +86,7 @@ public final class GetPolicyRule {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder actions(List<GetPolicyRuleAction> actions) {
             this.actions = Objects.requireNonNull(actions);
             return this;
@@ -108,10 +94,12 @@ public final class GetPolicyRule {
         public Builder actions(GetPolicyRuleAction... actions) {
             return actions(List.of(actions));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(List<GetPolicyRuleFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -119,11 +107,18 @@ public final class GetPolicyRule {
         public Builder filters(GetPolicyRuleFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetPolicyRule build() {
-            return new GetPolicyRule(actions, enabled, filters, name);
+        }
+        public GetPolicyRule build() {
+            final var o = new GetPolicyRule();
+            o.actions = actions;
+            o.enabled = enabled;
+            o.filters = filters;
+            o.name = name;
+            return o;
         }
     }
 }

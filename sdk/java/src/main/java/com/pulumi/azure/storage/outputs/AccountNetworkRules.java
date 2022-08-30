@@ -17,42 +17,29 @@ public final class AccountNetworkRules {
      * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
      * 
      */
-    private final @Nullable List<String> bypasses;
+    private @Nullable List<String> bypasses;
     /**
      * @return Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
      * 
      */
-    private final String defaultAction;
+    private String defaultAction;
     /**
      * @return List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed.
      * 
      */
-    private final @Nullable List<String> ipRules;
+    private @Nullable List<String> ipRules;
     /**
      * @return One or More `private_link_access` block as defined below.
      * 
      */
-    private final @Nullable List<AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses;
+    private @Nullable List<AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses;
     /**
      * @return A list of resource ids for subnets.
      * 
      */
-    private final @Nullable List<String> virtualNetworkSubnetIds;
+    private @Nullable List<String> virtualNetworkSubnetIds;
 
-    @CustomType.Constructor
-    private AccountNetworkRules(
-        @CustomType.Parameter("bypasses") @Nullable List<String> bypasses,
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<String> ipRules,
-        @CustomType.Parameter("privateLinkAccesses") @Nullable List<AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses,
-        @CustomType.Parameter("virtualNetworkSubnetIds") @Nullable List<String> virtualNetworkSubnetIds) {
-        this.bypasses = bypasses;
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.privateLinkAccesses = privateLinkAccesses;
-        this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-    }
-
+    private AccountNetworkRules() {}
     /**
      * @return Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are
      * any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
@@ -97,18 +84,14 @@ public final class AccountNetworkRules {
     public static Builder builder(AccountNetworkRules defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> bypasses;
         private String defaultAction;
         private @Nullable List<String> ipRules;
         private @Nullable List<AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses;
         private @Nullable List<String> virtualNetworkSubnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountNetworkRules defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bypasses = defaults.bypasses;
@@ -118,6 +101,7 @@ public final class AccountNetworkRules {
     	      this.virtualNetworkSubnetIds = defaults.virtualNetworkSubnetIds;
         }
 
+        @CustomType.Setter
         public Builder bypasses(@Nullable List<String> bypasses) {
             this.bypasses = bypasses;
             return this;
@@ -125,10 +109,12 @@ public final class AccountNetworkRules {
         public Builder bypasses(String... bypasses) {
             return bypasses(List.of(bypasses));
         }
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<String> ipRules) {
             this.ipRules = ipRules;
             return this;
@@ -136,6 +122,7 @@ public final class AccountNetworkRules {
         public Builder ipRules(String... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder privateLinkAccesses(@Nullable List<AccountNetworkRulesPrivateLinkAccess> privateLinkAccesses) {
             this.privateLinkAccesses = privateLinkAccesses;
             return this;
@@ -143,14 +130,22 @@ public final class AccountNetworkRules {
         public Builder privateLinkAccesses(AccountNetworkRulesPrivateLinkAccess... privateLinkAccesses) {
             return privateLinkAccesses(List.of(privateLinkAccesses));
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetIds(@Nullable List<String> virtualNetworkSubnetIds) {
             this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
             return this;
         }
         public Builder virtualNetworkSubnetIds(String... virtualNetworkSubnetIds) {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
-        }        public AccountNetworkRules build() {
-            return new AccountNetworkRules(bypasses, defaultAction, ipRules, privateLinkAccesses, virtualNetworkSubnetIds);
+        }
+        public AccountNetworkRules build() {
+            final var o = new AccountNetworkRules();
+            o.bypasses = bypasses;
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.privateLinkAccesses = privateLinkAccesses;
+            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return o;
         }
     }
 }

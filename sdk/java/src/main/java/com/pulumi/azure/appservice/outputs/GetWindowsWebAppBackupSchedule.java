@@ -15,49 +15,34 @@ public final class GetWindowsWebAppBackupSchedule {
      * @return How often the backup will be executed.
      * 
      */
-    private final Integer frequencyInterval;
+    private Integer frequencyInterval;
     /**
      * @return The unit of time for how often the backup should take place.
      * 
      */
-    private final String frequencyUnit;
+    private String frequencyUnit;
     /**
      * @return Will the service keep at least one backup, regardless of age of backup.
      * 
      */
-    private final Boolean keepAtLeastOneBackup;
+    private Boolean keepAtLeastOneBackup;
     /**
      * @return The time of the last backup attempt.
      * 
      */
-    private final String lastExecutionTime;
+    private String lastExecutionTime;
     /**
      * @return After how many days backups should be deleted.
      * 
      */
-    private final Integer retentionPeriodDays;
+    private Integer retentionPeriodDays;
     /**
      * @return When the schedule should start in RFC-3339 format.
      * 
      */
-    private final String startTime;
+    private String startTime;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppBackupSchedule(
-        @CustomType.Parameter("frequencyInterval") Integer frequencyInterval,
-        @CustomType.Parameter("frequencyUnit") String frequencyUnit,
-        @CustomType.Parameter("keepAtLeastOneBackup") Boolean keepAtLeastOneBackup,
-        @CustomType.Parameter("lastExecutionTime") String lastExecutionTime,
-        @CustomType.Parameter("retentionPeriodDays") Integer retentionPeriodDays,
-        @CustomType.Parameter("startTime") String startTime) {
-        this.frequencyInterval = frequencyInterval;
-        this.frequencyUnit = frequencyUnit;
-        this.keepAtLeastOneBackup = keepAtLeastOneBackup;
-        this.lastExecutionTime = lastExecutionTime;
-        this.retentionPeriodDays = retentionPeriodDays;
-        this.startTime = startTime;
-    }
-
+    private GetWindowsWebAppBackupSchedule() {}
     /**
      * @return How often the backup will be executed.
      * 
@@ -108,7 +93,7 @@ public final class GetWindowsWebAppBackupSchedule {
     public static Builder builder(GetWindowsWebAppBackupSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer frequencyInterval;
         private String frequencyUnit;
@@ -116,11 +101,7 @@ public final class GetWindowsWebAppBackupSchedule {
         private String lastExecutionTime;
         private Integer retentionPeriodDays;
         private String startTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppBackupSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequencyInterval = defaults.frequencyInterval;
@@ -131,31 +112,45 @@ public final class GetWindowsWebAppBackupSchedule {
     	      this.startTime = defaults.startTime;
         }
 
+        @CustomType.Setter
         public Builder frequencyInterval(Integer frequencyInterval) {
             this.frequencyInterval = Objects.requireNonNull(frequencyInterval);
             return this;
         }
+        @CustomType.Setter
         public Builder frequencyUnit(String frequencyUnit) {
             this.frequencyUnit = Objects.requireNonNull(frequencyUnit);
             return this;
         }
+        @CustomType.Setter
         public Builder keepAtLeastOneBackup(Boolean keepAtLeastOneBackup) {
             this.keepAtLeastOneBackup = Objects.requireNonNull(keepAtLeastOneBackup);
             return this;
         }
+        @CustomType.Setter
         public Builder lastExecutionTime(String lastExecutionTime) {
             this.lastExecutionTime = Objects.requireNonNull(lastExecutionTime);
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodDays(Integer retentionPeriodDays) {
             this.retentionPeriodDays = Objects.requireNonNull(retentionPeriodDays);
             return this;
         }
+        @CustomType.Setter
         public Builder startTime(String startTime) {
             this.startTime = Objects.requireNonNull(startTime);
             return this;
-        }        public GetWindowsWebAppBackupSchedule build() {
-            return new GetWindowsWebAppBackupSchedule(frequencyInterval, frequencyUnit, keepAtLeastOneBackup, lastExecutionTime, retentionPeriodDays, startTime);
+        }
+        public GetWindowsWebAppBackupSchedule build() {
+            final var o = new GetWindowsWebAppBackupSchedule();
+            o.frequencyInterval = frequencyInterval;
+            o.frequencyUnit = frequencyUnit;
+            o.keepAtLeastOneBackup = keepAtLeastOneBackup;
+            o.lastExecutionTime = lastExecutionTime;
+            o.retentionPeriodDays = retentionPeriodDays;
+            o.startTime = startTime;
+            return o;
         }
     }
 }

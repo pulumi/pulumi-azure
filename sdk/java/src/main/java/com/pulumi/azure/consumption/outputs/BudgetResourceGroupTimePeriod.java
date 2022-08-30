@@ -15,21 +15,14 @@ public final class BudgetResourceGroupTimePeriod {
      * @return The end date for the budget. If not set this will be 10 years after the start date.
      * 
      */
-    private final @Nullable String endDate;
+    private @Nullable String endDate;
     /**
      * @return The start date for the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should be selected within the timegrain period. Changing this forces a new Resource Group Consumption Budget to be created.
      * 
      */
-    private final String startDate;
+    private String startDate;
 
-    @CustomType.Constructor
-    private BudgetResourceGroupTimePeriod(
-        @CustomType.Parameter("endDate") @Nullable String endDate,
-        @CustomType.Parameter("startDate") String startDate) {
-        this.endDate = endDate;
-        this.startDate = startDate;
-    }
-
+    private BudgetResourceGroupTimePeriod() {}
     /**
      * @return The end date for the budget. If not set this will be 10 years after the start date.
      * 
@@ -52,30 +45,32 @@ public final class BudgetResourceGroupTimePeriod {
     public static Builder builder(BudgetResourceGroupTimePeriod defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String endDate;
         private String startDate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetResourceGroupTimePeriod defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDate = defaults.endDate;
     	      this.startDate = defaults.startDate;
         }
 
+        @CustomType.Setter
         public Builder endDate(@Nullable String endDate) {
             this.endDate = endDate;
             return this;
         }
+        @CustomType.Setter
         public Builder startDate(String startDate) {
             this.startDate = Objects.requireNonNull(startDate);
             return this;
-        }        public BudgetResourceGroupTimePeriod build() {
-            return new BudgetResourceGroupTimePeriod(endDate, startDate);
+        }
+        public BudgetResourceGroupTimePeriod build() {
+            final var o = new BudgetResourceGroupTimePeriod();
+            o.endDate = endDate;
+            o.startDate = startDate;
+            return o;
         }
     }
 }

@@ -18,70 +18,49 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
      * @return A list of Backend Address Pools ID&#39;s from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
      */
-    private final @Nullable List<String> applicationGatewayBackendAddressPoolIds;
+    private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
     /**
      * @return A list of Application Security Group ID&#39;s which this Virtual Machine Scale Set should be connected to.
      * 
      */
-    private final @Nullable List<String> applicationSecurityGroupIds;
+    private @Nullable List<String> applicationSecurityGroupIds;
     /**
      * @return A list of Backend Address Pools ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      */
-    private final @Nullable List<String> loadBalancerBackendAddressPoolIds;
+    private @Nullable List<String> loadBalancerBackendAddressPoolIds;
     /**
      * @return A list of NAT Rule ID&#39;s from a Load Balancer which this Virtual Machine Scale Set should be connected to.
      * 
      */
-    private final @Nullable List<String> loadBalancerInboundNatRulesIds;
+    private @Nullable List<String> loadBalancerInboundNatRulesIds;
     /**
      * @return The Name which should be used for this IP Configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean primary;
+    private @Nullable Boolean primary;
     /**
      * @return A `public_ip_address` block as defined below.
      * 
      */
-    private final @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
+    private @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
      */
-    private final @Nullable String subnetId;
+    private @Nullable String subnetId;
     /**
      * @return The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
      * 
      */
-    private final @Nullable String version;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(
-        @CustomType.Parameter("applicationGatewayBackendAddressPoolIds") @Nullable List<String> applicationGatewayBackendAddressPoolIds,
-        @CustomType.Parameter("applicationSecurityGroupIds") @Nullable List<String> applicationSecurityGroupIds,
-        @CustomType.Parameter("loadBalancerBackendAddressPoolIds") @Nullable List<String> loadBalancerBackendAddressPoolIds,
-        @CustomType.Parameter("loadBalancerInboundNatRulesIds") @Nullable List<String> loadBalancerInboundNatRulesIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") @Nullable Boolean primary,
-        @CustomType.Parameter("publicIpAddresses") @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses,
-        @CustomType.Parameter("subnetId") @Nullable String subnetId,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
-        this.applicationSecurityGroupIds = applicationSecurityGroupIds;
-        this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
-        this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-        this.name = name;
-        this.primary = primary;
-        this.publicIpAddresses = publicIpAddresses;
-        this.subnetId = subnetId;
-        this.version = version;
-    }
-
+    private LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
     /**
      * @return A list of Backend Address Pools ID&#39;s from a Application Gateway which this Virtual Machine Scale Set should be connected to.
      * 
@@ -153,7 +132,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     public static Builder builder(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
         private @Nullable List<String> applicationSecurityGroupIds;
@@ -164,11 +143,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         private @Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
         private @Nullable String subnetId;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationGatewayBackendAddressPoolIds = defaults.applicationGatewayBackendAddressPoolIds;
@@ -182,6 +157,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolIds(@Nullable List<String> applicationGatewayBackendAddressPoolIds) {
             this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
             return this;
@@ -189,6 +165,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder applicationGatewayBackendAddressPoolIds(String... applicationGatewayBackendAddressPoolIds) {
             return applicationGatewayBackendAddressPoolIds(List.of(applicationGatewayBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder applicationSecurityGroupIds(@Nullable List<String> applicationSecurityGroupIds) {
             this.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
@@ -196,6 +173,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolIds(@Nullable List<String> loadBalancerBackendAddressPoolIds) {
             this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
             return this;
@@ -203,6 +181,7 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerBackendAddressPoolIds(String... loadBalancerBackendAddressPoolIds) {
             return loadBalancerBackendAddressPoolIds(List.of(loadBalancerBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(@Nullable List<String> loadBalancerInboundNatRulesIds) {
             this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
             return this;
@@ -210,14 +189,17 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerInboundNatRulesIds(String... loadBalancerInboundNatRulesIds) {
             return loadBalancerInboundNatRulesIds(List.of(loadBalancerInboundNatRulesIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
             this.primary = primary;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(@Nullable List<LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses) {
             this.publicIpAddresses = publicIpAddresses;
             return this;
@@ -225,15 +207,28 @@ public final class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder publicIpAddresses(LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder subnetId(@Nullable String subnetId) {
             this.subnetId = subnetId;
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration build() {
-            return new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(applicationGatewayBackendAddressPoolIds, applicationSecurityGroupIds, loadBalancerBackendAddressPoolIds, loadBalancerInboundNatRulesIds, name, primary, publicIpAddresses, subnetId, version);
+        }
+        public LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration build() {
+            final var o = new LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration();
+            o.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
+            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            o.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
+            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            o.name = name;
+            o.primary = primary;
+            o.publicIpAddresses = publicIpAddresses;
+            o.subnetId = subnetId;
+            o.version = version;
+            return o;
         }
     }
 }

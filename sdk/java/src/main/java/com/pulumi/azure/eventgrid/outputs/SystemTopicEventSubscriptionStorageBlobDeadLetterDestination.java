@@ -13,21 +13,14 @@ public final class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination 
      * @return Specifies the id of the storage account id where the storage blob is located.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
     /**
      * @return Specifies the name of the Storage blob container that is the destination of the deadletter events.
      * 
      */
-    private final String storageBlobContainerName;
+    private String storageBlobContainerName;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(
-        @CustomType.Parameter("storageAccountId") String storageAccountId,
-        @CustomType.Parameter("storageBlobContainerName") String storageBlobContainerName) {
-        this.storageAccountId = storageAccountId;
-        this.storageBlobContainerName = storageBlobContainerName;
-    }
-
+    private SystemTopicEventSubscriptionStorageBlobDeadLetterDestination() {}
     /**
      * @return Specifies the id of the storage account id where the storage blob is located.
      * 
@@ -50,30 +43,32 @@ public final class SystemTopicEventSubscriptionStorageBlobDeadLetterDestination 
     public static Builder builder(SystemTopicEventSubscriptionStorageBlobDeadLetterDestination defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String storageAccountId;
         private String storageBlobContainerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionStorageBlobDeadLetterDestination defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageBlobContainerName = defaults.storageBlobContainerName;
         }
 
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageBlobContainerName(String storageBlobContainerName) {
             this.storageBlobContainerName = Objects.requireNonNull(storageBlobContainerName);
             return this;
-        }        public SystemTopicEventSubscriptionStorageBlobDeadLetterDestination build() {
-            return new SystemTopicEventSubscriptionStorageBlobDeadLetterDestination(storageAccountId, storageBlobContainerName);
+        }
+        public SystemTopicEventSubscriptionStorageBlobDeadLetterDestination build() {
+            final var o = new SystemTopicEventSubscriptionStorageBlobDeadLetterDestination();
+            o.storageAccountId = storageAccountId;
+            o.storageBlobContainerName = storageBlobContainerName;
+            return o;
         }
     }
 }

@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSnapshotEncryptionSettingKeyEncryptionKey {
-    private final String keyUrl;
-    private final String sourceVaultId;
+    private String keyUrl;
+    private String sourceVaultId;
 
-    @CustomType.Constructor
-    private GetSnapshotEncryptionSettingKeyEncryptionKey(
-        @CustomType.Parameter("keyUrl") String keyUrl,
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId) {
-        this.keyUrl = keyUrl;
-        this.sourceVaultId = sourceVaultId;
-    }
-
+    private GetSnapshotEncryptionSettingKeyEncryptionKey() {}
     public String keyUrl() {
         return this.keyUrl;
     }
@@ -34,30 +27,32 @@ public final class GetSnapshotEncryptionSettingKeyEncryptionKey {
     public static Builder builder(GetSnapshotEncryptionSettingKeyEncryptionKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyUrl;
         private String sourceVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSnapshotEncryptionSettingKeyEncryptionKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyUrl = defaults.keyUrl;
     	      this.sourceVaultId = defaults.sourceVaultId;
         }
 
+        @CustomType.Setter
         public Builder keyUrl(String keyUrl) {
             this.keyUrl = Objects.requireNonNull(keyUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
-        }        public GetSnapshotEncryptionSettingKeyEncryptionKey build() {
-            return new GetSnapshotEncryptionSettingKeyEncryptionKey(keyUrl, sourceVaultId);
+        }
+        public GetSnapshotEncryptionSettingKeyEncryptionKey build() {
+            final var o = new GetSnapshotEncryptionSettingKeyEncryptionKey();
+            o.keyUrl = keyUrl;
+            o.sourceVaultId = sourceVaultId;
+            return o;
         }
     }
 }

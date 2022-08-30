@@ -9,17 +9,10 @@ import java.util.Objects;
 
 @CustomType
 public final class DiagnosticBackendResponseDataMaskingHeader {
-    private final String mode;
-    private final String value;
+    private String mode;
+    private String value;
 
-    @CustomType.Constructor
-    private DiagnosticBackendResponseDataMaskingHeader(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("value") String value) {
-        this.mode = mode;
-        this.value = value;
-    }
-
+    private DiagnosticBackendResponseDataMaskingHeader() {}
     public String mode() {
         return this.mode;
     }
@@ -34,30 +27,32 @@ public final class DiagnosticBackendResponseDataMaskingHeader {
     public static Builder builder(DiagnosticBackendResponseDataMaskingHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticBackendResponseDataMaskingHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public DiagnosticBackendResponseDataMaskingHeader build() {
-            return new DiagnosticBackendResponseDataMaskingHeader(mode, value);
+        }
+        public DiagnosticBackendResponseDataMaskingHeader build() {
+            final var o = new DiagnosticBackendResponseDataMaskingHeader();
+            o.mode = mode;
+            o.value = value;
+            return o;
         }
     }
 }

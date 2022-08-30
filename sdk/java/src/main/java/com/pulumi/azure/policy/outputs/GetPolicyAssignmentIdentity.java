@@ -14,35 +14,24 @@ public final class GetPolicyAssignmentIdentity {
      * @return A `identity_ids` block as defined below.
      * 
      */
-    private final List<String> identityIds;
+    private List<String> identityIds;
     /**
      * @return The Principal ID of the Policy Assignment for this Resource.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The Tenant ID of the Policy Assignment for this Resource.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
     /**
      * @return The Type of Managed Identity which is added to this Policy Assignment.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetPolicyAssignmentIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetPolicyAssignmentIdentity() {}
     /**
      * @return A `identity_ids` block as defined below.
      * 
@@ -79,17 +68,13 @@ public final class GetPolicyAssignmentIdentity {
     public static Builder builder(GetPolicyAssignmentIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyAssignmentIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -98,6 +83,7 @@ public final class GetPolicyAssignmentIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -105,19 +91,28 @@ public final class GetPolicyAssignmentIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetPolicyAssignmentIdentity build() {
-            return new GetPolicyAssignmentIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetPolicyAssignmentIdentity build() {
+            final var o = new GetPolicyAssignmentIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

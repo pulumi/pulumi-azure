@@ -17,28 +17,19 @@ public final class AadDiagnosticSettingLog {
      * @return The log category for the Azure Active Directory Diagnostic.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return Is this Diagnostic Log enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A `retention_policy` block as defined below.
      * 
      */
-    private final AadDiagnosticSettingLogRetentionPolicy retentionPolicy;
+    private AadDiagnosticSettingLogRetentionPolicy retentionPolicy;
 
-    @CustomType.Constructor
-    private AadDiagnosticSettingLog(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("retentionPolicy") AadDiagnosticSettingLogRetentionPolicy retentionPolicy) {
-        this.category = category;
-        this.enabled = enabled;
-        this.retentionPolicy = retentionPolicy;
-    }
-
+    private AadDiagnosticSettingLog() {}
     /**
      * @return The log category for the Azure Active Directory Diagnostic.
      * 
@@ -68,16 +59,12 @@ public final class AadDiagnosticSettingLog {
     public static Builder builder(AadDiagnosticSettingLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private @Nullable Boolean enabled;
         private AadDiagnosticSettingLogRetentionPolicy retentionPolicy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AadDiagnosticSettingLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -85,19 +72,27 @@ public final class AadDiagnosticSettingLog {
     	      this.retentionPolicy = defaults.retentionPolicy;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPolicy(AadDiagnosticSettingLogRetentionPolicy retentionPolicy) {
             this.retentionPolicy = Objects.requireNonNull(retentionPolicy);
             return this;
-        }        public AadDiagnosticSettingLog build() {
-            return new AadDiagnosticSettingLog(category, enabled, retentionPolicy);
+        }
+        public AadDiagnosticSettingLog build() {
+            final var o = new AadDiagnosticSettingLog();
+            o.category = category;
+            o.enabled = enabled;
+            o.retentionPolicy = retentionPolicy;
+            return o;
         }
     }
 }

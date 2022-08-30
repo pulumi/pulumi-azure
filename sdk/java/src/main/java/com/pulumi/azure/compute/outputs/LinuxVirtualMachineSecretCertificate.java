@@ -13,13 +13,9 @@ public final class LinuxVirtualMachineSecretCertificate {
      * @return The Secret URL of a Key Vault Certificate.
      * 
      */
-    private final String url;
+    private String url;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineSecretCertificate(@CustomType.Parameter("url") String url) {
-        this.url = url;
-    }
-
+    private LinuxVirtualMachineSecretCertificate() {}
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
@@ -35,24 +31,24 @@ public final class LinuxVirtualMachineSecretCertificate {
     public static Builder builder(LinuxVirtualMachineSecretCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String url;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineSecretCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.url = defaults.url;
         }
 
+        @CustomType.Setter
         public Builder url(String url) {
             this.url = Objects.requireNonNull(url);
             return this;
-        }        public LinuxVirtualMachineSecretCertificate build() {
-            return new LinuxVirtualMachineSecretCertificate(url);
+        }
+        public LinuxVirtualMachineSecretCertificate build() {
+            final var o = new LinuxVirtualMachineSecretCertificate();
+            o.url = url;
+            return o;
         }
     }
 }

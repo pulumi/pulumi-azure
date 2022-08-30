@@ -13,21 +13,14 @@ public final class FunctionAppFunctionFile {
      * @return The content of the file.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return The filename of the file to be uploaded.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private FunctionAppFunctionFile(
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("name") String name) {
-        this.content = content;
-        this.name = name;
-    }
-
+    private FunctionAppFunctionFile() {}
     /**
      * @return The content of the file.
      * 
@@ -50,30 +43,32 @@ public final class FunctionAppFunctionFile {
     public static Builder builder(FunctionAppFunctionFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String content;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FunctionAppFunctionFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.content = defaults.content;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public FunctionAppFunctionFile build() {
-            return new FunctionAppFunctionFile(content, name);
+        }
+        public FunctionAppFunctionFile build() {
+            final var o = new FunctionAppFunctionFile();
+            o.content = content;
+            o.name = name;
+            return o;
         }
     }
 }

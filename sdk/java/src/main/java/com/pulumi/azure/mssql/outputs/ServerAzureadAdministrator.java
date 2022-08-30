@@ -16,35 +16,24 @@ public final class ServerAzureadAdministrator {
      * @return Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
      * 
      */
-    private final @Nullable Boolean azureadAuthenticationOnly;
+    private @Nullable Boolean azureadAuthenticationOnly;
     /**
      * @return The login username of the Azure AD Administrator of this SQL Server.
      * 
      */
-    private final String loginUsername;
+    private String loginUsername;
     /**
      * @return The object id of the Azure AD Administrator of this SQL Server.
      * 
      */
-    private final String objectId;
+    private String objectId;
     /**
      * @return The tenant id of the Azure AD Administrator of this SQL Server.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
 
-    @CustomType.Constructor
-    private ServerAzureadAdministrator(
-        @CustomType.Parameter("azureadAuthenticationOnly") @Nullable Boolean azureadAuthenticationOnly,
-        @CustomType.Parameter("loginUsername") String loginUsername,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId) {
-        this.azureadAuthenticationOnly = azureadAuthenticationOnly;
-        this.loginUsername = loginUsername;
-        this.objectId = objectId;
-        this.tenantId = tenantId;
-    }
-
+    private ServerAzureadAdministrator() {}
     /**
      * @return Specifies whether only AD Users and administrators (like `azuread_administrator.0.login_username`) can be used to login, or also local database users (like `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
      * 
@@ -81,17 +70,13 @@ public final class ServerAzureadAdministrator {
     public static Builder builder(ServerAzureadAdministrator defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean azureadAuthenticationOnly;
         private String loginUsername;
         private String objectId;
         private @Nullable String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServerAzureadAdministrator defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureadAuthenticationOnly = defaults.azureadAuthenticationOnly;
@@ -100,23 +85,33 @@ public final class ServerAzureadAdministrator {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder azureadAuthenticationOnly(@Nullable Boolean azureadAuthenticationOnly) {
             this.azureadAuthenticationOnly = azureadAuthenticationOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder loginUsername(String loginUsername) {
             this.loginUsername = Objects.requireNonNull(loginUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
-        }        public ServerAzureadAdministrator build() {
-            return new ServerAzureadAdministrator(azureadAuthenticationOnly, loginUsername, objectId, tenantId);
+        }
+        public ServerAzureadAdministrator build() {
+            final var o = new ServerAzureadAdministrator();
+            o.azureadAuthenticationOnly = azureadAuthenticationOnly;
+            o.loginUsername = loginUsername;
+            o.objectId = objectId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

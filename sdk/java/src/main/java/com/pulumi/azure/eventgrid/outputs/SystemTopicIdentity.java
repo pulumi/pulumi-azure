@@ -16,35 +16,24 @@ public final class SystemTopicIdentity {
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
      * 
      */
-    private final @Nullable List<String> identityIds;
+    private @Nullable List<String> identityIds;
     /**
      * @return The Principal ID associated with this Managed Service Identity.
      * 
      */
-    private final @Nullable String principalId;
+    private @Nullable String principalId;
     /**
      * @return The Tenant ID associated with this Managed Service Identity.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are `SystemAssigned`, `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private SystemTopicIdentity(
-        @CustomType.Parameter("identityIds") @Nullable List<String> identityIds,
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private SystemTopicIdentity() {}
     /**
      * @return Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
      * 
@@ -81,17 +70,13 @@ public final class SystemTopicIdentity {
     public static Builder builder(SystemTopicIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -100,6 +85,7 @@ public final class SystemTopicIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
             this.identityIds = identityIds;
             return this;
@@ -107,19 +93,28 @@ public final class SystemTopicIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public SystemTopicIdentity build() {
-            return new SystemTopicIdentity(identityIds, principalId, tenantId, type);
+        }
+        public SystemTopicIdentity build() {
+            final var o = new SystemTopicIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

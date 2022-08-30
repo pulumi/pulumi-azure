@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetBootDiagnostics {
-    private final @Nullable String storageAccountUri;
+    private @Nullable String storageAccountUri;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetBootDiagnostics(@CustomType.Parameter("storageAccountUri") @Nullable String storageAccountUri) {
-        this.storageAccountUri = storageAccountUri;
-    }
-
+    private OrchestratedVirtualMachineScaleSetBootDiagnostics() {}
     public Optional<String> storageAccountUri() {
         return Optional.ofNullable(this.storageAccountUri);
     }
@@ -29,24 +25,24 @@ public final class OrchestratedVirtualMachineScaleSetBootDiagnostics {
     public static Builder builder(OrchestratedVirtualMachineScaleSetBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String storageAccountUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.storageAccountUri = defaults.storageAccountUri;
         }
 
+        @CustomType.Setter
         public Builder storageAccountUri(@Nullable String storageAccountUri) {
             this.storageAccountUri = storageAccountUri;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetBootDiagnostics build() {
-            return new OrchestratedVirtualMachineScaleSetBootDiagnostics(storageAccountUri);
+        }
+        public OrchestratedVirtualMachineScaleSetBootDiagnostics build() {
+            final var o = new OrchestratedVirtualMachineScaleSetBootDiagnostics();
+            o.storageAccountUri = storageAccountUri;
+            return o;
         }
     }
 }

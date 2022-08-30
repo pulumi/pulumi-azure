@@ -15,28 +15,19 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
      * @return The name of the install script action. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The parameters for the script.
      * 
      */
-    private final @Nullable String parameters;
+    private @Nullable String parameters;
     /**
      * @return The URI pointing to the script to run during the installation of the edge node. Changing this forces a new resource to be created.
      * 
      */
-    private final String uri;
+    private String uri;
 
-    @CustomType.Constructor
-    private HadoopClusterRolesEdgeNodeInstallScriptAction(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable String parameters,
-        @CustomType.Parameter("uri") String uri) {
-        this.name = name;
-        this.parameters = parameters;
-        this.uri = uri;
-    }
-
+    private HadoopClusterRolesEdgeNodeInstallScriptAction() {}
     /**
      * @return The name of the install script action. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
     public static Builder builder(HadoopClusterRolesEdgeNodeInstallScriptAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable String parameters;
         private String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterRolesEdgeNodeInstallScriptAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -83,19 +70,27 @@ public final class HadoopClusterRolesEdgeNodeInstallScriptAction {
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
             this.parameters = parameters;
             return this;
         }
+        @CustomType.Setter
         public Builder uri(String uri) {
             this.uri = Objects.requireNonNull(uri);
             return this;
-        }        public HadoopClusterRolesEdgeNodeInstallScriptAction build() {
-            return new HadoopClusterRolesEdgeNodeInstallScriptAction(name, parameters, uri);
+        }
+        public HadoopClusterRolesEdgeNodeInstallScriptAction build() {
+            final var o = new HadoopClusterRolesEdgeNodeInstallScriptAction();
+            o.name = name;
+            o.parameters = parameters;
+            o.uri = uri;
+            return o;
         }
     }
 }

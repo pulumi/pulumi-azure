@@ -15,28 +15,19 @@ public final class ClusterReverseProxyCertificate {
      * @return The Thumbprint of the Certificate.
      * 
      */
-    private final String thumbprint;
+    private String thumbprint;
     /**
      * @return The Secondary Thumbprint of the Certificate.
      * 
      */
-    private final @Nullable String thumbprintSecondary;
+    private @Nullable String thumbprintSecondary;
     /**
      * @return The X509 Store where the Certificate Exists, such as `My`.
      * 
      */
-    private final String x509StoreName;
+    private String x509StoreName;
 
-    @CustomType.Constructor
-    private ClusterReverseProxyCertificate(
-        @CustomType.Parameter("thumbprint") String thumbprint,
-        @CustomType.Parameter("thumbprintSecondary") @Nullable String thumbprintSecondary,
-        @CustomType.Parameter("x509StoreName") String x509StoreName) {
-        this.thumbprint = thumbprint;
-        this.thumbprintSecondary = thumbprintSecondary;
-        this.x509StoreName = x509StoreName;
-    }
-
+    private ClusterReverseProxyCertificate() {}
     /**
      * @return The Thumbprint of the Certificate.
      * 
@@ -66,16 +57,12 @@ public final class ClusterReverseProxyCertificate {
     public static Builder builder(ClusterReverseProxyCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String thumbprint;
         private @Nullable String thumbprintSecondary;
         private String x509StoreName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterReverseProxyCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.thumbprint = defaults.thumbprint;
@@ -83,19 +70,27 @@ public final class ClusterReverseProxyCertificate {
     	      this.x509StoreName = defaults.x509StoreName;
         }
 
+        @CustomType.Setter
         public Builder thumbprint(String thumbprint) {
             this.thumbprint = Objects.requireNonNull(thumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder thumbprintSecondary(@Nullable String thumbprintSecondary) {
             this.thumbprintSecondary = thumbprintSecondary;
             return this;
         }
+        @CustomType.Setter
         public Builder x509StoreName(String x509StoreName) {
             this.x509StoreName = Objects.requireNonNull(x509StoreName);
             return this;
-        }        public ClusterReverseProxyCertificate build() {
-            return new ClusterReverseProxyCertificate(thumbprint, thumbprintSecondary, x509StoreName);
+        }
+        public ClusterReverseProxyCertificate build() {
+            final var o = new ClusterReverseProxyCertificate();
+            o.thumbprint = thumbprint;
+            o.thumbprintSecondary = thumbprintSecondary;
+            o.x509StoreName = x509StoreName;
+            return o;
         }
     }
 }

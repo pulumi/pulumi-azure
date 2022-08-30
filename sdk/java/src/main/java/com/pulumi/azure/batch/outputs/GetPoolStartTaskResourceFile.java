@@ -13,49 +13,34 @@ public final class GetPoolStartTaskResourceFile {
      * @return The storage container name in the auto storage account.
      * 
      */
-    private final String autoStorageContainerName;
+    private String autoStorageContainerName;
     /**
      * @return The blob prefix used when downloading blobs from an Azure Storage container.
      * 
      */
-    private final String blobPrefix;
+    private String blobPrefix;
     /**
      * @return The file permission mode attribute represented as a string in octal format (e.g. `&#34;0644&#34;`).
      * 
      */
-    private final String fileMode;
+    private String fileMode;
     /**
      * @return The location on the compute node to which to download the file, relative to the task&#39;s working directory. If the `http_url` property is specified, the `file_path` is required and describes the path which the file will be downloaded to, including the filename. Otherwise, if the `auto_storage_container_name` or `storage_container_url` property is specified.
      * 
      */
-    private final String filePath;
+    private String filePath;
     /**
      * @return The URL of the file to download. If the URL is Azure Blob Storage, it must be readable using anonymous access.
      * 
      */
-    private final String httpUrl;
+    private String httpUrl;
     /**
      * @return The URL of the blob container within Azure Blob Storage.
      * 
      */
-    private final String storageContainerUrl;
+    private String storageContainerUrl;
 
-    @CustomType.Constructor
-    private GetPoolStartTaskResourceFile(
-        @CustomType.Parameter("autoStorageContainerName") String autoStorageContainerName,
-        @CustomType.Parameter("blobPrefix") String blobPrefix,
-        @CustomType.Parameter("fileMode") String fileMode,
-        @CustomType.Parameter("filePath") String filePath,
-        @CustomType.Parameter("httpUrl") String httpUrl,
-        @CustomType.Parameter("storageContainerUrl") String storageContainerUrl) {
-        this.autoStorageContainerName = autoStorageContainerName;
-        this.blobPrefix = blobPrefix;
-        this.fileMode = fileMode;
-        this.filePath = filePath;
-        this.httpUrl = httpUrl;
-        this.storageContainerUrl = storageContainerUrl;
-    }
-
+    private GetPoolStartTaskResourceFile() {}
     /**
      * @return The storage container name in the auto storage account.
      * 
@@ -106,7 +91,7 @@ public final class GetPoolStartTaskResourceFile {
     public static Builder builder(GetPoolStartTaskResourceFile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoStorageContainerName;
         private String blobPrefix;
@@ -114,11 +99,7 @@ public final class GetPoolStartTaskResourceFile {
         private String filePath;
         private String httpUrl;
         private String storageContainerUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolStartTaskResourceFile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoStorageContainerName = defaults.autoStorageContainerName;
@@ -129,31 +110,45 @@ public final class GetPoolStartTaskResourceFile {
     	      this.storageContainerUrl = defaults.storageContainerUrl;
         }
 
+        @CustomType.Setter
         public Builder autoStorageContainerName(String autoStorageContainerName) {
             this.autoStorageContainerName = Objects.requireNonNull(autoStorageContainerName);
             return this;
         }
+        @CustomType.Setter
         public Builder blobPrefix(String blobPrefix) {
             this.blobPrefix = Objects.requireNonNull(blobPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder fileMode(String fileMode) {
             this.fileMode = Objects.requireNonNull(fileMode);
             return this;
         }
+        @CustomType.Setter
         public Builder filePath(String filePath) {
             this.filePath = Objects.requireNonNull(filePath);
             return this;
         }
+        @CustomType.Setter
         public Builder httpUrl(String httpUrl) {
             this.httpUrl = Objects.requireNonNull(httpUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder storageContainerUrl(String storageContainerUrl) {
             this.storageContainerUrl = Objects.requireNonNull(storageContainerUrl);
             return this;
-        }        public GetPoolStartTaskResourceFile build() {
-            return new GetPoolStartTaskResourceFile(autoStorageContainerName, blobPrefix, fileMode, filePath, httpUrl, storageContainerUrl);
+        }
+        public GetPoolStartTaskResourceFile build() {
+            final var o = new GetPoolStartTaskResourceFile();
+            o.autoStorageContainerName = autoStorageContainerName;
+            o.blobPrefix = blobPrefix;
+            o.fileMode = fileMode;
+            o.filePath = filePath;
+            o.httpUrl = httpUrl;
+            o.storageContainerUrl = storageContainerUrl;
+            return o;
         }
     }
 }

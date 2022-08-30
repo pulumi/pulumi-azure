@@ -17,41 +17,26 @@ public final class GetResourcesResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of this Resource.
      * 
      */
-    private final String name;
-    private final @Nullable Map<String,String> requiredTags;
-    private final String resourceGroupName;
+    private String name;
+    private @Nullable Map<String,String> requiredTags;
+    private String resourceGroupName;
     /**
      * @return One or more `resource` blocks as defined below.
      * 
      */
-    private final List<GetResourcesResource> resources;
+    private List<GetResourcesResource> resources;
     /**
      * @return The type of this Resource. (e.g. `Microsoft.Network/virtualNetworks`).
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private GetResourcesResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("requiredTags") @Nullable Map<String,String> requiredTags,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("resources") List<GetResourcesResource> resources,
-        @CustomType.Parameter("type") String type) {
-        this.id = id;
-        this.name = name;
-        this.requiredTags = requiredTags;
-        this.resourceGroupName = resourceGroupName;
-        this.resources = resources;
-        this.type = type;
-    }
-
+    private GetResourcesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -94,7 +79,7 @@ public final class GetResourcesResult {
     public static Builder builder(GetResourcesResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -102,11 +87,7 @@ public final class GetResourcesResult {
         private String resourceGroupName;
         private List<GetResourcesResource> resources;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetResourcesResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -117,22 +98,27 @@ public final class GetResourcesResult {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder requiredTags(@Nullable Map<String,String> requiredTags) {
             this.requiredTags = requiredTags;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder resources(List<GetResourcesResource> resources) {
             this.resources = Objects.requireNonNull(resources);
             return this;
@@ -140,11 +126,20 @@ public final class GetResourcesResult {
         public Builder resources(GetResourcesResource... resources) {
             return resources(List.of(resources));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetResourcesResult build() {
-            return new GetResourcesResult(id, name, requiredTags, resourceGroupName, resources, type);
+        }
+        public GetResourcesResult build() {
+            final var o = new GetResourcesResult();
+            o.id = id;
+            o.name = name;
+            o.requiredTags = requiredTags;
+            o.resourceGroupName = resourceGroupName;
+            o.resources = resources;
+            o.type = type;
+            return o;
         }
     }
 }

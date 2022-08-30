@@ -15,28 +15,19 @@ public final class TransformOutputVideoAnalyzerPreset {
      * @return Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
      * 
      */
-    private final @Nullable String audioAnalysisMode;
+    private @Nullable String audioAnalysisMode;
     /**
      * @return The language for the audio payload in the input using the BCP-47 format of &#39;language tag-region&#39; (e.g: &#39;en-US&#39;). If you know the language of your content, it is recommended that you specify it. The language must be specified explicitly for AudioAnalysisMode:Basic, since automatic language detection is not included in basic mode. If the language isn&#39;t specified, automatic language detection will choose the first language detected and process with the selected language for the duration of the file. It does not currently support dynamically switching between languages after the first language is detected. The automatic detection works best with audio recordings with clearly discernible speech. If automatic detection fails to find the language, transcription would fallback to &#39;en-US&#39;.&#34; The list of supported languages is available here: https://go.microsoft.com/fwlink/?linkid=2109463.
      * 
      */
-    private final @Nullable String audioLanguage;
+    private @Nullable String audioLanguage;
     /**
      * @return Defines the type of insights that you want the service to generate. The allowed values are `AudioInsightsOnly`, `VideoInsightsOnly`, and `AllInsights`. If you set this to `AllInsights` and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use `AudioInsightsOnly` if you expect some of your inputs to be video only; or use `VideoInsightsOnly` if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
      * 
      */
-    private final @Nullable String insightsType;
+    private @Nullable String insightsType;
 
-    @CustomType.Constructor
-    private TransformOutputVideoAnalyzerPreset(
-        @CustomType.Parameter("audioAnalysisMode") @Nullable String audioAnalysisMode,
-        @CustomType.Parameter("audioLanguage") @Nullable String audioLanguage,
-        @CustomType.Parameter("insightsType") @Nullable String insightsType) {
-        this.audioAnalysisMode = audioAnalysisMode;
-        this.audioLanguage = audioLanguage;
-        this.insightsType = insightsType;
-    }
-
+    private TransformOutputVideoAnalyzerPreset() {}
     /**
      * @return Possibles value are `Basic` or `Standard`. Determines the set of audio analysis operations to be performed.
      * 
@@ -66,16 +57,12 @@ public final class TransformOutputVideoAnalyzerPreset {
     public static Builder builder(TransformOutputVideoAnalyzerPreset defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String audioAnalysisMode;
         private @Nullable String audioLanguage;
         private @Nullable String insightsType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TransformOutputVideoAnalyzerPreset defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.audioAnalysisMode = defaults.audioAnalysisMode;
@@ -83,19 +70,27 @@ public final class TransformOutputVideoAnalyzerPreset {
     	      this.insightsType = defaults.insightsType;
         }
 
+        @CustomType.Setter
         public Builder audioAnalysisMode(@Nullable String audioAnalysisMode) {
             this.audioAnalysisMode = audioAnalysisMode;
             return this;
         }
+        @CustomType.Setter
         public Builder audioLanguage(@Nullable String audioLanguage) {
             this.audioLanguage = audioLanguage;
             return this;
         }
+        @CustomType.Setter
         public Builder insightsType(@Nullable String insightsType) {
             this.insightsType = insightsType;
             return this;
-        }        public TransformOutputVideoAnalyzerPreset build() {
-            return new TransformOutputVideoAnalyzerPreset(audioAnalysisMode, audioLanguage, insightsType);
+        }
+        public TransformOutputVideoAnalyzerPreset build() {
+            final var o = new TransformOutputVideoAnalyzerPreset();
+            o.audioAnalysisMode = audioAnalysisMode;
+            o.audioLanguage = audioLanguage;
+            o.insightsType = insightsType;
+            return o;
         }
     }
 }

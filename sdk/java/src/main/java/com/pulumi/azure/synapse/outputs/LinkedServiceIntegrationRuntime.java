@@ -15,21 +15,14 @@ public final class LinkedServiceIntegrationRuntime {
      * @return The integration runtime reference to associate with the Synapse Linked Service.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A map of parameters to associate with the integration runtime.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private LinkedServiceIntegrationRuntime(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private LinkedServiceIntegrationRuntime() {}
     /**
      * @return The integration runtime reference to associate with the Synapse Linked Service.
      * 
@@ -52,30 +45,32 @@ public final class LinkedServiceIntegrationRuntime {
     public static Builder builder(LinkedServiceIntegrationRuntime defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceIntegrationRuntime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public LinkedServiceIntegrationRuntime build() {
-            return new LinkedServiceIntegrationRuntime(name, parameters);
+        }
+        public LinkedServiceIntegrationRuntime build() {
+            final var o = new LinkedServiceIntegrationRuntime();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

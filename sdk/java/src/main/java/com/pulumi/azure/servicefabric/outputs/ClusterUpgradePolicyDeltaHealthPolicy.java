@@ -15,28 +15,19 @@ public final class ClusterUpgradePolicyDeltaHealthPolicy {
      * @return Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer maxDeltaUnhealthyApplicationsPercent;
+    private @Nullable Integer maxDeltaUnhealthyApplicationsPercent;
     /**
      * @return Specifies the maximum tolerated percentage of delta unhealthy nodes that can have aggregated health states of error. If the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer maxDeltaUnhealthyNodesPercent;
+    private @Nullable Integer maxDeltaUnhealthyNodesPercent;
     /**
      * @return Specifies the maximum tolerated percentage of upgrade domain delta unhealthy nodes that can have aggregated health state of error. If there is any upgrade domain where the current unhealthy nodes do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent;
+    private @Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent;
 
-    @CustomType.Constructor
-    private ClusterUpgradePolicyDeltaHealthPolicy(
-        @CustomType.Parameter("maxDeltaUnhealthyApplicationsPercent") @Nullable Integer maxDeltaUnhealthyApplicationsPercent,
-        @CustomType.Parameter("maxDeltaUnhealthyNodesPercent") @Nullable Integer maxDeltaUnhealthyNodesPercent,
-        @CustomType.Parameter("maxUpgradeDomainDeltaUnhealthyNodesPercent") @Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent) {
-        this.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
-        this.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
-        this.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
-    }
-
+    private ClusterUpgradePolicyDeltaHealthPolicy() {}
     /**
      * @return Specifies the maximum tolerated percentage of delta unhealthy applications that can have aggregated health states of error. If the current unhealthy applications do not respect the percentage relative to the state at the beginning of the upgrade, the cluster is unhealthy. Defaults to `0`.
      * 
@@ -66,16 +57,12 @@ public final class ClusterUpgradePolicyDeltaHealthPolicy {
     public static Builder builder(ClusterUpgradePolicyDeltaHealthPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer maxDeltaUnhealthyApplicationsPercent;
         private @Nullable Integer maxDeltaUnhealthyNodesPercent;
         private @Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterUpgradePolicyDeltaHealthPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxDeltaUnhealthyApplicationsPercent = defaults.maxDeltaUnhealthyApplicationsPercent;
@@ -83,19 +70,27 @@ public final class ClusterUpgradePolicyDeltaHealthPolicy {
     	      this.maxUpgradeDomainDeltaUnhealthyNodesPercent = defaults.maxUpgradeDomainDeltaUnhealthyNodesPercent;
         }
 
+        @CustomType.Setter
         public Builder maxDeltaUnhealthyApplicationsPercent(@Nullable Integer maxDeltaUnhealthyApplicationsPercent) {
             this.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder maxDeltaUnhealthyNodesPercent(@Nullable Integer maxDeltaUnhealthyNodesPercent) {
             this.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
             return this;
         }
+        @CustomType.Setter
         public Builder maxUpgradeDomainDeltaUnhealthyNodesPercent(@Nullable Integer maxUpgradeDomainDeltaUnhealthyNodesPercent) {
             this.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
             return this;
-        }        public ClusterUpgradePolicyDeltaHealthPolicy build() {
-            return new ClusterUpgradePolicyDeltaHealthPolicy(maxDeltaUnhealthyApplicationsPercent, maxDeltaUnhealthyNodesPercent, maxUpgradeDomainDeltaUnhealthyNodesPercent);
+        }
+        public ClusterUpgradePolicyDeltaHealthPolicy build() {
+            final var o = new ClusterUpgradePolicyDeltaHealthPolicy();
+            o.maxDeltaUnhealthyApplicationsPercent = maxDeltaUnhealthyApplicationsPercent;
+            o.maxDeltaUnhealthyNodesPercent = maxDeltaUnhealthyNodesPercent;
+            o.maxUpgradeDomainDeltaUnhealthyNodesPercent = maxUpgradeDomainDeltaUnhealthyNodesPercent;
+            return o;
         }
     }
 }

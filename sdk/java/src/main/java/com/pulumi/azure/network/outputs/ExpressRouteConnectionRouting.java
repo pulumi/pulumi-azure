@@ -16,21 +16,14 @@ public final class ExpressRouteConnectionRouting {
      * @return The ID of the Virtual Hub Route Table associated with this Express Route Connection.
      * 
      */
-    private final @Nullable String associatedRouteTableId;
+    private @Nullable String associatedRouteTableId;
     /**
      * @return A `propagated_route_table` block as defined below.
      * 
      */
-    private final @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable;
+    private @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable;
 
-    @CustomType.Constructor
-    private ExpressRouteConnectionRouting(
-        @CustomType.Parameter("associatedRouteTableId") @Nullable String associatedRouteTableId,
-        @CustomType.Parameter("propagatedRouteTable") @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
-        this.associatedRouteTableId = associatedRouteTableId;
-        this.propagatedRouteTable = propagatedRouteTable;
-    }
-
+    private ExpressRouteConnectionRouting() {}
     /**
      * @return The ID of the Virtual Hub Route Table associated with this Express Route Connection.
      * 
@@ -53,30 +46,32 @@ public final class ExpressRouteConnectionRouting {
     public static Builder builder(ExpressRouteConnectionRouting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String associatedRouteTableId;
         private @Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRouteConnectionRouting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.associatedRouteTableId = defaults.associatedRouteTableId;
     	      this.propagatedRouteTable = defaults.propagatedRouteTable;
         }
 
+        @CustomType.Setter
         public Builder associatedRouteTableId(@Nullable String associatedRouteTableId) {
             this.associatedRouteTableId = associatedRouteTableId;
             return this;
         }
+        @CustomType.Setter
         public Builder propagatedRouteTable(@Nullable ExpressRouteConnectionRoutingPropagatedRouteTable propagatedRouteTable) {
             this.propagatedRouteTable = propagatedRouteTable;
             return this;
-        }        public ExpressRouteConnectionRouting build() {
-            return new ExpressRouteConnectionRouting(associatedRouteTableId, propagatedRouteTable);
+        }
+        public ExpressRouteConnectionRouting build() {
+            final var o = new ExpressRouteConnectionRouting();
+            o.associatedRouteTableId = associatedRouteTableId;
+            o.propagatedRouteTable = propagatedRouteTable;
+            return o;
         }
     }
 }

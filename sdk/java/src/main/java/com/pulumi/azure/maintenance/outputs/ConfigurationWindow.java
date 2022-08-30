@@ -15,42 +15,29 @@ public final class ConfigurationWindow {
      * @return The duration of the maintenance window in HH:mm format.
      * 
      */
-    private final @Nullable String duration;
+    private @Nullable String duration;
     /**
      * @return Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format.
      * 
      */
-    private final @Nullable String expirationDateTime;
+    private @Nullable String expirationDateTime;
     /**
      * @return The rate at which a maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules.
      * 
      */
-    private final @Nullable String recurEvery;
+    private @Nullable String recurEvery;
     /**
      * @return Effective start date of the maintenance window in YYYY-MM-DD hh:mm format.
      * 
      */
-    private final String startDateTime;
+    private String startDateTime;
     /**
      * @return The time zone for the maintenance window. A list of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
      * 
      */
-    private final String timeZone;
+    private String timeZone;
 
-    @CustomType.Constructor
-    private ConfigurationWindow(
-        @CustomType.Parameter("duration") @Nullable String duration,
-        @CustomType.Parameter("expirationDateTime") @Nullable String expirationDateTime,
-        @CustomType.Parameter("recurEvery") @Nullable String recurEvery,
-        @CustomType.Parameter("startDateTime") String startDateTime,
-        @CustomType.Parameter("timeZone") String timeZone) {
-        this.duration = duration;
-        this.expirationDateTime = expirationDateTime;
-        this.recurEvery = recurEvery;
-        this.startDateTime = startDateTime;
-        this.timeZone = timeZone;
-    }
-
+    private ConfigurationWindow() {}
     /**
      * @return The duration of the maintenance window in HH:mm format.
      * 
@@ -94,18 +81,14 @@ public final class ConfigurationWindow {
     public static Builder builder(ConfigurationWindow defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String duration;
         private @Nullable String expirationDateTime;
         private @Nullable String recurEvery;
         private String startDateTime;
         private String timeZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ConfigurationWindow defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.duration = defaults.duration;
@@ -115,27 +98,39 @@ public final class ConfigurationWindow {
     	      this.timeZone = defaults.timeZone;
         }
 
+        @CustomType.Setter
         public Builder duration(@Nullable String duration) {
             this.duration = duration;
             return this;
         }
+        @CustomType.Setter
         public Builder expirationDateTime(@Nullable String expirationDateTime) {
             this.expirationDateTime = expirationDateTime;
             return this;
         }
+        @CustomType.Setter
         public Builder recurEvery(@Nullable String recurEvery) {
             this.recurEvery = recurEvery;
             return this;
         }
+        @CustomType.Setter
         public Builder startDateTime(String startDateTime) {
             this.startDateTime = Objects.requireNonNull(startDateTime);
             return this;
         }
+        @CustomType.Setter
         public Builder timeZone(String timeZone) {
             this.timeZone = Objects.requireNonNull(timeZone);
             return this;
-        }        public ConfigurationWindow build() {
-            return new ConfigurationWindow(duration, expirationDateTime, recurEvery, startDateTime, timeZone);
+        }
+        public ConfigurationWindow build() {
+            final var o = new ConfigurationWindow();
+            o.duration = duration;
+            o.expirationDateTime = expirationDateTime;
+            o.recurEvery = recurEvery;
+            o.startDateTime = startDateTime;
+            o.timeZone = timeZone;
+            return o;
         }
     }
 }

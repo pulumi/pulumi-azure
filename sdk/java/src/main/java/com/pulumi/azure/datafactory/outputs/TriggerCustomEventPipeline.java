@@ -15,21 +15,14 @@ public final class TriggerCustomEventPipeline {
      * @return The Data Factory Pipeline name that the trigger will act on.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Data Factory Pipeline parameters that the trigger will act on.
      * 
      */
-    private final @Nullable Map<String,String> parameters;
+    private @Nullable Map<String,String> parameters;
 
-    @CustomType.Constructor
-    private TriggerCustomEventPipeline(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("parameters") @Nullable Map<String,String> parameters) {
-        this.name = name;
-        this.parameters = parameters;
-    }
-
+    private TriggerCustomEventPipeline() {}
     /**
      * @return The Data Factory Pipeline name that the trigger will act on.
      * 
@@ -52,30 +45,32 @@ public final class TriggerCustomEventPipeline {
     public static Builder builder(TriggerCustomEventPipeline defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private @Nullable Map<String,String> parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerCustomEventPipeline defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable Map<String,String> parameters) {
             this.parameters = parameters;
             return this;
-        }        public TriggerCustomEventPipeline build() {
-            return new TriggerCustomEventPipeline(name, parameters);
+        }
+        public TriggerCustomEventPipeline build() {
+            final var o = new TriggerCustomEventPipeline();
+            o.name = name;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

@@ -18,28 +18,19 @@ public final class IoTHubNetworkRuleSet {
      * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean applyToBuiltinEventhubEndpoint;
+    private @Nullable Boolean applyToBuiltinEventhubEndpoint;
     /**
      * @return Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
      * 
      */
-    private final @Nullable String defaultAction;
+    private @Nullable String defaultAction;
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules;
+    private @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules;
 
-    @CustomType.Constructor
-    private IoTHubNetworkRuleSet(
-        @CustomType.Parameter("applyToBuiltinEventhubEndpoint") @Nullable Boolean applyToBuiltinEventhubEndpoint,
-        @CustomType.Parameter("defaultAction") @Nullable String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules) {
-        this.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-    }
-
+    private IoTHubNetworkRuleSet() {}
     /**
      * @return Determines if Network Rule Set is also applied to the BuiltIn EventHub EndPoint of the IotHub. Defaults to `false`.
      * 
@@ -69,16 +60,12 @@ public final class IoTHubNetworkRuleSet {
     public static Builder builder(IoTHubNetworkRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean applyToBuiltinEventhubEndpoint;
         private @Nullable String defaultAction;
         private @Nullable List<IoTHubNetworkRuleSetIpRule> ipRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubNetworkRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applyToBuiltinEventhubEndpoint = defaults.applyToBuiltinEventhubEndpoint;
@@ -86,22 +73,30 @@ public final class IoTHubNetworkRuleSet {
     	      this.ipRules = defaults.ipRules;
         }
 
+        @CustomType.Setter
         public Builder applyToBuiltinEventhubEndpoint(@Nullable Boolean applyToBuiltinEventhubEndpoint) {
             this.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
             this.defaultAction = defaultAction;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<IoTHubNetworkRuleSetIpRule> ipRules) {
             this.ipRules = ipRules;
             return this;
         }
         public Builder ipRules(IoTHubNetworkRuleSetIpRule... ipRules) {
             return ipRules(List.of(ipRules));
-        }        public IoTHubNetworkRuleSet build() {
-            return new IoTHubNetworkRuleSet(applyToBuiltinEventhubEndpoint, defaultAction, ipRules);
+        }
+        public IoTHubNetworkRuleSet build() {
+            final var o = new IoTHubNetworkRuleSet();
+            o.applyToBuiltinEventhubEndpoint = applyToBuiltinEventhubEndpoint;
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            return o;
         }
     }
 }

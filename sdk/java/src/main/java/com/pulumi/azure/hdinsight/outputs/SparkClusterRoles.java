@@ -15,28 +15,19 @@ public final class SparkClusterRoles {
      * @return A `head_node` block as defined above.
      * 
      */
-    private final SparkClusterRolesHeadNode headNode;
+    private SparkClusterRolesHeadNode headNode;
     /**
      * @return A `worker_node` block as defined below.
      * 
      */
-    private final SparkClusterRolesWorkerNode workerNode;
+    private SparkClusterRolesWorkerNode workerNode;
     /**
      * @return A `zookeeper_node` block as defined below.
      * 
      */
-    private final SparkClusterRolesZookeeperNode zookeeperNode;
+    private SparkClusterRolesZookeeperNode zookeeperNode;
 
-    @CustomType.Constructor
-    private SparkClusterRoles(
-        @CustomType.Parameter("headNode") SparkClusterRolesHeadNode headNode,
-        @CustomType.Parameter("workerNode") SparkClusterRolesWorkerNode workerNode,
-        @CustomType.Parameter("zookeeperNode") SparkClusterRolesZookeeperNode zookeeperNode) {
-        this.headNode = headNode;
-        this.workerNode = workerNode;
-        this.zookeeperNode = zookeeperNode;
-    }
-
+    private SparkClusterRoles() {}
     /**
      * @return A `head_node` block as defined above.
      * 
@@ -66,16 +57,12 @@ public final class SparkClusterRoles {
     public static Builder builder(SparkClusterRoles defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private SparkClusterRolesHeadNode headNode;
         private SparkClusterRolesWorkerNode workerNode;
         private SparkClusterRolesZookeeperNode zookeeperNode;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterRoles defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headNode = defaults.headNode;
@@ -83,19 +70,27 @@ public final class SparkClusterRoles {
     	      this.zookeeperNode = defaults.zookeeperNode;
         }
 
+        @CustomType.Setter
         public Builder headNode(SparkClusterRolesHeadNode headNode) {
             this.headNode = Objects.requireNonNull(headNode);
             return this;
         }
+        @CustomType.Setter
         public Builder workerNode(SparkClusterRolesWorkerNode workerNode) {
             this.workerNode = Objects.requireNonNull(workerNode);
             return this;
         }
+        @CustomType.Setter
         public Builder zookeeperNode(SparkClusterRolesZookeeperNode zookeeperNode) {
             this.zookeeperNode = Objects.requireNonNull(zookeeperNode);
             return this;
-        }        public SparkClusterRoles build() {
-            return new SparkClusterRoles(headNode, workerNode, zookeeperNode);
+        }
+        public SparkClusterRoles build() {
+            final var o = new SparkClusterRoles();
+            o.headNode = headNode;
+            o.workerNode = workerNode;
+            o.zookeeperNode = zookeeperNode;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class VirtualNetworkGatewayNatRuleInternalMapping {
      * @return The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
      * 
      */
-    private final String addressSpace;
+    private String addressSpace;
     /**
      * @return The single port range for the Virtual Network Gateway Nat Rule internal mapping.
      * 
      */
-    private final @Nullable String portRange;
+    private @Nullable String portRange;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayNatRuleInternalMapping(
-        @CustomType.Parameter("addressSpace") String addressSpace,
-        @CustomType.Parameter("portRange") @Nullable String portRange) {
-        this.addressSpace = addressSpace;
-        this.portRange = portRange;
-    }
-
+    private VirtualNetworkGatewayNatRuleInternalMapping() {}
     /**
      * @return The string CIDR representing the address space for the Virtual Network Gateway Nat Rule internal mapping.
      * 
@@ -52,30 +45,32 @@ public final class VirtualNetworkGatewayNatRuleInternalMapping {
     public static Builder builder(VirtualNetworkGatewayNatRuleInternalMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressSpace;
         private @Nullable String portRange;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayNatRuleInternalMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressSpace = defaults.addressSpace;
     	      this.portRange = defaults.portRange;
         }
 
+        @CustomType.Setter
         public Builder addressSpace(String addressSpace) {
             this.addressSpace = Objects.requireNonNull(addressSpace);
             return this;
         }
+        @CustomType.Setter
         public Builder portRange(@Nullable String portRange) {
             this.portRange = portRange;
             return this;
-        }        public VirtualNetworkGatewayNatRuleInternalMapping build() {
-            return new VirtualNetworkGatewayNatRuleInternalMapping(addressSpace, portRange);
+        }
+        public VirtualNetworkGatewayNatRuleInternalMapping build() {
+            final var o = new VirtualNetworkGatewayNatRuleInternalMapping();
+            o.addressSpace = addressSpace;
+            o.portRange = portRange;
+            return o;
         }
     }
 }

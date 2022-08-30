@@ -13,28 +13,19 @@ public final class GetKubernetesClusterOmsAgentOmsAgentIdentity {
      * @return The Client ID of the user-defined Managed Identity assigned to the Kubelets.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The Object ID of the user-defined Managed Identity assigned to the Kubelets.
      * 
      */
-    private final String objectId;
+    private String objectId;
     /**
      * @return The ID of the User Assigned Identity assigned to the Kubelets.
      * 
      */
-    private final String userAssignedIdentityId;
+    private String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterOmsAgentOmsAgentIdentity(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("userAssignedIdentityId") String userAssignedIdentityId) {
-        this.clientId = clientId;
-        this.objectId = objectId;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private GetKubernetesClusterOmsAgentOmsAgentIdentity() {}
     /**
      * @return The Client ID of the user-defined Managed Identity assigned to the Kubelets.
      * 
@@ -64,16 +55,12 @@ public final class GetKubernetesClusterOmsAgentOmsAgentIdentity {
     public static Builder builder(GetKubernetesClusterOmsAgentOmsAgentIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String objectId;
         private String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterOmsAgentOmsAgentIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -81,19 +68,27 @@ public final class GetKubernetesClusterOmsAgentOmsAgentIdentity {
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
             this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
             return this;
-        }        public GetKubernetesClusterOmsAgentOmsAgentIdentity build() {
-            return new GetKubernetesClusterOmsAgentOmsAgentIdentity(clientId, objectId, userAssignedIdentityId);
+        }
+        public GetKubernetesClusterOmsAgentOmsAgentIdentity build() {
+            final var o = new GetKubernetesClusterOmsAgentOmsAgentIdentity();
+            o.clientId = clientId;
+            o.objectId = objectId;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

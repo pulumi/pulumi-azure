@@ -13,13 +13,9 @@ public final class GetKubernetesClusterServicePrincipal {
      * @return The Client ID of the user-defined Managed Identity assigned to the Kubelets.
      * 
      */
-    private final String clientId;
+    private String clientId;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterServicePrincipal(@CustomType.Parameter("clientId") String clientId) {
-        this.clientId = clientId;
-    }
-
+    private GetKubernetesClusterServicePrincipal() {}
     /**
      * @return The Client ID of the user-defined Managed Identity assigned to the Kubelets.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterServicePrincipal {
     public static Builder builder(GetKubernetesClusterServicePrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterServicePrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
-        }        public GetKubernetesClusterServicePrincipal build() {
-            return new GetKubernetesClusterServicePrincipal(clientId);
+        }
+        public GetKubernetesClusterServicePrincipal build() {
+            final var o = new GetKubernetesClusterServicePrincipal();
+            o.clientId = clientId;
+            return o;
         }
     }
 }

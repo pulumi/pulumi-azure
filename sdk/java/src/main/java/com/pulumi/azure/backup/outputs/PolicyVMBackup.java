@@ -17,42 +17,29 @@ public final class PolicyVMBackup {
      * @return Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
      * 
      */
-    private final String frequency;
+    private String frequency;
     /**
      * @return Duration of the backup window in hours. Possible values are between `4` and `24` This is used when `frequency` is `Hourly`.
      * 
      */
-    private final @Nullable Integer hourDuration;
+    private @Nullable Integer hourDuration;
     /**
      * @return Interval in hour at which backup is triggered. Possible values are `4`, `6`, `8` and `12`. This is used  when `frequency` is `Hourly`.
      * 
      */
-    private final @Nullable Integer hourInterval;
+    private @Nullable Integer hourInterval;
     /**
      * @return The time of day to perform the backup in 24hour format.
      * 
      */
-    private final String time;
+    private String time;
     /**
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    private final @Nullable List<String> weekdays;
+    private @Nullable List<String> weekdays;
 
-    @CustomType.Constructor
-    private PolicyVMBackup(
-        @CustomType.Parameter("frequency") String frequency,
-        @CustomType.Parameter("hourDuration") @Nullable Integer hourDuration,
-        @CustomType.Parameter("hourInterval") @Nullable Integer hourInterval,
-        @CustomType.Parameter("time") String time,
-        @CustomType.Parameter("weekdays") @Nullable List<String> weekdays) {
-        this.frequency = frequency;
-        this.hourDuration = hourDuration;
-        this.hourInterval = hourInterval;
-        this.time = time;
-        this.weekdays = weekdays;
-    }
-
+    private PolicyVMBackup() {}
     /**
      * @return Sets the backup frequency. Possible values are `Hourly`, `Daily` and `Weekly`.
      * 
@@ -96,18 +83,14 @@ public final class PolicyVMBackup {
     public static Builder builder(PolicyVMBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String frequency;
         private @Nullable Integer hourDuration;
         private @Nullable Integer hourInterval;
         private String time;
         private @Nullable List<String> weekdays;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyVMBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.frequency = defaults.frequency;
@@ -117,30 +100,42 @@ public final class PolicyVMBackup {
     	      this.weekdays = defaults.weekdays;
         }
 
+        @CustomType.Setter
         public Builder frequency(String frequency) {
             this.frequency = Objects.requireNonNull(frequency);
             return this;
         }
+        @CustomType.Setter
         public Builder hourDuration(@Nullable Integer hourDuration) {
             this.hourDuration = hourDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder hourInterval(@Nullable Integer hourInterval) {
             this.hourInterval = hourInterval;
             return this;
         }
+        @CustomType.Setter
         public Builder time(String time) {
             this.time = Objects.requireNonNull(time);
             return this;
         }
+        @CustomType.Setter
         public Builder weekdays(@Nullable List<String> weekdays) {
             this.weekdays = weekdays;
             return this;
         }
         public Builder weekdays(String... weekdays) {
             return weekdays(List.of(weekdays));
-        }        public PolicyVMBackup build() {
-            return new PolicyVMBackup(frequency, hourDuration, hourInterval, time, weekdays);
+        }
+        public PolicyVMBackup build() {
+            final var o = new PolicyVMBackup();
+            o.frequency = frequency;
+            o.hourDuration = hourDuration;
+            o.hourInterval = hourInterval;
+            o.time = time;
+            o.weekdays = weekdays;
+            return o;
         }
     }
 }

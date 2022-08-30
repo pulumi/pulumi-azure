@@ -13,13 +13,9 @@ public final class VirtualMachineAdditionalCapabilities {
      * @return Should Ultra SSD disk be enabled for this Virtual Machine?
      * 
      */
-    private final Boolean ultraSsdEnabled;
+    private Boolean ultraSsdEnabled;
 
-    @CustomType.Constructor
-    private VirtualMachineAdditionalCapabilities(@CustomType.Parameter("ultraSsdEnabled") Boolean ultraSsdEnabled) {
-        this.ultraSsdEnabled = ultraSsdEnabled;
-    }
-
+    private VirtualMachineAdditionalCapabilities() {}
     /**
      * @return Should Ultra SSD disk be enabled for this Virtual Machine?
      * 
@@ -35,24 +31,24 @@ public final class VirtualMachineAdditionalCapabilities {
     public static Builder builder(VirtualMachineAdditionalCapabilities defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean ultraSsdEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
         public Builder ultraSsdEnabled(Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = Objects.requireNonNull(ultraSsdEnabled);
             return this;
-        }        public VirtualMachineAdditionalCapabilities build() {
-            return new VirtualMachineAdditionalCapabilities(ultraSsdEnabled);
+        }
+        public VirtualMachineAdditionalCapabilities build() {
+            final var o = new VirtualMachineAdditionalCapabilities();
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            return o;
         }
     }
 }

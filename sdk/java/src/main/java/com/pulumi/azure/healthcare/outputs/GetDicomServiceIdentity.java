@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDicomServiceIdentity {
-    private final List<String> identityIds;
-    private final String principalId;
-    private final String tenantId;
-    private final String type;
+    private List<String> identityIds;
+    private String principalId;
+    private String tenantId;
+    private String type;
 
-    @CustomType.Constructor
-    private GetDicomServiceIdentity(
-        @CustomType.Parameter("identityIds") List<String> identityIds,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private GetDicomServiceIdentity() {}
     public List<String> identityIds() {
         return this.identityIds;
     }
@@ -47,17 +36,13 @@ public final class GetDicomServiceIdentity {
     public static Builder builder(GetDicomServiceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> identityIds;
         private String principalId;
         private String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDicomServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -66,6 +51,7 @@ public final class GetDicomServiceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(List<String> identityIds) {
             this.identityIds = Objects.requireNonNull(identityIds);
             return this;
@@ -73,19 +59,28 @@ public final class GetDicomServiceIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public GetDicomServiceIdentity build() {
-            return new GetDicomServiceIdentity(identityIds, principalId, tenantId, type);
+        }
+        public GetDicomServiceIdentity build() {
+            final var o = new GetDicomServiceIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

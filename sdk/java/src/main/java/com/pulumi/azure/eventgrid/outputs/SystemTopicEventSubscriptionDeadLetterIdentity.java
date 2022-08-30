@@ -15,21 +15,14 @@ public final class SystemTopicEventSubscriptionDeadLetterIdentity {
      * @return Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The user identity associated with the resource.
      * 
      */
-    private final @Nullable String userAssignedIdentity;
+    private @Nullable String userAssignedIdentity;
 
-    @CustomType.Constructor
-    private SystemTopicEventSubscriptionDeadLetterIdentity(
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("userAssignedIdentity") @Nullable String userAssignedIdentity) {
-        this.type = type;
-        this.userAssignedIdentity = userAssignedIdentity;
-    }
-
+    private SystemTopicEventSubscriptionDeadLetterIdentity() {}
     /**
      * @return Specifies the type of Managed Service Identity that is used for dead lettering. Allowed value is `SystemAssigned`, `UserAssigned`.
      * 
@@ -52,30 +45,32 @@ public final class SystemTopicEventSubscriptionDeadLetterIdentity {
     public static Builder builder(SystemTopicEventSubscriptionDeadLetterIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String type;
         private @Nullable String userAssignedIdentity;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SystemTopicEventSubscriptionDeadLetterIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.type = defaults.type;
     	      this.userAssignedIdentity = defaults.userAssignedIdentity;
         }
 
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentity(@Nullable String userAssignedIdentity) {
             this.userAssignedIdentity = userAssignedIdentity;
             return this;
-        }        public SystemTopicEventSubscriptionDeadLetterIdentity build() {
-            return new SystemTopicEventSubscriptionDeadLetterIdentity(type, userAssignedIdentity);
+        }
+        public SystemTopicEventSubscriptionDeadLetterIdentity build() {
+            final var o = new SystemTopicEventSubscriptionDeadLetterIdentity();
+            o.type = type;
+            o.userAssignedIdentity = userAssignedIdentity;
+            return o;
         }
     }
 }

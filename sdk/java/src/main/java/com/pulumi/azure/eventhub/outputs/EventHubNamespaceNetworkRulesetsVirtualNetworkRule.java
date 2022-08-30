@@ -16,21 +16,14 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
      * @return Are missing virtual network service endpoints ignored? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint;
+    private @Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint;
     /**
      * @return The id of the subnet to match on.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private EventHubNamespaceNetworkRulesetsVirtualNetworkRule(
-        @CustomType.Parameter("ignoreMissingVirtualNetworkServiceEndpoint") @Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
-        this.subnetId = subnetId;
-    }
-
+    private EventHubNamespaceNetworkRulesetsVirtualNetworkRule() {}
     /**
      * @return Are missing virtual network service endpoints ignored? Defaults to `false`.
      * 
@@ -53,30 +46,32 @@ public final class EventHubNamespaceNetworkRulesetsVirtualNetworkRule {
     public static Builder builder(EventHubNamespaceNetworkRulesetsVirtualNetworkRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventHubNamespaceNetworkRulesetsVirtualNetworkRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ignoreMissingVirtualNetworkServiceEndpoint = defaults.ignoreMissingVirtualNetworkServiceEndpoint;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder ignoreMissingVirtualNetworkServiceEndpoint(@Nullable Boolean ignoreMissingVirtualNetworkServiceEndpoint) {
             this.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public EventHubNamespaceNetworkRulesetsVirtualNetworkRule build() {
-            return new EventHubNamespaceNetworkRulesetsVirtualNetworkRule(ignoreMissingVirtualNetworkServiceEndpoint, subnetId);
+        }
+        public EventHubNamespaceNetworkRulesetsVirtualNetworkRule build() {
+            final var o = new EventHubNamespaceNetworkRulesetsVirtualNetworkRule();
+            o.ignoreMissingVirtualNetworkServiceEndpoint = ignoreMissingVirtualNetworkServiceEndpoint;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

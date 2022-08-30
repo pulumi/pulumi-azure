@@ -15,44 +15,27 @@ public final class GetFrontdoorEndpointResult {
      * @return Specifies whether this CDN FrontDoor Endpoint is enabled or not.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Specifies the host name of the CDN FrontDoor Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`).
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String profileName;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String profileName;
+    private String resourceGroupName;
     /**
      * @return Specifies a mapping of Tags assigned to this CDN FrontDoor Endpoint.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetFrontdoorEndpointResult(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("profileName") String profileName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.enabled = enabled;
-        this.hostName = hostName;
-        this.id = id;
-        this.name = name;
-        this.profileName = profileName;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetFrontdoorEndpointResult() {}
     /**
      * @return Specifies whether this CDN FrontDoor Endpoint is enabled or not.
      * 
@@ -98,7 +81,7 @@ public final class GetFrontdoorEndpointResult {
     public static Builder builder(GetFrontdoorEndpointResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String hostName;
@@ -107,11 +90,7 @@ public final class GetFrontdoorEndpointResult {
         private String profileName;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorEndpointResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -123,35 +102,51 @@ public final class GetFrontdoorEndpointResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder profileName(String profileName) {
             this.profileName = Objects.requireNonNull(profileName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetFrontdoorEndpointResult build() {
-            return new GetFrontdoorEndpointResult(enabled, hostName, id, name, profileName, resourceGroupName, tags);
+        }
+        public GetFrontdoorEndpointResult build() {
+            final var o = new GetFrontdoorEndpointResult();
+            o.enabled = enabled;
+            o.hostName = hostName;
+            o.id = id;
+            o.name = name;
+            o.profileName = profileName;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

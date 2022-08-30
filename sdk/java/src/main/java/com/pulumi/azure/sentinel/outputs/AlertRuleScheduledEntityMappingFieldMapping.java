@@ -13,21 +13,14 @@ public final class AlertRuleScheduledEntityMappingFieldMapping {
      * @return The column name to be mapped to the identifier.
      * 
      */
-    private final String columnName;
+    private String columnName;
     /**
      * @return The identifier of the entity.
      * 
      */
-    private final String identifier;
+    private String identifier;
 
-    @CustomType.Constructor
-    private AlertRuleScheduledEntityMappingFieldMapping(
-        @CustomType.Parameter("columnName") String columnName,
-        @CustomType.Parameter("identifier") String identifier) {
-        this.columnName = columnName;
-        this.identifier = identifier;
-    }
-
+    private AlertRuleScheduledEntityMappingFieldMapping() {}
     /**
      * @return The column name to be mapped to the identifier.
      * 
@@ -50,30 +43,32 @@ public final class AlertRuleScheduledEntityMappingFieldMapping {
     public static Builder builder(AlertRuleScheduledEntityMappingFieldMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String columnName;
         private String identifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertRuleScheduledEntityMappingFieldMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.columnName = defaults.columnName;
     	      this.identifier = defaults.identifier;
         }
 
+        @CustomType.Setter
         public Builder columnName(String columnName) {
             this.columnName = Objects.requireNonNull(columnName);
             return this;
         }
+        @CustomType.Setter
         public Builder identifier(String identifier) {
             this.identifier = Objects.requireNonNull(identifier);
             return this;
-        }        public AlertRuleScheduledEntityMappingFieldMapping build() {
-            return new AlertRuleScheduledEntityMappingFieldMapping(columnName, identifier);
+        }
+        public AlertRuleScheduledEntityMappingFieldMapping build() {
+            final var o = new AlertRuleScheduledEntityMappingFieldMapping();
+            o.columnName = columnName;
+            o.identifier = identifier;
+            return o;
         }
     }
 }

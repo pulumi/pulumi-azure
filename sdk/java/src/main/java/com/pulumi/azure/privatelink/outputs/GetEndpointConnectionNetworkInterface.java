@@ -13,21 +13,14 @@ public final class GetEndpointConnectionNetworkInterface {
      * @return The ID of the network interface associated with the private endpoint.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the Name of the private endpoint.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private GetEndpointConnectionNetworkInterface(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private GetEndpointConnectionNetworkInterface() {}
     /**
      * @return The ID of the network interface associated with the private endpoint.
      * 
@@ -50,30 +43,32 @@ public final class GetEndpointConnectionNetworkInterface {
     public static Builder builder(GetEndpointConnectionNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEndpointConnectionNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public GetEndpointConnectionNetworkInterface build() {
-            return new GetEndpointConnectionNetworkInterface(id, name);
+        }
+        public GetEndpointConnectionNetworkInterface build() {
+            final var o = new GetEndpointConnectionNetworkInterface();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

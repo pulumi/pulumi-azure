@@ -18,35 +18,24 @@ public final class ScaleSetOsProfileWindowsConfig {
      * @return An Additional Unattended Config block as documented below.
      * 
      */
-    private final @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
+    private @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
     /**
      * @return Indicates whether virtual machines in the scale set are enabled for automatic updates.
      * 
      */
-    private final @Nullable Boolean enableAutomaticUpgrades;
+    private @Nullable Boolean enableAutomaticUpgrades;
     /**
      * @return Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
      * 
      */
-    private final @Nullable Boolean provisionVmAgent;
+    private @Nullable Boolean provisionVmAgent;
     /**
      * @return A collection of WinRM configuration blocks as documented below.
      * 
      */
-    private final @Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms;
+    private @Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileWindowsConfig(
-        @CustomType.Parameter("additionalUnattendConfigs") @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs,
-        @CustomType.Parameter("enableAutomaticUpgrades") @Nullable Boolean enableAutomaticUpgrades,
-        @CustomType.Parameter("provisionVmAgent") @Nullable Boolean provisionVmAgent,
-        @CustomType.Parameter("winrms") @Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms) {
-        this.additionalUnattendConfigs = additionalUnattendConfigs;
-        this.enableAutomaticUpgrades = enableAutomaticUpgrades;
-        this.provisionVmAgent = provisionVmAgent;
-        this.winrms = winrms;
-    }
-
+    private ScaleSetOsProfileWindowsConfig() {}
     /**
      * @return An Additional Unattended Config block as documented below.
      * 
@@ -83,17 +72,13 @@ public final class ScaleSetOsProfileWindowsConfig {
     public static Builder builder(ScaleSetOsProfileWindowsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs;
         private @Nullable Boolean enableAutomaticUpgrades;
         private @Nullable Boolean provisionVmAgent;
         private @Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileWindowsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalUnattendConfigs = defaults.additionalUnattendConfigs;
@@ -102,6 +87,7 @@ public final class ScaleSetOsProfileWindowsConfig {
     	      this.winrms = defaults.winrms;
         }
 
+        @CustomType.Setter
         public Builder additionalUnattendConfigs(@Nullable List<ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig> additionalUnattendConfigs) {
             this.additionalUnattendConfigs = additionalUnattendConfigs;
             return this;
@@ -109,22 +95,31 @@ public final class ScaleSetOsProfileWindowsConfig {
         public Builder additionalUnattendConfigs(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig... additionalUnattendConfigs) {
             return additionalUnattendConfigs(List.of(additionalUnattendConfigs));
         }
+        @CustomType.Setter
         public Builder enableAutomaticUpgrades(@Nullable Boolean enableAutomaticUpgrades) {
             this.enableAutomaticUpgrades = enableAutomaticUpgrades;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
+        @CustomType.Setter
         public Builder winrms(@Nullable List<ScaleSetOsProfileWindowsConfigWinrm> winrms) {
             this.winrms = winrms;
             return this;
         }
         public Builder winrms(ScaleSetOsProfileWindowsConfigWinrm... winrms) {
             return winrms(List.of(winrms));
-        }        public ScaleSetOsProfileWindowsConfig build() {
-            return new ScaleSetOsProfileWindowsConfig(additionalUnattendConfigs, enableAutomaticUpgrades, provisionVmAgent, winrms);
+        }
+        public ScaleSetOsProfileWindowsConfig build() {
+            final var o = new ScaleSetOsProfileWindowsConfig();
+            o.additionalUnattendConfigs = additionalUnattendConfigs;
+            o.enableAutomaticUpgrades = enableAutomaticUpgrades;
+            o.provisionVmAgent = provisionVmAgent;
+            o.winrms = winrms;
+            return o;
         }
     }
 }

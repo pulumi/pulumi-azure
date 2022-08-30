@@ -16,28 +16,19 @@ public final class GetPolicyRuleAction {
      * @return A `base_blob` block as documented below.
      * 
      */
-    private final List<GetPolicyRuleActionBaseBlob> baseBlobs;
+    private List<GetPolicyRuleActionBaseBlob> baseBlobs;
     /**
      * @return A `snapshot` block as documented below.
      * 
      */
-    private final List<GetPolicyRuleActionSnapshot> snapshots;
+    private List<GetPolicyRuleActionSnapshot> snapshots;
     /**
      * @return A `version` block as documented below.
      * 
      */
-    private final List<GetPolicyRuleActionVersion> versions;
+    private List<GetPolicyRuleActionVersion> versions;
 
-    @CustomType.Constructor
-    private GetPolicyRuleAction(
-        @CustomType.Parameter("baseBlobs") List<GetPolicyRuleActionBaseBlob> baseBlobs,
-        @CustomType.Parameter("snapshots") List<GetPolicyRuleActionSnapshot> snapshots,
-        @CustomType.Parameter("versions") List<GetPolicyRuleActionVersion> versions) {
-        this.baseBlobs = baseBlobs;
-        this.snapshots = snapshots;
-        this.versions = versions;
-    }
-
+    private GetPolicyRuleAction() {}
     /**
      * @return A `base_blob` block as documented below.
      * 
@@ -67,16 +58,12 @@ public final class GetPolicyRuleAction {
     public static Builder builder(GetPolicyRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPolicyRuleActionBaseBlob> baseBlobs;
         private List<GetPolicyRuleActionSnapshot> snapshots;
         private List<GetPolicyRuleActionVersion> versions;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.baseBlobs = defaults.baseBlobs;
@@ -84,6 +71,7 @@ public final class GetPolicyRuleAction {
     	      this.versions = defaults.versions;
         }
 
+        @CustomType.Setter
         public Builder baseBlobs(List<GetPolicyRuleActionBaseBlob> baseBlobs) {
             this.baseBlobs = Objects.requireNonNull(baseBlobs);
             return this;
@@ -91,6 +79,7 @@ public final class GetPolicyRuleAction {
         public Builder baseBlobs(GetPolicyRuleActionBaseBlob... baseBlobs) {
             return baseBlobs(List.of(baseBlobs));
         }
+        @CustomType.Setter
         public Builder snapshots(List<GetPolicyRuleActionSnapshot> snapshots) {
             this.snapshots = Objects.requireNonNull(snapshots);
             return this;
@@ -98,14 +87,20 @@ public final class GetPolicyRuleAction {
         public Builder snapshots(GetPolicyRuleActionSnapshot... snapshots) {
             return snapshots(List.of(snapshots));
         }
+        @CustomType.Setter
         public Builder versions(List<GetPolicyRuleActionVersion> versions) {
             this.versions = Objects.requireNonNull(versions);
             return this;
         }
         public Builder versions(GetPolicyRuleActionVersion... versions) {
             return versions(List.of(versions));
-        }        public GetPolicyRuleAction build() {
-            return new GetPolicyRuleAction(baseBlobs, snapshots, versions);
+        }
+        public GetPolicyRuleAction build() {
+            final var o = new GetPolicyRuleAction();
+            o.baseBlobs = baseBlobs;
+            o.snapshots = snapshots;
+            o.versions = versions;
+            return o;
         }
     }
 }

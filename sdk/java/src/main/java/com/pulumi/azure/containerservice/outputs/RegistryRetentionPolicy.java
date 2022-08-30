@@ -16,21 +16,14 @@ public final class RegistryRetentionPolicy {
      * @return The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
      * 
      */
-    private final @Nullable Integer days;
+    private @Nullable Integer days;
     /**
      * @return Boolean value that indicates whether the policy is enabled.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
 
-    @CustomType.Constructor
-    private RegistryRetentionPolicy(
-        @CustomType.Parameter("days") @Nullable Integer days,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled) {
-        this.days = days;
-        this.enabled = enabled;
-    }
-
+    private RegistryRetentionPolicy() {}
     /**
      * @return The number of days to retain an untagged manifest after which it gets purged. Default is `7`.
      * 
@@ -53,30 +46,32 @@ public final class RegistryRetentionPolicy {
     public static Builder builder(RegistryRetentionPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer days;
         private @Nullable Boolean enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.days = defaults.days;
     	      this.enabled = defaults.enabled;
         }
 
+        @CustomType.Setter
         public Builder days(@Nullable Integer days) {
             this.days = days;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
-        }        public RegistryRetentionPolicy build() {
-            return new RegistryRetentionPolicy(days, enabled);
+        }
+        public RegistryRetentionPolicy build() {
+            final var o = new RegistryRetentionPolicy();
+            o.days = days;
+            o.enabled = enabled;
+            return o;
         }
     }
 }

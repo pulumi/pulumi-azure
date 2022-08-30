@@ -15,21 +15,14 @@ public final class GetPoolStartTaskUserIdentity {
      * @return A `auto_user` block that describes the user identity under which the start task runs.
      * 
      */
-    private final List<GetPoolStartTaskUserIdentityAutoUser> autoUsers;
+    private List<GetPoolStartTaskUserIdentityAutoUser> autoUsers;
     /**
      * @return The user name to log into the registry server.
      * 
      */
-    private final String userName;
+    private String userName;
 
-    @CustomType.Constructor
-    private GetPoolStartTaskUserIdentity(
-        @CustomType.Parameter("autoUsers") List<GetPoolStartTaskUserIdentityAutoUser> autoUsers,
-        @CustomType.Parameter("userName") String userName) {
-        this.autoUsers = autoUsers;
-        this.userName = userName;
-    }
-
+    private GetPoolStartTaskUserIdentity() {}
     /**
      * @return A `auto_user` block that describes the user identity under which the start task runs.
      * 
@@ -52,21 +45,18 @@ public final class GetPoolStartTaskUserIdentity {
     public static Builder builder(GetPoolStartTaskUserIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPoolStartTaskUserIdentityAutoUser> autoUsers;
         private String userName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolStartTaskUserIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoUsers = defaults.autoUsers;
     	      this.userName = defaults.userName;
         }
 
+        @CustomType.Setter
         public Builder autoUsers(List<GetPoolStartTaskUserIdentityAutoUser> autoUsers) {
             this.autoUsers = Objects.requireNonNull(autoUsers);
             return this;
@@ -74,11 +64,16 @@ public final class GetPoolStartTaskUserIdentity {
         public Builder autoUsers(GetPoolStartTaskUserIdentityAutoUser... autoUsers) {
             return autoUsers(List.of(autoUsers));
         }
+        @CustomType.Setter
         public Builder userName(String userName) {
             this.userName = Objects.requireNonNull(userName);
             return this;
-        }        public GetPoolStartTaskUserIdentity build() {
-            return new GetPoolStartTaskUserIdentity(autoUsers, userName);
+        }
+        public GetPoolStartTaskUserIdentity build() {
+            final var o = new GetPoolStartTaskUserIdentity();
+            o.autoUsers = autoUsers;
+            o.userName = userName;
+            return o;
         }
     }
 }

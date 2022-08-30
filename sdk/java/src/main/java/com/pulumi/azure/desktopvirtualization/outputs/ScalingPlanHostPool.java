@@ -14,21 +14,14 @@ public final class ScalingPlanHostPool {
      * @return The ID of the HostPool to assign the Scaling Plan to.
      * 
      */
-    private final String hostpoolId;
+    private String hostpoolId;
     /**
      * @return Specifies if the scaling plan is enabled or disabled for the HostPool.
      * 
      */
-    private final Boolean scalingPlanEnabled;
+    private Boolean scalingPlanEnabled;
 
-    @CustomType.Constructor
-    private ScalingPlanHostPool(
-        @CustomType.Parameter("hostpoolId") String hostpoolId,
-        @CustomType.Parameter("scalingPlanEnabled") Boolean scalingPlanEnabled) {
-        this.hostpoolId = hostpoolId;
-        this.scalingPlanEnabled = scalingPlanEnabled;
-    }
-
+    private ScalingPlanHostPool() {}
     /**
      * @return The ID of the HostPool to assign the Scaling Plan to.
      * 
@@ -51,30 +44,32 @@ public final class ScalingPlanHostPool {
     public static Builder builder(ScalingPlanHostPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostpoolId;
         private Boolean scalingPlanEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScalingPlanHostPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostpoolId = defaults.hostpoolId;
     	      this.scalingPlanEnabled = defaults.scalingPlanEnabled;
         }
 
+        @CustomType.Setter
         public Builder hostpoolId(String hostpoolId) {
             this.hostpoolId = Objects.requireNonNull(hostpoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder scalingPlanEnabled(Boolean scalingPlanEnabled) {
             this.scalingPlanEnabled = Objects.requireNonNull(scalingPlanEnabled);
             return this;
-        }        public ScalingPlanHostPool build() {
-            return new ScalingPlanHostPool(hostpoolId, scalingPlanEnabled);
+        }
+        public ScalingPlanHostPool build() {
+            final var o = new ScalingPlanHostPool();
+            o.hostpoolId = hostpoolId;
+            o.scalingPlanEnabled = scalingPlanEnabled;
+            return o;
         }
     }
 }

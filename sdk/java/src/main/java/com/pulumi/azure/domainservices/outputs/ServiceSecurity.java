@@ -15,56 +15,39 @@ public final class ServiceSecurity {
      * @return Whether to enable Kerberos Armoring. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean kerberosArmoringEnabled;
+    private @Nullable Boolean kerberosArmoringEnabled;
     /**
      * @return Whether to enable Kerberos RC4 Encryption. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean kerberosRc4EncryptionEnabled;
+    private @Nullable Boolean kerberosRc4EncryptionEnabled;
     /**
      * @return Whether to enable legacy NTLM v1 support. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ntlmV1Enabled;
+    private @Nullable Boolean ntlmV1Enabled;
     /**
      * @return Whether to synchronize Kerberos password hashes to the managed domain. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean syncKerberosPasswords;
+    private @Nullable Boolean syncKerberosPasswords;
     /**
      * @return Whether to synchronize NTLM password hashes to the managed domain. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean syncNtlmPasswords;
+    private @Nullable Boolean syncNtlmPasswords;
     /**
      * @return Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean syncOnPremPasswords;
+    private @Nullable Boolean syncOnPremPasswords;
     /**
      * @return Whether to enable legacy TLS v1 support. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean tlsV1Enabled;
+    private @Nullable Boolean tlsV1Enabled;
 
-    @CustomType.Constructor
-    private ServiceSecurity(
-        @CustomType.Parameter("kerberosArmoringEnabled") @Nullable Boolean kerberosArmoringEnabled,
-        @CustomType.Parameter("kerberosRc4EncryptionEnabled") @Nullable Boolean kerberosRc4EncryptionEnabled,
-        @CustomType.Parameter("ntlmV1Enabled") @Nullable Boolean ntlmV1Enabled,
-        @CustomType.Parameter("syncKerberosPasswords") @Nullable Boolean syncKerberosPasswords,
-        @CustomType.Parameter("syncNtlmPasswords") @Nullable Boolean syncNtlmPasswords,
-        @CustomType.Parameter("syncOnPremPasswords") @Nullable Boolean syncOnPremPasswords,
-        @CustomType.Parameter("tlsV1Enabled") @Nullable Boolean tlsV1Enabled) {
-        this.kerberosArmoringEnabled = kerberosArmoringEnabled;
-        this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
-        this.ntlmV1Enabled = ntlmV1Enabled;
-        this.syncKerberosPasswords = syncKerberosPasswords;
-        this.syncNtlmPasswords = syncNtlmPasswords;
-        this.syncOnPremPasswords = syncOnPremPasswords;
-        this.tlsV1Enabled = tlsV1Enabled;
-    }
-
+    private ServiceSecurity() {}
     /**
      * @return Whether to enable Kerberos Armoring. Defaults to `false`.
      * 
@@ -122,7 +105,7 @@ public final class ServiceSecurity {
     public static Builder builder(ServiceSecurity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean kerberosArmoringEnabled;
         private @Nullable Boolean kerberosRc4EncryptionEnabled;
@@ -131,11 +114,7 @@ public final class ServiceSecurity {
         private @Nullable Boolean syncNtlmPasswords;
         private @Nullable Boolean syncOnPremPasswords;
         private @Nullable Boolean tlsV1Enabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSecurity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.kerberosArmoringEnabled = defaults.kerberosArmoringEnabled;
@@ -147,35 +126,51 @@ public final class ServiceSecurity {
     	      this.tlsV1Enabled = defaults.tlsV1Enabled;
         }
 
+        @CustomType.Setter
         public Builder kerberosArmoringEnabled(@Nullable Boolean kerberosArmoringEnabled) {
             this.kerberosArmoringEnabled = kerberosArmoringEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder kerberosRc4EncryptionEnabled(@Nullable Boolean kerberosRc4EncryptionEnabled) {
             this.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ntlmV1Enabled(@Nullable Boolean ntlmV1Enabled) {
             this.ntlmV1Enabled = ntlmV1Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder syncKerberosPasswords(@Nullable Boolean syncKerberosPasswords) {
             this.syncKerberosPasswords = syncKerberosPasswords;
             return this;
         }
+        @CustomType.Setter
         public Builder syncNtlmPasswords(@Nullable Boolean syncNtlmPasswords) {
             this.syncNtlmPasswords = syncNtlmPasswords;
             return this;
         }
+        @CustomType.Setter
         public Builder syncOnPremPasswords(@Nullable Boolean syncOnPremPasswords) {
             this.syncOnPremPasswords = syncOnPremPasswords;
             return this;
         }
+        @CustomType.Setter
         public Builder tlsV1Enabled(@Nullable Boolean tlsV1Enabled) {
             this.tlsV1Enabled = tlsV1Enabled;
             return this;
-        }        public ServiceSecurity build() {
-            return new ServiceSecurity(kerberosArmoringEnabled, kerberosRc4EncryptionEnabled, ntlmV1Enabled, syncKerberosPasswords, syncNtlmPasswords, syncOnPremPasswords, tlsV1Enabled);
+        }
+        public ServiceSecurity build() {
+            final var o = new ServiceSecurity();
+            o.kerberosArmoringEnabled = kerberosArmoringEnabled;
+            o.kerberosRc4EncryptionEnabled = kerberosRc4EncryptionEnabled;
+            o.ntlmV1Enabled = ntlmV1Enabled;
+            o.syncKerberosPasswords = syncKerberosPasswords;
+            o.syncNtlmPasswords = syncNtlmPasswords;
+            o.syncOnPremPasswords = syncOnPremPasswords;
+            o.tlsV1Enabled = tlsV1Enabled;
+            return o;
         }
     }
 }

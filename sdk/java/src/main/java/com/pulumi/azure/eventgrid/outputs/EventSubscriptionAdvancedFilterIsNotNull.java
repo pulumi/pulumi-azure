@@ -13,13 +13,9 @@ public final class EventSubscriptionAdvancedFilterIsNotNull {
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
      */
-    private final String key;
+    private String key;
 
-    @CustomType.Constructor
-    private EventSubscriptionAdvancedFilterIsNotNull(@CustomType.Parameter("key") String key) {
-        this.key = key;
-    }
-
+    private EventSubscriptionAdvancedFilterIsNotNull() {}
     /**
      * @return Specifies the field within the event data that you want to use for filtering. Type of the field can be a number, boolean, or string.
      * 
@@ -35,24 +31,24 @@ public final class EventSubscriptionAdvancedFilterIsNotNull {
     public static Builder builder(EventSubscriptionAdvancedFilterIsNotNull defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String key;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EventSubscriptionAdvancedFilterIsNotNull defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.key = defaults.key;
         }
 
+        @CustomType.Setter
         public Builder key(String key) {
             this.key = Objects.requireNonNull(key);
             return this;
-        }        public EventSubscriptionAdvancedFilterIsNotNull build() {
-            return new EventSubscriptionAdvancedFilterIsNotNull(key);
+        }
+        public EventSubscriptionAdvancedFilterIsNotNull build() {
+            final var o = new EventSubscriptionAdvancedFilterIsNotNull();
+            o.key = key;
+            return o;
         }
     }
 }

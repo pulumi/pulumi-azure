@@ -13,28 +13,19 @@ public final class GetPolicyRuleActionSnapshot {
      * @return The age in days after creation to tier blob version to archive storage.
      * 
      */
-    private final Integer changeTierToArchiveAfterDaysSinceCreation;
+    private Integer changeTierToArchiveAfterDaysSinceCreation;
     /**
      * @return The age in days after creation to tier blob version to cool storage.
      * 
      */
-    private final Integer changeTierToCoolAfterDaysSinceCreation;
+    private Integer changeTierToCoolAfterDaysSinceCreation;
     /**
      * @return The age in days after creation to delete the blob snapshot.
      * 
      */
-    private final Integer deleteAfterDaysSinceCreationGreaterThan;
+    private Integer deleteAfterDaysSinceCreationGreaterThan;
 
-    @CustomType.Constructor
-    private GetPolicyRuleActionSnapshot(
-        @CustomType.Parameter("changeTierToArchiveAfterDaysSinceCreation") Integer changeTierToArchiveAfterDaysSinceCreation,
-        @CustomType.Parameter("changeTierToCoolAfterDaysSinceCreation") Integer changeTierToCoolAfterDaysSinceCreation,
-        @CustomType.Parameter("deleteAfterDaysSinceCreationGreaterThan") Integer deleteAfterDaysSinceCreationGreaterThan) {
-        this.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
-        this.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
-        this.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
-    }
-
+    private GetPolicyRuleActionSnapshot() {}
     /**
      * @return The age in days after creation to tier blob version to archive storage.
      * 
@@ -64,16 +55,12 @@ public final class GetPolicyRuleActionSnapshot {
     public static Builder builder(GetPolicyRuleActionSnapshot defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer changeTierToArchiveAfterDaysSinceCreation;
         private Integer changeTierToCoolAfterDaysSinceCreation;
         private Integer deleteAfterDaysSinceCreationGreaterThan;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRuleActionSnapshot defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeTierToArchiveAfterDaysSinceCreation = defaults.changeTierToArchiveAfterDaysSinceCreation;
@@ -81,19 +68,27 @@ public final class GetPolicyRuleActionSnapshot {
     	      this.deleteAfterDaysSinceCreationGreaterThan = defaults.deleteAfterDaysSinceCreationGreaterThan;
         }
 
+        @CustomType.Setter
         public Builder changeTierToArchiveAfterDaysSinceCreation(Integer changeTierToArchiveAfterDaysSinceCreation) {
             this.changeTierToArchiveAfterDaysSinceCreation = Objects.requireNonNull(changeTierToArchiveAfterDaysSinceCreation);
             return this;
         }
+        @CustomType.Setter
         public Builder changeTierToCoolAfterDaysSinceCreation(Integer changeTierToCoolAfterDaysSinceCreation) {
             this.changeTierToCoolAfterDaysSinceCreation = Objects.requireNonNull(changeTierToCoolAfterDaysSinceCreation);
             return this;
         }
+        @CustomType.Setter
         public Builder deleteAfterDaysSinceCreationGreaterThan(Integer deleteAfterDaysSinceCreationGreaterThan) {
             this.deleteAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(deleteAfterDaysSinceCreationGreaterThan);
             return this;
-        }        public GetPolicyRuleActionSnapshot build() {
-            return new GetPolicyRuleActionSnapshot(changeTierToArchiveAfterDaysSinceCreation, changeTierToCoolAfterDaysSinceCreation, deleteAfterDaysSinceCreationGreaterThan);
+        }
+        public GetPolicyRuleActionSnapshot build() {
+            final var o = new GetPolicyRuleActionSnapshot();
+            o.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
+            o.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
+            o.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class ServiceAccountStorageAccount {
      * @return Specifies the ID of the Storage Account that will be associated with the Media Services instance.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies whether the storage account should be the primary account or not. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean isPrimary;
+    private @Nullable Boolean isPrimary;
 
-    @CustomType.Constructor
-    private ServiceAccountStorageAccount(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isPrimary") @Nullable Boolean isPrimary) {
-        this.id = id;
-        this.isPrimary = isPrimary;
-    }
-
+    private ServiceAccountStorageAccount() {}
     /**
      * @return Specifies the ID of the Storage Account that will be associated with the Media Services instance.
      * 
@@ -53,30 +46,32 @@ public final class ServiceAccountStorageAccount {
     public static Builder builder(ServiceAccountStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private @Nullable Boolean isPrimary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceAccountStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.isPrimary = defaults.isPrimary;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isPrimary(@Nullable Boolean isPrimary) {
             this.isPrimary = isPrimary;
             return this;
-        }        public ServiceAccountStorageAccount build() {
-            return new ServiceAccountStorageAccount(id, isPrimary);
+        }
+        public ServiceAccountStorageAccount build() {
+            final var o = new ServiceAccountStorageAccount();
+            o.id = id;
+            o.isPrimary = isPrimary;
+            return o;
         }
     }
 }

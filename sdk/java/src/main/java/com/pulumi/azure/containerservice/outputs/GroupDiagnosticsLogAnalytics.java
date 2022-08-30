@@ -16,35 +16,24 @@ public final class GroupDiagnosticsLogAnalytics {
      * @return The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String logType;
+    private @Nullable String logType;
     /**
      * @return Any metadata required for Log Analytics. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Map<String,String> metadata;
+    private @Nullable Map<String,String> metadata;
     /**
      * @return The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created.
      * 
      */
-    private final String workspaceId;
+    private String workspaceId;
     /**
      * @return The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created.
      * 
      */
-    private final String workspaceKey;
+    private String workspaceKey;
 
-    @CustomType.Constructor
-    private GroupDiagnosticsLogAnalytics(
-        @CustomType.Parameter("logType") @Nullable String logType,
-        @CustomType.Parameter("metadata") @Nullable Map<String,String> metadata,
-        @CustomType.Parameter("workspaceId") String workspaceId,
-        @CustomType.Parameter("workspaceKey") String workspaceKey) {
-        this.logType = logType;
-        this.metadata = metadata;
-        this.workspaceId = workspaceId;
-        this.workspaceKey = workspaceKey;
-    }
-
+    private GroupDiagnosticsLogAnalytics() {}
     /**
      * @return The log type which should be used. Possible values are `ContainerInsights` and `ContainerInstanceLogs`. Changing this forces a new resource to be created.
      * 
@@ -81,17 +70,13 @@ public final class GroupDiagnosticsLogAnalytics {
     public static Builder builder(GroupDiagnosticsLogAnalytics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String logType;
         private @Nullable Map<String,String> metadata;
         private String workspaceId;
         private String workspaceKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupDiagnosticsLogAnalytics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logType = defaults.logType;
@@ -100,23 +85,33 @@ public final class GroupDiagnosticsLogAnalytics {
     	      this.workspaceKey = defaults.workspaceKey;
         }
 
+        @CustomType.Setter
         public Builder logType(@Nullable String logType) {
             this.logType = logType;
             return this;
         }
+        @CustomType.Setter
         public Builder metadata(@Nullable Map<String,String> metadata) {
             this.metadata = metadata;
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceKey(String workspaceKey) {
             this.workspaceKey = Objects.requireNonNull(workspaceKey);
             return this;
-        }        public GroupDiagnosticsLogAnalytics build() {
-            return new GroupDiagnosticsLogAnalytics(logType, metadata, workspaceId, workspaceKey);
+        }
+        public GroupDiagnosticsLogAnalytics build() {
+            final var o = new GroupDiagnosticsLogAnalytics();
+            o.logType = logType;
+            o.metadata = metadata;
+            o.workspaceId = workspaceId;
+            o.workspaceKey = workspaceKey;
+            return o;
         }
     }
 }

@@ -15,49 +15,34 @@ public final class AttachedDatabaseConfigurationSharing {
      * @return List of external tables exclude from the follower database.
      * 
      */
-    private final @Nullable List<String> externalTablesToExcludes;
+    private @Nullable List<String> externalTablesToExcludes;
     /**
      * @return List of external tables to include in the follower database.
      * 
      */
-    private final @Nullable List<String> externalTablesToIncludes;
+    private @Nullable List<String> externalTablesToIncludes;
     /**
      * @return List of materialized views exclude from the follower database.
      * 
      */
-    private final @Nullable List<String> materializedViewsToExcludes;
+    private @Nullable List<String> materializedViewsToExcludes;
     /**
      * @return List of materialized views to include in the follower database.
      * 
      */
-    private final @Nullable List<String> materializedViewsToIncludes;
+    private @Nullable List<String> materializedViewsToIncludes;
     /**
      * @return List of tables to exclude from the follower database.
      * 
      */
-    private final @Nullable List<String> tablesToExcludes;
+    private @Nullable List<String> tablesToExcludes;
     /**
      * @return List of tables to include in the follower database.
      * 
      */
-    private final @Nullable List<String> tablesToIncludes;
+    private @Nullable List<String> tablesToIncludes;
 
-    @CustomType.Constructor
-    private AttachedDatabaseConfigurationSharing(
-        @CustomType.Parameter("externalTablesToExcludes") @Nullable List<String> externalTablesToExcludes,
-        @CustomType.Parameter("externalTablesToIncludes") @Nullable List<String> externalTablesToIncludes,
-        @CustomType.Parameter("materializedViewsToExcludes") @Nullable List<String> materializedViewsToExcludes,
-        @CustomType.Parameter("materializedViewsToIncludes") @Nullable List<String> materializedViewsToIncludes,
-        @CustomType.Parameter("tablesToExcludes") @Nullable List<String> tablesToExcludes,
-        @CustomType.Parameter("tablesToIncludes") @Nullable List<String> tablesToIncludes) {
-        this.externalTablesToExcludes = externalTablesToExcludes;
-        this.externalTablesToIncludes = externalTablesToIncludes;
-        this.materializedViewsToExcludes = materializedViewsToExcludes;
-        this.materializedViewsToIncludes = materializedViewsToIncludes;
-        this.tablesToExcludes = tablesToExcludes;
-        this.tablesToIncludes = tablesToIncludes;
-    }
-
+    private AttachedDatabaseConfigurationSharing() {}
     /**
      * @return List of external tables exclude from the follower database.
      * 
@@ -108,7 +93,7 @@ public final class AttachedDatabaseConfigurationSharing {
     public static Builder builder(AttachedDatabaseConfigurationSharing defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> externalTablesToExcludes;
         private @Nullable List<String> externalTablesToIncludes;
@@ -116,11 +101,7 @@ public final class AttachedDatabaseConfigurationSharing {
         private @Nullable List<String> materializedViewsToIncludes;
         private @Nullable List<String> tablesToExcludes;
         private @Nullable List<String> tablesToIncludes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AttachedDatabaseConfigurationSharing defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.externalTablesToExcludes = defaults.externalTablesToExcludes;
@@ -131,6 +112,7 @@ public final class AttachedDatabaseConfigurationSharing {
     	      this.tablesToIncludes = defaults.tablesToIncludes;
         }
 
+        @CustomType.Setter
         public Builder externalTablesToExcludes(@Nullable List<String> externalTablesToExcludes) {
             this.externalTablesToExcludes = externalTablesToExcludes;
             return this;
@@ -138,6 +120,7 @@ public final class AttachedDatabaseConfigurationSharing {
         public Builder externalTablesToExcludes(String... externalTablesToExcludes) {
             return externalTablesToExcludes(List.of(externalTablesToExcludes));
         }
+        @CustomType.Setter
         public Builder externalTablesToIncludes(@Nullable List<String> externalTablesToIncludes) {
             this.externalTablesToIncludes = externalTablesToIncludes;
             return this;
@@ -145,6 +128,7 @@ public final class AttachedDatabaseConfigurationSharing {
         public Builder externalTablesToIncludes(String... externalTablesToIncludes) {
             return externalTablesToIncludes(List.of(externalTablesToIncludes));
         }
+        @CustomType.Setter
         public Builder materializedViewsToExcludes(@Nullable List<String> materializedViewsToExcludes) {
             this.materializedViewsToExcludes = materializedViewsToExcludes;
             return this;
@@ -152,6 +136,7 @@ public final class AttachedDatabaseConfigurationSharing {
         public Builder materializedViewsToExcludes(String... materializedViewsToExcludes) {
             return materializedViewsToExcludes(List.of(materializedViewsToExcludes));
         }
+        @CustomType.Setter
         public Builder materializedViewsToIncludes(@Nullable List<String> materializedViewsToIncludes) {
             this.materializedViewsToIncludes = materializedViewsToIncludes;
             return this;
@@ -159,6 +144,7 @@ public final class AttachedDatabaseConfigurationSharing {
         public Builder materializedViewsToIncludes(String... materializedViewsToIncludes) {
             return materializedViewsToIncludes(List.of(materializedViewsToIncludes));
         }
+        @CustomType.Setter
         public Builder tablesToExcludes(@Nullable List<String> tablesToExcludes) {
             this.tablesToExcludes = tablesToExcludes;
             return this;
@@ -166,14 +152,23 @@ public final class AttachedDatabaseConfigurationSharing {
         public Builder tablesToExcludes(String... tablesToExcludes) {
             return tablesToExcludes(List.of(tablesToExcludes));
         }
+        @CustomType.Setter
         public Builder tablesToIncludes(@Nullable List<String> tablesToIncludes) {
             this.tablesToIncludes = tablesToIncludes;
             return this;
         }
         public Builder tablesToIncludes(String... tablesToIncludes) {
             return tablesToIncludes(List.of(tablesToIncludes));
-        }        public AttachedDatabaseConfigurationSharing build() {
-            return new AttachedDatabaseConfigurationSharing(externalTablesToExcludes, externalTablesToIncludes, materializedViewsToExcludes, materializedViewsToIncludes, tablesToExcludes, tablesToIncludes);
+        }
+        public AttachedDatabaseConfigurationSharing build() {
+            final var o = new AttachedDatabaseConfigurationSharing();
+            o.externalTablesToExcludes = externalTablesToExcludes;
+            o.externalTablesToIncludes = externalTablesToIncludes;
+            o.materializedViewsToExcludes = materializedViewsToExcludes;
+            o.materializedViewsToIncludes = materializedViewsToIncludes;
+            o.tablesToExcludes = tablesToExcludes;
+            o.tablesToIncludes = tablesToIncludes;
+            return o;
         }
     }
 }

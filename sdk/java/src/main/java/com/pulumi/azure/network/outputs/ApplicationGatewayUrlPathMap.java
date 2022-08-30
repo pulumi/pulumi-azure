@@ -17,80 +17,55 @@ public final class ApplicationGatewayUrlPathMap {
      * @return The ID of the Default Backend Address Pool.
      * 
      */
-    private final @Nullable String defaultBackendAddressPoolId;
+    private @Nullable String defaultBackendAddressPoolId;
     /**
      * @return The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
      * 
      */
-    private final @Nullable String defaultBackendAddressPoolName;
+    private @Nullable String defaultBackendAddressPoolName;
     /**
      * @return The ID of the Default Backend HTTP Settings Collection.
      * 
      */
-    private final @Nullable String defaultBackendHttpSettingsId;
+    private @Nullable String defaultBackendHttpSettingsId;
     /**
      * @return The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if `default_redirect_configuration_name` is set.
      * 
      */
-    private final @Nullable String defaultBackendHttpSettingsName;
+    private @Nullable String defaultBackendHttpSettingsName;
     /**
      * @return The ID of the Default Redirect Configuration.
      * 
      */
-    private final @Nullable String defaultRedirectConfigurationId;
+    private @Nullable String defaultRedirectConfigurationId;
     /**
      * @return The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either `default_backend_address_pool_name` or `default_backend_http_settings_name` is set.
      * 
      */
-    private final @Nullable String defaultRedirectConfigurationName;
-    private final @Nullable String defaultRewriteRuleSetId;
+    private @Nullable String defaultRedirectConfigurationName;
+    private @Nullable String defaultRewriteRuleSetId;
     /**
      * @return The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
      * 
      */
-    private final @Nullable String defaultRewriteRuleSetName;
+    private @Nullable String defaultRewriteRuleSetName;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The Name of the URL Path Map.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return One or more `path_rule` blocks as defined above.
      * 
      */
-    private final List<ApplicationGatewayUrlPathMapPathRule> pathRules;
+    private List<ApplicationGatewayUrlPathMapPathRule> pathRules;
 
-    @CustomType.Constructor
-    private ApplicationGatewayUrlPathMap(
-        @CustomType.Parameter("defaultBackendAddressPoolId") @Nullable String defaultBackendAddressPoolId,
-        @CustomType.Parameter("defaultBackendAddressPoolName") @Nullable String defaultBackendAddressPoolName,
-        @CustomType.Parameter("defaultBackendHttpSettingsId") @Nullable String defaultBackendHttpSettingsId,
-        @CustomType.Parameter("defaultBackendHttpSettingsName") @Nullable String defaultBackendHttpSettingsName,
-        @CustomType.Parameter("defaultRedirectConfigurationId") @Nullable String defaultRedirectConfigurationId,
-        @CustomType.Parameter("defaultRedirectConfigurationName") @Nullable String defaultRedirectConfigurationName,
-        @CustomType.Parameter("defaultRewriteRuleSetId") @Nullable String defaultRewriteRuleSetId,
-        @CustomType.Parameter("defaultRewriteRuleSetName") @Nullable String defaultRewriteRuleSetName,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("pathRules") List<ApplicationGatewayUrlPathMapPathRule> pathRules) {
-        this.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
-        this.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
-        this.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
-        this.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
-        this.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
-        this.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
-        this.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
-        this.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
-        this.id = id;
-        this.name = name;
-        this.pathRules = pathRules;
-    }
-
+    private ApplicationGatewayUrlPathMap() {}
     /**
      * @return The ID of the Default Backend Address Pool.
      * 
@@ -172,7 +147,7 @@ public final class ApplicationGatewayUrlPathMap {
     public static Builder builder(ApplicationGatewayUrlPathMap defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultBackendAddressPoolId;
         private @Nullable String defaultBackendAddressPoolName;
@@ -185,11 +160,7 @@ public final class ApplicationGatewayUrlPathMap {
         private @Nullable String id;
         private String name;
         private List<ApplicationGatewayUrlPathMapPathRule> pathRules;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayUrlPathMap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultBackendAddressPoolId = defaults.defaultBackendAddressPoolId;
@@ -205,54 +176,78 @@ public final class ApplicationGatewayUrlPathMap {
     	      this.pathRules = defaults.pathRules;
         }
 
+        @CustomType.Setter
         public Builder defaultBackendAddressPoolId(@Nullable String defaultBackendAddressPoolId) {
             this.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultBackendAddressPoolName(@Nullable String defaultBackendAddressPoolName) {
             this.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultBackendHttpSettingsId(@Nullable String defaultBackendHttpSettingsId) {
             this.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultBackendHttpSettingsName(@Nullable String defaultBackendHttpSettingsName) {
             this.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRedirectConfigurationId(@Nullable String defaultRedirectConfigurationId) {
             this.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRedirectConfigurationName(@Nullable String defaultRedirectConfigurationName) {
             this.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRewriteRuleSetId(@Nullable String defaultRewriteRuleSetId) {
             this.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultRewriteRuleSetName(@Nullable String defaultRewriteRuleSetName) {
             this.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder pathRules(List<ApplicationGatewayUrlPathMapPathRule> pathRules) {
             this.pathRules = Objects.requireNonNull(pathRules);
             return this;
         }
         public Builder pathRules(ApplicationGatewayUrlPathMapPathRule... pathRules) {
             return pathRules(List.of(pathRules));
-        }        public ApplicationGatewayUrlPathMap build() {
-            return new ApplicationGatewayUrlPathMap(defaultBackendAddressPoolId, defaultBackendAddressPoolName, defaultBackendHttpSettingsId, defaultBackendHttpSettingsName, defaultRedirectConfigurationId, defaultRedirectConfigurationName, defaultRewriteRuleSetId, defaultRewriteRuleSetName, id, name, pathRules);
+        }
+        public ApplicationGatewayUrlPathMap build() {
+            final var o = new ApplicationGatewayUrlPathMap();
+            o.defaultBackendAddressPoolId = defaultBackendAddressPoolId;
+            o.defaultBackendAddressPoolName = defaultBackendAddressPoolName;
+            o.defaultBackendHttpSettingsId = defaultBackendHttpSettingsId;
+            o.defaultBackendHttpSettingsName = defaultBackendHttpSettingsName;
+            o.defaultRedirectConfigurationId = defaultRedirectConfigurationId;
+            o.defaultRedirectConfigurationName = defaultRedirectConfigurationName;
+            o.defaultRewriteRuleSetId = defaultRewriteRuleSetId;
+            o.defaultRewriteRuleSetName = defaultRewriteRuleSetName;
+            o.id = id;
+            o.name = name;
+            o.pathRules = pathRules;
+            return o;
         }
     }
 }

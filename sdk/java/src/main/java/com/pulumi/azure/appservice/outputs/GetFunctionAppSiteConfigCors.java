@@ -13,17 +13,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFunctionAppSiteConfigCors {
-    private final List<String> allowedOrigins;
-    private final @Nullable Boolean supportCredentials;
+    private List<String> allowedOrigins;
+    private @Nullable Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private GetFunctionAppSiteConfigCors(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") @Nullable Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private GetFunctionAppSiteConfigCors() {}
     public List<String> allowedOrigins() {
         return this.allowedOrigins;
     }
@@ -38,21 +31,18 @@ public final class GetFunctionAppSiteConfigCors {
     public static Builder builder(GetFunctionAppSiteConfigCors defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private @Nullable Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFunctionAppSiteConfigCors defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -60,11 +50,16 @@ public final class GetFunctionAppSiteConfigCors {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(@Nullable Boolean supportCredentials) {
             this.supportCredentials = supportCredentials;
             return this;
-        }        public GetFunctionAppSiteConfigCors build() {
-            return new GetFunctionAppSiteConfigCors(allowedOrigins, supportCredentials);
+        }
+        public GetFunctionAppSiteConfigCors build() {
+            final var o = new GetFunctionAppSiteConfigCors();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

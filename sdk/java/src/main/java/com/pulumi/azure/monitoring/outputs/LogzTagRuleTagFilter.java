@@ -15,28 +15,19 @@ public final class LogzTagRuleTagFilter {
      * @return The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The name of this `tag_filter`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of this `tag_filter`.
      * 
      */
-    private final @Nullable String value;
+    private @Nullable String value;
 
-    @CustomType.Constructor
-    private LogzTagRuleTagFilter(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") @Nullable String value) {
-        this.action = action;
-        this.name = name;
-        this.value = value;
-    }
-
+    private LogzTagRuleTagFilter() {}
     /**
      * @return The action for a filtering tag. Possible values are `Include` and `Exclude` is allowed. Note that the `Exclude` takes priority over the `Include`.
      * 
@@ -66,16 +57,12 @@ public final class LogzTagRuleTagFilter {
     public static Builder builder(LogzTagRuleTagFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String name;
         private @Nullable String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LogzTagRuleTagFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -83,19 +70,27 @@ public final class LogzTagRuleTagFilter {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(@Nullable String value) {
             this.value = value;
             return this;
-        }        public LogzTagRuleTagFilter build() {
-            return new LogzTagRuleTagFilter(action, name, value);
+        }
+        public LogzTagRuleTagFilter build() {
+            final var o = new LogzTagRuleTagFilter();
+            o.action = action;
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class HBaseClusterMetastores {
      * @return An `ambari` block as defined below.
      * 
      */
-    private final @Nullable HBaseClusterMetastoresAmbari ambari;
+    private @Nullable HBaseClusterMetastoresAmbari ambari;
     /**
      * @return A `hive` block as defined below.
      * 
      */
-    private final @Nullable HBaseClusterMetastoresHive hive;
+    private @Nullable HBaseClusterMetastoresHive hive;
     /**
      * @return An `oozie` block as defined below.
      * 
      */
-    private final @Nullable HBaseClusterMetastoresOozie oozie;
+    private @Nullable HBaseClusterMetastoresOozie oozie;
 
-    @CustomType.Constructor
-    private HBaseClusterMetastores(
-        @CustomType.Parameter("ambari") @Nullable HBaseClusterMetastoresAmbari ambari,
-        @CustomType.Parameter("hive") @Nullable HBaseClusterMetastoresHive hive,
-        @CustomType.Parameter("oozie") @Nullable HBaseClusterMetastoresOozie oozie) {
-        this.ambari = ambari;
-        this.hive = hive;
-        this.oozie = oozie;
-    }
-
+    private HBaseClusterMetastores() {}
     /**
      * @return An `ambari` block as defined below.
      * 
@@ -68,16 +59,12 @@ public final class HBaseClusterMetastores {
     public static Builder builder(HBaseClusterMetastores defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable HBaseClusterMetastoresAmbari ambari;
         private @Nullable HBaseClusterMetastoresHive hive;
         private @Nullable HBaseClusterMetastoresOozie oozie;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterMetastores defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ambari = defaults.ambari;
@@ -85,19 +72,27 @@ public final class HBaseClusterMetastores {
     	      this.oozie = defaults.oozie;
         }
 
+        @CustomType.Setter
         public Builder ambari(@Nullable HBaseClusterMetastoresAmbari ambari) {
             this.ambari = ambari;
             return this;
         }
+        @CustomType.Setter
         public Builder hive(@Nullable HBaseClusterMetastoresHive hive) {
             this.hive = hive;
             return this;
         }
+        @CustomType.Setter
         public Builder oozie(@Nullable HBaseClusterMetastoresOozie oozie) {
             this.oozie = oozie;
             return this;
-        }        public HBaseClusterMetastores build() {
-            return new HBaseClusterMetastores(ambari, hive, oozie);
+        }
+        public HBaseClusterMetastores build() {
+            final var o = new HBaseClusterMetastores();
+            o.ambari = ambari;
+            o.hive = hive;
+            o.oozie = oozie;
+            return o;
         }
     }
 }

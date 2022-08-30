@@ -17,38 +17,25 @@ public final class GetPublicConfigurationsResult {
      * @return A `configs` block as defined below.
      * 
      */
-    private final List<GetPublicConfigurationsConfig> configs;
+    private List<GetPublicConfigurationsConfig> configs;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location of the Public Maintenance Configuration.
      * 
      */
-    private final @Nullable String location;
+    private @Nullable String location;
     /**
      * @return The rate at which a maintenance window is expected to recur.
      * 
      */
-    private final @Nullable String recurEvery;
-    private final @Nullable String scope;
+    private @Nullable String recurEvery;
+    private @Nullable String scope;
 
-    @CustomType.Constructor
-    private GetPublicConfigurationsResult(
-        @CustomType.Parameter("configs") List<GetPublicConfigurationsConfig> configs,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") @Nullable String location,
-        @CustomType.Parameter("recurEvery") @Nullable String recurEvery,
-        @CustomType.Parameter("scope") @Nullable String scope) {
-        this.configs = configs;
-        this.id = id;
-        this.location = location;
-        this.recurEvery = recurEvery;
-        this.scope = scope;
-    }
-
+    private GetPublicConfigurationsResult() {}
     /**
      * @return A `configs` block as defined below.
      * 
@@ -88,18 +75,14 @@ public final class GetPublicConfigurationsResult {
     public static Builder builder(GetPublicConfigurationsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetPublicConfigurationsConfig> configs;
         private String id;
         private @Nullable String location;
         private @Nullable String recurEvery;
         private @Nullable String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicConfigurationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.configs = defaults.configs;
@@ -109,6 +92,7 @@ public final class GetPublicConfigurationsResult {
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder configs(List<GetPublicConfigurationsConfig> configs) {
             this.configs = Objects.requireNonNull(configs);
             return this;
@@ -116,23 +100,34 @@ public final class GetPublicConfigurationsResult {
         public Builder configs(GetPublicConfigurationsConfig... configs) {
             return configs(List.of(configs));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(@Nullable String location) {
             this.location = location;
             return this;
         }
+        @CustomType.Setter
         public Builder recurEvery(@Nullable String recurEvery) {
             this.recurEvery = recurEvery;
             return this;
         }
+        @CustomType.Setter
         public Builder scope(@Nullable String scope) {
             this.scope = scope;
             return this;
-        }        public GetPublicConfigurationsResult build() {
-            return new GetPublicConfigurationsResult(configs, id, location, recurEvery, scope);
+        }
+        public GetPublicConfigurationsResult build() {
+            final var o = new GetPublicConfigurationsResult();
+            o.configs = configs;
+            o.id = id;
+            o.location = location;
+            o.recurEvery = recurEvery;
+            o.scope = scope;
+            return o;
         }
     }
 }

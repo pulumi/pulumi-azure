@@ -15,28 +15,19 @@ public final class AccountManagedResource {
      * @return The ID of the managed event hub namespace.
      * 
      */
-    private final @Nullable String eventHubNamespaceId;
+    private @Nullable String eventHubNamespaceId;
     /**
      * @return The ID of the managed resource group.
      * 
      */
-    private final @Nullable String resourceGroupId;
+    private @Nullable String resourceGroupId;
     /**
      * @return The ID of the managed storage account.
      * 
      */
-    private final @Nullable String storageAccountId;
+    private @Nullable String storageAccountId;
 
-    @CustomType.Constructor
-    private AccountManagedResource(
-        @CustomType.Parameter("eventHubNamespaceId") @Nullable String eventHubNamespaceId,
-        @CustomType.Parameter("resourceGroupId") @Nullable String resourceGroupId,
-        @CustomType.Parameter("storageAccountId") @Nullable String storageAccountId) {
-        this.eventHubNamespaceId = eventHubNamespaceId;
-        this.resourceGroupId = resourceGroupId;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private AccountManagedResource() {}
     /**
      * @return The ID of the managed event hub namespace.
      * 
@@ -66,16 +57,12 @@ public final class AccountManagedResource {
     public static Builder builder(AccountManagedResource defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String eventHubNamespaceId;
         private @Nullable String resourceGroupId;
         private @Nullable String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountManagedResource defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventHubNamespaceId = defaults.eventHubNamespaceId;
@@ -83,19 +70,27 @@ public final class AccountManagedResource {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder eventHubNamespaceId(@Nullable String eventHubNamespaceId) {
             this.eventHubNamespaceId = eventHubNamespaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupId(@Nullable String resourceGroupId) {
             this.resourceGroupId = resourceGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(@Nullable String storageAccountId) {
             this.storageAccountId = storageAccountId;
             return this;
-        }        public AccountManagedResource build() {
-            return new AccountManagedResource(eventHubNamespaceId, resourceGroupId, storageAccountId);
+        }
+        public AccountManagedResource build() {
+            final var o = new AccountManagedResource();
+            o.eventHubNamespaceId = eventHubNamespaceId;
+            o.resourceGroupId = resourceGroupId;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

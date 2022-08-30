@@ -15,47 +15,28 @@ public final class GetTopicResult {
      * @return The Endpoint associated with the EventGrid Topic.
      * 
      */
-    private final String endpoint;
+    private String endpoint;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
-    private final String name;
+    private String id;
+    private String location;
+    private String name;
     /**
      * @return The Primary Shared Access Key associated with the EventGrid Topic.
      * 
      */
-    private final String primaryAccessKey;
-    private final String resourceGroupName;
+    private String primaryAccessKey;
+    private String resourceGroupName;
     /**
      * @return The Secondary Shared Access Key associated with the EventGrid Topic.
      * 
      */
-    private final String secondaryAccessKey;
-    private final @Nullable Map<String,String> tags;
+    private String secondaryAccessKey;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetTopicResult(
-        @CustomType.Parameter("endpoint") String endpoint,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.endpoint = endpoint;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-        this.tags = tags;
-    }
-
+    private GetTopicResult() {}
     /**
      * @return The Endpoint associated with the EventGrid Topic.
      * 
@@ -104,7 +85,7 @@ public final class GetTopicResult {
     public static Builder builder(GetTopicResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endpoint;
         private String id;
@@ -114,11 +95,7 @@ public final class GetTopicResult {
         private String resourceGroupName;
         private String secondaryAccessKey;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endpoint = defaults.endpoint;
@@ -131,39 +108,57 @@ public final class GetTopicResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder endpoint(String endpoint) {
             this.endpoint = Objects.requireNonNull(endpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetTopicResult build() {
-            return new GetTopicResult(endpoint, id, location, name, primaryAccessKey, resourceGroupName, secondaryAccessKey, tags);
+        }
+        public GetTopicResult build() {
+            final var o = new GetTopicResult();
+            o.endpoint = endpoint;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            o.tags = tags;
+            return o;
         }
     }
 }

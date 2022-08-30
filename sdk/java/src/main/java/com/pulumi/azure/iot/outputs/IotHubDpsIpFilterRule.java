@@ -15,35 +15,24 @@ public final class IotHubDpsIpFilterRule {
      * @return The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
      * 
      */
-    private final String action;
+    private String action;
     /**
      * @return The IP address range in CIDR notation for the rule.
      * 
      */
-    private final String ipMask;
+    private String ipMask;
     /**
      * @return The name of the filter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Target for requests captured by this rule. Possible values are `All`, `DeviceApi` and `ServiceApi`.
      * 
      */
-    private final @Nullable String target;
+    private @Nullable String target;
 
-    @CustomType.Constructor
-    private IotHubDpsIpFilterRule(
-        @CustomType.Parameter("action") String action,
-        @CustomType.Parameter("ipMask") String ipMask,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("target") @Nullable String target) {
-        this.action = action;
-        this.ipMask = ipMask;
-        this.name = name;
-        this.target = target;
-    }
-
+    private IotHubDpsIpFilterRule() {}
     /**
      * @return The desired action for requests captured by this rule. Possible values are  `Accept`, `Reject`
      * 
@@ -80,17 +69,13 @@ public final class IotHubDpsIpFilterRule {
     public static Builder builder(IotHubDpsIpFilterRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String action;
         private String ipMask;
         private String name;
         private @Nullable String target;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IotHubDpsIpFilterRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -99,23 +84,33 @@ public final class IotHubDpsIpFilterRule {
     	      this.target = defaults.target;
         }
 
+        @CustomType.Setter
         public Builder action(String action) {
             this.action = Objects.requireNonNull(action);
             return this;
         }
+        @CustomType.Setter
         public Builder ipMask(String ipMask) {
             this.ipMask = Objects.requireNonNull(ipMask);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder target(@Nullable String target) {
             this.target = target;
             return this;
-        }        public IotHubDpsIpFilterRule build() {
-            return new IotHubDpsIpFilterRule(action, ipMask, name, target);
+        }
+        public IotHubDpsIpFilterRule build() {
+            final var o = new IotHubDpsIpFilterRule();
+            o.action = action;
+            o.ipMask = ipMask;
+            o.name = name;
+            o.target = target;
+            return o;
         }
     }
 }

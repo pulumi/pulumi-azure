@@ -16,28 +16,19 @@ public final class ApplicationGatewayFrontendPort {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return The name of the Frontend Port.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The port used for this Frontend Port.
      * 
      */
-    private final Integer port;
+    private Integer port;
 
-    @CustomType.Constructor
-    private ApplicationGatewayFrontendPort(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("port") Integer port) {
-        this.id = id;
-        this.name = name;
-        this.port = port;
-    }
-
+    private ApplicationGatewayFrontendPort() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -67,16 +58,12 @@ public final class ApplicationGatewayFrontendPort {
     public static Builder builder(ApplicationGatewayFrontendPort defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private String name;
         private Integer port;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayFrontendPort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -84,19 +71,27 @@ public final class ApplicationGatewayFrontendPort {
     	      this.port = defaults.port;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder port(Integer port) {
             this.port = Objects.requireNonNull(port);
             return this;
-        }        public ApplicationGatewayFrontendPort build() {
-            return new ApplicationGatewayFrontendPort(id, name, port);
+        }
+        public ApplicationGatewayFrontendPort build() {
+            final var o = new ApplicationGatewayFrontendPort();
+            o.id = id;
+            o.name = name;
+            o.port = port;
+            return o;
         }
     }
 }

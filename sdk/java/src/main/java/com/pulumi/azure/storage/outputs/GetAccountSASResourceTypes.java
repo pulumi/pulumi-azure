@@ -13,28 +13,19 @@ public final class GetAccountSASResourceTypes {
      * @return Should permission be granted to the container?
      * 
      */
-    private final Boolean container;
+    private Boolean container;
     /**
      * @return Should permission be granted only to a specific object?
      * 
      */
-    private final Boolean object;
+    private Boolean object;
     /**
      * @return Should permission be granted to the entire service?
      * 
      */
-    private final Boolean service;
+    private Boolean service;
 
-    @CustomType.Constructor
-    private GetAccountSASResourceTypes(
-        @CustomType.Parameter("container") Boolean container,
-        @CustomType.Parameter("object") Boolean object,
-        @CustomType.Parameter("service") Boolean service) {
-        this.container = container;
-        this.object = object;
-        this.service = service;
-    }
-
+    private GetAccountSASResourceTypes() {}
     /**
      * @return Should permission be granted to the container?
      * 
@@ -64,16 +55,12 @@ public final class GetAccountSASResourceTypes {
     public static Builder builder(GetAccountSASResourceTypes defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean container;
         private Boolean object;
         private Boolean service;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAccountSASResourceTypes defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.container = defaults.container;
@@ -81,19 +68,27 @@ public final class GetAccountSASResourceTypes {
     	      this.service = defaults.service;
         }
 
+        @CustomType.Setter
         public Builder container(Boolean container) {
             this.container = Objects.requireNonNull(container);
             return this;
         }
+        @CustomType.Setter
         public Builder object(Boolean object) {
             this.object = Objects.requireNonNull(object);
             return this;
         }
+        @CustomType.Setter
         public Builder service(Boolean service) {
             this.service = Objects.requireNonNull(service);
             return this;
-        }        public GetAccountSASResourceTypes build() {
-            return new GetAccountSASResourceTypes(container, object, service);
+        }
+        public GetAccountSASResourceTypes build() {
+            final var o = new GetAccountSASResourceTypes();
+            o.container = container;
+            o.object = object;
+            o.service = service;
+            return o;
         }
     }
 }

@@ -15,35 +15,24 @@ public final class AutomationAction {
      * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
      */
-    private final @Nullable String connectionString;
+    private @Nullable String connectionString;
     /**
      * @return The resource id of the target Logic App, Event Hub namespace or Log Analytics workspace.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return The callback URL to trigger the Logic App that will receive and process data sent by this automation. This can be found in the Azure Portal under &#34;See trigger history&#34;
      * 
      */
-    private final @Nullable String triggerUrl;
+    private @Nullable String triggerUrl;
     /**
      * @return Type of Azure resource to send data to. Must be set to one of: `LogicApp`, `EventHub` or `LogAnalytics`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private AutomationAction(
-        @CustomType.Parameter("connectionString") @Nullable String connectionString,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("triggerUrl") @Nullable String triggerUrl,
-        @CustomType.Parameter("type") String type) {
-        this.connectionString = connectionString;
-        this.resourceId = resourceId;
-        this.triggerUrl = triggerUrl;
-        this.type = type;
-    }
-
+    private AutomationAction() {}
     /**
      * @return A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
      * 
@@ -80,17 +69,13 @@ public final class AutomationAction {
     public static Builder builder(AutomationAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionString;
         private String resourceId;
         private @Nullable String triggerUrl;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
@@ -99,23 +84,33 @@ public final class AutomationAction {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder connectionString(@Nullable String connectionString) {
             this.connectionString = connectionString;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder triggerUrl(@Nullable String triggerUrl) {
             this.triggerUrl = triggerUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public AutomationAction build() {
-            return new AutomationAction(connectionString, resourceId, triggerUrl, type);
+        }
+        public AutomationAction build() {
+            final var o = new AutomationAction();
+            o.connectionString = connectionString;
+            o.resourceId = resourceId;
+            o.triggerUrl = triggerUrl;
+            o.type = type;
+            return o;
         }
     }
 }

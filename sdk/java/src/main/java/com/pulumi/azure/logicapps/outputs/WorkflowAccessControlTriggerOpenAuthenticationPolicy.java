@@ -15,21 +15,14 @@ public final class WorkflowAccessControlTriggerOpenAuthenticationPolicy {
      * @return A `claim` block as defined below.
      * 
      */
-    private final List<WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> claims;
+    private List<WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> claims;
     /**
      * @return The OAuth policy name for the Logic App Workflow.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private WorkflowAccessControlTriggerOpenAuthenticationPolicy(
-        @CustomType.Parameter("claims") List<WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> claims,
-        @CustomType.Parameter("name") String name) {
-        this.claims = claims;
-        this.name = name;
-    }
-
+    private WorkflowAccessControlTriggerOpenAuthenticationPolicy() {}
     /**
      * @return A `claim` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class WorkflowAccessControlTriggerOpenAuthenticationPolicy {
     public static Builder builder(WorkflowAccessControlTriggerOpenAuthenticationPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> claims;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkflowAccessControlTriggerOpenAuthenticationPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.claims = defaults.claims;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder claims(List<WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim> claims) {
             this.claims = Objects.requireNonNull(claims);
             return this;
@@ -74,11 +64,16 @@ public final class WorkflowAccessControlTriggerOpenAuthenticationPolicy {
         public Builder claims(WorkflowAccessControlTriggerOpenAuthenticationPolicyClaim... claims) {
             return claims(List.of(claims));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public WorkflowAccessControlTriggerOpenAuthenticationPolicy build() {
-            return new WorkflowAccessControlTriggerOpenAuthenticationPolicy(claims, name);
+        }
+        public WorkflowAccessControlTriggerOpenAuthenticationPolicy build() {
+            final var o = new WorkflowAccessControlTriggerOpenAuthenticationPolicy();
+            o.claims = claims;
+            o.name = name;
+            return o;
         }
     }
 }

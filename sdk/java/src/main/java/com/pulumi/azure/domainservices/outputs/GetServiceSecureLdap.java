@@ -10,34 +10,21 @@ import java.util.Objects;
 
 @CustomType
 public final class GetServiceSecureLdap {
-    private final String certificateExpiry;
-    private final String certificateThumbprint;
+    private String certificateExpiry;
+    private String certificateThumbprint;
     /**
      * @return Whether secure LDAP is enabled for the managed domain.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Whether external access to LDAPS over the Internet, is enabled.
      * 
      */
-    private final Boolean externalAccessEnabled;
-    private final String publicCertificate;
+    private Boolean externalAccessEnabled;
+    private String publicCertificate;
 
-    @CustomType.Constructor
-    private GetServiceSecureLdap(
-        @CustomType.Parameter("certificateExpiry") String certificateExpiry,
-        @CustomType.Parameter("certificateThumbprint") String certificateThumbprint,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("externalAccessEnabled") Boolean externalAccessEnabled,
-        @CustomType.Parameter("publicCertificate") String publicCertificate) {
-        this.certificateExpiry = certificateExpiry;
-        this.certificateThumbprint = certificateThumbprint;
-        this.enabled = enabled;
-        this.externalAccessEnabled = externalAccessEnabled;
-        this.publicCertificate = publicCertificate;
-    }
-
+    private GetServiceSecureLdap() {}
     public String certificateExpiry() {
         return this.certificateExpiry;
     }
@@ -69,18 +56,14 @@ public final class GetServiceSecureLdap {
     public static Builder builder(GetServiceSecureLdap defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateExpiry;
         private String certificateThumbprint;
         private Boolean enabled;
         private Boolean externalAccessEnabled;
         private String publicCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceSecureLdap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateExpiry = defaults.certificateExpiry;
@@ -90,27 +73,39 @@ public final class GetServiceSecureLdap {
     	      this.publicCertificate = defaults.publicCertificate;
         }
 
+        @CustomType.Setter
         public Builder certificateExpiry(String certificateExpiry) {
             this.certificateExpiry = Objects.requireNonNull(certificateExpiry);
             return this;
         }
+        @CustomType.Setter
         public Builder certificateThumbprint(String certificateThumbprint) {
             this.certificateThumbprint = Objects.requireNonNull(certificateThumbprint);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder externalAccessEnabled(Boolean externalAccessEnabled) {
             this.externalAccessEnabled = Objects.requireNonNull(externalAccessEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder publicCertificate(String publicCertificate) {
             this.publicCertificate = Objects.requireNonNull(publicCertificate);
             return this;
-        }        public GetServiceSecureLdap build() {
-            return new GetServiceSecureLdap(certificateExpiry, certificateThumbprint, enabled, externalAccessEnabled, publicCertificate);
+        }
+        public GetServiceSecureLdap build() {
+            final var o = new GetServiceSecureLdap();
+            o.certificateExpiry = certificateExpiry;
+            o.certificateThumbprint = certificateThumbprint;
+            o.enabled = enabled;
+            o.externalAccessEnabled = externalAccessEnabled;
+            o.publicCertificate = publicCertificate;
+            return o;
         }
     }
 }

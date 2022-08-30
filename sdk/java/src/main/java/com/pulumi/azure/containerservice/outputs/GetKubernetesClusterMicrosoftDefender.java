@@ -13,13 +13,9 @@ public final class GetKubernetesClusterMicrosoftDefender {
      * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
      * 
      */
-    private final String logAnalyticsWorkspaceId;
+    private String logAnalyticsWorkspaceId;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterMicrosoftDefender(@CustomType.Parameter("logAnalyticsWorkspaceId") String logAnalyticsWorkspaceId) {
-        this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
-    }
-
+    private GetKubernetesClusterMicrosoftDefender() {}
     /**
      * @return The ID of the Log Analytics Workspace which the OMS Agent should send data to.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterMicrosoftDefender {
     public static Builder builder(GetKubernetesClusterMicrosoftDefender defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String logAnalyticsWorkspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterMicrosoftDefender defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.logAnalyticsWorkspaceId = defaults.logAnalyticsWorkspaceId;
         }
 
+        @CustomType.Setter
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             this.logAnalyticsWorkspaceId = Objects.requireNonNull(logAnalyticsWorkspaceId);
             return this;
-        }        public GetKubernetesClusterMicrosoftDefender build() {
-            return new GetKubernetesClusterMicrosoftDefender(logAnalyticsWorkspaceId);
+        }
+        public GetKubernetesClusterMicrosoftDefender build() {
+            final var o = new GetKubernetesClusterMicrosoftDefender();
+            o.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+            return o;
         }
     }
 }

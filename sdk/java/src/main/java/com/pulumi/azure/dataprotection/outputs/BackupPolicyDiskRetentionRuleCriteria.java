@@ -15,13 +15,9 @@ public final class BackupPolicyDiskRetentionRuleCriteria {
      * @return Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
      * 
      */
-    private final @Nullable String absoluteCriteria;
+    private @Nullable String absoluteCriteria;
 
-    @CustomType.Constructor
-    private BackupPolicyDiskRetentionRuleCriteria(@CustomType.Parameter("absoluteCriteria") @Nullable String absoluteCriteria) {
-        this.absoluteCriteria = absoluteCriteria;
-    }
-
+    private BackupPolicyDiskRetentionRuleCriteria() {}
     /**
      * @return Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
      * 
@@ -37,24 +33,24 @@ public final class BackupPolicyDiskRetentionRuleCriteria {
     public static Builder builder(BackupPolicyDiskRetentionRuleCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String absoluteCriteria;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackupPolicyDiskRetentionRuleCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.absoluteCriteria = defaults.absoluteCriteria;
         }
 
+        @CustomType.Setter
         public Builder absoluteCriteria(@Nullable String absoluteCriteria) {
             this.absoluteCriteria = absoluteCriteria;
             return this;
-        }        public BackupPolicyDiskRetentionRuleCriteria build() {
-            return new BackupPolicyDiskRetentionRuleCriteria(absoluteCriteria);
+        }
+        public BackupPolicyDiskRetentionRuleCriteria build() {
+            final var o = new BackupPolicyDiskRetentionRuleCriteria();
+            o.absoluteCriteria = absoluteCriteria;
+            return o;
         }
     }
 }

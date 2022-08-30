@@ -18,24 +18,15 @@ public final class DiagnosticBackendRequest {
      * @return Number of payload bytes to log (up to 8192).
      * 
      */
-    private final @Nullable Integer bodyBytes;
-    private final @Nullable DiagnosticBackendRequestDataMasking dataMasking;
+    private @Nullable Integer bodyBytes;
+    private @Nullable DiagnosticBackendRequestDataMasking dataMasking;
     /**
      * @return Specifies a list of headers to log.
      * 
      */
-    private final @Nullable List<String> headersToLogs;
+    private @Nullable List<String> headersToLogs;
 
-    @CustomType.Constructor
-    private DiagnosticBackendRequest(
-        @CustomType.Parameter("bodyBytes") @Nullable Integer bodyBytes,
-        @CustomType.Parameter("dataMasking") @Nullable DiagnosticBackendRequestDataMasking dataMasking,
-        @CustomType.Parameter("headersToLogs") @Nullable List<String> headersToLogs) {
-        this.bodyBytes = bodyBytes;
-        this.dataMasking = dataMasking;
-        this.headersToLogs = headersToLogs;
-    }
-
+    private DiagnosticBackendRequest() {}
     /**
      * @return Number of payload bytes to log (up to 8192).
      * 
@@ -61,16 +52,12 @@ public final class DiagnosticBackendRequest {
     public static Builder builder(DiagnosticBackendRequest defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer bodyBytes;
         private @Nullable DiagnosticBackendRequestDataMasking dataMasking;
         private @Nullable List<String> headersToLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DiagnosticBackendRequest defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bodyBytes = defaults.bodyBytes;
@@ -78,22 +65,30 @@ public final class DiagnosticBackendRequest {
     	      this.headersToLogs = defaults.headersToLogs;
         }
 
+        @CustomType.Setter
         public Builder bodyBytes(@Nullable Integer bodyBytes) {
             this.bodyBytes = bodyBytes;
             return this;
         }
+        @CustomType.Setter
         public Builder dataMasking(@Nullable DiagnosticBackendRequestDataMasking dataMasking) {
             this.dataMasking = dataMasking;
             return this;
         }
+        @CustomType.Setter
         public Builder headersToLogs(@Nullable List<String> headersToLogs) {
             this.headersToLogs = headersToLogs;
             return this;
         }
         public Builder headersToLogs(String... headersToLogs) {
             return headersToLogs(List.of(headersToLogs));
-        }        public DiagnosticBackendRequest build() {
-            return new DiagnosticBackendRequest(bodyBytes, dataMasking, headersToLogs);
+        }
+        public DiagnosticBackendRequest build() {
+            final var o = new DiagnosticBackendRequest();
+            o.bodyBytes = bodyBytes;
+            o.dataMasking = dataMasking;
+            o.headersToLogs = headersToLogs;
+            return o;
         }
     }
 }

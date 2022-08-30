@@ -15,37 +15,22 @@ public final class GetEventHubResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String namespaceName;
+    private String id;
+    private String name;
+    private String namespaceName;
     /**
      * @return The number of partitions in the EventHub.
      * 
      */
-    private final Integer partitionCount;
+    private Integer partitionCount;
     /**
      * @return The identifiers for the partitions of this EventHub.
      * 
      */
-    private final List<String> partitionIds;
-    private final String resourceGroupName;
+    private List<String> partitionIds;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetEventHubResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceName") String namespaceName,
-        @CustomType.Parameter("partitionCount") Integer partitionCount,
-        @CustomType.Parameter("partitionIds") List<String> partitionIds,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.id = id;
-        this.name = name;
-        this.namespaceName = namespaceName;
-        this.partitionCount = partitionCount;
-        this.partitionIds = partitionIds;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetEventHubResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -84,7 +69,7 @@ public final class GetEventHubResult {
     public static Builder builder(GetEventHubResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String name;
@@ -92,11 +77,7 @@ public final class GetEventHubResult {
         private Integer partitionCount;
         private List<String> partitionIds;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEventHubResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -107,22 +88,27 @@ public final class GetEventHubResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(String namespaceName) {
             this.namespaceName = Objects.requireNonNull(namespaceName);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionCount(Integer partitionCount) {
             this.partitionCount = Objects.requireNonNull(partitionCount);
             return this;
         }
+        @CustomType.Setter
         public Builder partitionIds(List<String> partitionIds) {
             this.partitionIds = Objects.requireNonNull(partitionIds);
             return this;
@@ -130,11 +116,20 @@ public final class GetEventHubResult {
         public Builder partitionIds(String... partitionIds) {
             return partitionIds(List.of(partitionIds));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetEventHubResult build() {
-            return new GetEventHubResult(id, name, namespaceName, partitionCount, partitionIds, resourceGroupName);
+        }
+        public GetEventHubResult build() {
+            final var o = new GetEventHubResult();
+            o.id = id;
+            o.name = name;
+            o.namespaceName = namespaceName;
+            o.partitionCount = partitionCount;
+            o.partitionIds = partitionIds;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
      * @return The batch size in bytes for the Logic App Integration Batch Configuration.
      * 
      */
-    private final @Nullable Integer batchSize;
+    private @Nullable Integer batchSize;
     /**
      * @return The message count for the Logic App Integration Batch Configuration.
      * 
      */
-    private final @Nullable Integer messageCount;
+    private @Nullable Integer messageCount;
     /**
      * @return A `recurrence` block as documented below.
      * 
      */
-    private final @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence;
+    private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence;
 
-    @CustomType.Constructor
-    private IntegrationAccountBatchConfigurationReleaseCriteria(
-        @CustomType.Parameter("batchSize") @Nullable Integer batchSize,
-        @CustomType.Parameter("messageCount") @Nullable Integer messageCount,
-        @CustomType.Parameter("recurrence") @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence) {
-        this.batchSize = batchSize;
-        this.messageCount = messageCount;
-        this.recurrence = recurrence;
-    }
-
+    private IntegrationAccountBatchConfigurationReleaseCriteria() {}
     /**
      * @return The batch size in bytes for the Logic App Integration Batch Configuration.
      * 
@@ -67,16 +58,12 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
     public static Builder builder(IntegrationAccountBatchConfigurationReleaseCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer batchSize;
         private @Nullable Integer messageCount;
         private @Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountBatchConfigurationReleaseCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.batchSize = defaults.batchSize;
@@ -84,19 +71,27 @@ public final class IntegrationAccountBatchConfigurationReleaseCriteria {
     	      this.recurrence = defaults.recurrence;
         }
 
+        @CustomType.Setter
         public Builder batchSize(@Nullable Integer batchSize) {
             this.batchSize = batchSize;
             return this;
         }
+        @CustomType.Setter
         public Builder messageCount(@Nullable Integer messageCount) {
             this.messageCount = messageCount;
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(@Nullable IntegrationAccountBatchConfigurationReleaseCriteriaRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
-        }        public IntegrationAccountBatchConfigurationReleaseCriteria build() {
-            return new IntegrationAccountBatchConfigurationReleaseCriteria(batchSize, messageCount, recurrence);
+        }
+        public IntegrationAccountBatchConfigurationReleaseCriteria build() {
+            final var o = new IntegrationAccountBatchConfigurationReleaseCriteria();
+            o.batchSize = batchSize;
+            o.messageCount = messageCount;
+            o.recurrence = recurrence;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class LinuxWebAppSiteConfigAutoHealSettingAction {
      * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
      * 
      */
-    private final String actionType;
+    private String actionType;
     /**
      * @return The minimum amount of time in `hh:mm:ss` the Linux Web App must have been running before the defined action will be run in the event of a trigger.
      * 
      */
-    private final @Nullable String minimumProcessExecutionTime;
+    private @Nullable String minimumProcessExecutionTime;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfigAutoHealSettingAction(
-        @CustomType.Parameter("actionType") String actionType,
-        @CustomType.Parameter("minimumProcessExecutionTime") @Nullable String minimumProcessExecutionTime) {
-        this.actionType = actionType;
-        this.minimumProcessExecutionTime = minimumProcessExecutionTime;
-    }
-
+    private LinuxWebAppSiteConfigAutoHealSettingAction() {}
     /**
      * @return Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`.
      * 
@@ -52,30 +45,32 @@ public final class LinuxWebAppSiteConfigAutoHealSettingAction {
     public static Builder builder(LinuxWebAppSiteConfigAutoHealSettingAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
         private @Nullable String minimumProcessExecutionTime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfigAutoHealSettingAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
     	      this.minimumProcessExecutionTime = defaults.minimumProcessExecutionTime;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumProcessExecutionTime(@Nullable String minimumProcessExecutionTime) {
             this.minimumProcessExecutionTime = minimumProcessExecutionTime;
             return this;
-        }        public LinuxWebAppSiteConfigAutoHealSettingAction build() {
-            return new LinuxWebAppSiteConfigAutoHealSettingAction(actionType, minimumProcessExecutionTime);
+        }
+        public LinuxWebAppSiteConfigAutoHealSettingAction build() {
+            final var o = new LinuxWebAppSiteConfigAutoHealSettingAction();
+            o.actionType = actionType;
+            o.minimumProcessExecutionTime = minimumProcessExecutionTime;
+            return o;
         }
     }
 }

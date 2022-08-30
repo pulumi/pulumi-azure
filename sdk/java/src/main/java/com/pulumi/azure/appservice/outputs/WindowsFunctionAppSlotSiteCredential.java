@@ -15,21 +15,14 @@ public final class WindowsFunctionAppSlotSiteCredential {
      * @return The Site Credentials Username used for publishing.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The Site Credentials Password used for publishing.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
 
-    @CustomType.Constructor
-    private WindowsFunctionAppSlotSiteCredential(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("password") @Nullable String password) {
-        this.name = name;
-        this.password = password;
-    }
-
+    private WindowsFunctionAppSlotSiteCredential() {}
     /**
      * @return The Site Credentials Username used for publishing.
      * 
@@ -52,30 +45,32 @@ public final class WindowsFunctionAppSlotSiteCredential {
     public static Builder builder(WindowsFunctionAppSlotSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFunctionAppSlotSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
-        }        public WindowsFunctionAppSlotSiteCredential build() {
-            return new WindowsFunctionAppSlotSiteCredential(name, password);
+        }
+        public WindowsFunctionAppSlotSiteCredential build() {
+            final var o = new WindowsFunctionAppSlotSiteCredential();
+            o.name = name;
+            o.password = password;
+            return o;
         }
     }
 }

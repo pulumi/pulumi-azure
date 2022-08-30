@@ -16,66 +16,45 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
      * @return An array of references to backend address pools of application gateways.
      * 
      */
-    private final List<String> applicationGatewayBackendAddressPoolIds;
+    private List<String> applicationGatewayBackendAddressPoolIds;
     /**
      * @return The application security group IDs to use.
      * 
      */
-    private final List<String> applicationSecurityGroupIds;
+    private List<String> applicationSecurityGroupIds;
     /**
      * @return An array of references to backend address pools of load balancers.
      * 
      */
-    private final List<String> loadBalancerBackendAddressPoolIds;
+    private List<String> loadBalancerBackendAddressPoolIds;
     /**
      * @return An array of references to inbound NAT pools for load balancers.
      * 
      */
-    private final List<String> loadBalancerInboundNatRulesIds;
+    private List<String> loadBalancerInboundNatRulesIds;
     /**
      * @return The name of this Virtual Machine Scale Set.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return If this ip_configuration is the primary one.
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return The virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The `public_ip_address` is documented below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
+    private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
     /**
      * @return The the identifier of the subnet.
      * 
      */
-    private final String subnetId;
-    private final String version;
+    private String subnetId;
+    private String version;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration(
-        @CustomType.Parameter("applicationGatewayBackendAddressPoolIds") List<String> applicationGatewayBackendAddressPoolIds,
-        @CustomType.Parameter("applicationSecurityGroupIds") List<String> applicationSecurityGroupIds,
-        @CustomType.Parameter("loadBalancerBackendAddressPoolIds") List<String> loadBalancerBackendAddressPoolIds,
-        @CustomType.Parameter("loadBalancerInboundNatRulesIds") List<String> loadBalancerInboundNatRulesIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("publicIpAddresses") List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("version") String version) {
-        this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
-        this.applicationSecurityGroupIds = applicationSecurityGroupIds;
-        this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
-        this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-        this.name = name;
-        this.primary = primary;
-        this.publicIpAddresses = publicIpAddresses;
-        this.subnetId = subnetId;
-        this.version = version;
-    }
-
+    private GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration() {}
     /**
      * @return An array of references to backend address pools of application gateways.
      * 
@@ -143,7 +122,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     public static Builder builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> applicationGatewayBackendAddressPoolIds;
         private List<String> applicationSecurityGroupIds;
@@ -154,11 +133,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses;
         private String subnetId;
         private String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationGatewayBackendAddressPoolIds = defaults.applicationGatewayBackendAddressPoolIds;
@@ -172,6 +147,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolIds(List<String> applicationGatewayBackendAddressPoolIds) {
             this.applicationGatewayBackendAddressPoolIds = Objects.requireNonNull(applicationGatewayBackendAddressPoolIds);
             return this;
@@ -179,6 +155,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder applicationGatewayBackendAddressPoolIds(String... applicationGatewayBackendAddressPoolIds) {
             return applicationGatewayBackendAddressPoolIds(List.of(applicationGatewayBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder applicationSecurityGroupIds(List<String> applicationSecurityGroupIds) {
             this.applicationSecurityGroupIds = Objects.requireNonNull(applicationSecurityGroupIds);
             return this;
@@ -186,6 +163,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolIds(List<String> loadBalancerBackendAddressPoolIds) {
             this.loadBalancerBackendAddressPoolIds = Objects.requireNonNull(loadBalancerBackendAddressPoolIds);
             return this;
@@ -193,6 +171,7 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerBackendAddressPoolIds(String... loadBalancerBackendAddressPoolIds) {
             return loadBalancerBackendAddressPoolIds(List.of(loadBalancerBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(List<String> loadBalancerInboundNatRulesIds) {
             this.loadBalancerInboundNatRulesIds = Objects.requireNonNull(loadBalancerInboundNatRulesIds);
             return this;
@@ -200,14 +179,17 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder loadBalancerInboundNatRulesIds(String... loadBalancerInboundNatRulesIds) {
             return loadBalancerInboundNatRulesIds(List.of(loadBalancerInboundNatRulesIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddresses(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress> publicIpAddresses) {
             this.publicIpAddresses = Objects.requireNonNull(publicIpAddresses);
             return this;
@@ -215,15 +197,28 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
         public Builder publicIpAddresses(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
-        }        public GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration build() {
-            return new GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration(applicationGatewayBackendAddressPoolIds, applicationSecurityGroupIds, loadBalancerBackendAddressPoolIds, loadBalancerInboundNatRulesIds, name, primary, publicIpAddresses, subnetId, version);
+        }
+        public GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration build() {
+            final var o = new GetVirtualMachineScaleSetNetworkInterfaceIpConfiguration();
+            o.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
+            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            o.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
+            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            o.name = name;
+            o.primary = primary;
+            o.publicIpAddresses = publicIpAddresses;
+            o.subnetId = subnetId;
+            o.version = version;
+            return o;
         }
     }
 }

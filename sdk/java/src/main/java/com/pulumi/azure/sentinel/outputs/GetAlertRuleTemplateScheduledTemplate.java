@@ -15,63 +15,44 @@ public final class GetAlertRuleTemplateScheduledTemplate {
      * @return The description of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The query of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final String query;
+    private String query;
     /**
      * @return The ISO 8601 timespan duration between two consecutive queries.
      * 
      */
-    private final String queryFrequency;
+    private String queryFrequency;
     /**
      * @return The ISO 8601 timespan duration, which determine the time period of the data covered by the query.
      * 
      */
-    private final String queryPeriod;
+    private String queryPeriod;
     /**
      * @return The alert severity of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final String severity;
+    private String severity;
     /**
      * @return A list of categories of attacks by which to classify the rule.
      * 
      */
-    private final List<String> tactics;
+    private List<String> tactics;
     /**
      * @return The alert trigger operator, combined with `trigger_threshold`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final String triggerOperator;
+    private String triggerOperator;
     /**
      * @return The baseline number of query results generated, combined with `trigger_operator`, setting alert threshold of this Sentinel Scheduled Alert Rule Template.
      * 
      */
-    private final Integer triggerThreshold;
+    private Integer triggerThreshold;
 
-    @CustomType.Constructor
-    private GetAlertRuleTemplateScheduledTemplate(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("query") String query,
-        @CustomType.Parameter("queryFrequency") String queryFrequency,
-        @CustomType.Parameter("queryPeriod") String queryPeriod,
-        @CustomType.Parameter("severity") String severity,
-        @CustomType.Parameter("tactics") List<String> tactics,
-        @CustomType.Parameter("triggerOperator") String triggerOperator,
-        @CustomType.Parameter("triggerThreshold") Integer triggerThreshold) {
-        this.description = description;
-        this.query = query;
-        this.queryFrequency = queryFrequency;
-        this.queryPeriod = queryPeriod;
-        this.severity = severity;
-        this.tactics = tactics;
-        this.triggerOperator = triggerOperator;
-        this.triggerThreshold = triggerThreshold;
-    }
-
+    private GetAlertRuleTemplateScheduledTemplate() {}
     /**
      * @return The description of this Sentinel Scheduled Alert Rule Template.
      * 
@@ -136,7 +117,7 @@ public final class GetAlertRuleTemplateScheduledTemplate {
     public static Builder builder(GetAlertRuleTemplateScheduledTemplate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private String query;
@@ -146,11 +127,7 @@ public final class GetAlertRuleTemplateScheduledTemplate {
         private List<String> tactics;
         private String triggerOperator;
         private Integer triggerThreshold;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAlertRuleTemplateScheduledTemplate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -163,26 +140,32 @@ public final class GetAlertRuleTemplateScheduledTemplate {
     	      this.triggerThreshold = defaults.triggerThreshold;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder query(String query) {
             this.query = Objects.requireNonNull(query);
             return this;
         }
+        @CustomType.Setter
         public Builder queryFrequency(String queryFrequency) {
             this.queryFrequency = Objects.requireNonNull(queryFrequency);
             return this;
         }
+        @CustomType.Setter
         public Builder queryPeriod(String queryPeriod) {
             this.queryPeriod = Objects.requireNonNull(queryPeriod);
             return this;
         }
+        @CustomType.Setter
         public Builder severity(String severity) {
             this.severity = Objects.requireNonNull(severity);
             return this;
         }
+        @CustomType.Setter
         public Builder tactics(List<String> tactics) {
             this.tactics = Objects.requireNonNull(tactics);
             return this;
@@ -190,15 +173,27 @@ public final class GetAlertRuleTemplateScheduledTemplate {
         public Builder tactics(String... tactics) {
             return tactics(List.of(tactics));
         }
+        @CustomType.Setter
         public Builder triggerOperator(String triggerOperator) {
             this.triggerOperator = Objects.requireNonNull(triggerOperator);
             return this;
         }
+        @CustomType.Setter
         public Builder triggerThreshold(Integer triggerThreshold) {
             this.triggerThreshold = Objects.requireNonNull(triggerThreshold);
             return this;
-        }        public GetAlertRuleTemplateScheduledTemplate build() {
-            return new GetAlertRuleTemplateScheduledTemplate(description, query, queryFrequency, queryPeriod, severity, tactics, triggerOperator, triggerThreshold);
+        }
+        public GetAlertRuleTemplateScheduledTemplate build() {
+            final var o = new GetAlertRuleTemplateScheduledTemplate();
+            o.description = description;
+            o.query = query;
+            o.queryFrequency = queryFrequency;
+            o.queryPeriod = queryPeriod;
+            o.severity = severity;
+            o.tactics = tactics;
+            o.triggerOperator = triggerOperator;
+            o.triggerThreshold = triggerThreshold;
+            return o;
         }
     }
 }

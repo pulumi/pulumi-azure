@@ -15,21 +15,14 @@ public final class GetWindowsFunctionAppSiteConfigCor {
      * @return A list of origins that should be allowed to make cross-origin calls.
      * 
      */
-    private final List<String> allowedOrigins;
+    private List<String> allowedOrigins;
     /**
      * @return Are credentials allows in CORS requests?.
      * 
      */
-    private final Boolean supportCredentials;
+    private Boolean supportCredentials;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteConfigCor(
-        @CustomType.Parameter("allowedOrigins") List<String> allowedOrigins,
-        @CustomType.Parameter("supportCredentials") Boolean supportCredentials) {
-        this.allowedOrigins = allowedOrigins;
-        this.supportCredentials = supportCredentials;
-    }
-
+    private GetWindowsFunctionAppSiteConfigCor() {}
     /**
      * @return A list of origins that should be allowed to make cross-origin calls.
      * 
@@ -52,21 +45,18 @@ public final class GetWindowsFunctionAppSiteConfigCor {
     public static Builder builder(GetWindowsFunctionAppSiteConfigCor defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedOrigins;
         private Boolean supportCredentials;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteConfigCor defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedOrigins = defaults.allowedOrigins;
     	      this.supportCredentials = defaults.supportCredentials;
         }
 
+        @CustomType.Setter
         public Builder allowedOrigins(List<String> allowedOrigins) {
             this.allowedOrigins = Objects.requireNonNull(allowedOrigins);
             return this;
@@ -74,11 +64,16 @@ public final class GetWindowsFunctionAppSiteConfigCor {
         public Builder allowedOrigins(String... allowedOrigins) {
             return allowedOrigins(List.of(allowedOrigins));
         }
+        @CustomType.Setter
         public Builder supportCredentials(Boolean supportCredentials) {
             this.supportCredentials = Objects.requireNonNull(supportCredentials);
             return this;
-        }        public GetWindowsFunctionAppSiteConfigCor build() {
-            return new GetWindowsFunctionAppSiteConfigCor(allowedOrigins, supportCredentials);
+        }
+        public GetWindowsFunctionAppSiteConfigCor build() {
+            final var o = new GetWindowsFunctionAppSiteConfigCor();
+            o.allowedOrigins = allowedOrigins;
+            o.supportCredentials = supportCredentials;
+            return o;
         }
     }
 }

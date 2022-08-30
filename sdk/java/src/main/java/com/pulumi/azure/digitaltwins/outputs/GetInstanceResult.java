@@ -14,41 +14,26 @@ public final class GetInstanceResult {
      * @return The API endpoint to work with this Digital Twins instance.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the Digital Twins instance exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Digital Twins instance.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetInstanceResult(
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.hostName = hostName;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetInstanceResult() {}
     /**
      * @return The API endpoint to work with this Digital Twins instance.
      * 
@@ -91,7 +76,7 @@ public final class GetInstanceResult {
     public static Builder builder(GetInstanceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostName;
         private String id;
@@ -99,11 +84,7 @@ public final class GetInstanceResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetInstanceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
@@ -114,31 +95,45 @@ public final class GetInstanceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetInstanceResult build() {
-            return new GetInstanceResult(hostName, id, location, name, resourceGroupName, tags);
+        }
+        public GetInstanceResult build() {
+            final var o = new GetInstanceResult();
+            o.hostName = hostName;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

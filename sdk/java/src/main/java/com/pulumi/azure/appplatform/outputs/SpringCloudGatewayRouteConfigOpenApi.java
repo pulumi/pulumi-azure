@@ -15,13 +15,9 @@ public final class SpringCloudGatewayRouteConfigOpenApi {
      * @return The URI of OpenAPI specification.
      * 
      */
-    private final @Nullable String uri;
+    private @Nullable String uri;
 
-    @CustomType.Constructor
-    private SpringCloudGatewayRouteConfigOpenApi(@CustomType.Parameter("uri") @Nullable String uri) {
-        this.uri = uri;
-    }
-
+    private SpringCloudGatewayRouteConfigOpenApi() {}
     /**
      * @return The URI of OpenAPI specification.
      * 
@@ -37,24 +33,24 @@ public final class SpringCloudGatewayRouteConfigOpenApi {
     public static Builder builder(SpringCloudGatewayRouteConfigOpenApi defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String uri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudGatewayRouteConfigOpenApi defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.uri = defaults.uri;
         }
 
+        @CustomType.Setter
         public Builder uri(@Nullable String uri) {
             this.uri = uri;
             return this;
-        }        public SpringCloudGatewayRouteConfigOpenApi build() {
-            return new SpringCloudGatewayRouteConfigOpenApi(uri);
+        }
+        public SpringCloudGatewayRouteConfigOpenApi build() {
+            final var o = new SpringCloudGatewayRouteConfigOpenApi();
+            o.uri = uri;
+            return o;
         }
     }
 }

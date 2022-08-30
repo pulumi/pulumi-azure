@@ -17,51 +17,32 @@ public final class GetCAARecordResult {
      * @return The FQDN of the DNS CAA Record.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return A list of values that make up the CAA record. Each `record` block supports fields documented below.
      * 
      */
-    private final List<GetCAARecordRecord> records;
-    private final String resourceGroupName;
+    private List<GetCAARecordRecord> records;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Time To Live (TTL) of the DNS record in seconds.
      * 
      */
-    private final Integer ttl;
-    private final String zoneName;
+    private Integer ttl;
+    private String zoneName;
 
-    @CustomType.Constructor
-    private GetCAARecordResult(
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("records") List<GetCAARecordRecord> records,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("ttl") Integer ttl,
-        @CustomType.Parameter("zoneName") String zoneName) {
-        this.fqdn = fqdn;
-        this.id = id;
-        this.name = name;
-        this.records = records;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.ttl = ttl;
-        this.zoneName = zoneName;
-    }
-
+    private GetCAARecordResult() {}
     /**
      * @return The FQDN of the DNS CAA Record.
      * 
@@ -114,7 +95,7 @@ public final class GetCAARecordResult {
     public static Builder builder(GetCAARecordResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fqdn;
         private String id;
@@ -124,11 +105,7 @@ public final class GetCAARecordResult {
         private Map<String,String> tags;
         private Integer ttl;
         private String zoneName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCAARecordResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -141,18 +118,22 @@ public final class GetCAARecordResult {
     	      this.zoneName = defaults.zoneName;
         }
 
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder records(List<GetCAARecordRecord> records) {
             this.records = Objects.requireNonNull(records);
             return this;
@@ -160,23 +141,37 @@ public final class GetCAARecordResult {
         public Builder records(GetCAARecordRecord... records) {
             return records(List.of(records));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneName(String zoneName) {
             this.zoneName = Objects.requireNonNull(zoneName);
             return this;
-        }        public GetCAARecordResult build() {
-            return new GetCAARecordResult(fqdn, id, name, records, resourceGroupName, tags, ttl, zoneName);
+        }
+        public GetCAARecordResult build() {
+            final var o = new GetCAARecordResult();
+            o.fqdn = fqdn;
+            o.id = id;
+            o.name = name;
+            o.records = records;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.ttl = ttl;
+            o.zoneName = zoneName;
+            return o;
         }
     }
 }

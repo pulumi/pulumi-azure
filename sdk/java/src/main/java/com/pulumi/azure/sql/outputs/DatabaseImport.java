@@ -15,56 +15,39 @@ public final class DatabaseImport {
      * @return Specifies the name of the SQL administrator.
      * 
      */
-    private final String administratorLogin;
+    private String administratorLogin;
     /**
      * @return Specifies the password of the SQL administrator.
      * 
      */
-    private final String administratorLoginPassword;
+    private String administratorLoginPassword;
     /**
      * @return Specifies the type of authentication used to access the server. Valid values are `SQL` or `ADPassword`.
      * 
      */
-    private final String authenticationType;
+    private String authenticationType;
     /**
      * @return Specifies the type of import operation being performed. The only allowable value is `Import`.
      * 
      */
-    private final @Nullable String operationMode;
+    private @Nullable String operationMode;
     /**
      * @return Specifies the access key for the storage account.
      * 
      */
-    private final String storageKey;
+    private String storageKey;
     /**
      * @return Specifies the type of access key for the storage account. Valid values are `StorageAccessKey` or `SharedAccessKey`.
      * 
      */
-    private final String storageKeyType;
+    private String storageKeyType;
     /**
      * @return Specifies the blob URI of the .bacpac file.
      * 
      */
-    private final String storageUri;
+    private String storageUri;
 
-    @CustomType.Constructor
-    private DatabaseImport(
-        @CustomType.Parameter("administratorLogin") String administratorLogin,
-        @CustomType.Parameter("administratorLoginPassword") String administratorLoginPassword,
-        @CustomType.Parameter("authenticationType") String authenticationType,
-        @CustomType.Parameter("operationMode") @Nullable String operationMode,
-        @CustomType.Parameter("storageKey") String storageKey,
-        @CustomType.Parameter("storageKeyType") String storageKeyType,
-        @CustomType.Parameter("storageUri") String storageUri) {
-        this.administratorLogin = administratorLogin;
-        this.administratorLoginPassword = administratorLoginPassword;
-        this.authenticationType = authenticationType;
-        this.operationMode = operationMode;
-        this.storageKey = storageKey;
-        this.storageKeyType = storageKeyType;
-        this.storageUri = storageUri;
-    }
-
+    private DatabaseImport() {}
     /**
      * @return Specifies the name of the SQL administrator.
      * 
@@ -122,7 +105,7 @@ public final class DatabaseImport {
     public static Builder builder(DatabaseImport defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String administratorLogin;
         private String administratorLoginPassword;
@@ -131,11 +114,7 @@ public final class DatabaseImport {
         private String storageKey;
         private String storageKeyType;
         private String storageUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DatabaseImport defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.administratorLogin = defaults.administratorLogin;
@@ -147,35 +126,51 @@ public final class DatabaseImport {
     	      this.storageUri = defaults.storageUri;
         }
 
+        @CustomType.Setter
         public Builder administratorLogin(String administratorLogin) {
             this.administratorLogin = Objects.requireNonNull(administratorLogin);
             return this;
         }
+        @CustomType.Setter
         public Builder administratorLoginPassword(String administratorLoginPassword) {
             this.administratorLoginPassword = Objects.requireNonNull(administratorLoginPassword);
             return this;
         }
+        @CustomType.Setter
         public Builder authenticationType(String authenticationType) {
             this.authenticationType = Objects.requireNonNull(authenticationType);
             return this;
         }
+        @CustomType.Setter
         public Builder operationMode(@Nullable String operationMode) {
             this.operationMode = operationMode;
             return this;
         }
+        @CustomType.Setter
         public Builder storageKey(String storageKey) {
             this.storageKey = Objects.requireNonNull(storageKey);
             return this;
         }
+        @CustomType.Setter
         public Builder storageKeyType(String storageKeyType) {
             this.storageKeyType = Objects.requireNonNull(storageKeyType);
             return this;
         }
+        @CustomType.Setter
         public Builder storageUri(String storageUri) {
             this.storageUri = Objects.requireNonNull(storageUri);
             return this;
-        }        public DatabaseImport build() {
-            return new DatabaseImport(administratorLogin, administratorLoginPassword, authenticationType, operationMode, storageKey, storageKeyType, storageUri);
+        }
+        public DatabaseImport build() {
+            final var o = new DatabaseImport();
+            o.administratorLogin = administratorLogin;
+            o.administratorLoginPassword = administratorLoginPassword;
+            o.authenticationType = authenticationType;
+            o.operationMode = operationMode;
+            o.storageKey = storageKey;
+            o.storageKeyType = storageKeyType;
+            o.storageUri = storageUri;
+            return o;
         }
     }
 }

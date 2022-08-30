@@ -13,21 +13,14 @@ public final class GetFlexibleServerHighAvailability {
      * @return The high availability mode of the MySQL Flexible Server.
      * 
      */
-    private final String mode;
+    private String mode;
     /**
      * @return The availability zone of the standby Flexible Server.
      * 
      */
-    private final String standbyAvailabilityZone;
+    private String standbyAvailabilityZone;
 
-    @CustomType.Constructor
-    private GetFlexibleServerHighAvailability(
-        @CustomType.Parameter("mode") String mode,
-        @CustomType.Parameter("standbyAvailabilityZone") String standbyAvailabilityZone) {
-        this.mode = mode;
-        this.standbyAvailabilityZone = standbyAvailabilityZone;
-    }
-
+    private GetFlexibleServerHighAvailability() {}
     /**
      * @return The high availability mode of the MySQL Flexible Server.
      * 
@@ -50,30 +43,32 @@ public final class GetFlexibleServerHighAvailability {
     public static Builder builder(GetFlexibleServerHighAvailability defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String mode;
         private String standbyAvailabilityZone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFlexibleServerHighAvailability defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.mode = defaults.mode;
     	      this.standbyAvailabilityZone = defaults.standbyAvailabilityZone;
         }
 
+        @CustomType.Setter
         public Builder mode(String mode) {
             this.mode = Objects.requireNonNull(mode);
             return this;
         }
+        @CustomType.Setter
         public Builder standbyAvailabilityZone(String standbyAvailabilityZone) {
             this.standbyAvailabilityZone = Objects.requireNonNull(standbyAvailabilityZone);
             return this;
-        }        public GetFlexibleServerHighAvailability build() {
-            return new GetFlexibleServerHighAvailability(mode, standbyAvailabilityZone);
+        }
+        public GetFlexibleServerHighAvailability build() {
+            final var o = new GetFlexibleServerHighAvailability();
+            o.mode = mode;
+            o.standbyAvailabilityZone = standbyAvailabilityZone;
+            return o;
         }
     }
 }

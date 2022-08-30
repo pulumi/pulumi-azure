@@ -11,13 +11,9 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class FeaturesLogAnalyticsWorkspace {
-    private final @Nullable Boolean permanentlyDeleteOnDestroy;
+    private @Nullable Boolean permanentlyDeleteOnDestroy;
 
-    @CustomType.Constructor
-    private FeaturesLogAnalyticsWorkspace(@CustomType.Parameter("permanentlyDeleteOnDestroy") @Nullable Boolean permanentlyDeleteOnDestroy) {
-        this.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
-    }
-
+    private FeaturesLogAnalyticsWorkspace() {}
     public Optional<Boolean> permanentlyDeleteOnDestroy() {
         return Optional.ofNullable(this.permanentlyDeleteOnDestroy);
     }
@@ -29,24 +25,24 @@ public final class FeaturesLogAnalyticsWorkspace {
     public static Builder builder(FeaturesLogAnalyticsWorkspace defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean permanentlyDeleteOnDestroy;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FeaturesLogAnalyticsWorkspace defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.permanentlyDeleteOnDestroy = defaults.permanentlyDeleteOnDestroy;
         }
 
+        @CustomType.Setter
         public Builder permanentlyDeleteOnDestroy(@Nullable Boolean permanentlyDeleteOnDestroy) {
             this.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
             return this;
-        }        public FeaturesLogAnalyticsWorkspace build() {
-            return new FeaturesLogAnalyticsWorkspace(permanentlyDeleteOnDestroy);
+        }
+        public FeaturesLogAnalyticsWorkspace build() {
+            final var o = new FeaturesLogAnalyticsWorkspace();
+            o.permanentlyDeleteOnDestroy = permanentlyDeleteOnDestroy;
+            return o;
         }
     }
 }

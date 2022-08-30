@@ -17,76 +17,51 @@ public final class GetManagedHardwareSecurityModuleResult {
      * @return Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module.
      * 
      */
-    private final List<String> adminObjectIds;
+    private List<String> adminObjectIds;
     /**
      * @return The URI of the Hardware Security Module for performing operations on keys and secrets.
      * 
      */
-    private final String hsmUri;
+    private String hsmUri;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region in which the Key Vault managed Hardware Security Module exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return Is purge protection enabled on this Key Vault Managed Hardware Security Module?
      * 
      */
-    private final Boolean purgeProtectionEnabled;
-    private final String resourceGroupName;
+    private Boolean purgeProtectionEnabled;
+    private String resourceGroupName;
     /**
      * @return The Name of the SKU used for this Key Vault Managed Hardware Security Module.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The number of days that items should be retained for soft-deleted.
      * 
      */
-    private final Integer softDeleteRetentionDays;
+    private Integer softDeleteRetentionDays;
     /**
      * @return A mapping of tags assigned to the Key Vault Managed Hardware Security Module.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Azure Active Directory Tenant ID used for authenticating requests to the Key Vault Managed Hardware Security Module.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetManagedHardwareSecurityModuleResult(
-        @CustomType.Parameter("adminObjectIds") List<String> adminObjectIds,
-        @CustomType.Parameter("hsmUri") String hsmUri,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("purgeProtectionEnabled") Boolean purgeProtectionEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("softDeleteRetentionDays") Integer softDeleteRetentionDays,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.adminObjectIds = adminObjectIds;
-        this.hsmUri = hsmUri;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.purgeProtectionEnabled = purgeProtectionEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.skuName = skuName;
-        this.softDeleteRetentionDays = softDeleteRetentionDays;
-        this.tags = tags;
-        this.tenantId = tenantId;
-    }
-
+    private GetManagedHardwareSecurityModuleResult() {}
     /**
      * @return Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module.
      * 
@@ -164,7 +139,7 @@ public final class GetManagedHardwareSecurityModuleResult {
     public static Builder builder(GetManagedHardwareSecurityModuleResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> adminObjectIds;
         private String hsmUri;
@@ -177,11 +152,7 @@ public final class GetManagedHardwareSecurityModuleResult {
         private Integer softDeleteRetentionDays;
         private Map<String,String> tags;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedHardwareSecurityModuleResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminObjectIds = defaults.adminObjectIds;
@@ -197,6 +168,7 @@ public final class GetManagedHardwareSecurityModuleResult {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder adminObjectIds(List<String> adminObjectIds) {
             this.adminObjectIds = Objects.requireNonNull(adminObjectIds);
             return this;
@@ -204,47 +176,70 @@ public final class GetManagedHardwareSecurityModuleResult {
         public Builder adminObjectIds(String... adminObjectIds) {
             return adminObjectIds(List.of(adminObjectIds));
         }
+        @CustomType.Setter
         public Builder hsmUri(String hsmUri) {
             this.hsmUri = Objects.requireNonNull(hsmUri);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder purgeProtectionEnabled(Boolean purgeProtectionEnabled) {
             this.purgeProtectionEnabled = Objects.requireNonNull(purgeProtectionEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder softDeleteRetentionDays(Integer softDeleteRetentionDays) {
             this.softDeleteRetentionDays = Objects.requireNonNull(softDeleteRetentionDays);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetManagedHardwareSecurityModuleResult build() {
-            return new GetManagedHardwareSecurityModuleResult(adminObjectIds, hsmUri, id, location, name, purgeProtectionEnabled, resourceGroupName, skuName, softDeleteRetentionDays, tags, tenantId);
+        }
+        public GetManagedHardwareSecurityModuleResult build() {
+            final var o = new GetManagedHardwareSecurityModuleResult();
+            o.adminObjectIds = adminObjectIds;
+            o.hsmUri = hsmUri;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.purgeProtectionEnabled = purgeProtectionEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.skuName = skuName;
+            o.softDeleteRetentionDays = softDeleteRetentionDays;
+            o.tags = tags;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

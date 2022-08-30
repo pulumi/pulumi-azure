@@ -16,35 +16,24 @@ public final class KafkaClusterStorageAccount {
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean isDefault;
+    private Boolean isDefault;
     /**
      * @return The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    private final String storageAccountKey;
+    private String storageAccountKey;
     /**
      * @return The ID of the Storage Container. Changing this forces a new resource to be created.
      * 
      */
-    private final String storageContainerId;
+    private String storageContainerId;
     /**
      * @return The ID of the Storage Account. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String storageResourceId;
+    private @Nullable String storageResourceId;
 
-    @CustomType.Constructor
-    private KafkaClusterStorageAccount(
-        @CustomType.Parameter("isDefault") Boolean isDefault,
-        @CustomType.Parameter("storageAccountKey") String storageAccountKey,
-        @CustomType.Parameter("storageContainerId") String storageContainerId,
-        @CustomType.Parameter("storageResourceId") @Nullable String storageResourceId) {
-        this.isDefault = isDefault;
-        this.storageAccountKey = storageAccountKey;
-        this.storageContainerId = storageContainerId;
-        this.storageResourceId = storageResourceId;
-    }
-
+    private KafkaClusterStorageAccount() {}
     /**
      * @return Is this the Default Storage Account for the HDInsight Hadoop Cluster? Changing this forces a new resource to be created.
      * 
@@ -81,17 +70,13 @@ public final class KafkaClusterStorageAccount {
     public static Builder builder(KafkaClusterStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean isDefault;
         private String storageAccountKey;
         private String storageContainerId;
         private @Nullable String storageResourceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KafkaClusterStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isDefault = defaults.isDefault;
@@ -100,23 +85,33 @@ public final class KafkaClusterStorageAccount {
     	      this.storageResourceId = defaults.storageResourceId;
         }
 
+        @CustomType.Setter
         public Builder isDefault(Boolean isDefault) {
             this.isDefault = Objects.requireNonNull(isDefault);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountKey(String storageAccountKey) {
             this.storageAccountKey = Objects.requireNonNull(storageAccountKey);
             return this;
         }
+        @CustomType.Setter
         public Builder storageContainerId(String storageContainerId) {
             this.storageContainerId = Objects.requireNonNull(storageContainerId);
             return this;
         }
+        @CustomType.Setter
         public Builder storageResourceId(@Nullable String storageResourceId) {
             this.storageResourceId = storageResourceId;
             return this;
-        }        public KafkaClusterStorageAccount build() {
-            return new KafkaClusterStorageAccount(isDefault, storageAccountKey, storageContainerId, storageResourceId);
+        }
+        public KafkaClusterStorageAccount build() {
+            final var o = new KafkaClusterStorageAccount();
+            o.isDefault = isDefault;
+            o.storageAccountKey = storageAccountKey;
+            o.storageContainerId = storageContainerId;
+            o.storageResourceId = storageResourceId;
+            return o;
         }
     }
 }

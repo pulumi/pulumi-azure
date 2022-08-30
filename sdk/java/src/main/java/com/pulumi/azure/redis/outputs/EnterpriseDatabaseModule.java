@@ -15,24 +15,15 @@ public final class EnterpriseDatabaseModule {
      * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
      */
-    private final @Nullable String args;
+    private @Nullable String args;
     /**
      * @return The name which should be used for this module. Possible values are `RediSearch`, `RedisBloom` and `RedisTimeSeries`. Changing this forces a new Redis Enterprise Database to be created.
      * 
      */
-    private final String name;
-    private final @Nullable String version;
+    private String name;
+    private @Nullable String version;
 
-    @CustomType.Constructor
-    private EnterpriseDatabaseModule(
-        @CustomType.Parameter("args") @Nullable String args,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("version") @Nullable String version) {
-        this.args = args;
-        this.name = name;
-        this.version = version;
-    }
-
+    private EnterpriseDatabaseModule() {}
     /**
      * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
@@ -58,16 +49,12 @@ public final class EnterpriseDatabaseModule {
     public static Builder builder(EnterpriseDatabaseModule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String args;
         private String name;
         private @Nullable String version;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EnterpriseDatabaseModule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.args = defaults.args;
@@ -75,19 +62,27 @@ public final class EnterpriseDatabaseModule {
     	      this.version = defaults.version;
         }
 
+        @CustomType.Setter
         public Builder args(@Nullable String args) {
             this.args = args;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder version(@Nullable String version) {
             this.version = version;
             return this;
-        }        public EnterpriseDatabaseModule build() {
-            return new EnterpriseDatabaseModule(args, name, version);
+        }
+        public EnterpriseDatabaseModule build() {
+            final var o = new EnterpriseDatabaseModule();
+            o.args = args;
+            o.name = name;
+            o.version = version;
+            return o;
         }
     }
 }

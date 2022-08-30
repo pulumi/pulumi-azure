@@ -14,21 +14,14 @@ public final class ActionRuleSuppressionScope {
      * @return A list of resource IDs of the given scope type which will be the target of action rule.
      * 
      */
-    private final List<String> resourceIds;
+    private List<String> resourceIds;
     /**
      * @return Specifies the type of target scope. Possible values are `ResourceGroup` and `Resource`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private ActionRuleSuppressionScope(
-        @CustomType.Parameter("resourceIds") List<String> resourceIds,
-        @CustomType.Parameter("type") String type) {
-        this.resourceIds = resourceIds;
-        this.type = type;
-    }
-
+    private ActionRuleSuppressionScope() {}
     /**
      * @return A list of resource IDs of the given scope type which will be the target of action rule.
      * 
@@ -51,21 +44,18 @@ public final class ActionRuleSuppressionScope {
     public static Builder builder(ActionRuleSuppressionScope defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> resourceIds;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleSuppressionScope defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.resourceIds = defaults.resourceIds;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder resourceIds(List<String> resourceIds) {
             this.resourceIds = Objects.requireNonNull(resourceIds);
             return this;
@@ -73,11 +63,16 @@ public final class ActionRuleSuppressionScope {
         public Builder resourceIds(String... resourceIds) {
             return resourceIds(List.of(resourceIds));
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public ActionRuleSuppressionScope build() {
-            return new ActionRuleSuppressionScope(resourceIds, type);
+        }
+        public ActionRuleSuppressionScope build() {
+            final var o = new ActionRuleSuppressionScope();
+            o.resourceIds = resourceIds;
+            o.type = type;
+            return o;
         }
     }
 }

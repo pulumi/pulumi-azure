@@ -9,62 +9,41 @@ import java.util.Objects;
 
 @CustomType
 public final class GetUserResult {
-    private final String apiManagementName;
+    private String apiManagementName;
     /**
      * @return The Email Address used for this User.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return The First Name for the User.
      * 
      */
-    private final String firstName;
+    private String firstName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Last Name for the User.
      * 
      */
-    private final String lastName;
+    private String lastName;
     /**
      * @return Any notes about this User.
      * 
      */
-    private final String note;
-    private final String resourceGroupName;
+    private String note;
+    private String resourceGroupName;
     /**
      * @return The current state of this User, for example `active`, `blocked` or `pending`.
      * 
      */
-    private final String state;
-    private final String userId;
+    private String state;
+    private String userId;
 
-    @CustomType.Constructor
-    private GetUserResult(
-        @CustomType.Parameter("apiManagementName") String apiManagementName,
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("firstName") String firstName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("lastName") String lastName,
-        @CustomType.Parameter("note") String note,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("state") String state,
-        @CustomType.Parameter("userId") String userId) {
-        this.apiManagementName = apiManagementName;
-        this.email = email;
-        this.firstName = firstName;
-        this.id = id;
-        this.lastName = lastName;
-        this.note = note;
-        this.resourceGroupName = resourceGroupName;
-        this.state = state;
-        this.userId = userId;
-    }
-
+    private GetUserResult() {}
     public String apiManagementName() {
         return this.apiManagementName;
     }
@@ -124,7 +103,7 @@ public final class GetUserResult {
     public static Builder builder(GetUserResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementName;
         private String email;
@@ -135,11 +114,7 @@ public final class GetUserResult {
         private String resourceGroupName;
         private String state;
         private String userId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetUserResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementName = defaults.apiManagementName;
@@ -153,43 +128,63 @@ public final class GetUserResult {
     	      this.userId = defaults.userId;
         }
 
+        @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
             this.apiManagementName = Objects.requireNonNull(apiManagementName);
             return this;
         }
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder firstName(String firstName) {
             this.firstName = Objects.requireNonNull(firstName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder lastName(String lastName) {
             this.lastName = Objects.requireNonNull(lastName);
             return this;
         }
+        @CustomType.Setter
         public Builder note(String note) {
             this.note = Objects.requireNonNull(note);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder state(String state) {
             this.state = Objects.requireNonNull(state);
             return this;
         }
+        @CustomType.Setter
         public Builder userId(String userId) {
             this.userId = Objects.requireNonNull(userId);
             return this;
-        }        public GetUserResult build() {
-            return new GetUserResult(apiManagementName, email, firstName, id, lastName, note, resourceGroupName, state, userId);
+        }
+        public GetUserResult build() {
+            final var o = new GetUserResult();
+            o.apiManagementName = apiManagementName;
+            o.email = email;
+            o.firstName = firstName;
+            o.id = id;
+            o.lastName = lastName;
+            o.note = note;
+            o.resourceGroupName = resourceGroupName;
+            o.state = state;
+            o.userId = userId;
+            return o;
         }
     }
 }

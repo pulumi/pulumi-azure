@@ -14,28 +14,19 @@ public final class GetExpressRouteCircuitServiceProviderProperty {
      * @return The bandwidth in Mbps of the ExpressRoute circuit.
      * 
      */
-    private final Integer bandwidthInMbps;
+    private Integer bandwidthInMbps;
     /**
      * @return The name of the peering location and **not** the Azure resource location.
      * 
      */
-    private final String peeringLocation;
+    private String peeringLocation;
     /**
      * @return The name of the ExpressRoute Service Provider.
      * 
      */
-    private final String serviceProviderName;
+    private String serviceProviderName;
 
-    @CustomType.Constructor
-    private GetExpressRouteCircuitServiceProviderProperty(
-        @CustomType.Parameter("bandwidthInMbps") Integer bandwidthInMbps,
-        @CustomType.Parameter("peeringLocation") String peeringLocation,
-        @CustomType.Parameter("serviceProviderName") String serviceProviderName) {
-        this.bandwidthInMbps = bandwidthInMbps;
-        this.peeringLocation = peeringLocation;
-        this.serviceProviderName = serviceProviderName;
-    }
-
+    private GetExpressRouteCircuitServiceProviderProperty() {}
     /**
      * @return The bandwidth in Mbps of the ExpressRoute circuit.
      * 
@@ -65,16 +56,12 @@ public final class GetExpressRouteCircuitServiceProviderProperty {
     public static Builder builder(GetExpressRouteCircuitServiceProviderProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer bandwidthInMbps;
         private String peeringLocation;
         private String serviceProviderName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetExpressRouteCircuitServiceProviderProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bandwidthInMbps = defaults.bandwidthInMbps;
@@ -82,19 +69,27 @@ public final class GetExpressRouteCircuitServiceProviderProperty {
     	      this.serviceProviderName = defaults.serviceProviderName;
         }
 
+        @CustomType.Setter
         public Builder bandwidthInMbps(Integer bandwidthInMbps) {
             this.bandwidthInMbps = Objects.requireNonNull(bandwidthInMbps);
             return this;
         }
+        @CustomType.Setter
         public Builder peeringLocation(String peeringLocation) {
             this.peeringLocation = Objects.requireNonNull(peeringLocation);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceProviderName(String serviceProviderName) {
             this.serviceProviderName = Objects.requireNonNull(serviceProviderName);
             return this;
-        }        public GetExpressRouteCircuitServiceProviderProperty build() {
-            return new GetExpressRouteCircuitServiceProviderProperty(bandwidthInMbps, peeringLocation, serviceProviderName);
+        }
+        public GetExpressRouteCircuitServiceProviderProperty build() {
+            final var o = new GetExpressRouteCircuitServiceProviderProperty();
+            o.bandwidthInMbps = bandwidthInMbps;
+            o.peeringLocation = peeringLocation;
+            o.serviceProviderName = serviceProviderName;
+            return o;
         }
     }
 }

@@ -12,114 +12,77 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApiResult {
-    private final String apiManagementName;
+    private String apiManagementName;
     /**
      * @return A description of the API Management API, which may include HTML formatting tags.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The display name of the API.
      * 
      */
-    private final String displayName;
+    private String displayName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Is this the current API Revision?
      * 
      */
-    private final Boolean isCurrent;
+    private Boolean isCurrent;
     /**
      * @return Is this API Revision online/accessible via the Gateway?
      * 
      */
-    private final Boolean isOnline;
-    private final String name;
+    private Boolean isOnline;
+    private String name;
     /**
      * @return The Path for this API Management API.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return A list of protocols the operations in this API can be invoked.
      * 
      */
-    private final List<String> protocols;
-    private final String resourceGroupName;
-    private final String revision;
+    private List<String> protocols;
+    private String resourceGroupName;
+    private String revision;
     /**
      * @return Absolute URL of the backend service implementing this API.
      * 
      */
-    private final String serviceUrl;
+    private String serviceUrl;
     /**
      * @return Should this API expose a SOAP frontend, rather than a HTTP frontend?
      * 
      */
-    private final Boolean soapPassThrough;
+    private Boolean soapPassThrough;
     /**
      * @return A `subscription_key_parameter_names` block as documented below.
      * 
      */
-    private final List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames;
+    private List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames;
     /**
      * @return Should this API require a subscription key?
      * 
      */
-    private final Boolean subscriptionRequired;
+    private Boolean subscriptionRequired;
     /**
      * @return The Version number of this API, if this API is versioned.
      * 
      */
-    private final String version;
+    private String version;
     /**
      * @return The ID of the Version Set which this API is associated with.
      * 
      */
-    private final String versionSetId;
+    private String versionSetId;
 
-    @CustomType.Constructor
-    private GetApiResult(
-        @CustomType.Parameter("apiManagementName") String apiManagementName,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("displayName") String displayName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isCurrent") Boolean isCurrent,
-        @CustomType.Parameter("isOnline") Boolean isOnline,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("protocols") List<String> protocols,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("revision") String revision,
-        @CustomType.Parameter("serviceUrl") String serviceUrl,
-        @CustomType.Parameter("soapPassThrough") Boolean soapPassThrough,
-        @CustomType.Parameter("subscriptionKeyParameterNames") List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames,
-        @CustomType.Parameter("subscriptionRequired") Boolean subscriptionRequired,
-        @CustomType.Parameter("version") String version,
-        @CustomType.Parameter("versionSetId") String versionSetId) {
-        this.apiManagementName = apiManagementName;
-        this.description = description;
-        this.displayName = displayName;
-        this.id = id;
-        this.isCurrent = isCurrent;
-        this.isOnline = isOnline;
-        this.name = name;
-        this.path = path;
-        this.protocols = protocols;
-        this.resourceGroupName = resourceGroupName;
-        this.revision = revision;
-        this.serviceUrl = serviceUrl;
-        this.soapPassThrough = soapPassThrough;
-        this.subscriptionKeyParameterNames = subscriptionKeyParameterNames;
-        this.subscriptionRequired = subscriptionRequired;
-        this.version = version;
-        this.versionSetId = versionSetId;
-    }
-
+    private GetApiResult() {}
     public String apiManagementName() {
         return this.apiManagementName;
     }
@@ -231,7 +194,7 @@ public final class GetApiResult {
     public static Builder builder(GetApiResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String apiManagementName;
         private String description;
@@ -250,11 +213,7 @@ public final class GetApiResult {
         private Boolean subscriptionRequired;
         private String version;
         private String versionSetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetApiResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiManagementName = defaults.apiManagementName;
@@ -276,38 +235,47 @@ public final class GetApiResult {
     	      this.versionSetId = defaults.versionSetId;
         }
 
+        @CustomType.Setter
         public Builder apiManagementName(String apiManagementName) {
             this.apiManagementName = Objects.requireNonNull(apiManagementName);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder displayName(String displayName) {
             this.displayName = Objects.requireNonNull(displayName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isCurrent(Boolean isCurrent) {
             this.isCurrent = Objects.requireNonNull(isCurrent);
             return this;
         }
+        @CustomType.Setter
         public Builder isOnline(Boolean isOnline) {
             this.isOnline = Objects.requireNonNull(isOnline);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder protocols(List<String> protocols) {
             this.protocols = Objects.requireNonNull(protocols);
             return this;
@@ -315,22 +283,27 @@ public final class GetApiResult {
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder revision(String revision) {
             this.revision = Objects.requireNonNull(revision);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceUrl(String serviceUrl) {
             this.serviceUrl = Objects.requireNonNull(serviceUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder soapPassThrough(Boolean soapPassThrough) {
             this.soapPassThrough = Objects.requireNonNull(soapPassThrough);
             return this;
         }
+        @CustomType.Setter
         public Builder subscriptionKeyParameterNames(List<GetApiSubscriptionKeyParameterName> subscriptionKeyParameterNames) {
             this.subscriptionKeyParameterNames = Objects.requireNonNull(subscriptionKeyParameterNames);
             return this;
@@ -338,19 +311,41 @@ public final class GetApiResult {
         public Builder subscriptionKeyParameterNames(GetApiSubscriptionKeyParameterName... subscriptionKeyParameterNames) {
             return subscriptionKeyParameterNames(List.of(subscriptionKeyParameterNames));
         }
+        @CustomType.Setter
         public Builder subscriptionRequired(Boolean subscriptionRequired) {
             this.subscriptionRequired = Objects.requireNonNull(subscriptionRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder version(String version) {
             this.version = Objects.requireNonNull(version);
             return this;
         }
+        @CustomType.Setter
         public Builder versionSetId(String versionSetId) {
             this.versionSetId = Objects.requireNonNull(versionSetId);
             return this;
-        }        public GetApiResult build() {
-            return new GetApiResult(apiManagementName, description, displayName, id, isCurrent, isOnline, name, path, protocols, resourceGroupName, revision, serviceUrl, soapPassThrough, subscriptionKeyParameterNames, subscriptionRequired, version, versionSetId);
+        }
+        public GetApiResult build() {
+            final var o = new GetApiResult();
+            o.apiManagementName = apiManagementName;
+            o.description = description;
+            o.displayName = displayName;
+            o.id = id;
+            o.isCurrent = isCurrent;
+            o.isOnline = isOnline;
+            o.name = name;
+            o.path = path;
+            o.protocols = protocols;
+            o.resourceGroupName = resourceGroupName;
+            o.revision = revision;
+            o.serviceUrl = serviceUrl;
+            o.soapPassThrough = soapPassThrough;
+            o.subscriptionKeyParameterNames = subscriptionKeyParameterNames;
+            o.subscriptionRequired = subscriptionRequired;
+            o.version = version;
+            o.versionSetId = versionSetId;
+            return o;
         }
     }
 }

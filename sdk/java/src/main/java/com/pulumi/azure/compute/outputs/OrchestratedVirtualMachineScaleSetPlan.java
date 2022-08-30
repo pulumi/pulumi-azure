@@ -13,20 +13,11 @@ public final class OrchestratedVirtualMachineScaleSetPlan {
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
-    private final String product;
-    private final String publisher;
+    private String name;
+    private String product;
+    private String publisher;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetPlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("publisher") String publisher) {
-        this.name = name;
-        this.product = product;
-        this.publisher = publisher;
-    }
-
+    private OrchestratedVirtualMachineScaleSetPlan() {}
     /**
      * @return The name of the Orchestrated Virtual Machine Scale Set. Changing this forces a new resource to be created.
      * 
@@ -48,16 +39,12 @@ public final class OrchestratedVirtualMachineScaleSetPlan {
     public static Builder builder(OrchestratedVirtualMachineScaleSetPlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String product;
         private String publisher;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetPlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -65,19 +52,27 @@ public final class OrchestratedVirtualMachineScaleSetPlan {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetPlan build() {
-            return new OrchestratedVirtualMachineScaleSetPlan(name, product, publisher);
+        }
+        public OrchestratedVirtualMachineScaleSetPlan build() {
+            final var o = new OrchestratedVirtualMachineScaleSetPlan();
+            o.name = name;
+            o.product = product;
+            o.publisher = publisher;
+            return o;
         }
     }
 }

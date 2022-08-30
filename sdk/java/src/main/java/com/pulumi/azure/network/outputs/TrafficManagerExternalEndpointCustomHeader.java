@@ -13,21 +13,14 @@ public final class TrafficManagerExternalEndpointCustomHeader {
      * @return The name of the custom header.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The value of custom header. Applicable for HTTP and HTTPS protocol.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private TrafficManagerExternalEndpointCustomHeader(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private TrafficManagerExternalEndpointCustomHeader() {}
     /**
      * @return The name of the custom header.
      * 
@@ -50,30 +43,32 @@ public final class TrafficManagerExternalEndpointCustomHeader {
     public static Builder builder(TrafficManagerExternalEndpointCustomHeader defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TrafficManagerExternalEndpointCustomHeader defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public TrafficManagerExternalEndpointCustomHeader build() {
-            return new TrafficManagerExternalEndpointCustomHeader(name, value);
+        }
+        public TrafficManagerExternalEndpointCustomHeader build() {
+            final var o = new TrafficManagerExternalEndpointCustomHeader();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

@@ -15,43 +15,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
-    private final @Nullable String adminPassword;
-    private final @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys;
-    private final String adminUsername;
-    private final @Nullable String computerNamePrefix;
+    private @Nullable String adminPassword;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys;
+    private String adminUsername;
+    private @Nullable String computerNamePrefix;
     /**
      * @return When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean disablePasswordAuthentication;
+    private @Nullable Boolean disablePasswordAuthentication;
     /**
      * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
      */
-    private final @Nullable String patchMode;
-    private final @Nullable Boolean provisionVmAgent;
-    private final @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets;
+    private @Nullable String patchMode;
+    private @Nullable Boolean provisionVmAgent;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(
-        @CustomType.Parameter("adminPassword") @Nullable String adminPassword,
-        @CustomType.Parameter("adminSshKeys") @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys,
-        @CustomType.Parameter("adminUsername") String adminUsername,
-        @CustomType.Parameter("computerNamePrefix") @Nullable String computerNamePrefix,
-        @CustomType.Parameter("disablePasswordAuthentication") @Nullable Boolean disablePasswordAuthentication,
-        @CustomType.Parameter("patchMode") @Nullable String patchMode,
-        @CustomType.Parameter("provisionVmAgent") @Nullable Boolean provisionVmAgent,
-        @CustomType.Parameter("secrets") @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets) {
-        this.adminPassword = adminPassword;
-        this.adminSshKeys = adminSshKeys;
-        this.adminUsername = adminUsername;
-        this.computerNamePrefix = computerNamePrefix;
-        this.disablePasswordAuthentication = disablePasswordAuthentication;
-        this.patchMode = patchMode;
-        this.provisionVmAgent = provisionVmAgent;
-        this.secrets = secrets;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration() {}
     public Optional<String> adminPassword() {
         return Optional.ofNullable(this.adminPassword);
     }
@@ -92,7 +73,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String adminPassword;
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys;
@@ -102,11 +83,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         private @Nullable String patchMode;
         private @Nullable Boolean provisionVmAgent;
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminPassword = defaults.adminPassword;
@@ -119,10 +96,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     	      this.secrets = defaults.secrets;
         }
 
+        @CustomType.Setter
         public Builder adminPassword(@Nullable String adminPassword) {
             this.adminPassword = adminPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder adminSshKeys(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys) {
             this.adminSshKeys = adminSshKeys;
             return this;
@@ -130,34 +109,50 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         public Builder adminSshKeys(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey... adminSshKeys) {
             return adminSshKeys(List.of(adminSshKeys));
         }
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
         }
+        @CustomType.Setter
         public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
             this.computerNamePrefix = computerNamePrefix;
             return this;
         }
+        @CustomType.Setter
         public Builder disablePasswordAuthentication(@Nullable Boolean disablePasswordAuthentication) {
             this.disablePasswordAuthentication = disablePasswordAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder patchMode(@Nullable String patchMode) {
             this.patchMode = patchMode;
             return this;
         }
+        @CustomType.Setter
         public Builder provisionVmAgent(@Nullable Boolean provisionVmAgent) {
             this.provisionVmAgent = provisionVmAgent;
             return this;
         }
+        @CustomType.Setter
         public Builder secrets(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret> secrets) {
             this.secrets = secrets;
             return this;
         }
         public Builder secrets(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret... secrets) {
             return secrets(List.of(secrets));
-        }        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(adminPassword, adminSshKeys, adminUsername, computerNamePrefix, disablePasswordAuthentication, patchMode, provisionVmAgent, secrets);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration();
+            o.adminPassword = adminPassword;
+            o.adminSshKeys = adminSshKeys;
+            o.adminUsername = adminUsername;
+            o.computerNamePrefix = computerNamePrefix;
+            o.disablePasswordAuthentication = disablePasswordAuthentication;
+            o.patchMode = patchMode;
+            o.provisionVmAgent = provisionVmAgent;
+            o.secrets = secrets;
+            return o;
         }
     }
 }

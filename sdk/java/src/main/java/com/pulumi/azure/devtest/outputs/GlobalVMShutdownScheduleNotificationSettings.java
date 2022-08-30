@@ -17,35 +17,24 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
      * @return E-mail address to which the notification will be sent.
      * 
      */
-    private final @Nullable String email;
+    private @Nullable String email;
     /**
      * @return Whether to enable pre-shutdown notifications. Possible values are `true` and `false`. Defaults to `false`
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Time in minutes between 15 and 120 before a shutdown event at which a notification will be sent. Defaults to `30`.
      * 
      */
-    private final @Nullable Integer timeInMinutes;
+    private @Nullable Integer timeInMinutes;
     /**
      * @return The webhook URL to which the notification will be sent. Required if `enabled` is `true`. Optional otherwise.
      * 
      */
-    private final @Nullable String webhookUrl;
+    private @Nullable String webhookUrl;
 
-    @CustomType.Constructor
-    private GlobalVMShutdownScheduleNotificationSettings(
-        @CustomType.Parameter("email") @Nullable String email,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("timeInMinutes") @Nullable Integer timeInMinutes,
-        @CustomType.Parameter("webhookUrl") @Nullable String webhookUrl) {
-        this.email = email;
-        this.enabled = enabled;
-        this.timeInMinutes = timeInMinutes;
-        this.webhookUrl = webhookUrl;
-    }
-
+    private GlobalVMShutdownScheduleNotificationSettings() {}
     /**
      * @return E-mail address to which the notification will be sent.
      * 
@@ -82,17 +71,13 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
     public static Builder builder(GlobalVMShutdownScheduleNotificationSettings defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String email;
         private Boolean enabled;
         private @Nullable Integer timeInMinutes;
         private @Nullable String webhookUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GlobalVMShutdownScheduleNotificationSettings defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -101,23 +86,33 @@ public final class GlobalVMShutdownScheduleNotificationSettings {
     	      this.webhookUrl = defaults.webhookUrl;
         }
 
+        @CustomType.Setter
         public Builder email(@Nullable String email) {
             this.email = email;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder timeInMinutes(@Nullable Integer timeInMinutes) {
             this.timeInMinutes = timeInMinutes;
             return this;
         }
+        @CustomType.Setter
         public Builder webhookUrl(@Nullable String webhookUrl) {
             this.webhookUrl = webhookUrl;
             return this;
-        }        public GlobalVMShutdownScheduleNotificationSettings build() {
-            return new GlobalVMShutdownScheduleNotificationSettings(email, enabled, timeInMinutes, webhookUrl);
+        }
+        public GlobalVMShutdownScheduleNotificationSettings build() {
+            final var o = new GlobalVMShutdownScheduleNotificationSettings();
+            o.email = email;
+            o.enabled = enabled;
+            o.timeInMinutes = timeInMinutes;
+            o.webhookUrl = webhookUrl;
+            return o;
         }
     }
 }

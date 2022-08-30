@@ -15,21 +15,14 @@ public final class CertificateCertificate {
      * @return The base64-encoded certificate contents. Changing this forces a new resource to be created.
      * 
      */
-    private final String contents;
+    private String contents;
     /**
      * @return The password associated with the certificate. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
 
-    @CustomType.Constructor
-    private CertificateCertificate(
-        @CustomType.Parameter("contents") String contents,
-        @CustomType.Parameter("password") @Nullable String password) {
-        this.contents = contents;
-        this.password = password;
-    }
-
+    private CertificateCertificate() {}
     /**
      * @return The base64-encoded certificate contents. Changing this forces a new resource to be created.
      * 
@@ -52,30 +45,32 @@ public final class CertificateCertificate {
     public static Builder builder(CertificateCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String contents;
         private @Nullable String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.contents = defaults.contents;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder contents(String contents) {
             this.contents = Objects.requireNonNull(contents);
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
-        }        public CertificateCertificate build() {
-            return new CertificateCertificate(contents, password);
+        }
+        public CertificateCertificate build() {
+            final var o = new CertificateCertificate();
+            o.contents = contents;
+            o.password = password;
+            return o;
         }
     }
 }

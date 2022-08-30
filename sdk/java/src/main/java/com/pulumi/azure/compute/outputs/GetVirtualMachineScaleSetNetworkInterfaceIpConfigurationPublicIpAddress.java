@@ -16,42 +16,29 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
      * @return The domain name label for the DNS settings.
      * 
      */
-    private final String domainNameLabel;
+    private String domainNameLabel;
     /**
      * @return The idle timeout in minutes.
      * 
      */
-    private final Integer idleTimeoutInMinutes;
+    private Integer idleTimeoutInMinutes;
     /**
      * @return A list of `ip_tag` blocks as defined below.
      * 
      */
-    private final List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
+    private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
     /**
      * @return The name of this Virtual Machine Scale Set.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of the public IP prefix.
      * 
      */
-    private final String publicIpPrefixId;
+    private String publicIpPrefixId;
 
-    @CustomType.Constructor
-    private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
-        @CustomType.Parameter("domainNameLabel") String domainNameLabel,
-        @CustomType.Parameter("idleTimeoutInMinutes") Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("ipTags") List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicIpPrefixId") String publicIpPrefixId) {
-        this.domainNameLabel = domainNameLabel;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.ipTags = ipTags;
-        this.name = name;
-        this.publicIpPrefixId = publicIpPrefixId;
-    }
-
+    private GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     /**
      * @return The domain name label for the DNS settings.
      * 
@@ -95,18 +82,14 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
     public static Builder builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainNameLabel;
         private Integer idleTimeoutInMinutes;
         private List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags;
         private String name;
         private String publicIpPrefixId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainNameLabel = defaults.domainNameLabel;
@@ -116,14 +99,17 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
     	      this.publicIpPrefixId = defaults.publicIpPrefixId;
         }
 
+        @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
             this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder ipTags(List<GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag> ipTags) {
             this.ipTags = Objects.requireNonNull(ipTags);
             return this;
@@ -131,15 +117,24 @@ public final class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubli
         public Builder ipTags(GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag... ipTags) {
             return ipTags(List.of(ipTags));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpPrefixId(String publicIpPrefixId) {
             this.publicIpPrefixId = Objects.requireNonNull(publicIpPrefixId);
             return this;
-        }        public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
-            return new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(domainNameLabel, idleTimeoutInMinutes, ipTags, name, publicIpPrefixId);
+        }
+        public GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress build() {
+            final var o = new GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress();
+            o.domainNameLabel = domainNameLabel;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.ipTags = ipTags;
+            o.name = name;
+            o.publicIpPrefixId = publicIpPrefixId;
+            return o;
         }
     }
 }

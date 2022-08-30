@@ -15,21 +15,14 @@ public final class AccountStaticWebsite {
      * @return The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      * 
      */
-    private final @Nullable String error404Document;
+    private @Nullable String error404Document;
     /**
      * @return The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
      * 
      */
-    private final @Nullable String indexDocument;
+    private @Nullable String indexDocument;
 
-    @CustomType.Constructor
-    private AccountStaticWebsite(
-        @CustomType.Parameter("error404Document") @Nullable String error404Document,
-        @CustomType.Parameter("indexDocument") @Nullable String indexDocument) {
-        this.error404Document = error404Document;
-        this.indexDocument = indexDocument;
-    }
-
+    private AccountStaticWebsite() {}
     /**
      * @return The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      * 
@@ -52,30 +45,32 @@ public final class AccountStaticWebsite {
     public static Builder builder(AccountStaticWebsite defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String error404Document;
         private @Nullable String indexDocument;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountStaticWebsite defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.error404Document = defaults.error404Document;
     	      this.indexDocument = defaults.indexDocument;
         }
 
+        @CustomType.Setter
         public Builder error404Document(@Nullable String error404Document) {
             this.error404Document = error404Document;
             return this;
         }
+        @CustomType.Setter
         public Builder indexDocument(@Nullable String indexDocument) {
             this.indexDocument = indexDocument;
             return this;
-        }        public AccountStaticWebsite build() {
-            return new AccountStaticWebsite(error404Document, indexDocument);
+        }
+        public AccountStaticWebsite build() {
+            final var o = new AccountStaticWebsite();
+            o.error404Document = error404Document;
+            o.indexDocument = indexDocument;
+            return o;
         }
     }
 }

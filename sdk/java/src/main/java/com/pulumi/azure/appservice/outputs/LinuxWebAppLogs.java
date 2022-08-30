@@ -17,35 +17,24 @@ public final class LinuxWebAppLogs {
      * @return A `application_logs` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppLogsApplicationLogs applicationLogs;
+    private @Nullable LinuxWebAppLogsApplicationLogs applicationLogs;
     /**
      * @return Should detailed error messages be enabled.
      * 
      */
-    private final @Nullable Boolean detailedErrorMessages;
+    private @Nullable Boolean detailedErrorMessages;
     /**
      * @return Should failed request tracing be enabled.
      * 
      */
-    private final @Nullable Boolean failedRequestTracing;
+    private @Nullable Boolean failedRequestTracing;
     /**
      * @return An `http_logs` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppLogsHttpLogs httpLogs;
+    private @Nullable LinuxWebAppLogsHttpLogs httpLogs;
 
-    @CustomType.Constructor
-    private LinuxWebAppLogs(
-        @CustomType.Parameter("applicationLogs") @Nullable LinuxWebAppLogsApplicationLogs applicationLogs,
-        @CustomType.Parameter("detailedErrorMessages") @Nullable Boolean detailedErrorMessages,
-        @CustomType.Parameter("failedRequestTracing") @Nullable Boolean failedRequestTracing,
-        @CustomType.Parameter("httpLogs") @Nullable LinuxWebAppLogsHttpLogs httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessages = detailedErrorMessages;
-        this.failedRequestTracing = failedRequestTracing;
-        this.httpLogs = httpLogs;
-    }
-
+    private LinuxWebAppLogs() {}
     /**
      * @return A `application_logs` block as defined above.
      * 
@@ -82,17 +71,13 @@ public final class LinuxWebAppLogs {
     public static Builder builder(LinuxWebAppLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppLogsApplicationLogs applicationLogs;
         private @Nullable Boolean detailedErrorMessages;
         private @Nullable Boolean failedRequestTracing;
         private @Nullable LinuxWebAppLogsHttpLogs httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -101,23 +86,33 @@ public final class LinuxWebAppLogs {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(@Nullable LinuxWebAppLogsApplicationLogs applicationLogs) {
             this.applicationLogs = applicationLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder detailedErrorMessages(@Nullable Boolean detailedErrorMessages) {
             this.detailedErrorMessages = detailedErrorMessages;
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracing(@Nullable Boolean failedRequestTracing) {
             this.failedRequestTracing = failedRequestTracing;
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(@Nullable LinuxWebAppLogsHttpLogs httpLogs) {
             this.httpLogs = httpLogs;
             return this;
-        }        public LinuxWebAppLogs build() {
-            return new LinuxWebAppLogs(applicationLogs, detailedErrorMessages, failedRequestTracing, httpLogs);
+        }
+        public LinuxWebAppLogs build() {
+            final var o = new LinuxWebAppLogs();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessages = detailedErrorMessages;
+            o.failedRequestTracing = failedRequestTracing;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

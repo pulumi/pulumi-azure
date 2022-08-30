@@ -19,132 +19,91 @@ public final class GetEnvironmentV3Result {
      * @return Are new Private Endpoint Connections allowed.
      * 
      */
-    private final Boolean allowNewPrivateEndpointConnections;
+    private Boolean allowNewPrivateEndpointConnections;
     /**
      * @return A `cluster_setting` block as defined below.
      * 
      */
-    private final List<GetEnvironmentV3ClusterSetting> clusterSettings;
+    private List<GetEnvironmentV3ClusterSetting> clusterSettings;
     /**
      * @return The number of Dedicated Hosts used by this ASEv3.
      * 
      */
-    private final Integer dedicatedHostCount;
+    private Integer dedicatedHostCount;
     /**
      * @return the DNS suffix for this App Service Environment V3.
      * 
      */
-    private final String dnsSuffix;
+    private String dnsSuffix;
     /**
      * @return The external inbound IP addresses of the App Service Environment V3.
      * 
      */
-    private final List<String> externalInboundIpAddresses;
+    private List<String> externalInboundIpAddresses;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An Inbound Network Dependencies block as defined below.
      * 
      */
-    private final List<GetEnvironmentV3InboundNetworkDependency> inboundNetworkDependencies;
+    private List<GetEnvironmentV3InboundNetworkDependency> inboundNetworkDependencies;
     /**
      * @return The internal inbound IP addresses of the App Service Environment V3.
      * 
      */
-    private final List<String> internalInboundIpAddresses;
+    private List<String> internalInboundIpAddresses;
     /**
      * @return The Internal Load Balancing Mode of this ASEv3.
      * 
      */
-    private final String internalLoadBalancingMode;
+    private String internalLoadBalancingMode;
     /**
      * @return The number of IP SSL addresses reserved for the App Service Environment V3.
      * 
      */
-    private final Integer ipSslAddressCount;
+    private Integer ipSslAddressCount;
     /**
      * @return The list of Outbound IP Addresses of Linux based Apps in this App Service Environment V3.
      * 
      */
-    private final List<String> linuxOutboundIpAddresses;
+    private List<String> linuxOutboundIpAddresses;
     /**
      * @return The location where the App Service Environment exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Cluster Setting.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Pricing tier for the front end instances.
      * 
      */
-    private final String pricingTier;
-    private final String resourceGroupName;
+    private String pricingTier;
+    private String resourceGroupName;
     /**
      * @return The ID of the v3 App Service Environment Subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return A mapping of tags assigned to the v3 App Service Environment.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Outbound addresses of Windows based Apps in this App Service Environment V3.
      * 
      */
-    private final List<String> windowsOutboundIpAddresses;
-    private final Boolean zoneRedundant;
+    private List<String> windowsOutboundIpAddresses;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetEnvironmentV3Result(
-        @CustomType.Parameter("allowNewPrivateEndpointConnections") Boolean allowNewPrivateEndpointConnections,
-        @CustomType.Parameter("clusterSettings") List<GetEnvironmentV3ClusterSetting> clusterSettings,
-        @CustomType.Parameter("dedicatedHostCount") Integer dedicatedHostCount,
-        @CustomType.Parameter("dnsSuffix") String dnsSuffix,
-        @CustomType.Parameter("externalInboundIpAddresses") List<String> externalInboundIpAddresses,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("inboundNetworkDependencies") List<GetEnvironmentV3InboundNetworkDependency> inboundNetworkDependencies,
-        @CustomType.Parameter("internalInboundIpAddresses") List<String> internalInboundIpAddresses,
-        @CustomType.Parameter("internalLoadBalancingMode") String internalLoadBalancingMode,
-        @CustomType.Parameter("ipSslAddressCount") Integer ipSslAddressCount,
-        @CustomType.Parameter("linuxOutboundIpAddresses") List<String> linuxOutboundIpAddresses,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("pricingTier") String pricingTier,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("windowsOutboundIpAddresses") List<String> windowsOutboundIpAddresses,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.allowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
-        this.clusterSettings = clusterSettings;
-        this.dedicatedHostCount = dedicatedHostCount;
-        this.dnsSuffix = dnsSuffix;
-        this.externalInboundIpAddresses = externalInboundIpAddresses;
-        this.id = id;
-        this.inboundNetworkDependencies = inboundNetworkDependencies;
-        this.internalInboundIpAddresses = internalInboundIpAddresses;
-        this.internalLoadBalancingMode = internalLoadBalancingMode;
-        this.ipSslAddressCount = ipSslAddressCount;
-        this.linuxOutboundIpAddresses = linuxOutboundIpAddresses;
-        this.location = location;
-        this.name = name;
-        this.pricingTier = pricingTier;
-        this.resourceGroupName = resourceGroupName;
-        this.subnetId = subnetId;
-        this.tags = tags;
-        this.windowsOutboundIpAddresses = windowsOutboundIpAddresses;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetEnvironmentV3Result() {}
     /**
      * @return Are new Private Endpoint Connections allowed.
      * 
@@ -278,7 +237,7 @@ public final class GetEnvironmentV3Result {
     public static Builder builder(GetEnvironmentV3Result defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean allowNewPrivateEndpointConnections;
         private List<GetEnvironmentV3ClusterSetting> clusterSettings;
@@ -299,11 +258,7 @@ public final class GetEnvironmentV3Result {
         private Map<String,String> tags;
         private List<String> windowsOutboundIpAddresses;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnvironmentV3Result defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowNewPrivateEndpointConnections = defaults.allowNewPrivateEndpointConnections;
@@ -327,10 +282,12 @@ public final class GetEnvironmentV3Result {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder allowNewPrivateEndpointConnections(Boolean allowNewPrivateEndpointConnections) {
             this.allowNewPrivateEndpointConnections = Objects.requireNonNull(allowNewPrivateEndpointConnections);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterSettings(List<GetEnvironmentV3ClusterSetting> clusterSettings) {
             this.clusterSettings = Objects.requireNonNull(clusterSettings);
             return this;
@@ -338,14 +295,17 @@ public final class GetEnvironmentV3Result {
         public Builder clusterSettings(GetEnvironmentV3ClusterSetting... clusterSettings) {
             return clusterSettings(List.of(clusterSettings));
         }
+        @CustomType.Setter
         public Builder dedicatedHostCount(Integer dedicatedHostCount) {
             this.dedicatedHostCount = Objects.requireNonNull(dedicatedHostCount);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsSuffix(String dnsSuffix) {
             this.dnsSuffix = Objects.requireNonNull(dnsSuffix);
             return this;
         }
+        @CustomType.Setter
         public Builder externalInboundIpAddresses(List<String> externalInboundIpAddresses) {
             this.externalInboundIpAddresses = Objects.requireNonNull(externalInboundIpAddresses);
             return this;
@@ -353,10 +313,12 @@ public final class GetEnvironmentV3Result {
         public Builder externalInboundIpAddresses(String... externalInboundIpAddresses) {
             return externalInboundIpAddresses(List.of(externalInboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder inboundNetworkDependencies(List<GetEnvironmentV3InboundNetworkDependency> inboundNetworkDependencies) {
             this.inboundNetworkDependencies = Objects.requireNonNull(inboundNetworkDependencies);
             return this;
@@ -364,6 +326,7 @@ public final class GetEnvironmentV3Result {
         public Builder inboundNetworkDependencies(GetEnvironmentV3InboundNetworkDependency... inboundNetworkDependencies) {
             return inboundNetworkDependencies(List.of(inboundNetworkDependencies));
         }
+        @CustomType.Setter
         public Builder internalInboundIpAddresses(List<String> internalInboundIpAddresses) {
             this.internalInboundIpAddresses = Objects.requireNonNull(internalInboundIpAddresses);
             return this;
@@ -371,14 +334,17 @@ public final class GetEnvironmentV3Result {
         public Builder internalInboundIpAddresses(String... internalInboundIpAddresses) {
             return internalInboundIpAddresses(List.of(internalInboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder internalLoadBalancingMode(String internalLoadBalancingMode) {
             this.internalLoadBalancingMode = Objects.requireNonNull(internalLoadBalancingMode);
             return this;
         }
+        @CustomType.Setter
         public Builder ipSslAddressCount(Integer ipSslAddressCount) {
             this.ipSslAddressCount = Objects.requireNonNull(ipSslAddressCount);
             return this;
         }
+        @CustomType.Setter
         public Builder linuxOutboundIpAddresses(List<String> linuxOutboundIpAddresses) {
             this.linuxOutboundIpAddresses = Objects.requireNonNull(linuxOutboundIpAddresses);
             return this;
@@ -386,30 +352,37 @@ public final class GetEnvironmentV3Result {
         public Builder linuxOutboundIpAddresses(String... linuxOutboundIpAddresses) {
             return linuxOutboundIpAddresses(List.of(linuxOutboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder pricingTier(String pricingTier) {
             this.pricingTier = Objects.requireNonNull(pricingTier);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder windowsOutboundIpAddresses(List<String> windowsOutboundIpAddresses) {
             this.windowsOutboundIpAddresses = Objects.requireNonNull(windowsOutboundIpAddresses);
             return this;
@@ -417,11 +390,33 @@ public final class GetEnvironmentV3Result {
         public Builder windowsOutboundIpAddresses(String... windowsOutboundIpAddresses) {
             return windowsOutboundIpAddresses(List.of(windowsOutboundIpAddresses));
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetEnvironmentV3Result build() {
-            return new GetEnvironmentV3Result(allowNewPrivateEndpointConnections, clusterSettings, dedicatedHostCount, dnsSuffix, externalInboundIpAddresses, id, inboundNetworkDependencies, internalInboundIpAddresses, internalLoadBalancingMode, ipSslAddressCount, linuxOutboundIpAddresses, location, name, pricingTier, resourceGroupName, subnetId, tags, windowsOutboundIpAddresses, zoneRedundant);
+        }
+        public GetEnvironmentV3Result build() {
+            final var o = new GetEnvironmentV3Result();
+            o.allowNewPrivateEndpointConnections = allowNewPrivateEndpointConnections;
+            o.clusterSettings = clusterSettings;
+            o.dedicatedHostCount = dedicatedHostCount;
+            o.dnsSuffix = dnsSuffix;
+            o.externalInboundIpAddresses = externalInboundIpAddresses;
+            o.id = id;
+            o.inboundNetworkDependencies = inboundNetworkDependencies;
+            o.internalInboundIpAddresses = internalInboundIpAddresses;
+            o.internalLoadBalancingMode = internalLoadBalancingMode;
+            o.ipSslAddressCount = ipSslAddressCount;
+            o.linuxOutboundIpAddresses = linuxOutboundIpAddresses;
+            o.location = location;
+            o.name = name;
+            o.pricingTier = pricingTier;
+            o.resourceGroupName = resourceGroupName;
+            o.subnetId = subnetId;
+            o.tags = tags;
+            o.windowsOutboundIpAddresses = windowsOutboundIpAddresses;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

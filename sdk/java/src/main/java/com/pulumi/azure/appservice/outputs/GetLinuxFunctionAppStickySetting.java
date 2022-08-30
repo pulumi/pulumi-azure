@@ -14,21 +14,14 @@ public final class GetLinuxFunctionAppStickySetting {
      * @return A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final List<String> appSettingNames;
+    private List<String> appSettingNames;
     /**
      * @return A list of `connection_string` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
      */
-    private final List<String> connectionStringNames;
+    private List<String> connectionStringNames;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppStickySetting(
-        @CustomType.Parameter("appSettingNames") List<String> appSettingNames,
-        @CustomType.Parameter("connectionStringNames") List<String> connectionStringNames) {
-        this.appSettingNames = appSettingNames;
-        this.connectionStringNames = connectionStringNames;
-    }
-
+    private GetLinuxFunctionAppStickySetting() {}
     /**
      * @return A list of `app_setting` names that the Linux Function App will not swap between Slots when a swap operation is triggered.
      * 
@@ -51,21 +44,18 @@ public final class GetLinuxFunctionAppStickySetting {
     public static Builder builder(GetLinuxFunctionAppStickySetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> appSettingNames;
         private List<String> connectionStringNames;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppStickySetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appSettingNames = defaults.appSettingNames;
     	      this.connectionStringNames = defaults.connectionStringNames;
         }
 
+        @CustomType.Setter
         public Builder appSettingNames(List<String> appSettingNames) {
             this.appSettingNames = Objects.requireNonNull(appSettingNames);
             return this;
@@ -73,14 +63,19 @@ public final class GetLinuxFunctionAppStickySetting {
         public Builder appSettingNames(String... appSettingNames) {
             return appSettingNames(List.of(appSettingNames));
         }
+        @CustomType.Setter
         public Builder connectionStringNames(List<String> connectionStringNames) {
             this.connectionStringNames = Objects.requireNonNull(connectionStringNames);
             return this;
         }
         public Builder connectionStringNames(String... connectionStringNames) {
             return connectionStringNames(List.of(connectionStringNames));
-        }        public GetLinuxFunctionAppStickySetting build() {
-            return new GetLinuxFunctionAppStickySetting(appSettingNames, connectionStringNames);
+        }
+        public GetLinuxFunctionAppStickySetting build() {
+            final var o = new GetLinuxFunctionAppStickySetting();
+            o.appSettingNames = appSettingNames;
+            o.connectionStringNames = connectionStringNames;
+            return o;
         }
     }
 }

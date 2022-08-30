@@ -13,13 +13,9 @@ public final class GetClusterNodePoolUpgradeSetting {
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
      */
-    private final String maxSurge;
+    private String maxSurge;
 
-    @CustomType.Constructor
-    private GetClusterNodePoolUpgradeSetting(@CustomType.Parameter("maxSurge") String maxSurge) {
-        this.maxSurge = maxSurge;
-    }
-
+    private GetClusterNodePoolUpgradeSetting() {}
     /**
      * @return The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
      * 
@@ -35,24 +31,24 @@ public final class GetClusterNodePoolUpgradeSetting {
     public static Builder builder(GetClusterNodePoolUpgradeSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String maxSurge;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetClusterNodePoolUpgradeSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.maxSurge = defaults.maxSurge;
         }
 
+        @CustomType.Setter
         public Builder maxSurge(String maxSurge) {
             this.maxSurge = Objects.requireNonNull(maxSurge);
             return this;
-        }        public GetClusterNodePoolUpgradeSetting build() {
-            return new GetClusterNodePoolUpgradeSetting(maxSurge);
+        }
+        public GetClusterNodePoolUpgradeSetting build() {
+            final var o = new GetClusterNodePoolUpgradeSetting();
+            o.maxSurge = maxSurge;
+            return o;
         }
     }
 }

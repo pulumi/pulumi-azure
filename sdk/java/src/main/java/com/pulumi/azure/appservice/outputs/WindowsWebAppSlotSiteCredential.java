@@ -15,21 +15,14 @@ public final class WindowsWebAppSlotSiteCredential {
      * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The Site Credentials Password used for publishing.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
 
-    @CustomType.Constructor
-    private WindowsWebAppSlotSiteCredential(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("password") @Nullable String password) {
-        this.name = name;
-        this.password = password;
-    }
-
+    private WindowsWebAppSlotSiteCredential() {}
     /**
      * @return The name which should be used for this Windows Web App Slot. Changing this forces a new Windows Web App Slot to be created.
      * 
@@ -52,30 +45,32 @@ public final class WindowsWebAppSlotSiteCredential {
     public static Builder builder(WindowsWebAppSlotSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSlotSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
-        }        public WindowsWebAppSlotSiteCredential build() {
-            return new WindowsWebAppSlotSiteCredential(name, password);
+        }
+        public WindowsWebAppSlotSiteCredential build() {
+            final var o = new WindowsWebAppSlotSiteCredential();
+            o.name = name;
+            o.password = password;
+            return o;
         }
     }
 }

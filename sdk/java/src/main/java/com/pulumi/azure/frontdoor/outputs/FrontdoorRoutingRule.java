@@ -19,63 +19,44 @@ public final class FrontdoorRoutingRule {
      * @return Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
      * 
      */
-    private final List<String> acceptedProtocols;
+    private List<String> acceptedProtocols;
     /**
      * @return `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return A `forwarding_configuration` block as defined below.
      * 
      */
-    private final @Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration;
+    private @Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration;
     /**
      * @return The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
      * 
      */
-    private final List<String> frontendEndpoints;
+    private List<String> frontendEndpoints;
     /**
      * @return The ID of the FrontDoor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the Routing Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The route patterns for the Backend Routing Rule. Defaults to `/*`.
      * 
      */
-    private final List<String> patternsToMatches;
+    private List<String> patternsToMatches;
     /**
      * @return A `redirect_configuration` block as defined below.
      * 
      */
-    private final @Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration;
+    private @Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration;
 
-    @CustomType.Constructor
-    private FrontdoorRoutingRule(
-        @CustomType.Parameter("acceptedProtocols") List<String> acceptedProtocols,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("forwardingConfiguration") @Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration,
-        @CustomType.Parameter("frontendEndpoints") List<String> frontendEndpoints,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("patternsToMatches") List<String> patternsToMatches,
-        @CustomType.Parameter("redirectConfiguration") @Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration) {
-        this.acceptedProtocols = acceptedProtocols;
-        this.enabled = enabled;
-        this.forwardingConfiguration = forwardingConfiguration;
-        this.frontendEndpoints = frontendEndpoints;
-        this.id = id;
-        this.name = name;
-        this.patternsToMatches = patternsToMatches;
-        this.redirectConfiguration = redirectConfiguration;
-    }
-
+    private FrontdoorRoutingRule() {}
     /**
      * @return Protocol schemes to match for the Backend Routing Rule. Defaults to `Http`.
      * 
@@ -140,7 +121,7 @@ public final class FrontdoorRoutingRule {
     public static Builder builder(FrontdoorRoutingRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> acceptedProtocols;
         private @Nullable Boolean enabled;
@@ -150,11 +131,7 @@ public final class FrontdoorRoutingRule {
         private String name;
         private List<String> patternsToMatches;
         private @Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorRoutingRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acceptedProtocols = defaults.acceptedProtocols;
@@ -167,6 +144,7 @@ public final class FrontdoorRoutingRule {
     	      this.redirectConfiguration = defaults.redirectConfiguration;
         }
 
+        @CustomType.Setter
         public Builder acceptedProtocols(List<String> acceptedProtocols) {
             this.acceptedProtocols = Objects.requireNonNull(acceptedProtocols);
             return this;
@@ -174,14 +152,17 @@ public final class FrontdoorRoutingRule {
         public Builder acceptedProtocols(String... acceptedProtocols) {
             return acceptedProtocols(List.of(acceptedProtocols));
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder forwardingConfiguration(@Nullable FrontdoorRoutingRuleForwardingConfiguration forwardingConfiguration) {
             this.forwardingConfiguration = forwardingConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder frontendEndpoints(List<String> frontendEndpoints) {
             this.frontendEndpoints = Objects.requireNonNull(frontendEndpoints);
             return this;
@@ -189,14 +170,17 @@ public final class FrontdoorRoutingRule {
         public Builder frontendEndpoints(String... frontendEndpoints) {
             return frontendEndpoints(List.of(frontendEndpoints));
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder patternsToMatches(List<String> patternsToMatches) {
             this.patternsToMatches = Objects.requireNonNull(patternsToMatches);
             return this;
@@ -204,11 +188,22 @@ public final class FrontdoorRoutingRule {
         public Builder patternsToMatches(String... patternsToMatches) {
             return patternsToMatches(List.of(patternsToMatches));
         }
+        @CustomType.Setter
         public Builder redirectConfiguration(@Nullable FrontdoorRoutingRuleRedirectConfiguration redirectConfiguration) {
             this.redirectConfiguration = redirectConfiguration;
             return this;
-        }        public FrontdoorRoutingRule build() {
-            return new FrontdoorRoutingRule(acceptedProtocols, enabled, forwardingConfiguration, frontendEndpoints, id, name, patternsToMatches, redirectConfiguration);
+        }
+        public FrontdoorRoutingRule build() {
+            final var o = new FrontdoorRoutingRule();
+            o.acceptedProtocols = acceptedProtocols;
+            o.enabled = enabled;
+            o.forwardingConfiguration = forwardingConfiguration;
+            o.frontendEndpoints = frontendEndpoints;
+            o.id = id;
+            o.name = name;
+            o.patternsToMatches = patternsToMatches;
+            o.redirectConfiguration = redirectConfiguration;
+            return o;
         }
     }
 }

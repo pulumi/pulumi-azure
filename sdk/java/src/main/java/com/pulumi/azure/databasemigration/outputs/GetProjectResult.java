@@ -14,51 +14,32 @@ public final class GetProjectResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Azure location where the resource exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
-    private final String serviceName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
+    private String serviceName;
     /**
      * @return The platform type of the migration source.
      * 
      */
-    private final String sourcePlatform;
+    private String sourcePlatform;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The platform type of the migration target.
      * 
      */
-    private final String targetPlatform;
+    private String targetPlatform;
 
-    @CustomType.Constructor
-    private GetProjectResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceName") String serviceName,
-        @CustomType.Parameter("sourcePlatform") String sourcePlatform,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("targetPlatform") String targetPlatform) {
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceName = serviceName;
-        this.sourcePlatform = sourcePlatform;
-        this.tags = tags;
-        this.targetPlatform = targetPlatform;
-    }
-
+    private GetProjectResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -111,7 +92,7 @@ public final class GetProjectResult {
     public static Builder builder(GetProjectResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String location;
@@ -121,11 +102,7 @@ public final class GetProjectResult {
         private String sourcePlatform;
         private Map<String,String> tags;
         private String targetPlatform;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetProjectResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -138,39 +115,57 @@ public final class GetProjectResult {
     	      this.targetPlatform = defaults.targetPlatform;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceName(String serviceName) {
             this.serviceName = Objects.requireNonNull(serviceName);
             return this;
         }
+        @CustomType.Setter
         public Builder sourcePlatform(String sourcePlatform) {
             this.sourcePlatform = Objects.requireNonNull(sourcePlatform);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder targetPlatform(String targetPlatform) {
             this.targetPlatform = Objects.requireNonNull(targetPlatform);
             return this;
-        }        public GetProjectResult build() {
-            return new GetProjectResult(id, location, name, resourceGroupName, serviceName, sourcePlatform, tags, targetPlatform);
+        }
+        public GetProjectResult build() {
+            final var o = new GetProjectResult();
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceName = serviceName;
+            o.sourcePlatform = sourcePlatform;
+            o.tags = tags;
+            o.targetPlatform = targetPlatform;
+            return o;
         }
     }
 }

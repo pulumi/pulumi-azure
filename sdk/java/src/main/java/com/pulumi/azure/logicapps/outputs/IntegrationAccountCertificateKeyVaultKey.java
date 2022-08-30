@@ -15,28 +15,19 @@ public final class IntegrationAccountCertificateKeyVaultKey {
      * @return The name of Key Vault Key.
      * 
      */
-    private final String keyName;
+    private String keyName;
     /**
      * @return The ID of the Key Vault.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return The version of Key Vault Key.
      * 
      */
-    private final @Nullable String keyVersion;
+    private @Nullable String keyVersion;
 
-    @CustomType.Constructor
-    private IntegrationAccountCertificateKeyVaultKey(
-        @CustomType.Parameter("keyName") String keyName,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("keyVersion") @Nullable String keyVersion) {
-        this.keyName = keyName;
-        this.keyVaultId = keyVaultId;
-        this.keyVersion = keyVersion;
-    }
-
+    private IntegrationAccountCertificateKeyVaultKey() {}
     /**
      * @return The name of Key Vault Key.
      * 
@@ -66,16 +57,12 @@ public final class IntegrationAccountCertificateKeyVaultKey {
     public static Builder builder(IntegrationAccountCertificateKeyVaultKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyName;
         private String keyVaultId;
         private @Nullable String keyVersion;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IntegrationAccountCertificateKeyVaultKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyName = defaults.keyName;
@@ -83,19 +70,27 @@ public final class IntegrationAccountCertificateKeyVaultKey {
     	      this.keyVersion = defaults.keyVersion;
         }
 
+        @CustomType.Setter
         public Builder keyName(String keyName) {
             this.keyName = Objects.requireNonNull(keyName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVersion(@Nullable String keyVersion) {
             this.keyVersion = keyVersion;
             return this;
-        }        public IntegrationAccountCertificateKeyVaultKey build() {
-            return new IntegrationAccountCertificateKeyVaultKey(keyName, keyVaultId, keyVersion);
+        }
+        public IntegrationAccountCertificateKeyVaultKey build() {
+            final var o = new IntegrationAccountCertificateKeyVaultKey();
+            o.keyName = keyName;
+            o.keyVaultId = keyVaultId;
+            o.keyVersion = keyVersion;
+            return o;
         }
     }
 }

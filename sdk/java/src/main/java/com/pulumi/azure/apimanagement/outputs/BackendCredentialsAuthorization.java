@@ -15,21 +15,14 @@ public final class BackendCredentialsAuthorization {
      * @return The authentication Parameter value.
      * 
      */
-    private final @Nullable String parameter;
+    private @Nullable String parameter;
     /**
      * @return The authentication Scheme name.
      * 
      */
-    private final @Nullable String scheme;
+    private @Nullable String scheme;
 
-    @CustomType.Constructor
-    private BackendCredentialsAuthorization(
-        @CustomType.Parameter("parameter") @Nullable String parameter,
-        @CustomType.Parameter("scheme") @Nullable String scheme) {
-        this.parameter = parameter;
-        this.scheme = scheme;
-    }
-
+    private BackendCredentialsAuthorization() {}
     /**
      * @return The authentication Parameter value.
      * 
@@ -52,30 +45,32 @@ public final class BackendCredentialsAuthorization {
     public static Builder builder(BackendCredentialsAuthorization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String parameter;
         private @Nullable String scheme;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BackendCredentialsAuthorization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.parameter = defaults.parameter;
     	      this.scheme = defaults.scheme;
         }
 
+        @CustomType.Setter
         public Builder parameter(@Nullable String parameter) {
             this.parameter = parameter;
             return this;
         }
+        @CustomType.Setter
         public Builder scheme(@Nullable String scheme) {
             this.scheme = scheme;
             return this;
-        }        public BackendCredentialsAuthorization build() {
-            return new BackendCredentialsAuthorization(parameter, scheme);
+        }
+        public BackendCredentialsAuthorization build() {
+            final var o = new BackendCredentialsAuthorization();
+            o.parameter = parameter;
+            o.scheme = scheme;
+            return o;
         }
     }
 }

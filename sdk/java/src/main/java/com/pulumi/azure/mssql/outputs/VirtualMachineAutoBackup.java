@@ -18,56 +18,39 @@ public final class VirtualMachineAutoBackup {
      * @return Enable or disable encryption for backups. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean encryptionEnabled;
+    private @Nullable Boolean encryptionEnabled;
     /**
      * @return Encryption password to use. Must be specified when encryption is enabled.
      * 
      */
-    private final @Nullable String encryptionPassword;
+    private @Nullable String encryptionPassword;
     /**
      * @return A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
      * 
      */
-    private final @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule;
+    private @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule;
     /**
      * @return Retention period of backups, in days. Valid values are from `1` to `30`.
      * 
      */
-    private final Integer retentionPeriodInDays;
+    private Integer retentionPeriodInDays;
     /**
      * @return Access key for the storage account where backups will be kept.
      * 
      */
-    private final String storageAccountAccessKey;
+    private String storageAccountAccessKey;
     /**
      * @return Blob endpoint for the storage account where backups will be kept.
      * 
      */
-    private final String storageBlobEndpoint;
+    private String storageBlobEndpoint;
     /**
      * @return Include or exclude system databases from auto backup. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean systemDatabasesBackupEnabled;
+    private @Nullable Boolean systemDatabasesBackupEnabled;
 
-    @CustomType.Constructor
-    private VirtualMachineAutoBackup(
-        @CustomType.Parameter("encryptionEnabled") @Nullable Boolean encryptionEnabled,
-        @CustomType.Parameter("encryptionPassword") @Nullable String encryptionPassword,
-        @CustomType.Parameter("manualSchedule") @Nullable VirtualMachineAutoBackupManualSchedule manualSchedule,
-        @CustomType.Parameter("retentionPeriodInDays") Integer retentionPeriodInDays,
-        @CustomType.Parameter("storageAccountAccessKey") String storageAccountAccessKey,
-        @CustomType.Parameter("storageBlobEndpoint") String storageBlobEndpoint,
-        @CustomType.Parameter("systemDatabasesBackupEnabled") @Nullable Boolean systemDatabasesBackupEnabled) {
-        this.encryptionEnabled = encryptionEnabled;
-        this.encryptionPassword = encryptionPassword;
-        this.manualSchedule = manualSchedule;
-        this.retentionPeriodInDays = retentionPeriodInDays;
-        this.storageAccountAccessKey = storageAccountAccessKey;
-        this.storageBlobEndpoint = storageBlobEndpoint;
-        this.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
-    }
-
+    private VirtualMachineAutoBackup() {}
     /**
      * @return Enable or disable encryption for backups. Defaults to `false`.
      * 
@@ -125,7 +108,7 @@ public final class VirtualMachineAutoBackup {
     public static Builder builder(VirtualMachineAutoBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean encryptionEnabled;
         private @Nullable String encryptionPassword;
@@ -134,11 +117,7 @@ public final class VirtualMachineAutoBackup {
         private String storageAccountAccessKey;
         private String storageBlobEndpoint;
         private @Nullable Boolean systemDatabasesBackupEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineAutoBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encryptionEnabled = defaults.encryptionEnabled;
@@ -150,35 +129,51 @@ public final class VirtualMachineAutoBackup {
     	      this.systemDatabasesBackupEnabled = defaults.systemDatabasesBackupEnabled;
         }
 
+        @CustomType.Setter
         public Builder encryptionEnabled(@Nullable Boolean encryptionEnabled) {
             this.encryptionEnabled = encryptionEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder encryptionPassword(@Nullable String encryptionPassword) {
             this.encryptionPassword = encryptionPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder manualSchedule(@Nullable VirtualMachineAutoBackupManualSchedule manualSchedule) {
             this.manualSchedule = manualSchedule;
             return this;
         }
+        @CustomType.Setter
         public Builder retentionPeriodInDays(Integer retentionPeriodInDays) {
             this.retentionPeriodInDays = Objects.requireNonNull(retentionPeriodInDays);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountAccessKey(String storageAccountAccessKey) {
             this.storageAccountAccessKey = Objects.requireNonNull(storageAccountAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder storageBlobEndpoint(String storageBlobEndpoint) {
             this.storageBlobEndpoint = Objects.requireNonNull(storageBlobEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder systemDatabasesBackupEnabled(@Nullable Boolean systemDatabasesBackupEnabled) {
             this.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
             return this;
-        }        public VirtualMachineAutoBackup build() {
-            return new VirtualMachineAutoBackup(encryptionEnabled, encryptionPassword, manualSchedule, retentionPeriodInDays, storageAccountAccessKey, storageBlobEndpoint, systemDatabasesBackupEnabled);
+        }
+        public VirtualMachineAutoBackup build() {
+            final var o = new VirtualMachineAutoBackup();
+            o.encryptionEnabled = encryptionEnabled;
+            o.encryptionPassword = encryptionPassword;
+            o.manualSchedule = manualSchedule;
+            o.retentionPeriodInDays = retentionPeriodInDays;
+            o.storageAccountAccessKey = storageAccountAccessKey;
+            o.storageBlobEndpoint = storageBlobEndpoint;
+            o.systemDatabasesBackupEnabled = systemDatabasesBackupEnabled;
+            return o;
         }
     }
 }

@@ -14,35 +14,24 @@ public final class AutoscaleSettingProfileRuleScaleAction {
      * @return The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
      * 
      */
-    private final String cooldown;
+    private String cooldown;
     /**
      * @return The scale direction. Possible values are `Increase` and `Decrease`.
      * 
      */
-    private final String direction;
+    private String direction;
     /**
      * @return The type of action that should occur. Possible values are `ChangeCount`, `ExactCount`, `PercentChangeCount` and `ServiceAllowedNextValue`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The number of instances involved in the scaling action. Defaults to `1`.
      * 
      */
-    private final Integer value;
+    private Integer value;
 
-    @CustomType.Constructor
-    private AutoscaleSettingProfileRuleScaleAction(
-        @CustomType.Parameter("cooldown") String cooldown,
-        @CustomType.Parameter("direction") String direction,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") Integer value) {
-        this.cooldown = cooldown;
-        this.direction = direction;
-        this.type = type;
-        this.value = value;
-    }
-
+    private AutoscaleSettingProfileRuleScaleAction() {}
     /**
      * @return The amount of time to wait since the last scaling action before this action occurs. Must be between 1 minute and 1 week and formatted as a ISO 8601 string.
      * 
@@ -79,17 +68,13 @@ public final class AutoscaleSettingProfileRuleScaleAction {
     public static Builder builder(AutoscaleSettingProfileRuleScaleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cooldown;
         private String direction;
         private String type;
         private Integer value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutoscaleSettingProfileRuleScaleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cooldown = defaults.cooldown;
@@ -98,23 +83,33 @@ public final class AutoscaleSettingProfileRuleScaleAction {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder cooldown(String cooldown) {
             this.cooldown = Objects.requireNonNull(cooldown);
             return this;
         }
+        @CustomType.Setter
         public Builder direction(String direction) {
             this.direction = Objects.requireNonNull(direction);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(Integer value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public AutoscaleSettingProfileRuleScaleAction build() {
-            return new AutoscaleSettingProfileRuleScaleAction(cooldown, direction, type, value);
+        }
+        public AutoscaleSettingProfileRuleScaleAction build() {
+            final var o = new AutoscaleSettingProfileRuleScaleAction();
+            o.cooldown = cooldown;
+            o.direction = direction;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

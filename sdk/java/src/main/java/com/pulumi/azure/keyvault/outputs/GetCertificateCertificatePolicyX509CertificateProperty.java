@@ -16,42 +16,29 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
      * @return A list of Extended/Enhanced Key Usages.
      * 
      */
-    private final List<String> extendedKeyUsages;
+    private List<String> extendedKeyUsages;
     /**
      * @return A list of uses associated with this Key.
      * 
      */
-    private final List<String> keyUsages;
+    private List<String> keyUsages;
     /**
      * @return The Certificate&#39;s Subject.
      * 
      */
-    private final String subject;
+    private String subject;
     /**
      * @return A `subject_alternative_names` block as defined below.
      * 
      */
-    private final List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames;
+    private List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames;
     /**
      * @return The Certificates Validity Period in Months.
      * 
      */
-    private final Integer validityInMonths;
+    private Integer validityInMonths;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyX509CertificateProperty(
-        @CustomType.Parameter("extendedKeyUsages") List<String> extendedKeyUsages,
-        @CustomType.Parameter("keyUsages") List<String> keyUsages,
-        @CustomType.Parameter("subject") String subject,
-        @CustomType.Parameter("subjectAlternativeNames") List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames,
-        @CustomType.Parameter("validityInMonths") Integer validityInMonths) {
-        this.extendedKeyUsages = extendedKeyUsages;
-        this.keyUsages = keyUsages;
-        this.subject = subject;
-        this.subjectAlternativeNames = subjectAlternativeNames;
-        this.validityInMonths = validityInMonths;
-    }
-
+    private GetCertificateCertificatePolicyX509CertificateProperty() {}
     /**
      * @return A list of Extended/Enhanced Key Usages.
      * 
@@ -95,18 +82,14 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
     public static Builder builder(GetCertificateCertificatePolicyX509CertificateProperty defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> extendedKeyUsages;
         private List<String> keyUsages;
         private String subject;
         private List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames;
         private Integer validityInMonths;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyX509CertificateProperty defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.extendedKeyUsages = defaults.extendedKeyUsages;
@@ -116,6 +99,7 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
     	      this.validityInMonths = defaults.validityInMonths;
         }
 
+        @CustomType.Setter
         public Builder extendedKeyUsages(List<String> extendedKeyUsages) {
             this.extendedKeyUsages = Objects.requireNonNull(extendedKeyUsages);
             return this;
@@ -123,6 +107,7 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         public Builder extendedKeyUsages(String... extendedKeyUsages) {
             return extendedKeyUsages(List.of(extendedKeyUsages));
         }
+        @CustomType.Setter
         public Builder keyUsages(List<String> keyUsages) {
             this.keyUsages = Objects.requireNonNull(keyUsages);
             return this;
@@ -130,10 +115,12 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         public Builder keyUsages(String... keyUsages) {
             return keyUsages(List.of(keyUsages));
         }
+        @CustomType.Setter
         public Builder subject(String subject) {
             this.subject = Objects.requireNonNull(subject);
             return this;
         }
+        @CustomType.Setter
         public Builder subjectAlternativeNames(List<GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName> subjectAlternativeNames) {
             this.subjectAlternativeNames = Objects.requireNonNull(subjectAlternativeNames);
             return this;
@@ -141,11 +128,19 @@ public final class GetCertificateCertificatePolicyX509CertificateProperty {
         public Builder subjectAlternativeNames(GetCertificateCertificatePolicyX509CertificatePropertySubjectAlternativeName... subjectAlternativeNames) {
             return subjectAlternativeNames(List.of(subjectAlternativeNames));
         }
+        @CustomType.Setter
         public Builder validityInMonths(Integer validityInMonths) {
             this.validityInMonths = Objects.requireNonNull(validityInMonths);
             return this;
-        }        public GetCertificateCertificatePolicyX509CertificateProperty build() {
-            return new GetCertificateCertificatePolicyX509CertificateProperty(extendedKeyUsages, keyUsages, subject, subjectAlternativeNames, validityInMonths);
+        }
+        public GetCertificateCertificatePolicyX509CertificateProperty build() {
+            final var o = new GetCertificateCertificatePolicyX509CertificateProperty();
+            o.extendedKeyUsages = extendedKeyUsages;
+            o.keyUsages = keyUsages;
+            o.subject = subject;
+            o.subjectAlternativeNames = subjectAlternativeNames;
+            o.validityInMonths = validityInMonths;
+            return o;
         }
     }
 }

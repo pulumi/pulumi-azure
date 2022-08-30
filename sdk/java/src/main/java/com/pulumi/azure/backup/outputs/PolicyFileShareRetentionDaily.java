@@ -13,13 +13,9 @@ public final class PolicyFileShareRetentionDaily {
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
      */
-    private final Integer count;
+    private Integer count;
 
-    @CustomType.Constructor
-    private PolicyFileShareRetentionDaily(@CustomType.Parameter("count") Integer count) {
-        this.count = count;
-    }
-
+    private PolicyFileShareRetentionDaily() {}
     /**
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
@@ -35,24 +31,24 @@ public final class PolicyFileShareRetentionDaily {
     public static Builder builder(PolicyFileShareRetentionDaily defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyFileShareRetentionDaily defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
-        }        public PolicyFileShareRetentionDaily build() {
-            return new PolicyFileShareRetentionDaily(count);
+        }
+        public PolicyFileShareRetentionDaily build() {
+            final var o = new PolicyFileShareRetentionDaily();
+            o.count = count;
+            return o;
         }
     }
 }

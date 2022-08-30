@@ -16,20 +16,20 @@ public final class VirtualNetworkGatewayIpConfiguration {
      * `vnetGatewayConfig`.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Defines how the private IP address
      * of the gateways virtual interface is assigned. Valid options are `Static` or
      * `Dynamic`. Defaults to `Dynamic`.
      * 
      */
-    private final @Nullable String privateIpAddressAllocation;
+    private @Nullable String privateIpAddressAllocation;
     /**
      * @return The ID of the public IP address to associate
      * with the Virtual Network Gateway.
      * 
      */
-    private final String publicIpAddressId;
+    private String publicIpAddressId;
     /**
      * @return The ID of the gateway subnet of a virtual network in
      * which the virtual network gateway will be created. It is mandatory that
@@ -37,20 +37,9 @@ public final class VirtualNetworkGatewayIpConfiguration {
      * network can contain at most a single Virtual Network Gateway.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private VirtualNetworkGatewayIpConfiguration(
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("privateIpAddressAllocation") @Nullable String privateIpAddressAllocation,
-        @CustomType.Parameter("publicIpAddressId") String publicIpAddressId,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.publicIpAddressId = publicIpAddressId;
-        this.subnetId = subnetId;
-    }
-
+    private VirtualNetworkGatewayIpConfiguration() {}
     /**
      * @return A user-defined name of the IP configuration. Defaults to
      * `vnetGatewayConfig`.
@@ -94,17 +83,13 @@ public final class VirtualNetworkGatewayIpConfiguration {
     public static Builder builder(VirtualNetworkGatewayIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String name;
         private @Nullable String privateIpAddressAllocation;
         private String publicIpAddressId;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualNetworkGatewayIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -113,23 +98,33 @@ public final class VirtualNetworkGatewayIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(@Nullable String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = privateIpAddressAllocation;
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressId(String publicIpAddressId) {
             this.publicIpAddressId = Objects.requireNonNull(publicIpAddressId);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public VirtualNetworkGatewayIpConfiguration build() {
-            return new VirtualNetworkGatewayIpConfiguration(name, privateIpAddressAllocation, publicIpAddressId, subnetId);
+        }
+        public VirtualNetworkGatewayIpConfiguration build() {
+            final var o = new VirtualNetworkGatewayIpConfiguration();
+            o.name = name;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.publicIpAddressId = publicIpAddressId;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

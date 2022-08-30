@@ -17,56 +17,39 @@ public final class AutomationRuleActionIncident {
      * @return The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
      * 
      */
-    private final @Nullable String classification;
+    private @Nullable String classification;
     /**
      * @return The comment why the incident is to be closed.
      * 
      */
-    private final @Nullable String classificationComment;
+    private @Nullable String classificationComment;
     /**
      * @return Specifies a list of labels to add to the incident.
      * 
      */
-    private final @Nullable List<String> labels;
+    private @Nullable List<String> labels;
     /**
      * @return The execution order of this action.
      * 
      */
-    private final Integer order;
+    private Integer order;
     /**
      * @return The object ID of the entity this incident is assigned to.
      * 
      */
-    private final @Nullable String ownerId;
+    private @Nullable String ownerId;
     /**
      * @return The severity to add to the incident.
      * 
      */
-    private final @Nullable String severity;
+    private @Nullable String severity;
     /**
      * @return The status to set to the incident. Possible values are: `Active`, `Closed`, `New`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
 
-    @CustomType.Constructor
-    private AutomationRuleActionIncident(
-        @CustomType.Parameter("classification") @Nullable String classification,
-        @CustomType.Parameter("classificationComment") @Nullable String classificationComment,
-        @CustomType.Parameter("labels") @Nullable List<String> labels,
-        @CustomType.Parameter("order") Integer order,
-        @CustomType.Parameter("ownerId") @Nullable String ownerId,
-        @CustomType.Parameter("severity") @Nullable String severity,
-        @CustomType.Parameter("status") @Nullable String status) {
-        this.classification = classification;
-        this.classificationComment = classificationComment;
-        this.labels = labels;
-        this.order = order;
-        this.ownerId = ownerId;
-        this.severity = severity;
-        this.status = status;
-    }
-
+    private AutomationRuleActionIncident() {}
     /**
      * @return The classification of the incident, when closing it. Possible values are: `BenignPositive_SuspiciousButExpected`, `FalsePositive_InaccurateData`, `FalsePositive_IncorrectAlertLogic`, `TruePositive_SuspiciousActivity` and `Undetermined`.
      * 
@@ -124,7 +107,7 @@ public final class AutomationRuleActionIncident {
     public static Builder builder(AutomationRuleActionIncident defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String classification;
         private @Nullable String classificationComment;
@@ -133,11 +116,7 @@ public final class AutomationRuleActionIncident {
         private @Nullable String ownerId;
         private @Nullable String severity;
         private @Nullable String status;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationRuleActionIncident defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.classification = defaults.classification;
@@ -149,14 +128,17 @@ public final class AutomationRuleActionIncident {
     	      this.status = defaults.status;
         }
 
+        @CustomType.Setter
         public Builder classification(@Nullable String classification) {
             this.classification = classification;
             return this;
         }
+        @CustomType.Setter
         public Builder classificationComment(@Nullable String classificationComment) {
             this.classificationComment = classificationComment;
             return this;
         }
+        @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
             this.labels = labels;
             return this;
@@ -164,23 +146,36 @@ public final class AutomationRuleActionIncident {
         public Builder labels(String... labels) {
             return labels(List.of(labels));
         }
+        @CustomType.Setter
         public Builder order(Integer order) {
             this.order = Objects.requireNonNull(order);
             return this;
         }
+        @CustomType.Setter
         public Builder ownerId(@Nullable String ownerId) {
             this.ownerId = ownerId;
             return this;
         }
+        @CustomType.Setter
         public Builder severity(@Nullable String severity) {
             this.severity = severity;
             return this;
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
-        }        public AutomationRuleActionIncident build() {
-            return new AutomationRuleActionIncident(classification, classificationComment, labels, order, ownerId, severity, status);
+        }
+        public AutomationRuleActionIncident build() {
+            final var o = new AutomationRuleActionIncident();
+            o.classification = classification;
+            o.classificationComment = classificationComment;
+            o.labels = labels;
+            o.order = order;
+            o.ownerId = ownerId;
+            o.severity = severity;
+            o.status = status;
+            return o;
         }
     }
 }

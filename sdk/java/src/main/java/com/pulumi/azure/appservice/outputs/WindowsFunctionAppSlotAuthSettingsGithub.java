@@ -16,35 +16,24 @@ public final class WindowsFunctionAppSlotAuthSettingsGithub {
      * @return The ID of the GitHub app used for login.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The Client Secret of the GitHub app used for GitHub login. Cannot be specified with `client_secret_setting_name`.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The app setting name that contains the `client_secret` value used for GitHub login. Cannot be specified with `client_secret`.
      * 
      */
-    private final @Nullable String clientSecretSettingName;
+    private @Nullable String clientSecretSettingName;
     /**
      * @return an `oauth_scopes` block as detailed below.
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private WindowsFunctionAppSlotAuthSettingsGithub(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") @Nullable String clientSecretSettingName,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private WindowsFunctionAppSlotAuthSettingsGithub() {}
     /**
      * @return The ID of the GitHub app used for login.
      * 
@@ -81,17 +70,13 @@ public final class WindowsFunctionAppSlotAuthSettingsGithub {
     public static Builder builder(WindowsFunctionAppSlotAuthSettingsGithub defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private @Nullable String clientSecret;
         private @Nullable String clientSecretSettingName;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFunctionAppSlotAuthSettingsGithub defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -100,26 +85,36 @@ public final class WindowsFunctionAppSlotAuthSettingsGithub {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(@Nullable String clientSecretSettingName) {
             this.clientSecretSettingName = clientSecretSettingName;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public WindowsFunctionAppSlotAuthSettingsGithub build() {
-            return new WindowsFunctionAppSlotAuthSettingsGithub(clientId, clientSecret, clientSecretSettingName, oauthScopes);
+        }
+        public WindowsFunctionAppSlotAuthSettingsGithub build() {
+            final var o = new WindowsFunctionAppSlotAuthSettingsGithub();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

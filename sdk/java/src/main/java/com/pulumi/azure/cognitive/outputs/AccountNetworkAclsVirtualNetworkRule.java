@@ -16,21 +16,14 @@ public final class AccountNetworkAclsVirtualNetworkRule {
      * @return Whether ignore missing vnet service endpoint or not. Default to `false`.
      * 
      */
-    private final @Nullable Boolean ignoreMissingVnetServiceEndpoint;
+    private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
     /**
      * @return The ID of the subnet which should be able to access this Cognitive Account.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private AccountNetworkAclsVirtualNetworkRule(
-        @CustomType.Parameter("ignoreMissingVnetServiceEndpoint") @Nullable Boolean ignoreMissingVnetServiceEndpoint,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
-        this.subnetId = subnetId;
-    }
-
+    private AccountNetworkAclsVirtualNetworkRule() {}
     /**
      * @return Whether ignore missing vnet service endpoint or not. Default to `false`.
      * 
@@ -53,30 +46,32 @@ public final class AccountNetworkAclsVirtualNetworkRule {
     public static Builder builder(AccountNetworkAclsVirtualNetworkRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ignoreMissingVnetServiceEndpoint;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountNetworkAclsVirtualNetworkRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ignoreMissingVnetServiceEndpoint = defaults.ignoreMissingVnetServiceEndpoint;
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder ignoreMissingVnetServiceEndpoint(@Nullable Boolean ignoreMissingVnetServiceEndpoint) {
             this.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public AccountNetworkAclsVirtualNetworkRule build() {
-            return new AccountNetworkAclsVirtualNetworkRule(ignoreMissingVnetServiceEndpoint, subnetId);
+        }
+        public AccountNetworkAclsVirtualNetworkRule build() {
+            final var o = new AccountNetworkAclsVirtualNetworkRule();
+            o.ignoreMissingVnetServiceEndpoint = ignoreMissingVnetServiceEndpoint;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

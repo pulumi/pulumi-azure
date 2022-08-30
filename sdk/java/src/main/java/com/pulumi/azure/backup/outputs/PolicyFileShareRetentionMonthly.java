@@ -15,28 +15,19 @@ public final class PolicyFileShareRetentionMonthly {
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
      */
-    private final Integer count;
+    private Integer count;
     /**
      * @return The weekday backups to retain . Must be one of `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
      * 
      */
-    private final List<String> weekdays;
+    private List<String> weekdays;
     /**
      * @return The weeks of the month to retain backups of. Must be one of `First`, `Second`, `Third`, `Fourth`, `Last`.
      * 
      */
-    private final List<String> weeks;
+    private List<String> weeks;
 
-    @CustomType.Constructor
-    private PolicyFileShareRetentionMonthly(
-        @CustomType.Parameter("count") Integer count,
-        @CustomType.Parameter("weekdays") List<String> weekdays,
-        @CustomType.Parameter("weeks") List<String> weeks) {
-        this.count = count;
-        this.weekdays = weekdays;
-        this.weeks = weeks;
-    }
-
+    private PolicyFileShareRetentionMonthly() {}
     /**
      * @return The number of yearly backups to keep. Must be between `1` and `10`
      * 
@@ -66,16 +57,12 @@ public final class PolicyFileShareRetentionMonthly {
     public static Builder builder(PolicyFileShareRetentionMonthly defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer count;
         private List<String> weekdays;
         private List<String> weeks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PolicyFileShareRetentionMonthly defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.count = defaults.count;
@@ -83,10 +70,12 @@ public final class PolicyFileShareRetentionMonthly {
     	      this.weeks = defaults.weeks;
         }
 
+        @CustomType.Setter
         public Builder count(Integer count) {
             this.count = Objects.requireNonNull(count);
             return this;
         }
+        @CustomType.Setter
         public Builder weekdays(List<String> weekdays) {
             this.weekdays = Objects.requireNonNull(weekdays);
             return this;
@@ -94,14 +83,20 @@ public final class PolicyFileShareRetentionMonthly {
         public Builder weekdays(String... weekdays) {
             return weekdays(List.of(weekdays));
         }
+        @CustomType.Setter
         public Builder weeks(List<String> weeks) {
             this.weeks = Objects.requireNonNull(weeks);
             return this;
         }
         public Builder weeks(String... weeks) {
             return weeks(List.of(weeks));
-        }        public PolicyFileShareRetentionMonthly build() {
-            return new PolicyFileShareRetentionMonthly(count, weekdays, weeks);
+        }
+        public PolicyFileShareRetentionMonthly build() {
+            final var o = new PolicyFileShareRetentionMonthly();
+            o.count = count;
+            o.weekdays = weekdays;
+            o.weeks = weeks;
+            return o;
         }
     }
 }

@@ -17,21 +17,14 @@ public final class ScaleSetOsProfileLinuxConfig {
      * @return Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean disablePasswordAuthentication;
+    private @Nullable Boolean disablePasswordAuthentication;
     /**
      * @return Specifies a collection of `path` and `key_data` to be placed on the virtual machine.
      * 
      */
-    private final @Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys;
+    private @Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileLinuxConfig(
-        @CustomType.Parameter("disablePasswordAuthentication") @Nullable Boolean disablePasswordAuthentication,
-        @CustomType.Parameter("sshKeys") @Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys) {
-        this.disablePasswordAuthentication = disablePasswordAuthentication;
-        this.sshKeys = sshKeys;
-    }
-
+    private ScaleSetOsProfileLinuxConfig() {}
     /**
      * @return Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
      * 
@@ -54,33 +47,35 @@ public final class ScaleSetOsProfileLinuxConfig {
     public static Builder builder(ScaleSetOsProfileLinuxConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean disablePasswordAuthentication;
         private @Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileLinuxConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disablePasswordAuthentication = defaults.disablePasswordAuthentication;
     	      this.sshKeys = defaults.sshKeys;
         }
 
+        @CustomType.Setter
         public Builder disablePasswordAuthentication(@Nullable Boolean disablePasswordAuthentication) {
             this.disablePasswordAuthentication = disablePasswordAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder sshKeys(@Nullable List<ScaleSetOsProfileLinuxConfigSshKey> sshKeys) {
             this.sshKeys = sshKeys;
             return this;
         }
         public Builder sshKeys(ScaleSetOsProfileLinuxConfigSshKey... sshKeys) {
             return sshKeys(List.of(sshKeys));
-        }        public ScaleSetOsProfileLinuxConfig build() {
-            return new ScaleSetOsProfileLinuxConfig(disablePasswordAuthentication, sshKeys);
+        }
+        public ScaleSetOsProfileLinuxConfig build() {
+            final var o = new ScaleSetOsProfileLinuxConfig();
+            o.disablePasswordAuthentication = disablePasswordAuthentication;
+            o.sshKeys = sshKeys;
+            return o;
         }
     }
 }

@@ -15,28 +15,19 @@ public final class KeyVaultContact {
      * @return E-mail address of the contact.
      * 
      */
-    private final String email;
+    private String email;
     /**
      * @return Name of the contact.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return Phone number of the contact.
      * 
      */
-    private final @Nullable String phone;
+    private @Nullable String phone;
 
-    @CustomType.Constructor
-    private KeyVaultContact(
-        @CustomType.Parameter("email") String email,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("phone") @Nullable String phone) {
-        this.email = email;
-        this.name = name;
-        this.phone = phone;
-    }
-
+    private KeyVaultContact() {}
     /**
      * @return E-mail address of the contact.
      * 
@@ -66,16 +57,12 @@ public final class KeyVaultContact {
     public static Builder builder(KeyVaultContact defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String email;
         private @Nullable String name;
         private @Nullable String phone;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(KeyVaultContact defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.email = defaults.email;
@@ -83,19 +70,27 @@ public final class KeyVaultContact {
     	      this.phone = defaults.phone;
         }
 
+        @CustomType.Setter
         public Builder email(String email) {
             this.email = Objects.requireNonNull(email);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder phone(@Nullable String phone) {
             this.phone = phone;
             return this;
-        }        public KeyVaultContact build() {
-            return new KeyVaultContact(email, name, phone);
+        }
+        public KeyVaultContact build() {
+            final var o = new KeyVaultContact();
+            o.email = email;
+            o.name = name;
+            o.phone = phone;
+            return o;
         }
     }
 }

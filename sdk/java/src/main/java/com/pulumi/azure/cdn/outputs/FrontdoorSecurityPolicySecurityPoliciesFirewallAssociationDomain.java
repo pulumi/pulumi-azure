@@ -16,21 +16,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
      * @return Is the Frontdoor Custom Domain/Endpoint activated?
      * 
      */
-    private final @Nullable Boolean active;
+    private @Nullable Boolean active;
     /**
      * @return The Resource Id of the **Frontdoor Custom Domain** or **Frontdoor Endpoint** that should be bound to this Frontdoor Security Policy. Changing this forces a new Frontdoor Security Policy to be created.
      * 
      */
-    private final String cdnFrontdoorDomainId;
+    private String cdnFrontdoorDomainId;
 
-    @CustomType.Constructor
-    private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(
-        @CustomType.Parameter("active") @Nullable Boolean active,
-        @CustomType.Parameter("cdnFrontdoorDomainId") String cdnFrontdoorDomainId) {
-        this.active = active;
-        this.cdnFrontdoorDomainId = cdnFrontdoorDomainId;
-    }
-
+    private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain() {}
     /**
      * @return Is the Frontdoor Custom Domain/Endpoint activated?
      * 
@@ -53,30 +46,32 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
     public static Builder builder(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean active;
         private String cdnFrontdoorDomainId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.active = defaults.active;
     	      this.cdnFrontdoorDomainId = defaults.cdnFrontdoorDomainId;
         }
 
+        @CustomType.Setter
         public Builder active(@Nullable Boolean active) {
             this.active = active;
             return this;
         }
+        @CustomType.Setter
         public Builder cdnFrontdoorDomainId(String cdnFrontdoorDomainId) {
             this.cdnFrontdoorDomainId = Objects.requireNonNull(cdnFrontdoorDomainId);
             return this;
-        }        public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain build() {
-            return new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(active, cdnFrontdoorDomainId);
+        }
+        public FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain build() {
+            final var o = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain();
+            o.active = active;
+            o.cdnFrontdoorDomainId = cdnFrontdoorDomainId;
+            return o;
         }
     }
 }

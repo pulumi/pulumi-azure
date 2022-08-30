@@ -13,21 +13,14 @@ public final class LinuxVirtualMachineAdminSshKey {
      * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
      * 
      */
-    private final String publicKey;
+    private String publicKey;
     /**
      * @return The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineAdminSshKey(
-        @CustomType.Parameter("publicKey") String publicKey,
-        @CustomType.Parameter("username") String username) {
-        this.publicKey = publicKey;
-        this.username = username;
-    }
-
+    private LinuxVirtualMachineAdminSshKey() {}
     /**
      * @return The Public Key which should be used for authentication, which needs to be at least 2048-bit and in `ssh-rsa` format. Changing this forces a new resource to be created.
      * 
@@ -50,30 +43,32 @@ public final class LinuxVirtualMachineAdminSshKey {
     public static Builder builder(LinuxVirtualMachineAdminSshKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String publicKey;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineAdminSshKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.publicKey = defaults.publicKey;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder publicKey(String publicKey) {
             this.publicKey = Objects.requireNonNull(publicKey);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public LinuxVirtualMachineAdminSshKey build() {
-            return new LinuxVirtualMachineAdminSshKey(publicKey, username);
+        }
+        public LinuxVirtualMachineAdminSshKey build() {
+            final var o = new LinuxVirtualMachineAdminSshKey();
+            o.publicKey = publicKey;
+            o.username = username;
+            return o;
         }
     }
 }

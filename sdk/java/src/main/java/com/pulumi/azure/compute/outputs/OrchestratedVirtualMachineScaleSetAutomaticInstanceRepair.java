@@ -12,17 +12,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
-    private final Boolean enabled;
-    private final @Nullable String gracePeriod;
+    private Boolean enabled;
+    private @Nullable String gracePeriod;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("gracePeriod") @Nullable String gracePeriod) {
-        this.enabled = enabled;
-        this.gracePeriod = gracePeriod;
-    }
-
+    private OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair() {}
     public Boolean enabled() {
         return this.enabled;
     }
@@ -37,30 +30,32 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
     public static Builder builder(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private @Nullable String gracePeriod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.gracePeriod = defaults.gracePeriod;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder gracePeriod(@Nullable String gracePeriod) {
             this.gracePeriod = gracePeriod;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair build() {
-            return new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(enabled, gracePeriod);
+        }
+        public OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair build() {
+            final var o = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair();
+            o.enabled = enabled;
+            o.gracePeriod = gracePeriod;
+            return o;
         }
     }
 }

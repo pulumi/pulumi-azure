@@ -13,21 +13,14 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
      * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
      * 
      */
-    private final String tag;
+    private String tag;
     /**
      * @return The Type of IP Tag, such as `FirstPartyUsage`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(
-        @CustomType.Parameter("tag") String tag,
-        @CustomType.Parameter("type") String type) {
-        this.tag = tag;
-        this.type = type;
-    }
-
+    private WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag() {}
     /**
      * @return The IP Tag associated with the Public IP, such as `SQL` or `Storage`.
      * 
@@ -50,30 +43,32 @@ public final class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationP
     public static Builder builder(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String tag;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.tag = defaults.tag;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder tag(String tag) {
             this.tag = Objects.requireNonNull(tag);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
-            return new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(tag, type);
+        }
+        public WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag build() {
+            final var o = new WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag();
+            o.tag = tag;
+            o.type = type;
+            return o;
         }
     }
 }

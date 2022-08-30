@@ -21,63 +21,44 @@ public final class AccountBlobProperties {
      * @return Is the blob service properties for change feed events enabled? Default to `false`.
      * 
      */
-    private final @Nullable Boolean changeFeedEnabled;
+    private @Nullable Boolean changeFeedEnabled;
     /**
      * @return The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
      * 
      */
-    private final @Nullable Integer changeFeedRetentionInDays;
+    private @Nullable Integer changeFeedRetentionInDays;
     /**
      * @return A `container_delete_retention_policy` block as defined below.
      * 
      */
-    private final @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy;
+    private @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy;
     /**
      * @return A `cors_rule` block as defined below.
      * 
      */
-    private final @Nullable List<AccountBlobPropertiesCorsRule> corsRules;
+    private @Nullable List<AccountBlobPropertiesCorsRule> corsRules;
     /**
      * @return The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn&#39;t specify an API Version. Defaults to `2020-06-12`.
      * 
      */
-    private final @Nullable String defaultServiceVersion;
+    private @Nullable String defaultServiceVersion;
     /**
      * @return A `delete_retention_policy` block as defined below.
      * 
      */
-    private final @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy;
+    private @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy;
     /**
      * @return Is the last access time based tracking enabled? Default to `false`.
      * 
      */
-    private final @Nullable Boolean lastAccessTimeEnabled;
+    private @Nullable Boolean lastAccessTimeEnabled;
     /**
      * @return Is versioning enabled? Default to `false`.
      * 
      */
-    private final @Nullable Boolean versioningEnabled;
+    private @Nullable Boolean versioningEnabled;
 
-    @CustomType.Constructor
-    private AccountBlobProperties(
-        @CustomType.Parameter("changeFeedEnabled") @Nullable Boolean changeFeedEnabled,
-        @CustomType.Parameter("changeFeedRetentionInDays") @Nullable Integer changeFeedRetentionInDays,
-        @CustomType.Parameter("containerDeleteRetentionPolicy") @Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy,
-        @CustomType.Parameter("corsRules") @Nullable List<AccountBlobPropertiesCorsRule> corsRules,
-        @CustomType.Parameter("defaultServiceVersion") @Nullable String defaultServiceVersion,
-        @CustomType.Parameter("deleteRetentionPolicy") @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy,
-        @CustomType.Parameter("lastAccessTimeEnabled") @Nullable Boolean lastAccessTimeEnabled,
-        @CustomType.Parameter("versioningEnabled") @Nullable Boolean versioningEnabled) {
-        this.changeFeedEnabled = changeFeedEnabled;
-        this.changeFeedRetentionInDays = changeFeedRetentionInDays;
-        this.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
-        this.corsRules = corsRules;
-        this.defaultServiceVersion = defaultServiceVersion;
-        this.deleteRetentionPolicy = deleteRetentionPolicy;
-        this.lastAccessTimeEnabled = lastAccessTimeEnabled;
-        this.versioningEnabled = versioningEnabled;
-    }
-
+    private AccountBlobProperties() {}
     /**
      * @return Is the blob service properties for change feed events enabled? Default to `false`.
      * 
@@ -142,7 +123,7 @@ public final class AccountBlobProperties {
     public static Builder builder(AccountBlobProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean changeFeedEnabled;
         private @Nullable Integer changeFeedRetentionInDays;
@@ -152,11 +133,7 @@ public final class AccountBlobProperties {
         private @Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy;
         private @Nullable Boolean lastAccessTimeEnabled;
         private @Nullable Boolean versioningEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountBlobProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.changeFeedEnabled = defaults.changeFeedEnabled;
@@ -169,18 +146,22 @@ public final class AccountBlobProperties {
     	      this.versioningEnabled = defaults.versioningEnabled;
         }
 
+        @CustomType.Setter
         public Builder changeFeedEnabled(@Nullable Boolean changeFeedEnabled) {
             this.changeFeedEnabled = changeFeedEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder changeFeedRetentionInDays(@Nullable Integer changeFeedRetentionInDays) {
             this.changeFeedRetentionInDays = changeFeedRetentionInDays;
             return this;
         }
+        @CustomType.Setter
         public Builder containerDeleteRetentionPolicy(@Nullable AccountBlobPropertiesContainerDeleteRetentionPolicy containerDeleteRetentionPolicy) {
             this.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder corsRules(@Nullable List<AccountBlobPropertiesCorsRule> corsRules) {
             this.corsRules = corsRules;
             return this;
@@ -188,23 +169,37 @@ public final class AccountBlobProperties {
         public Builder corsRules(AccountBlobPropertiesCorsRule... corsRules) {
             return corsRules(List.of(corsRules));
         }
+        @CustomType.Setter
         public Builder defaultServiceVersion(@Nullable String defaultServiceVersion) {
             this.defaultServiceVersion = defaultServiceVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder deleteRetentionPolicy(@Nullable AccountBlobPropertiesDeleteRetentionPolicy deleteRetentionPolicy) {
             this.deleteRetentionPolicy = deleteRetentionPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder lastAccessTimeEnabled(@Nullable Boolean lastAccessTimeEnabled) {
             this.lastAccessTimeEnabled = lastAccessTimeEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder versioningEnabled(@Nullable Boolean versioningEnabled) {
             this.versioningEnabled = versioningEnabled;
             return this;
-        }        public AccountBlobProperties build() {
-            return new AccountBlobProperties(changeFeedEnabled, changeFeedRetentionInDays, containerDeleteRetentionPolicy, corsRules, defaultServiceVersion, deleteRetentionPolicy, lastAccessTimeEnabled, versioningEnabled);
+        }
+        public AccountBlobProperties build() {
+            final var o = new AccountBlobProperties();
+            o.changeFeedEnabled = changeFeedEnabled;
+            o.changeFeedRetentionInDays = changeFeedRetentionInDays;
+            o.containerDeleteRetentionPolicy = containerDeleteRetentionPolicy;
+            o.corsRules = corsRules;
+            o.defaultServiceVersion = defaultServiceVersion;
+            o.deleteRetentionPolicy = deleteRetentionPolicy;
+            o.lastAccessTimeEnabled = lastAccessTimeEnabled;
+            o.versioningEnabled = versioningEnabled;
+            return o;
         }
     }
 }

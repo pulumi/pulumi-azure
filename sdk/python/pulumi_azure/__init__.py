@@ -1450,6 +1450,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "backup/policyVMWorkload",
+  "fqn": "pulumi_azure.backup",
+  "classes": {
+   "azure:backup/policyVMWorkload:PolicyVMWorkload": "PolicyVMWorkload"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "backup/protectedFileShare",
   "fqn": "pulumi_azure.backup",
   "classes": {
@@ -4742,6 +4750,14 @@ _utilities.register(
   "fqn": "pulumi_azure.monitoring",
   "classes": {
    "azure:monitoring/scheduledQueryRulesAlert:ScheduledQueryRulesAlert": "ScheduledQueryRulesAlert"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "monitoring/scheduledQueryRulesAlertV2",
+  "fqn": "pulumi_azure.monitoring",
+  "classes": {
+   "azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2": "ScheduledQueryRulesAlertV2"
   }
  },
  {

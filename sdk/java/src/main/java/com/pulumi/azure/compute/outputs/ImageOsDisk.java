@@ -16,49 +16,34 @@ public final class ImageOsDisk {
      * @return Specifies the URI in Azure storage of the blob that you want to use to create the image.
      * 
      */
-    private final @Nullable String blobUri;
+    private @Nullable String blobUri;
     /**
      * @return Specifies the caching mode as `ReadWrite`, `ReadOnly`, or `None`. The default is `None`.
      * 
      */
-    private final @Nullable String caching;
+    private @Nullable String caching;
     /**
      * @return Specifies the ID of the managed disk resource that you want to use to create the image.
      * 
      */
-    private final @Nullable String managedDiskId;
+    private @Nullable String managedDiskId;
     /**
      * @return Specifies the state of the operating system contained in the blob. Currently, the only value is Generalized.
      * 
      */
-    private final @Nullable String osState;
+    private @Nullable String osState;
     /**
      * @return Specifies the type of operating system contained in the virtual machine image. Possible values are: Windows or Linux.
      * 
      */
-    private final @Nullable String osType;
+    private @Nullable String osType;
     /**
      * @return Specifies the size of the image to be created. The target size can&#39;t be smaller than the source size.
      * 
      */
-    private final @Nullable Integer sizeGb;
+    private @Nullable Integer sizeGb;
 
-    @CustomType.Constructor
-    private ImageOsDisk(
-        @CustomType.Parameter("blobUri") @Nullable String blobUri,
-        @CustomType.Parameter("caching") @Nullable String caching,
-        @CustomType.Parameter("managedDiskId") @Nullable String managedDiskId,
-        @CustomType.Parameter("osState") @Nullable String osState,
-        @CustomType.Parameter("osType") @Nullable String osType,
-        @CustomType.Parameter("sizeGb") @Nullable Integer sizeGb) {
-        this.blobUri = blobUri;
-        this.caching = caching;
-        this.managedDiskId = managedDiskId;
-        this.osState = osState;
-        this.osType = osType;
-        this.sizeGb = sizeGb;
-    }
-
+    private ImageOsDisk() {}
     /**
      * @return Specifies the URI in Azure storage of the blob that you want to use to create the image.
      * 
@@ -109,7 +94,7 @@ public final class ImageOsDisk {
     public static Builder builder(ImageOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String blobUri;
         private @Nullable String caching;
@@ -117,11 +102,7 @@ public final class ImageOsDisk {
         private @Nullable String osState;
         private @Nullable String osType;
         private @Nullable Integer sizeGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ImageOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobUri = defaults.blobUri;
@@ -132,31 +113,45 @@ public final class ImageOsDisk {
     	      this.sizeGb = defaults.sizeGb;
         }
 
+        @CustomType.Setter
         public Builder blobUri(@Nullable String blobUri) {
             this.blobUri = blobUri;
             return this;
         }
+        @CustomType.Setter
         public Builder caching(@Nullable String caching) {
             this.caching = caching;
             return this;
         }
+        @CustomType.Setter
         public Builder managedDiskId(@Nullable String managedDiskId) {
             this.managedDiskId = managedDiskId;
             return this;
         }
+        @CustomType.Setter
         public Builder osState(@Nullable String osState) {
             this.osState = osState;
             return this;
         }
+        @CustomType.Setter
         public Builder osType(@Nullable String osType) {
             this.osType = osType;
             return this;
         }
+        @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
             this.sizeGb = sizeGb;
             return this;
-        }        public ImageOsDisk build() {
-            return new ImageOsDisk(blobUri, caching, managedDiskId, osState, osType, sizeGb);
+        }
+        public ImageOsDisk build() {
+            final var o = new ImageOsDisk();
+            o.blobUri = blobUri;
+            o.caching = caching;
+            o.managedDiskId = managedDiskId;
+            o.osState = osState;
+            o.osType = osType;
+            o.sizeGb = sizeGb;
+            return o;
         }
     }
 }

@@ -17,28 +17,19 @@ public final class ServiceNotifications {
      * @return A list of additional email addresses to notify when there are alerts in the managed domain.
      * 
      */
-    private final @Nullable List<String> additionalRecipients;
+    private @Nullable List<String> additionalRecipients;
     /**
      * @return Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
      * 
      */
-    private final @Nullable Boolean notifyDcAdmins;
+    private @Nullable Boolean notifyDcAdmins;
     /**
      * @return Whether to notify all Global Administrators when there are alerts in the managed domain.
      * 
      */
-    private final @Nullable Boolean notifyGlobalAdmins;
+    private @Nullable Boolean notifyGlobalAdmins;
 
-    @CustomType.Constructor
-    private ServiceNotifications(
-        @CustomType.Parameter("additionalRecipients") @Nullable List<String> additionalRecipients,
-        @CustomType.Parameter("notifyDcAdmins") @Nullable Boolean notifyDcAdmins,
-        @CustomType.Parameter("notifyGlobalAdmins") @Nullable Boolean notifyGlobalAdmins) {
-        this.additionalRecipients = additionalRecipients;
-        this.notifyDcAdmins = notifyDcAdmins;
-        this.notifyGlobalAdmins = notifyGlobalAdmins;
-    }
-
+    private ServiceNotifications() {}
     /**
      * @return A list of additional email addresses to notify when there are alerts in the managed domain.
      * 
@@ -68,16 +59,12 @@ public final class ServiceNotifications {
     public static Builder builder(ServiceNotifications defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> additionalRecipients;
         private @Nullable Boolean notifyDcAdmins;
         private @Nullable Boolean notifyGlobalAdmins;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceNotifications defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.additionalRecipients = defaults.additionalRecipients;
@@ -85,6 +72,7 @@ public final class ServiceNotifications {
     	      this.notifyGlobalAdmins = defaults.notifyGlobalAdmins;
         }
 
+        @CustomType.Setter
         public Builder additionalRecipients(@Nullable List<String> additionalRecipients) {
             this.additionalRecipients = additionalRecipients;
             return this;
@@ -92,15 +80,22 @@ public final class ServiceNotifications {
         public Builder additionalRecipients(String... additionalRecipients) {
             return additionalRecipients(List.of(additionalRecipients));
         }
+        @CustomType.Setter
         public Builder notifyDcAdmins(@Nullable Boolean notifyDcAdmins) {
             this.notifyDcAdmins = notifyDcAdmins;
             return this;
         }
+        @CustomType.Setter
         public Builder notifyGlobalAdmins(@Nullable Boolean notifyGlobalAdmins) {
             this.notifyGlobalAdmins = notifyGlobalAdmins;
             return this;
-        }        public ServiceNotifications build() {
-            return new ServiceNotifications(additionalRecipients, notifyDcAdmins, notifyGlobalAdmins);
+        }
+        public ServiceNotifications build() {
+            final var o = new ServiceNotifications();
+            o.additionalRecipients = additionalRecipients;
+            o.notifyDcAdmins = notifyDcAdmins;
+            o.notifyGlobalAdmins = notifyGlobalAdmins;
+            return o;
         }
     }
 }

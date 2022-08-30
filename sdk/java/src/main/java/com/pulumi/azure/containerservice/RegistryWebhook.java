@@ -209,9 +209,17 @@ public class RegistryWebhook extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> status() {
         return Codegen.optional(this.status);
     }
+    /**
+     * A mapping of tags to assign to the resource.
+     * 
+     */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
+    /**
+     * @return A mapping of tags to assign to the resource.
+     * 
+     */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }

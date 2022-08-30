@@ -17,63 +17,44 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
      * @return Specifies the name of the Backend Pool to forward the incoming traffic to.
      * 
      */
-    private final String backendPoolName;
+    private String backendPoolName;
     /**
      * @return Specify the caching duration (in ISO8601 notation e.g. `P1DT2H` for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. `cache_duration` works only in combination with `cache_enabled` set to `true`.
      * 
      */
-    private final @Nullable String cacheDuration;
+    private @Nullable String cacheDuration;
     /**
      * @return Specifies whether to Enable caching or not. Valid options are `true` or `false`. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean cacheEnabled;
+    private @Nullable Boolean cacheEnabled;
     /**
      * @return Defines cache behaviour in relation to query string parameters. Valid options are `StripAll`, `StripAllExcept`, `StripOnly` or `StripNone`. Defaults to `StripAll`.
      * 
      */
-    private final @Nullable String cacheQueryParameterStripDirective;
+    private @Nullable String cacheQueryParameterStripDirective;
     /**
      * @return Specify query parameters (array). Works only in combination with `cache_query_parameter_strip_directive` set to `StripAllExcept` or `StripOnly`.
      * 
      */
-    private final @Nullable List<String> cacheQueryParameters;
+    private @Nullable List<String> cacheQueryParameters;
     /**
      * @return Whether to use dynamic compression when caching. Valid options are `true` or `false`. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean cacheUseDynamicCompression;
+    private @Nullable Boolean cacheUseDynamicCompression;
     /**
      * @return Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
      * 
      */
-    private final @Nullable String customForwardingPath;
+    private @Nullable String customForwardingPath;
     /**
      * @return Protocol to use when redirecting. Valid options are `HttpOnly`, `HttpsOnly`, or `MatchRequest`. Defaults to `HttpsOnly`.
      * 
      */
-    private final @Nullable String forwardingProtocol;
+    private @Nullable String forwardingProtocol;
 
-    @CustomType.Constructor
-    private FrontdoorRoutingRuleForwardingConfiguration(
-        @CustomType.Parameter("backendPoolName") String backendPoolName,
-        @CustomType.Parameter("cacheDuration") @Nullable String cacheDuration,
-        @CustomType.Parameter("cacheEnabled") @Nullable Boolean cacheEnabled,
-        @CustomType.Parameter("cacheQueryParameterStripDirective") @Nullable String cacheQueryParameterStripDirective,
-        @CustomType.Parameter("cacheQueryParameters") @Nullable List<String> cacheQueryParameters,
-        @CustomType.Parameter("cacheUseDynamicCompression") @Nullable Boolean cacheUseDynamicCompression,
-        @CustomType.Parameter("customForwardingPath") @Nullable String customForwardingPath,
-        @CustomType.Parameter("forwardingProtocol") @Nullable String forwardingProtocol) {
-        this.backendPoolName = backendPoolName;
-        this.cacheDuration = cacheDuration;
-        this.cacheEnabled = cacheEnabled;
-        this.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
-        this.cacheQueryParameters = cacheQueryParameters;
-        this.cacheUseDynamicCompression = cacheUseDynamicCompression;
-        this.customForwardingPath = customForwardingPath;
-        this.forwardingProtocol = forwardingProtocol;
-    }
-
+    private FrontdoorRoutingRuleForwardingConfiguration() {}
     /**
      * @return Specifies the name of the Backend Pool to forward the incoming traffic to.
      * 
@@ -138,7 +119,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
     public static Builder builder(FrontdoorRoutingRuleForwardingConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String backendPoolName;
         private @Nullable String cacheDuration;
@@ -148,11 +129,7 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         private @Nullable Boolean cacheUseDynamicCompression;
         private @Nullable String customForwardingPath;
         private @Nullable String forwardingProtocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorRoutingRuleForwardingConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPoolName = defaults.backendPoolName;
@@ -165,22 +142,27 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
     	      this.forwardingProtocol = defaults.forwardingProtocol;
         }
 
+        @CustomType.Setter
         public Builder backendPoolName(String backendPoolName) {
             this.backendPoolName = Objects.requireNonNull(backendPoolName);
             return this;
         }
+        @CustomType.Setter
         public Builder cacheDuration(@Nullable String cacheDuration) {
             this.cacheDuration = cacheDuration;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheEnabled(@Nullable Boolean cacheEnabled) {
             this.cacheEnabled = cacheEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheQueryParameterStripDirective(@Nullable String cacheQueryParameterStripDirective) {
             this.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
             return this;
         }
+        @CustomType.Setter
         public Builder cacheQueryParameters(@Nullable List<String> cacheQueryParameters) {
             this.cacheQueryParameters = cacheQueryParameters;
             return this;
@@ -188,19 +170,32 @@ public final class FrontdoorRoutingRuleForwardingConfiguration {
         public Builder cacheQueryParameters(String... cacheQueryParameters) {
             return cacheQueryParameters(List.of(cacheQueryParameters));
         }
+        @CustomType.Setter
         public Builder cacheUseDynamicCompression(@Nullable Boolean cacheUseDynamicCompression) {
             this.cacheUseDynamicCompression = cacheUseDynamicCompression;
             return this;
         }
+        @CustomType.Setter
         public Builder customForwardingPath(@Nullable String customForwardingPath) {
             this.customForwardingPath = customForwardingPath;
             return this;
         }
+        @CustomType.Setter
         public Builder forwardingProtocol(@Nullable String forwardingProtocol) {
             this.forwardingProtocol = forwardingProtocol;
             return this;
-        }        public FrontdoorRoutingRuleForwardingConfiguration build() {
-            return new FrontdoorRoutingRuleForwardingConfiguration(backendPoolName, cacheDuration, cacheEnabled, cacheQueryParameterStripDirective, cacheQueryParameters, cacheUseDynamicCompression, customForwardingPath, forwardingProtocol);
+        }
+        public FrontdoorRoutingRuleForwardingConfiguration build() {
+            final var o = new FrontdoorRoutingRuleForwardingConfiguration();
+            o.backendPoolName = backendPoolName;
+            o.cacheDuration = cacheDuration;
+            o.cacheEnabled = cacheEnabled;
+            o.cacheQueryParameterStripDirective = cacheQueryParameterStripDirective;
+            o.cacheQueryParameters = cacheQueryParameters;
+            o.cacheUseDynamicCompression = cacheUseDynamicCompression;
+            o.customForwardingPath = customForwardingPath;
+            o.forwardingProtocol = forwardingProtocol;
+            return o;
         }
     }
 }

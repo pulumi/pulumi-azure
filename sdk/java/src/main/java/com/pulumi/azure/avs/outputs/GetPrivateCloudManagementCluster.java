@@ -15,28 +15,19 @@ public final class GetPrivateCloudManagementCluster {
      * @return The list of the hosts in the management cluster.
      * 
      */
-    private final List<String> hosts;
+    private List<String> hosts;
     /**
      * @return The ID of the management cluster.
      * 
      */
-    private final Integer id;
+    private Integer id;
     /**
      * @return The size of the management cluster.
      * 
      */
-    private final Integer size;
+    private Integer size;
 
-    @CustomType.Constructor
-    private GetPrivateCloudManagementCluster(
-        @CustomType.Parameter("hosts") List<String> hosts,
-        @CustomType.Parameter("id") Integer id,
-        @CustomType.Parameter("size") Integer size) {
-        this.hosts = hosts;
-        this.id = id;
-        this.size = size;
-    }
-
+    private GetPrivateCloudManagementCluster() {}
     /**
      * @return The list of the hosts in the management cluster.
      * 
@@ -66,16 +57,12 @@ public final class GetPrivateCloudManagementCluster {
     public static Builder builder(GetPrivateCloudManagementCluster defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> hosts;
         private Integer id;
         private Integer size;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPrivateCloudManagementCluster defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hosts = defaults.hosts;
@@ -83,6 +70,7 @@ public final class GetPrivateCloudManagementCluster {
     	      this.size = defaults.size;
         }
 
+        @CustomType.Setter
         public Builder hosts(List<String> hosts) {
             this.hosts = Objects.requireNonNull(hosts);
             return this;
@@ -90,15 +78,22 @@ public final class GetPrivateCloudManagementCluster {
         public Builder hosts(String... hosts) {
             return hosts(List.of(hosts));
         }
+        @CustomType.Setter
         public Builder id(Integer id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder size(Integer size) {
             this.size = Objects.requireNonNull(size);
             return this;
-        }        public GetPrivateCloudManagementCluster build() {
-            return new GetPrivateCloudManagementCluster(hosts, id, size);
+        }
+        public GetPrivateCloudManagementCluster build() {
+            final var o = new GetPrivateCloudManagementCluster();
+            o.hosts = hosts;
+            o.id = id;
+            o.size = size;
+            return o;
         }
     }
 }

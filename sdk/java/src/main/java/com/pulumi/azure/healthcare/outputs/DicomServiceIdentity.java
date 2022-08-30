@@ -16,27 +16,16 @@ public final class DicomServiceIdentity {
      * @return A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
      * 
      */
-    private final @Nullable List<String> identityIds;
-    private final @Nullable String principalId;
-    private final @Nullable String tenantId;
+    private @Nullable List<String> identityIds;
+    private @Nullable String principalId;
+    private @Nullable String tenantId;
     /**
      * @return The type of identity used for the Healthcare DICOM service. Possible values are `SystemAssigned` and `UserAssigned`. If `UserAssigned` is set, an `identity_ids` must be set as well.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private DicomServiceIdentity(
-        @CustomType.Parameter("identityIds") @Nullable List<String> identityIds,
-        @CustomType.Parameter("principalId") @Nullable String principalId,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("type") String type) {
-        this.identityIds = identityIds;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-        this.type = type;
-    }
-
+    private DicomServiceIdentity() {}
     /**
      * @return A list of User Assigned Identity IDs which should be assigned to this Healthcare DICOM service.
      * 
@@ -65,17 +54,13 @@ public final class DicomServiceIdentity {
     public static Builder builder(DicomServiceIdentity defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> identityIds;
         private @Nullable String principalId;
         private @Nullable String tenantId;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DicomServiceIdentity defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityIds = defaults.identityIds;
@@ -84,6 +69,7 @@ public final class DicomServiceIdentity {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder identityIds(@Nullable List<String> identityIds) {
             this.identityIds = identityIds;
             return this;
@@ -91,19 +77,28 @@ public final class DicomServiceIdentity {
         public Builder identityIds(String... identityIds) {
             return identityIds(List.of(identityIds));
         }
+        @CustomType.Setter
         public Builder principalId(@Nullable String principalId) {
             this.principalId = principalId;
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public DicomServiceIdentity build() {
-            return new DicomServiceIdentity(identityIds, principalId, tenantId, type);
+        }
+        public DicomServiceIdentity build() {
+            final var o = new DicomServiceIdentity();
+            o.identityIds = identityIds;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            o.type = type;
+            return o;
         }
     }
 }

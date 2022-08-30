@@ -16,21 +16,14 @@ public final class AccountAzureFilesAuthentication {
      * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
      * 
      */
-    private final @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
+    private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
     /**
      * @return Specifies the directory service used. Possible values are `AADDS` and `AD`.
      * 
      */
-    private final String directoryType;
+    private String directoryType;
 
-    @CustomType.Constructor
-    private AccountAzureFilesAuthentication(
-        @CustomType.Parameter("activeDirectory") @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory,
-        @CustomType.Parameter("directoryType") String directoryType) {
-        this.activeDirectory = activeDirectory;
-        this.directoryType = directoryType;
-    }
-
+    private AccountAzureFilesAuthentication() {}
     /**
      * @return A `active_directory` block as defined below. Required when `directory_type` is `AD`.
      * 
@@ -53,30 +46,32 @@ public final class AccountAzureFilesAuthentication {
     public static Builder builder(AccountAzureFilesAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory;
         private String directoryType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountAzureFilesAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectory = defaults.activeDirectory;
     	      this.directoryType = defaults.directoryType;
         }
 
+        @CustomType.Setter
         public Builder activeDirectory(@Nullable AccountAzureFilesAuthenticationActiveDirectory activeDirectory) {
             this.activeDirectory = activeDirectory;
             return this;
         }
+        @CustomType.Setter
         public Builder directoryType(String directoryType) {
             this.directoryType = Objects.requireNonNull(directoryType);
             return this;
-        }        public AccountAzureFilesAuthentication build() {
-            return new AccountAzureFilesAuthentication(activeDirectory, directoryType);
+        }
+        public AccountAzureFilesAuthentication build() {
+            final var o = new AccountAzureFilesAuthentication();
+            o.activeDirectory = activeDirectory;
+            o.directoryType = directoryType;
+            return o;
         }
     }
 }

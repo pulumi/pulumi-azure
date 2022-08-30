@@ -14,28 +14,19 @@ public final class GetLocalNetworkGatewayBgpSetting {
      * @return The BGP speaker&#39;s ASN.
      * 
      */
-    private final Integer asn;
+    private Integer asn;
     /**
      * @return The BGP peering address and BGP identifier of this BGP speaker.
      * 
      */
-    private final String bgpPeeringAddress;
+    private String bgpPeeringAddress;
     /**
      * @return The weight added to routes learned from this BGP speaker.
      * 
      */
-    private final Integer peerWeight;
+    private Integer peerWeight;
 
-    @CustomType.Constructor
-    private GetLocalNetworkGatewayBgpSetting(
-        @CustomType.Parameter("asn") Integer asn,
-        @CustomType.Parameter("bgpPeeringAddress") String bgpPeeringAddress,
-        @CustomType.Parameter("peerWeight") Integer peerWeight) {
-        this.asn = asn;
-        this.bgpPeeringAddress = bgpPeeringAddress;
-        this.peerWeight = peerWeight;
-    }
-
+    private GetLocalNetworkGatewayBgpSetting() {}
     /**
      * @return The BGP speaker&#39;s ASN.
      * 
@@ -65,16 +56,12 @@ public final class GetLocalNetworkGatewayBgpSetting {
     public static Builder builder(GetLocalNetworkGatewayBgpSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer asn;
         private String bgpPeeringAddress;
         private Integer peerWeight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLocalNetworkGatewayBgpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
@@ -82,19 +69,27 @@ public final class GetLocalNetworkGatewayBgpSetting {
     	      this.peerWeight = defaults.peerWeight;
         }
 
+        @CustomType.Setter
         public Builder asn(Integer asn) {
             this.asn = Objects.requireNonNull(asn);
             return this;
         }
+        @CustomType.Setter
         public Builder bgpPeeringAddress(String bgpPeeringAddress) {
             this.bgpPeeringAddress = Objects.requireNonNull(bgpPeeringAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder peerWeight(Integer peerWeight) {
             this.peerWeight = Objects.requireNonNull(peerWeight);
             return this;
-        }        public GetLocalNetworkGatewayBgpSetting build() {
-            return new GetLocalNetworkGatewayBgpSetting(asn, bgpPeeringAddress, peerWeight);
+        }
+        public GetLocalNetworkGatewayBgpSetting build() {
+            final var o = new GetLocalNetworkGatewayBgpSetting();
+            o.asn = asn;
+            o.bgpPeeringAddress = bgpPeeringAddress;
+            o.peerWeight = peerWeight;
+            return o;
         }
     }
 }

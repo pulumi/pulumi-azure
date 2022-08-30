@@ -31,262 +31,185 @@ public final class GetKubernetesClusterResult {
      * @return An `aci_connector_linux` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes;
+    private List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes;
     /**
      * @return An `agent_pool_profile` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles;
+    private List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles;
     /**
      * @return The IP ranges to whitelist for incoming traffic to the primaries.
      * 
      */
-    private final List<String> apiServerAuthorizedIpRanges;
+    private List<String> apiServerAuthorizedIpRanges;
     /**
      * @return An `azure_active_directory_role_based_access_control` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
+    private List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls;
     /**
      * @return Is Azure Policy enabled on this managed Kubernetes Cluster?
      * 
      */
-    private final Boolean azurePolicyEnabled;
+    private Boolean azurePolicyEnabled;
     /**
      * @return The ID of the Disk Encryption Set used for the Nodes and Volumes.
      * 
      */
-    private final String diskEncryptionSetId;
+    private String diskEncryptionSetId;
     /**
      * @return The DNS Prefix of the managed Kubernetes cluster.
      * 
      */
-    private final String dnsPrefix;
+    private String dnsPrefix;
     /**
      * @return The FQDN of the Azure Kubernetes Managed Cluster.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return Is HTTP Application Routing enabled for this managed Kubernetes Cluster?
      * 
      */
-    private final Boolean httpApplicationRoutingEnabled;
+    private Boolean httpApplicationRoutingEnabled;
     /**
      * @return The Zone Name of the HTTP Application Routing.
      * 
      */
-    private final String httpApplicationRoutingZoneName;
+    private String httpApplicationRoutingZoneName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return An `identity` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterIdentity> identities;
+    private List<GetKubernetesClusterIdentity> identities;
     /**
      * @return An `ingress_application_gateway` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways;
+    private List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways;
     /**
      * @return A `key_vault_secrets_provider` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders;
+    private List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders;
     /**
      * @return Raw Kubernetes config for the admin account to be used by [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/) and other compatible tools. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      * 
      */
-    private final String kubeAdminConfigRaw;
+    private String kubeAdminConfigRaw;
     /**
      * @return A `kube_admin_config` block as defined below. This is only available when Role Based Access Control with Azure Active Directory is enabled and local accounts are not disabled.
      * 
      */
-    private final List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs;
+    private List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs;
     /**
      * @return Base64 encoded Kubernetes configuration.
      * 
      */
-    private final String kubeConfigRaw;
+    private String kubeConfigRaw;
     /**
      * @return A `kube_config` block as defined below.
      * 
      */
-    private final List<GetKubernetesClusterKubeConfig> kubeConfigs;
+    private List<GetKubernetesClusterKubeConfig> kubeConfigs;
     /**
      * @return A `kubelet_identity` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterKubeletIdentity> kubeletIdentities;
+    private List<GetKubernetesClusterKubeletIdentity> kubeletIdentities;
     /**
      * @return The version of Kubernetes used on the managed Kubernetes Cluster.
      * 
      */
-    private final String kubernetesVersion;
+    private String kubernetesVersion;
     /**
      * @return A `linux_profile` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterLinuxProfile> linuxProfiles;
+    private List<GetKubernetesClusterLinuxProfile> linuxProfiles;
     /**
      * @return The Azure Region in which the managed Kubernetes Cluster exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A `microsoft_defender` block as defined below.
      * 
      */
-    private final List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders;
+    private List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders;
     /**
      * @return The name assigned to this pool of agents.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `network_profile` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterNetworkProfile> networkProfiles;
+    private List<GetKubernetesClusterNetworkProfile> networkProfiles;
     /**
      * @return Auto-generated Resource Group containing AKS Cluster resources.
      * 
      */
-    private final String nodeResourceGroup;
+    private String nodeResourceGroup;
     /**
      * @return Whether or not the OIDC feature is enabled or disabled.
      * 
      */
-    private final Boolean oidcIssuerEnabled;
+    private Boolean oidcIssuerEnabled;
     /**
      * @return The OIDC issuer URL that is associated with the cluster.
      * 
      */
-    private final String oidcIssuerUrl;
+    private String oidcIssuerUrl;
     /**
      * @return An `oms_agent` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterOmsAgent> omsAgents;
+    private List<GetKubernetesClusterOmsAgent> omsAgents;
     /**
      * @return Is Open Service Mesh enabled for this managed Kubernetes Cluster?
      * 
      */
-    private final Boolean openServiceMeshEnabled;
+    private Boolean openServiceMeshEnabled;
     /**
      * @return If the cluster has the Kubernetes API only exposed on internal IP addresses.
      * 
      */
-    private final Boolean privateClusterEnabled;
+    private Boolean privateClusterEnabled;
     /**
      * @return The FQDN of this Kubernetes Cluster when private link has been enabled. This name is only resolvable inside the Virtual Network where the Azure Kubernetes Service is located
      * 
      */
-    private final String privateFqdn;
-    private final String resourceGroupName;
+    private String privateFqdn;
+    private String resourceGroupName;
     /**
      * @return Is Role Based Access Control enabled for this managed Kubernetes Cluster.
      * 
      */
-    private final Boolean roleBasedAccessControlEnabled;
+    private Boolean roleBasedAccessControlEnabled;
     /**
      * @return A `service_principal` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterServicePrincipal> servicePrincipals;
+    private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A `windows_profile` block as documented below.
      * 
      */
-    private final List<GetKubernetesClusterWindowsProfile> windowsProfiles;
+    private List<GetKubernetesClusterWindowsProfile> windowsProfiles;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterResult(
-        @CustomType.Parameter("aciConnectorLinuxes") List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes,
-        @CustomType.Parameter("agentPoolProfiles") List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles,
-        @CustomType.Parameter("apiServerAuthorizedIpRanges") List<String> apiServerAuthorizedIpRanges,
-        @CustomType.Parameter("azureActiveDirectoryRoleBasedAccessControls") List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls,
-        @CustomType.Parameter("azurePolicyEnabled") Boolean azurePolicyEnabled,
-        @CustomType.Parameter("diskEncryptionSetId") String diskEncryptionSetId,
-        @CustomType.Parameter("dnsPrefix") String dnsPrefix,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("httpApplicationRoutingEnabled") Boolean httpApplicationRoutingEnabled,
-        @CustomType.Parameter("httpApplicationRoutingZoneName") String httpApplicationRoutingZoneName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetKubernetesClusterIdentity> identities,
-        @CustomType.Parameter("ingressApplicationGateways") List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways,
-        @CustomType.Parameter("keyVaultSecretsProviders") List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders,
-        @CustomType.Parameter("kubeAdminConfigRaw") String kubeAdminConfigRaw,
-        @CustomType.Parameter("kubeAdminConfigs") List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs,
-        @CustomType.Parameter("kubeConfigRaw") String kubeConfigRaw,
-        @CustomType.Parameter("kubeConfigs") List<GetKubernetesClusterKubeConfig> kubeConfigs,
-        @CustomType.Parameter("kubeletIdentities") List<GetKubernetesClusterKubeletIdentity> kubeletIdentities,
-        @CustomType.Parameter("kubernetesVersion") String kubernetesVersion,
-        @CustomType.Parameter("linuxProfiles") List<GetKubernetesClusterLinuxProfile> linuxProfiles,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("microsoftDefenders") List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkProfiles") List<GetKubernetesClusterNetworkProfile> networkProfiles,
-        @CustomType.Parameter("nodeResourceGroup") String nodeResourceGroup,
-        @CustomType.Parameter("oidcIssuerEnabled") Boolean oidcIssuerEnabled,
-        @CustomType.Parameter("oidcIssuerUrl") String oidcIssuerUrl,
-        @CustomType.Parameter("omsAgents") List<GetKubernetesClusterOmsAgent> omsAgents,
-        @CustomType.Parameter("openServiceMeshEnabled") Boolean openServiceMeshEnabled,
-        @CustomType.Parameter("privateClusterEnabled") Boolean privateClusterEnabled,
-        @CustomType.Parameter("privateFqdn") String privateFqdn,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("roleBasedAccessControlEnabled") Boolean roleBasedAccessControlEnabled,
-        @CustomType.Parameter("servicePrincipals") List<GetKubernetesClusterServicePrincipal> servicePrincipals,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("windowsProfiles") List<GetKubernetesClusterWindowsProfile> windowsProfiles) {
-        this.aciConnectorLinuxes = aciConnectorLinuxes;
-        this.agentPoolProfiles = agentPoolProfiles;
-        this.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
-        this.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
-        this.azurePolicyEnabled = azurePolicyEnabled;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.dnsPrefix = dnsPrefix;
-        this.fqdn = fqdn;
-        this.httpApplicationRoutingEnabled = httpApplicationRoutingEnabled;
-        this.httpApplicationRoutingZoneName = httpApplicationRoutingZoneName;
-        this.id = id;
-        this.identities = identities;
-        this.ingressApplicationGateways = ingressApplicationGateways;
-        this.keyVaultSecretsProviders = keyVaultSecretsProviders;
-        this.kubeAdminConfigRaw = kubeAdminConfigRaw;
-        this.kubeAdminConfigs = kubeAdminConfigs;
-        this.kubeConfigRaw = kubeConfigRaw;
-        this.kubeConfigs = kubeConfigs;
-        this.kubeletIdentities = kubeletIdentities;
-        this.kubernetesVersion = kubernetesVersion;
-        this.linuxProfiles = linuxProfiles;
-        this.location = location;
-        this.microsoftDefenders = microsoftDefenders;
-        this.name = name;
-        this.networkProfiles = networkProfiles;
-        this.nodeResourceGroup = nodeResourceGroup;
-        this.oidcIssuerEnabled = oidcIssuerEnabled;
-        this.oidcIssuerUrl = oidcIssuerUrl;
-        this.omsAgents = omsAgents;
-        this.openServiceMeshEnabled = openServiceMeshEnabled;
-        this.privateClusterEnabled = privateClusterEnabled;
-        this.privateFqdn = privateFqdn;
-        this.resourceGroupName = resourceGroupName;
-        this.roleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
-        this.servicePrincipals = servicePrincipals;
-        this.tags = tags;
-        this.windowsProfiles = windowsProfiles;
-    }
-
+    private GetKubernetesClusterResult() {}
     /**
      * @return An `aci_connector_linux` block as documented below.
      * 
@@ -550,7 +473,7 @@ public final class GetKubernetesClusterResult {
     public static Builder builder(GetKubernetesClusterResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes;
         private List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles;
@@ -589,11 +512,7 @@ public final class GetKubernetesClusterResult {
         private List<GetKubernetesClusterServicePrincipal> servicePrincipals;
         private Map<String,String> tags;
         private List<GetKubernetesClusterWindowsProfile> windowsProfiles;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aciConnectorLinuxes = defaults.aciConnectorLinuxes;
@@ -635,6 +554,7 @@ public final class GetKubernetesClusterResult {
     	      this.windowsProfiles = defaults.windowsProfiles;
         }
 
+        @CustomType.Setter
         public Builder aciConnectorLinuxes(List<GetKubernetesClusterAciConnectorLinux> aciConnectorLinuxes) {
             this.aciConnectorLinuxes = Objects.requireNonNull(aciConnectorLinuxes);
             return this;
@@ -642,6 +562,7 @@ public final class GetKubernetesClusterResult {
         public Builder aciConnectorLinuxes(GetKubernetesClusterAciConnectorLinux... aciConnectorLinuxes) {
             return aciConnectorLinuxes(List.of(aciConnectorLinuxes));
         }
+        @CustomType.Setter
         public Builder agentPoolProfiles(List<GetKubernetesClusterAgentPoolProfile> agentPoolProfiles) {
             this.agentPoolProfiles = Objects.requireNonNull(agentPoolProfiles);
             return this;
@@ -649,6 +570,7 @@ public final class GetKubernetesClusterResult {
         public Builder agentPoolProfiles(GetKubernetesClusterAgentPoolProfile... agentPoolProfiles) {
             return agentPoolProfiles(List.of(agentPoolProfiles));
         }
+        @CustomType.Setter
         public Builder apiServerAuthorizedIpRanges(List<String> apiServerAuthorizedIpRanges) {
             this.apiServerAuthorizedIpRanges = Objects.requireNonNull(apiServerAuthorizedIpRanges);
             return this;
@@ -656,6 +578,7 @@ public final class GetKubernetesClusterResult {
         public Builder apiServerAuthorizedIpRanges(String... apiServerAuthorizedIpRanges) {
             return apiServerAuthorizedIpRanges(List.of(apiServerAuthorizedIpRanges));
         }
+        @CustomType.Setter
         public Builder azureActiveDirectoryRoleBasedAccessControls(List<GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl> azureActiveDirectoryRoleBasedAccessControls) {
             this.azureActiveDirectoryRoleBasedAccessControls = Objects.requireNonNull(azureActiveDirectoryRoleBasedAccessControls);
             return this;
@@ -663,34 +586,42 @@ public final class GetKubernetesClusterResult {
         public Builder azureActiveDirectoryRoleBasedAccessControls(GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControl... azureActiveDirectoryRoleBasedAccessControls) {
             return azureActiveDirectoryRoleBasedAccessControls(List.of(azureActiveDirectoryRoleBasedAccessControls));
         }
+        @CustomType.Setter
         public Builder azurePolicyEnabled(Boolean azurePolicyEnabled) {
             this.azurePolicyEnabled = Objects.requireNonNull(azurePolicyEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(String diskEncryptionSetId) {
             this.diskEncryptionSetId = Objects.requireNonNull(diskEncryptionSetId);
             return this;
         }
+        @CustomType.Setter
         public Builder dnsPrefix(String dnsPrefix) {
             this.dnsPrefix = Objects.requireNonNull(dnsPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder httpApplicationRoutingEnabled(Boolean httpApplicationRoutingEnabled) {
             this.httpApplicationRoutingEnabled = Objects.requireNonNull(httpApplicationRoutingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder httpApplicationRoutingZoneName(String httpApplicationRoutingZoneName) {
             this.httpApplicationRoutingZoneName = Objects.requireNonNull(httpApplicationRoutingZoneName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetKubernetesClusterIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -698,6 +629,7 @@ public final class GetKubernetesClusterResult {
         public Builder identities(GetKubernetesClusterIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder ingressApplicationGateways(List<GetKubernetesClusterIngressApplicationGateway> ingressApplicationGateways) {
             this.ingressApplicationGateways = Objects.requireNonNull(ingressApplicationGateways);
             return this;
@@ -705,6 +637,7 @@ public final class GetKubernetesClusterResult {
         public Builder ingressApplicationGateways(GetKubernetesClusterIngressApplicationGateway... ingressApplicationGateways) {
             return ingressApplicationGateways(List.of(ingressApplicationGateways));
         }
+        @CustomType.Setter
         public Builder keyVaultSecretsProviders(List<GetKubernetesClusterKeyVaultSecretsProvider> keyVaultSecretsProviders) {
             this.keyVaultSecretsProviders = Objects.requireNonNull(keyVaultSecretsProviders);
             return this;
@@ -712,10 +645,12 @@ public final class GetKubernetesClusterResult {
         public Builder keyVaultSecretsProviders(GetKubernetesClusterKeyVaultSecretsProvider... keyVaultSecretsProviders) {
             return keyVaultSecretsProviders(List.of(keyVaultSecretsProviders));
         }
+        @CustomType.Setter
         public Builder kubeAdminConfigRaw(String kubeAdminConfigRaw) {
             this.kubeAdminConfigRaw = Objects.requireNonNull(kubeAdminConfigRaw);
             return this;
         }
+        @CustomType.Setter
         public Builder kubeAdminConfigs(List<GetKubernetesClusterKubeAdminConfig> kubeAdminConfigs) {
             this.kubeAdminConfigs = Objects.requireNonNull(kubeAdminConfigs);
             return this;
@@ -723,10 +658,12 @@ public final class GetKubernetesClusterResult {
         public Builder kubeAdminConfigs(GetKubernetesClusterKubeAdminConfig... kubeAdminConfigs) {
             return kubeAdminConfigs(List.of(kubeAdminConfigs));
         }
+        @CustomType.Setter
         public Builder kubeConfigRaw(String kubeConfigRaw) {
             this.kubeConfigRaw = Objects.requireNonNull(kubeConfigRaw);
             return this;
         }
+        @CustomType.Setter
         public Builder kubeConfigs(List<GetKubernetesClusterKubeConfig> kubeConfigs) {
             this.kubeConfigs = Objects.requireNonNull(kubeConfigs);
             return this;
@@ -734,6 +671,7 @@ public final class GetKubernetesClusterResult {
         public Builder kubeConfigs(GetKubernetesClusterKubeConfig... kubeConfigs) {
             return kubeConfigs(List.of(kubeConfigs));
         }
+        @CustomType.Setter
         public Builder kubeletIdentities(List<GetKubernetesClusterKubeletIdentity> kubeletIdentities) {
             this.kubeletIdentities = Objects.requireNonNull(kubeletIdentities);
             return this;
@@ -741,10 +679,12 @@ public final class GetKubernetesClusterResult {
         public Builder kubeletIdentities(GetKubernetesClusterKubeletIdentity... kubeletIdentities) {
             return kubeletIdentities(List.of(kubeletIdentities));
         }
+        @CustomType.Setter
         public Builder kubernetesVersion(String kubernetesVersion) {
             this.kubernetesVersion = Objects.requireNonNull(kubernetesVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder linuxProfiles(List<GetKubernetesClusterLinuxProfile> linuxProfiles) {
             this.linuxProfiles = Objects.requireNonNull(linuxProfiles);
             return this;
@@ -752,10 +692,12 @@ public final class GetKubernetesClusterResult {
         public Builder linuxProfiles(GetKubernetesClusterLinuxProfile... linuxProfiles) {
             return linuxProfiles(List.of(linuxProfiles));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder microsoftDefenders(List<GetKubernetesClusterMicrosoftDefender> microsoftDefenders) {
             this.microsoftDefenders = Objects.requireNonNull(microsoftDefenders);
             return this;
@@ -763,10 +705,12 @@ public final class GetKubernetesClusterResult {
         public Builder microsoftDefenders(GetKubernetesClusterMicrosoftDefender... microsoftDefenders) {
             return microsoftDefenders(List.of(microsoftDefenders));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkProfiles(List<GetKubernetesClusterNetworkProfile> networkProfiles) {
             this.networkProfiles = Objects.requireNonNull(networkProfiles);
             return this;
@@ -774,18 +718,22 @@ public final class GetKubernetesClusterResult {
         public Builder networkProfiles(GetKubernetesClusterNetworkProfile... networkProfiles) {
             return networkProfiles(List.of(networkProfiles));
         }
+        @CustomType.Setter
         public Builder nodeResourceGroup(String nodeResourceGroup) {
             this.nodeResourceGroup = Objects.requireNonNull(nodeResourceGroup);
             return this;
         }
+        @CustomType.Setter
         public Builder oidcIssuerEnabled(Boolean oidcIssuerEnabled) {
             this.oidcIssuerEnabled = Objects.requireNonNull(oidcIssuerEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder oidcIssuerUrl(String oidcIssuerUrl) {
             this.oidcIssuerUrl = Objects.requireNonNull(oidcIssuerUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder omsAgents(List<GetKubernetesClusterOmsAgent> omsAgents) {
             this.omsAgents = Objects.requireNonNull(omsAgents);
             return this;
@@ -793,26 +741,32 @@ public final class GetKubernetesClusterResult {
         public Builder omsAgents(GetKubernetesClusterOmsAgent... omsAgents) {
             return omsAgents(List.of(omsAgents));
         }
+        @CustomType.Setter
         public Builder openServiceMeshEnabled(Boolean openServiceMeshEnabled) {
             this.openServiceMeshEnabled = Objects.requireNonNull(openServiceMeshEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder privateClusterEnabled(Boolean privateClusterEnabled) {
             this.privateClusterEnabled = Objects.requireNonNull(privateClusterEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder privateFqdn(String privateFqdn) {
             this.privateFqdn = Objects.requireNonNull(privateFqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder roleBasedAccessControlEnabled(Boolean roleBasedAccessControlEnabled) {
             this.roleBasedAccessControlEnabled = Objects.requireNonNull(roleBasedAccessControlEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder servicePrincipals(List<GetKubernetesClusterServicePrincipal> servicePrincipals) {
             this.servicePrincipals = Objects.requireNonNull(servicePrincipals);
             return this;
@@ -820,18 +774,59 @@ public final class GetKubernetesClusterResult {
         public Builder servicePrincipals(GetKubernetesClusterServicePrincipal... servicePrincipals) {
             return servicePrincipals(List.of(servicePrincipals));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder windowsProfiles(List<GetKubernetesClusterWindowsProfile> windowsProfiles) {
             this.windowsProfiles = Objects.requireNonNull(windowsProfiles);
             return this;
         }
         public Builder windowsProfiles(GetKubernetesClusterWindowsProfile... windowsProfiles) {
             return windowsProfiles(List.of(windowsProfiles));
-        }        public GetKubernetesClusterResult build() {
-            return new GetKubernetesClusterResult(aciConnectorLinuxes, agentPoolProfiles, apiServerAuthorizedIpRanges, azureActiveDirectoryRoleBasedAccessControls, azurePolicyEnabled, diskEncryptionSetId, dnsPrefix, fqdn, httpApplicationRoutingEnabled, httpApplicationRoutingZoneName, id, identities, ingressApplicationGateways, keyVaultSecretsProviders, kubeAdminConfigRaw, kubeAdminConfigs, kubeConfigRaw, kubeConfigs, kubeletIdentities, kubernetesVersion, linuxProfiles, location, microsoftDefenders, name, networkProfiles, nodeResourceGroup, oidcIssuerEnabled, oidcIssuerUrl, omsAgents, openServiceMeshEnabled, privateClusterEnabled, privateFqdn, resourceGroupName, roleBasedAccessControlEnabled, servicePrincipals, tags, windowsProfiles);
+        }
+        public GetKubernetesClusterResult build() {
+            final var o = new GetKubernetesClusterResult();
+            o.aciConnectorLinuxes = aciConnectorLinuxes;
+            o.agentPoolProfiles = agentPoolProfiles;
+            o.apiServerAuthorizedIpRanges = apiServerAuthorizedIpRanges;
+            o.azureActiveDirectoryRoleBasedAccessControls = azureActiveDirectoryRoleBasedAccessControls;
+            o.azurePolicyEnabled = azurePolicyEnabled;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.dnsPrefix = dnsPrefix;
+            o.fqdn = fqdn;
+            o.httpApplicationRoutingEnabled = httpApplicationRoutingEnabled;
+            o.httpApplicationRoutingZoneName = httpApplicationRoutingZoneName;
+            o.id = id;
+            o.identities = identities;
+            o.ingressApplicationGateways = ingressApplicationGateways;
+            o.keyVaultSecretsProviders = keyVaultSecretsProviders;
+            o.kubeAdminConfigRaw = kubeAdminConfigRaw;
+            o.kubeAdminConfigs = kubeAdminConfigs;
+            o.kubeConfigRaw = kubeConfigRaw;
+            o.kubeConfigs = kubeConfigs;
+            o.kubeletIdentities = kubeletIdentities;
+            o.kubernetesVersion = kubernetesVersion;
+            o.linuxProfiles = linuxProfiles;
+            o.location = location;
+            o.microsoftDefenders = microsoftDefenders;
+            o.name = name;
+            o.networkProfiles = networkProfiles;
+            o.nodeResourceGroup = nodeResourceGroup;
+            o.oidcIssuerEnabled = oidcIssuerEnabled;
+            o.oidcIssuerUrl = oidcIssuerUrl;
+            o.omsAgents = omsAgents;
+            o.openServiceMeshEnabled = openServiceMeshEnabled;
+            o.privateClusterEnabled = privateClusterEnabled;
+            o.privateFqdn = privateFqdn;
+            o.resourceGroupName = resourceGroupName;
+            o.roleBasedAccessControlEnabled = roleBasedAccessControlEnabled;
+            o.servicePrincipals = servicePrincipals;
+            o.tags = tags;
+            o.windowsProfiles = windowsProfiles;
+            return o;
         }
     }
 }

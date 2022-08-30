@@ -18,56 +18,39 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
      * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
      * 
      */
-    private final @Nullable List<String> dnsServers;
+    private @Nullable List<String> dnsServers;
     /**
      * @return Does this Network Interface support Accelerated Networking? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableAcceleratedNetworking;
+    private @Nullable Boolean enableAcceleratedNetworking;
     /**
      * @return Does this Network Interface support IP Forwarding? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean enableIpForwarding;
+    private @Nullable Boolean enableIpForwarding;
     /**
      * @return One or more `ip_configuration` blocks as defined above.
      * 
      */
-    private final List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    private List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
      * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The ID of a Network Security Group which should be assigned to this Network Interface.
      * 
      */
-    private final @Nullable String networkSecurityGroupId;
+    private @Nullable String networkSecurityGroupId;
     /**
      * @return Is this the Primary IP Configuration?
      * 
      */
-    private final @Nullable Boolean primary;
+    private @Nullable Boolean primary;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineScaleSetNetworkInterface(
-        @CustomType.Parameter("dnsServers") @Nullable List<String> dnsServers,
-        @CustomType.Parameter("enableAcceleratedNetworking") @Nullable Boolean enableAcceleratedNetworking,
-        @CustomType.Parameter("enableIpForwarding") @Nullable Boolean enableIpForwarding,
-        @CustomType.Parameter("ipConfigurations") List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupId") @Nullable String networkSecurityGroupId,
-        @CustomType.Parameter("primary") @Nullable Boolean primary) {
-        this.dnsServers = dnsServers;
-        this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-        this.enableIpForwarding = enableIpForwarding;
-        this.ipConfigurations = ipConfigurations;
-        this.name = name;
-        this.networkSecurityGroupId = networkSecurityGroupId;
-        this.primary = primary;
-    }
-
+    private WindowsVirtualMachineScaleSetNetworkInterface() {}
     /**
      * @return A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
      * 
@@ -125,7 +108,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
     public static Builder builder(WindowsVirtualMachineScaleSetNetworkInterface defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> dnsServers;
         private @Nullable Boolean enableAcceleratedNetworking;
@@ -134,11 +117,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
         private String name;
         private @Nullable String networkSecurityGroupId;
         private @Nullable Boolean primary;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
@@ -150,6 +129,7 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
     	      this.primary = defaults.primary;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(@Nullable List<String> dnsServers) {
             this.dnsServers = dnsServers;
             return this;
@@ -157,14 +137,17 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder enableAcceleratedNetworking(@Nullable Boolean enableAcceleratedNetworking) {
             this.enableAcceleratedNetworking = enableAcceleratedNetworking;
             return this;
         }
+        @CustomType.Setter
         public Builder enableIpForwarding(@Nullable Boolean enableIpForwarding) {
             this.enableIpForwarding = enableIpForwarding;
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -172,19 +155,31 @@ public final class WindowsVirtualMachineScaleSetNetworkInterface {
         public Builder ipConfigurations(WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupId(@Nullable String networkSecurityGroupId) {
             this.networkSecurityGroupId = networkSecurityGroupId;
             return this;
         }
+        @CustomType.Setter
         public Builder primary(@Nullable Boolean primary) {
             this.primary = primary;
             return this;
-        }        public WindowsVirtualMachineScaleSetNetworkInterface build() {
-            return new WindowsVirtualMachineScaleSetNetworkInterface(dnsServers, enableAcceleratedNetworking, enableIpForwarding, ipConfigurations, name, networkSecurityGroupId, primary);
+        }
+        public WindowsVirtualMachineScaleSetNetworkInterface build() {
+            final var o = new WindowsVirtualMachineScaleSetNetworkInterface();
+            o.dnsServers = dnsServers;
+            o.enableAcceleratedNetworking = enableAcceleratedNetworking;
+            o.enableIpForwarding = enableIpForwarding;
+            o.ipConfigurations = ipConfigurations;
+            o.name = name;
+            o.networkSecurityGroupId = networkSecurityGroupId;
+            o.primary = primary;
+            return o;
         }
     }
 }

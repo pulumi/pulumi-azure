@@ -13,27 +13,16 @@ public final class GetDomainTopicResult {
      * @return The EventGrid Domain Topic Domain name.
      * 
      */
-    private final String domainName;
+    private String domainName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetDomainTopicResult(
-        @CustomType.Parameter("domainName") String domainName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.domainName = domainName;
-        this.id = id;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetDomainTopicResult() {}
     /**
      * @return The EventGrid Domain Topic Domain name.
      * 
@@ -62,17 +51,13 @@ public final class GetDomainTopicResult {
     public static Builder builder(GetDomainTopicResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String domainName;
         private String id;
         private String name;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDomainTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.domainName = defaults.domainName;
@@ -81,23 +66,33 @@ public final class GetDomainTopicResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder domainName(String domainName) {
             this.domainName = Objects.requireNonNull(domainName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetDomainTopicResult build() {
-            return new GetDomainTopicResult(domainName, id, name, resourceGroupName);
+        }
+        public GetDomainTopicResult build() {
+            final var o = new GetDomainTopicResult();
+            o.domainName = domainName;
+            o.id = id;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

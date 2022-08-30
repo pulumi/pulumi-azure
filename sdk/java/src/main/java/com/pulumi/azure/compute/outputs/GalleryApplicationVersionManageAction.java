@@ -15,28 +15,19 @@ public final class GalleryApplicationVersionManageAction {
      * @return The command to install the Gallery Application. Changing this forces a new resource to be created.
      * 
      */
-    private final String install;
+    private String install;
     /**
      * @return The command to remove the Gallery Application. Changing this forces a new resource to be created.
      * 
      */
-    private final String remove;
+    private String remove;
     /**
      * @return The command to update the Gallery Application. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String update;
+    private @Nullable String update;
 
-    @CustomType.Constructor
-    private GalleryApplicationVersionManageAction(
-        @CustomType.Parameter("install") String install,
-        @CustomType.Parameter("remove") String remove,
-        @CustomType.Parameter("update") @Nullable String update) {
-        this.install = install;
-        this.remove = remove;
-        this.update = update;
-    }
-
+    private GalleryApplicationVersionManageAction() {}
     /**
      * @return The command to install the Gallery Application. Changing this forces a new resource to be created.
      * 
@@ -66,16 +57,12 @@ public final class GalleryApplicationVersionManageAction {
     public static Builder builder(GalleryApplicationVersionManageAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String install;
         private String remove;
         private @Nullable String update;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GalleryApplicationVersionManageAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.install = defaults.install;
@@ -83,19 +70,27 @@ public final class GalleryApplicationVersionManageAction {
     	      this.update = defaults.update;
         }
 
+        @CustomType.Setter
         public Builder install(String install) {
             this.install = Objects.requireNonNull(install);
             return this;
         }
+        @CustomType.Setter
         public Builder remove(String remove) {
             this.remove = Objects.requireNonNull(remove);
             return this;
         }
+        @CustomType.Setter
         public Builder update(@Nullable String update) {
             this.update = update;
             return this;
-        }        public GalleryApplicationVersionManageAction build() {
-            return new GalleryApplicationVersionManageAction(install, remove, update);
+        }
+        public GalleryApplicationVersionManageAction build() {
+            final var o = new GalleryApplicationVersionManageAction();
+            o.install = install;
+            o.remove = remove;
+            o.update = update;
+            return o;
         }
     }
 }

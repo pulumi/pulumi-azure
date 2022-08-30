@@ -20,63 +20,44 @@ public final class NetworkConnectionMonitorTestConfiguration {
      * @return A `http_configuration` block as defined below.
      * 
      */
-    private final @Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration;
+    private @Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration;
     /**
      * @return A `icmp_configuration` block as defined below.
      * 
      */
-    private final @Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration;
+    private @Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration;
     /**
      * @return The name of test configuration for the Network Connection Monitor.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
      * 
      */
-    private final @Nullable String preferredIpVersion;
+    private @Nullable String preferredIpVersion;
     /**
      * @return The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return A `success_threshold` block as defined below.
      * 
      */
-    private final @Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold;
+    private @Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold;
     /**
      * @return A `tcp_configuration` block as defined below.
      * 
      */
-    private final @Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration;
+    private @Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration;
     /**
      * @return The time interval in seconds at which the test evaluation will happen. Defaults to `60`.
      * 
      */
-    private final @Nullable Integer testFrequencyInSeconds;
+    private @Nullable Integer testFrequencyInSeconds;
 
-    @CustomType.Constructor
-    private NetworkConnectionMonitorTestConfiguration(
-        @CustomType.Parameter("httpConfiguration") @Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration,
-        @CustomType.Parameter("icmpConfiguration") @Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("preferredIpVersion") @Nullable String preferredIpVersion,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("successThreshold") @Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold,
-        @CustomType.Parameter("tcpConfiguration") @Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration,
-        @CustomType.Parameter("testFrequencyInSeconds") @Nullable Integer testFrequencyInSeconds) {
-        this.httpConfiguration = httpConfiguration;
-        this.icmpConfiguration = icmpConfiguration;
-        this.name = name;
-        this.preferredIpVersion = preferredIpVersion;
-        this.protocol = protocol;
-        this.successThreshold = successThreshold;
-        this.tcpConfiguration = tcpConfiguration;
-        this.testFrequencyInSeconds = testFrequencyInSeconds;
-    }
-
+    private NetworkConnectionMonitorTestConfiguration() {}
     /**
      * @return A `http_configuration` block as defined below.
      * 
@@ -141,7 +122,7 @@ public final class NetworkConnectionMonitorTestConfiguration {
     public static Builder builder(NetworkConnectionMonitorTestConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration;
         private @Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration;
@@ -151,11 +132,7 @@ public final class NetworkConnectionMonitorTestConfiguration {
         private @Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold;
         private @Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration;
         private @Nullable Integer testFrequencyInSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(NetworkConnectionMonitorTestConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.httpConfiguration = defaults.httpConfiguration;
@@ -168,39 +145,57 @@ public final class NetworkConnectionMonitorTestConfiguration {
     	      this.testFrequencyInSeconds = defaults.testFrequencyInSeconds;
         }
 
+        @CustomType.Setter
         public Builder httpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationHttpConfiguration httpConfiguration) {
             this.httpConfiguration = httpConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder icmpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationIcmpConfiguration icmpConfiguration) {
             this.icmpConfiguration = icmpConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder preferredIpVersion(@Nullable String preferredIpVersion) {
             this.preferredIpVersion = preferredIpVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder successThreshold(@Nullable NetworkConnectionMonitorTestConfigurationSuccessThreshold successThreshold) {
             this.successThreshold = successThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder tcpConfiguration(@Nullable NetworkConnectionMonitorTestConfigurationTcpConfiguration tcpConfiguration) {
             this.tcpConfiguration = tcpConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder testFrequencyInSeconds(@Nullable Integer testFrequencyInSeconds) {
             this.testFrequencyInSeconds = testFrequencyInSeconds;
             return this;
-        }        public NetworkConnectionMonitorTestConfiguration build() {
-            return new NetworkConnectionMonitorTestConfiguration(httpConfiguration, icmpConfiguration, name, preferredIpVersion, protocol, successThreshold, tcpConfiguration, testFrequencyInSeconds);
+        }
+        public NetworkConnectionMonitorTestConfiguration build() {
+            final var o = new NetworkConnectionMonitorTestConfiguration();
+            o.httpConfiguration = httpConfiguration;
+            o.icmpConfiguration = icmpConfiguration;
+            o.name = name;
+            o.preferredIpVersion = preferredIpVersion;
+            o.protocol = protocol;
+            o.successThreshold = successThreshold;
+            o.tcpConfiguration = tcpConfiguration;
+            o.testFrequencyInSeconds = testFrequencyInSeconds;
+            return o;
         }
     }
 }

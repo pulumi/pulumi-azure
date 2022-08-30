@@ -15,21 +15,14 @@ public final class AccountStorage {
      * @return The client ID of the managed identity associated with the storage resource.
      * 
      */
-    private final @Nullable String identityClientId;
+    private @Nullable String identityClientId;
     /**
      * @return Full resource id of a Microsoft.Storage resource.
      * 
      */
-    private final String storageAccountId;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private AccountStorage(
-        @CustomType.Parameter("identityClientId") @Nullable String identityClientId,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.identityClientId = identityClientId;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private AccountStorage() {}
     /**
      * @return The client ID of the managed identity associated with the storage resource.
      * 
@@ -52,30 +45,32 @@ public final class AccountStorage {
     public static Builder builder(AccountStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String identityClientId;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.identityClientId = defaults.identityClientId;
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder identityClientId(@Nullable String identityClientId) {
             this.identityClientId = identityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public AccountStorage build() {
-            return new AccountStorage(identityClientId, storageAccountId);
+        }
+        public AccountStorage build() {
+            final var o = new AccountStorage();
+            o.identityClientId = identityClientId;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

@@ -16,35 +16,24 @@ public final class LinuxFunctionAppAuthSettingsFacebook {
      * @return The App ID of the Facebook app used for login.
      * 
      */
-    private final String appId;
+    private String appId;
     /**
      * @return The App Secret of the Facebook app used for Facebook login. Cannot be specified with `app_secret_setting_name`.
      * 
      */
-    private final @Nullable String appSecret;
+    private @Nullable String appSecret;
     /**
      * @return The app setting name that contains the `app_secret` value used for Facebook login. Cannot be specified with `app_secret`.
      * 
      */
-    private final @Nullable String appSecretSettingName;
+    private @Nullable String appSecretSettingName;
     /**
      * @return Specifies a list of OAuth 2.0 scopes to be requested as part of Facebook login authentication.
      * 
      */
-    private final @Nullable List<String> oauthScopes;
+    private @Nullable List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private LinuxFunctionAppAuthSettingsFacebook(
-        @CustomType.Parameter("appId") String appId,
-        @CustomType.Parameter("appSecret") @Nullable String appSecret,
-        @CustomType.Parameter("appSecretSettingName") @Nullable String appSecretSettingName,
-        @CustomType.Parameter("oauthScopes") @Nullable List<String> oauthScopes) {
-        this.appId = appId;
-        this.appSecret = appSecret;
-        this.appSecretSettingName = appSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private LinuxFunctionAppAuthSettingsFacebook() {}
     /**
      * @return The App ID of the Facebook app used for login.
      * 
@@ -81,17 +70,13 @@ public final class LinuxFunctionAppAuthSettingsFacebook {
     public static Builder builder(LinuxFunctionAppAuthSettingsFacebook defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appId;
         private @Nullable String appSecret;
         private @Nullable String appSecretSettingName;
         private @Nullable List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxFunctionAppAuthSettingsFacebook defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appId = defaults.appId;
@@ -100,26 +85,36 @@ public final class LinuxFunctionAppAuthSettingsFacebook {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder appId(String appId) {
             this.appId = Objects.requireNonNull(appId);
             return this;
         }
+        @CustomType.Setter
         public Builder appSecret(@Nullable String appSecret) {
             this.appSecret = appSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder appSecretSettingName(@Nullable String appSecretSettingName) {
             this.appSecretSettingName = appSecretSettingName;
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(@Nullable List<String> oauthScopes) {
             this.oauthScopes = oauthScopes;
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public LinuxFunctionAppAuthSettingsFacebook build() {
-            return new LinuxFunctionAppAuthSettingsFacebook(appId, appSecret, appSecretSettingName, oauthScopes);
+        }
+        public LinuxFunctionAppAuthSettingsFacebook build() {
+            final var o = new LinuxFunctionAppAuthSettingsFacebook();
+            o.appId = appId;
+            o.appSecret = appSecret;
+            o.appSecretSettingName = appSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

@@ -17,96 +17,63 @@ public final class GetTopicResult {
      * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
      */
-    private final String autoDeleteOnIdle;
+    private String autoDeleteOnIdle;
     /**
      * @return The ISO 8601 timespan duration of TTL of messages sent to this topic if no TTL value is set on the message itself.
      * 
      */
-    private final String defaultMessageTtl;
+    private String defaultMessageTtl;
     /**
      * @return The ISO 8601 timespan duration during which duplicates can be detected.
      * 
      */
-    private final String duplicateDetectionHistoryTimeWindow;
+    private String duplicateDetectionHistoryTimeWindow;
     /**
      * @return Boolean flag which controls if server-side batched operations are enabled.
      * 
      */
-    private final Boolean enableBatchedOperations;
+    private Boolean enableBatchedOperations;
     /**
      * @return Boolean flag which controls whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      * 
      */
-    private final Boolean enableExpress;
+    private Boolean enableExpress;
     /**
      * @return Boolean flag which controls whether to enable the topic to be partitioned across multiple message brokers.
      * 
      */
-    private final Boolean enablePartitioning;
+    private Boolean enablePartitioning;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Integer value which controls the size of memory allocated for the topic. For supported values see the &#34;Queue/topic size&#34; section of [this document](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
      * 
      */
-    private final Integer maxSizeInMegabytes;
-    private final String name;
-    private final @Nullable String namespaceId;
-    private final @Nullable String namespaceName;
+    private Integer maxSizeInMegabytes;
+    private String name;
+    private @Nullable String namespaceId;
+    private @Nullable String namespaceName;
     /**
      * @return Boolean flag which controls whether the Topic requires duplicate detection.
      * 
      */
-    private final Boolean requiresDuplicateDetection;
-    private final @Nullable String resourceGroupName;
+    private Boolean requiresDuplicateDetection;
+    private @Nullable String resourceGroupName;
     /**
      * @return The Status of the Service Bus Topic. Acceptable values are Active or Disabled.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return Boolean flag which controls whether the Topic supports ordering.
      * 
      */
-    private final Boolean supportOrdering;
+    private Boolean supportOrdering;
 
-    @CustomType.Constructor
-    private GetTopicResult(
-        @CustomType.Parameter("autoDeleteOnIdle") String autoDeleteOnIdle,
-        @CustomType.Parameter("defaultMessageTtl") String defaultMessageTtl,
-        @CustomType.Parameter("duplicateDetectionHistoryTimeWindow") String duplicateDetectionHistoryTimeWindow,
-        @CustomType.Parameter("enableBatchedOperations") Boolean enableBatchedOperations,
-        @CustomType.Parameter("enableExpress") Boolean enableExpress,
-        @CustomType.Parameter("enablePartitioning") Boolean enablePartitioning,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("maxSizeInMegabytes") Integer maxSizeInMegabytes,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("namespaceId") @Nullable String namespaceId,
-        @CustomType.Parameter("namespaceName") @Nullable String namespaceName,
-        @CustomType.Parameter("requiresDuplicateDetection") Boolean requiresDuplicateDetection,
-        @CustomType.Parameter("resourceGroupName") @Nullable String resourceGroupName,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("supportOrdering") Boolean supportOrdering) {
-        this.autoDeleteOnIdle = autoDeleteOnIdle;
-        this.defaultMessageTtl = defaultMessageTtl;
-        this.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
-        this.enableBatchedOperations = enableBatchedOperations;
-        this.enableExpress = enableExpress;
-        this.enablePartitioning = enablePartitioning;
-        this.id = id;
-        this.maxSizeInMegabytes = maxSizeInMegabytes;
-        this.name = name;
-        this.namespaceId = namespaceId;
-        this.namespaceName = namespaceName;
-        this.requiresDuplicateDetection = requiresDuplicateDetection;
-        this.resourceGroupName = resourceGroupName;
-        this.status = status;
-        this.supportOrdering = supportOrdering;
-    }
-
+    private GetTopicResult() {}
     /**
      * @return The ISO 8601 timespan duration of the idle interval after which the Topic is automatically deleted, minimum of 5 minutes.
      * 
@@ -204,7 +171,7 @@ public final class GetTopicResult {
     public static Builder builder(GetTopicResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoDeleteOnIdle;
         private String defaultMessageTtl;
@@ -221,11 +188,7 @@ public final class GetTopicResult {
         private @Nullable String resourceGroupName;
         private String status;
         private Boolean supportOrdering;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTopicResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoDeleteOnIdle = defaults.autoDeleteOnIdle;
@@ -245,67 +208,99 @@ public final class GetTopicResult {
     	      this.supportOrdering = defaults.supportOrdering;
         }
 
+        @CustomType.Setter
         public Builder autoDeleteOnIdle(String autoDeleteOnIdle) {
             this.autoDeleteOnIdle = Objects.requireNonNull(autoDeleteOnIdle);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultMessageTtl(String defaultMessageTtl) {
             this.defaultMessageTtl = Objects.requireNonNull(defaultMessageTtl);
             return this;
         }
+        @CustomType.Setter
         public Builder duplicateDetectionHistoryTimeWindow(String duplicateDetectionHistoryTimeWindow) {
             this.duplicateDetectionHistoryTimeWindow = Objects.requireNonNull(duplicateDetectionHistoryTimeWindow);
             return this;
         }
+        @CustomType.Setter
         public Builder enableBatchedOperations(Boolean enableBatchedOperations) {
             this.enableBatchedOperations = Objects.requireNonNull(enableBatchedOperations);
             return this;
         }
+        @CustomType.Setter
         public Builder enableExpress(Boolean enableExpress) {
             this.enableExpress = Objects.requireNonNull(enableExpress);
             return this;
         }
+        @CustomType.Setter
         public Builder enablePartitioning(Boolean enablePartitioning) {
             this.enablePartitioning = Objects.requireNonNull(enablePartitioning);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSizeInMegabytes(Integer maxSizeInMegabytes) {
             this.maxSizeInMegabytes = Objects.requireNonNull(maxSizeInMegabytes);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceId(@Nullable String namespaceId) {
             this.namespaceId = namespaceId;
             return this;
         }
+        @CustomType.Setter
         public Builder namespaceName(@Nullable String namespaceName) {
             this.namespaceName = namespaceName;
             return this;
         }
+        @CustomType.Setter
         public Builder requiresDuplicateDetection(Boolean requiresDuplicateDetection) {
             this.requiresDuplicateDetection = Objects.requireNonNull(requiresDuplicateDetection);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(@Nullable String resourceGroupName) {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder supportOrdering(Boolean supportOrdering) {
             this.supportOrdering = Objects.requireNonNull(supportOrdering);
             return this;
-        }        public GetTopicResult build() {
-            return new GetTopicResult(autoDeleteOnIdle, defaultMessageTtl, duplicateDetectionHistoryTimeWindow, enableBatchedOperations, enableExpress, enablePartitioning, id, maxSizeInMegabytes, name, namespaceId, namespaceName, requiresDuplicateDetection, resourceGroupName, status, supportOrdering);
+        }
+        public GetTopicResult build() {
+            final var o = new GetTopicResult();
+            o.autoDeleteOnIdle = autoDeleteOnIdle;
+            o.defaultMessageTtl = defaultMessageTtl;
+            o.duplicateDetectionHistoryTimeWindow = duplicateDetectionHistoryTimeWindow;
+            o.enableBatchedOperations = enableBatchedOperations;
+            o.enableExpress = enableExpress;
+            o.enablePartitioning = enablePartitioning;
+            o.id = id;
+            o.maxSizeInMegabytes = maxSizeInMegabytes;
+            o.name = name;
+            o.namespaceId = namespaceId;
+            o.namespaceName = namespaceName;
+            o.requiresDuplicateDetection = requiresDuplicateDetection;
+            o.resourceGroupName = resourceGroupName;
+            o.status = status;
+            o.supportOrdering = supportOrdering;
+            return o;
         }
     }
 }

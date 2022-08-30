@@ -16,21 +16,14 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
      * @return A `capacity` block as defined below.
      * 
      */
-    private final @Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity;
+    private @Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity;
     /**
      * @return A `recurrence` block as defined below.
      * 
      */
-    private final @Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
+    private @Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
-    @CustomType.Constructor
-    private SparkClusterRolesWorkerNodeAutoscale(
-        @CustomType.Parameter("capacity") @Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity,
-        @CustomType.Parameter("recurrence") @Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
-        this.capacity = capacity;
-        this.recurrence = recurrence;
-    }
-
+    private SparkClusterRolesWorkerNodeAutoscale() {}
     /**
      * @return A `capacity` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class SparkClusterRolesWorkerNodeAutoscale {
     public static Builder builder(SparkClusterRolesWorkerNodeAutoscale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity;
         private @Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SparkClusterRolesWorkerNodeAutoscale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
     	      this.recurrence = defaults.recurrence;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable SparkClusterRolesWorkerNodeAutoscaleCapacity capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder recurrence(@Nullable SparkClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
-        }        public SparkClusterRolesWorkerNodeAutoscale build() {
-            return new SparkClusterRolesWorkerNodeAutoscale(capacity, recurrence);
+        }
+        public SparkClusterRolesWorkerNodeAutoscale build() {
+            final var o = new SparkClusterRolesWorkerNodeAutoscale();
+            o.capacity = capacity;
+            o.recurrence = recurrence;
+            return o;
         }
     }
 }

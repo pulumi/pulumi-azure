@@ -23,207 +23,140 @@ public final class LinuxWebAppSiteConfig {
      * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean alwaysOn;
-    private final @Nullable String apiDefinitionUrl;
-    private final @Nullable String apiManagementApiId;
+    private @Nullable Boolean alwaysOn;
+    private @Nullable String apiDefinitionUrl;
+    private @Nullable String apiManagementApiId;
     /**
      * @return The App command line to launch.
      * 
      */
-    private final @Nullable String appCommandLine;
+    private @Nullable String appCommandLine;
     /**
      * @return A `application_stack` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack;
+    private @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack;
     /**
      * @return Should Auto heal rules be enabled. Required with `auto_heal_setting`.
      * 
      */
-    private final @Nullable Boolean autoHealEnabled;
+    private @Nullable Boolean autoHealEnabled;
     /**
      * @return A `auto_heal_setting` block as defined above. Required with `auto_heal`.
      * 
      */
-    private final @Nullable LinuxWebAppSiteConfigAutoHealSetting autoHealSetting;
+    private @Nullable LinuxWebAppSiteConfigAutoHealSetting autoHealSetting;
     /**
      * @return The Client ID of the Managed Service Identity to use for connections to the Azure Container Registry.
      * 
      */
-    private final @Nullable String containerRegistryManagedIdentityClientId;
+    private @Nullable String containerRegistryManagedIdentityClientId;
     /**
      * @return Should connections for Azure Container Registry use Managed Identity.
      * 
      */
-    private final @Nullable Boolean containerRegistryUseManagedIdentity;
+    private @Nullable Boolean containerRegistryUseManagedIdentity;
     /**
      * @return A `cors` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSiteConfigCors cors;
+    private @Nullable LinuxWebAppSiteConfigCors cors;
     /**
      * @return Specifies a list of Default Documents for the Linux Web App.
      * 
      */
-    private final @Nullable List<String> defaultDocuments;
-    private final @Nullable Boolean detailedErrorLoggingEnabled;
+    private @Nullable List<String> defaultDocuments;
+    private @Nullable Boolean detailedErrorLoggingEnabled;
     /**
      * @return The State of FTP / FTPS service. Possible values include: `AllAllowed`, `FtpsOnly`, `Disabled`.
      * 
      */
-    private final @Nullable String ftpsState;
+    private @Nullable String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer. Possible values are between `2` and `10`. Only valid in conjunction with `health_check_path`.
      * 
      */
-    private final @Nullable Integer healthCheckEvictionTimeInMin;
+    private @Nullable Integer healthCheckEvictionTimeInMin;
     /**
      * @return The path to the Health Check.
      * 
      */
-    private final @Nullable String healthCheckPath;
+    private @Nullable String healthCheckPath;
     /**
      * @return Should the HTTP2 be enabled?
      * 
      */
-    private final @Nullable Boolean http2Enabled;
+    private @Nullable Boolean http2Enabled;
     /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSiteConfigIpRestriction> ipRestrictions;
-    private final @Nullable String linuxFxVersion;
+    private @Nullable List<LinuxWebAppSiteConfigIpRestriction> ipRestrictions;
+    private @Nullable String linuxFxVersion;
     /**
      * @return The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
      * 
      */
-    private final @Nullable String loadBalancingMode;
+    private @Nullable String loadBalancingMode;
     /**
      * @return Use Local MySQL. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean localMysqlEnabled;
+    private @Nullable Boolean localMysqlEnabled;
     /**
      * @return Managed pipeline mode. Possible values include: `Integrated`, `Classic`.
      * 
      */
-    private final @Nullable String managedPipelineMode;
+    private @Nullable String managedPipelineMode;
     /**
      * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
      * 
      */
-    private final @Nullable String minimumTlsVersion;
-    private final @Nullable Boolean remoteDebuggingEnabled;
+    private @Nullable String minimumTlsVersion;
+    private @Nullable Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version. Possible values include `VS2017` and `VS2019`
      * 
      */
-    private final @Nullable String remoteDebuggingVersion;
+    private @Nullable String remoteDebuggingVersion;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
+    private @Nullable List<LinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The configures the minimum version of TLS required for SSL requests to the SCM site Possible values include: `1.0`, `1.1`, and  `1.2`. Defaults to `1.2`.
      * 
      */
-    private final @Nullable String scmMinimumTlsVersion;
-    private final @Nullable String scmType;
+    private @Nullable String scmMinimumTlsVersion;
+    private @Nullable String scmType;
     /**
      * @return Should the Linux Web App `ip_restriction` configuration be used for the SCM also.
      * 
      */
-    private final @Nullable Boolean scmUseMainIpRestriction;
+    private @Nullable Boolean scmUseMainIpRestriction;
     /**
      * @return Should the Linux Web App use a 32-bit worker. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean use32BitWorker;
+    private @Nullable Boolean use32BitWorker;
     /**
      * @return Should all outbound traffic to have NAT Gateways, Network Security Groups and User Defined Routes applied? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean vnetRouteAllEnabled;
     /**
      * @return Should Web Sockets be enabled. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean websocketsEnabled;
     /**
      * @return The number of Workers for this Linux App Service.
      * 
      */
-    private final @Nullable Integer workerCount;
+    private @Nullable Integer workerCount;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfig(
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("apiDefinitionUrl") @Nullable String apiDefinitionUrl,
-        @CustomType.Parameter("apiManagementApiId") @Nullable String apiManagementApiId,
-        @CustomType.Parameter("appCommandLine") @Nullable String appCommandLine,
-        @CustomType.Parameter("applicationStack") @Nullable LinuxWebAppSiteConfigApplicationStack applicationStack,
-        @CustomType.Parameter("autoHealEnabled") @Nullable Boolean autoHealEnabled,
-        @CustomType.Parameter("autoHealSetting") @Nullable LinuxWebAppSiteConfigAutoHealSetting autoHealSetting,
-        @CustomType.Parameter("containerRegistryManagedIdentityClientId") @Nullable String containerRegistryManagedIdentityClientId,
-        @CustomType.Parameter("containerRegistryUseManagedIdentity") @Nullable Boolean containerRegistryUseManagedIdentity,
-        @CustomType.Parameter("cors") @Nullable LinuxWebAppSiteConfigCors cors,
-        @CustomType.Parameter("defaultDocuments") @Nullable List<String> defaultDocuments,
-        @CustomType.Parameter("detailedErrorLoggingEnabled") @Nullable Boolean detailedErrorLoggingEnabled,
-        @CustomType.Parameter("ftpsState") @Nullable String ftpsState,
-        @CustomType.Parameter("healthCheckEvictionTimeInMin") @Nullable Integer healthCheckEvictionTimeInMin,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") @Nullable List<LinuxWebAppSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("linuxFxVersion") @Nullable String linuxFxVersion,
-        @CustomType.Parameter("loadBalancingMode") @Nullable String loadBalancingMode,
-        @CustomType.Parameter("localMysqlEnabled") @Nullable Boolean localMysqlEnabled,
-        @CustomType.Parameter("managedPipelineMode") @Nullable String managedPipelineMode,
-        @CustomType.Parameter("minimumTlsVersion") @Nullable String minimumTlsVersion,
-        @CustomType.Parameter("remoteDebuggingEnabled") @Nullable Boolean remoteDebuggingEnabled,
-        @CustomType.Parameter("remoteDebuggingVersion") @Nullable String remoteDebuggingVersion,
-        @CustomType.Parameter("scmIpRestrictions") @Nullable List<LinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmMinimumTlsVersion") @Nullable String scmMinimumTlsVersion,
-        @CustomType.Parameter("scmType") @Nullable String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") @Nullable Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorker") @Nullable Boolean use32BitWorker,
-        @CustomType.Parameter("vnetRouteAllEnabled") @Nullable Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled,
-        @CustomType.Parameter("workerCount") @Nullable Integer workerCount) {
-        this.alwaysOn = alwaysOn;
-        this.apiDefinitionUrl = apiDefinitionUrl;
-        this.apiManagementApiId = apiManagementApiId;
-        this.appCommandLine = appCommandLine;
-        this.applicationStack = applicationStack;
-        this.autoHealEnabled = autoHealEnabled;
-        this.autoHealSetting = autoHealSetting;
-        this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
-        this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
-        this.cors = cors;
-        this.defaultDocuments = defaultDocuments;
-        this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
-        this.ftpsState = ftpsState;
-        this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.linuxFxVersion = linuxFxVersion;
-        this.loadBalancingMode = loadBalancingMode;
-        this.localMysqlEnabled = localMysqlEnabled;
-        this.managedPipelineMode = managedPipelineMode;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.remoteDebuggingEnabled = remoteDebuggingEnabled;
-        this.remoteDebuggingVersion = remoteDebuggingVersion;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmMinimumTlsVersion = scmMinimumTlsVersion;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorker = use32BitWorker;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-        this.workerCount = workerCount;
-    }
-
+    private LinuxWebAppSiteConfig() {}
     /**
      * @return If this Linux Web App is Always On enabled. Defaults to `true`.
      * 
@@ -432,7 +365,7 @@ public final class LinuxWebAppSiteConfig {
     public static Builder builder(LinuxWebAppSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private @Nullable String apiDefinitionUrl;
@@ -466,11 +399,7 @@ public final class LinuxWebAppSiteConfig {
         private @Nullable Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
         private @Nullable Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -507,46 +436,57 @@ public final class LinuxWebAppSiteConfig {
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder apiDefinitionUrl(@Nullable String apiDefinitionUrl) {
             this.apiDefinitionUrl = apiDefinitionUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder apiManagementApiId(@Nullable String apiManagementApiId) {
             this.apiManagementApiId = apiManagementApiId;
             return this;
         }
+        @CustomType.Setter
         public Builder appCommandLine(@Nullable String appCommandLine) {
             this.appCommandLine = appCommandLine;
             return this;
         }
+        @CustomType.Setter
         public Builder applicationStack(@Nullable LinuxWebAppSiteConfigApplicationStack applicationStack) {
             this.applicationStack = applicationStack;
             return this;
         }
+        @CustomType.Setter
         public Builder autoHealEnabled(@Nullable Boolean autoHealEnabled) {
             this.autoHealEnabled = autoHealEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder autoHealSetting(@Nullable LinuxWebAppSiteConfigAutoHealSetting autoHealSetting) {
             this.autoHealSetting = autoHealSetting;
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryManagedIdentityClientId(@Nullable String containerRegistryManagedIdentityClientId) {
             this.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryUseManagedIdentity(@Nullable Boolean containerRegistryUseManagedIdentity) {
             this.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
             return this;
         }
+        @CustomType.Setter
         public Builder cors(@Nullable LinuxWebAppSiteConfigCors cors) {
             this.cors = cors;
             return this;
         }
+        @CustomType.Setter
         public Builder defaultDocuments(@Nullable List<String> defaultDocuments) {
             this.defaultDocuments = defaultDocuments;
             return this;
@@ -554,26 +494,32 @@ public final class LinuxWebAppSiteConfig {
         public Builder defaultDocuments(String... defaultDocuments) {
             return defaultDocuments(List.of(defaultDocuments));
         }
+        @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(@Nullable Boolean detailedErrorLoggingEnabled) {
             this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(@Nullable String ftpsState) {
             this.ftpsState = ftpsState;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(@Nullable Integer healthCheckEvictionTimeInMin) {
             this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(@Nullable List<LinuxWebAppSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = ipRestrictions;
             return this;
@@ -581,34 +527,42 @@ public final class LinuxWebAppSiteConfig {
         public Builder ipRestrictions(LinuxWebAppSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(@Nullable String linuxFxVersion) {
             this.linuxFxVersion = linuxFxVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancingMode(@Nullable String loadBalancingMode) {
             this.loadBalancingMode = loadBalancingMode;
             return this;
         }
+        @CustomType.Setter
         public Builder localMysqlEnabled(@Nullable Boolean localMysqlEnabled) {
             this.localMysqlEnabled = localMysqlEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder managedPipelineMode(@Nullable String managedPipelineMode) {
             this.managedPipelineMode = managedPipelineMode;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingEnabled(@Nullable Boolean remoteDebuggingEnabled) {
             this.remoteDebuggingEnabled = remoteDebuggingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingVersion(@Nullable String remoteDebuggingVersion) {
             this.remoteDebuggingVersion = remoteDebuggingVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(@Nullable List<LinuxWebAppSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = scmIpRestrictions;
             return this;
@@ -616,35 +570,76 @@ public final class LinuxWebAppSiteConfig {
         public Builder scmIpRestrictions(LinuxWebAppSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmMinimumTlsVersion(@Nullable String scmMinimumTlsVersion) {
             this.scmMinimumTlsVersion = scmMinimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder scmType(@Nullable String scmType) {
             this.scmType = scmType;
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(@Nullable Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = scmUseMainIpRestriction;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorker(@Nullable Boolean use32BitWorker) {
             this.use32BitWorker = use32BitWorker;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(@Nullable Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = vnetRouteAllEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(@Nullable Integer workerCount) {
             this.workerCount = workerCount;
             return this;
-        }        public LinuxWebAppSiteConfig build() {
-            return new LinuxWebAppSiteConfig(alwaysOn, apiDefinitionUrl, apiManagementApiId, appCommandLine, applicationStack, autoHealEnabled, autoHealSetting, containerRegistryManagedIdentityClientId, containerRegistryUseManagedIdentity, cors, defaultDocuments, detailedErrorLoggingEnabled, ftpsState, healthCheckEvictionTimeInMin, healthCheckPath, http2Enabled, ipRestrictions, linuxFxVersion, loadBalancingMode, localMysqlEnabled, managedPipelineMode, minimumTlsVersion, remoteDebuggingEnabled, remoteDebuggingVersion, scmIpRestrictions, scmMinimumTlsVersion, scmType, scmUseMainIpRestriction, use32BitWorker, vnetRouteAllEnabled, websocketsEnabled, workerCount);
+        }
+        public LinuxWebAppSiteConfig build() {
+            final var o = new LinuxWebAppSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.apiDefinitionUrl = apiDefinitionUrl;
+            o.apiManagementApiId = apiManagementApiId;
+            o.appCommandLine = appCommandLine;
+            o.applicationStack = applicationStack;
+            o.autoHealEnabled = autoHealEnabled;
+            o.autoHealSetting = autoHealSetting;
+            o.containerRegistryManagedIdentityClientId = containerRegistryManagedIdentityClientId;
+            o.containerRegistryUseManagedIdentity = containerRegistryUseManagedIdentity;
+            o.cors = cors;
+            o.defaultDocuments = defaultDocuments;
+            o.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
+            o.ftpsState = ftpsState;
+            o.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.linuxFxVersion = linuxFxVersion;
+            o.loadBalancingMode = loadBalancingMode;
+            o.localMysqlEnabled = localMysqlEnabled;
+            o.managedPipelineMode = managedPipelineMode;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            o.remoteDebuggingVersion = remoteDebuggingVersion;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinimumTlsVersion = scmMinimumTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorker = use32BitWorker;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

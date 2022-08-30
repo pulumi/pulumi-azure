@@ -14,28 +14,19 @@ public final class DataCollectionRuleDataSourcesSyslog {
      * @return Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
      * 
      */
-    private final List<String> facilityNames;
+    private List<String> facilityNames;
     /**
      * @return Specifies a list of log levels. Use a wildcard `*` to collect logs for all log levels. Possible values are `Debug`,  `Info`, `Notice`, `Warning`, `Error`, `Critical`, `Alert`, `Emergency`,and `*`.
      * 
      */
-    private final List<String> logLevels;
+    private List<String> logLevels;
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataSourcesSyslog(
-        @CustomType.Parameter("facilityNames") List<String> facilityNames,
-        @CustomType.Parameter("logLevels") List<String> logLevels,
-        @CustomType.Parameter("name") String name) {
-        this.facilityNames = facilityNames;
-        this.logLevels = logLevels;
-        this.name = name;
-    }
-
+    private DataCollectionRuleDataSourcesSyslog() {}
     /**
      * @return Specifies a list of facility names. Use a wildcard `*` to collect logs for all facility names. Possible values are `auth`, `authpriv`, `cron`, `daemon`, `kern`, `lpr`, `mail`, `mark`, `news`, `syslog`, `user`, `uucp`, `local0`, `local1`, `local2`, `local3`, `local4`, `local5`, `local6`, `local7`,and `*`.
      * 
@@ -65,16 +56,12 @@ public final class DataCollectionRuleDataSourcesSyslog {
     public static Builder builder(DataCollectionRuleDataSourcesSyslog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> facilityNames;
         private List<String> logLevels;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataSourcesSyslog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.facilityNames = defaults.facilityNames;
@@ -82,6 +69,7 @@ public final class DataCollectionRuleDataSourcesSyslog {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder facilityNames(List<String> facilityNames) {
             this.facilityNames = Objects.requireNonNull(facilityNames);
             return this;
@@ -89,6 +77,7 @@ public final class DataCollectionRuleDataSourcesSyslog {
         public Builder facilityNames(String... facilityNames) {
             return facilityNames(List.of(facilityNames));
         }
+        @CustomType.Setter
         public Builder logLevels(List<String> logLevels) {
             this.logLevels = Objects.requireNonNull(logLevels);
             return this;
@@ -96,11 +85,17 @@ public final class DataCollectionRuleDataSourcesSyslog {
         public Builder logLevels(String... logLevels) {
             return logLevels(List.of(logLevels));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public DataCollectionRuleDataSourcesSyslog build() {
-            return new DataCollectionRuleDataSourcesSyslog(facilityNames, logLevels, name);
+        }
+        public DataCollectionRuleDataSourcesSyslog build() {
+            final var o = new DataCollectionRuleDataSourcesSyslog();
+            o.facilityNames = facilityNames;
+            o.logLevels = logLevels;
+            o.name = name;
+            return o;
         }
     }
 }

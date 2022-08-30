@@ -15,49 +15,34 @@ public final class WorkspaceGithubRepo {
      * @return Specifies the GitHub account name.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Specifies the collaboration branch of the repository to get code from.
      * 
      */
-    private final String branchName;
+    private String branchName;
     /**
      * @return Specifies the GitHub Enterprise host name. For example: https://github.mydomain.com.
      * 
      */
-    private final @Nullable String gitUrl;
+    private @Nullable String gitUrl;
     /**
      * @return The last commit ID.
      * 
      */
-    private final @Nullable String lastCommitId;
+    private @Nullable String lastCommitId;
     /**
      * @return Specifies the name of the git repository.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
      * 
      */
-    private final String rootFolder;
+    private String rootFolder;
 
-    @CustomType.Constructor
-    private WorkspaceGithubRepo(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("branchName") String branchName,
-        @CustomType.Parameter("gitUrl") @Nullable String gitUrl,
-        @CustomType.Parameter("lastCommitId") @Nullable String lastCommitId,
-        @CustomType.Parameter("repositoryName") String repositoryName,
-        @CustomType.Parameter("rootFolder") String rootFolder) {
-        this.accountName = accountName;
-        this.branchName = branchName;
-        this.gitUrl = gitUrl;
-        this.lastCommitId = lastCommitId;
-        this.repositoryName = repositoryName;
-        this.rootFolder = rootFolder;
-    }
-
+    private WorkspaceGithubRepo() {}
     /**
      * @return Specifies the GitHub account name.
      * 
@@ -108,7 +93,7 @@ public final class WorkspaceGithubRepo {
     public static Builder builder(WorkspaceGithubRepo defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String branchName;
@@ -116,11 +101,7 @@ public final class WorkspaceGithubRepo {
         private @Nullable String lastCommitId;
         private String repositoryName;
         private String rootFolder;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkspaceGithubRepo defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -131,31 +112,45 @@ public final class WorkspaceGithubRepo {
     	      this.rootFolder = defaults.rootFolder;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder branchName(String branchName) {
             this.branchName = Objects.requireNonNull(branchName);
             return this;
         }
+        @CustomType.Setter
         public Builder gitUrl(@Nullable String gitUrl) {
             this.gitUrl = gitUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder lastCommitId(@Nullable String lastCommitId) {
             this.lastCommitId = lastCommitId;
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
             this.rootFolder = Objects.requireNonNull(rootFolder);
             return this;
-        }        public WorkspaceGithubRepo build() {
-            return new WorkspaceGithubRepo(accountName, branchName, gitUrl, lastCommitId, repositoryName, rootFolder);
+        }
+        public WorkspaceGithubRepo build() {
+            final var o = new WorkspaceGithubRepo();
+            o.accountName = accountName;
+            o.branchName = branchName;
+            o.gitUrl = gitUrl;
+            o.lastCommitId = lastCommitId;
+            o.repositoryName = repositoryName;
+            o.rootFolder = rootFolder;
+            return o;
         }
     }
 }

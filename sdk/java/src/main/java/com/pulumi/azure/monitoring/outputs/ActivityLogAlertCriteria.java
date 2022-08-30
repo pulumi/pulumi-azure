@@ -18,112 +18,79 @@ public final class ActivityLogAlertCriteria {
      * @return The email address or Azure Active Directory identifier of the user who performed the operation.
      * 
      */
-    private final @Nullable String caller;
+    private @Nullable String caller;
     /**
      * @return The category of the operation. Possible values are `Administrative`, `Autoscale`, `Policy`, `Recommendation`, `ResourceHealth`, `Security` and `ServiceHealth`.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return The severity level of the event. Possible values are `Verbose`, `Informational`, `Warning`, `Error`, and `Critical`.
      * 
      */
-    private final @Nullable String level;
+    private @Nullable String level;
     /**
      * @return The Resource Manager Role-Based Access Control operation name. Supported operation should be of the form: `&lt;resourceProvider&gt;/&lt;resourceType&gt;/&lt;operation&gt;`.
      * 
      */
-    private final @Nullable String operationName;
+    private @Nullable String operationName;
     /**
      * @return The recommendation category of the event. Possible values are `Cost`, `Reliability`, `OperationalExcellence` and `Performance`. It is only allowed when `category` is `Recommendation`.
      * 
      */
-    private final @Nullable String recommendationCategory;
+    private @Nullable String recommendationCategory;
     /**
      * @return The recommendation impact of the event. Possible values are `High`, `Medium` and `Low`. It is only allowed when `category` is `Recommendation`.
      * 
      */
-    private final @Nullable String recommendationImpact;
+    private @Nullable String recommendationImpact;
     /**
      * @return The recommendation type of the event. It is only allowed when `category` is `Recommendation`.
      * 
      */
-    private final @Nullable String recommendationType;
+    private @Nullable String recommendationType;
     /**
      * @return The name of resource group monitored by the activity log alert.
      * 
      */
-    private final @Nullable String resourceGroup;
+    private @Nullable String resourceGroup;
     /**
      * @return A block to define fine grain resource health settings.
      * 
      */
-    private final @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths;
+    private @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths;
     /**
      * @return The specific resource monitored by the activity log alert. It should be within one of the `scopes`.
      * 
      */
-    private final @Nullable String resourceId;
+    private @Nullable String resourceId;
     /**
      * @return The name of the resource provider monitored by the activity log alert.
      * 
      */
-    private final @Nullable String resourceProvider;
+    private @Nullable String resourceProvider;
     /**
      * @return The resource type monitored by the activity log alert.
      * 
      */
-    private final @Nullable String resourceType;
+    private @Nullable String resourceType;
     /**
      * @return A block to define fine grain service health settings.
      * 
      */
-    private final @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
+    private @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
     /**
      * @return The status of the event. For example, `Started`, `Failed`, or `Succeeded`.
      * 
      */
-    private final @Nullable String status;
+    private @Nullable String status;
     /**
      * @return The sub status of the event.
      * 
      */
-    private final @Nullable String subStatus;
+    private @Nullable String subStatus;
 
-    @CustomType.Constructor
-    private ActivityLogAlertCriteria(
-        @CustomType.Parameter("caller") @Nullable String caller,
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("level") @Nullable String level,
-        @CustomType.Parameter("operationName") @Nullable String operationName,
-        @CustomType.Parameter("recommendationCategory") @Nullable String recommendationCategory,
-        @CustomType.Parameter("recommendationImpact") @Nullable String recommendationImpact,
-        @CustomType.Parameter("recommendationType") @Nullable String recommendationType,
-        @CustomType.Parameter("resourceGroup") @Nullable String resourceGroup,
-        @CustomType.Parameter("resourceHealths") @Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths,
-        @CustomType.Parameter("resourceId") @Nullable String resourceId,
-        @CustomType.Parameter("resourceProvider") @Nullable String resourceProvider,
-        @CustomType.Parameter("resourceType") @Nullable String resourceType,
-        @CustomType.Parameter("serviceHealths") @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths,
-        @CustomType.Parameter("status") @Nullable String status,
-        @CustomType.Parameter("subStatus") @Nullable String subStatus) {
-        this.caller = caller;
-        this.category = category;
-        this.level = level;
-        this.operationName = operationName;
-        this.recommendationCategory = recommendationCategory;
-        this.recommendationImpact = recommendationImpact;
-        this.recommendationType = recommendationType;
-        this.resourceGroup = resourceGroup;
-        this.resourceHealths = resourceHealths;
-        this.resourceId = resourceId;
-        this.resourceProvider = resourceProvider;
-        this.resourceType = resourceType;
-        this.serviceHealths = serviceHealths;
-        this.status = status;
-        this.subStatus = subStatus;
-    }
-
+    private ActivityLogAlertCriteria() {}
     /**
      * @return The email address or Azure Active Directory identifier of the user who performed the operation.
      * 
@@ -237,7 +204,7 @@ public final class ActivityLogAlertCriteria {
     public static Builder builder(ActivityLogAlertCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String caller;
         private String category;
@@ -254,11 +221,7 @@ public final class ActivityLogAlertCriteria {
         private @Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths;
         private @Nullable String status;
         private @Nullable String subStatus;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActivityLogAlertCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caller = defaults.caller;
@@ -278,38 +241,47 @@ public final class ActivityLogAlertCriteria {
     	      this.subStatus = defaults.subStatus;
         }
 
+        @CustomType.Setter
         public Builder caller(@Nullable String caller) {
             this.caller = caller;
             return this;
         }
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder level(@Nullable String level) {
             this.level = level;
             return this;
         }
+        @CustomType.Setter
         public Builder operationName(@Nullable String operationName) {
             this.operationName = operationName;
             return this;
         }
+        @CustomType.Setter
         public Builder recommendationCategory(@Nullable String recommendationCategory) {
             this.recommendationCategory = recommendationCategory;
             return this;
         }
+        @CustomType.Setter
         public Builder recommendationImpact(@Nullable String recommendationImpact) {
             this.recommendationImpact = recommendationImpact;
             return this;
         }
+        @CustomType.Setter
         public Builder recommendationType(@Nullable String recommendationType) {
             this.recommendationType = recommendationType;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroup(@Nullable String resourceGroup) {
             this.resourceGroup = resourceGroup;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceHealths(@Nullable List<ActivityLogAlertCriteriaResourceHealth> resourceHealths) {
             this.resourceHealths = resourceHealths;
             return this;
@@ -317,18 +289,22 @@ public final class ActivityLogAlertCriteria {
         public Builder resourceHealths(ActivityLogAlertCriteriaResourceHealth... resourceHealths) {
             return resourceHealths(List.of(resourceHealths));
         }
+        @CustomType.Setter
         public Builder resourceId(@Nullable String resourceId) {
             this.resourceId = resourceId;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceProvider(@Nullable String resourceProvider) {
             this.resourceProvider = resourceProvider;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
             this.resourceType = resourceType;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceHealths(@Nullable List<ActivityLogAlertCriteriaServiceHealth> serviceHealths) {
             this.serviceHealths = serviceHealths;
             return this;
@@ -336,15 +312,34 @@ public final class ActivityLogAlertCriteria {
         public Builder serviceHealths(ActivityLogAlertCriteriaServiceHealth... serviceHealths) {
             return serviceHealths(List.of(serviceHealths));
         }
+        @CustomType.Setter
         public Builder status(@Nullable String status) {
             this.status = status;
             return this;
         }
+        @CustomType.Setter
         public Builder subStatus(@Nullable String subStatus) {
             this.subStatus = subStatus;
             return this;
-        }        public ActivityLogAlertCriteria build() {
-            return new ActivityLogAlertCriteria(caller, category, level, operationName, recommendationCategory, recommendationImpact, recommendationType, resourceGroup, resourceHealths, resourceId, resourceProvider, resourceType, serviceHealths, status, subStatus);
+        }
+        public ActivityLogAlertCriteria build() {
+            final var o = new ActivityLogAlertCriteria();
+            o.caller = caller;
+            o.category = category;
+            o.level = level;
+            o.operationName = operationName;
+            o.recommendationCategory = recommendationCategory;
+            o.recommendationImpact = recommendationImpact;
+            o.recommendationType = recommendationType;
+            o.resourceGroup = resourceGroup;
+            o.resourceHealths = resourceHealths;
+            o.resourceId = resourceId;
+            o.resourceProvider = resourceProvider;
+            o.resourceType = resourceType;
+            o.serviceHealths = serviceHealths;
+            o.status = status;
+            o.subStatus = subStatus;
+            return o;
         }
     }
 }

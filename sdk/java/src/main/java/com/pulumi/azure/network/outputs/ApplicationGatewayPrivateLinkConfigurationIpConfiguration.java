@@ -16,42 +16,29 @@ public final class ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
      * @return The name of the IP configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Is this the Primary IP Configuration?
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return The Static IP Address which should be used.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The allocation method used for the Private IP Address. Possible values are `Dynamic` and `Static`.
      * 
      */
-    private final String privateIpAddressAllocation;
+    private String privateIpAddressAllocation;
     /**
      * @return The ID of the subnet the private link configuration should connect to.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ApplicationGatewayPrivateLinkConfigurationIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressAllocation") String privateIpAddressAllocation,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.primary = primary;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressAllocation = privateIpAddressAllocation;
-        this.subnetId = subnetId;
-    }
-
+    private ApplicationGatewayPrivateLinkConfigurationIpConfiguration() {}
     /**
      * @return The name of the IP configuration.
      * 
@@ -95,18 +82,14 @@ public final class ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
     public static Builder builder(ApplicationGatewayPrivateLinkConfigurationIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Boolean primary;
         private @Nullable String privateIpAddress;
         private String privateIpAddressAllocation;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayPrivateLinkConfigurationIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -116,27 +99,39 @@ public final class ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressAllocation(String privateIpAddressAllocation) {
             this.privateIpAddressAllocation = Objects.requireNonNull(privateIpAddressAllocation);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ApplicationGatewayPrivateLinkConfigurationIpConfiguration build() {
-            return new ApplicationGatewayPrivateLinkConfigurationIpConfiguration(name, primary, privateIpAddress, privateIpAddressAllocation, subnetId);
+        }
+        public ApplicationGatewayPrivateLinkConfigurationIpConfiguration build() {
+            final var o = new ApplicationGatewayPrivateLinkConfigurationIpConfiguration();
+            o.name = name;
+            o.primary = primary;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressAllocation = privateIpAddressAllocation;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

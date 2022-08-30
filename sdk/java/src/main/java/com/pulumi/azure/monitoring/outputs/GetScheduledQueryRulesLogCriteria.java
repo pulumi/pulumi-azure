@@ -15,21 +15,14 @@ public final class GetScheduledQueryRulesLogCriteria {
      * @return A `dimension` block as defined below.
      * 
      */
-    private final List<GetScheduledQueryRulesLogCriteriaDimension> dimensions;
+    private List<GetScheduledQueryRulesLogCriteriaDimension> dimensions;
     /**
      * @return Name of the metric.
      * 
      */
-    private final String metricName;
+    private String metricName;
 
-    @CustomType.Constructor
-    private GetScheduledQueryRulesLogCriteria(
-        @CustomType.Parameter("dimensions") List<GetScheduledQueryRulesLogCriteriaDimension> dimensions,
-        @CustomType.Parameter("metricName") String metricName) {
-        this.dimensions = dimensions;
-        this.metricName = metricName;
-    }
-
+    private GetScheduledQueryRulesLogCriteria() {}
     /**
      * @return A `dimension` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class GetScheduledQueryRulesLogCriteria {
     public static Builder builder(GetScheduledQueryRulesLogCriteria defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetScheduledQueryRulesLogCriteriaDimension> dimensions;
         private String metricName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduledQueryRulesLogCriteria defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
     	      this.metricName = defaults.metricName;
         }
 
+        @CustomType.Setter
         public Builder dimensions(List<GetScheduledQueryRulesLogCriteriaDimension> dimensions) {
             this.dimensions = Objects.requireNonNull(dimensions);
             return this;
@@ -74,11 +64,16 @@ public final class GetScheduledQueryRulesLogCriteria {
         public Builder dimensions(GetScheduledQueryRulesLogCriteriaDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder metricName(String metricName) {
             this.metricName = Objects.requireNonNull(metricName);
             return this;
-        }        public GetScheduledQueryRulesLogCriteria build() {
-            return new GetScheduledQueryRulesLogCriteria(dimensions, metricName);
+        }
+        public GetScheduledQueryRulesLogCriteria build() {
+            final var o = new GetScheduledQueryRulesLogCriteria();
+            o.dimensions = dimensions;
+            o.metricName = metricName;
+            return o;
         }
     }
 }

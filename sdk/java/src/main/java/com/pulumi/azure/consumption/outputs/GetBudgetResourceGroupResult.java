@@ -18,59 +18,40 @@ public final class GetBudgetResourceGroupResult {
      * @return The total amount of cost to track with the budget.
      * 
      */
-    private final Double amount;
+    private Double amount;
     /**
      * @return A `filter` block as defined below.
      * 
      */
-    private final List<GetBudgetResourceGroupFilter> filters;
+    private List<GetBudgetResourceGroupFilter> filters;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The name of the tag used for the filter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `notification` block as defined below.
      * 
      */
-    private final List<GetBudgetResourceGroupNotification> notifications;
-    private final String resourceGroupId;
+    private List<GetBudgetResourceGroupNotification> notifications;
+    private String resourceGroupId;
     /**
      * @return The time covered by a budget.
      * 
      */
-    private final String timeGrain;
+    private String timeGrain;
     /**
      * @return A `time_period` block as defined below.
      * 
      */
-    private final List<GetBudgetResourceGroupTimePeriod> timePeriods;
+    private List<GetBudgetResourceGroupTimePeriod> timePeriods;
 
-    @CustomType.Constructor
-    private GetBudgetResourceGroupResult(
-        @CustomType.Parameter("amount") Double amount,
-        @CustomType.Parameter("filters") List<GetBudgetResourceGroupFilter> filters,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("notifications") List<GetBudgetResourceGroupNotification> notifications,
-        @CustomType.Parameter("resourceGroupId") String resourceGroupId,
-        @CustomType.Parameter("timeGrain") String timeGrain,
-        @CustomType.Parameter("timePeriods") List<GetBudgetResourceGroupTimePeriod> timePeriods) {
-        this.amount = amount;
-        this.filters = filters;
-        this.id = id;
-        this.name = name;
-        this.notifications = notifications;
-        this.resourceGroupId = resourceGroupId;
-        this.timeGrain = timeGrain;
-        this.timePeriods = timePeriods;
-    }
-
+    private GetBudgetResourceGroupResult() {}
     /**
      * @return The total amount of cost to track with the budget.
      * 
@@ -131,7 +112,7 @@ public final class GetBudgetResourceGroupResult {
     public static Builder builder(GetBudgetResourceGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Double amount;
         private List<GetBudgetResourceGroupFilter> filters;
@@ -141,11 +122,7 @@ public final class GetBudgetResourceGroupResult {
         private String resourceGroupId;
         private String timeGrain;
         private List<GetBudgetResourceGroupTimePeriod> timePeriods;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBudgetResourceGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amount = defaults.amount;
@@ -158,10 +135,12 @@ public final class GetBudgetResourceGroupResult {
     	      this.timePeriods = defaults.timePeriods;
         }
 
+        @CustomType.Setter
         public Builder amount(Double amount) {
             this.amount = Objects.requireNonNull(amount);
             return this;
         }
+        @CustomType.Setter
         public Builder filters(List<GetBudgetResourceGroupFilter> filters) {
             this.filters = Objects.requireNonNull(filters);
             return this;
@@ -169,14 +148,17 @@ public final class GetBudgetResourceGroupResult {
         public Builder filters(GetBudgetResourceGroupFilter... filters) {
             return filters(List.of(filters));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder notifications(List<GetBudgetResourceGroupNotification> notifications) {
             this.notifications = Objects.requireNonNull(notifications);
             return this;
@@ -184,22 +166,35 @@ public final class GetBudgetResourceGroupResult {
         public Builder notifications(GetBudgetResourceGroupNotification... notifications) {
             return notifications(List.of(notifications));
         }
+        @CustomType.Setter
         public Builder resourceGroupId(String resourceGroupId) {
             this.resourceGroupId = Objects.requireNonNull(resourceGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder timeGrain(String timeGrain) {
             this.timeGrain = Objects.requireNonNull(timeGrain);
             return this;
         }
+        @CustomType.Setter
         public Builder timePeriods(List<GetBudgetResourceGroupTimePeriod> timePeriods) {
             this.timePeriods = Objects.requireNonNull(timePeriods);
             return this;
         }
         public Builder timePeriods(GetBudgetResourceGroupTimePeriod... timePeriods) {
             return timePeriods(List.of(timePeriods));
-        }        public GetBudgetResourceGroupResult build() {
-            return new GetBudgetResourceGroupResult(amount, filters, id, name, notifications, resourceGroupId, timeGrain, timePeriods);
+        }
+        public GetBudgetResourceGroupResult build() {
+            final var o = new GetBudgetResourceGroupResult();
+            o.amount = amount;
+            o.filters = filters;
+            o.id = id;
+            o.name = name;
+            o.notifications = notifications;
+            o.resourceGroupId = resourceGroupId;
+            o.timeGrain = timeGrain;
+            o.timePeriods = timePeriods;
+            return o;
         }
     }
 }

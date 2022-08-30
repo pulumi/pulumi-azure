@@ -14,29 +14,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsDisk {
-    private final String caching;
-    private final @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
-    private final @Nullable String diskEncryptionSetId;
-    private final @Nullable Integer diskSizeGb;
-    private final String storageAccountType;
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private String caching;
+    private @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
+    private @Nullable String diskEncryptionSetId;
+    private @Nullable Integer diskSizeGb;
+    private String storageAccountType;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsDisk(
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("diffDiskSettings") @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings,
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.diffDiskSettings = diffDiskSettings;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskSizeGb = diskSizeGb;
-        this.storageAccountType = storageAccountType;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsDisk() {}
     public String caching() {
         return this.caching;
     }
@@ -63,7 +48,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String caching;
         private @Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings;
@@ -71,11 +56,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
         private @Nullable Integer diskSizeGb;
         private String storageAccountType;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -86,31 +67,45 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder diffDiskSettings(@Nullable OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings diffDiskSettings) {
             this.diffDiskSettings = diffDiskSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsDisk build() {
-            return new OrchestratedVirtualMachineScaleSetOsDisk(caching, diffDiskSettings, diskEncryptionSetId, diskSizeGb, storageAccountType, writeAcceleratorEnabled);
+        }
+        public OrchestratedVirtualMachineScaleSetOsDisk build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsDisk();
+            o.caching = caching;
+            o.diffDiskSettings = diffDiskSettings;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskSizeGb = diskSizeGb;
+            o.storageAccountType = storageAccountType;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

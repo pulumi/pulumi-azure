@@ -14,35 +14,24 @@ public final class GetMariaDbServerStorageProfile {
      * @return Whether autogrow is enabled or disabled for the storage.
      * 
      */
-    private final String autoGrow;
+    private String autoGrow;
     /**
      * @return Backup retention days for the server.
      * 
      */
-    private final Integer backupRetentionDays;
+    private Integer backupRetentionDays;
     /**
      * @return Whether Geo-redundant is enabled or not for server backup.
      * 
      */
-    private final String geoRedundantBackup;
+    private String geoRedundantBackup;
     /**
      * @return The max storage allowed for a server.
      * 
      */
-    private final Integer storageMb;
+    private Integer storageMb;
 
-    @CustomType.Constructor
-    private GetMariaDbServerStorageProfile(
-        @CustomType.Parameter("autoGrow") String autoGrow,
-        @CustomType.Parameter("backupRetentionDays") Integer backupRetentionDays,
-        @CustomType.Parameter("geoRedundantBackup") String geoRedundantBackup,
-        @CustomType.Parameter("storageMb") Integer storageMb) {
-        this.autoGrow = autoGrow;
-        this.backupRetentionDays = backupRetentionDays;
-        this.geoRedundantBackup = geoRedundantBackup;
-        this.storageMb = storageMb;
-    }
-
+    private GetMariaDbServerStorageProfile() {}
     /**
      * @return Whether autogrow is enabled or disabled for the storage.
      * 
@@ -79,17 +68,13 @@ public final class GetMariaDbServerStorageProfile {
     public static Builder builder(GetMariaDbServerStorageProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String autoGrow;
         private Integer backupRetentionDays;
         private String geoRedundantBackup;
         private Integer storageMb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMariaDbServerStorageProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoGrow = defaults.autoGrow;
@@ -98,23 +83,33 @@ public final class GetMariaDbServerStorageProfile {
     	      this.storageMb = defaults.storageMb;
         }
 
+        @CustomType.Setter
         public Builder autoGrow(String autoGrow) {
             this.autoGrow = Objects.requireNonNull(autoGrow);
             return this;
         }
+        @CustomType.Setter
         public Builder backupRetentionDays(Integer backupRetentionDays) {
             this.backupRetentionDays = Objects.requireNonNull(backupRetentionDays);
             return this;
         }
+        @CustomType.Setter
         public Builder geoRedundantBackup(String geoRedundantBackup) {
             this.geoRedundantBackup = Objects.requireNonNull(geoRedundantBackup);
             return this;
         }
+        @CustomType.Setter
         public Builder storageMb(Integer storageMb) {
             this.storageMb = Objects.requireNonNull(storageMb);
             return this;
-        }        public GetMariaDbServerStorageProfile build() {
-            return new GetMariaDbServerStorageProfile(autoGrow, backupRetentionDays, geoRedundantBackup, storageMb);
+        }
+        public GetMariaDbServerStorageProfile build() {
+            final var o = new GetMariaDbServerStorageProfile();
+            o.autoGrow = autoGrow;
+            o.backupRetentionDays = backupRetentionDays;
+            o.geoRedundantBackup = geoRedundantBackup;
+            o.storageMb = storageMb;
+            return o;
         }
     }
 }

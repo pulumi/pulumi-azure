@@ -12,48 +12,31 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceSecureLdap {
-    private final @Nullable String certificateExpiry;
-    private final @Nullable String certificateThumbprint;
+    private @Nullable String certificateExpiry;
+    private @Nullable String certificateThumbprint;
     /**
      * @return Whether to enable secure LDAP for the managed domain. Defaults to `false`. For more information, please see [official documentation on enabling LDAPS](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-configure-ldaps), paying particular attention to the section on network security to avoid unnecessarily exposing your service to Internet-borne bruteforce attacks.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean externalAccessEnabled;
+    private @Nullable Boolean externalAccessEnabled;
     /**
      * @return The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file).
      * 
      */
-    private final String pfxCertificate;
+    private String pfxCertificate;
     /**
      * @return The password to use for decrypting the PKCS#12 bundle (PFX file).
      * 
      */
-    private final String pfxCertificatePassword;
-    private final @Nullable String publicCertificate;
+    private String pfxCertificatePassword;
+    private @Nullable String publicCertificate;
 
-    @CustomType.Constructor
-    private ServiceSecureLdap(
-        @CustomType.Parameter("certificateExpiry") @Nullable String certificateExpiry,
-        @CustomType.Parameter("certificateThumbprint") @Nullable String certificateThumbprint,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("externalAccessEnabled") @Nullable Boolean externalAccessEnabled,
-        @CustomType.Parameter("pfxCertificate") String pfxCertificate,
-        @CustomType.Parameter("pfxCertificatePassword") String pfxCertificatePassword,
-        @CustomType.Parameter("publicCertificate") @Nullable String publicCertificate) {
-        this.certificateExpiry = certificateExpiry;
-        this.certificateThumbprint = certificateThumbprint;
-        this.enabled = enabled;
-        this.externalAccessEnabled = externalAccessEnabled;
-        this.pfxCertificate = pfxCertificate;
-        this.pfxCertificatePassword = pfxCertificatePassword;
-        this.publicCertificate = publicCertificate;
-    }
-
+    private ServiceSecureLdap() {}
     public Optional<String> certificateExpiry() {
         return Optional.ofNullable(this.certificateExpiry);
     }
@@ -99,7 +82,7 @@ public final class ServiceSecureLdap {
     public static Builder builder(ServiceSecureLdap defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateExpiry;
         private @Nullable String certificateThumbprint;
@@ -108,11 +91,7 @@ public final class ServiceSecureLdap {
         private String pfxCertificate;
         private String pfxCertificatePassword;
         private @Nullable String publicCertificate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ServiceSecureLdap defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateExpiry = defaults.certificateExpiry;
@@ -124,35 +103,51 @@ public final class ServiceSecureLdap {
     	      this.publicCertificate = defaults.publicCertificate;
         }
 
+        @CustomType.Setter
         public Builder certificateExpiry(@Nullable String certificateExpiry) {
             this.certificateExpiry = certificateExpiry;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateThumbprint(@Nullable String certificateThumbprint) {
             this.certificateThumbprint = certificateThumbprint;
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder externalAccessEnabled(@Nullable Boolean externalAccessEnabled) {
             this.externalAccessEnabled = externalAccessEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder pfxCertificate(String pfxCertificate) {
             this.pfxCertificate = Objects.requireNonNull(pfxCertificate);
             return this;
         }
+        @CustomType.Setter
         public Builder pfxCertificatePassword(String pfxCertificatePassword) {
             this.pfxCertificatePassword = Objects.requireNonNull(pfxCertificatePassword);
             return this;
         }
+        @CustomType.Setter
         public Builder publicCertificate(@Nullable String publicCertificate) {
             this.publicCertificate = publicCertificate;
             return this;
-        }        public ServiceSecureLdap build() {
-            return new ServiceSecureLdap(certificateExpiry, certificateThumbprint, enabled, externalAccessEnabled, pfxCertificate, pfxCertificatePassword, publicCertificate);
+        }
+        public ServiceSecureLdap build() {
+            final var o = new ServiceSecureLdap();
+            o.certificateExpiry = certificateExpiry;
+            o.certificateThumbprint = certificateThumbprint;
+            o.enabled = enabled;
+            o.externalAccessEnabled = externalAccessEnabled;
+            o.pfxCertificate = pfxCertificate;
+            o.pfxCertificatePassword = pfxCertificatePassword;
+            o.publicCertificate = publicCertificate;
+            return o;
         }
     }
 }

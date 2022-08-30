@@ -15,13 +15,9 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean ultraSsdEnabled;
+    private @Nullable Boolean ultraSsdEnabled;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineAdditionalCapabilities(@CustomType.Parameter("ultraSsdEnabled") @Nullable Boolean ultraSsdEnabled) {
-        this.ultraSsdEnabled = ultraSsdEnabled;
-    }
-
+    private WindowsVirtualMachineAdditionalCapabilities() {}
     /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine? Defaults to `false`.
      * 
@@ -37,24 +33,24 @@ public final class WindowsVirtualMachineAdditionalCapabilities {
     public static Builder builder(WindowsVirtualMachineAdditionalCapabilities defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ultraSsdEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
-        }        public WindowsVirtualMachineAdditionalCapabilities build() {
-            return new WindowsVirtualMachineAdditionalCapabilities(ultraSsdEnabled);
+        }
+        public WindowsVirtualMachineAdditionalCapabilities build() {
+            final var o = new WindowsVirtualMachineAdditionalCapabilities();
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class LinkedServiceOdbcBasicAuthentication {
      * @return The password associated with the username, which can be used to authenticate to the ODBC endpoint.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The username which can be used to authenticate to the ODBC endpoint.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private LinkedServiceOdbcBasicAuthentication(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.username = username;
-    }
-
+    private LinkedServiceOdbcBasicAuthentication() {}
     /**
      * @return The password associated with the username, which can be used to authenticate to the ODBC endpoint.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceOdbcBasicAuthentication {
     public static Builder builder(LinkedServiceOdbcBasicAuthentication defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceOdbcBasicAuthentication defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public LinkedServiceOdbcBasicAuthentication build() {
-            return new LinkedServiceOdbcBasicAuthentication(password, username);
+        }
+        public LinkedServiceOdbcBasicAuthentication build() {
+            final var o = new LinkedServiceOdbcBasicAuthentication();
+            o.password = password;
+            o.username = username;
+            return o;
         }
     }
 }

@@ -16,28 +16,19 @@ public final class FlexibleServerStorage {
      * @return Should Storage Auto Grow be enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean autoGrowEnabled;
+    private @Nullable Boolean autoGrowEnabled;
     /**
      * @return The storage IOPS for the MySQL Flexible Server. Possible values are between `360` and `20000`.
      * 
      */
-    private final @Nullable Integer iops;
+    private @Nullable Integer iops;
     /**
      * @return The max storage allowed for the MySQL Flexible Server. Possible values are between `20` and `16384`.
      * 
      */
-    private final @Nullable Integer sizeGb;
+    private @Nullable Integer sizeGb;
 
-    @CustomType.Constructor
-    private FlexibleServerStorage(
-        @CustomType.Parameter("autoGrowEnabled") @Nullable Boolean autoGrowEnabled,
-        @CustomType.Parameter("iops") @Nullable Integer iops,
-        @CustomType.Parameter("sizeGb") @Nullable Integer sizeGb) {
-        this.autoGrowEnabled = autoGrowEnabled;
-        this.iops = iops;
-        this.sizeGb = sizeGb;
-    }
-
+    private FlexibleServerStorage() {}
     /**
      * @return Should Storage Auto Grow be enabled? Defaults to `true`.
      * 
@@ -67,16 +58,12 @@ public final class FlexibleServerStorage {
     public static Builder builder(FlexibleServerStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean autoGrowEnabled;
         private @Nullable Integer iops;
         private @Nullable Integer sizeGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FlexibleServerStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoGrowEnabled = defaults.autoGrowEnabled;
@@ -84,19 +71,27 @@ public final class FlexibleServerStorage {
     	      this.sizeGb = defaults.sizeGb;
         }
 
+        @CustomType.Setter
         public Builder autoGrowEnabled(@Nullable Boolean autoGrowEnabled) {
             this.autoGrowEnabled = autoGrowEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder iops(@Nullable Integer iops) {
             this.iops = iops;
             return this;
         }
+        @CustomType.Setter
         public Builder sizeGb(@Nullable Integer sizeGb) {
             this.sizeGb = sizeGb;
             return this;
-        }        public FlexibleServerStorage build() {
-            return new FlexibleServerStorage(autoGrowEnabled, iops, sizeGb);
+        }
+        public FlexibleServerStorage build() {
+            final var o = new FlexibleServerStorage();
+            o.autoGrowEnabled = autoGrowEnabled;
+            o.iops = iops;
+            o.sizeGb = sizeGb;
+            return o;
         }
     }
 }

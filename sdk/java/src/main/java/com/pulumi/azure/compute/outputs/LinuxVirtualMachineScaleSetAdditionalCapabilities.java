@@ -15,13 +15,9 @@ public final class LinuxVirtualMachineScaleSetAdditionalCapabilities {
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Boolean ultraSsdEnabled;
+    private @Nullable Boolean ultraSsdEnabled;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetAdditionalCapabilities(@CustomType.Parameter("ultraSsdEnabled") @Nullable Boolean ultraSsdEnabled) {
-        this.ultraSsdEnabled = ultraSsdEnabled;
-    }
-
+    private LinuxVirtualMachineScaleSetAdditionalCapabilities() {}
     /**
      * @return Should the capacity to enable Data Disks of the `UltraSSD_LRS` storage account type be supported on this Virtual Machine Scale Set? Defaults to `false`. Changing this forces a new resource to be created.
      * 
@@ -37,24 +33,24 @@ public final class LinuxVirtualMachineScaleSetAdditionalCapabilities {
     public static Builder builder(LinuxVirtualMachineScaleSetAdditionalCapabilities defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean ultraSsdEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetAdditionalCapabilities defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ultraSsdEnabled = defaults.ultraSsdEnabled;
         }
 
+        @CustomType.Setter
         public Builder ultraSsdEnabled(@Nullable Boolean ultraSsdEnabled) {
             this.ultraSsdEnabled = ultraSsdEnabled;
             return this;
-        }        public LinuxVirtualMachineScaleSetAdditionalCapabilities build() {
-            return new LinuxVirtualMachineScaleSetAdditionalCapabilities(ultraSsdEnabled);
+        }
+        public LinuxVirtualMachineScaleSetAdditionalCapabilities build() {
+            final var o = new LinuxVirtualMachineScaleSetAdditionalCapabilities();
+            o.ultraSsdEnabled = ultraSsdEnabled;
+            return o;
         }
     }
 }

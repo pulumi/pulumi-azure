@@ -12,96 +12,63 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPublicIPResult {
-    private final String allocationMethod;
+    private String allocationMethod;
     /**
      * @return The label for the Domain Name.
      * 
      */
-    private final String domainNameLabel;
+    private String domainNameLabel;
     /**
      * @return Fully qualified domain name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the timeout for the TCP idle connection.
      * 
      */
-    private final Integer idleTimeoutInMinutes;
+    private Integer idleTimeoutInMinutes;
     /**
      * @return The IP address value that was allocated.
      * 
      */
-    private final String ipAddress;
+    private String ipAddress;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> ipTags;
+    private Map<String,String> ipTags;
     /**
      * @return The IP version being used, for example `IPv4` or `IPv6`.
      * 
      */
-    private final String ipVersion;
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
-    private final String reverseFqdn;
+    private String ipVersion;
+    private String location;
+    private String name;
+    private String resourceGroupName;
+    private String reverseFqdn;
     /**
      * @return The SKU of the Public IP.
      * 
      */
-    private final String sku;
+    private String sku;
     /**
      * @return A mapping of tags to assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones in which this Public IP is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetPublicIPResult(
-        @CustomType.Parameter("allocationMethod") String allocationMethod,
-        @CustomType.Parameter("domainNameLabel") String domainNameLabel,
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idleTimeoutInMinutes") Integer idleTimeoutInMinutes,
-        @CustomType.Parameter("ipAddress") String ipAddress,
-        @CustomType.Parameter("ipTags") Map<String,String> ipTags,
-        @CustomType.Parameter("ipVersion") String ipVersion,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("reverseFqdn") String reverseFqdn,
-        @CustomType.Parameter("sku") String sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.allocationMethod = allocationMethod;
-        this.domainNameLabel = domainNameLabel;
-        this.fqdn = fqdn;
-        this.id = id;
-        this.idleTimeoutInMinutes = idleTimeoutInMinutes;
-        this.ipAddress = ipAddress;
-        this.ipTags = ipTags;
-        this.ipVersion = ipVersion;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.reverseFqdn = reverseFqdn;
-        this.sku = sku;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetPublicIPResult() {}
     public String allocationMethod() {
         return this.allocationMethod;
     }
@@ -195,7 +162,7 @@ public final class GetPublicIPResult {
     public static Builder builder(GetPublicIPResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationMethod;
         private String domainNameLabel;
@@ -212,11 +179,7 @@ public final class GetPublicIPResult {
         private String sku;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPublicIPResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationMethod = defaults.allocationMethod;
@@ -236,70 +199,102 @@ public final class GetPublicIPResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder allocationMethod(String allocationMethod) {
             this.allocationMethod = Objects.requireNonNull(allocationMethod);
             return this;
         }
+        @CustomType.Setter
         public Builder domainNameLabel(String domainNameLabel) {
             this.domainNameLabel = Objects.requireNonNull(domainNameLabel);
             return this;
         }
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idleTimeoutInMinutes(Integer idleTimeoutInMinutes) {
             this.idleTimeoutInMinutes = Objects.requireNonNull(idleTimeoutInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(String ipAddress) {
             this.ipAddress = Objects.requireNonNull(ipAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder ipTags(Map<String,String> ipTags) {
             this.ipTags = Objects.requireNonNull(ipTags);
             return this;
         }
+        @CustomType.Setter
         public Builder ipVersion(String ipVersion) {
             this.ipVersion = Objects.requireNonNull(ipVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder reverseFqdn(String reverseFqdn) {
             this.reverseFqdn = Objects.requireNonNull(reverseFqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(String sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetPublicIPResult build() {
-            return new GetPublicIPResult(allocationMethod, domainNameLabel, fqdn, id, idleTimeoutInMinutes, ipAddress, ipTags, ipVersion, location, name, resourceGroupName, reverseFqdn, sku, tags, zones);
+        }
+        public GetPublicIPResult build() {
+            final var o = new GetPublicIPResult();
+            o.allocationMethod = allocationMethod;
+            o.domainNameLabel = domainNameLabel;
+            o.fqdn = fqdn;
+            o.id = id;
+            o.idleTimeoutInMinutes = idleTimeoutInMinutes;
+            o.ipAddress = ipAddress;
+            o.ipTags = ipTags;
+            o.ipVersion = ipVersion;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.reverseFqdn = reverseFqdn;
+            o.sku = sku;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

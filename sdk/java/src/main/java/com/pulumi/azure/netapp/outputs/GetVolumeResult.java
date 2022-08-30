@@ -14,100 +14,67 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetVolumeResult {
-    private final String accountName;
+    private String accountName;
     /**
      * @return Volume data protection block
      * 
      */
-    private final List<GetVolumeDataProtectionReplication> dataProtectionReplications;
+    private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure Region where the NetApp Volume exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return A list of IPv4 Addresses which should be used to mount the volume.
      * 
      */
-    private final List<String> mountIpAddresses;
-    private final String name;
+    private List<String> mountIpAddresses;
+    private String name;
     /**
      * @return Network features in use `Basic` or `Standard`.
      * 
      */
-    private final String networkFeatures;
-    private final String poolName;
+    private String networkFeatures;
+    private String poolName;
     /**
      * @return A list of protocol types enabled on volume.
      * 
      */
-    private final List<String> protocols;
-    private final String resourceGroupName;
+    private List<String> protocols;
+    private String resourceGroupName;
     /**
      * @return Volume security style
      * 
      */
-    private final @Nullable String securityStyle;
+    private @Nullable String securityStyle;
     /**
      * @return The service level of the file system.
      * 
      */
-    private final String serviceLevel;
+    private String serviceLevel;
     /**
      * @return The maximum Storage Quota in Gigabytes allowed for a file system.
      * 
      */
-    private final Integer storageQuotaInGb;
+    private Integer storageQuotaInGb;
     /**
      * @return The ID of a Subnet in which the NetApp Volume resides.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
     /**
      * @return The unique file path of the volume.
      * 
      */
-    private final String volumePath;
+    private String volumePath;
 
-    @CustomType.Constructor
-    private GetVolumeResult(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("dataProtectionReplications") List<GetVolumeDataProtectionReplication> dataProtectionReplications,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("mountIpAddresses") List<String> mountIpAddresses,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkFeatures") String networkFeatures,
-        @CustomType.Parameter("poolName") String poolName,
-        @CustomType.Parameter("protocols") List<String> protocols,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("securityStyle") @Nullable String securityStyle,
-        @CustomType.Parameter("serviceLevel") String serviceLevel,
-        @CustomType.Parameter("storageQuotaInGb") Integer storageQuotaInGb,
-        @CustomType.Parameter("subnetId") String subnetId,
-        @CustomType.Parameter("volumePath") String volumePath) {
-        this.accountName = accountName;
-        this.dataProtectionReplications = dataProtectionReplications;
-        this.id = id;
-        this.location = location;
-        this.mountIpAddresses = mountIpAddresses;
-        this.name = name;
-        this.networkFeatures = networkFeatures;
-        this.poolName = poolName;
-        this.protocols = protocols;
-        this.resourceGroupName = resourceGroupName;
-        this.securityStyle = securityStyle;
-        this.serviceLevel = serviceLevel;
-        this.storageQuotaInGb = storageQuotaInGb;
-        this.subnetId = subnetId;
-        this.volumePath = volumePath;
-    }
-
+    private GetVolumeResult() {}
     public String accountName() {
         return this.accountName;
     }
@@ -205,7 +172,7 @@ public final class GetVolumeResult {
     public static Builder builder(GetVolumeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private List<GetVolumeDataProtectionReplication> dataProtectionReplications;
@@ -222,11 +189,7 @@ public final class GetVolumeResult {
         private Integer storageQuotaInGb;
         private String subnetId;
         private String volumePath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVolumeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -246,10 +209,12 @@ public final class GetVolumeResult {
     	      this.volumePath = defaults.volumePath;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder dataProtectionReplications(List<GetVolumeDataProtectionReplication> dataProtectionReplications) {
             this.dataProtectionReplications = Objects.requireNonNull(dataProtectionReplications);
             return this;
@@ -257,14 +222,17 @@ public final class GetVolumeResult {
         public Builder dataProtectionReplications(GetVolumeDataProtectionReplication... dataProtectionReplications) {
             return dataProtectionReplications(List.of(dataProtectionReplications));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder mountIpAddresses(List<String> mountIpAddresses) {
             this.mountIpAddresses = Objects.requireNonNull(mountIpAddresses);
             return this;
@@ -272,18 +240,22 @@ public final class GetVolumeResult {
         public Builder mountIpAddresses(String... mountIpAddresses) {
             return mountIpAddresses(List.of(mountIpAddresses));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkFeatures(String networkFeatures) {
             this.networkFeatures = Objects.requireNonNull(networkFeatures);
             return this;
         }
+        @CustomType.Setter
         public Builder poolName(String poolName) {
             this.poolName = Objects.requireNonNull(poolName);
             return this;
         }
+        @CustomType.Setter
         public Builder protocols(List<String> protocols) {
             this.protocols = Objects.requireNonNull(protocols);
             return this;
@@ -291,31 +263,54 @@ public final class GetVolumeResult {
         public Builder protocols(String... protocols) {
             return protocols(List.of(protocols));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder securityStyle(@Nullable String securityStyle) {
             this.securityStyle = securityStyle;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceLevel(String serviceLevel) {
             this.serviceLevel = Objects.requireNonNull(serviceLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder storageQuotaInGb(Integer storageQuotaInGb) {
             this.storageQuotaInGb = Objects.requireNonNull(storageQuotaInGb);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
         }
+        @CustomType.Setter
         public Builder volumePath(String volumePath) {
             this.volumePath = Objects.requireNonNull(volumePath);
             return this;
-        }        public GetVolumeResult build() {
-            return new GetVolumeResult(accountName, dataProtectionReplications, id, location, mountIpAddresses, name, networkFeatures, poolName, protocols, resourceGroupName, securityStyle, serviceLevel, storageQuotaInGb, subnetId, volumePath);
+        }
+        public GetVolumeResult build() {
+            final var o = new GetVolumeResult();
+            o.accountName = accountName;
+            o.dataProtectionReplications = dataProtectionReplications;
+            o.id = id;
+            o.location = location;
+            o.mountIpAddresses = mountIpAddresses;
+            o.name = name;
+            o.networkFeatures = networkFeatures;
+            o.poolName = poolName;
+            o.protocols = protocols;
+            o.resourceGroupName = resourceGroupName;
+            o.securityStyle = securityStyle;
+            o.serviceLevel = serviceLevel;
+            o.storageQuotaInGb = storageQuotaInGb;
+            o.subnetId = subnetId;
+            o.volumePath = volumePath;
+            return o;
         }
     }
 }

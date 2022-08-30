@@ -10,23 +10,12 @@ import java.util.Objects;
 
 @CustomType
 public final class GetKeyVaultNetworkAcl {
-    private final String bypass;
-    private final String defaultAction;
-    private final List<String> ipRules;
-    private final List<String> virtualNetworkSubnetIds;
+    private String bypass;
+    private String defaultAction;
+    private List<String> ipRules;
+    private List<String> virtualNetworkSubnetIds;
 
-    @CustomType.Constructor
-    private GetKeyVaultNetworkAcl(
-        @CustomType.Parameter("bypass") String bypass,
-        @CustomType.Parameter("defaultAction") String defaultAction,
-        @CustomType.Parameter("ipRules") List<String> ipRules,
-        @CustomType.Parameter("virtualNetworkSubnetIds") List<String> virtualNetworkSubnetIds) {
-        this.bypass = bypass;
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
-    }
-
+    private GetKeyVaultNetworkAcl() {}
     public String bypass() {
         return this.bypass;
     }
@@ -47,17 +36,13 @@ public final class GetKeyVaultNetworkAcl {
     public static Builder builder(GetKeyVaultNetworkAcl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String bypass;
         private String defaultAction;
         private List<String> ipRules;
         private List<String> virtualNetworkSubnetIds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyVaultNetworkAcl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.bypass = defaults.bypass;
@@ -66,14 +51,17 @@ public final class GetKeyVaultNetworkAcl {
     	      this.virtualNetworkSubnetIds = defaults.virtualNetworkSubnetIds;
         }
 
+        @CustomType.Setter
         public Builder bypass(String bypass) {
             this.bypass = Objects.requireNonNull(bypass);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultAction(String defaultAction) {
             this.defaultAction = Objects.requireNonNull(defaultAction);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(List<String> ipRules) {
             this.ipRules = Objects.requireNonNull(ipRules);
             return this;
@@ -81,14 +69,21 @@ public final class GetKeyVaultNetworkAcl {
         public Builder ipRules(String... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetIds(List<String> virtualNetworkSubnetIds) {
             this.virtualNetworkSubnetIds = Objects.requireNonNull(virtualNetworkSubnetIds);
             return this;
         }
         public Builder virtualNetworkSubnetIds(String... virtualNetworkSubnetIds) {
             return virtualNetworkSubnetIds(List.of(virtualNetworkSubnetIds));
-        }        public GetKeyVaultNetworkAcl build() {
-            return new GetKeyVaultNetworkAcl(bypass, defaultAction, ipRules, virtualNetworkSubnetIds);
+        }
+        public GetKeyVaultNetworkAcl build() {
+            final var o = new GetKeyVaultNetworkAcl();
+            o.bypass = bypass;
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.virtualNetworkSubnetIds = virtualNetworkSubnetIds;
+            return o;
         }
     }
 }

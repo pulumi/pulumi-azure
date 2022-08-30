@@ -13,28 +13,19 @@ public final class VpnServerConfigurationPolicyGroupPolicy {
      * @return The name of the VPN Server Configuration Policy member.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The attribute type of the VPN Server Configuration Policy member. Possible values are `AADGroupId`, `CertificateGroupId` and `RadiusAzureGroupId`.
      * 
      */
-    private final String type;
+    private String type;
     /**
      * @return The value of the attribute that is used for the VPN Server Configuration Policy member.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private VpnServerConfigurationPolicyGroupPolicy(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("type") String type,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.type = type;
-        this.value = value;
-    }
-
+    private VpnServerConfigurationPolicyGroupPolicy() {}
     /**
      * @return The name of the VPN Server Configuration Policy member.
      * 
@@ -64,16 +55,12 @@ public final class VpnServerConfigurationPolicyGroupPolicy {
     public static Builder builder(VpnServerConfigurationPolicyGroupPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String type;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VpnServerConfigurationPolicyGroupPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class VpnServerConfigurationPolicyGroupPolicy {
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public VpnServerConfigurationPolicyGroupPolicy build() {
-            return new VpnServerConfigurationPolicyGroupPolicy(name, type, value);
+        }
+        public VpnServerConfigurationPolicyGroupPolicy build() {
+            final var o = new VpnServerConfigurationPolicyGroupPolicy();
+            o.name = name;
+            o.type = type;
+            o.value = value;
+            return o;
         }
     }
 }

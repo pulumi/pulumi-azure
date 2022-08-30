@@ -14,28 +14,19 @@ public final class AutomationRuleCondition {
      * @return The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return The property to use for evaluate the condition. Possible values include: `AccountAadTenantId`, `AccountAadUserId`, `AccountNTDomain`, `AccountName`, `AccountObjectGuid`, `AccountPUID`, `AccountSid`, `AccountUPNSuffix`, `AzureResourceResourceId`, `AzureResourceSubscriptionId`, `CloudApplicationAppId`, `CloudApplicationAppName`, `DNSDomainName`, `FileDirectory`, `FileHashValue`, `FileName`, `HostAzureID`, `HostNTDomain`, `HostName`, `HostNetBiosName`, `HostOSVersion`, `IPAddress`, `IncidentDescription`, `IncidentProviderName`, `IncidentRelatedAnalyticRuleIds`, `IncidentSeverity`, `IncidentStatus`, `IncidentTactics`, `IncidentTitle`, `IoTDeviceId`, `IoTDeviceModel`, `IoTDeviceName`, `IoTDeviceOperatingSystem`, `IoTDeviceType`, `IoTDeviceVendor`, `MailMessageDeliveryAction`, `MailMessageDeliveryLocation`, `MailMessageP1Sender`, `MailMessageP2Sender`, `MailMessageRecipient`, `MailMessageSenderIP`, `MailMessageSubject`, `MailboxDisplayName`, `MailboxPrimaryAddress`, `MailboxUPN`, `MalwareCategory`, `MalwareName`, `ProcessCommandLine`, `ProcessId`, `RegistryKey`, `RegistryValueData`, `Url`.
      * 
      */
-    private final String property;
+    private String property;
     /**
      * @return Specifies a list of values to use for evaluate the condition.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private AutomationRuleCondition(
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("property") String property,
-        @CustomType.Parameter("values") List<String> values) {
-        this.operator = operator;
-        this.property = property;
-        this.values = values;
-    }
-
+    private AutomationRuleCondition() {}
     /**
      * @return The operator to use for evaluate the condition. Possible values include: `Equals`, `NotEquals`, `Contains`, `NotContains`, `StartsWith`, `NotStartsWith`, `EndsWith`, `NotEndsWith`.
      * 
@@ -65,16 +56,12 @@ public final class AutomationRuleCondition {
     public static Builder builder(AutomationRuleCondition defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String operator;
         private String property;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AutomationRuleCondition defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
@@ -82,22 +69,30 @@ public final class AutomationRuleCondition {
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder property(String property) {
             this.property = Objects.requireNonNull(property);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public AutomationRuleCondition build() {
-            return new AutomationRuleCondition(operator, property, values);
+        }
+        public AutomationRuleCondition build() {
+            final var o = new AutomationRuleCondition();
+            o.operator = operator;
+            o.property = property;
+            o.values = values;
+            return o;
         }
     }
 }

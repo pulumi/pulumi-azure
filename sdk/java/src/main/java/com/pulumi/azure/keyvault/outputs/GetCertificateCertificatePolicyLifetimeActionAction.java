@@ -13,13 +13,9 @@ public final class GetCertificateCertificatePolicyLifetimeActionAction {
      * @return The Type of action to be performed when the lifetime trigger is triggerec.
      * 
      */
-    private final String actionType;
+    private String actionType;
 
-    @CustomType.Constructor
-    private GetCertificateCertificatePolicyLifetimeActionAction(@CustomType.Parameter("actionType") String actionType) {
-        this.actionType = actionType;
-    }
-
+    private GetCertificateCertificatePolicyLifetimeActionAction() {}
     /**
      * @return The Type of action to be performed when the lifetime trigger is triggerec.
      * 
@@ -35,24 +31,24 @@ public final class GetCertificateCertificatePolicyLifetimeActionAction {
     public static Builder builder(GetCertificateCertificatePolicyLifetimeActionAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateCertificatePolicyLifetimeActionAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionType = defaults.actionType;
         }
 
+        @CustomType.Setter
         public Builder actionType(String actionType) {
             this.actionType = Objects.requireNonNull(actionType);
             return this;
-        }        public GetCertificateCertificatePolicyLifetimeActionAction build() {
-            return new GetCertificateCertificatePolicyLifetimeActionAction(actionType);
+        }
+        public GetCertificateCertificatePolicyLifetimeActionAction build() {
+            final var o = new GetCertificateCertificatePolicyLifetimeActionAction();
+            o.actionType = actionType;
+            return o;
         }
     }
 }

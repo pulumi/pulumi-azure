@@ -13386,6 +13386,142 @@ export namespace backup {
         weeks: string[];
     }
 
+    export interface PolicyVMWorkloadProtectionPolicy {
+        /**
+         * A `backup` block as defined below.
+         */
+        backup: outputs.backup.PolicyVMWorkloadProtectionPolicyBackup;
+        /**
+         * The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
+         */
+        policyType: string;
+        /**
+         * A `retentionDaily` block as defined below.
+         */
+        retentionDaily?: outputs.backup.PolicyVMWorkloadProtectionPolicyRetentionDaily;
+        /**
+         * A `retentionMonthly` block as defined below.
+         */
+        retentionMonthly?: outputs.backup.PolicyVMWorkloadProtectionPolicyRetentionMonthly;
+        /**
+         * A `retentionWeekly` block as defined below.
+         */
+        retentionWeekly?: outputs.backup.PolicyVMWorkloadProtectionPolicyRetentionWeekly;
+        /**
+         * A `retentionYearly` block as defined below.
+         */
+        retentionYearly?: outputs.backup.PolicyVMWorkloadProtectionPolicyRetentionYearly;
+        /**
+         * A `simpleRetention` block as defined below.
+         */
+        simpleRetention?: outputs.backup.PolicyVMWorkloadProtectionPolicySimpleRetention;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyBackup {
+        /**
+         * The backup frequency for the VM Workload Backup Policy. Possible values are `Daily` and `Weekly`.
+         */
+        frequency?: string;
+        /**
+         * The backup frequency in minutes for the VM Workload Backup Policy. Possible values are `15`, `30`, `60`, `120`, `240`, `480`, `720` and `1440`.
+         */
+        frequencyInMinutes?: number;
+        /**
+         * The time of day to perform the backup in 24hour format.
+         */
+        time?: string;
+        /**
+         * The days of the week to perform backups on. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`. This is used when `frequency` is `Weekly`.
+         */
+        weekdays?: string[];
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionDaily {
+        /**
+         * The number of daily backups to keep. Possible values are between `7` and `9999`.
+         */
+        count: number;
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionMonthly {
+        /**
+         * The number of monthly backups to keep. Must be between `1` and `1188`.
+         */
+        count: number;
+        /**
+         * The retention schedule format type for monthly retention policy. Possible values are `Daily` and `Weekly`.
+         */
+        formatType: string;
+        /**
+         * The monthday backups to retain. Possible values are between `0` and `28`.
+         */
+        monthdays?: number[];
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays?: string[];
+        /**
+         * The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`.
+         */
+        weeks?: string[];
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionWeekly {
+        /**
+         * The number of weekly backups to keep. Possible values are between `1` and `5163`.
+         */
+        count: number;
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays: string[];
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicyRetentionYearly {
+        /**
+         * The number of yearly backups to keep. Possible values are between `1` and `99`
+         */
+        count: number;
+        /**
+         * The retention schedule format type for yearly retention policy. Possible values are `Daily` and `Weekly`.
+         */
+        formatType: string;
+        /**
+         * The monthday backups to retain. Possible values are between `0` and `28`.
+         */
+        monthdays?: number[];
+        /**
+         * The months of the year to retain backups of. Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`.
+         */
+        months: string[];
+        /**
+         * The weekday backups to retain. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` or `Saturday`.
+         */
+        weekdays?: string[];
+        /**
+         * The weeks of the month to retain backups of. Possible values are `First`, `Second`, `Third`, `Fourth`, `Last`.
+         */
+        weeks?: string[];
+    }
+
+    export interface PolicyVMWorkloadProtectionPolicySimpleRetention {
+        /**
+         * The count that is used to count retention duration with duration type `Days`. Possible values are between `7` and `35`.
+         */
+        count: number;
+    }
+
+    export interface PolicyVMWorkloadSettings {
+        /**
+         * The compression setting for the VM Workload Backup Policy. Defaults to `false`.
+         */
+        compressionEnabled?: boolean;
+        /**
+         * The timezone for the VM Workload Backup Policy. [The possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
+         */
+        timeZone: string;
+    }
+
 }
 
 export namespace batch {
@@ -33171,6 +33307,78 @@ export namespace monitoring {
          * The threshold of the metric trigger.    Values must be between 0 and 10000 inclusive.
          */
         threshold: number;
+    }
+
+    export interface ScheduledQueryRulesAlertV2Action {
+        /**
+         * List of Action Group resource ids to invoke when the alert fires.
+         */
+        actionGroups?: string[];
+        /**
+         * Specifies the properties of an alert payload.
+         */
+        customProperties?: {[key: string]: string};
+    }
+
+    export interface ScheduledQueryRulesAlertV2Criteria {
+        /**
+         * A `dimension` block as defined below.
+         */
+        dimensions?: outputs.monitoring.ScheduledQueryRulesAlertV2CriteriaDimension[];
+        /**
+         * A `failingPeriods` block as defined below.
+         */
+        failingPeriods?: outputs.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriods;
+        /**
+         * Specifies the column containing the metric measure number.
+         */
+        metricMeasureColumn?: string;
+        /**
+         * Specifies the criteria operator. Possible values are `Equals`, `GreaterThan`, `GreaterThanOrEqual`, `LessThan`,and `LessThanOrEqual`.
+         */
+        operator: string;
+        /**
+         * The query to run on logs. The results returned by this query are used to populate the alert.
+         */
+        query: string;
+        /**
+         * Specifies the column containing the resource id. The content of the column must be an uri formatted as resource id.
+         */
+        resourceIdColumn?: string;
+        /**
+         * Specifies the criteria threshold value that activates the alert.
+         */
+        threshold: number;
+        /**
+         * The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
+         */
+        timeAggregationMethod: string;
+    }
+
+    export interface ScheduledQueryRulesAlertV2CriteriaDimension {
+        /**
+         * Name of the dimension.
+         */
+        name: string;
+        /**
+         * Operator for dimension values. Possible values are `Exclude`,and `Include`.
+         */
+        operator: string;
+        /**
+         * List of dimension values. Use a wildcard `*` to collect all.
+         */
+        values: string[];
+    }
+
+    export interface ScheduledQueryRulesAlertV2CriteriaFailingPeriods {
+        /**
+         * Specifies the number of violations to trigger an alert. Should be smaller or equal to `numberOfEvaluationPeriods`. Possible value is integer between 1 and 6.
+         */
+        minimumFailingPeriodsToTriggerAlert: number;
+        /**
+         * Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity `windowDuration` and the selected number of aggregated points. Possible value is integer between 1 and 6.
+         */
+        numberOfEvaluationPeriods: number;
     }
 
     export interface ScheduledQueryRulesLogCriteria {

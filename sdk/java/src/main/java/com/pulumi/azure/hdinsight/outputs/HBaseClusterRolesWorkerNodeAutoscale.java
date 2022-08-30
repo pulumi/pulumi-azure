@@ -15,13 +15,9 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
      * @return A `recurrence` block as defined below.
      * 
      */
-    private final @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
+    private @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
 
-    @CustomType.Constructor
-    private HBaseClusterRolesWorkerNodeAutoscale(@CustomType.Parameter("recurrence") @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
-        this.recurrence = recurrence;
-    }
-
+    private HBaseClusterRolesWorkerNodeAutoscale() {}
     /**
      * @return A `recurrence` block as defined below.
      * 
@@ -37,24 +33,24 @@ public final class HBaseClusterRolesWorkerNodeAutoscale {
     public static Builder builder(HBaseClusterRolesWorkerNodeAutoscale defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HBaseClusterRolesWorkerNodeAutoscale defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.recurrence = defaults.recurrence;
         }
 
+        @CustomType.Setter
         public Builder recurrence(@Nullable HBaseClusterRolesWorkerNodeAutoscaleRecurrence recurrence) {
             this.recurrence = recurrence;
             return this;
-        }        public HBaseClusterRolesWorkerNodeAutoscale build() {
-            return new HBaseClusterRolesWorkerNodeAutoscale(recurrence);
+        }
+        public HBaseClusterRolesWorkerNodeAutoscale build() {
+            final var o = new HBaseClusterRolesWorkerNodeAutoscale();
+            o.recurrence = recurrence;
+            return o;
         }
     }
 }

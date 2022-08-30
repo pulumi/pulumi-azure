@@ -14,41 +14,26 @@ public final class GetSyncResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Incoming traffic policy.
      * 
      */
-    private final String incomingTrafficPolicy;
+    private String incomingTrafficPolicy;
     /**
      * @return The Azure Region where the Storage Sync exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Storage Sync.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetSyncResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("incomingTrafficPolicy") String incomingTrafficPolicy,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.id = id;
-        this.incomingTrafficPolicy = incomingTrafficPolicy;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetSyncResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -91,7 +76,7 @@ public final class GetSyncResult {
     public static Builder builder(GetSyncResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String incomingTrafficPolicy;
@@ -99,11 +84,7 @@ public final class GetSyncResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSyncResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -114,31 +95,45 @@ public final class GetSyncResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder incomingTrafficPolicy(String incomingTrafficPolicy) {
             this.incomingTrafficPolicy = Objects.requireNonNull(incomingTrafficPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetSyncResult build() {
-            return new GetSyncResult(id, incomingTrafficPolicy, location, name, resourceGroupName, tags);
+        }
+        public GetSyncResult build() {
+            final var o = new GetSyncResult();
+            o.id = id;
+            o.incomingTrafficPolicy = incomingTrafficPolicy;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class GetWindowsFunctionAppSiteCredential {
      * @return The name of this Windows Function App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Site Credentials Password used for publishing.
      * 
      */
-    private final String password;
+    private String password;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteCredential(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("password") String password) {
-        this.name = name;
-        this.password = password;
-    }
-
+    private GetWindowsFunctionAppSiteCredential() {}
     /**
      * @return The name of this Windows Function App.
      * 
@@ -50,30 +43,32 @@ public final class GetWindowsFunctionAppSiteCredential {
     public static Builder builder(GetWindowsFunctionAppSiteCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String password;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.password = defaults.password;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
-        }        public GetWindowsFunctionAppSiteCredential build() {
-            return new GetWindowsFunctionAppSiteCredential(name, password);
+        }
+        public GetWindowsFunctionAppSiteCredential build() {
+            final var o = new GetWindowsFunctionAppSiteCredential();
+            o.name = name;
+            o.password = password;
+            return o;
         }
     }
 }

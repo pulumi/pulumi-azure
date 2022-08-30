@@ -16,35 +16,24 @@ public final class DefinitionAuthorization {
      * @return The set of role definition ids which define all the permissions that the principal id can assign.
      * 
      */
-    private final @Nullable List<String> delegatedRoleDefinitionIds;
+    private @Nullable List<String> delegatedRoleDefinitionIds;
     /**
      * @return The display name of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
-    private final @Nullable String principalDisplayName;
+    private @Nullable String principalDisplayName;
     /**
      * @return Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return The role definition identifier. This role will define the permissions that are granted to the principal. This cannot be an `Owner` role.
      * 
      */
-    private final String roleDefinitionId;
+    private String roleDefinitionId;
 
-    @CustomType.Constructor
-    private DefinitionAuthorization(
-        @CustomType.Parameter("delegatedRoleDefinitionIds") @Nullable List<String> delegatedRoleDefinitionIds,
-        @CustomType.Parameter("principalDisplayName") @Nullable String principalDisplayName,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("roleDefinitionId") String roleDefinitionId) {
-        this.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
-        this.principalDisplayName = principalDisplayName;
-        this.principalId = principalId;
-        this.roleDefinitionId = roleDefinitionId;
-    }
-
+    private DefinitionAuthorization() {}
     /**
      * @return The set of role definition ids which define all the permissions that the principal id can assign.
      * 
@@ -81,17 +70,13 @@ public final class DefinitionAuthorization {
     public static Builder builder(DefinitionAuthorization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> delegatedRoleDefinitionIds;
         private @Nullable String principalDisplayName;
         private String principalId;
         private String roleDefinitionId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DefinitionAuthorization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.delegatedRoleDefinitionIds = defaults.delegatedRoleDefinitionIds;
@@ -100,6 +85,7 @@ public final class DefinitionAuthorization {
     	      this.roleDefinitionId = defaults.roleDefinitionId;
         }
 
+        @CustomType.Setter
         public Builder delegatedRoleDefinitionIds(@Nullable List<String> delegatedRoleDefinitionIds) {
             this.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
             return this;
@@ -107,19 +93,28 @@ public final class DefinitionAuthorization {
         public Builder delegatedRoleDefinitionIds(String... delegatedRoleDefinitionIds) {
             return delegatedRoleDefinitionIds(List.of(delegatedRoleDefinitionIds));
         }
+        @CustomType.Setter
         public Builder principalDisplayName(@Nullable String principalDisplayName) {
             this.principalDisplayName = principalDisplayName;
             return this;
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder roleDefinitionId(String roleDefinitionId) {
             this.roleDefinitionId = Objects.requireNonNull(roleDefinitionId);
             return this;
-        }        public DefinitionAuthorization build() {
-            return new DefinitionAuthorization(delegatedRoleDefinitionIds, principalDisplayName, principalId, roleDefinitionId);
+        }
+        public DefinitionAuthorization build() {
+            final var o = new DefinitionAuthorization();
+            o.delegatedRoleDefinitionIds = delegatedRoleDefinitionIds;
+            o.principalDisplayName = principalDisplayName;
+            o.principalId = principalId;
+            o.roleDefinitionId = roleDefinitionId;
+            return o;
         }
     }
 }

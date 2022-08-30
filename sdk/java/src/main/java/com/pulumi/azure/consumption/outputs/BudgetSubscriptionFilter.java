@@ -18,28 +18,19 @@ public final class BudgetSubscriptionFilter {
      * @return One or more `dimension` blocks as defined below to filter the budget on.
      * 
      */
-    private final @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
+    private @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
     /**
      * @return A `not` block as defined below to filter the budget on.
      * 
      */
-    private final @Nullable BudgetSubscriptionFilterNot not;
+    private @Nullable BudgetSubscriptionFilterNot not;
     /**
      * @return One or more `tag` blocks as defined below to filter the budget on.
      * 
      */
-    private final @Nullable List<BudgetSubscriptionFilterTag> tags;
+    private @Nullable List<BudgetSubscriptionFilterTag> tags;
 
-    @CustomType.Constructor
-    private BudgetSubscriptionFilter(
-        @CustomType.Parameter("dimensions") @Nullable List<BudgetSubscriptionFilterDimension> dimensions,
-        @CustomType.Parameter("not") @Nullable BudgetSubscriptionFilterNot not,
-        @CustomType.Parameter("tags") @Nullable List<BudgetSubscriptionFilterTag> tags) {
-        this.dimensions = dimensions;
-        this.not = not;
-        this.tags = tags;
-    }
-
+    private BudgetSubscriptionFilter() {}
     /**
      * @return One or more `dimension` blocks as defined below to filter the budget on.
      * 
@@ -69,16 +60,12 @@ public final class BudgetSubscriptionFilter {
     public static Builder builder(BudgetSubscriptionFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<BudgetSubscriptionFilterDimension> dimensions;
         private @Nullable BudgetSubscriptionFilterNot not;
         private @Nullable List<BudgetSubscriptionFilterTag> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BudgetSubscriptionFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dimensions = defaults.dimensions;
@@ -86,6 +73,7 @@ public final class BudgetSubscriptionFilter {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder dimensions(@Nullable List<BudgetSubscriptionFilterDimension> dimensions) {
             this.dimensions = dimensions;
             return this;
@@ -93,18 +81,25 @@ public final class BudgetSubscriptionFilter {
         public Builder dimensions(BudgetSubscriptionFilterDimension... dimensions) {
             return dimensions(List.of(dimensions));
         }
+        @CustomType.Setter
         public Builder not(@Nullable BudgetSubscriptionFilterNot not) {
             this.not = not;
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable List<BudgetSubscriptionFilterTag> tags) {
             this.tags = tags;
             return this;
         }
         public Builder tags(BudgetSubscriptionFilterTag... tags) {
             return tags(List.of(tags));
-        }        public BudgetSubscriptionFilter build() {
-            return new BudgetSubscriptionFilter(dimensions, not, tags);
+        }
+        public BudgetSubscriptionFilter build() {
+            final var o = new BudgetSubscriptionFilter();
+            o.dimensions = dimensions;
+            o.not = not;
+            o.tags = tags;
+            return o;
         }
     }
 }

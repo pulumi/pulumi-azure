@@ -16,21 +16,14 @@ public final class RulesEngineRuleAction {
      * @return A `request_header` block as defined below.
      * 
      */
-    private final @Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders;
+    private @Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders;
     /**
      * @return A `response_header` block as defined below.
      * 
      */
-    private final @Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders;
+    private @Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders;
 
-    @CustomType.Constructor
-    private RulesEngineRuleAction(
-        @CustomType.Parameter("requestHeaders") @Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders,
-        @CustomType.Parameter("responseHeaders") @Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders) {
-        this.requestHeaders = requestHeaders;
-        this.responseHeaders = responseHeaders;
-    }
-
+    private RulesEngineRuleAction() {}
     /**
      * @return A `request_header` block as defined below.
      * 
@@ -53,21 +46,18 @@ public final class RulesEngineRuleAction {
     public static Builder builder(RulesEngineRuleAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders;
         private @Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RulesEngineRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requestHeaders = defaults.requestHeaders;
     	      this.responseHeaders = defaults.responseHeaders;
         }
 
+        @CustomType.Setter
         public Builder requestHeaders(@Nullable List<RulesEngineRuleActionRequestHeader> requestHeaders) {
             this.requestHeaders = requestHeaders;
             return this;
@@ -75,14 +65,19 @@ public final class RulesEngineRuleAction {
         public Builder requestHeaders(RulesEngineRuleActionRequestHeader... requestHeaders) {
             return requestHeaders(List.of(requestHeaders));
         }
+        @CustomType.Setter
         public Builder responseHeaders(@Nullable List<RulesEngineRuleActionResponseHeader> responseHeaders) {
             this.responseHeaders = responseHeaders;
             return this;
         }
         public Builder responseHeaders(RulesEngineRuleActionResponseHeader... responseHeaders) {
             return responseHeaders(List.of(responseHeaders));
-        }        public RulesEngineRuleAction build() {
-            return new RulesEngineRuleAction(requestHeaders, responseHeaders);
+        }
+        public RulesEngineRuleAction build() {
+            final var o = new RulesEngineRuleAction();
+            o.requestHeaders = requestHeaders;
+            o.responseHeaders = responseHeaders;
+            return o;
         }
     }
 }

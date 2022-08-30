@@ -19,49 +19,34 @@ public final class GremlinGraphIndexPolicy {
      * @return Indicates if the indexing policy is automatic. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean automatic;
+    private @Nullable Boolean automatic;
     /**
      * @return One or more `composite_index` blocks as defined below.
      * 
      */
-    private final @Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices;
+    private @Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices;
     /**
      * @return List of paths to exclude from indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
      * 
      */
-    private final @Nullable List<String> excludedPaths;
+    private @Nullable List<String> excludedPaths;
     /**
      * @return List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
      * 
      */
-    private final @Nullable List<String> includedPaths;
+    private @Nullable List<String> includedPaths;
     /**
      * @return Indicates the indexing mode. Possible values include: `Consistent`, `Lazy`, `None`.
      * 
      */
-    private final String indexingMode;
+    private String indexingMode;
     /**
      * @return One or more `spatial_index` blocks as defined below.
      * 
      */
-    private final @Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices;
+    private @Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices;
 
-    @CustomType.Constructor
-    private GremlinGraphIndexPolicy(
-        @CustomType.Parameter("automatic") @Nullable Boolean automatic,
-        @CustomType.Parameter("compositeIndices") @Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices,
-        @CustomType.Parameter("excludedPaths") @Nullable List<String> excludedPaths,
-        @CustomType.Parameter("includedPaths") @Nullable List<String> includedPaths,
-        @CustomType.Parameter("indexingMode") String indexingMode,
-        @CustomType.Parameter("spatialIndices") @Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices) {
-        this.automatic = automatic;
-        this.compositeIndices = compositeIndices;
-        this.excludedPaths = excludedPaths;
-        this.includedPaths = includedPaths;
-        this.indexingMode = indexingMode;
-        this.spatialIndices = spatialIndices;
-    }
-
+    private GremlinGraphIndexPolicy() {}
     /**
      * @return Indicates if the indexing policy is automatic. Defaults to `true`.
      * 
@@ -112,7 +97,7 @@ public final class GremlinGraphIndexPolicy {
     public static Builder builder(GremlinGraphIndexPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean automatic;
         private @Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices;
@@ -120,11 +105,7 @@ public final class GremlinGraphIndexPolicy {
         private @Nullable List<String> includedPaths;
         private String indexingMode;
         private @Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GremlinGraphIndexPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automatic = defaults.automatic;
@@ -135,10 +116,12 @@ public final class GremlinGraphIndexPolicy {
     	      this.spatialIndices = defaults.spatialIndices;
         }
 
+        @CustomType.Setter
         public Builder automatic(@Nullable Boolean automatic) {
             this.automatic = automatic;
             return this;
         }
+        @CustomType.Setter
         public Builder compositeIndices(@Nullable List<GremlinGraphIndexPolicyCompositeIndex> compositeIndices) {
             this.compositeIndices = compositeIndices;
             return this;
@@ -146,6 +129,7 @@ public final class GremlinGraphIndexPolicy {
         public Builder compositeIndices(GremlinGraphIndexPolicyCompositeIndex... compositeIndices) {
             return compositeIndices(List.of(compositeIndices));
         }
+        @CustomType.Setter
         public Builder excludedPaths(@Nullable List<String> excludedPaths) {
             this.excludedPaths = excludedPaths;
             return this;
@@ -153,6 +137,7 @@ public final class GremlinGraphIndexPolicy {
         public Builder excludedPaths(String... excludedPaths) {
             return excludedPaths(List.of(excludedPaths));
         }
+        @CustomType.Setter
         public Builder includedPaths(@Nullable List<String> includedPaths) {
             this.includedPaths = includedPaths;
             return this;
@@ -160,18 +145,28 @@ public final class GremlinGraphIndexPolicy {
         public Builder includedPaths(String... includedPaths) {
             return includedPaths(List.of(includedPaths));
         }
+        @CustomType.Setter
         public Builder indexingMode(String indexingMode) {
             this.indexingMode = Objects.requireNonNull(indexingMode);
             return this;
         }
+        @CustomType.Setter
         public Builder spatialIndices(@Nullable List<GremlinGraphIndexPolicySpatialIndex> spatialIndices) {
             this.spatialIndices = spatialIndices;
             return this;
         }
         public Builder spatialIndices(GremlinGraphIndexPolicySpatialIndex... spatialIndices) {
             return spatialIndices(List.of(spatialIndices));
-        }        public GremlinGraphIndexPolicy build() {
-            return new GremlinGraphIndexPolicy(automatic, compositeIndices, excludedPaths, includedPaths, indexingMode, spatialIndices);
+        }
+        public GremlinGraphIndexPolicy build() {
+            final var o = new GremlinGraphIndexPolicy();
+            o.automatic = automatic;
+            o.compositeIndices = compositeIndices;
+            o.excludedPaths = excludedPaths;
+            o.includedPaths = includedPaths;
+            o.indexingMode = indexingMode;
+            o.spatialIndices = spatialIndices;
+            return o;
         }
     }
 }

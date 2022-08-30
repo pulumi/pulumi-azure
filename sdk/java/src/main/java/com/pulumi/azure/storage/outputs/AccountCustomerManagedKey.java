@@ -13,21 +13,14 @@ public final class AccountCustomerManagedKey {
      * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
-    private final String keyVaultKeyId;
+    private String keyVaultKeyId;
     /**
      * @return The ID of a user assigned identity.
      * 
      */
-    private final String userAssignedIdentityId;
+    private String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private AccountCustomerManagedKey(
-        @CustomType.Parameter("keyVaultKeyId") String keyVaultKeyId,
-        @CustomType.Parameter("userAssignedIdentityId") String userAssignedIdentityId) {
-        this.keyVaultKeyId = keyVaultKeyId;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private AccountCustomerManagedKey() {}
     /**
      * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
@@ -50,30 +43,32 @@ public final class AccountCustomerManagedKey {
     public static Builder builder(AccountCustomerManagedKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String keyVaultKeyId;
         private String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountCustomerManagedKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             this.keyVaultKeyId = Objects.requireNonNull(keyVaultKeyId);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
             this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
             return this;
-        }        public AccountCustomerManagedKey build() {
-            return new AccountCustomerManagedKey(keyVaultKeyId, userAssignedIdentityId);
+        }
+        public AccountCustomerManagedKey build() {
+            final var o = new AccountCustomerManagedKey();
+            o.keyVaultKeyId = keyVaultKeyId;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

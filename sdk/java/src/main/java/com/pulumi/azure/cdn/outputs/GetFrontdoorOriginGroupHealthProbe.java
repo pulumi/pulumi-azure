@@ -14,35 +14,24 @@ public final class GetFrontdoorOriginGroupHealthProbe {
      * @return Specifies the number of seconds between health probes.
      * 
      */
-    private final Integer intervalInSeconds;
+    private Integer intervalInSeconds;
     /**
      * @return Specifies the path relative to the origin that is used to determine the health of the origin.
      * 
      */
-    private final String path;
+    private String path;
     /**
      * @return Specifies the protocol to use for health probe.
      * 
      */
-    private final String protocol;
+    private String protocol;
     /**
      * @return Specifies the type of health probe request that is made.
      * 
      */
-    private final String requestType;
+    private String requestType;
 
-    @CustomType.Constructor
-    private GetFrontdoorOriginGroupHealthProbe(
-        @CustomType.Parameter("intervalInSeconds") Integer intervalInSeconds,
-        @CustomType.Parameter("path") String path,
-        @CustomType.Parameter("protocol") String protocol,
-        @CustomType.Parameter("requestType") String requestType) {
-        this.intervalInSeconds = intervalInSeconds;
-        this.path = path;
-        this.protocol = protocol;
-        this.requestType = requestType;
-    }
-
+    private GetFrontdoorOriginGroupHealthProbe() {}
     /**
      * @return Specifies the number of seconds between health probes.
      * 
@@ -79,17 +68,13 @@ public final class GetFrontdoorOriginGroupHealthProbe {
     public static Builder builder(GetFrontdoorOriginGroupHealthProbe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer intervalInSeconds;
         private String path;
         private String protocol;
         private String requestType;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorOriginGroupHealthProbe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.intervalInSeconds = defaults.intervalInSeconds;
@@ -98,23 +83,33 @@ public final class GetFrontdoorOriginGroupHealthProbe {
     	      this.requestType = defaults.requestType;
         }
 
+        @CustomType.Setter
         public Builder intervalInSeconds(Integer intervalInSeconds) {
             this.intervalInSeconds = Objects.requireNonNull(intervalInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder path(String path) {
             this.path = Objects.requireNonNull(path);
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
         }
+        @CustomType.Setter
         public Builder requestType(String requestType) {
             this.requestType = Objects.requireNonNull(requestType);
             return this;
-        }        public GetFrontdoorOriginGroupHealthProbe build() {
-            return new GetFrontdoorOriginGroupHealthProbe(intervalInSeconds, path, protocol, requestType);
+        }
+        public GetFrontdoorOriginGroupHealthProbe build() {
+            final var o = new GetFrontdoorOriginGroupHealthProbe();
+            o.intervalInSeconds = intervalInSeconds;
+            o.path = path;
+            o.protocol = protocol;
+            o.requestType = requestType;
+            return o;
         }
     }
 }

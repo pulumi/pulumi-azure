@@ -16,35 +16,24 @@ public final class GetWindowsWebAppLog {
      * @return A `application_logs` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppLogApplicationLog> applicationLogs;
+    private List<GetWindowsWebAppLogApplicationLog> applicationLogs;
     /**
      * @return Is Detailed Error Messaging enabled.
      * 
      */
-    private final Boolean detailedErrorMessages;
+    private Boolean detailedErrorMessages;
     /**
      * @return Is Failed Request Tracing enabled.
      * 
      */
-    private final Boolean failedRequestTracing;
+    private Boolean failedRequestTracing;
     /**
      * @return An `http_logs` block as defined above.
      * 
      */
-    private final List<GetWindowsWebAppLogHttpLog> httpLogs;
+    private List<GetWindowsWebAppLogHttpLog> httpLogs;
 
-    @CustomType.Constructor
-    private GetWindowsWebAppLog(
-        @CustomType.Parameter("applicationLogs") List<GetWindowsWebAppLogApplicationLog> applicationLogs,
-        @CustomType.Parameter("detailedErrorMessages") Boolean detailedErrorMessages,
-        @CustomType.Parameter("failedRequestTracing") Boolean failedRequestTracing,
-        @CustomType.Parameter("httpLogs") List<GetWindowsWebAppLogHttpLog> httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessages = detailedErrorMessages;
-        this.failedRequestTracing = failedRequestTracing;
-        this.httpLogs = httpLogs;
-    }
-
+    private GetWindowsWebAppLog() {}
     /**
      * @return A `application_logs` block as defined above.
      * 
@@ -81,17 +70,13 @@ public final class GetWindowsWebAppLog {
     public static Builder builder(GetWindowsWebAppLog defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsWebAppLogApplicationLog> applicationLogs;
         private Boolean detailedErrorMessages;
         private Boolean failedRequestTracing;
         private List<GetWindowsWebAppLogHttpLog> httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsWebAppLog defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -100,6 +85,7 @@ public final class GetWindowsWebAppLog {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(List<GetWindowsWebAppLogApplicationLog> applicationLogs) {
             this.applicationLogs = Objects.requireNonNull(applicationLogs);
             return this;
@@ -107,22 +93,31 @@ public final class GetWindowsWebAppLog {
         public Builder applicationLogs(GetWindowsWebAppLogApplicationLog... applicationLogs) {
             return applicationLogs(List.of(applicationLogs));
         }
+        @CustomType.Setter
         public Builder detailedErrorMessages(Boolean detailedErrorMessages) {
             this.detailedErrorMessages = Objects.requireNonNull(detailedErrorMessages);
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracing(Boolean failedRequestTracing) {
             this.failedRequestTracing = Objects.requireNonNull(failedRequestTracing);
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(List<GetWindowsWebAppLogHttpLog> httpLogs) {
             this.httpLogs = Objects.requireNonNull(httpLogs);
             return this;
         }
         public Builder httpLogs(GetWindowsWebAppLogHttpLog... httpLogs) {
             return httpLogs(List.of(httpLogs));
-        }        public GetWindowsWebAppLog build() {
-            return new GetWindowsWebAppLog(applicationLogs, detailedErrorMessages, failedRequestTracing, httpLogs);
+        }
+        public GetWindowsWebAppLog build() {
+            final var o = new GetWindowsWebAppLog();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessages = detailedErrorMessages;
+            o.failedRequestTracing = failedRequestTracing;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

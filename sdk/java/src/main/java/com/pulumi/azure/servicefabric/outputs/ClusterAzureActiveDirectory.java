@@ -13,28 +13,19 @@ public final class ClusterAzureActiveDirectory {
      * @return The Azure Active Directory Client ID which should be used for the Client Application.
      * 
      */
-    private final String clientApplicationId;
+    private String clientApplicationId;
     /**
      * @return The Azure Active Directory Cluster Application ID.
      * 
      */
-    private final String clusterApplicationId;
+    private String clusterApplicationId;
     /**
      * @return The Azure Active Directory Tenant ID.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private ClusterAzureActiveDirectory(
-        @CustomType.Parameter("clientApplicationId") String clientApplicationId,
-        @CustomType.Parameter("clusterApplicationId") String clusterApplicationId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.clientApplicationId = clientApplicationId;
-        this.clusterApplicationId = clusterApplicationId;
-        this.tenantId = tenantId;
-    }
-
+    private ClusterAzureActiveDirectory() {}
     /**
      * @return The Azure Active Directory Client ID which should be used for the Client Application.
      * 
@@ -64,16 +55,12 @@ public final class ClusterAzureActiveDirectory {
     public static Builder builder(ClusterAzureActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientApplicationId;
         private String clusterApplicationId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterAzureActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientApplicationId = defaults.clientApplicationId;
@@ -81,19 +68,27 @@ public final class ClusterAzureActiveDirectory {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder clientApplicationId(String clientApplicationId) {
             this.clientApplicationId = Objects.requireNonNull(clientApplicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder clusterApplicationId(String clusterApplicationId) {
             this.clusterApplicationId = Objects.requireNonNull(clusterApplicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public ClusterAzureActiveDirectory build() {
-            return new ClusterAzureActiveDirectory(clientApplicationId, clusterApplicationId, tenantId);
+        }
+        public ClusterAzureActiveDirectory build() {
+            final var o = new ClusterAzureActiveDirectory();
+            o.clientApplicationId = clientApplicationId;
+            o.clusterApplicationId = clusterApplicationId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

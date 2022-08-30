@@ -14,28 +14,19 @@ public final class GetFlexibleServerStorage {
      * @return Is Storage Auto Grow enabled?
      * 
      */
-    private final Boolean autoGrowEnabled;
+    private Boolean autoGrowEnabled;
     /**
      * @return The storage IOPS of the MySQL Flexible Server.
      * 
      */
-    private final Integer iops;
+    private Integer iops;
     /**
      * @return The max storage allowed for the MySQL Flexible Server.
      * 
      */
-    private final Integer sizeGb;
+    private Integer sizeGb;
 
-    @CustomType.Constructor
-    private GetFlexibleServerStorage(
-        @CustomType.Parameter("autoGrowEnabled") Boolean autoGrowEnabled,
-        @CustomType.Parameter("iops") Integer iops,
-        @CustomType.Parameter("sizeGb") Integer sizeGb) {
-        this.autoGrowEnabled = autoGrowEnabled;
-        this.iops = iops;
-        this.sizeGb = sizeGb;
-    }
-
+    private GetFlexibleServerStorage() {}
     /**
      * @return Is Storage Auto Grow enabled?
      * 
@@ -65,16 +56,12 @@ public final class GetFlexibleServerStorage {
     public static Builder builder(GetFlexibleServerStorage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean autoGrowEnabled;
         private Integer iops;
         private Integer sizeGb;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFlexibleServerStorage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoGrowEnabled = defaults.autoGrowEnabled;
@@ -82,19 +69,27 @@ public final class GetFlexibleServerStorage {
     	      this.sizeGb = defaults.sizeGb;
         }
 
+        @CustomType.Setter
         public Builder autoGrowEnabled(Boolean autoGrowEnabled) {
             this.autoGrowEnabled = Objects.requireNonNull(autoGrowEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder iops(Integer iops) {
             this.iops = Objects.requireNonNull(iops);
             return this;
         }
+        @CustomType.Setter
         public Builder sizeGb(Integer sizeGb) {
             this.sizeGb = Objects.requireNonNull(sizeGb);
             return this;
-        }        public GetFlexibleServerStorage build() {
-            return new GetFlexibleServerStorage(autoGrowEnabled, iops, sizeGb);
+        }
+        public GetFlexibleServerStorage build() {
+            final var o = new GetFlexibleServerStorage();
+            o.autoGrowEnabled = autoGrowEnabled;
+            o.iops = iops;
+            o.sizeGb = sizeGb;
+            return o;
         }
     }
 }

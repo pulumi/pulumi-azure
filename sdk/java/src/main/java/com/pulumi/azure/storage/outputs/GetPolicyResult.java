@@ -15,24 +15,15 @@ public final class GetPolicyResult {
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A `rule` block as documented below.
      * 
      */
-    private final List<GetPolicyRule> rules;
-    private final String storageAccountId;
+    private List<GetPolicyRule> rules;
+    private String storageAccountId;
 
-    @CustomType.Constructor
-    private GetPolicyResult(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("rules") List<GetPolicyRule> rules,
-        @CustomType.Parameter("storageAccountId") String storageAccountId) {
-        this.id = id;
-        this.rules = rules;
-        this.storageAccountId = storageAccountId;
-    }
-
+    private GetPolicyResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -58,16 +49,12 @@ public final class GetPolicyResult {
     public static Builder builder(GetPolicyResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private List<GetPolicyRule> rules;
         private String storageAccountId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -75,10 +62,12 @@ public final class GetPolicyResult {
     	      this.storageAccountId = defaults.storageAccountId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder rules(List<GetPolicyRule> rules) {
             this.rules = Objects.requireNonNull(rules);
             return this;
@@ -86,11 +75,17 @@ public final class GetPolicyResult {
         public Builder rules(GetPolicyRule... rules) {
             return rules(List.of(rules));
         }
+        @CustomType.Setter
         public Builder storageAccountId(String storageAccountId) {
             this.storageAccountId = Objects.requireNonNull(storageAccountId);
             return this;
-        }        public GetPolicyResult build() {
-            return new GetPolicyResult(id, rules, storageAccountId);
+        }
+        public GetPolicyResult build() {
+            final var o = new GetPolicyResult();
+            o.id = id;
+            o.rules = rules;
+            o.storageAccountId = storageAccountId;
+            return o;
         }
     }
 }

@@ -14,28 +14,19 @@ public final class GetBackendAddressPoolBackendAddressInboundNatRulePortMapping 
      * @return The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
      * 
      */
-    private final Integer backendPort;
+    private Integer backendPort;
     /**
      * @return The Frontend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
      * 
      */
-    private final Integer frontendPort;
+    private Integer frontendPort;
     /**
      * @return The name of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
      * 
      */
-    private final String inboundNatRuleName;
+    private String inboundNatRuleName;
 
-    @CustomType.Constructor
-    private GetBackendAddressPoolBackendAddressInboundNatRulePortMapping(
-        @CustomType.Parameter("backendPort") Integer backendPort,
-        @CustomType.Parameter("frontendPort") Integer frontendPort,
-        @CustomType.Parameter("inboundNatRuleName") String inboundNatRuleName) {
-        this.backendPort = backendPort;
-        this.frontendPort = frontendPort;
-        this.inboundNatRuleName = inboundNatRuleName;
-    }
-
+    private GetBackendAddressPoolBackendAddressInboundNatRulePortMapping() {}
     /**
      * @return The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
      * 
@@ -65,16 +56,12 @@ public final class GetBackendAddressPoolBackendAddressInboundNatRulePortMapping 
     public static Builder builder(GetBackendAddressPoolBackendAddressInboundNatRulePortMapping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer backendPort;
         private Integer frontendPort;
         private String inboundNatRuleName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetBackendAddressPoolBackendAddressInboundNatRulePortMapping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backendPort = defaults.backendPort;
@@ -82,19 +69,27 @@ public final class GetBackendAddressPoolBackendAddressInboundNatRulePortMapping 
     	      this.inboundNatRuleName = defaults.inboundNatRuleName;
         }
 
+        @CustomType.Setter
         public Builder backendPort(Integer backendPort) {
             this.backendPort = Objects.requireNonNull(backendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder frontendPort(Integer frontendPort) {
             this.frontendPort = Objects.requireNonNull(frontendPort);
             return this;
         }
+        @CustomType.Setter
         public Builder inboundNatRuleName(String inboundNatRuleName) {
             this.inboundNatRuleName = Objects.requireNonNull(inboundNatRuleName);
             return this;
-        }        public GetBackendAddressPoolBackendAddressInboundNatRulePortMapping build() {
-            return new GetBackendAddressPoolBackendAddressInboundNatRulePortMapping(backendPort, frontendPort, inboundNatRuleName);
+        }
+        public GetBackendAddressPoolBackendAddressInboundNatRulePortMapping build() {
+            final var o = new GetBackendAddressPoolBackendAddressInboundNatRulePortMapping();
+            o.backendPort = backendPort;
+            o.frontendPort = frontendPort;
+            o.inboundNatRuleName = inboundNatRuleName;
+            return o;
         }
     }
 }

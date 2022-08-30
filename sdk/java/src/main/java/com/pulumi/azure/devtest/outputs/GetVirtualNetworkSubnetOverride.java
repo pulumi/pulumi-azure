@@ -13,38 +13,25 @@ public final class GetVirtualNetworkSubnetOverride {
      * @return The name of the subnet.
      * 
      */
-    private final String labSubnetName;
+    private String labSubnetName;
     /**
      * @return The resource identifier for the subnet.
      * 
      */
-    private final String resourceId;
+    private String resourceId;
     /**
      * @return Indicates if the subnet can be used for VM creation.  Possible values are `Allow`, `Default` and `Deny`.
      * 
      */
-    private final String useInVmCreationPermission;
-    private final String usePublicIpAddressPermission;
+    private String useInVmCreationPermission;
+    private String usePublicIpAddressPermission;
     /**
      * @return The virtual network pool associated with this subnet.
      * 
      */
-    private final String virtualNetworkPoolName;
+    private String virtualNetworkPoolName;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkSubnetOverride(
-        @CustomType.Parameter("labSubnetName") String labSubnetName,
-        @CustomType.Parameter("resourceId") String resourceId,
-        @CustomType.Parameter("useInVmCreationPermission") String useInVmCreationPermission,
-        @CustomType.Parameter("usePublicIpAddressPermission") String usePublicIpAddressPermission,
-        @CustomType.Parameter("virtualNetworkPoolName") String virtualNetworkPoolName) {
-        this.labSubnetName = labSubnetName;
-        this.resourceId = resourceId;
-        this.useInVmCreationPermission = useInVmCreationPermission;
-        this.usePublicIpAddressPermission = usePublicIpAddressPermission;
-        this.virtualNetworkPoolName = virtualNetworkPoolName;
-    }
-
+    private GetVirtualNetworkSubnetOverride() {}
     /**
      * @return The name of the subnet.
      * 
@@ -84,18 +71,14 @@ public final class GetVirtualNetworkSubnetOverride {
     public static Builder builder(GetVirtualNetworkSubnetOverride defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String labSubnetName;
         private String resourceId;
         private String useInVmCreationPermission;
         private String usePublicIpAddressPermission;
         private String virtualNetworkPoolName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkSubnetOverride defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.labSubnetName = defaults.labSubnetName;
@@ -105,27 +88,39 @@ public final class GetVirtualNetworkSubnetOverride {
     	      this.virtualNetworkPoolName = defaults.virtualNetworkPoolName;
         }
 
+        @CustomType.Setter
         public Builder labSubnetName(String labSubnetName) {
             this.labSubnetName = Objects.requireNonNull(labSubnetName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceId(String resourceId) {
             this.resourceId = Objects.requireNonNull(resourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder useInVmCreationPermission(String useInVmCreationPermission) {
             this.useInVmCreationPermission = Objects.requireNonNull(useInVmCreationPermission);
             return this;
         }
+        @CustomType.Setter
         public Builder usePublicIpAddressPermission(String usePublicIpAddressPermission) {
             this.usePublicIpAddressPermission = Objects.requireNonNull(usePublicIpAddressPermission);
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkPoolName(String virtualNetworkPoolName) {
             this.virtualNetworkPoolName = Objects.requireNonNull(virtualNetworkPoolName);
             return this;
-        }        public GetVirtualNetworkSubnetOverride build() {
-            return new GetVirtualNetworkSubnetOverride(labSubnetName, resourceId, useInVmCreationPermission, usePublicIpAddressPermission, virtualNetworkPoolName);
+        }
+        public GetVirtualNetworkSubnetOverride build() {
+            final var o = new GetVirtualNetworkSubnetOverride();
+            o.labSubnetName = labSubnetName;
+            o.resourceId = resourceId;
+            o.useInVmCreationPermission = useInVmCreationPermission;
+            o.usePublicIpAddressPermission = usePublicIpAddressPermission;
+            o.virtualNetworkPoolName = virtualNetworkPoolName;
+            return o;
         }
     }
 }

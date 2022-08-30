@@ -15,21 +15,14 @@ public final class AccountPrivateEndpointConnection {
      * @return The ID of the Automation Account.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the Automation Account. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private AccountPrivateEndpointConnection(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private AccountPrivateEndpointConnection() {}
     /**
      * @return The ID of the Automation Account.
      * 
@@ -52,30 +45,32 @@ public final class AccountPrivateEndpointConnection {
     public static Builder builder(AccountPrivateEndpointConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountPrivateEndpointConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public AccountPrivateEndpointConnection build() {
-            return new AccountPrivateEndpointConnection(id, name);
+        }
+        public AccountPrivateEndpointConnection build() {
+            final var o = new AccountPrivateEndpointConnection();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

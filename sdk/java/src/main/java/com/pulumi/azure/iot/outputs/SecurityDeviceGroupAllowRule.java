@@ -15,35 +15,24 @@ public final class SecurityDeviceGroupAllowRule {
      * @return Specifies which IP is not allowed to be connected to in current device group for inbound connection.
      * 
      */
-    private final @Nullable List<String> connectionFromIpsNotAlloweds;
+    private @Nullable List<String> connectionFromIpsNotAlloweds;
     /**
      * @return Specifies which IP is not allowed to be connected to in current device group for outbound connection.
      * 
      */
-    private final @Nullable List<String> connectionToIpsNotAlloweds;
+    private @Nullable List<String> connectionToIpsNotAlloweds;
     /**
      * @return Specifies which local user is not allowed to login in current device group.
      * 
      */
-    private final @Nullable List<String> localUsersNotAlloweds;
+    private @Nullable List<String> localUsersNotAlloweds;
     /**
      * @return Specifies which process is not allowed to be executed in current device group.
      * 
      */
-    private final @Nullable List<String> processesNotAlloweds;
+    private @Nullable List<String> processesNotAlloweds;
 
-    @CustomType.Constructor
-    private SecurityDeviceGroupAllowRule(
-        @CustomType.Parameter("connectionFromIpsNotAlloweds") @Nullable List<String> connectionFromIpsNotAlloweds,
-        @CustomType.Parameter("connectionToIpsNotAlloweds") @Nullable List<String> connectionToIpsNotAlloweds,
-        @CustomType.Parameter("localUsersNotAlloweds") @Nullable List<String> localUsersNotAlloweds,
-        @CustomType.Parameter("processesNotAlloweds") @Nullable List<String> processesNotAlloweds) {
-        this.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
-        this.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
-        this.localUsersNotAlloweds = localUsersNotAlloweds;
-        this.processesNotAlloweds = processesNotAlloweds;
-    }
-
+    private SecurityDeviceGroupAllowRule() {}
     /**
      * @return Specifies which IP is not allowed to be connected to in current device group for inbound connection.
      * 
@@ -80,17 +69,13 @@ public final class SecurityDeviceGroupAllowRule {
     public static Builder builder(SecurityDeviceGroupAllowRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> connectionFromIpsNotAlloweds;
         private @Nullable List<String> connectionToIpsNotAlloweds;
         private @Nullable List<String> localUsersNotAlloweds;
         private @Nullable List<String> processesNotAlloweds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecurityDeviceGroupAllowRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionFromIpsNotAlloweds = defaults.connectionFromIpsNotAlloweds;
@@ -99,6 +84,7 @@ public final class SecurityDeviceGroupAllowRule {
     	      this.processesNotAlloweds = defaults.processesNotAlloweds;
         }
 
+        @CustomType.Setter
         public Builder connectionFromIpsNotAlloweds(@Nullable List<String> connectionFromIpsNotAlloweds) {
             this.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
             return this;
@@ -106,6 +92,7 @@ public final class SecurityDeviceGroupAllowRule {
         public Builder connectionFromIpsNotAlloweds(String... connectionFromIpsNotAlloweds) {
             return connectionFromIpsNotAlloweds(List.of(connectionFromIpsNotAlloweds));
         }
+        @CustomType.Setter
         public Builder connectionToIpsNotAlloweds(@Nullable List<String> connectionToIpsNotAlloweds) {
             this.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
             return this;
@@ -113,6 +100,7 @@ public final class SecurityDeviceGroupAllowRule {
         public Builder connectionToIpsNotAlloweds(String... connectionToIpsNotAlloweds) {
             return connectionToIpsNotAlloweds(List.of(connectionToIpsNotAlloweds));
         }
+        @CustomType.Setter
         public Builder localUsersNotAlloweds(@Nullable List<String> localUsersNotAlloweds) {
             this.localUsersNotAlloweds = localUsersNotAlloweds;
             return this;
@@ -120,14 +108,21 @@ public final class SecurityDeviceGroupAllowRule {
         public Builder localUsersNotAlloweds(String... localUsersNotAlloweds) {
             return localUsersNotAlloweds(List.of(localUsersNotAlloweds));
         }
+        @CustomType.Setter
         public Builder processesNotAlloweds(@Nullable List<String> processesNotAlloweds) {
             this.processesNotAlloweds = processesNotAlloweds;
             return this;
         }
         public Builder processesNotAlloweds(String... processesNotAlloweds) {
             return processesNotAlloweds(List.of(processesNotAlloweds));
-        }        public SecurityDeviceGroupAllowRule build() {
-            return new SecurityDeviceGroupAllowRule(connectionFromIpsNotAlloweds, connectionToIpsNotAlloweds, localUsersNotAlloweds, processesNotAlloweds);
+        }
+        public SecurityDeviceGroupAllowRule build() {
+            final var o = new SecurityDeviceGroupAllowRule();
+            o.connectionFromIpsNotAlloweds = connectionFromIpsNotAlloweds;
+            o.connectionToIpsNotAlloweds = connectionToIpsNotAlloweds;
+            o.localUsersNotAlloweds = localUsersNotAlloweds;
+            o.processesNotAlloweds = processesNotAlloweds;
+            return o;
         }
     }
 }

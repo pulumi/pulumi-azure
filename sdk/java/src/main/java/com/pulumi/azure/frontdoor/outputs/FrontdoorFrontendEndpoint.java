@@ -17,49 +17,34 @@ public final class FrontdoorFrontendEndpoint {
      * @return Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
      */
-    private final String hostName;
+    private String hostName;
     /**
      * @return The ID of the FrontDoor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the `frontend_endpoint`.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Whether to allow session affinity on this host. Valid options are `true` or `false` Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean sessionAffinityEnabled;
+    private @Nullable Boolean sessionAffinityEnabled;
     /**
      * @return The TTL to use in seconds for session affinity, if applicable. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer sessionAffinityTtlSeconds;
+    private @Nullable Integer sessionAffinityTtlSeconds;
     /**
      * @return Defines the Web Application Firewall policy `ID` for each host.
      * 
      */
-    private final @Nullable String webApplicationFirewallPolicyLinkId;
+    private @Nullable String webApplicationFirewallPolicyLinkId;
 
-    @CustomType.Constructor
-    private FrontdoorFrontendEndpoint(
-        @CustomType.Parameter("hostName") String hostName,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("sessionAffinityEnabled") @Nullable Boolean sessionAffinityEnabled,
-        @CustomType.Parameter("sessionAffinityTtlSeconds") @Nullable Integer sessionAffinityTtlSeconds,
-        @CustomType.Parameter("webApplicationFirewallPolicyLinkId") @Nullable String webApplicationFirewallPolicyLinkId) {
-        this.hostName = hostName;
-        this.id = id;
-        this.name = name;
-        this.sessionAffinityEnabled = sessionAffinityEnabled;
-        this.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
-        this.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
-    }
-
+    private FrontdoorFrontendEndpoint() {}
     /**
      * @return Specifies the host name of the `frontend_endpoint`. Must be a domain name. In order to use a name.azurefd.net domain, the name value must match the Front Door name.
      * 
@@ -110,7 +95,7 @@ public final class FrontdoorFrontendEndpoint {
     public static Builder builder(FrontdoorFrontendEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String hostName;
         private @Nullable String id;
@@ -118,11 +103,7 @@ public final class FrontdoorFrontendEndpoint {
         private @Nullable Boolean sessionAffinityEnabled;
         private @Nullable Integer sessionAffinityTtlSeconds;
         private @Nullable String webApplicationFirewallPolicyLinkId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorFrontendEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
@@ -133,31 +114,45 @@ public final class FrontdoorFrontendEndpoint {
     	      this.webApplicationFirewallPolicyLinkId = defaults.webApplicationFirewallPolicyLinkId;
         }
 
+        @CustomType.Setter
         public Builder hostName(String hostName) {
             this.hostName = Objects.requireNonNull(hostName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder sessionAffinityEnabled(@Nullable Boolean sessionAffinityEnabled) {
             this.sessionAffinityEnabled = sessionAffinityEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder sessionAffinityTtlSeconds(@Nullable Integer sessionAffinityTtlSeconds) {
             this.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder webApplicationFirewallPolicyLinkId(@Nullable String webApplicationFirewallPolicyLinkId) {
             this.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
             return this;
-        }        public FrontdoorFrontendEndpoint build() {
-            return new FrontdoorFrontendEndpoint(hostName, id, name, sessionAffinityEnabled, sessionAffinityTtlSeconds, webApplicationFirewallPolicyLinkId);
+        }
+        public FrontdoorFrontendEndpoint build() {
+            final var o = new FrontdoorFrontendEndpoint();
+            o.hostName = hostName;
+            o.id = id;
+            o.name = name;
+            o.sessionAffinityEnabled = sessionAffinityEnabled;
+            o.sessionAffinityTtlSeconds = sessionAffinityTtlSeconds;
+            o.webApplicationFirewallPolicyLinkId = webApplicationFirewallPolicyLinkId;
+            return o;
         }
     }
 }

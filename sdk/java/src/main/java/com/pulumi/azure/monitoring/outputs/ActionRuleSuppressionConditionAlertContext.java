@@ -14,21 +14,14 @@ public final class ActionRuleSuppressionConditionAlertContext {
      * @return The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
      * 
      */
-    private final String operator;
+    private String operator;
     /**
      * @return A list of values to match for a given condition.
      * 
      */
-    private final List<String> values;
+    private List<String> values;
 
-    @CustomType.Constructor
-    private ActionRuleSuppressionConditionAlertContext(
-        @CustomType.Parameter("operator") String operator,
-        @CustomType.Parameter("values") List<String> values) {
-        this.operator = operator;
-        this.values = values;
-    }
-
+    private ActionRuleSuppressionConditionAlertContext() {}
     /**
      * @return The operator for a given condition. Possible values are `Equals`, `NotEquals`, `Contains`, and `DoesNotContain`.
      * 
@@ -51,33 +44,35 @@ public final class ActionRuleSuppressionConditionAlertContext {
     public static Builder builder(ActionRuleSuppressionConditionAlertContext defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String operator;
         private List<String> values;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleSuppressionConditionAlertContext defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.operator = defaults.operator;
     	      this.values = defaults.values;
         }
 
+        @CustomType.Setter
         public Builder operator(String operator) {
             this.operator = Objects.requireNonNull(operator);
             return this;
         }
+        @CustomType.Setter
         public Builder values(List<String> values) {
             this.values = Objects.requireNonNull(values);
             return this;
         }
         public Builder values(String... values) {
             return values(List.of(values));
-        }        public ActionRuleSuppressionConditionAlertContext build() {
-            return new ActionRuleSuppressionConditionAlertContext(operator, values);
+        }
+        public ActionRuleSuppressionConditionAlertContext build() {
+            final var o = new ActionRuleSuppressionConditionAlertContext();
+            o.operator = operator;
+            o.values = values;
+            return o;
         }
     }
 }

@@ -16,21 +16,14 @@ public final class GroupContainerPort {
      * @return The port number the container will expose. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer port;
+    private @Nullable Integer port;
     /**
      * @return The network protocol associated with port. Possible values are `TCP` &amp; `UDP`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String protocol;
+    private @Nullable String protocol;
 
-    @CustomType.Constructor
-    private GroupContainerPort(
-        @CustomType.Parameter("port") @Nullable Integer port,
-        @CustomType.Parameter("protocol") @Nullable String protocol) {
-        this.port = port;
-        this.protocol = protocol;
-    }
-
+    private GroupContainerPort() {}
     /**
      * @return The port number the container will expose. Changing this forces a new resource to be created.
      * 
@@ -53,30 +46,32 @@ public final class GroupContainerPort {
     public static Builder builder(GroupContainerPort defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer port;
         private @Nullable String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerPort defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.port = defaults.port;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder port(@Nullable Integer port) {
             this.port = port;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(@Nullable String protocol) {
             this.protocol = protocol;
             return this;
-        }        public GroupContainerPort build() {
-            return new GroupContainerPort(port, protocol);
+        }
+        public GroupContainerPort build() {
+            final var o = new GroupContainerPort();
+            o.port = port;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

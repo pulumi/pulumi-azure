@@ -13,13 +13,9 @@ public final class AlertRuleScheduledEventGrouping {
      * @return The aggregation type of grouping the events.
      * 
      */
-    private final String aggregationMethod;
+    private String aggregationMethod;
 
-    @CustomType.Constructor
-    private AlertRuleScheduledEventGrouping(@CustomType.Parameter("aggregationMethod") String aggregationMethod) {
-        this.aggregationMethod = aggregationMethod;
-    }
-
+    private AlertRuleScheduledEventGrouping() {}
     /**
      * @return The aggregation type of grouping the events.
      * 
@@ -35,24 +31,24 @@ public final class AlertRuleScheduledEventGrouping {
     public static Builder builder(AlertRuleScheduledEventGrouping defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String aggregationMethod;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AlertRuleScheduledEventGrouping defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aggregationMethod = defaults.aggregationMethod;
         }
 
+        @CustomType.Setter
         public Builder aggregationMethod(String aggregationMethod) {
             this.aggregationMethod = Objects.requireNonNull(aggregationMethod);
             return this;
-        }        public AlertRuleScheduledEventGrouping build() {
-            return new AlertRuleScheduledEventGrouping(aggregationMethod);
+        }
+        public AlertRuleScheduledEventGrouping build() {
+            final var o = new AlertRuleScheduledEventGrouping();
+            o.aggregationMethod = aggregationMethod;
+            return o;
         }
     }
 }

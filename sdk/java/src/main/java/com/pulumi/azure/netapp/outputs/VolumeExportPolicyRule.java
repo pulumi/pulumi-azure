@@ -18,49 +18,34 @@ public final class VolumeExportPolicyRule {
      * @return A list of allowed clients IPv4 addresses.
      * 
      */
-    private final List<String> allowedClients;
+    private List<String> allowedClients;
     /**
      * @return A list of allowed protocols. Valid values include `CIFS`, `NFSv3`, or `NFSv4.1`. Only one value is supported at this time. This replaces the previous arguments: `cifs_enabled`, `nfsv3_enabled` and `nfsv4_enabled`.
      * 
      */
-    private final @Nullable String protocolsEnabled;
+    private @Nullable String protocolsEnabled;
     /**
      * @return Is root access permitted to this volume?
      * 
      */
-    private final @Nullable Boolean rootAccessEnabled;
+    private @Nullable Boolean rootAccessEnabled;
     /**
      * @return The index number of the rule.
      * 
      */
-    private final Integer ruleIndex;
+    private Integer ruleIndex;
     /**
      * @return Is the file system on unix read only?
      * 
      */
-    private final @Nullable Boolean unixReadOnly;
+    private @Nullable Boolean unixReadOnly;
     /**
      * @return Is the file system on unix read and write?
      * 
      */
-    private final @Nullable Boolean unixReadWrite;
+    private @Nullable Boolean unixReadWrite;
 
-    @CustomType.Constructor
-    private VolumeExportPolicyRule(
-        @CustomType.Parameter("allowedClients") List<String> allowedClients,
-        @CustomType.Parameter("protocolsEnabled") @Nullable String protocolsEnabled,
-        @CustomType.Parameter("rootAccessEnabled") @Nullable Boolean rootAccessEnabled,
-        @CustomType.Parameter("ruleIndex") Integer ruleIndex,
-        @CustomType.Parameter("unixReadOnly") @Nullable Boolean unixReadOnly,
-        @CustomType.Parameter("unixReadWrite") @Nullable Boolean unixReadWrite) {
-        this.allowedClients = allowedClients;
-        this.protocolsEnabled = protocolsEnabled;
-        this.rootAccessEnabled = rootAccessEnabled;
-        this.ruleIndex = ruleIndex;
-        this.unixReadOnly = unixReadOnly;
-        this.unixReadWrite = unixReadWrite;
-    }
-
+    private VolumeExportPolicyRule() {}
     /**
      * @return A list of allowed clients IPv4 addresses.
      * 
@@ -111,7 +96,7 @@ public final class VolumeExportPolicyRule {
     public static Builder builder(VolumeExportPolicyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> allowedClients;
         private @Nullable String protocolsEnabled;
@@ -119,11 +104,7 @@ public final class VolumeExportPolicyRule {
         private Integer ruleIndex;
         private @Nullable Boolean unixReadOnly;
         private @Nullable Boolean unixReadWrite;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VolumeExportPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedClients = defaults.allowedClients;
@@ -134,6 +115,7 @@ public final class VolumeExportPolicyRule {
     	      this.unixReadWrite = defaults.unixReadWrite;
         }
 
+        @CustomType.Setter
         public Builder allowedClients(List<String> allowedClients) {
             this.allowedClients = Objects.requireNonNull(allowedClients);
             return this;
@@ -141,27 +123,40 @@ public final class VolumeExportPolicyRule {
         public Builder allowedClients(String... allowedClients) {
             return allowedClients(List.of(allowedClients));
         }
+        @CustomType.Setter
         public Builder protocolsEnabled(@Nullable String protocolsEnabled) {
             this.protocolsEnabled = protocolsEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder rootAccessEnabled(@Nullable Boolean rootAccessEnabled) {
             this.rootAccessEnabled = rootAccessEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ruleIndex(Integer ruleIndex) {
             this.ruleIndex = Objects.requireNonNull(ruleIndex);
             return this;
         }
+        @CustomType.Setter
         public Builder unixReadOnly(@Nullable Boolean unixReadOnly) {
             this.unixReadOnly = unixReadOnly;
             return this;
         }
+        @CustomType.Setter
         public Builder unixReadWrite(@Nullable Boolean unixReadWrite) {
             this.unixReadWrite = unixReadWrite;
             return this;
-        }        public VolumeExportPolicyRule build() {
-            return new VolumeExportPolicyRule(allowedClients, protocolsEnabled, rootAccessEnabled, ruleIndex, unixReadOnly, unixReadWrite);
+        }
+        public VolumeExportPolicyRule build() {
+            final var o = new VolumeExportPolicyRule();
+            o.allowedClients = allowedClients;
+            o.protocolsEnabled = protocolsEnabled;
+            o.rootAccessEnabled = rootAccessEnabled;
+            o.ruleIndex = ruleIndex;
+            o.unixReadOnly = unixReadOnly;
+            o.unixReadWrite = unixReadWrite;
+            return o;
         }
     }
 }

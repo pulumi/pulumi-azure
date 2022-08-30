@@ -13,21 +13,14 @@ public final class LinkedServiceAzureDatabricksKeyVaultPassword {
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return Specifies the secret name in Azure Key Vault that stores ADB access token.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private LinkedServiceAzureDatabricksKeyVaultPassword(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("secretName") String secretName) {
-        this.linkedServiceName = linkedServiceName;
-        this.secretName = secretName;
-    }
-
+    private LinkedServiceAzureDatabricksKeyVaultPassword() {}
     /**
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceAzureDatabricksKeyVaultPassword {
     public static Builder builder(LinkedServiceAzureDatabricksKeyVaultPassword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceAzureDatabricksKeyVaultPassword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public LinkedServiceAzureDatabricksKeyVaultPassword build() {
-            return new LinkedServiceAzureDatabricksKeyVaultPassword(linkedServiceName, secretName);
+        }
+        public LinkedServiceAzureDatabricksKeyVaultPassword build() {
+            final var o = new LinkedServiceAzureDatabricksKeyVaultPassword();
+            o.linkedServiceName = linkedServiceName;
+            o.secretName = secretName;
+            return o;
         }
     }
 }

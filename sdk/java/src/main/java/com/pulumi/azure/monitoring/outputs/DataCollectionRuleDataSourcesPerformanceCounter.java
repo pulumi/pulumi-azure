@@ -15,35 +15,24 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
      * @return Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
      * 
      */
-    private final List<String> counterSpecifiers;
+    private List<String> counterSpecifiers;
     /**
      * @return The name which should be used for this data source. This name should be unique across all data sources regardless of type within the Data Collection Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The number of seconds between consecutive counter measurements (samples). The value should be integer between 1 and 300 inclusive.
      * 
      */
-    private final Integer samplingFrequencyInSeconds;
+    private Integer samplingFrequencyInSeconds;
     /**
      * @return Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible values are `Microsoft-InsightsMetrics`,and `Microsoft-Perf`.
      * 
      */
-    private final List<String> streams;
+    private List<String> streams;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataSourcesPerformanceCounter(
-        @CustomType.Parameter("counterSpecifiers") List<String> counterSpecifiers,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("samplingFrequencyInSeconds") Integer samplingFrequencyInSeconds,
-        @CustomType.Parameter("streams") List<String> streams) {
-        this.counterSpecifiers = counterSpecifiers;
-        this.name = name;
-        this.samplingFrequencyInSeconds = samplingFrequencyInSeconds;
-        this.streams = streams;
-    }
-
+    private DataCollectionRuleDataSourcesPerformanceCounter() {}
     /**
      * @return Specifies a list of specifier names of the performance counters you want to collect. Use a wildcard `*` to collect counters for all instances. To get a list of performance counters on Windows, run the command `typeperf`.
      * 
@@ -80,17 +69,13 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
     public static Builder builder(DataCollectionRuleDataSourcesPerformanceCounter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> counterSpecifiers;
         private String name;
         private Integer samplingFrequencyInSeconds;
         private List<String> streams;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataSourcesPerformanceCounter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.counterSpecifiers = defaults.counterSpecifiers;
@@ -99,6 +84,7 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
     	      this.streams = defaults.streams;
         }
 
+        @CustomType.Setter
         public Builder counterSpecifiers(List<String> counterSpecifiers) {
             this.counterSpecifiers = Objects.requireNonNull(counterSpecifiers);
             return this;
@@ -106,22 +92,31 @@ public final class DataCollectionRuleDataSourcesPerformanceCounter {
         public Builder counterSpecifiers(String... counterSpecifiers) {
             return counterSpecifiers(List.of(counterSpecifiers));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder samplingFrequencyInSeconds(Integer samplingFrequencyInSeconds) {
             this.samplingFrequencyInSeconds = Objects.requireNonNull(samplingFrequencyInSeconds);
             return this;
         }
+        @CustomType.Setter
         public Builder streams(List<String> streams) {
             this.streams = Objects.requireNonNull(streams);
             return this;
         }
         public Builder streams(String... streams) {
             return streams(List.of(streams));
-        }        public DataCollectionRuleDataSourcesPerformanceCounter build() {
-            return new DataCollectionRuleDataSourcesPerformanceCounter(counterSpecifiers, name, samplingFrequencyInSeconds, streams);
+        }
+        public DataCollectionRuleDataSourcesPerformanceCounter build() {
+            final var o = new DataCollectionRuleDataSourcesPerformanceCounter();
+            o.counterSpecifiers = counterSpecifiers;
+            o.name = name;
+            o.samplingFrequencyInSeconds = samplingFrequencyInSeconds;
+            o.streams = streams;
+            return o;
         }
     }
 }

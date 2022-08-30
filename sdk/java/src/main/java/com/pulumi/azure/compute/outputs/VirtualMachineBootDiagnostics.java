@@ -14,21 +14,14 @@ public final class VirtualMachineBootDiagnostics {
      * @return Should Boot Diagnostics be enabled for this Virtual Machine?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The Storage Account&#39;s Blob Endpoint which should hold the virtual machine&#39;s diagnostic files.
      * 
      */
-    private final String storageUri;
+    private String storageUri;
 
-    @CustomType.Constructor
-    private VirtualMachineBootDiagnostics(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("storageUri") String storageUri) {
-        this.enabled = enabled;
-        this.storageUri = storageUri;
-    }
-
+    private VirtualMachineBootDiagnostics() {}
     /**
      * @return Should Boot Diagnostics be enabled for this Virtual Machine?
      * 
@@ -51,30 +44,32 @@ public final class VirtualMachineBootDiagnostics {
     public static Builder builder(VirtualMachineBootDiagnostics defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String storageUri;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineBootDiagnostics defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.storageUri = defaults.storageUri;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder storageUri(String storageUri) {
             this.storageUri = Objects.requireNonNull(storageUri);
             return this;
-        }        public VirtualMachineBootDiagnostics build() {
-            return new VirtualMachineBootDiagnostics(enabled, storageUri);
+        }
+        public VirtualMachineBootDiagnostics build() {
+            final var o = new VirtualMachineBootDiagnostics();
+            o.enabled = enabled;
+            o.storageUri = storageUri;
+            return o;
         }
     }
 }

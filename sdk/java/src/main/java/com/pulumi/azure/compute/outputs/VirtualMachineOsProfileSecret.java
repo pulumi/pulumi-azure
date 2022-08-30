@@ -16,21 +16,14 @@ public final class VirtualMachineOsProfileSecret {
      * @return Specifies the ID of the Key Vault to use.
      * 
      */
-    private final String sourceVaultId;
+    private String sourceVaultId;
     /**
      * @return One or more `vault_certificates` blocks.
      * 
      */
-    private final @Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates;
+    private @Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates;
 
-    @CustomType.Constructor
-    private VirtualMachineOsProfileSecret(
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId,
-        @CustomType.Parameter("vaultCertificates") @Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates) {
-        this.sourceVaultId = sourceVaultId;
-        this.vaultCertificates = vaultCertificates;
-    }
-
+    private VirtualMachineOsProfileSecret() {}
     /**
      * @return Specifies the ID of the Key Vault to use.
      * 
@@ -53,33 +46,35 @@ public final class VirtualMachineOsProfileSecret {
     public static Builder builder(VirtualMachineOsProfileSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String sourceVaultId;
         private @Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineOsProfileSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sourceVaultId = defaults.sourceVaultId;
     	      this.vaultCertificates = defaults.vaultCertificates;
         }
 
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultCertificates(@Nullable List<VirtualMachineOsProfileSecretVaultCertificate> vaultCertificates) {
             this.vaultCertificates = vaultCertificates;
             return this;
         }
         public Builder vaultCertificates(VirtualMachineOsProfileSecretVaultCertificate... vaultCertificates) {
             return vaultCertificates(List.of(vaultCertificates));
-        }        public VirtualMachineOsProfileSecret build() {
-            return new VirtualMachineOsProfileSecret(sourceVaultId, vaultCertificates);
+        }
+        public VirtualMachineOsProfileSecret build() {
+            final var o = new VirtualMachineOsProfileSecret();
+            o.sourceVaultId = sourceVaultId;
+            o.vaultCertificates = vaultCertificates;
+            return o;
         }
     }
 }

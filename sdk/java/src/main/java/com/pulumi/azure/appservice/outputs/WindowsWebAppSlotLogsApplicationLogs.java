@@ -16,21 +16,14 @@ public final class WindowsWebAppSlotLogsApplicationLogs {
      * @return An `azure_blob_storage` block as defined below.
      * 
      */
-    private final @Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
      * 
      */
-    private final String fileSystemLevel;
+    private String fileSystemLevel;
 
-    @CustomType.Constructor
-    private WindowsWebAppSlotLogsApplicationLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystemLevel") String fileSystemLevel) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystemLevel = fileSystemLevel;
-    }
-
+    private WindowsWebAppSlotLogsApplicationLogs() {}
     /**
      * @return An `azure_blob_storage` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class WindowsWebAppSlotLogsApplicationLogs {
     public static Builder builder(WindowsWebAppSlotLogsApplicationLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
         private String fileSystemLevel;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsWebAppSlotLogsApplicationLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystemLevel = defaults.fileSystemLevel;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystemLevel(String fileSystemLevel) {
             this.fileSystemLevel = Objects.requireNonNull(fileSystemLevel);
             return this;
-        }        public WindowsWebAppSlotLogsApplicationLogs build() {
-            return new WindowsWebAppSlotLogsApplicationLogs(azureBlobStorage, fileSystemLevel);
+        }
+        public WindowsWebAppSlotLogsApplicationLogs build() {
+            final var o = new WindowsWebAppSlotLogsApplicationLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystemLevel = fileSystemLevel;
+            return o;
         }
     }
 }

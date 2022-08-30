@@ -11,17 +11,10 @@ import java.util.Objects;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
-    private final List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates;
-    private final String keyVaultId;
+    private List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates;
+    private String keyVaultId;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(
-        @CustomType.Parameter("certificates") List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates,
-        @CustomType.Parameter("keyVaultId") String keyVaultId) {
-        this.certificates = certificates;
-        this.keyVaultId = keyVaultId;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret() {}
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates() {
         return this.certificates;
     }
@@ -36,21 +29,18 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates;
         private String keyVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.keyVaultId = defaults.keyVaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -58,11 +48,16 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         public Builder certificates(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(certificates, keyVaultId);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret();
+            o.certificates = certificates;
+            o.keyVaultId = keyVaultId;
+            return o;
         }
     }
 }

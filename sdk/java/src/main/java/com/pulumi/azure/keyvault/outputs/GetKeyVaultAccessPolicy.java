@@ -14,56 +14,39 @@ public final class GetKeyVaultAccessPolicy {
      * @return The Object ID of a Azure Active Directory Application.
      * 
      */
-    private final String applicationId;
+    private String applicationId;
     /**
      * @return A list of certificate permissions applicable to this Access Policy.
      * 
      */
-    private final List<String> certificatePermissions;
+    private List<String> certificatePermissions;
     /**
      * @return A list of key permissions applicable to this Access Policy.
      * 
      */
-    private final List<String> keyPermissions;
+    private List<String> keyPermissions;
     /**
      * @return An Object ID of a User, Service Principal or Security Group.
      * 
      */
-    private final String objectId;
+    private String objectId;
     /**
      * @return A list of secret permissions applicable to this Access Policy.
      * 
      */
-    private final List<String> secretPermissions;
+    private List<String> secretPermissions;
     /**
      * @return A list of storage permissions applicable to this Access Policy.
      * 
      */
-    private final List<String> storagePermissions;
+    private List<String> storagePermissions;
     /**
      * @return The Azure Active Directory Tenant ID used to authenticate requests for this Key Vault.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private GetKeyVaultAccessPolicy(
-        @CustomType.Parameter("applicationId") String applicationId,
-        @CustomType.Parameter("certificatePermissions") List<String> certificatePermissions,
-        @CustomType.Parameter("keyPermissions") List<String> keyPermissions,
-        @CustomType.Parameter("objectId") String objectId,
-        @CustomType.Parameter("secretPermissions") List<String> secretPermissions,
-        @CustomType.Parameter("storagePermissions") List<String> storagePermissions,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.applicationId = applicationId;
-        this.certificatePermissions = certificatePermissions;
-        this.keyPermissions = keyPermissions;
-        this.objectId = objectId;
-        this.secretPermissions = secretPermissions;
-        this.storagePermissions = storagePermissions;
-        this.tenantId = tenantId;
-    }
-
+    private GetKeyVaultAccessPolicy() {}
     /**
      * @return The Object ID of a Azure Active Directory Application.
      * 
@@ -121,7 +104,7 @@ public final class GetKeyVaultAccessPolicy {
     public static Builder builder(GetKeyVaultAccessPolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String applicationId;
         private List<String> certificatePermissions;
@@ -130,11 +113,7 @@ public final class GetKeyVaultAccessPolicy {
         private List<String> secretPermissions;
         private List<String> storagePermissions;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKeyVaultAccessPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationId = defaults.applicationId;
@@ -146,10 +125,12 @@ public final class GetKeyVaultAccessPolicy {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder applicationId(String applicationId) {
             this.applicationId = Objects.requireNonNull(applicationId);
             return this;
         }
+        @CustomType.Setter
         public Builder certificatePermissions(List<String> certificatePermissions) {
             this.certificatePermissions = Objects.requireNonNull(certificatePermissions);
             return this;
@@ -157,6 +138,7 @@ public final class GetKeyVaultAccessPolicy {
         public Builder certificatePermissions(String... certificatePermissions) {
             return certificatePermissions(List.of(certificatePermissions));
         }
+        @CustomType.Setter
         public Builder keyPermissions(List<String> keyPermissions) {
             this.keyPermissions = Objects.requireNonNull(keyPermissions);
             return this;
@@ -164,10 +146,12 @@ public final class GetKeyVaultAccessPolicy {
         public Builder keyPermissions(String... keyPermissions) {
             return keyPermissions(List.of(keyPermissions));
         }
+        @CustomType.Setter
         public Builder objectId(String objectId) {
             this.objectId = Objects.requireNonNull(objectId);
             return this;
         }
+        @CustomType.Setter
         public Builder secretPermissions(List<String> secretPermissions) {
             this.secretPermissions = Objects.requireNonNull(secretPermissions);
             return this;
@@ -175,6 +159,7 @@ public final class GetKeyVaultAccessPolicy {
         public Builder secretPermissions(String... secretPermissions) {
             return secretPermissions(List.of(secretPermissions));
         }
+        @CustomType.Setter
         public Builder storagePermissions(List<String> storagePermissions) {
             this.storagePermissions = Objects.requireNonNull(storagePermissions);
             return this;
@@ -182,11 +167,21 @@ public final class GetKeyVaultAccessPolicy {
         public Builder storagePermissions(String... storagePermissions) {
             return storagePermissions(List.of(storagePermissions));
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public GetKeyVaultAccessPolicy build() {
-            return new GetKeyVaultAccessPolicy(applicationId, certificatePermissions, keyPermissions, objectId, secretPermissions, storagePermissions, tenantId);
+        }
+        public GetKeyVaultAccessPolicy build() {
+            final var o = new GetKeyVaultAccessPolicy();
+            o.applicationId = applicationId;
+            o.certificatePermissions = certificatePermissions;
+            o.keyPermissions = keyPermissions;
+            o.objectId = objectId;
+            o.secretPermissions = secretPermissions;
+            o.storagePermissions = storagePermissions;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

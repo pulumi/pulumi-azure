@@ -10,41 +10,26 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDedicatedHostResult {
-    private final String dedicatedHostGroupName;
+    private String dedicatedHostGroupName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The location where the Dedicated Host exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the Dedicated Host.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDedicatedHostResult(
-        @CustomType.Parameter("dedicatedHostGroupName") String dedicatedHostGroupName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.dedicatedHostGroupName = dedicatedHostGroupName;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetDedicatedHostResult() {}
     public String dedicatedHostGroupName() {
         return this.dedicatedHostGroupName;
     }
@@ -83,7 +68,7 @@ public final class GetDedicatedHostResult {
     public static Builder builder(GetDedicatedHostResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dedicatedHostGroupName;
         private String id;
@@ -91,11 +76,7 @@ public final class GetDedicatedHostResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDedicatedHostResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dedicatedHostGroupName = defaults.dedicatedHostGroupName;
@@ -106,31 +87,45 @@ public final class GetDedicatedHostResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder dedicatedHostGroupName(String dedicatedHostGroupName) {
             this.dedicatedHostGroupName = Objects.requireNonNull(dedicatedHostGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetDedicatedHostResult build() {
-            return new GetDedicatedHostResult(dedicatedHostGroupName, id, location, name, resourceGroupName, tags);
+        }
+        public GetDedicatedHostResult build() {
+            final var o = new GetDedicatedHostResult();
+            o.dedicatedHostGroupName = dedicatedHostGroupName;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

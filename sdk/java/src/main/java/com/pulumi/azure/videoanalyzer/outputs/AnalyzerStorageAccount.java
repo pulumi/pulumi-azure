@@ -13,21 +13,14 @@ public final class AnalyzerStorageAccount {
      * @return Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return Specifies the User Assigned Identity ID which should be assigned to access this Storage Account.
      * 
      */
-    private final String userAssignedIdentityId;
+    private String userAssignedIdentityId;
 
-    @CustomType.Constructor
-    private AnalyzerStorageAccount(
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("userAssignedIdentityId") String userAssignedIdentityId) {
-        this.id = id;
-        this.userAssignedIdentityId = userAssignedIdentityId;
-    }
-
+    private AnalyzerStorageAccount() {}
     /**
      * @return Specifies the ID of the Storage Account that will be associated with the Video Analyzer instance.
      * 
@@ -50,30 +43,32 @@ public final class AnalyzerStorageAccount {
     public static Builder builder(AnalyzerStorageAccount defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String id;
         private String userAssignedIdentityId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AnalyzerStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder userAssignedIdentityId(String userAssignedIdentityId) {
             this.userAssignedIdentityId = Objects.requireNonNull(userAssignedIdentityId);
             return this;
-        }        public AnalyzerStorageAccount build() {
-            return new AnalyzerStorageAccount(id, userAssignedIdentityId);
+        }
+        public AnalyzerStorageAccount build() {
+            final var o = new AnalyzerStorageAccount();
+            o.id = id;
+            o.userAssignedIdentityId = userAssignedIdentityId;
+            return o;
         }
     }
 }

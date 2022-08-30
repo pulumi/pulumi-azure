@@ -13,42 +13,29 @@ public final class GetWorkspacePrivateEndpointConnectionConnection {
      * @return Actions required for a private endpoint connection.
      * 
      */
-    private final String actionRequired;
+    private String actionRequired;
     /**
      * @return The description for the current state of a private endpoint connection.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return The name of the Databricks Workspace.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The status of a private endpoint connection. Possible values are `Pending`, `Approved`, `Rejected` or `Disconnected`.
      * 
      */
-    private final String status;
+    private String status;
     /**
      * @return The Databricks Workspace resource ID for the private link endpoint.
      * 
      */
-    private final String workspacePrivateEndpointId;
+    private String workspacePrivateEndpointId;
 
-    @CustomType.Constructor
-    private GetWorkspacePrivateEndpointConnectionConnection(
-        @CustomType.Parameter("actionRequired") String actionRequired,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("status") String status,
-        @CustomType.Parameter("workspacePrivateEndpointId") String workspacePrivateEndpointId) {
-        this.actionRequired = actionRequired;
-        this.description = description;
-        this.name = name;
-        this.status = status;
-        this.workspacePrivateEndpointId = workspacePrivateEndpointId;
-    }
-
+    private GetWorkspacePrivateEndpointConnectionConnection() {}
     /**
      * @return Actions required for a private endpoint connection.
      * 
@@ -92,18 +79,14 @@ public final class GetWorkspacePrivateEndpointConnectionConnection {
     public static Builder builder(GetWorkspacePrivateEndpointConnectionConnection defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String actionRequired;
         private String description;
         private String name;
         private String status;
         private String workspacePrivateEndpointId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWorkspacePrivateEndpointConnectionConnection defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actionRequired = defaults.actionRequired;
@@ -113,27 +96,39 @@ public final class GetWorkspacePrivateEndpointConnectionConnection {
     	      this.workspacePrivateEndpointId = defaults.workspacePrivateEndpointId;
         }
 
+        @CustomType.Setter
         public Builder actionRequired(String actionRequired) {
             this.actionRequired = Objects.requireNonNull(actionRequired);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder status(String status) {
             this.status = Objects.requireNonNull(status);
             return this;
         }
+        @CustomType.Setter
         public Builder workspacePrivateEndpointId(String workspacePrivateEndpointId) {
             this.workspacePrivateEndpointId = Objects.requireNonNull(workspacePrivateEndpointId);
             return this;
-        }        public GetWorkspacePrivateEndpointConnectionConnection build() {
-            return new GetWorkspacePrivateEndpointConnectionConnection(actionRequired, description, name, status, workspacePrivateEndpointId);
+        }
+        public GetWorkspacePrivateEndpointConnectionConnection build() {
+            final var o = new GetWorkspacePrivateEndpointConnectionConnection();
+            o.actionRequired = actionRequired;
+            o.description = description;
+            o.name = name;
+            o.status = status;
+            o.workspacePrivateEndpointId = workspacePrivateEndpointId;
+            return o;
         }
     }
 }

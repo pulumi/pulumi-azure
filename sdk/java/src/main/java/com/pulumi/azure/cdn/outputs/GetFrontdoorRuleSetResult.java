@@ -13,30 +13,17 @@ public final class GetFrontdoorRuleSetResult {
      * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
      * 
      */
-    private final String cdnFrontdoorProfileId;
+    private String cdnFrontdoorProfileId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
-    private final String profileName;
-    private final String resourceGroupName;
+    private String id;
+    private String name;
+    private String profileName;
+    private String resourceGroupName;
 
-    @CustomType.Constructor
-    private GetFrontdoorRuleSetResult(
-        @CustomType.Parameter("cdnFrontdoorProfileId") String cdnFrontdoorProfileId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("profileName") String profileName,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName) {
-        this.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
-        this.id = id;
-        this.name = name;
-        this.profileName = profileName;
-        this.resourceGroupName = resourceGroupName;
-    }
-
+    private GetFrontdoorRuleSetResult() {}
     /**
      * @return The ID of the CDN FrontDoor Profile within which this CDN FrontDoor Rule Set exists.
      * 
@@ -68,18 +55,14 @@ public final class GetFrontdoorRuleSetResult {
     public static Builder builder(GetFrontdoorRuleSetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String cdnFrontdoorProfileId;
         private String id;
         private String name;
         private String profileName;
         private String resourceGroupName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFrontdoorRuleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cdnFrontdoorProfileId = defaults.cdnFrontdoorProfileId;
@@ -89,27 +72,39 @@ public final class GetFrontdoorRuleSetResult {
     	      this.resourceGroupName = defaults.resourceGroupName;
         }
 
+        @CustomType.Setter
         public Builder cdnFrontdoorProfileId(String cdnFrontdoorProfileId) {
             this.cdnFrontdoorProfileId = Objects.requireNonNull(cdnFrontdoorProfileId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder profileName(String profileName) {
             this.profileName = Objects.requireNonNull(profileName);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
-        }        public GetFrontdoorRuleSetResult build() {
-            return new GetFrontdoorRuleSetResult(cdnFrontdoorProfileId, id, name, profileName, resourceGroupName);
+        }
+        public GetFrontdoorRuleSetResult build() {
+            final var o = new GetFrontdoorRuleSetResult();
+            o.cdnFrontdoorProfileId = cdnFrontdoorProfileId;
+            o.id = id;
+            o.name = name;
+            o.profileName = profileName;
+            o.resourceGroupName = resourceGroupName;
+            return o;
         }
     }
 }

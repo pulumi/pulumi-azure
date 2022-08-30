@@ -14,35 +14,24 @@ public final class GetLinuxWebAppAuthSettingMicrosoft {
      * @return The OAuth 2.0 client ID used by the app for authentication.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The OAuth 2.0 client secret used by the app for authentication.
      * 
      */
-    private final String clientSecret;
+    private String clientSecret;
     /**
      * @return The app setting name containing the OAuth 2.0 client secret used by the app for authentication.
      * 
      */
-    private final String clientSecretSettingName;
+    private String clientSecretSettingName;
     /**
      * @return A list of OAuth 2.0 scopes requested as part of Microsoft Account authentication.
      * 
      */
-    private final List<String> oauthScopes;
+    private List<String> oauthScopes;
 
-    @CustomType.Constructor
-    private GetLinuxWebAppAuthSettingMicrosoft(
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") String clientSecret,
-        @CustomType.Parameter("clientSecretSettingName") String clientSecretSettingName,
-        @CustomType.Parameter("oauthScopes") List<String> oauthScopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.clientSecretSettingName = clientSecretSettingName;
-        this.oauthScopes = oauthScopes;
-    }
-
+    private GetLinuxWebAppAuthSettingMicrosoft() {}
     /**
      * @return The OAuth 2.0 client ID used by the app for authentication.
      * 
@@ -79,17 +68,13 @@ public final class GetLinuxWebAppAuthSettingMicrosoft {
     public static Builder builder(GetLinuxWebAppAuthSettingMicrosoft defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clientId;
         private String clientSecret;
         private String clientSecretSettingName;
         private List<String> oauthScopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxWebAppAuthSettingMicrosoft defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -98,26 +83,36 @@ public final class GetLinuxWebAppAuthSettingMicrosoft {
     	      this.oauthScopes = defaults.oauthScopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(String clientSecret) {
             this.clientSecret = Objects.requireNonNull(clientSecret);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecretSettingName(String clientSecretSettingName) {
             this.clientSecretSettingName = Objects.requireNonNull(clientSecretSettingName);
             return this;
         }
+        @CustomType.Setter
         public Builder oauthScopes(List<String> oauthScopes) {
             this.oauthScopes = Objects.requireNonNull(oauthScopes);
             return this;
         }
         public Builder oauthScopes(String... oauthScopes) {
             return oauthScopes(List.of(oauthScopes));
-        }        public GetLinuxWebAppAuthSettingMicrosoft build() {
-            return new GetLinuxWebAppAuthSettingMicrosoft(clientId, clientSecret, clientSecretSettingName, oauthScopes);
+        }
+        public GetLinuxWebAppAuthSettingMicrosoft build() {
+            final var o = new GetLinuxWebAppAuthSettingMicrosoft();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.clientSecretSettingName = clientSecretSettingName;
+            o.oauthScopes = oauthScopes;
+            return o;
         }
     }
 }

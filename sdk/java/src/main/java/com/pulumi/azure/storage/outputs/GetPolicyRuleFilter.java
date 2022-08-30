@@ -15,28 +15,19 @@ public final class GetPolicyRuleFilter {
      * @return An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
      * 
      */
-    private final List<String> blobTypes;
+    private List<String> blobTypes;
     /**
      * @return A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
      * 
      */
-    private final List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags;
+    private List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags;
     /**
      * @return An array of strings for prefixes to be matched.
      * 
      */
-    private final List<String> prefixMatches;
+    private List<String> prefixMatches;
 
-    @CustomType.Constructor
-    private GetPolicyRuleFilter(
-        @CustomType.Parameter("blobTypes") List<String> blobTypes,
-        @CustomType.Parameter("matchBlobIndexTags") List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags,
-        @CustomType.Parameter("prefixMatches") List<String> prefixMatches) {
-        this.blobTypes = blobTypes;
-        this.matchBlobIndexTags = matchBlobIndexTags;
-        this.prefixMatches = prefixMatches;
-    }
-
+    private GetPolicyRuleFilter() {}
     /**
      * @return An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
      * 
@@ -66,16 +57,12 @@ public final class GetPolicyRuleFilter {
     public static Builder builder(GetPolicyRuleFilter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> blobTypes;
         private List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags;
         private List<String> prefixMatches;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPolicyRuleFilter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobTypes = defaults.blobTypes;
@@ -83,6 +70,7 @@ public final class GetPolicyRuleFilter {
     	      this.prefixMatches = defaults.prefixMatches;
         }
 
+        @CustomType.Setter
         public Builder blobTypes(List<String> blobTypes) {
             this.blobTypes = Objects.requireNonNull(blobTypes);
             return this;
@@ -90,6 +78,7 @@ public final class GetPolicyRuleFilter {
         public Builder blobTypes(String... blobTypes) {
             return blobTypes(List.of(blobTypes));
         }
+        @CustomType.Setter
         public Builder matchBlobIndexTags(List<GetPolicyRuleFilterMatchBlobIndexTag> matchBlobIndexTags) {
             this.matchBlobIndexTags = Objects.requireNonNull(matchBlobIndexTags);
             return this;
@@ -97,14 +86,20 @@ public final class GetPolicyRuleFilter {
         public Builder matchBlobIndexTags(GetPolicyRuleFilterMatchBlobIndexTag... matchBlobIndexTags) {
             return matchBlobIndexTags(List.of(matchBlobIndexTags));
         }
+        @CustomType.Setter
         public Builder prefixMatches(List<String> prefixMatches) {
             this.prefixMatches = Objects.requireNonNull(prefixMatches);
             return this;
         }
         public Builder prefixMatches(String... prefixMatches) {
             return prefixMatches(List.of(prefixMatches));
-        }        public GetPolicyRuleFilter build() {
-            return new GetPolicyRuleFilter(blobTypes, matchBlobIndexTags, prefixMatches);
+        }
+        public GetPolicyRuleFilter build() {
+            final var o = new GetPolicyRuleFilter();
+            o.blobTypes = blobTypes;
+            o.matchBlobIndexTags = matchBlobIndexTags;
+            o.prefixMatches = prefixMatches;
+            return o;
         }
     }
 }

@@ -13,35 +13,24 @@ public final class GetCertificateOrderCertificate {
      * @return The name of the App Service Certificate.
      * 
      */
-    private final String certificateName;
+    private String certificateName;
     /**
      * @return Key Vault resource Id.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
     /**
      * @return Key Vault secret name.
      * 
      */
-    private final String keyVaultSecretName;
+    private String keyVaultSecretName;
     /**
      * @return Status of the Key Vault secret.
      * 
      */
-    private final String provisioningState;
+    private String provisioningState;
 
-    @CustomType.Constructor
-    private GetCertificateOrderCertificate(
-        @CustomType.Parameter("certificateName") String certificateName,
-        @CustomType.Parameter("keyVaultId") String keyVaultId,
-        @CustomType.Parameter("keyVaultSecretName") String keyVaultSecretName,
-        @CustomType.Parameter("provisioningState") String provisioningState) {
-        this.certificateName = certificateName;
-        this.keyVaultId = keyVaultId;
-        this.keyVaultSecretName = keyVaultSecretName;
-        this.provisioningState = provisioningState;
-    }
-
+    private GetCertificateOrderCertificate() {}
     /**
      * @return The name of the App Service Certificate.
      * 
@@ -78,17 +67,13 @@ public final class GetCertificateOrderCertificate {
     public static Builder builder(GetCertificateOrderCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String certificateName;
         private String keyVaultId;
         private String keyVaultSecretName;
         private String provisioningState;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetCertificateOrderCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateName = defaults.certificateName;
@@ -97,23 +82,33 @@ public final class GetCertificateOrderCertificate {
     	      this.provisioningState = defaults.provisioningState;
         }
 
+        @CustomType.Setter
         public Builder certificateName(String certificateName) {
             this.certificateName = Objects.requireNonNull(certificateName);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultSecretName(String keyVaultSecretName) {
             this.keyVaultSecretName = Objects.requireNonNull(keyVaultSecretName);
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningState(String provisioningState) {
             this.provisioningState = Objects.requireNonNull(provisioningState);
             return this;
-        }        public GetCertificateOrderCertificate build() {
-            return new GetCertificateOrderCertificate(certificateName, keyVaultId, keyVaultSecretName, provisioningState);
+        }
+        public GetCertificateOrderCertificate build() {
+            final var o = new GetCertificateOrderCertificate();
+            o.certificateName = certificateName;
+            o.keyVaultId = keyVaultId;
+            o.keyVaultSecretName = keyVaultSecretName;
+            o.provisioningState = provisioningState;
+            return o;
         }
     }
 }

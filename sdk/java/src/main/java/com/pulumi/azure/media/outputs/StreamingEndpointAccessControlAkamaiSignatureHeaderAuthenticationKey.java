@@ -15,28 +15,19 @@ public final class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthentica
      * @return Authentication key.
      * 
      */
-    private final @Nullable String base64Key;
+    private @Nullable String base64Key;
     /**
      * @return The expiration time of the authentication key.
      * 
      */
-    private final @Nullable String expiration;
+    private @Nullable String expiration;
     /**
      * @return Identifier of the key.
      * 
      */
-    private final @Nullable String identifier;
+    private @Nullable String identifier;
 
-    @CustomType.Constructor
-    private StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(
-        @CustomType.Parameter("base64Key") @Nullable String base64Key,
-        @CustomType.Parameter("expiration") @Nullable String expiration,
-        @CustomType.Parameter("identifier") @Nullable String identifier) {
-        this.base64Key = base64Key;
-        this.expiration = expiration;
-        this.identifier = identifier;
-    }
-
+    private StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey() {}
     /**
      * @return Authentication key.
      * 
@@ -66,16 +57,12 @@ public final class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthentica
     public static Builder builder(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String base64Key;
         private @Nullable String expiration;
         private @Nullable String identifier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.base64Key = defaults.base64Key;
@@ -83,19 +70,27 @@ public final class StreamingEndpointAccessControlAkamaiSignatureHeaderAuthentica
     	      this.identifier = defaults.identifier;
         }
 
+        @CustomType.Setter
         public Builder base64Key(@Nullable String base64Key) {
             this.base64Key = base64Key;
             return this;
         }
+        @CustomType.Setter
         public Builder expiration(@Nullable String expiration) {
             this.expiration = expiration;
             return this;
         }
+        @CustomType.Setter
         public Builder identifier(@Nullable String identifier) {
             this.identifier = identifier;
             return this;
-        }        public StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey build() {
-            return new StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey(base64Key, expiration, identifier);
+        }
+        public StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey build() {
+            final var o = new StreamingEndpointAccessControlAkamaiSignatureHeaderAuthenticationKey();
+            o.base64Key = base64Key;
+            o.expiration = expiration;
+            o.identifier = identifier;
+            return o;
         }
     }
 }

@@ -17,42 +17,29 @@ public final class CertificateCertificatePolicyKeyProperties {
      * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String curve;
+    private @Nullable String curve;
     /**
      * @return Is this certificate exportable? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean exportable;
+    private Boolean exportable;
     /**
      * @return The size of the key used in the certificate. Possible values include `2048`, `3072`, and `4096` for `RSA` keys, or `256`, `384`, and `521` for `EC` keys. This property is required when using RSA keys. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer keySize;
+    private @Nullable Integer keySize;
     /**
      * @return Specifies the type of key, such as `RSA` or `EC`. Changing this forces a new resource to be created.
      * 
      */
-    private final String keyType;
+    private String keyType;
     /**
      * @return Is the key reusable? Changing this forces a new resource to be created.
      * 
      */
-    private final Boolean reuseKey;
+    private Boolean reuseKey;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicyKeyProperties(
-        @CustomType.Parameter("curve") @Nullable String curve,
-        @CustomType.Parameter("exportable") Boolean exportable,
-        @CustomType.Parameter("keySize") @Nullable Integer keySize,
-        @CustomType.Parameter("keyType") String keyType,
-        @CustomType.Parameter("reuseKey") Boolean reuseKey) {
-        this.curve = curve;
-        this.exportable = exportable;
-        this.keySize = keySize;
-        this.keyType = keyType;
-        this.reuseKey = reuseKey;
-    }
-
+    private CertificateCertificatePolicyKeyProperties() {}
     /**
      * @return Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. Changing this forces a new resource to be created.
      * 
@@ -96,18 +83,14 @@ public final class CertificateCertificatePolicyKeyProperties {
     public static Builder builder(CertificateCertificatePolicyKeyProperties defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String curve;
         private Boolean exportable;
         private @Nullable Integer keySize;
         private String keyType;
         private Boolean reuseKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicyKeyProperties defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.curve = defaults.curve;
@@ -117,27 +100,39 @@ public final class CertificateCertificatePolicyKeyProperties {
     	      this.reuseKey = defaults.reuseKey;
         }
 
+        @CustomType.Setter
         public Builder curve(@Nullable String curve) {
             this.curve = curve;
             return this;
         }
+        @CustomType.Setter
         public Builder exportable(Boolean exportable) {
             this.exportable = Objects.requireNonNull(exportable);
             return this;
         }
+        @CustomType.Setter
         public Builder keySize(@Nullable Integer keySize) {
             this.keySize = keySize;
             return this;
         }
+        @CustomType.Setter
         public Builder keyType(String keyType) {
             this.keyType = Objects.requireNonNull(keyType);
             return this;
         }
+        @CustomType.Setter
         public Builder reuseKey(Boolean reuseKey) {
             this.reuseKey = Objects.requireNonNull(reuseKey);
             return this;
-        }        public CertificateCertificatePolicyKeyProperties build() {
-            return new CertificateCertificatePolicyKeyProperties(curve, exportable, keySize, keyType, reuseKey);
+        }
+        public CertificateCertificatePolicyKeyProperties build() {
+            final var o = new CertificateCertificatePolicyKeyProperties();
+            o.curve = curve;
+            o.exportable = exportable;
+            o.keySize = keySize;
+            o.keyType = keyType;
+            o.reuseKey = reuseKey;
+            return o;
         }
     }
 }

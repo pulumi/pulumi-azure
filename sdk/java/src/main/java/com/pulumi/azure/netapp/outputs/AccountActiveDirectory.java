@@ -16,49 +16,34 @@ public final class AccountActiveDirectory {
      * @return A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
      * 
      */
-    private final List<String> dnsServers;
+    private List<String> dnsServers;
     /**
      * @return The name of the Active Directory domain.
      * 
      */
-    private final String domain;
+    private String domain;
     /**
      * @return The Organizational Unit (OU) within the Active Directory Domain.
      * 
      */
-    private final @Nullable String organizationalUnit;
+    private @Nullable String organizationalUnit;
     /**
      * @return The password associated with the `username`.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The NetBIOS name which should be used for the NetApp SMB Server, which will be registered as a computer account in the AD and used to mount volumes.
      * 
      */
-    private final String smbServerName;
+    private String smbServerName;
     /**
      * @return The Username of Active Directory Domain Administrator.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private AccountActiveDirectory(
-        @CustomType.Parameter("dnsServers") List<String> dnsServers,
-        @CustomType.Parameter("domain") String domain,
-        @CustomType.Parameter("organizationalUnit") @Nullable String organizationalUnit,
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("smbServerName") String smbServerName,
-        @CustomType.Parameter("username") String username) {
-        this.dnsServers = dnsServers;
-        this.domain = domain;
-        this.organizationalUnit = organizationalUnit;
-        this.password = password;
-        this.smbServerName = smbServerName;
-        this.username = username;
-    }
-
+    private AccountActiveDirectory() {}
     /**
      * @return A list of DNS server IP addresses for the Active Directory domain. Only allows `IPv4` address.
      * 
@@ -109,7 +94,7 @@ public final class AccountActiveDirectory {
     public static Builder builder(AccountActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> dnsServers;
         private String domain;
@@ -117,11 +102,7 @@ public final class AccountActiveDirectory {
         private String password;
         private String smbServerName;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AccountActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsServers = defaults.dnsServers;
@@ -132,6 +113,7 @@ public final class AccountActiveDirectory {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder dnsServers(List<String> dnsServers) {
             this.dnsServers = Objects.requireNonNull(dnsServers);
             return this;
@@ -139,27 +121,40 @@ public final class AccountActiveDirectory {
         public Builder dnsServers(String... dnsServers) {
             return dnsServers(List.of(dnsServers));
         }
+        @CustomType.Setter
         public Builder domain(String domain) {
             this.domain = Objects.requireNonNull(domain);
             return this;
         }
+        @CustomType.Setter
         public Builder organizationalUnit(@Nullable String organizationalUnit) {
             this.organizationalUnit = organizationalUnit;
             return this;
         }
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder smbServerName(String smbServerName) {
             this.smbServerName = Objects.requireNonNull(smbServerName);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public AccountActiveDirectory build() {
-            return new AccountActiveDirectory(dnsServers, domain, organizationalUnit, password, smbServerName, username);
+        }
+        public AccountActiveDirectory build() {
+            final var o = new AccountActiveDirectory();
+            o.dnsServers = dnsServers;
+            o.domain = domain;
+            o.organizationalUnit = organizationalUnit;
+            o.password = password;
+            o.smbServerName = smbServerName;
+            o.username = username;
+            return o;
         }
     }
 }

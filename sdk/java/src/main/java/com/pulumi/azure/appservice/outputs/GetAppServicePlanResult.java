@@ -17,97 +17,66 @@ public final class GetAppServicePlanResult {
      * @return The ID of the App Service Environment where the App Service Plan is located.
      * 
      */
-    private final String appServiceEnvironmentId;
+    private String appServiceEnvironmentId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return A flag that indicates if it&#39;s a xenon plan (support for Windows Container)
      * 
      */
-    private final Boolean isXenon;
+    private Boolean isXenon;
     /**
      * @return The Operating System type of the App Service Plan
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure location where the App Service Plan exists
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan.
      * 
      */
-    private final Integer maximumElasticWorkerCount;
+    private Integer maximumElasticWorkerCount;
     /**
      * @return The maximum number of workers supported with the App Service Plan&#39;s sku.
      * 
      */
-    private final Integer maximumNumberOfWorkers;
-    private final String name;
+    private Integer maximumNumberOfWorkers;
+    private String name;
     /**
      * @return Can Apps assigned to this App Service Plan be scaled independently?
      * 
      */
-    private final Boolean perSiteScaling;
+    private Boolean perSiteScaling;
     /**
      * @return Is this App Service Plan `Reserved`?
      * 
      */
-    private final Boolean reserved;
-    private final String resourceGroupName;
+    private Boolean reserved;
+    private String resourceGroupName;
     /**
      * @return A `sku` block as documented below.
      * 
      */
-    private final GetAppServicePlanSku sku;
+    private GetAppServicePlanSku sku;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return App Service Plan perform availability zone balancing.
      * 
      */
-    private final Boolean zoneRedundant;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetAppServicePlanResult(
-        @CustomType.Parameter("appServiceEnvironmentId") String appServiceEnvironmentId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("isXenon") Boolean isXenon,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("maximumElasticWorkerCount") Integer maximumElasticWorkerCount,
-        @CustomType.Parameter("maximumNumberOfWorkers") Integer maximumNumberOfWorkers,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("perSiteScaling") Boolean perSiteScaling,
-        @CustomType.Parameter("reserved") Boolean reserved,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("sku") GetAppServicePlanSku sku,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.appServiceEnvironmentId = appServiceEnvironmentId;
-        this.id = id;
-        this.isXenon = isXenon;
-        this.kind = kind;
-        this.location = location;
-        this.maximumElasticWorkerCount = maximumElasticWorkerCount;
-        this.maximumNumberOfWorkers = maximumNumberOfWorkers;
-        this.name = name;
-        this.perSiteScaling = perSiteScaling;
-        this.reserved = reserved;
-        this.resourceGroupName = resourceGroupName;
-        this.sku = sku;
-        this.tags = tags;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetAppServicePlanResult() {}
     /**
      * @return The ID of the App Service Environment where the App Service Plan is located.
      * 
@@ -206,7 +175,7 @@ public final class GetAppServicePlanResult {
     public static Builder builder(GetAppServicePlanResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appServiceEnvironmentId;
         private String id;
@@ -222,11 +191,7 @@ public final class GetAppServicePlanResult {
         private GetAppServicePlanSku sku;
         private Map<String,String> tags;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServicePlanResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appServiceEnvironmentId = defaults.appServiceEnvironmentId;
@@ -245,63 +210,93 @@ public final class GetAppServicePlanResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder appServiceEnvironmentId(String appServiceEnvironmentId) {
             this.appServiceEnvironmentId = Objects.requireNonNull(appServiceEnvironmentId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder isXenon(Boolean isXenon) {
             this.isXenon = Objects.requireNonNull(isXenon);
             return this;
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder maximumElasticWorkerCount(Integer maximumElasticWorkerCount) {
             this.maximumElasticWorkerCount = Objects.requireNonNull(maximumElasticWorkerCount);
             return this;
         }
+        @CustomType.Setter
         public Builder maximumNumberOfWorkers(Integer maximumNumberOfWorkers) {
             this.maximumNumberOfWorkers = Objects.requireNonNull(maximumNumberOfWorkers);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder perSiteScaling(Boolean perSiteScaling) {
             this.perSiteScaling = Objects.requireNonNull(perSiteScaling);
             return this;
         }
+        @CustomType.Setter
         public Builder reserved(Boolean reserved) {
             this.reserved = Objects.requireNonNull(reserved);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder sku(GetAppServicePlanSku sku) {
             this.sku = Objects.requireNonNull(sku);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetAppServicePlanResult build() {
-            return new GetAppServicePlanResult(appServiceEnvironmentId, id, isXenon, kind, location, maximumElasticWorkerCount, maximumNumberOfWorkers, name, perSiteScaling, reserved, resourceGroupName, sku, tags, zoneRedundant);
+        }
+        public GetAppServicePlanResult build() {
+            final var o = new GetAppServicePlanResult();
+            o.appServiceEnvironmentId = appServiceEnvironmentId;
+            o.id = id;
+            o.isXenon = isXenon;
+            o.kind = kind;
+            o.location = location;
+            o.maximumElasticWorkerCount = maximumElasticWorkerCount;
+            o.maximumNumberOfWorkers = maximumNumberOfWorkers;
+            o.name = name;
+            o.perSiteScaling = perSiteScaling;
+            o.reserved = reserved;
+            o.resourceGroupName = resourceGroupName;
+            o.sku = sku;
+            o.tags = tags;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

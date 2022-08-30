@@ -16,42 +16,29 @@ public final class WorkbookTemplateGallery {
      * @return Category for the gallery.
      * 
      */
-    private final String category;
+    private String category;
     /**
      * @return Name of the workbook template in the gallery.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Order of the template within the gallery. Defaults to `0`.
      * 
      */
-    private final @Nullable Integer order;
+    private @Nullable Integer order;
     /**
      * @return Azure resource type supported by the gallery. Defaults to `Azure Monitor`.
      * 
      */
-    private final @Nullable String resourceType;
+    private @Nullable String resourceType;
     /**
      * @return Type of workbook supported by the workbook template. Defaults to `workbook`.
      * 
      */
-    private final @Nullable String type;
+    private @Nullable String type;
 
-    @CustomType.Constructor
-    private WorkbookTemplateGallery(
-        @CustomType.Parameter("category") String category,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("order") @Nullable Integer order,
-        @CustomType.Parameter("resourceType") @Nullable String resourceType,
-        @CustomType.Parameter("type") @Nullable String type) {
-        this.category = category;
-        this.name = name;
-        this.order = order;
-        this.resourceType = resourceType;
-        this.type = type;
-    }
-
+    private WorkbookTemplateGallery() {}
     /**
      * @return Category for the gallery.
      * 
@@ -95,18 +82,14 @@ public final class WorkbookTemplateGallery {
     public static Builder builder(WorkbookTemplateGallery defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String category;
         private String name;
         private @Nullable Integer order;
         private @Nullable String resourceType;
         private @Nullable String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WorkbookTemplateGallery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
@@ -116,27 +99,39 @@ public final class WorkbookTemplateGallery {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder category(String category) {
             this.category = Objects.requireNonNull(category);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder order(@Nullable Integer order) {
             this.order = order;
             return this;
         }
+        @CustomType.Setter
         public Builder resourceType(@Nullable String resourceType) {
             this.resourceType = resourceType;
             return this;
         }
+        @CustomType.Setter
         public Builder type(@Nullable String type) {
             this.type = type;
             return this;
-        }        public WorkbookTemplateGallery build() {
-            return new WorkbookTemplateGallery(category, name, order, resourceType, type);
+        }
+        public WorkbookTemplateGallery build() {
+            final var o = new WorkbookTemplateGallery();
+            o.category = category;
+            o.name = name;
+            o.order = order;
+            o.resourceType = resourceType;
+            o.type = type;
+            return o;
         }
     }
 }

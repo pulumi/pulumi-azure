@@ -15,28 +15,19 @@ public final class RegistryTaskPlatform {
      * @return The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
      * 
      */
-    private final @Nullable String architecture;
+    private @Nullable String architecture;
     /**
      * @return The operating system type required for the task. Possible values are `Windows` and `Linux`.
      * 
      */
-    private final String os;
+    private String os;
     /**
      * @return The variant of the CPU. Possible values are `v6`, `v7`, `v8`.
      * 
      */
-    private final @Nullable String variant;
+    private @Nullable String variant;
 
-    @CustomType.Constructor
-    private RegistryTaskPlatform(
-        @CustomType.Parameter("architecture") @Nullable String architecture,
-        @CustomType.Parameter("os") String os,
-        @CustomType.Parameter("variant") @Nullable String variant) {
-        this.architecture = architecture;
-        this.os = os;
-        this.variant = variant;
-    }
-
+    private RegistryTaskPlatform() {}
     /**
      * @return The OS architecture. Possible values are `amd64`, `x86`, `386`, `arm` and `arm64`.
      * 
@@ -66,16 +57,12 @@ public final class RegistryTaskPlatform {
     public static Builder builder(RegistryTaskPlatform defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String architecture;
         private String os;
         private @Nullable String variant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryTaskPlatform defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.architecture = defaults.architecture;
@@ -83,19 +70,27 @@ public final class RegistryTaskPlatform {
     	      this.variant = defaults.variant;
         }
 
+        @CustomType.Setter
         public Builder architecture(@Nullable String architecture) {
             this.architecture = architecture;
             return this;
         }
+        @CustomType.Setter
         public Builder os(String os) {
             this.os = Objects.requireNonNull(os);
             return this;
         }
+        @CustomType.Setter
         public Builder variant(@Nullable String variant) {
             this.variant = variant;
             return this;
-        }        public RegistryTaskPlatform build() {
-            return new RegistryTaskPlatform(architecture, os, variant);
+        }
+        public RegistryTaskPlatform build() {
+            final var o = new RegistryTaskPlatform();
+            o.architecture = architecture;
+            o.os = os;
+            o.variant = variant;
+            return o;
         }
     }
 }

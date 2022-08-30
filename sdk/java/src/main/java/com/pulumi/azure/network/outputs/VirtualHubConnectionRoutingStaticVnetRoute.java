@@ -16,28 +16,19 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
      * @return A list of CIDR Ranges which should be used as Address Prefixes.
      * 
      */
-    private final @Nullable List<String> addressPrefixes;
+    private @Nullable List<String> addressPrefixes;
     /**
      * @return The name which should be used for this Static Route.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The IP Address which should be used for the Next Hop.
      * 
      */
-    private final @Nullable String nextHopIpAddress;
+    private @Nullable String nextHopIpAddress;
 
-    @CustomType.Constructor
-    private VirtualHubConnectionRoutingStaticVnetRoute(
-        @CustomType.Parameter("addressPrefixes") @Nullable List<String> addressPrefixes,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("nextHopIpAddress") @Nullable String nextHopIpAddress) {
-        this.addressPrefixes = addressPrefixes;
-        this.name = name;
-        this.nextHopIpAddress = nextHopIpAddress;
-    }
-
+    private VirtualHubConnectionRoutingStaticVnetRoute() {}
     /**
      * @return A list of CIDR Ranges which should be used as Address Prefixes.
      * 
@@ -67,16 +58,12 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
     public static Builder builder(VirtualHubConnectionRoutingStaticVnetRoute defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> addressPrefixes;
         private @Nullable String name;
         private @Nullable String nextHopIpAddress;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualHubConnectionRoutingStaticVnetRoute defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefixes = defaults.addressPrefixes;
@@ -84,6 +71,7 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
     	      this.nextHopIpAddress = defaults.nextHopIpAddress;
         }
 
+        @CustomType.Setter
         public Builder addressPrefixes(@Nullable List<String> addressPrefixes) {
             this.addressPrefixes = addressPrefixes;
             return this;
@@ -91,15 +79,22 @@ public final class VirtualHubConnectionRoutingStaticVnetRoute {
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder nextHopIpAddress(@Nullable String nextHopIpAddress) {
             this.nextHopIpAddress = nextHopIpAddress;
             return this;
-        }        public VirtualHubConnectionRoutingStaticVnetRoute build() {
-            return new VirtualHubConnectionRoutingStaticVnetRoute(addressPrefixes, name, nextHopIpAddress);
+        }
+        public VirtualHubConnectionRoutingStaticVnetRoute build() {
+            final var o = new VirtualHubConnectionRoutingStaticVnetRoute();
+            o.addressPrefixes = addressPrefixes;
+            o.name = name;
+            o.nextHopIpAddress = nextHopIpAddress;
+            return o;
         }
     }
 }

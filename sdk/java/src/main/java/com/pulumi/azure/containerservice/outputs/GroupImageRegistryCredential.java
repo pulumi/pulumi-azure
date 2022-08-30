@@ -13,28 +13,19 @@ public final class GroupImageRegistryCredential {
      * @return The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    private final String password;
+    private String password;
     /**
      * @return The address to use to connect to the registry without protocol (&#34;https&#34;/&#34;http&#34;). For example: &#34;myacr.acr.io&#34;. Changing this forces a new resource to be created.
      * 
      */
-    private final String server;
+    private String server;
     /**
      * @return The username with which to connect to the registry. Changing this forces a new resource to be created.
      * 
      */
-    private final String username;
+    private String username;
 
-    @CustomType.Constructor
-    private GroupImageRegistryCredential(
-        @CustomType.Parameter("password") String password,
-        @CustomType.Parameter("server") String server,
-        @CustomType.Parameter("username") String username) {
-        this.password = password;
-        this.server = server;
-        this.username = username;
-    }
-
+    private GroupImageRegistryCredential() {}
     /**
      * @return The password with which to connect to the registry. Changing this forces a new resource to be created.
      * 
@@ -64,16 +55,12 @@ public final class GroupImageRegistryCredential {
     public static Builder builder(GroupImageRegistryCredential defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String password;
         private String server;
         private String username;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupImageRegistryCredential defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
@@ -81,19 +68,27 @@ public final class GroupImageRegistryCredential {
     	      this.username = defaults.username;
         }
 
+        @CustomType.Setter
         public Builder password(String password) {
             this.password = Objects.requireNonNull(password);
             return this;
         }
+        @CustomType.Setter
         public Builder server(String server) {
             this.server = Objects.requireNonNull(server);
             return this;
         }
+        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
             return this;
-        }        public GroupImageRegistryCredential build() {
-            return new GroupImageRegistryCredential(password, server, username);
+        }
+        public GroupImageRegistryCredential build() {
+            final var o = new GroupImageRegistryCredential();
+            o.password = password;
+            o.server = server;
+            o.username = username;
+            return o;
         }
     }
 }

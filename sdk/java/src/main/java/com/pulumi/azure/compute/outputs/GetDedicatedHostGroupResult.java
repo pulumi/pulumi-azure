@@ -17,55 +17,36 @@ public final class GetDedicatedHostGroupResult {
      * @return Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
      * 
      */
-    private final Boolean automaticPlacementEnabled;
+    private Boolean automaticPlacementEnabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the Dedicated Host Group exists.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The number of fault domains that the Dedicated Host Group spans.
      * 
      */
-    private final Integer platformFaultDomainCount;
-    private final String resourceGroupName;
+    private Integer platformFaultDomainCount;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return A list of Availability Zones in which this Dedicated Host Group is located.
      * 
      */
-    private final List<String> zones;
+    private List<String> zones;
 
-    @CustomType.Constructor
-    private GetDedicatedHostGroupResult(
-        @CustomType.Parameter("automaticPlacementEnabled") Boolean automaticPlacementEnabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("platformFaultDomainCount") Integer platformFaultDomainCount,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zones") List<String> zones) {
-        this.automaticPlacementEnabled = automaticPlacementEnabled;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.platformFaultDomainCount = platformFaultDomainCount;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.zones = zones;
-    }
-
+    private GetDedicatedHostGroupResult() {}
     /**
      * @return Whether virtual machines or virtual machine scale sets be placed automatically on this Dedicated Host Group.
      * 
@@ -122,7 +103,7 @@ public final class GetDedicatedHostGroupResult {
     public static Builder builder(GetDedicatedHostGroupResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean automaticPlacementEnabled;
         private String id;
@@ -132,11 +113,7 @@ public final class GetDedicatedHostGroupResult {
         private String resourceGroupName;
         private Map<String,String> tags;
         private List<String> zones;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDedicatedHostGroupResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.automaticPlacementEnabled = defaults.automaticPlacementEnabled;
@@ -149,42 +126,60 @@ public final class GetDedicatedHostGroupResult {
     	      this.zones = defaults.zones;
         }
 
+        @CustomType.Setter
         public Builder automaticPlacementEnabled(Boolean automaticPlacementEnabled) {
             this.automaticPlacementEnabled = Objects.requireNonNull(automaticPlacementEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder platformFaultDomainCount(Integer platformFaultDomainCount) {
             this.platformFaultDomainCount = Objects.requireNonNull(platformFaultDomainCount);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zones(List<String> zones) {
             this.zones = Objects.requireNonNull(zones);
             return this;
         }
         public Builder zones(String... zones) {
             return zones(List.of(zones));
-        }        public GetDedicatedHostGroupResult build() {
-            return new GetDedicatedHostGroupResult(automaticPlacementEnabled, id, location, name, platformFaultDomainCount, resourceGroupName, tags, zones);
+        }
+        public GetDedicatedHostGroupResult build() {
+            final var o = new GetDedicatedHostGroupResult();
+            o.automaticPlacementEnabled = automaticPlacementEnabled;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.platformFaultDomainCount = platformFaultDomainCount;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.zones = zones;
+            return o;
         }
     }
 }

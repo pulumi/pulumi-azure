@@ -18,42 +18,29 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
      * @return A list of access modes for the application.
      * 
      */
-    private final @Nullable List<String> accessModes;
+    private @Nullable List<String> accessModes;
     /**
      * @return The destination port to connect to.
      * 
      */
-    private final @Nullable Integer destinationPort;
+    private @Nullable Integer destinationPort;
     /**
      * @return The value indicates whether the gateway authentication is enabled or not.
      * 
      */
-    private final @Nullable Boolean disableGatewayAuth;
+    private @Nullable Boolean disableGatewayAuth;
     /**
      * @return The private ip address of the endpoint.
      * 
      */
-    private final @Nullable String privateIpAddress;
+    private @Nullable String privateIpAddress;
     /**
      * @return The application&#39;s subdomain suffix.
      * 
      */
-    private final @Nullable String subDomainSuffix;
+    private @Nullable String subDomainSuffix;
 
-    @CustomType.Constructor
-    private HadoopClusterRolesEdgeNodeHttpsEndpoint(
-        @CustomType.Parameter("accessModes") @Nullable List<String> accessModes,
-        @CustomType.Parameter("destinationPort") @Nullable Integer destinationPort,
-        @CustomType.Parameter("disableGatewayAuth") @Nullable Boolean disableGatewayAuth,
-        @CustomType.Parameter("privateIpAddress") @Nullable String privateIpAddress,
-        @CustomType.Parameter("subDomainSuffix") @Nullable String subDomainSuffix) {
-        this.accessModes = accessModes;
-        this.destinationPort = destinationPort;
-        this.disableGatewayAuth = disableGatewayAuth;
-        this.privateIpAddress = privateIpAddress;
-        this.subDomainSuffix = subDomainSuffix;
-    }
-
+    private HadoopClusterRolesEdgeNodeHttpsEndpoint() {}
     /**
      * @return A list of access modes for the application.
      * 
@@ -97,18 +84,14 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
     public static Builder builder(HadoopClusterRolesEdgeNodeHttpsEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> accessModes;
         private @Nullable Integer destinationPort;
         private @Nullable Boolean disableGatewayAuth;
         private @Nullable String privateIpAddress;
         private @Nullable String subDomainSuffix;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(HadoopClusterRolesEdgeNodeHttpsEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessModes = defaults.accessModes;
@@ -118,6 +101,7 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
     	      this.subDomainSuffix = defaults.subDomainSuffix;
         }
 
+        @CustomType.Setter
         public Builder accessModes(@Nullable List<String> accessModes) {
             this.accessModes = accessModes;
             return this;
@@ -125,23 +109,34 @@ public final class HadoopClusterRolesEdgeNodeHttpsEndpoint {
         public Builder accessModes(String... accessModes) {
             return accessModes(List.of(accessModes));
         }
+        @CustomType.Setter
         public Builder destinationPort(@Nullable Integer destinationPort) {
             this.destinationPort = destinationPort;
             return this;
         }
+        @CustomType.Setter
         public Builder disableGatewayAuth(@Nullable Boolean disableGatewayAuth) {
             this.disableGatewayAuth = disableGatewayAuth;
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(@Nullable String privateIpAddress) {
             this.privateIpAddress = privateIpAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder subDomainSuffix(@Nullable String subDomainSuffix) {
             this.subDomainSuffix = subDomainSuffix;
             return this;
-        }        public HadoopClusterRolesEdgeNodeHttpsEndpoint build() {
-            return new HadoopClusterRolesEdgeNodeHttpsEndpoint(accessModes, destinationPort, disableGatewayAuth, privateIpAddress, subDomainSuffix);
+        }
+        public HadoopClusterRolesEdgeNodeHttpsEndpoint build() {
+            final var o = new HadoopClusterRolesEdgeNodeHttpsEndpoint();
+            o.accessModes = accessModes;
+            o.destinationPort = destinationPort;
+            o.disableGatewayAuth = disableGatewayAuth;
+            o.privateIpAddress = privateIpAddress;
+            o.subDomainSuffix = subDomainSuffix;
+            return o;
         }
     }
 }

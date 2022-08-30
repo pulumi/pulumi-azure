@@ -15,35 +15,24 @@ public final class OutputServiceBusQueueSerialization {
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
      */
-    private final @Nullable String encoding;
+    private @Nullable String encoding;
     /**
      * @return The delimiter that will be used to separate comma-separated value (CSV) records. Possible values are ` ` (space), `,` (comma), `   ` (tab), `|` (pipe) and `;`.
      * 
      */
-    private final @Nullable String fieldDelimiter;
+    private @Nullable String fieldDelimiter;
     /**
      * @return Specifies the format of the JSON the output will be written in. Possible values are `Array` and `LineSeparated`.
      * 
      */
-    private final @Nullable String format;
+    private @Nullable String format;
     /**
      * @return The serialization format used for outgoing data streams. Possible values are `Avro`, `Csv` and `Json`.
      * 
      */
-    private final String type;
+    private String type;
 
-    @CustomType.Constructor
-    private OutputServiceBusQueueSerialization(
-        @CustomType.Parameter("encoding") @Nullable String encoding,
-        @CustomType.Parameter("fieldDelimiter") @Nullable String fieldDelimiter,
-        @CustomType.Parameter("format") @Nullable String format,
-        @CustomType.Parameter("type") String type) {
-        this.encoding = encoding;
-        this.fieldDelimiter = fieldDelimiter;
-        this.format = format;
-        this.type = type;
-    }
-
+    private OutputServiceBusQueueSerialization() {}
     /**
      * @return The encoding of the incoming data in the case of input and the encoding of outgoing data in the case of output. It currently can only be set to `UTF8`.
      * 
@@ -80,17 +69,13 @@ public final class OutputServiceBusQueueSerialization {
     public static Builder builder(OutputServiceBusQueueSerialization defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String encoding;
         private @Nullable String fieldDelimiter;
         private @Nullable String format;
         private String type;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OutputServiceBusQueueSerialization defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.encoding = defaults.encoding;
@@ -99,23 +84,33 @@ public final class OutputServiceBusQueueSerialization {
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
         public Builder encoding(@Nullable String encoding) {
             this.encoding = encoding;
             return this;
         }
+        @CustomType.Setter
         public Builder fieldDelimiter(@Nullable String fieldDelimiter) {
             this.fieldDelimiter = fieldDelimiter;
             return this;
         }
+        @CustomType.Setter
         public Builder format(@Nullable String format) {
             this.format = format;
             return this;
         }
+        @CustomType.Setter
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
-        }        public OutputServiceBusQueueSerialization build() {
-            return new OutputServiceBusQueueSerialization(encoding, fieldDelimiter, format, type);
+        }
+        public OutputServiceBusQueueSerialization build() {
+            final var o = new OutputServiceBusQueueSerialization();
+            o.encoding = encoding;
+            o.fieldDelimiter = fieldDelimiter;
+            o.format = format;
+            o.type = type;
+            return o;
         }
     }
 }

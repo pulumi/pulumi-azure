@@ -15,21 +15,14 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedR
      * @return The list of Virtual Hub Route Table resource id which the routes will be propagated to.
      * 
      */
-    private final List<String> ids;
+    private List<String> ids;
     /**
      * @return The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
      * 
      */
-    private final @Nullable List<String> labels;
+    private @Nullable List<String> labels;
 
-    @CustomType.Constructor
-    private PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(
-        @CustomType.Parameter("ids") List<String> ids,
-        @CustomType.Parameter("labels") @Nullable List<String> labels) {
-        this.ids = ids;
-        this.labels = labels;
-    }
-
+    private PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable() {}
     /**
      * @return The list of Virtual Hub Route Table resource id which the routes will be propagated to.
      * 
@@ -52,21 +45,18 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedR
     public static Builder builder(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> ids;
         private @Nullable List<String> labels;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ids = defaults.ids;
     	      this.labels = defaults.labels;
         }
 
+        @CustomType.Setter
         public Builder ids(List<String> ids) {
             this.ids = Objects.requireNonNull(ids);
             return this;
@@ -74,14 +64,19 @@ public final class PointToPointVpnGatewayConnectionConfigurationRoutePropagatedR
         public Builder ids(String... ids) {
             return ids(List.of(ids));
         }
+        @CustomType.Setter
         public Builder labels(@Nullable List<String> labels) {
             this.labels = labels;
             return this;
         }
         public Builder labels(String... labels) {
             return labels(List.of(labels));
-        }        public PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable build() {
-            return new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable(ids, labels);
+        }
+        public PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable build() {
+            final var o = new PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTable();
+            o.ids = ids;
+            o.labels = labels;
+            return o;
         }
     }
 }

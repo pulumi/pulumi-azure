@@ -16,24 +16,15 @@ public final class GetManagedDiskEncryptionSetting {
      * @return A `disk_encryption_key` block as defined above.
      * 
      */
-    private final List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
-    private final Boolean enabled;
+    private List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
+    private Boolean enabled;
     /**
      * @return A `key_encryption_key` block as defined below.
      * 
      */
-    private final List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
+    private List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
 
-    @CustomType.Constructor
-    private GetManagedDiskEncryptionSetting(
-        @CustomType.Parameter("diskEncryptionKeys") List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("keyEncryptionKeys") List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
-        this.diskEncryptionKeys = diskEncryptionKeys;
-        this.enabled = enabled;
-        this.keyEncryptionKeys = keyEncryptionKeys;
-    }
-
+    private GetManagedDiskEncryptionSetting() {}
     /**
      * @return A `disk_encryption_key` block as defined above.
      * 
@@ -59,16 +50,12 @@ public final class GetManagedDiskEncryptionSetting {
     public static Builder builder(GetManagedDiskEncryptionSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys;
         private Boolean enabled;
         private List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetManagedDiskEncryptionSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.diskEncryptionKeys = defaults.diskEncryptionKeys;
@@ -76,6 +63,7 @@ public final class GetManagedDiskEncryptionSetting {
     	      this.keyEncryptionKeys = defaults.keyEncryptionKeys;
         }
 
+        @CustomType.Setter
         public Builder diskEncryptionKeys(List<GetManagedDiskEncryptionSettingDiskEncryptionKey> diskEncryptionKeys) {
             this.diskEncryptionKeys = Objects.requireNonNull(diskEncryptionKeys);
             return this;
@@ -83,18 +71,25 @@ public final class GetManagedDiskEncryptionSetting {
         public Builder diskEncryptionKeys(GetManagedDiskEncryptionSettingDiskEncryptionKey... diskEncryptionKeys) {
             return diskEncryptionKeys(List.of(diskEncryptionKeys));
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder keyEncryptionKeys(List<GetManagedDiskEncryptionSettingKeyEncryptionKey> keyEncryptionKeys) {
             this.keyEncryptionKeys = Objects.requireNonNull(keyEncryptionKeys);
             return this;
         }
         public Builder keyEncryptionKeys(GetManagedDiskEncryptionSettingKeyEncryptionKey... keyEncryptionKeys) {
             return keyEncryptionKeys(List.of(keyEncryptionKeys));
-        }        public GetManagedDiskEncryptionSetting build() {
-            return new GetManagedDiskEncryptionSetting(diskEncryptionKeys, enabled, keyEncryptionKeys);
+        }
+        public GetManagedDiskEncryptionSetting build() {
+            final var o = new GetManagedDiskEncryptionSetting();
+            o.diskEncryptionKeys = diskEncryptionKeys;
+            o.enabled = enabled;
+            o.keyEncryptionKeys = keyEncryptionKeys;
+            return o;
         }
     }
 }

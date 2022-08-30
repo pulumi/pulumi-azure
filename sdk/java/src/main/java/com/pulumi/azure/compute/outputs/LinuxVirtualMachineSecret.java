@@ -15,21 +15,14 @@ public final class LinuxVirtualMachineSecret {
      * @return One or more `certificate` blocks as defined above.
      * 
      */
-    private final List<LinuxVirtualMachineSecretCertificate> certificates;
+    private List<LinuxVirtualMachineSecretCertificate> certificates;
     /**
      * @return The ID of the Key Vault from which all Secrets should be sourced.
      * 
      */
-    private final String keyVaultId;
+    private String keyVaultId;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineSecret(
-        @CustomType.Parameter("certificates") List<LinuxVirtualMachineSecretCertificate> certificates,
-        @CustomType.Parameter("keyVaultId") String keyVaultId) {
-        this.certificates = certificates;
-        this.keyVaultId = keyVaultId;
-    }
-
+    private LinuxVirtualMachineSecret() {}
     /**
      * @return One or more `certificate` blocks as defined above.
      * 
@@ -52,21 +45,18 @@ public final class LinuxVirtualMachineSecret {
     public static Builder builder(LinuxVirtualMachineSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<LinuxVirtualMachineSecretCertificate> certificates;
         private String keyVaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.keyVaultId = defaults.keyVaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<LinuxVirtualMachineSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -74,11 +64,16 @@ public final class LinuxVirtualMachineSecret {
         public Builder certificates(LinuxVirtualMachineSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder keyVaultId(String keyVaultId) {
             this.keyVaultId = Objects.requireNonNull(keyVaultId);
             return this;
-        }        public LinuxVirtualMachineSecret build() {
-            return new LinuxVirtualMachineSecret(certificates, keyVaultId);
+        }
+        public LinuxVirtualMachineSecret build() {
+            final var o = new LinuxVirtualMachineSecret();
+            o.certificates = certificates;
+            o.keyVaultId = keyVaultId;
+            return o;
         }
     }
 }

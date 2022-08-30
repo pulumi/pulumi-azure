@@ -9,24 +9,15 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEnrollmentAccountScopeResult {
-    private final String billingAccountName;
-    private final String enrollmentAccountName;
+    private String billingAccountName;
+    private String enrollmentAccountName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private GetEnrollmentAccountScopeResult(
-        @CustomType.Parameter("billingAccountName") String billingAccountName,
-        @CustomType.Parameter("enrollmentAccountName") String enrollmentAccountName,
-        @CustomType.Parameter("id") String id) {
-        this.billingAccountName = billingAccountName;
-        this.enrollmentAccountName = enrollmentAccountName;
-        this.id = id;
-    }
-
+    private GetEnrollmentAccountScopeResult() {}
     public String billingAccountName() {
         return this.billingAccountName;
     }
@@ -48,16 +39,12 @@ public final class GetEnrollmentAccountScopeResult {
     public static Builder builder(GetEnrollmentAccountScopeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String billingAccountName;
         private String enrollmentAccountName;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnrollmentAccountScopeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingAccountName = defaults.billingAccountName;
@@ -65,19 +52,27 @@ public final class GetEnrollmentAccountScopeResult {
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder billingAccountName(String billingAccountName) {
             this.billingAccountName = Objects.requireNonNull(billingAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder enrollmentAccountName(String enrollmentAccountName) {
             this.enrollmentAccountName = Objects.requireNonNull(enrollmentAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public GetEnrollmentAccountScopeResult build() {
-            return new GetEnrollmentAccountScopeResult(billingAccountName, enrollmentAccountName, id);
+        }
+        public GetEnrollmentAccountScopeResult build() {
+            final var o = new GetEnrollmentAccountScopeResult();
+            o.billingAccountName = billingAccountName;
+            o.enrollmentAccountName = enrollmentAccountName;
+            o.id = id;
+            return o;
         }
     }
 }

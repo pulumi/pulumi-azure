@@ -14,28 +14,19 @@ public final class VirtualMachineAutoPatching {
      * @return The day of week to apply the patch on.
      * 
      */
-    private final String dayOfWeek;
+    private String dayOfWeek;
     /**
      * @return The size of the Maintenance Window in minutes.
      * 
      */
-    private final Integer maintenanceWindowDurationInMinutes;
+    private Integer maintenanceWindowDurationInMinutes;
     /**
      * @return The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
      * 
      */
-    private final Integer maintenanceWindowStartingHour;
+    private Integer maintenanceWindowStartingHour;
 
-    @CustomType.Constructor
-    private VirtualMachineAutoPatching(
-        @CustomType.Parameter("dayOfWeek") String dayOfWeek,
-        @CustomType.Parameter("maintenanceWindowDurationInMinutes") Integer maintenanceWindowDurationInMinutes,
-        @CustomType.Parameter("maintenanceWindowStartingHour") Integer maintenanceWindowStartingHour) {
-        this.dayOfWeek = dayOfWeek;
-        this.maintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
-        this.maintenanceWindowStartingHour = maintenanceWindowStartingHour;
-    }
-
+    private VirtualMachineAutoPatching() {}
     /**
      * @return The day of week to apply the patch on.
      * 
@@ -65,16 +56,12 @@ public final class VirtualMachineAutoPatching {
     public static Builder builder(VirtualMachineAutoPatching defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String dayOfWeek;
         private Integer maintenanceWindowDurationInMinutes;
         private Integer maintenanceWindowStartingHour;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(VirtualMachineAutoPatching defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dayOfWeek = defaults.dayOfWeek;
@@ -82,19 +69,27 @@ public final class VirtualMachineAutoPatching {
     	      this.maintenanceWindowStartingHour = defaults.maintenanceWindowStartingHour;
         }
 
+        @CustomType.Setter
         public Builder dayOfWeek(String dayOfWeek) {
             this.dayOfWeek = Objects.requireNonNull(dayOfWeek);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindowDurationInMinutes(Integer maintenanceWindowDurationInMinutes) {
             this.maintenanceWindowDurationInMinutes = Objects.requireNonNull(maintenanceWindowDurationInMinutes);
             return this;
         }
+        @CustomType.Setter
         public Builder maintenanceWindowStartingHour(Integer maintenanceWindowStartingHour) {
             this.maintenanceWindowStartingHour = Objects.requireNonNull(maintenanceWindowStartingHour);
             return this;
-        }        public VirtualMachineAutoPatching build() {
-            return new VirtualMachineAutoPatching(dayOfWeek, maintenanceWindowDurationInMinutes, maintenanceWindowStartingHour);
+        }
+        public VirtualMachineAutoPatching build() {
+            final var o = new VirtualMachineAutoPatching();
+            o.dayOfWeek = dayOfWeek;
+            o.maintenanceWindowDurationInMinutes = maintenanceWindowDurationInMinutes;
+            o.maintenanceWindowStartingHour = maintenanceWindowStartingHour;
+            return o;
         }
     }
 }

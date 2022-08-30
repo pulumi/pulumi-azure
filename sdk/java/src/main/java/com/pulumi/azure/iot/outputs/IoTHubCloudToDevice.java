@@ -18,28 +18,19 @@ public final class IoTHubCloudToDevice {
      * @return The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
      * 
      */
-    private final @Nullable String defaultTtl;
+    private @Nullable String defaultTtl;
     /**
      * @return A `feedback` block as defined below.
      * 
      */
-    private final @Nullable List<IoTHubCloudToDeviceFeedback> feedbacks;
+    private @Nullable List<IoTHubCloudToDeviceFeedback> feedbacks;
     /**
      * @return The maximum delivery count for cloud-to-device per-device queues. This value must be between `1` and `100`. Defaults to `10`.
      * 
      */
-    private final @Nullable Integer maxDeliveryCount;
+    private @Nullable Integer maxDeliveryCount;
 
-    @CustomType.Constructor
-    private IoTHubCloudToDevice(
-        @CustomType.Parameter("defaultTtl") @Nullable String defaultTtl,
-        @CustomType.Parameter("feedbacks") @Nullable List<IoTHubCloudToDeviceFeedback> feedbacks,
-        @CustomType.Parameter("maxDeliveryCount") @Nullable Integer maxDeliveryCount) {
-        this.defaultTtl = defaultTtl;
-        this.feedbacks = feedbacks;
-        this.maxDeliveryCount = maxDeliveryCount;
-    }
-
+    private IoTHubCloudToDevice() {}
     /**
      * @return The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
      * 
@@ -69,16 +60,12 @@ public final class IoTHubCloudToDevice {
     public static Builder builder(IoTHubCloudToDevice defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultTtl;
         private @Nullable List<IoTHubCloudToDeviceFeedback> feedbacks;
         private @Nullable Integer maxDeliveryCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(IoTHubCloudToDevice defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultTtl = defaults.defaultTtl;
@@ -86,10 +73,12 @@ public final class IoTHubCloudToDevice {
     	      this.maxDeliveryCount = defaults.maxDeliveryCount;
         }
 
+        @CustomType.Setter
         public Builder defaultTtl(@Nullable String defaultTtl) {
             this.defaultTtl = defaultTtl;
             return this;
         }
+        @CustomType.Setter
         public Builder feedbacks(@Nullable List<IoTHubCloudToDeviceFeedback> feedbacks) {
             this.feedbacks = feedbacks;
             return this;
@@ -97,11 +86,17 @@ public final class IoTHubCloudToDevice {
         public Builder feedbacks(IoTHubCloudToDeviceFeedback... feedbacks) {
             return feedbacks(List.of(feedbacks));
         }
+        @CustomType.Setter
         public Builder maxDeliveryCount(@Nullable Integer maxDeliveryCount) {
             this.maxDeliveryCount = maxDeliveryCount;
             return this;
-        }        public IoTHubCloudToDevice build() {
-            return new IoTHubCloudToDevice(defaultTtl, feedbacks, maxDeliveryCount);
+        }
+        public IoTHubCloudToDevice build() {
+            final var o = new IoTHubCloudToDevice();
+            o.defaultTtl = defaultTtl;
+            o.feedbacks = feedbacks;
+            o.maxDeliveryCount = maxDeliveryCount;
+            return o;
         }
     }
 }

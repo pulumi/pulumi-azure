@@ -17,42 +17,29 @@ public final class FrontdoorBackendPool {
      * @return A `backend` block as defined below.
      * 
      */
-    private final List<FrontdoorBackendPoolBackend> backends;
+    private List<FrontdoorBackendPoolBackend> backends;
     /**
      * @return Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
      * 
      */
-    private final String healthProbeName;
+    private String healthProbeName;
     /**
      * @return The ID of the FrontDoor.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
      * 
      */
-    private final String loadBalancingName;
+    private String loadBalancingName;
     /**
      * @return Specifies the name of the Backend Pool.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private FrontdoorBackendPool(
-        @CustomType.Parameter("backends") List<FrontdoorBackendPoolBackend> backends,
-        @CustomType.Parameter("healthProbeName") String healthProbeName,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("loadBalancingName") String loadBalancingName,
-        @CustomType.Parameter("name") String name) {
-        this.backends = backends;
-        this.healthProbeName = healthProbeName;
-        this.id = id;
-        this.loadBalancingName = loadBalancingName;
-        this.name = name;
-    }
-
+    private FrontdoorBackendPool() {}
     /**
      * @return A `backend` block as defined below.
      * 
@@ -96,18 +83,14 @@ public final class FrontdoorBackendPool {
     public static Builder builder(FrontdoorBackendPool defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<FrontdoorBackendPoolBackend> backends;
         private String healthProbeName;
         private @Nullable String id;
         private String loadBalancingName;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorBackendPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.backends = defaults.backends;
@@ -117,6 +100,7 @@ public final class FrontdoorBackendPool {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder backends(List<FrontdoorBackendPoolBackend> backends) {
             this.backends = Objects.requireNonNull(backends);
             return this;
@@ -124,23 +108,34 @@ public final class FrontdoorBackendPool {
         public Builder backends(FrontdoorBackendPoolBackend... backends) {
             return backends(List.of(backends));
         }
+        @CustomType.Setter
         public Builder healthProbeName(String healthProbeName) {
             this.healthProbeName = Objects.requireNonNull(healthProbeName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder loadBalancingName(String loadBalancingName) {
             this.loadBalancingName = Objects.requireNonNull(loadBalancingName);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public FrontdoorBackendPool build() {
-            return new FrontdoorBackendPool(backends, healthProbeName, id, loadBalancingName, name);
+        }
+        public FrontdoorBackendPool build() {
+            final var o = new FrontdoorBackendPool();
+            o.backends = backends;
+            o.healthProbeName = healthProbeName;
+            o.id = id;
+            o.loadBalancingName = loadBalancingName;
+            o.name = name;
+            return o;
         }
     }
 }

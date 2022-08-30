@@ -15,49 +15,34 @@ public final class ApplicationGatewaySslCertificate {
      * @return PFX certificate. Required if `key_vault_secret_id` is not set.
      * 
      */
-    private final @Nullable String data;
+    private @Nullable String data;
     /**
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Secret Id of (base-64 encoded unencrypted pfx) `Secret` or `Certificate` object stored in Azure KeyVault. You need to enable soft delete for keyvault to use this feature. Required if `data` is not set.
      * 
      */
-    private final @Nullable String keyVaultSecretId;
+    private @Nullable String keyVaultSecretId;
     /**
      * @return The Name of the SSL certificate that is unique within this Application Gateway
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Password for the pfx file specified in data.  Required if `data` is set.
      * 
      */
-    private final @Nullable String password;
+    private @Nullable String password;
     /**
      * @return The Public Certificate Data associated with the SSL Certificate.
      * 
      */
-    private final @Nullable String publicCertData;
+    private @Nullable String publicCertData;
 
-    @CustomType.Constructor
-    private ApplicationGatewaySslCertificate(
-        @CustomType.Parameter("data") @Nullable String data,
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("keyVaultSecretId") @Nullable String keyVaultSecretId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("password") @Nullable String password,
-        @CustomType.Parameter("publicCertData") @Nullable String publicCertData) {
-        this.data = data;
-        this.id = id;
-        this.keyVaultSecretId = keyVaultSecretId;
-        this.name = name;
-        this.password = password;
-        this.publicCertData = publicCertData;
-    }
-
+    private ApplicationGatewaySslCertificate() {}
     /**
      * @return PFX certificate. Required if `key_vault_secret_id` is not set.
      * 
@@ -108,7 +93,7 @@ public final class ApplicationGatewaySslCertificate {
     public static Builder builder(ApplicationGatewaySslCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String data;
         private @Nullable String id;
@@ -116,11 +101,7 @@ public final class ApplicationGatewaySslCertificate {
         private String name;
         private @Nullable String password;
         private @Nullable String publicCertData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewaySslCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.data = defaults.data;
@@ -131,31 +112,45 @@ public final class ApplicationGatewaySslCertificate {
     	      this.publicCertData = defaults.publicCertData;
         }
 
+        @CustomType.Setter
         public Builder data(@Nullable String data) {
             this.data = data;
             return this;
         }
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultSecretId(@Nullable String keyVaultSecretId) {
             this.keyVaultSecretId = keyVaultSecretId;
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
             this.password = password;
             return this;
         }
+        @CustomType.Setter
         public Builder publicCertData(@Nullable String publicCertData) {
             this.publicCertData = publicCertData;
             return this;
-        }        public ApplicationGatewaySslCertificate build() {
-            return new ApplicationGatewaySslCertificate(data, id, keyVaultSecretId, name, password, publicCertData);
+        }
+        public ApplicationGatewaySslCertificate build() {
+            final var o = new ApplicationGatewaySslCertificate();
+            o.data = data;
+            o.id = id;
+            o.keyVaultSecretId = keyVaultSecretId;
+            o.name = name;
+            o.password = password;
+            o.publicCertData = publicCertData;
+            return o;
         }
     }
 }

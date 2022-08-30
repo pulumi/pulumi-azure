@@ -17,42 +17,29 @@ public final class GetVpnGatewayBgpSetting {
      * @return The ASN of the BGP Speaker.
      * 
      */
-    private final Integer asn;
+    private Integer asn;
     /**
      * @return The Address which should be used for the BGP Peering.
      * 
      */
-    private final String bgpPeeringAddress;
+    private String bgpPeeringAddress;
     /**
      * @return an `instance_bgp_peering_address` block as defined below.
      * 
      */
-    private final List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses;
+    private List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses;
     /**
      * @return an `instance_bgp_peering_address` block as defined below.
      * 
      */
-    private final List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses;
+    private List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses;
     /**
      * @return The weight added to Routes learned from this BGP Speaker.
      * 
      */
-    private final Integer peerWeight;
+    private Integer peerWeight;
 
-    @CustomType.Constructor
-    private GetVpnGatewayBgpSetting(
-        @CustomType.Parameter("asn") Integer asn,
-        @CustomType.Parameter("bgpPeeringAddress") String bgpPeeringAddress,
-        @CustomType.Parameter("instance0BgpPeeringAddresses") List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses,
-        @CustomType.Parameter("instance1BgpPeeringAddresses") List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses,
-        @CustomType.Parameter("peerWeight") Integer peerWeight) {
-        this.asn = asn;
-        this.bgpPeeringAddress = bgpPeeringAddress;
-        this.instance0BgpPeeringAddresses = instance0BgpPeeringAddresses;
-        this.instance1BgpPeeringAddresses = instance1BgpPeeringAddresses;
-        this.peerWeight = peerWeight;
-    }
-
+    private GetVpnGatewayBgpSetting() {}
     /**
      * @return The ASN of the BGP Speaker.
      * 
@@ -96,18 +83,14 @@ public final class GetVpnGatewayBgpSetting {
     public static Builder builder(GetVpnGatewayBgpSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Integer asn;
         private String bgpPeeringAddress;
         private List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses;
         private List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses;
         private Integer peerWeight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVpnGatewayBgpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.asn = defaults.asn;
@@ -117,14 +100,17 @@ public final class GetVpnGatewayBgpSetting {
     	      this.peerWeight = defaults.peerWeight;
         }
 
+        @CustomType.Setter
         public Builder asn(Integer asn) {
             this.asn = Objects.requireNonNull(asn);
             return this;
         }
+        @CustomType.Setter
         public Builder bgpPeeringAddress(String bgpPeeringAddress) {
             this.bgpPeeringAddress = Objects.requireNonNull(bgpPeeringAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder instance0BgpPeeringAddresses(List<GetVpnGatewayBgpSettingInstance0BgpPeeringAddress> instance0BgpPeeringAddresses) {
             this.instance0BgpPeeringAddresses = Objects.requireNonNull(instance0BgpPeeringAddresses);
             return this;
@@ -132,6 +118,7 @@ public final class GetVpnGatewayBgpSetting {
         public Builder instance0BgpPeeringAddresses(GetVpnGatewayBgpSettingInstance0BgpPeeringAddress... instance0BgpPeeringAddresses) {
             return instance0BgpPeeringAddresses(List.of(instance0BgpPeeringAddresses));
         }
+        @CustomType.Setter
         public Builder instance1BgpPeeringAddresses(List<GetVpnGatewayBgpSettingInstance1BgpPeeringAddress> instance1BgpPeeringAddresses) {
             this.instance1BgpPeeringAddresses = Objects.requireNonNull(instance1BgpPeeringAddresses);
             return this;
@@ -139,11 +126,19 @@ public final class GetVpnGatewayBgpSetting {
         public Builder instance1BgpPeeringAddresses(GetVpnGatewayBgpSettingInstance1BgpPeeringAddress... instance1BgpPeeringAddresses) {
             return instance1BgpPeeringAddresses(List.of(instance1BgpPeeringAddresses));
         }
+        @CustomType.Setter
         public Builder peerWeight(Integer peerWeight) {
             this.peerWeight = Objects.requireNonNull(peerWeight);
             return this;
-        }        public GetVpnGatewayBgpSetting build() {
-            return new GetVpnGatewayBgpSetting(asn, bgpPeeringAddress, instance0BgpPeeringAddresses, instance1BgpPeeringAddresses, peerWeight);
+        }
+        public GetVpnGatewayBgpSetting build() {
+            final var o = new GetVpnGatewayBgpSetting();
+            o.asn = asn;
+            o.bgpPeeringAddress = bgpPeeringAddress;
+            o.instance0BgpPeeringAddresses = instance0BgpPeeringAddresses;
+            o.instance1BgpPeeringAddresses = instance1BgpPeeringAddresses;
+            o.peerWeight = peerWeight;
+            return o;
         }
     }
 }

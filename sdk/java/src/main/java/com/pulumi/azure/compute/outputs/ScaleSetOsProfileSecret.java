@@ -16,21 +16,14 @@ public final class ScaleSetOsProfileSecret {
      * @return Specifies the key vault to use.
      * 
      */
-    private final String sourceVaultId;
+    private String sourceVaultId;
     /**
      * @return A collection of Vault Certificates as documented below
      * 
      */
-    private final @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates;
+    private @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileSecret(
-        @CustomType.Parameter("sourceVaultId") String sourceVaultId,
-        @CustomType.Parameter("vaultCertificates") @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates) {
-        this.sourceVaultId = sourceVaultId;
-        this.vaultCertificates = vaultCertificates;
-    }
-
+    private ScaleSetOsProfileSecret() {}
     /**
      * @return Specifies the key vault to use.
      * 
@@ -53,33 +46,35 @@ public final class ScaleSetOsProfileSecret {
     public static Builder builder(ScaleSetOsProfileSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String sourceVaultId;
         private @Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.sourceVaultId = defaults.sourceVaultId;
     	      this.vaultCertificates = defaults.vaultCertificates;
         }
 
+        @CustomType.Setter
         public Builder sourceVaultId(String sourceVaultId) {
             this.sourceVaultId = Objects.requireNonNull(sourceVaultId);
             return this;
         }
+        @CustomType.Setter
         public Builder vaultCertificates(@Nullable List<ScaleSetOsProfileSecretVaultCertificate> vaultCertificates) {
             this.vaultCertificates = vaultCertificates;
             return this;
         }
         public Builder vaultCertificates(ScaleSetOsProfileSecretVaultCertificate... vaultCertificates) {
             return vaultCertificates(List.of(vaultCertificates));
-        }        public ScaleSetOsProfileSecret build() {
-            return new ScaleSetOsProfileSecret(sourceVaultId, vaultCertificates);
+        }
+        public ScaleSetOsProfileSecret build() {
+            final var o = new ScaleSetOsProfileSecret();
+            o.sourceVaultId = sourceVaultId;
+            o.vaultCertificates = vaultCertificates;
+            return o;
         }
     }
 }

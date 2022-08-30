@@ -13,21 +13,14 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
      * @return Should automatic rollbacks be disabled?
      * 
      */
-    private final Boolean disableAutomaticRollback;
+    private Boolean disableAutomaticRollback;
     /**
      * @return Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
      * 
      */
-    private final Boolean enableAutomaticOsUpgrade;
+    private Boolean enableAutomaticOsUpgrade;
 
-    @CustomType.Constructor
-    private LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(
-        @CustomType.Parameter("disableAutomaticRollback") Boolean disableAutomaticRollback,
-        @CustomType.Parameter("enableAutomaticOsUpgrade") Boolean enableAutomaticOsUpgrade) {
-        this.disableAutomaticRollback = disableAutomaticRollback;
-        this.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
-    }
-
+    private LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy() {}
     /**
      * @return Should automatic rollbacks be disabled?
      * 
@@ -50,30 +43,32 @@ public final class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy {
     public static Builder builder(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean disableAutomaticRollback;
         private Boolean enableAutomaticOsUpgrade;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disableAutomaticRollback = defaults.disableAutomaticRollback;
     	      this.enableAutomaticOsUpgrade = defaults.enableAutomaticOsUpgrade;
         }
 
+        @CustomType.Setter
         public Builder disableAutomaticRollback(Boolean disableAutomaticRollback) {
             this.disableAutomaticRollback = Objects.requireNonNull(disableAutomaticRollback);
             return this;
         }
+        @CustomType.Setter
         public Builder enableAutomaticOsUpgrade(Boolean enableAutomaticOsUpgrade) {
             this.enableAutomaticOsUpgrade = Objects.requireNonNull(enableAutomaticOsUpgrade);
             return this;
-        }        public LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy build() {
-            return new LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(disableAutomaticRollback, enableAutomaticOsUpgrade);
+        }
+        public LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy build() {
+            final var o = new LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy();
+            o.disableAutomaticRollback = disableAutomaticRollback;
+            o.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            return o;
         }
     }
 }

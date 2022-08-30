@@ -13,21 +13,14 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfi
      * @return Header name of the header configuration.
      * 
      */
-    private final String headerName;
+    private String headerName;
     /**
      * @return Header value of the header configuration. To delete a request header set this property to an empty string.
      * 
      */
-    private final String headerValue;
+    private String headerValue;
 
-    @CustomType.Constructor
-    private ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(
-        @CustomType.Parameter("headerName") String headerName,
-        @CustomType.Parameter("headerValue") String headerValue) {
-        this.headerName = headerName;
-        this.headerValue = headerValue;
-    }
-
+    private ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration() {}
     /**
      * @return Header name of the header configuration.
      * 
@@ -50,30 +43,32 @@ public final class ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfi
     public static Builder builder(ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String headerName;
         private String headerValue;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.headerName = defaults.headerName;
     	      this.headerValue = defaults.headerValue;
         }
 
+        @CustomType.Setter
         public Builder headerName(String headerName) {
             this.headerName = Objects.requireNonNull(headerName);
             return this;
         }
+        @CustomType.Setter
         public Builder headerValue(String headerValue) {
             this.headerValue = Objects.requireNonNull(headerValue);
             return this;
-        }        public ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration build() {
-            return new ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration(headerName, headerValue);
+        }
+        public ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration build() {
+            final var o = new ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfiguration();
+            o.headerName = headerName;
+            o.headerValue = headerValue;
+            return o;
         }
     }
 }

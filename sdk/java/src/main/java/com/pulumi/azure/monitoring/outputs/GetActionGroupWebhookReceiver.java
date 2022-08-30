@@ -12,35 +12,24 @@ import java.util.Objects;
 
 @CustomType
 public final class GetActionGroupWebhookReceiver {
-    private final List<GetActionGroupWebhookReceiverAadAuth> aadAuths;
+    private List<GetActionGroupWebhookReceiverAadAuth> aadAuths;
     /**
      * @return Specifies the name of the Action Group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The URI where webhooks should be sent.
      * 
      */
-    private final String serviceUri;
+    private String serviceUri;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final Boolean useCommonAlertSchema;
+    private Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private GetActionGroupWebhookReceiver(
-        @CustomType.Parameter("aadAuths") List<GetActionGroupWebhookReceiverAadAuth> aadAuths,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("serviceUri") String serviceUri,
-        @CustomType.Parameter("useCommonAlertSchema") Boolean useCommonAlertSchema) {
-        this.aadAuths = aadAuths;
-        this.name = name;
-        this.serviceUri = serviceUri;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private GetActionGroupWebhookReceiver() {}
     public List<GetActionGroupWebhookReceiverAadAuth> aadAuths() {
         return this.aadAuths;
     }
@@ -73,17 +62,13 @@ public final class GetActionGroupWebhookReceiver {
     public static Builder builder(GetActionGroupWebhookReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetActionGroupWebhookReceiverAadAuth> aadAuths;
         private String name;
         private String serviceUri;
         private Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetActionGroupWebhookReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.aadAuths = defaults.aadAuths;
@@ -92,6 +77,7 @@ public final class GetActionGroupWebhookReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder aadAuths(List<GetActionGroupWebhookReceiverAadAuth> aadAuths) {
             this.aadAuths = Objects.requireNonNull(aadAuths);
             return this;
@@ -99,19 +85,28 @@ public final class GetActionGroupWebhookReceiver {
         public Builder aadAuths(GetActionGroupWebhookReceiverAadAuth... aadAuths) {
             return aadAuths(List.of(aadAuths));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceUri(String serviceUri) {
             this.serviceUri = Objects.requireNonNull(serviceUri);
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = Objects.requireNonNull(useCommonAlertSchema);
             return this;
-        }        public GetActionGroupWebhookReceiver build() {
-            return new GetActionGroupWebhookReceiver(aadAuths, name, serviceUri, useCommonAlertSchema);
+        }
+        public GetActionGroupWebhookReceiver build() {
+            final var o = new GetActionGroupWebhookReceiver();
+            o.aadAuths = aadAuths;
+            o.name = name;
+            o.serviceUri = serviceUri;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

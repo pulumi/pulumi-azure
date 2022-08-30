@@ -16,59 +16,24 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetStandardSiteConfig {
-    private final @Nullable Boolean alwaysOn;
-    private final Integer appScaleLimit;
-    private final GetStandardSiteConfigCors cors;
-    private final @Nullable String dotnetFrameworkVersion;
-    private final Integer elasticInstanceMinimum;
-    private final String ftpsState;
-    private final @Nullable String healthCheckPath;
-    private final @Nullable Boolean http2Enabled;
-    private final List<GetStandardSiteConfigIpRestriction> ipRestrictions;
-    private final String linuxFxVersion;
-    private final String minTlsVersion;
-    private final Integer preWarmedInstanceCount;
-    private final @Nullable Boolean runtimeScaleMonitoringEnabled;
-    private final @Nullable Boolean use32BitWorkerProcess;
-    private final Boolean vnetRouteAllEnabled;
-    private final @Nullable Boolean websocketsEnabled;
+    private @Nullable Boolean alwaysOn;
+    private Integer appScaleLimit;
+    private GetStandardSiteConfigCors cors;
+    private @Nullable String dotnetFrameworkVersion;
+    private Integer elasticInstanceMinimum;
+    private String ftpsState;
+    private @Nullable String healthCheckPath;
+    private @Nullable Boolean http2Enabled;
+    private List<GetStandardSiteConfigIpRestriction> ipRestrictions;
+    private String linuxFxVersion;
+    private String minTlsVersion;
+    private Integer preWarmedInstanceCount;
+    private @Nullable Boolean runtimeScaleMonitoringEnabled;
+    private @Nullable Boolean use32BitWorkerProcess;
+    private Boolean vnetRouteAllEnabled;
+    private @Nullable Boolean websocketsEnabled;
 
-    @CustomType.Constructor
-    private GetStandardSiteConfig(
-        @CustomType.Parameter("alwaysOn") @Nullable Boolean alwaysOn,
-        @CustomType.Parameter("appScaleLimit") Integer appScaleLimit,
-        @CustomType.Parameter("cors") GetStandardSiteConfigCors cors,
-        @CustomType.Parameter("dotnetFrameworkVersion") @Nullable String dotnetFrameworkVersion,
-        @CustomType.Parameter("elasticInstanceMinimum") Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") String ftpsState,
-        @CustomType.Parameter("healthCheckPath") @Nullable String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") @Nullable Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") List<GetStandardSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("linuxFxVersion") String linuxFxVersion,
-        @CustomType.Parameter("minTlsVersion") String minTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") Integer preWarmedInstanceCount,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") @Nullable Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("use32BitWorkerProcess") @Nullable Boolean use32BitWorkerProcess,
-        @CustomType.Parameter("vnetRouteAllEnabled") Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") @Nullable Boolean websocketsEnabled) {
-        this.alwaysOn = alwaysOn;
-        this.appScaleLimit = appScaleLimit;
-        this.cors = cors;
-        this.dotnetFrameworkVersion = dotnetFrameworkVersion;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.linuxFxVersion = linuxFxVersion;
-        this.minTlsVersion = minTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.use32BitWorkerProcess = use32BitWorkerProcess;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-    }
-
+    private GetStandardSiteConfig() {}
     public Optional<Boolean> alwaysOn() {
         return Optional.ofNullable(this.alwaysOn);
     }
@@ -125,7 +90,7 @@ public final class GetStandardSiteConfig {
     public static Builder builder(GetStandardSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean alwaysOn;
         private Integer appScaleLimit;
@@ -143,11 +108,7 @@ public final class GetStandardSiteConfig {
         private @Nullable Boolean use32BitWorkerProcess;
         private Boolean vnetRouteAllEnabled;
         private @Nullable Boolean websocketsEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetStandardSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -168,38 +129,47 @@ public final class GetStandardSiteConfig {
     	      this.websocketsEnabled = defaults.websocketsEnabled;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(@Nullable Boolean alwaysOn) {
             this.alwaysOn = alwaysOn;
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
             this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder cors(GetStandardSiteConfigCors cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
         }
+        @CustomType.Setter
         public Builder dotnetFrameworkVersion(@Nullable String dotnetFrameworkVersion) {
             this.dotnetFrameworkVersion = dotnetFrameworkVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = Objects.requireNonNull(elasticInstanceMinimum);
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
             this.ftpsState = Objects.requireNonNull(ftpsState);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(@Nullable String healthCheckPath) {
             this.healthCheckPath = healthCheckPath;
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(@Nullable Boolean http2Enabled) {
             this.http2Enabled = http2Enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetStandardSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
             return this;
@@ -207,35 +177,60 @@ public final class GetStandardSiteConfig {
         public Builder ipRestrictions(GetStandardSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder linuxFxVersion(String linuxFxVersion) {
             this.linuxFxVersion = Objects.requireNonNull(linuxFxVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder minTlsVersion(String minTlsVersion) {
             this.minTlsVersion = Objects.requireNonNull(minTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = Objects.requireNonNull(preWarmedInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorkerProcess(@Nullable Boolean use32BitWorkerProcess) {
             this.use32BitWorkerProcess = use32BitWorkerProcess;
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(@Nullable Boolean websocketsEnabled) {
             this.websocketsEnabled = websocketsEnabled;
             return this;
-        }        public GetStandardSiteConfig build() {
-            return new GetStandardSiteConfig(alwaysOn, appScaleLimit, cors, dotnetFrameworkVersion, elasticInstanceMinimum, ftpsState, healthCheckPath, http2Enabled, ipRestrictions, linuxFxVersion, minTlsVersion, preWarmedInstanceCount, runtimeScaleMonitoringEnabled, use32BitWorkerProcess, vnetRouteAllEnabled, websocketsEnabled);
+        }
+        public GetStandardSiteConfig build() {
+            final var o = new GetStandardSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.appScaleLimit = appScaleLimit;
+            o.cors = cors;
+            o.dotnetFrameworkVersion = dotnetFrameworkVersion;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.linuxFxVersion = linuxFxVersion;
+            o.minTlsVersion = minTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.use32BitWorkerProcess = use32BitWorkerProcess;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            return o;
         }
     }
 }

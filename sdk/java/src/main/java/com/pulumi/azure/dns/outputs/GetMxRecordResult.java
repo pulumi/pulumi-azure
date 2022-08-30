@@ -19,51 +19,32 @@ public final class GetMxRecordResult {
      * @return The FQDN of the DNS MX Record.
      * 
      */
-    private final String fqdn;
+    private String fqdn;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final @Nullable String name;
+    private String id;
+    private @Nullable String name;
     /**
      * @return A list of values that make up the MX record. Each `record` block supports fields documented below.
      * 
      */
-    private final List<GetMxRecordRecord> records;
-    private final String resourceGroupName;
+    private List<GetMxRecordRecord> records;
+    private String resourceGroupName;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return The Time To Live (TTL) of the DNS record in seconds.
      * 
      */
-    private final Integer ttl;
-    private final String zoneName;
+    private Integer ttl;
+    private String zoneName;
 
-    @CustomType.Constructor
-    private GetMxRecordResult(
-        @CustomType.Parameter("fqdn") String fqdn,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("records") List<GetMxRecordRecord> records,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("ttl") Integer ttl,
-        @CustomType.Parameter("zoneName") String zoneName) {
-        this.fqdn = fqdn;
-        this.id = id;
-        this.name = name;
-        this.records = records;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-        this.ttl = ttl;
-        this.zoneName = zoneName;
-    }
-
+    private GetMxRecordResult() {}
     /**
      * @return The FQDN of the DNS MX Record.
      * 
@@ -116,7 +97,7 @@ public final class GetMxRecordResult {
     public static Builder builder(GetMxRecordResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String fqdn;
         private String id;
@@ -126,11 +107,7 @@ public final class GetMxRecordResult {
         private Map<String,String> tags;
         private Integer ttl;
         private String zoneName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMxRecordResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.fqdn = defaults.fqdn;
@@ -143,18 +120,22 @@ public final class GetMxRecordResult {
     	      this.zoneName = defaults.zoneName;
         }
 
+        @CustomType.Setter
         public Builder fqdn(String fqdn) {
             this.fqdn = Objects.requireNonNull(fqdn);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder records(List<GetMxRecordRecord> records) {
             this.records = Objects.requireNonNull(records);
             return this;
@@ -162,23 +143,37 @@ public final class GetMxRecordResult {
         public Builder records(GetMxRecordRecord... records) {
             return records(List.of(records));
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder ttl(Integer ttl) {
             this.ttl = Objects.requireNonNull(ttl);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneName(String zoneName) {
             this.zoneName = Objects.requireNonNull(zoneName);
             return this;
-        }        public GetMxRecordResult build() {
-            return new GetMxRecordResult(fqdn, id, name, records, resourceGroupName, tags, ttl, zoneName);
+        }
+        public GetMxRecordResult build() {
+            final var o = new GetMxRecordResult();
+            o.fqdn = fqdn;
+            o.id = id;
+            o.name = name;
+            o.records = records;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            o.ttl = ttl;
+            o.zoneName = zoneName;
+            return o;
         }
     }
 }

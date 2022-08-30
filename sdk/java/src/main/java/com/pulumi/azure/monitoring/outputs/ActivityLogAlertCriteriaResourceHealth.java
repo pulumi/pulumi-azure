@@ -15,28 +15,19 @@ public final class ActivityLogAlertCriteriaResourceHealth {
      * @return The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
      * 
      */
-    private final @Nullable List<String> currents;
+    private @Nullable List<String> currents;
     /**
      * @return The previous resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
      * 
      */
-    private final @Nullable List<String> previouses;
+    private @Nullable List<String> previouses;
     /**
      * @return The reason that will log an alert. Possible values are `PlatformInitiated` (such as a problem with the resource in an affected region of an Azure incident), `UserInitiated` (such as a shutdown request of a VM) and `Unknown`.
      * 
      */
-    private final @Nullable List<String> reasons;
+    private @Nullable List<String> reasons;
 
-    @CustomType.Constructor
-    private ActivityLogAlertCriteriaResourceHealth(
-        @CustomType.Parameter("currents") @Nullable List<String> currents,
-        @CustomType.Parameter("previouses") @Nullable List<String> previouses,
-        @CustomType.Parameter("reasons") @Nullable List<String> reasons) {
-        this.currents = currents;
-        this.previouses = previouses;
-        this.reasons = reasons;
-    }
-
+    private ActivityLogAlertCriteriaResourceHealth() {}
     /**
      * @return The current resource health statuses that will log an alert. Possible values are `Available`, `Degraded`, `Unavailable` and `Unknown`.
      * 
@@ -66,16 +57,12 @@ public final class ActivityLogAlertCriteriaResourceHealth {
     public static Builder builder(ActivityLogAlertCriteriaResourceHealth defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> currents;
         private @Nullable List<String> previouses;
         private @Nullable List<String> reasons;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActivityLogAlertCriteriaResourceHealth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.currents = defaults.currents;
@@ -83,6 +70,7 @@ public final class ActivityLogAlertCriteriaResourceHealth {
     	      this.reasons = defaults.reasons;
         }
 
+        @CustomType.Setter
         public Builder currents(@Nullable List<String> currents) {
             this.currents = currents;
             return this;
@@ -90,6 +78,7 @@ public final class ActivityLogAlertCriteriaResourceHealth {
         public Builder currents(String... currents) {
             return currents(List.of(currents));
         }
+        @CustomType.Setter
         public Builder previouses(@Nullable List<String> previouses) {
             this.previouses = previouses;
             return this;
@@ -97,14 +86,20 @@ public final class ActivityLogAlertCriteriaResourceHealth {
         public Builder previouses(String... previouses) {
             return previouses(List.of(previouses));
         }
+        @CustomType.Setter
         public Builder reasons(@Nullable List<String> reasons) {
             this.reasons = reasons;
             return this;
         }
         public Builder reasons(String... reasons) {
             return reasons(List.of(reasons));
-        }        public ActivityLogAlertCriteriaResourceHealth build() {
-            return new ActivityLogAlertCriteriaResourceHealth(currents, previouses, reasons);
+        }
+        public ActivityLogAlertCriteriaResourceHealth build() {
+            final var o = new ActivityLogAlertCriteriaResourceHealth();
+            o.currents = currents;
+            o.previouses = previouses;
+            o.reasons = reasons;
+            return o;
         }
     }
 }

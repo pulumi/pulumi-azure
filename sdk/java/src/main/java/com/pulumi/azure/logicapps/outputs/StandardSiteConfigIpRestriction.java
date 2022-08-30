@@ -17,56 +17,39 @@ public final class StandardSiteConfigIpRestriction {
      * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
      */
-    private final @Nullable String action;
+    private @Nullable String action;
     /**
      * @return The headers for this specific `ip_restriction` as defined below.
      * 
      */
-    private final @Nullable StandardSiteConfigIpRestrictionHeaders headers;
+    private @Nullable StandardSiteConfigIpRestrictionHeaders headers;
     /**
      * @return The IP Address used for this IP Restriction in CIDR notation.
      * 
      */
-    private final @Nullable String ipAddress;
+    private @Nullable String ipAddress;
     /**
      * @return The name for this IP Restriction.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return The Service Tag used for this IP Restriction.
      * 
      */
-    private final @Nullable String serviceTag;
+    private @Nullable String serviceTag;
     /**
      * @return The Virtual Network Subnet ID used for this IP Restriction.
      * 
      */
-    private final @Nullable String virtualNetworkSubnetId;
+    private @Nullable String virtualNetworkSubnetId;
 
-    @CustomType.Constructor
-    private StandardSiteConfigIpRestriction(
-        @CustomType.Parameter("action") @Nullable String action,
-        @CustomType.Parameter("headers") @Nullable StandardSiteConfigIpRestrictionHeaders headers,
-        @CustomType.Parameter("ipAddress") @Nullable String ipAddress,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("serviceTag") @Nullable String serviceTag,
-        @CustomType.Parameter("virtualNetworkSubnetId") @Nullable String virtualNetworkSubnetId) {
-        this.action = action;
-        this.headers = headers;
-        this.ipAddress = ipAddress;
-        this.name = name;
-        this.priority = priority;
-        this.serviceTag = serviceTag;
-        this.virtualNetworkSubnetId = virtualNetworkSubnetId;
-    }
-
+    private StandardSiteConfigIpRestriction() {}
     /**
      * @return Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
      * 
@@ -124,7 +107,7 @@ public final class StandardSiteConfigIpRestriction {
     public static Builder builder(StandardSiteConfigIpRestriction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String action;
         private @Nullable StandardSiteConfigIpRestrictionHeaders headers;
@@ -133,11 +116,7 @@ public final class StandardSiteConfigIpRestriction {
         private @Nullable Integer priority;
         private @Nullable String serviceTag;
         private @Nullable String virtualNetworkSubnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(StandardSiteConfigIpRestriction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.action = defaults.action;
@@ -149,35 +128,51 @@ public final class StandardSiteConfigIpRestriction {
     	      this.virtualNetworkSubnetId = defaults.virtualNetworkSubnetId;
         }
 
+        @CustomType.Setter
         public Builder action(@Nullable String action) {
             this.action = action;
             return this;
         }
+        @CustomType.Setter
         public Builder headers(@Nullable StandardSiteConfigIpRestrictionHeaders headers) {
             this.headers = headers;
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddress(@Nullable String ipAddress) {
             this.ipAddress = ipAddress;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder serviceTag(@Nullable String serviceTag) {
             this.serviceTag = serviceTag;
             return this;
         }
+        @CustomType.Setter
         public Builder virtualNetworkSubnetId(@Nullable String virtualNetworkSubnetId) {
             this.virtualNetworkSubnetId = virtualNetworkSubnetId;
             return this;
-        }        public StandardSiteConfigIpRestriction build() {
-            return new StandardSiteConfigIpRestriction(action, headers, ipAddress, name, priority, serviceTag, virtualNetworkSubnetId);
+        }
+        public StandardSiteConfigIpRestriction build() {
+            final var o = new StandardSiteConfigIpRestriction();
+            o.action = action;
+            o.headers = headers;
+            o.ipAddress = ipAddress;
+            o.name = name;
+            o.priority = priority;
+            o.serviceTag = serviceTag;
+            o.virtualNetworkSubnetId = virtualNetworkSubnetId;
+            return o;
         }
     }
 }

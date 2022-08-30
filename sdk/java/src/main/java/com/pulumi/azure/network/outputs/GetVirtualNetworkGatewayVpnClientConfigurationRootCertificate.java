@@ -13,21 +13,14 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate
      * @return Specifies the name of the Virtual Network Gateway.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The SHA1 thumbprint of the certificate to be revoked.
      * 
      */
-    private final String publicCertData;
+    private String publicCertData;
 
-    @CustomType.Constructor
-    private GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("publicCertData") String publicCertData) {
-        this.name = name;
-        this.publicCertData = publicCertData;
-    }
-
+    private GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate() {}
     /**
      * @return Specifies the name of the Virtual Network Gateway.
      * 
@@ -50,30 +43,32 @@ public final class GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate
     public static Builder builder(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String publicCertData;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.publicCertData = defaults.publicCertData;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder publicCertData(String publicCertData) {
             this.publicCertData = Objects.requireNonNull(publicCertData);
             return this;
-        }        public GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate build() {
-            return new GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate(name, publicCertData);
+        }
+        public GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate build() {
+            final var o = new GetVirtualNetworkGatewayVpnClientConfigurationRootCertificate();
+            o.name = name;
+            o.publicCertData = publicCertData;
+            return o;
         }
     }
 }

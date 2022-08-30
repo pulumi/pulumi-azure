@@ -14,28 +14,19 @@ public final class GetEnvironmentV3InboundNetworkDependency {
      * @return A short description of the purpose of the network traffic.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return A list of IP addresses that network traffic will originate from in CIDR notation.
      * 
      */
-    private final List<String> ipAddresses;
+    private List<String> ipAddresses;
     /**
      * @return The ports that network traffic will arrive to the App Service Environment V3 on.
      * 
      */
-    private final List<String> ports;
+    private List<String> ports;
 
-    @CustomType.Constructor
-    private GetEnvironmentV3InboundNetworkDependency(
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("ipAddresses") List<String> ipAddresses,
-        @CustomType.Parameter("ports") List<String> ports) {
-        this.description = description;
-        this.ipAddresses = ipAddresses;
-        this.ports = ports;
-    }
-
+    private GetEnvironmentV3InboundNetworkDependency() {}
     /**
      * @return A short description of the purpose of the network traffic.
      * 
@@ -65,16 +56,12 @@ public final class GetEnvironmentV3InboundNetworkDependency {
     public static Builder builder(GetEnvironmentV3InboundNetworkDependency defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String description;
         private List<String> ipAddresses;
         private List<String> ports;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnvironmentV3InboundNetworkDependency defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.description = defaults.description;
@@ -82,10 +69,12 @@ public final class GetEnvironmentV3InboundNetworkDependency {
     	      this.ports = defaults.ports;
         }
 
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder ipAddresses(List<String> ipAddresses) {
             this.ipAddresses = Objects.requireNonNull(ipAddresses);
             return this;
@@ -93,14 +82,20 @@ public final class GetEnvironmentV3InboundNetworkDependency {
         public Builder ipAddresses(String... ipAddresses) {
             return ipAddresses(List.of(ipAddresses));
         }
+        @CustomType.Setter
         public Builder ports(List<String> ports) {
             this.ports = Objects.requireNonNull(ports);
             return this;
         }
         public Builder ports(String... ports) {
             return ports(List.of(ports));
-        }        public GetEnvironmentV3InboundNetworkDependency build() {
-            return new GetEnvironmentV3InboundNetworkDependency(description, ipAddresses, ports);
+        }
+        public GetEnvironmentV3InboundNetworkDependency build() {
+            final var o = new GetEnvironmentV3InboundNetworkDependency();
+            o.description = description;
+            o.ipAddresses = ipAddresses;
+            o.ports = ports;
+            return o;
         }
     }
 }

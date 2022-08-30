@@ -18,70 +18,49 @@ public final class WindowsVirtualMachineOsDisk {
      * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
      */
-    private final String caching;
+    private String caching;
     /**
      * @return A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings;
+    private @Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings;
     /**
      * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
      * 
      */
-    private final @Nullable String diskEncryptionSetId;
+    private @Nullable String diskEncryptionSetId;
     /**
      * @return The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine is sourced from.
      * 
      */
-    private final @Nullable Integer diskSizeGb;
+    private @Nullable Integer diskSizeGb;
     /**
      * @return The name which should be used for the Internal OS Disk. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
     /**
      * @return The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk when the Virtual Machine is a Confidential VM. Conflicts with `disk_encryption_set_id`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String secureVmDiskEncryptionSetId;
+    private @Nullable String secureVmDiskEncryptionSetId;
     /**
      * @return Encryption Type when the Virtual Machine is a Confidential VM. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable String securityEncryptionType;
+    private @Nullable String securityEncryptionType;
     /**
      * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
     /**
      * @return Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachineOsDisk(
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("diffDiskSettings") @Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings,
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("diskSizeGb") @Nullable Integer diskSizeGb,
-        @CustomType.Parameter("name") @Nullable String name,
-        @CustomType.Parameter("secureVmDiskEncryptionSetId") @Nullable String secureVmDiskEncryptionSetId,
-        @CustomType.Parameter("securityEncryptionType") @Nullable String securityEncryptionType,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.diffDiskSettings = diffDiskSettings;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskSizeGb = diskSizeGb;
-        this.name = name;
-        this.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
-        this.securityEncryptionType = securityEncryptionType;
-        this.storageAccountType = storageAccountType;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private WindowsVirtualMachineOsDisk() {}
     /**
      * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
      * 
@@ -153,7 +132,7 @@ public final class WindowsVirtualMachineOsDisk {
     public static Builder builder(WindowsVirtualMachineOsDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String caching;
         private @Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings;
@@ -164,11 +143,7 @@ public final class WindowsVirtualMachineOsDisk {
         private @Nullable String securityEncryptionType;
         private String storageAccountType;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachineOsDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -182,43 +157,63 @@ public final class WindowsVirtualMachineOsDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder diffDiskSettings(@Nullable WindowsVirtualMachineOsDiskDiffDiskSettings diffDiskSettings) {
             this.diffDiskSettings = diffDiskSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(@Nullable Integer diskSizeGb) {
             this.diskSizeGb = diskSizeGb;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
         public Builder secureVmDiskEncryptionSetId(@Nullable String secureVmDiskEncryptionSetId) {
             this.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder securityEncryptionType(@Nullable String securityEncryptionType) {
             this.securityEncryptionType = securityEncryptionType;
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public WindowsVirtualMachineOsDisk build() {
-            return new WindowsVirtualMachineOsDisk(caching, diffDiskSettings, diskEncryptionSetId, diskSizeGb, name, secureVmDiskEncryptionSetId, securityEncryptionType, storageAccountType, writeAcceleratorEnabled);
+        }
+        public WindowsVirtualMachineOsDisk build() {
+            final var o = new WindowsVirtualMachineOsDisk();
+            o.caching = caching;
+            o.diffDiskSettings = diffDiskSettings;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskSizeGb = diskSizeGb;
+            o.name = name;
+            o.secureVmDiskEncryptionSetId = secureVmDiskEncryptionSetId;
+            o.securityEncryptionType = securityEncryptionType;
+            o.storageAccountType = storageAccountType;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

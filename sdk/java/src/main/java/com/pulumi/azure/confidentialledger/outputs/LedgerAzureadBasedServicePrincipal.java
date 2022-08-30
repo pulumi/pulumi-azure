@@ -13,28 +13,19 @@ public final class LedgerAzureadBasedServicePrincipal {
      * @return Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
      * 
      */
-    private final String ledgerRoleName;
+    private String ledgerRoleName;
     /**
      * @return Specifies the Principal ID of the AzureAD Service Principal.
      * 
      */
-    private final String principalId;
+    private String principalId;
     /**
      * @return Specifies the Tenant ID for this AzureAD Service Principal.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private LedgerAzureadBasedServicePrincipal(
-        @CustomType.Parameter("ledgerRoleName") String ledgerRoleName,
-        @CustomType.Parameter("principalId") String principalId,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.ledgerRoleName = ledgerRoleName;
-        this.principalId = principalId;
-        this.tenantId = tenantId;
-    }
-
+    private LedgerAzureadBasedServicePrincipal() {}
     /**
      * @return Specifies the Ledger Role to grant this AzureAD Service Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
      * 
@@ -64,16 +55,12 @@ public final class LedgerAzureadBasedServicePrincipal {
     public static Builder builder(LedgerAzureadBasedServicePrincipal defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String ledgerRoleName;
         private String principalId;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LedgerAzureadBasedServicePrincipal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ledgerRoleName = defaults.ledgerRoleName;
@@ -81,19 +68,27 @@ public final class LedgerAzureadBasedServicePrincipal {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder ledgerRoleName(String ledgerRoleName) {
             this.ledgerRoleName = Objects.requireNonNull(ledgerRoleName);
             return this;
         }
+        @CustomType.Setter
         public Builder principalId(String principalId) {
             this.principalId = Objects.requireNonNull(principalId);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public LedgerAzureadBasedServicePrincipal build() {
-            return new LedgerAzureadBasedServicePrincipal(ledgerRoleName, principalId, tenantId);
+        }
+        public LedgerAzureadBasedServicePrincipal build() {
+            final var o = new LedgerAzureadBasedServicePrincipal();
+            o.ledgerRoleName = ledgerRoleName;
+            o.principalId = principalId;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

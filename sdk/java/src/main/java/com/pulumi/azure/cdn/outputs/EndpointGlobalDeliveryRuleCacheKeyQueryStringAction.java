@@ -15,21 +15,14 @@ public final class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
      * @return The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
      */
-    private final String behavior;
+    private String behavior;
     /**
      * @return Comma separated list of parameter values.
      * 
      */
-    private final @Nullable String parameters;
+    private @Nullable String parameters;
 
-    @CustomType.Constructor
-    private EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(
-        @CustomType.Parameter("behavior") String behavior,
-        @CustomType.Parameter("parameters") @Nullable String parameters) {
-        this.behavior = behavior;
-        this.parameters = parameters;
-    }
-
+    private EndpointGlobalDeliveryRuleCacheKeyQueryStringAction() {}
     /**
      * @return The behavior of the cache key for query strings. Valid values are `Exclude`, `ExcludeAll`, `Include` and `IncludeAll`.
      * 
@@ -52,30 +45,32 @@ public final class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction {
     public static Builder builder(EndpointGlobalDeliveryRuleCacheKeyQueryStringAction defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String behavior;
         private @Nullable String parameters;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(EndpointGlobalDeliveryRuleCacheKeyQueryStringAction defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.behavior = defaults.behavior;
     	      this.parameters = defaults.parameters;
         }
 
+        @CustomType.Setter
         public Builder behavior(String behavior) {
             this.behavior = Objects.requireNonNull(behavior);
             return this;
         }
+        @CustomType.Setter
         public Builder parameters(@Nullable String parameters) {
             this.parameters = parameters;
             return this;
-        }        public EndpointGlobalDeliveryRuleCacheKeyQueryStringAction build() {
-            return new EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(behavior, parameters);
+        }
+        public EndpointGlobalDeliveryRuleCacheKeyQueryStringAction build() {
+            final var o = new EndpointGlobalDeliveryRuleCacheKeyQueryStringAction();
+            o.behavior = behavior;
+            o.parameters = parameters;
+            return o;
         }
     }
 }

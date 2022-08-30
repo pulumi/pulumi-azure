@@ -16,35 +16,24 @@ public final class SpringCloudGatewaySso {
      * @return The public identifier for the application.
      * 
      */
-    private final @Nullable String clientId;
+    private @Nullable String clientId;
     /**
      * @return The secret known only to the application and the authorization server.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
     /**
      * @return The URI of Issuer Identifier.
      * 
      */
-    private final @Nullable String issuerUri;
+    private @Nullable String issuerUri;
     /**
      * @return It defines the specific actions applications can be allowed to do on a user&#39;s behalf.
      * 
      */
-    private final @Nullable List<String> scopes;
+    private @Nullable List<String> scopes;
 
-    @CustomType.Constructor
-    private SpringCloudGatewaySso(
-        @CustomType.Parameter("clientId") @Nullable String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret,
-        @CustomType.Parameter("issuerUri") @Nullable String issuerUri,
-        @CustomType.Parameter("scopes") @Nullable List<String> scopes) {
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-        this.issuerUri = issuerUri;
-        this.scopes = scopes;
-    }
-
+    private SpringCloudGatewaySso() {}
     /**
      * @return The public identifier for the application.
      * 
@@ -81,17 +70,13 @@ public final class SpringCloudGatewaySso {
     public static Builder builder(SpringCloudGatewaySso defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String clientId;
         private @Nullable String clientSecret;
         private @Nullable String issuerUri;
         private @Nullable List<String> scopes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SpringCloudGatewaySso defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clientId = defaults.clientId;
@@ -100,26 +85,36 @@ public final class SpringCloudGatewaySso {
     	      this.scopes = defaults.scopes;
         }
 
+        @CustomType.Setter
         public Builder clientId(@Nullable String clientId) {
             this.clientId = clientId;
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
         }
+        @CustomType.Setter
         public Builder issuerUri(@Nullable String issuerUri) {
             this.issuerUri = issuerUri;
             return this;
         }
+        @CustomType.Setter
         public Builder scopes(@Nullable List<String> scopes) {
             this.scopes = scopes;
             return this;
         }
         public Builder scopes(String... scopes) {
             return scopes(List.of(scopes));
-        }        public SpringCloudGatewaySso build() {
-            return new SpringCloudGatewaySso(clientId, clientSecret, issuerUri, scopes);
+        }
+        public SpringCloudGatewaySso build() {
+            final var o = new SpringCloudGatewaySso();
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            o.issuerUri = issuerUri;
+            o.scopes = scopes;
+            return o;
         }
     }
 }

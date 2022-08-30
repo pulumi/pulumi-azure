@@ -16,35 +16,24 @@ public final class GetLinuxFunctionAppBackup {
      * @return Is this backup job enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The name which should be used for this Linux Function App.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A `schedule` block as defined below.
      * 
      */
-    private final List<GetLinuxFunctionAppBackupSchedule> schedules;
+    private List<GetLinuxFunctionAppBackupSchedule> schedules;
     /**
      * @return The SAS URL to the container.
      * 
      */
-    private final String storageAccountUrl;
+    private String storageAccountUrl;
 
-    @CustomType.Constructor
-    private GetLinuxFunctionAppBackup(
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedules") List<GetLinuxFunctionAppBackupSchedule> schedules,
-        @CustomType.Parameter("storageAccountUrl") String storageAccountUrl) {
-        this.enabled = enabled;
-        this.name = name;
-        this.schedules = schedules;
-        this.storageAccountUrl = storageAccountUrl;
-    }
-
+    private GetLinuxFunctionAppBackup() {}
     /**
      * @return Is this backup job enabled?
      * 
@@ -81,17 +70,13 @@ public final class GetLinuxFunctionAppBackup {
     public static Builder builder(GetLinuxFunctionAppBackup defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean enabled;
         private String name;
         private List<GetLinuxFunctionAppBackupSchedule> schedules;
         private String storageAccountUrl;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetLinuxFunctionAppBackup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
@@ -100,14 +85,17 @@ public final class GetLinuxFunctionAppBackup {
     	      this.storageAccountUrl = defaults.storageAccountUrl;
         }
 
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedules(List<GetLinuxFunctionAppBackupSchedule> schedules) {
             this.schedules = Objects.requireNonNull(schedules);
             return this;
@@ -115,11 +103,18 @@ public final class GetLinuxFunctionAppBackup {
         public Builder schedules(GetLinuxFunctionAppBackupSchedule... schedules) {
             return schedules(List.of(schedules));
         }
+        @CustomType.Setter
         public Builder storageAccountUrl(String storageAccountUrl) {
             this.storageAccountUrl = Objects.requireNonNull(storageAccountUrl);
             return this;
-        }        public GetLinuxFunctionAppBackup build() {
-            return new GetLinuxFunctionAppBackup(enabled, name, schedules, storageAccountUrl);
+        }
+        public GetLinuxFunctionAppBackup build() {
+            final var o = new GetLinuxFunctionAppBackup();
+            o.enabled = enabled;
+            o.name = name;
+            o.schedules = schedules;
+            o.storageAccountUrl = storageAccountUrl;
+            return o;
         }
     }
 }

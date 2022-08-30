@@ -13,65 +13,42 @@ import java.util.Objects;
 
 @CustomType
 public final class GetScheduledQueryRulesLogResult {
-    private final List<String> authorizedResourceIds;
+    private List<String> authorizedResourceIds;
     /**
      * @return A `criteria` block as defined below.
      * 
      */
-    private final List<GetScheduledQueryRulesLogCriteria> criterias;
+    private List<GetScheduledQueryRulesLogCriteria> criterias;
     /**
      * @return The resource URI over which log search query is to be run.
      * 
      */
-    private final String dataSourceId;
+    private String dataSourceId;
     /**
      * @return The description of the scheduled query rule.
      * 
      */
-    private final String description;
+    private String description;
     /**
      * @return Whether this scheduled query rule is enabled.
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String location;
+    private String id;
+    private String location;
     /**
      * @return Name of the dimension.
      * 
      */
-    private final String name;
-    private final String resourceGroupName;
-    private final Map<String,String> tags;
+    private String name;
+    private String resourceGroupName;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetScheduledQueryRulesLogResult(
-        @CustomType.Parameter("authorizedResourceIds") List<String> authorizedResourceIds,
-        @CustomType.Parameter("criterias") List<GetScheduledQueryRulesLogCriteria> criterias,
-        @CustomType.Parameter("dataSourceId") String dataSourceId,
-        @CustomType.Parameter("description") String description,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.authorizedResourceIds = authorizedResourceIds;
-        this.criterias = criterias;
-        this.dataSourceId = dataSourceId;
-        this.description = description;
-        this.enabled = enabled;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.tags = tags;
-    }
-
+    private GetScheduledQueryRulesLogResult() {}
     public List<String> authorizedResourceIds() {
         return this.authorizedResourceIds;
     }
@@ -134,7 +111,7 @@ public final class GetScheduledQueryRulesLogResult {
     public static Builder builder(GetScheduledQueryRulesLogResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> authorizedResourceIds;
         private List<GetScheduledQueryRulesLogCriteria> criterias;
@@ -146,11 +123,7 @@ public final class GetScheduledQueryRulesLogResult {
         private String name;
         private String resourceGroupName;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetScheduledQueryRulesLogResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authorizedResourceIds = defaults.authorizedResourceIds;
@@ -165,6 +138,7 @@ public final class GetScheduledQueryRulesLogResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder authorizedResourceIds(List<String> authorizedResourceIds) {
             this.authorizedResourceIds = Objects.requireNonNull(authorizedResourceIds);
             return this;
@@ -172,6 +146,7 @@ public final class GetScheduledQueryRulesLogResult {
         public Builder authorizedResourceIds(String... authorizedResourceIds) {
             return authorizedResourceIds(List.of(authorizedResourceIds));
         }
+        @CustomType.Setter
         public Builder criterias(List<GetScheduledQueryRulesLogCriteria> criterias) {
             this.criterias = Objects.requireNonNull(criterias);
             return this;
@@ -179,39 +154,59 @@ public final class GetScheduledQueryRulesLogResult {
         public Builder criterias(GetScheduledQueryRulesLogCriteria... criterias) {
             return criterias(List.of(criterias));
         }
+        @CustomType.Setter
         public Builder dataSourceId(String dataSourceId) {
             this.dataSourceId = Objects.requireNonNull(dataSourceId);
             return this;
         }
+        @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetScheduledQueryRulesLogResult build() {
-            return new GetScheduledQueryRulesLogResult(authorizedResourceIds, criterias, dataSourceId, description, enabled, id, location, name, resourceGroupName, tags);
+        }
+        public GetScheduledQueryRulesLogResult build() {
+            final var o = new GetScheduledQueryRulesLogResult();
+            o.authorizedResourceIds = authorizedResourceIds;
+            o.criterias = criterias;
+            o.dataSourceId = dataSourceId;
+            o.description = description;
+            o.enabled = enabled;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.tags = tags;
+            return o;
         }
     }
 }

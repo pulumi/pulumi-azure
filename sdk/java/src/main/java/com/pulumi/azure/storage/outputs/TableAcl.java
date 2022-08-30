@@ -16,21 +16,14 @@ public final class TableAcl {
      * @return An `access_policy` block as defined below.
      * 
      */
-    private final @Nullable List<TableAclAccessPolicy> accessPolicies;
+    private @Nullable List<TableAclAccessPolicy> accessPolicies;
     /**
      * @return The ID which should be used for this Shared Identifier.
      * 
      */
-    private final String id;
+    private String id;
 
-    @CustomType.Constructor
-    private TableAcl(
-        @CustomType.Parameter("accessPolicies") @Nullable List<TableAclAccessPolicy> accessPolicies,
-        @CustomType.Parameter("id") String id) {
-        this.accessPolicies = accessPolicies;
-        this.id = id;
-    }
-
+    private TableAcl() {}
     /**
      * @return An `access_policy` block as defined below.
      * 
@@ -53,21 +46,18 @@ public final class TableAcl {
     public static Builder builder(TableAcl defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<TableAclAccessPolicy> accessPolicies;
         private String id;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TableAcl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicies = defaults.accessPolicies;
     	      this.id = defaults.id;
         }
 
+        @CustomType.Setter
         public Builder accessPolicies(@Nullable List<TableAclAccessPolicy> accessPolicies) {
             this.accessPolicies = accessPolicies;
             return this;
@@ -75,11 +65,16 @@ public final class TableAcl {
         public Builder accessPolicies(TableAclAccessPolicy... accessPolicies) {
             return accessPolicies(List.of(accessPolicies));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
-        }        public TableAcl build() {
-            return new TableAcl(accessPolicies, id);
+        }
+        public TableAcl build() {
+            final var o = new TableAcl();
+            o.accessPolicies = accessPolicies;
+            o.id = id;
+            return o;
         }
     }
 }

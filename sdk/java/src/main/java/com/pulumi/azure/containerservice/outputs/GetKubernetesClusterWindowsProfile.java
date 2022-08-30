@@ -13,13 +13,9 @@ public final class GetKubernetesClusterWindowsProfile {
      * @return The username associated with the administrator account of the Windows VMs.
      * 
      */
-    private final String adminUsername;
+    private String adminUsername;
 
-    @CustomType.Constructor
-    private GetKubernetesClusterWindowsProfile(@CustomType.Parameter("adminUsername") String adminUsername) {
-        this.adminUsername = adminUsername;
-    }
-
+    private GetKubernetesClusterWindowsProfile() {}
     /**
      * @return The username associated with the administrator account of the Windows VMs.
      * 
@@ -35,24 +31,24 @@ public final class GetKubernetesClusterWindowsProfile {
     public static Builder builder(GetKubernetesClusterWindowsProfile defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String adminUsername;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetKubernetesClusterWindowsProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.adminUsername = defaults.adminUsername;
         }
 
+        @CustomType.Setter
         public Builder adminUsername(String adminUsername) {
             this.adminUsername = Objects.requireNonNull(adminUsername);
             return this;
-        }        public GetKubernetesClusterWindowsProfile build() {
-            return new GetKubernetesClusterWindowsProfile(adminUsername);
+        }
+        public GetKubernetesClusterWindowsProfile build() {
+            final var o = new GetKubernetesClusterWindowsProfile();
+            o.adminUsername = adminUsername;
+            return o;
         }
     }
 }

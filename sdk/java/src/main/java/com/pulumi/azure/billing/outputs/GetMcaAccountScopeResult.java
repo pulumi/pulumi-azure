@@ -9,27 +9,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMcaAccountScopeResult {
-    private final String billingAccountName;
-    private final String billingProfileName;
+    private String billingAccountName;
+    private String billingProfileName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String invoiceSectionName;
+    private String id;
+    private String invoiceSectionName;
 
-    @CustomType.Constructor
-    private GetMcaAccountScopeResult(
-        @CustomType.Parameter("billingAccountName") String billingAccountName,
-        @CustomType.Parameter("billingProfileName") String billingProfileName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("invoiceSectionName") String invoiceSectionName) {
-        this.billingAccountName = billingAccountName;
-        this.billingProfileName = billingProfileName;
-        this.id = id;
-        this.invoiceSectionName = invoiceSectionName;
-    }
-
+    private GetMcaAccountScopeResult() {}
     public String billingAccountName() {
         return this.billingAccountName;
     }
@@ -54,17 +43,13 @@ public final class GetMcaAccountScopeResult {
     public static Builder builder(GetMcaAccountScopeResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String billingAccountName;
         private String billingProfileName;
         private String id;
         private String invoiceSectionName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetMcaAccountScopeResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.billingAccountName = defaults.billingAccountName;
@@ -73,23 +58,33 @@ public final class GetMcaAccountScopeResult {
     	      this.invoiceSectionName = defaults.invoiceSectionName;
         }
 
+        @CustomType.Setter
         public Builder billingAccountName(String billingAccountName) {
             this.billingAccountName = Objects.requireNonNull(billingAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder billingProfileName(String billingProfileName) {
             this.billingProfileName = Objects.requireNonNull(billingProfileName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder invoiceSectionName(String invoiceSectionName) {
             this.invoiceSectionName = Objects.requireNonNull(invoiceSectionName);
             return this;
-        }        public GetMcaAccountScopeResult build() {
-            return new GetMcaAccountScopeResult(billingAccountName, billingProfileName, id, invoiceSectionName);
+        }
+        public GetMcaAccountScopeResult build() {
+            final var o = new GetMcaAccountScopeResult();
+            o.billingAccountName = billingAccountName;
+            o.billingProfileName = billingProfileName;
+            o.id = id;
+            o.invoiceSectionName = invoiceSectionName;
+            return o;
         }
     }
 }

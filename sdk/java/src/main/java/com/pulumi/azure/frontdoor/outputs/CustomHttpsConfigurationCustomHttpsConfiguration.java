@@ -15,48 +15,31 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
      * @return The name of the Key Vault secret representing the full certificate PFX.
      * 
      */
-    private final @Nullable String azureKeyVaultCertificateSecretName;
+    private @Nullable String azureKeyVaultCertificateSecretName;
     /**
      * @return The version of the Key Vault secret representing the full certificate PFX. Defaults to `Latest`.
      * 
      */
-    private final @Nullable String azureKeyVaultCertificateSecretVersion;
+    private @Nullable String azureKeyVaultCertificateSecretVersion;
     /**
      * @return The ID of the Key Vault containing the SSL certificate.
      * 
      */
-    private final @Nullable String azureKeyVaultCertificateVaultId;
+    private @Nullable String azureKeyVaultCertificateVaultId;
     /**
      * @return Certificate source to encrypted `HTTPS` traffic with. Allowed values are `FrontDoor` or `AzureKeyVault`. Defaults to `FrontDoor`.
      * 
      */
-    private final @Nullable String certificateSource;
+    private @Nullable String certificateSource;
     /**
      * @return Minimum client TLS version supported.
      * 
      */
-    private final @Nullable String minimumTlsVersion;
-    private final @Nullable String provisioningState;
-    private final @Nullable String provisioningSubstate;
+    private @Nullable String minimumTlsVersion;
+    private @Nullable String provisioningState;
+    private @Nullable String provisioningSubstate;
 
-    @CustomType.Constructor
-    private CustomHttpsConfigurationCustomHttpsConfiguration(
-        @CustomType.Parameter("azureKeyVaultCertificateSecretName") @Nullable String azureKeyVaultCertificateSecretName,
-        @CustomType.Parameter("azureKeyVaultCertificateSecretVersion") @Nullable String azureKeyVaultCertificateSecretVersion,
-        @CustomType.Parameter("azureKeyVaultCertificateVaultId") @Nullable String azureKeyVaultCertificateVaultId,
-        @CustomType.Parameter("certificateSource") @Nullable String certificateSource,
-        @CustomType.Parameter("minimumTlsVersion") @Nullable String minimumTlsVersion,
-        @CustomType.Parameter("provisioningState") @Nullable String provisioningState,
-        @CustomType.Parameter("provisioningSubstate") @Nullable String provisioningSubstate) {
-        this.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
-        this.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
-        this.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
-        this.certificateSource = certificateSource;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.provisioningState = provisioningState;
-        this.provisioningSubstate = provisioningSubstate;
-    }
-
+    private CustomHttpsConfigurationCustomHttpsConfiguration() {}
     /**
      * @return The name of the Key Vault secret representing the full certificate PFX.
      * 
@@ -106,7 +89,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
     public static Builder builder(CustomHttpsConfigurationCustomHttpsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String azureKeyVaultCertificateSecretName;
         private @Nullable String azureKeyVaultCertificateSecretVersion;
@@ -115,11 +98,7 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
         private @Nullable String minimumTlsVersion;
         private @Nullable String provisioningState;
         private @Nullable String provisioningSubstate;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CustomHttpsConfigurationCustomHttpsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureKeyVaultCertificateSecretName = defaults.azureKeyVaultCertificateSecretName;
@@ -131,35 +110,51 @@ public final class CustomHttpsConfigurationCustomHttpsConfiguration {
     	      this.provisioningSubstate = defaults.provisioningSubstate;
         }
 
+        @CustomType.Setter
         public Builder azureKeyVaultCertificateSecretName(@Nullable String azureKeyVaultCertificateSecretName) {
             this.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
             return this;
         }
+        @CustomType.Setter
         public Builder azureKeyVaultCertificateSecretVersion(@Nullable String azureKeyVaultCertificateSecretVersion) {
             this.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder azureKeyVaultCertificateVaultId(@Nullable String azureKeyVaultCertificateVaultId) {
             this.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
             return this;
         }
+        @CustomType.Setter
         public Builder certificateSource(@Nullable String certificateSource) {
             this.certificateSource = certificateSource;
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningState(@Nullable String provisioningState) {
             this.provisioningState = provisioningState;
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningSubstate(@Nullable String provisioningSubstate) {
             this.provisioningSubstate = provisioningSubstate;
             return this;
-        }        public CustomHttpsConfigurationCustomHttpsConfiguration build() {
-            return new CustomHttpsConfigurationCustomHttpsConfiguration(azureKeyVaultCertificateSecretName, azureKeyVaultCertificateSecretVersion, azureKeyVaultCertificateVaultId, certificateSource, minimumTlsVersion, provisioningState, provisioningSubstate);
+        }
+        public CustomHttpsConfigurationCustomHttpsConfiguration build() {
+            final var o = new CustomHttpsConfigurationCustomHttpsConfiguration();
+            o.azureKeyVaultCertificateSecretName = azureKeyVaultCertificateSecretName;
+            o.azureKeyVaultCertificateSecretVersion = azureKeyVaultCertificateSecretVersion;
+            o.azureKeyVaultCertificateVaultId = azureKeyVaultCertificateVaultId;
+            o.certificateSource = certificateSource;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.provisioningState = provisioningState;
+            o.provisioningSubstate = provisioningSubstate;
+            return o;
         }
     }
 }

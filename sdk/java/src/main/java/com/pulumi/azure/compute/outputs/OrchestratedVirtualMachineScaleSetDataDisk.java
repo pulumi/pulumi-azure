@@ -13,38 +13,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetDataDisk {
-    private final String caching;
-    private final @Nullable String createOption;
-    private final @Nullable String diskEncryptionSetId;
-    private final Integer diskSizeGb;
-    private final Integer lun;
-    private final String storageAccountType;
-    private final @Nullable Integer ultraSsdDiskIopsReadWrite;
-    private final @Nullable Integer ultraSsdDiskMbpsReadWrite;
-    private final @Nullable Boolean writeAcceleratorEnabled;
+    private String caching;
+    private @Nullable String createOption;
+    private @Nullable String diskEncryptionSetId;
+    private Integer diskSizeGb;
+    private Integer lun;
+    private String storageAccountType;
+    private @Nullable Integer ultraSsdDiskIopsReadWrite;
+    private @Nullable Integer ultraSsdDiskMbpsReadWrite;
+    private @Nullable Boolean writeAcceleratorEnabled;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetDataDisk(
-        @CustomType.Parameter("caching") String caching,
-        @CustomType.Parameter("createOption") @Nullable String createOption,
-        @CustomType.Parameter("diskEncryptionSetId") @Nullable String diskEncryptionSetId,
-        @CustomType.Parameter("diskSizeGb") Integer diskSizeGb,
-        @CustomType.Parameter("lun") Integer lun,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("ultraSsdDiskIopsReadWrite") @Nullable Integer ultraSsdDiskIopsReadWrite,
-        @CustomType.Parameter("ultraSsdDiskMbpsReadWrite") @Nullable Integer ultraSsdDiskMbpsReadWrite,
-        @CustomType.Parameter("writeAcceleratorEnabled") @Nullable Boolean writeAcceleratorEnabled) {
-        this.caching = caching;
-        this.createOption = createOption;
-        this.diskEncryptionSetId = diskEncryptionSetId;
-        this.diskSizeGb = diskSizeGb;
-        this.lun = lun;
-        this.storageAccountType = storageAccountType;
-        this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-        this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
-        this.writeAcceleratorEnabled = writeAcceleratorEnabled;
-    }
-
+    private OrchestratedVirtualMachineScaleSetDataDisk() {}
     public String caching() {
         return this.caching;
     }
@@ -80,7 +59,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     public static Builder builder(OrchestratedVirtualMachineScaleSetDataDisk defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String caching;
         private @Nullable String createOption;
@@ -91,11 +70,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         private @Nullable Integer ultraSsdDiskIopsReadWrite;
         private @Nullable Integer ultraSsdDiskMbpsReadWrite;
         private @Nullable Boolean writeAcceleratorEnabled;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetDataDisk defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caching = defaults.caching;
@@ -109,43 +84,63 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
     	      this.writeAcceleratorEnabled = defaults.writeAcceleratorEnabled;
         }
 
+        @CustomType.Setter
         public Builder caching(String caching) {
             this.caching = Objects.requireNonNull(caching);
             return this;
         }
+        @CustomType.Setter
         public Builder createOption(@Nullable String createOption) {
             this.createOption = createOption;
             return this;
         }
+        @CustomType.Setter
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
             this.diskEncryptionSetId = diskEncryptionSetId;
             return this;
         }
+        @CustomType.Setter
         public Builder diskSizeGb(Integer diskSizeGb) {
             this.diskSizeGb = Objects.requireNonNull(diskSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder lun(Integer lun) {
             this.lun = Objects.requireNonNull(lun);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder ultraSsdDiskIopsReadWrite(@Nullable Integer ultraSsdDiskIopsReadWrite) {
             this.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
             return this;
         }
+        @CustomType.Setter
         public Builder ultraSsdDiskMbpsReadWrite(@Nullable Integer ultraSsdDiskMbpsReadWrite) {
             this.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             return this;
         }
+        @CustomType.Setter
         public Builder writeAcceleratorEnabled(@Nullable Boolean writeAcceleratorEnabled) {
             this.writeAcceleratorEnabled = writeAcceleratorEnabled;
             return this;
-        }        public OrchestratedVirtualMachineScaleSetDataDisk build() {
-            return new OrchestratedVirtualMachineScaleSetDataDisk(caching, createOption, diskEncryptionSetId, diskSizeGb, lun, storageAccountType, ultraSsdDiskIopsReadWrite, ultraSsdDiskMbpsReadWrite, writeAcceleratorEnabled);
+        }
+        public OrchestratedVirtualMachineScaleSetDataDisk build() {
+            final var o = new OrchestratedVirtualMachineScaleSetDataDisk();
+            o.caching = caching;
+            o.createOption = createOption;
+            o.diskEncryptionSetId = diskEncryptionSetId;
+            o.diskSizeGb = diskSizeGb;
+            o.lun = lun;
+            o.storageAccountType = storageAccountType;
+            o.ultraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
+            o.ultraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
+            o.writeAcceleratorEnabled = writeAcceleratorEnabled;
+            return o;
         }
     }
 }

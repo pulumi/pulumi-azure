@@ -13,21 +13,14 @@ public final class AuthorizationServerTokenBodyParameter {
      * @return The Name of the Parameter.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Value of the Parameter.
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private AuthorizationServerTokenBodyParameter(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("value") String value) {
-        this.name = name;
-        this.value = value;
-    }
-
+    private AuthorizationServerTokenBodyParameter() {}
     /**
      * @return The Name of the Parameter.
      * 
@@ -50,30 +43,32 @@ public final class AuthorizationServerTokenBodyParameter {
     public static Builder builder(AuthorizationServerTokenBodyParameter defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AuthorizationServerTokenBodyParameter defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public AuthorizationServerTokenBodyParameter build() {
-            return new AuthorizationServerTokenBodyParameter(name, value);
+        }
+        public AuthorizationServerTokenBodyParameter build() {
+            final var o = new AuthorizationServerTokenBodyParameter();
+            o.name = name;
+            o.value = value;
+            return o;
         }
     }
 }

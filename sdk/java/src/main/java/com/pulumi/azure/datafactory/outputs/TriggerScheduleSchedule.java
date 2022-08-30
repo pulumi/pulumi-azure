@@ -17,42 +17,29 @@ public final class TriggerScheduleSchedule {
      * @return Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
      * 
      */
-    private final @Nullable List<Integer> daysOfMonths;
+    private @Nullable List<Integer> daysOfMonths;
     /**
      * @return Days of the week on which the trigger is scheduled. This value can be specified only with a weekly frequency.
      * 
      */
-    private final @Nullable List<String> daysOfWeeks;
+    private @Nullable List<String> daysOfWeeks;
     /**
      * @return Hours of the day on which the trigger is scheduled.
      * 
      */
-    private final @Nullable List<Integer> hours;
+    private @Nullable List<Integer> hours;
     /**
      * @return Minutes of the hour on which the trigger is scheduled.
      * 
      */
-    private final @Nullable List<Integer> minutes;
+    private @Nullable List<Integer> minutes;
     /**
      * @return A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
      * 
      */
-    private final @Nullable List<TriggerScheduleScheduleMonthly> monthlies;
+    private @Nullable List<TriggerScheduleScheduleMonthly> monthlies;
 
-    @CustomType.Constructor
-    private TriggerScheduleSchedule(
-        @CustomType.Parameter("daysOfMonths") @Nullable List<Integer> daysOfMonths,
-        @CustomType.Parameter("daysOfWeeks") @Nullable List<String> daysOfWeeks,
-        @CustomType.Parameter("hours") @Nullable List<Integer> hours,
-        @CustomType.Parameter("minutes") @Nullable List<Integer> minutes,
-        @CustomType.Parameter("monthlies") @Nullable List<TriggerScheduleScheduleMonthly> monthlies) {
-        this.daysOfMonths = daysOfMonths;
-        this.daysOfWeeks = daysOfWeeks;
-        this.hours = hours;
-        this.minutes = minutes;
-        this.monthlies = monthlies;
-    }
-
+    private TriggerScheduleSchedule() {}
     /**
      * @return Day(s) of the month on which the trigger is scheduled. This value can be specified with a monthly frequency only.
      * 
@@ -96,18 +83,14 @@ public final class TriggerScheduleSchedule {
     public static Builder builder(TriggerScheduleSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<Integer> daysOfMonths;
         private @Nullable List<String> daysOfWeeks;
         private @Nullable List<Integer> hours;
         private @Nullable List<Integer> minutes;
         private @Nullable List<TriggerScheduleScheduleMonthly> monthlies;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(TriggerScheduleSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.daysOfMonths = defaults.daysOfMonths;
@@ -117,6 +100,7 @@ public final class TriggerScheduleSchedule {
     	      this.monthlies = defaults.monthlies;
         }
 
+        @CustomType.Setter
         public Builder daysOfMonths(@Nullable List<Integer> daysOfMonths) {
             this.daysOfMonths = daysOfMonths;
             return this;
@@ -124,6 +108,7 @@ public final class TriggerScheduleSchedule {
         public Builder daysOfMonths(Integer... daysOfMonths) {
             return daysOfMonths(List.of(daysOfMonths));
         }
+        @CustomType.Setter
         public Builder daysOfWeeks(@Nullable List<String> daysOfWeeks) {
             this.daysOfWeeks = daysOfWeeks;
             return this;
@@ -131,6 +116,7 @@ public final class TriggerScheduleSchedule {
         public Builder daysOfWeeks(String... daysOfWeeks) {
             return daysOfWeeks(List.of(daysOfWeeks));
         }
+        @CustomType.Setter
         public Builder hours(@Nullable List<Integer> hours) {
             this.hours = hours;
             return this;
@@ -138,6 +124,7 @@ public final class TriggerScheduleSchedule {
         public Builder hours(Integer... hours) {
             return hours(List.of(hours));
         }
+        @CustomType.Setter
         public Builder minutes(@Nullable List<Integer> minutes) {
             this.minutes = minutes;
             return this;
@@ -145,14 +132,22 @@ public final class TriggerScheduleSchedule {
         public Builder minutes(Integer... minutes) {
             return minutes(List.of(minutes));
         }
+        @CustomType.Setter
         public Builder monthlies(@Nullable List<TriggerScheduleScheduleMonthly> monthlies) {
             this.monthlies = monthlies;
             return this;
         }
         public Builder monthlies(TriggerScheduleScheduleMonthly... monthlies) {
             return monthlies(List.of(monthlies));
-        }        public TriggerScheduleSchedule build() {
-            return new TriggerScheduleSchedule(daysOfMonths, daysOfWeeks, hours, minutes, monthlies);
+        }
+        public TriggerScheduleSchedule build() {
+            final var o = new TriggerScheduleSchedule();
+            o.daysOfMonths = daysOfMonths;
+            o.daysOfWeeks = daysOfWeeks;
+            o.hours = hours;
+            o.minutes = minutes;
+            o.monthlies = monthlies;
+            return o;
         }
     }
 }

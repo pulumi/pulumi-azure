@@ -16,49 +16,34 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
      * @return The version of .Net. Possible values are `3.1` and `6`
      * 
      */
-    private final @Nullable String dotnetVersion;
+    private @Nullable String dotnetVersion;
     /**
      * @return The version of Java to use. Possible values are `8`, and `11`
      * 
      */
-    private final @Nullable String javaVersion;
+    private @Nullable String javaVersion;
     /**
      * @return The version of Node to use. Possible values include `12`, and `14`
      * 
      */
-    private final @Nullable String nodeVersion;
+    private @Nullable String nodeVersion;
     /**
      * @return The PowerShell Core version to use. Possible values are `7`, and `7.2`.
      * 
      */
-    private final @Nullable String powershellCoreVersion;
+    private @Nullable String powershellCoreVersion;
     /**
      * @return Does the Function App use a custom Application Stack?
      * 
      */
-    private final @Nullable Boolean useCustomRuntime;
+    private @Nullable Boolean useCustomRuntime;
     /**
      * @return Should the DotNet process use an isolated runtime. Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean useDotnetIsolatedRuntime;
+    private @Nullable Boolean useDotnetIsolatedRuntime;
 
-    @CustomType.Constructor
-    private WindowsFunctionAppSlotSiteConfigApplicationStack(
-        @CustomType.Parameter("dotnetVersion") @Nullable String dotnetVersion,
-        @CustomType.Parameter("javaVersion") @Nullable String javaVersion,
-        @CustomType.Parameter("nodeVersion") @Nullable String nodeVersion,
-        @CustomType.Parameter("powershellCoreVersion") @Nullable String powershellCoreVersion,
-        @CustomType.Parameter("useCustomRuntime") @Nullable Boolean useCustomRuntime,
-        @CustomType.Parameter("useDotnetIsolatedRuntime") @Nullable Boolean useDotnetIsolatedRuntime) {
-        this.dotnetVersion = dotnetVersion;
-        this.javaVersion = javaVersion;
-        this.nodeVersion = nodeVersion;
-        this.powershellCoreVersion = powershellCoreVersion;
-        this.useCustomRuntime = useCustomRuntime;
-        this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
-    }
-
+    private WindowsFunctionAppSlotSiteConfigApplicationStack() {}
     /**
      * @return The version of .Net. Possible values are `3.1` and `6`
      * 
@@ -109,7 +94,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
     public static Builder builder(WindowsFunctionAppSlotSiteConfigApplicationStack defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String dotnetVersion;
         private @Nullable String javaVersion;
@@ -117,11 +102,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
         private @Nullable String powershellCoreVersion;
         private @Nullable Boolean useCustomRuntime;
         private @Nullable Boolean useDotnetIsolatedRuntime;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsFunctionAppSlotSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dotnetVersion = defaults.dotnetVersion;
@@ -132,31 +113,45 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
     	      this.useDotnetIsolatedRuntime = defaults.useDotnetIsolatedRuntime;
         }
 
+        @CustomType.Setter
         public Builder dotnetVersion(@Nullable String dotnetVersion) {
             this.dotnetVersion = dotnetVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder javaVersion(@Nullable String javaVersion) {
             this.javaVersion = javaVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder nodeVersion(@Nullable String nodeVersion) {
             this.nodeVersion = nodeVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder powershellCoreVersion(@Nullable String powershellCoreVersion) {
             this.powershellCoreVersion = powershellCoreVersion;
             return this;
         }
+        @CustomType.Setter
         public Builder useCustomRuntime(@Nullable Boolean useCustomRuntime) {
             this.useCustomRuntime = useCustomRuntime;
             return this;
         }
+        @CustomType.Setter
         public Builder useDotnetIsolatedRuntime(@Nullable Boolean useDotnetIsolatedRuntime) {
             this.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
             return this;
-        }        public WindowsFunctionAppSlotSiteConfigApplicationStack build() {
-            return new WindowsFunctionAppSlotSiteConfigApplicationStack(dotnetVersion, javaVersion, nodeVersion, powershellCoreVersion, useCustomRuntime, useDotnetIsolatedRuntime);
+        }
+        public WindowsFunctionAppSlotSiteConfigApplicationStack build() {
+            final var o = new WindowsFunctionAppSlotSiteConfigApplicationStack();
+            o.dotnetVersion = dotnetVersion;
+            o.javaVersion = javaVersion;
+            o.nodeVersion = nodeVersion;
+            o.powershellCoreVersion = powershellCoreVersion;
+            o.useCustomRuntime = useCustomRuntime;
+            o.useDotnetIsolatedRuntime = useDotnetIsolatedRuntime;
+            return o;
         }
     }
 }

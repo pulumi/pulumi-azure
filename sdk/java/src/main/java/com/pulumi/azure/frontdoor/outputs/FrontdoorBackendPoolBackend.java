@@ -17,56 +17,39 @@ public final class FrontdoorBackendPoolBackend {
      * @return Location of the backend (IP address or FQDN)
      * 
      */
-    private final String address;
+    private String address;
     /**
      * @return Specifies if the backend is enabled or not. Valid options are `true` or `false`. Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean enabled;
+    private @Nullable Boolean enabled;
     /**
      * @return The value to use as the host header sent to the backend.
      * 
      */
-    private final String hostHeader;
+    private String hostHeader;
     /**
      * @return The HTTP TCP port number. Possible values are between `1` - `65535`.
      * 
      */
-    private final Integer httpPort;
+    private Integer httpPort;
     /**
      * @return The HTTPS TCP port number. Possible values are between `1` - `65535`.
      * 
      */
-    private final Integer httpsPort;
+    private Integer httpsPort;
     /**
      * @return Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to `1`.
      * 
      */
-    private final @Nullable Integer priority;
+    private @Nullable Integer priority;
     /**
      * @return Weight of this endpoint for load balancing purposes. Defaults to `50`.
      * 
      */
-    private final @Nullable Integer weight;
+    private @Nullable Integer weight;
 
-    @CustomType.Constructor
-    private FrontdoorBackendPoolBackend(
-        @CustomType.Parameter("address") String address,
-        @CustomType.Parameter("enabled") @Nullable Boolean enabled,
-        @CustomType.Parameter("hostHeader") String hostHeader,
-        @CustomType.Parameter("httpPort") Integer httpPort,
-        @CustomType.Parameter("httpsPort") Integer httpsPort,
-        @CustomType.Parameter("priority") @Nullable Integer priority,
-        @CustomType.Parameter("weight") @Nullable Integer weight) {
-        this.address = address;
-        this.enabled = enabled;
-        this.hostHeader = hostHeader;
-        this.httpPort = httpPort;
-        this.httpsPort = httpsPort;
-        this.priority = priority;
-        this.weight = weight;
-    }
-
+    private FrontdoorBackendPoolBackend() {}
     /**
      * @return Location of the backend (IP address or FQDN)
      * 
@@ -124,7 +107,7 @@ public final class FrontdoorBackendPoolBackend {
     public static Builder builder(FrontdoorBackendPoolBackend defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String address;
         private @Nullable Boolean enabled;
@@ -133,11 +116,7 @@ public final class FrontdoorBackendPoolBackend {
         private Integer httpsPort;
         private @Nullable Integer priority;
         private @Nullable Integer weight;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FrontdoorBackendPoolBackend defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.address = defaults.address;
@@ -149,35 +128,51 @@ public final class FrontdoorBackendPoolBackend {
     	      this.weight = defaults.weight;
         }
 
+        @CustomType.Setter
         public Builder address(String address) {
             this.address = Objects.requireNonNull(address);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
             this.enabled = enabled;
             return this;
         }
+        @CustomType.Setter
         public Builder hostHeader(String hostHeader) {
             this.hostHeader = Objects.requireNonNull(hostHeader);
             return this;
         }
+        @CustomType.Setter
         public Builder httpPort(Integer httpPort) {
             this.httpPort = Objects.requireNonNull(httpPort);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsPort(Integer httpsPort) {
             this.httpsPort = Objects.requireNonNull(httpsPort);
             return this;
         }
+        @CustomType.Setter
         public Builder priority(@Nullable Integer priority) {
             this.priority = priority;
             return this;
         }
+        @CustomType.Setter
         public Builder weight(@Nullable Integer weight) {
             this.weight = weight;
             return this;
-        }        public FrontdoorBackendPoolBackend build() {
-            return new FrontdoorBackendPoolBackend(address, enabled, hostHeader, httpPort, httpsPort, priority, weight);
+        }
+        public FrontdoorBackendPoolBackend build() {
+            final var o = new FrontdoorBackendPoolBackend();
+            o.address = address;
+            o.enabled = enabled;
+            o.hostHeader = hostHeader;
+            o.httpPort = httpPort;
+            o.httpsPort = httpsPort;
+            o.priority = priority;
+            o.weight = weight;
+            return o;
         }
     }
 }

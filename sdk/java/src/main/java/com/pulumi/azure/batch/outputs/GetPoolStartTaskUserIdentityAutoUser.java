@@ -13,21 +13,14 @@ public final class GetPoolStartTaskUserIdentityAutoUser {
      * @return The elevation level of the user identity under which the start task runs.
      * 
      */
-    private final String elevationLevel;
+    private String elevationLevel;
     /**
      * @return The scope of the user identity under which the start task runs.
      * 
      */
-    private final String scope;
+    private String scope;
 
-    @CustomType.Constructor
-    private GetPoolStartTaskUserIdentityAutoUser(
-        @CustomType.Parameter("elevationLevel") String elevationLevel,
-        @CustomType.Parameter("scope") String scope) {
-        this.elevationLevel = elevationLevel;
-        this.scope = scope;
-    }
-
+    private GetPoolStartTaskUserIdentityAutoUser() {}
     /**
      * @return The elevation level of the user identity under which the start task runs.
      * 
@@ -50,30 +43,32 @@ public final class GetPoolStartTaskUserIdentityAutoUser {
     public static Builder builder(GetPoolStartTaskUserIdentityAutoUser defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String elevationLevel;
         private String scope;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetPoolStartTaskUserIdentityAutoUser defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.elevationLevel = defaults.elevationLevel;
     	      this.scope = defaults.scope;
         }
 
+        @CustomType.Setter
         public Builder elevationLevel(String elevationLevel) {
             this.elevationLevel = Objects.requireNonNull(elevationLevel);
             return this;
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
-        }        public GetPoolStartTaskUserIdentityAutoUser build() {
-            return new GetPoolStartTaskUserIdentityAutoUser(elevationLevel, scope);
+        }
+        public GetPoolStartTaskUserIdentityAutoUser build() {
+            final var o = new GetPoolStartTaskUserIdentityAutoUser();
+            o.elevationLevel = elevationLevel;
+            o.scope = scope;
+            return o;
         }
     }
 }

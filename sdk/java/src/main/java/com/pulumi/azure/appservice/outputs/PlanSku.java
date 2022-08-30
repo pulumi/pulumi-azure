@@ -16,28 +16,19 @@ public final class PlanSku {
      * @return Specifies the number of workers associated with this App Service Plan.
      * 
      */
-    private final @Nullable Integer capacity;
+    private @Nullable Integer capacity;
     /**
      * @return Specifies the plan&#39;s instance size.
      * 
      */
-    private final String size;
+    private String size;
     /**
      * @return Specifies the plan&#39;s pricing tier.
      * 
      */
-    private final String tier;
+    private String tier;
 
-    @CustomType.Constructor
-    private PlanSku(
-        @CustomType.Parameter("capacity") @Nullable Integer capacity,
-        @CustomType.Parameter("size") String size,
-        @CustomType.Parameter("tier") String tier) {
-        this.capacity = capacity;
-        this.size = size;
-        this.tier = tier;
-    }
-
+    private PlanSku() {}
     /**
      * @return Specifies the number of workers associated with this App Service Plan.
      * 
@@ -67,16 +58,12 @@ public final class PlanSku {
     public static Builder builder(PlanSku defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Integer capacity;
         private String size;
         private String tier;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(PlanSku defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.capacity = defaults.capacity;
@@ -84,19 +71,27 @@ public final class PlanSku {
     	      this.tier = defaults.tier;
         }
 
+        @CustomType.Setter
         public Builder capacity(@Nullable Integer capacity) {
             this.capacity = capacity;
             return this;
         }
+        @CustomType.Setter
         public Builder size(String size) {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        @CustomType.Setter
         public Builder tier(String tier) {
             this.tier = Objects.requireNonNull(tier);
             return this;
-        }        public PlanSku build() {
-            return new PlanSku(capacity, size, tier);
+        }
+        public PlanSku build() {
+            final var o = new PlanSku();
+            o.capacity = capacity;
+            o.size = size;
+            o.tier = tier;
+            return o;
         }
     }
 }

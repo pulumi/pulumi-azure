@@ -15,35 +15,24 @@ public final class CertificateOrderCertificate {
      * @return The name of the App Service Certificate.
      * 
      */
-    private final @Nullable String certificateName;
+    private @Nullable String certificateName;
     /**
      * @return Key Vault resource Id.
      * 
      */
-    private final @Nullable String keyVaultId;
+    private @Nullable String keyVaultId;
     /**
      * @return Key Vault secret name.
      * 
      */
-    private final @Nullable String keyVaultSecretName;
+    private @Nullable String keyVaultSecretName;
     /**
      * @return Status of the Key Vault secret.
      * 
      */
-    private final @Nullable String provisioningState;
+    private @Nullable String provisioningState;
 
-    @CustomType.Constructor
-    private CertificateOrderCertificate(
-        @CustomType.Parameter("certificateName") @Nullable String certificateName,
-        @CustomType.Parameter("keyVaultId") @Nullable String keyVaultId,
-        @CustomType.Parameter("keyVaultSecretName") @Nullable String keyVaultSecretName,
-        @CustomType.Parameter("provisioningState") @Nullable String provisioningState) {
-        this.certificateName = certificateName;
-        this.keyVaultId = keyVaultId;
-        this.keyVaultSecretName = keyVaultSecretName;
-        this.provisioningState = provisioningState;
-    }
-
+    private CertificateOrderCertificate() {}
     /**
      * @return The name of the App Service Certificate.
      * 
@@ -80,17 +69,13 @@ public final class CertificateOrderCertificate {
     public static Builder builder(CertificateOrderCertificate defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateName;
         private @Nullable String keyVaultId;
         private @Nullable String keyVaultSecretName;
         private @Nullable String provisioningState;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateOrderCertificate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateName = defaults.certificateName;
@@ -99,23 +84,33 @@ public final class CertificateOrderCertificate {
     	      this.provisioningState = defaults.provisioningState;
         }
 
+        @CustomType.Setter
         public Builder certificateName(@Nullable String certificateName) {
             this.certificateName = certificateName;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultId(@Nullable String keyVaultId) {
             this.keyVaultId = keyVaultId;
             return this;
         }
+        @CustomType.Setter
         public Builder keyVaultSecretName(@Nullable String keyVaultSecretName) {
             this.keyVaultSecretName = keyVaultSecretName;
             return this;
         }
+        @CustomType.Setter
         public Builder provisioningState(@Nullable String provisioningState) {
             this.provisioningState = provisioningState;
             return this;
-        }        public CertificateOrderCertificate build() {
-            return new CertificateOrderCertificate(certificateName, keyVaultId, keyVaultSecretName, provisioningState);
+        }
+        public CertificateOrderCertificate build() {
+            final var o = new CertificateOrderCertificate();
+            o.certificateName = certificateName;
+            o.keyVaultId = keyVaultId;
+            o.keyVaultSecretName = keyVaultSecretName;
+            o.provisioningState = provisioningState;
+            return o;
         }
     }
 }

@@ -11,78 +11,49 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSubnetResult {
-    private final String addressPrefix;
+    private String addressPrefix;
     /**
      * @return The address prefixes for the subnet.
      * 
      */
-    private final List<String> addressPrefixes;
-    private final Boolean enforcePrivateLinkEndpointNetworkPolicies;
-    private final Boolean enforcePrivateLinkServiceNetworkPolicies;
+    private List<String> addressPrefixes;
+    private Boolean enforcePrivateLinkEndpointNetworkPolicies;
+    private Boolean enforcePrivateLinkServiceNetworkPolicies;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
-    private final String name;
+    private String id;
+    private String name;
     /**
      * @return The ID of the Network Security Group associated with the subnet.
      * 
      */
-    private final String networkSecurityGroupId;
+    private String networkSecurityGroupId;
     /**
      * @return Enable or Disable network policies for the private endpoint on the subnet.
      * 
      */
-    private final Boolean privateEndpointNetworkPoliciesEnabled;
+    private Boolean privateEndpointNetworkPoliciesEnabled;
     /**
      * @return Enable or Disable network policies for the private link service on the subnet.
      * 
      */
-    private final Boolean privateLinkServiceNetworkPoliciesEnabled;
-    private final String resourceGroupName;
+    private Boolean privateLinkServiceNetworkPoliciesEnabled;
+    private String resourceGroupName;
     /**
      * @return The ID of the Route Table associated with this subnet.
      * 
      */
-    private final String routeTableId;
+    private String routeTableId;
     /**
      * @return A list of Service Endpoints within this subnet.
      * 
      */
-    private final List<String> serviceEndpoints;
-    private final String virtualNetworkName;
+    private List<String> serviceEndpoints;
+    private String virtualNetworkName;
 
-    @CustomType.Constructor
-    private GetSubnetResult(
-        @CustomType.Parameter("addressPrefix") String addressPrefix,
-        @CustomType.Parameter("addressPrefixes") List<String> addressPrefixes,
-        @CustomType.Parameter("enforcePrivateLinkEndpointNetworkPolicies") Boolean enforcePrivateLinkEndpointNetworkPolicies,
-        @CustomType.Parameter("enforcePrivateLinkServiceNetworkPolicies") Boolean enforcePrivateLinkServiceNetworkPolicies,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("networkSecurityGroupId") String networkSecurityGroupId,
-        @CustomType.Parameter("privateEndpointNetworkPoliciesEnabled") Boolean privateEndpointNetworkPoliciesEnabled,
-        @CustomType.Parameter("privateLinkServiceNetworkPoliciesEnabled") Boolean privateLinkServiceNetworkPoliciesEnabled,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("routeTableId") String routeTableId,
-        @CustomType.Parameter("serviceEndpoints") List<String> serviceEndpoints,
-        @CustomType.Parameter("virtualNetworkName") String virtualNetworkName) {
-        this.addressPrefix = addressPrefix;
-        this.addressPrefixes = addressPrefixes;
-        this.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
-        this.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
-        this.id = id;
-        this.name = name;
-        this.networkSecurityGroupId = networkSecurityGroupId;
-        this.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
-        this.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
-        this.resourceGroupName = resourceGroupName;
-        this.routeTableId = routeTableId;
-        this.serviceEndpoints = serviceEndpoints;
-        this.virtualNetworkName = virtualNetworkName;
-    }
-
+    private GetSubnetResult() {}
     public String addressPrefix() {
         return this.addressPrefix;
     }
@@ -158,7 +129,7 @@ public final class GetSubnetResult {
     public static Builder builder(GetSubnetResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String addressPrefix;
         private List<String> addressPrefixes;
@@ -173,11 +144,7 @@ public final class GetSubnetResult {
         private String routeTableId;
         private List<String> serviceEndpoints;
         private String virtualNetworkName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetSubnetResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.addressPrefix = defaults.addressPrefix;
@@ -195,10 +162,12 @@ public final class GetSubnetResult {
     	      this.virtualNetworkName = defaults.virtualNetworkName;
         }
 
+        @CustomType.Setter
         public Builder addressPrefix(String addressPrefix) {
             this.addressPrefix = Objects.requireNonNull(addressPrefix);
             return this;
         }
+        @CustomType.Setter
         public Builder addressPrefixes(List<String> addressPrefixes) {
             this.addressPrefixes = Objects.requireNonNull(addressPrefixes);
             return this;
@@ -206,42 +175,52 @@ public final class GetSubnetResult {
         public Builder addressPrefixes(String... addressPrefixes) {
             return addressPrefixes(List.of(addressPrefixes));
         }
+        @CustomType.Setter
         public Builder enforcePrivateLinkEndpointNetworkPolicies(Boolean enforcePrivateLinkEndpointNetworkPolicies) {
             this.enforcePrivateLinkEndpointNetworkPolicies = Objects.requireNonNull(enforcePrivateLinkEndpointNetworkPolicies);
             return this;
         }
+        @CustomType.Setter
         public Builder enforcePrivateLinkServiceNetworkPolicies(Boolean enforcePrivateLinkServiceNetworkPolicies) {
             this.enforcePrivateLinkServiceNetworkPolicies = Objects.requireNonNull(enforcePrivateLinkServiceNetworkPolicies);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder networkSecurityGroupId(String networkSecurityGroupId) {
             this.networkSecurityGroupId = Objects.requireNonNull(networkSecurityGroupId);
             return this;
         }
+        @CustomType.Setter
         public Builder privateEndpointNetworkPoliciesEnabled(Boolean privateEndpointNetworkPoliciesEnabled) {
             this.privateEndpointNetworkPoliciesEnabled = Objects.requireNonNull(privateEndpointNetworkPoliciesEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder privateLinkServiceNetworkPoliciesEnabled(Boolean privateLinkServiceNetworkPoliciesEnabled) {
             this.privateLinkServiceNetworkPoliciesEnabled = Objects.requireNonNull(privateLinkServiceNetworkPoliciesEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder routeTableId(String routeTableId) {
             this.routeTableId = Objects.requireNonNull(routeTableId);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceEndpoints(List<String> serviceEndpoints) {
             this.serviceEndpoints = Objects.requireNonNull(serviceEndpoints);
             return this;
@@ -249,11 +228,27 @@ public final class GetSubnetResult {
         public Builder serviceEndpoints(String... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
+        @CustomType.Setter
         public Builder virtualNetworkName(String virtualNetworkName) {
             this.virtualNetworkName = Objects.requireNonNull(virtualNetworkName);
             return this;
-        }        public GetSubnetResult build() {
-            return new GetSubnetResult(addressPrefix, addressPrefixes, enforcePrivateLinkEndpointNetworkPolicies, enforcePrivateLinkServiceNetworkPolicies, id, name, networkSecurityGroupId, privateEndpointNetworkPoliciesEnabled, privateLinkServiceNetworkPoliciesEnabled, resourceGroupName, routeTableId, serviceEndpoints, virtualNetworkName);
+        }
+        public GetSubnetResult build() {
+            final var o = new GetSubnetResult();
+            o.addressPrefix = addressPrefix;
+            o.addressPrefixes = addressPrefixes;
+            o.enforcePrivateLinkEndpointNetworkPolicies = enforcePrivateLinkEndpointNetworkPolicies;
+            o.enforcePrivateLinkServiceNetworkPolicies = enforcePrivateLinkServiceNetworkPolicies;
+            o.id = id;
+            o.name = name;
+            o.networkSecurityGroupId = networkSecurityGroupId;
+            o.privateEndpointNetworkPoliciesEnabled = privateEndpointNetworkPoliciesEnabled;
+            o.privateLinkServiceNetworkPoliciesEnabled = privateLinkServiceNetworkPoliciesEnabled;
+            o.resourceGroupName = resourceGroupName;
+            o.routeTableId = routeTableId;
+            o.serviceEndpoints = serviceEndpoints;
+            o.virtualNetworkName = virtualNetworkName;
+            return o;
         }
     }
 }

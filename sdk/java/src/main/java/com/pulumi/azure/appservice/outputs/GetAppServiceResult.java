@@ -20,146 +20,101 @@ public final class GetAppServiceResult {
      * @return The ID of the App Service Plan within which the App Service exists.
      * 
      */
-    private final String appServicePlanId;
+    private String appServicePlanId;
     /**
      * @return A key-value pair of App Settings for the App Service.
      * 
      */
-    private final Map<String,String> appSettings;
+    private Map<String,String> appSettings;
     /**
      * @return Does the App Service send session affinity cookies, which route client requests in the same session to the same instance?
      * 
      */
-    private final Boolean clientAffinityEnabled;
+    private Boolean clientAffinityEnabled;
     /**
      * @return Does the App Service require client certificates for incoming requests?
      * 
      */
-    private final Boolean clientCertEnabled;
+    private Boolean clientCertEnabled;
     /**
      * @return An `connection_string` block as defined below.
      * 
      */
-    private final List<GetAppServiceConnectionString> connectionStrings;
+    private List<GetAppServiceConnectionString> connectionStrings;
     /**
      * @return An identifier used by App Service to perform domain ownership verification via DNS TXT record.
      * 
      */
-    private final String customDomainVerificationId;
+    private String customDomainVerificationId;
     /**
      * @return The Default Hostname associated with the App Service - such as `mysite.azurewebsites.net`
      * 
      */
-    private final String defaultSiteHostname;
+    private String defaultSiteHostname;
     /**
      * @return Is the App Service Enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return Can the App Service only be accessed via HTTPS?
      * 
      */
-    private final Boolean httpsOnly;
+    private Boolean httpsOnly;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Azure location where the App Service exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name for this IP Restriction.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;]`
      * 
      */
-    private final List<String> outboundIpAddressLists;
+    private List<String> outboundIpAddressLists;
     /**
      * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12`
      * 
      */
-    private final String outboundIpAddresses;
+    private String outboundIpAddresses;
     /**
      * @return A list of outbound IP addresses - such as `[&#34;52.23.25.3&#34;, &#34;52.143.43.12&#34;, &#34;52.143.43.17&#34;]` - not all of which are necessarily in use. Superset of `outbound_ip_address_list`.
      * 
      */
-    private final List<String> possibleOutboundIpAddressLists;
+    private List<String> possibleOutboundIpAddressLists;
     /**
      * @return A comma separated list of outbound IP addresses - such as `52.23.25.3,52.143.43.12,52.143.43.17` - not all of which are necessarily in use. Superset of `outbound_ip_addresses`.
      * 
      */
-    private final String possibleOutboundIpAddresses;
-    private final String resourceGroupName;
+    private String possibleOutboundIpAddresses;
+    private String resourceGroupName;
     /**
      * @return A `site_config` block as defined below.
      * 
      */
-    private final List<GetAppServiceSiteConfig> siteConfigs;
-    private final List<GetAppServiceSiteCredential> siteCredentials;
+    private List<GetAppServiceSiteConfig> siteConfigs;
+    private List<GetAppServiceSiteCredential> siteCredentials;
     /**
      * @return A `source_control` block as defined below.
      * 
      */
-    private final List<GetAppServiceSourceControl> sourceControls;
+    private List<GetAppServiceSourceControl> sourceControls;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetAppServiceResult(
-        @CustomType.Parameter("appServicePlanId") String appServicePlanId,
-        @CustomType.Parameter("appSettings") Map<String,String> appSettings,
-        @CustomType.Parameter("clientAffinityEnabled") Boolean clientAffinityEnabled,
-        @CustomType.Parameter("clientCertEnabled") Boolean clientCertEnabled,
-        @CustomType.Parameter("connectionStrings") List<GetAppServiceConnectionString> connectionStrings,
-        @CustomType.Parameter("customDomainVerificationId") String customDomainVerificationId,
-        @CustomType.Parameter("defaultSiteHostname") String defaultSiteHostname,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("httpsOnly") Boolean httpsOnly,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("outboundIpAddressLists") List<String> outboundIpAddressLists,
-        @CustomType.Parameter("outboundIpAddresses") String outboundIpAddresses,
-        @CustomType.Parameter("possibleOutboundIpAddressLists") List<String> possibleOutboundIpAddressLists,
-        @CustomType.Parameter("possibleOutboundIpAddresses") String possibleOutboundIpAddresses,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("siteConfigs") List<GetAppServiceSiteConfig> siteConfigs,
-        @CustomType.Parameter("siteCredentials") List<GetAppServiceSiteCredential> siteCredentials,
-        @CustomType.Parameter("sourceControls") List<GetAppServiceSourceControl> sourceControls,
-        @CustomType.Parameter("tags") Map<String,String> tags) {
-        this.appServicePlanId = appServicePlanId;
-        this.appSettings = appSettings;
-        this.clientAffinityEnabled = clientAffinityEnabled;
-        this.clientCertEnabled = clientCertEnabled;
-        this.connectionStrings = connectionStrings;
-        this.customDomainVerificationId = customDomainVerificationId;
-        this.defaultSiteHostname = defaultSiteHostname;
-        this.enabled = enabled;
-        this.httpsOnly = httpsOnly;
-        this.id = id;
-        this.location = location;
-        this.name = name;
-        this.outboundIpAddressLists = outboundIpAddressLists;
-        this.outboundIpAddresses = outboundIpAddresses;
-        this.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
-        this.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
-        this.resourceGroupName = resourceGroupName;
-        this.siteConfigs = siteConfigs;
-        this.siteCredentials = siteCredentials;
-        this.sourceControls = sourceControls;
-        this.tags = tags;
-    }
-
+    private GetAppServiceResult() {}
     /**
      * @return The ID of the App Service Plan within which the App Service exists.
      * 
@@ -307,7 +262,7 @@ public final class GetAppServiceResult {
     public static Builder builder(GetAppServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String appServicePlanId;
         private Map<String,String> appSettings;
@@ -330,11 +285,7 @@ public final class GetAppServiceResult {
         private List<GetAppServiceSiteCredential> siteCredentials;
         private List<GetAppServiceSourceControl> sourceControls;
         private Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetAppServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appServicePlanId = defaults.appServicePlanId;
@@ -360,22 +311,27 @@ public final class GetAppServiceResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder appServicePlanId(String appServicePlanId) {
             this.appServicePlanId = Objects.requireNonNull(appServicePlanId);
             return this;
         }
+        @CustomType.Setter
         public Builder appSettings(Map<String,String> appSettings) {
             this.appSettings = Objects.requireNonNull(appSettings);
             return this;
         }
+        @CustomType.Setter
         public Builder clientAffinityEnabled(Boolean clientAffinityEnabled) {
             this.clientAffinityEnabled = Objects.requireNonNull(clientAffinityEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder clientCertEnabled(Boolean clientCertEnabled) {
             this.clientCertEnabled = Objects.requireNonNull(clientCertEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder connectionStrings(List<GetAppServiceConnectionString> connectionStrings) {
             this.connectionStrings = Objects.requireNonNull(connectionStrings);
             return this;
@@ -383,34 +339,42 @@ public final class GetAppServiceResult {
         public Builder connectionStrings(GetAppServiceConnectionString... connectionStrings) {
             return connectionStrings(List.of(connectionStrings));
         }
+        @CustomType.Setter
         public Builder customDomainVerificationId(String customDomainVerificationId) {
             this.customDomainVerificationId = Objects.requireNonNull(customDomainVerificationId);
             return this;
         }
+        @CustomType.Setter
         public Builder defaultSiteHostname(String defaultSiteHostname) {
             this.defaultSiteHostname = Objects.requireNonNull(defaultSiteHostname);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder httpsOnly(Boolean httpsOnly) {
             this.httpsOnly = Objects.requireNonNull(httpsOnly);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder outboundIpAddressLists(List<String> outboundIpAddressLists) {
             this.outboundIpAddressLists = Objects.requireNonNull(outboundIpAddressLists);
             return this;
@@ -418,10 +382,12 @@ public final class GetAppServiceResult {
         public Builder outboundIpAddressLists(String... outboundIpAddressLists) {
             return outboundIpAddressLists(List.of(outboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder outboundIpAddresses(String outboundIpAddresses) {
             this.outboundIpAddresses = Objects.requireNonNull(outboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddressLists(List<String> possibleOutboundIpAddressLists) {
             this.possibleOutboundIpAddressLists = Objects.requireNonNull(possibleOutboundIpAddressLists);
             return this;
@@ -429,14 +395,17 @@ public final class GetAppServiceResult {
         public Builder possibleOutboundIpAddressLists(String... possibleOutboundIpAddressLists) {
             return possibleOutboundIpAddressLists(List.of(possibleOutboundIpAddressLists));
         }
+        @CustomType.Setter
         public Builder possibleOutboundIpAddresses(String possibleOutboundIpAddresses) {
             this.possibleOutboundIpAddresses = Objects.requireNonNull(possibleOutboundIpAddresses);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder siteConfigs(List<GetAppServiceSiteConfig> siteConfigs) {
             this.siteConfigs = Objects.requireNonNull(siteConfigs);
             return this;
@@ -444,6 +413,7 @@ public final class GetAppServiceResult {
         public Builder siteConfigs(GetAppServiceSiteConfig... siteConfigs) {
             return siteConfigs(List.of(siteConfigs));
         }
+        @CustomType.Setter
         public Builder siteCredentials(List<GetAppServiceSiteCredential> siteCredentials) {
             this.siteCredentials = Objects.requireNonNull(siteCredentials);
             return this;
@@ -451,6 +421,7 @@ public final class GetAppServiceResult {
         public Builder siteCredentials(GetAppServiceSiteCredential... siteCredentials) {
             return siteCredentials(List.of(siteCredentials));
         }
+        @CustomType.Setter
         public Builder sourceControls(List<GetAppServiceSourceControl> sourceControls) {
             this.sourceControls = Objects.requireNonNull(sourceControls);
             return this;
@@ -458,11 +429,35 @@ public final class GetAppServiceResult {
         public Builder sourceControls(GetAppServiceSourceControl... sourceControls) {
             return sourceControls(List.of(sourceControls));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
-        }        public GetAppServiceResult build() {
-            return new GetAppServiceResult(appServicePlanId, appSettings, clientAffinityEnabled, clientCertEnabled, connectionStrings, customDomainVerificationId, defaultSiteHostname, enabled, httpsOnly, id, location, name, outboundIpAddressLists, outboundIpAddresses, possibleOutboundIpAddressLists, possibleOutboundIpAddresses, resourceGroupName, siteConfigs, siteCredentials, sourceControls, tags);
+        }
+        public GetAppServiceResult build() {
+            final var o = new GetAppServiceResult();
+            o.appServicePlanId = appServicePlanId;
+            o.appSettings = appSettings;
+            o.clientAffinityEnabled = clientAffinityEnabled;
+            o.clientCertEnabled = clientCertEnabled;
+            o.connectionStrings = connectionStrings;
+            o.customDomainVerificationId = customDomainVerificationId;
+            o.defaultSiteHostname = defaultSiteHostname;
+            o.enabled = enabled;
+            o.httpsOnly = httpsOnly;
+            o.id = id;
+            o.location = location;
+            o.name = name;
+            o.outboundIpAddressLists = outboundIpAddressLists;
+            o.outboundIpAddresses = outboundIpAddresses;
+            o.possibleOutboundIpAddressLists = possibleOutboundIpAddressLists;
+            o.possibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            o.resourceGroupName = resourceGroupName;
+            o.siteConfigs = siteConfigs;
+            o.siteCredentials = siteCredentials;
+            o.sourceControls = sourceControls;
+            o.tags = tags;
+            return o;
         }
     }
 }

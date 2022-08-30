@@ -15,119 +15,84 @@ public final class SecuritySolutionRecommendationsEnabled {
      * @return Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean acrAuthentication;
+    private @Nullable Boolean acrAuthentication;
     /**
      * @return Is Agent send underutilized messages enabled? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean agentSendUnutilizedMsg;
+    private @Nullable Boolean agentSendUnutilizedMsg;
     /**
      * @return Is Security related system configuration issues identified? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean baseline;
+    private @Nullable Boolean baseline;
     /**
      * @return Is IoT Edge Hub memory optimized? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean edgeHubMemOptimize;
+    private @Nullable Boolean edgeHubMemOptimize;
     /**
      * @return Is logging configured for IoT Edge module? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean edgeLoggingOption;
+    private @Nullable Boolean edgeLoggingOption;
     /**
      * @return Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean inconsistentModuleSettings;
+    private @Nullable Boolean inconsistentModuleSettings;
     /**
      * @return is Azure IoT Security agent installed? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean installAgent;
+    private @Nullable Boolean installAgent;
     /**
      * @return Is Default IP filter policy denied? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean ipFilterDenyAll;
+    private @Nullable Boolean ipFilterDenyAll;
     /**
      * @return Is IP filter rule source allowable IP range too large? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean ipFilterPermissiveRule;
+    private @Nullable Boolean ipFilterPermissiveRule;
     /**
      * @return Is any ports open on the device? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean openPorts;
+    private @Nullable Boolean openPorts;
     /**
      * @return Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean permissiveFirewallPolicy;
+    private @Nullable Boolean permissiveFirewallPolicy;
     /**
      * @return Is only necessary addresses or ports are permitted in? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean permissiveInputFirewallRules;
+    private @Nullable Boolean permissiveInputFirewallRules;
     /**
      * @return Is only necessary addresses or ports are permitted out? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean permissiveOutputFirewallRules;
+    private @Nullable Boolean permissiveOutputFirewallRules;
     /**
      * @return Is high level permissions are needed for the module? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean privilegedDockerOptions;
+    private @Nullable Boolean privilegedDockerOptions;
     /**
      * @return Is any credentials shared among devices? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean sharedCredentials;
+    private @Nullable Boolean sharedCredentials;
     /**
      * @return Does TLS cipher suite need to be updated? Defaults to `true`.
      * 
      */
-    private final @Nullable Boolean vulnerableTlsCipherSuite;
+    private @Nullable Boolean vulnerableTlsCipherSuite;
 
-    @CustomType.Constructor
-    private SecuritySolutionRecommendationsEnabled(
-        @CustomType.Parameter("acrAuthentication") @Nullable Boolean acrAuthentication,
-        @CustomType.Parameter("agentSendUnutilizedMsg") @Nullable Boolean agentSendUnutilizedMsg,
-        @CustomType.Parameter("baseline") @Nullable Boolean baseline,
-        @CustomType.Parameter("edgeHubMemOptimize") @Nullable Boolean edgeHubMemOptimize,
-        @CustomType.Parameter("edgeLoggingOption") @Nullable Boolean edgeLoggingOption,
-        @CustomType.Parameter("inconsistentModuleSettings") @Nullable Boolean inconsistentModuleSettings,
-        @CustomType.Parameter("installAgent") @Nullable Boolean installAgent,
-        @CustomType.Parameter("ipFilterDenyAll") @Nullable Boolean ipFilterDenyAll,
-        @CustomType.Parameter("ipFilterPermissiveRule") @Nullable Boolean ipFilterPermissiveRule,
-        @CustomType.Parameter("openPorts") @Nullable Boolean openPorts,
-        @CustomType.Parameter("permissiveFirewallPolicy") @Nullable Boolean permissiveFirewallPolicy,
-        @CustomType.Parameter("permissiveInputFirewallRules") @Nullable Boolean permissiveInputFirewallRules,
-        @CustomType.Parameter("permissiveOutputFirewallRules") @Nullable Boolean permissiveOutputFirewallRules,
-        @CustomType.Parameter("privilegedDockerOptions") @Nullable Boolean privilegedDockerOptions,
-        @CustomType.Parameter("sharedCredentials") @Nullable Boolean sharedCredentials,
-        @CustomType.Parameter("vulnerableTlsCipherSuite") @Nullable Boolean vulnerableTlsCipherSuite) {
-        this.acrAuthentication = acrAuthentication;
-        this.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
-        this.baseline = baseline;
-        this.edgeHubMemOptimize = edgeHubMemOptimize;
-        this.edgeLoggingOption = edgeLoggingOption;
-        this.inconsistentModuleSettings = inconsistentModuleSettings;
-        this.installAgent = installAgent;
-        this.ipFilterDenyAll = ipFilterDenyAll;
-        this.ipFilterPermissiveRule = ipFilterPermissiveRule;
-        this.openPorts = openPorts;
-        this.permissiveFirewallPolicy = permissiveFirewallPolicy;
-        this.permissiveInputFirewallRules = permissiveInputFirewallRules;
-        this.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
-        this.privilegedDockerOptions = privilegedDockerOptions;
-        this.sharedCredentials = sharedCredentials;
-        this.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
-    }
-
+    private SecuritySolutionRecommendationsEnabled() {}
     /**
      * @return Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
      * 
@@ -248,7 +213,7 @@ public final class SecuritySolutionRecommendationsEnabled {
     public static Builder builder(SecuritySolutionRecommendationsEnabled defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable Boolean acrAuthentication;
         private @Nullable Boolean agentSendUnutilizedMsg;
@@ -266,11 +231,7 @@ public final class SecuritySolutionRecommendationsEnabled {
         private @Nullable Boolean privilegedDockerOptions;
         private @Nullable Boolean sharedCredentials;
         private @Nullable Boolean vulnerableTlsCipherSuite;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SecuritySolutionRecommendationsEnabled defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.acrAuthentication = defaults.acrAuthentication;
@@ -291,71 +252,105 @@ public final class SecuritySolutionRecommendationsEnabled {
     	      this.vulnerableTlsCipherSuite = defaults.vulnerableTlsCipherSuite;
         }
 
+        @CustomType.Setter
         public Builder acrAuthentication(@Nullable Boolean acrAuthentication) {
             this.acrAuthentication = acrAuthentication;
             return this;
         }
+        @CustomType.Setter
         public Builder agentSendUnutilizedMsg(@Nullable Boolean agentSendUnutilizedMsg) {
             this.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
             return this;
         }
+        @CustomType.Setter
         public Builder baseline(@Nullable Boolean baseline) {
             this.baseline = baseline;
             return this;
         }
+        @CustomType.Setter
         public Builder edgeHubMemOptimize(@Nullable Boolean edgeHubMemOptimize) {
             this.edgeHubMemOptimize = edgeHubMemOptimize;
             return this;
         }
+        @CustomType.Setter
         public Builder edgeLoggingOption(@Nullable Boolean edgeLoggingOption) {
             this.edgeLoggingOption = edgeLoggingOption;
             return this;
         }
+        @CustomType.Setter
         public Builder inconsistentModuleSettings(@Nullable Boolean inconsistentModuleSettings) {
             this.inconsistentModuleSettings = inconsistentModuleSettings;
             return this;
         }
+        @CustomType.Setter
         public Builder installAgent(@Nullable Boolean installAgent) {
             this.installAgent = installAgent;
             return this;
         }
+        @CustomType.Setter
         public Builder ipFilterDenyAll(@Nullable Boolean ipFilterDenyAll) {
             this.ipFilterDenyAll = ipFilterDenyAll;
             return this;
         }
+        @CustomType.Setter
         public Builder ipFilterPermissiveRule(@Nullable Boolean ipFilterPermissiveRule) {
             this.ipFilterPermissiveRule = ipFilterPermissiveRule;
             return this;
         }
+        @CustomType.Setter
         public Builder openPorts(@Nullable Boolean openPorts) {
             this.openPorts = openPorts;
             return this;
         }
+        @CustomType.Setter
         public Builder permissiveFirewallPolicy(@Nullable Boolean permissiveFirewallPolicy) {
             this.permissiveFirewallPolicy = permissiveFirewallPolicy;
             return this;
         }
+        @CustomType.Setter
         public Builder permissiveInputFirewallRules(@Nullable Boolean permissiveInputFirewallRules) {
             this.permissiveInputFirewallRules = permissiveInputFirewallRules;
             return this;
         }
+        @CustomType.Setter
         public Builder permissiveOutputFirewallRules(@Nullable Boolean permissiveOutputFirewallRules) {
             this.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
             return this;
         }
+        @CustomType.Setter
         public Builder privilegedDockerOptions(@Nullable Boolean privilegedDockerOptions) {
             this.privilegedDockerOptions = privilegedDockerOptions;
             return this;
         }
+        @CustomType.Setter
         public Builder sharedCredentials(@Nullable Boolean sharedCredentials) {
             this.sharedCredentials = sharedCredentials;
             return this;
         }
+        @CustomType.Setter
         public Builder vulnerableTlsCipherSuite(@Nullable Boolean vulnerableTlsCipherSuite) {
             this.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
             return this;
-        }        public SecuritySolutionRecommendationsEnabled build() {
-            return new SecuritySolutionRecommendationsEnabled(acrAuthentication, agentSendUnutilizedMsg, baseline, edgeHubMemOptimize, edgeLoggingOption, inconsistentModuleSettings, installAgent, ipFilterDenyAll, ipFilterPermissiveRule, openPorts, permissiveFirewallPolicy, permissiveInputFirewallRules, permissiveOutputFirewallRules, privilegedDockerOptions, sharedCredentials, vulnerableTlsCipherSuite);
+        }
+        public SecuritySolutionRecommendationsEnabled build() {
+            final var o = new SecuritySolutionRecommendationsEnabled();
+            o.acrAuthentication = acrAuthentication;
+            o.agentSendUnutilizedMsg = agentSendUnutilizedMsg;
+            o.baseline = baseline;
+            o.edgeHubMemOptimize = edgeHubMemOptimize;
+            o.edgeLoggingOption = edgeLoggingOption;
+            o.inconsistentModuleSettings = inconsistentModuleSettings;
+            o.installAgent = installAgent;
+            o.ipFilterDenyAll = ipFilterDenyAll;
+            o.ipFilterPermissiveRule = ipFilterPermissiveRule;
+            o.openPorts = openPorts;
+            o.permissiveFirewallPolicy = permissiveFirewallPolicy;
+            o.permissiveInputFirewallRules = permissiveInputFirewallRules;
+            o.permissiveOutputFirewallRules = permissiveOutputFirewallRules;
+            o.privilegedDockerOptions = privilegedDockerOptions;
+            o.sharedCredentials = sharedCredentials;
+            o.vulnerableTlsCipherSuite = vulnerableTlsCipherSuite;
+            return o;
         }
     }
 }

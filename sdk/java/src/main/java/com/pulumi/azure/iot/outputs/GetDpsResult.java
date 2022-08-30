@@ -15,58 +15,37 @@ public final class GetDpsResult {
      * @return The allocation policy of the IoT Device Provisioning Service.
      * 
      */
-    private final String allocationPolicy;
+    private String allocationPolicy;
     /**
      * @return The device endpoint of the IoT Device Provisioning Service.
      * 
      */
-    private final String deviceProvisioningHostName;
+    private String deviceProvisioningHostName;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The unique identifier of the IoT Device Provisioning Service.
      * 
      */
-    private final String idScope;
+    private String idScope;
     /**
      * @return Specifies the supported Azure location where the IoT Device Provisioning Service exists.
      * 
      */
-    private final String location;
-    private final String name;
-    private final String resourceGroupName;
+    private String location;
+    private String name;
+    private String resourceGroupName;
     /**
      * @return The service endpoint of the IoT Device Provisioning Service.
      * 
      */
-    private final String serviceOperationsHostName;
-    private final @Nullable Map<String,String> tags;
+    private String serviceOperationsHostName;
+    private @Nullable Map<String,String> tags;
 
-    @CustomType.Constructor
-    private GetDpsResult(
-        @CustomType.Parameter("allocationPolicy") String allocationPolicy,
-        @CustomType.Parameter("deviceProvisioningHostName") String deviceProvisioningHostName,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("idScope") String idScope,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("serviceOperationsHostName") String serviceOperationsHostName,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags) {
-        this.allocationPolicy = allocationPolicy;
-        this.deviceProvisioningHostName = deviceProvisioningHostName;
-        this.id = id;
-        this.idScope = idScope;
-        this.location = location;
-        this.name = name;
-        this.resourceGroupName = resourceGroupName;
-        this.serviceOperationsHostName = serviceOperationsHostName;
-        this.tags = tags;
-    }
-
+    private GetDpsResult() {}
     /**
      * @return The allocation policy of the IoT Device Provisioning Service.
      * 
@@ -126,7 +105,7 @@ public final class GetDpsResult {
     public static Builder builder(GetDpsResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String allocationPolicy;
         private String deviceProvisioningHostName;
@@ -137,11 +116,7 @@ public final class GetDpsResult {
         private String resourceGroupName;
         private String serviceOperationsHostName;
         private @Nullable Map<String,String> tags;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDpsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationPolicy = defaults.allocationPolicy;
@@ -155,43 +130,63 @@ public final class GetDpsResult {
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
         public Builder allocationPolicy(String allocationPolicy) {
             this.allocationPolicy = Objects.requireNonNull(allocationPolicy);
             return this;
         }
+        @CustomType.Setter
         public Builder deviceProvisioningHostName(String deviceProvisioningHostName) {
             this.deviceProvisioningHostName = Objects.requireNonNull(deviceProvisioningHostName);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder idScope(String idScope) {
             this.idScope = Objects.requireNonNull(idScope);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder serviceOperationsHostName(String serviceOperationsHostName) {
             this.serviceOperationsHostName = Objects.requireNonNull(serviceOperationsHostName);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
-        }        public GetDpsResult build() {
-            return new GetDpsResult(allocationPolicy, deviceProvisioningHostName, id, idScope, location, name, resourceGroupName, serviceOperationsHostName, tags);
+        }
+        public GetDpsResult build() {
+            final var o = new GetDpsResult();
+            o.allocationPolicy = allocationPolicy;
+            o.deviceProvisioningHostName = deviceProvisioningHostName;
+            o.id = id;
+            o.idScope = idScope;
+            o.location = location;
+            o.name = name;
+            o.resourceGroupName = resourceGroupName;
+            o.serviceOperationsHostName = serviceOperationsHostName;
+            o.tags = tags;
+            return o;
         }
     }
 }

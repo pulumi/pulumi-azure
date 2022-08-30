@@ -14,42 +14,29 @@ public final class GetServiceNatIpConfiguration {
      * @return The name of the private link service.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Value that indicates if the IP configuration is the primary configuration or not.
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return The private IP address of the NAT IP configuration.
      * 
      */
-    private final String privateIpAddress;
+    private String privateIpAddress;
     /**
      * @return The version of the IP Protocol.
      * 
      */
-    private final String privateIpAddressVersion;
+    private String privateIpAddressVersion;
     /**
      * @return The ID of the subnet to be used by the service.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private GetServiceNatIpConfiguration(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("privateIpAddress") String privateIpAddress,
-        @CustomType.Parameter("privateIpAddressVersion") String privateIpAddressVersion,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.name = name;
-        this.primary = primary;
-        this.privateIpAddress = privateIpAddress;
-        this.privateIpAddressVersion = privateIpAddressVersion;
-        this.subnetId = subnetId;
-    }
-
+    private GetServiceNatIpConfiguration() {}
     /**
      * @return The name of the private link service.
      * 
@@ -93,18 +80,14 @@ public final class GetServiceNatIpConfiguration {
     public static Builder builder(GetServiceNatIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private Boolean primary;
         private String privateIpAddress;
         private String privateIpAddressVersion;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetServiceNatIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -114,27 +97,39 @@ public final class GetServiceNatIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddress(String privateIpAddress) {
             this.privateIpAddress = Objects.requireNonNull(privateIpAddress);
             return this;
         }
+        @CustomType.Setter
         public Builder privateIpAddressVersion(String privateIpAddressVersion) {
             this.privateIpAddressVersion = Objects.requireNonNull(privateIpAddressVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public GetServiceNatIpConfiguration build() {
-            return new GetServiceNatIpConfiguration(name, primary, privateIpAddress, privateIpAddressVersion, subnetId);
+        }
+        public GetServiceNatIpConfiguration build() {
+            final var o = new GetServiceNatIpConfiguration();
+            o.name = name;
+            o.primary = primary;
+            o.privateIpAddress = privateIpAddress;
+            o.privateIpAddressVersion = privateIpAddressVersion;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

@@ -17,49 +17,34 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
      * @return The key that must be used as FairPlay Application Secret key.
      * 
      */
-    private final @Nullable String ask;
+    private @Nullable String ask;
     /**
      * @return A `offline_rental_configuration` block as defined below.
      * 
      */
-    private final @Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration;
+    private @Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration;
     /**
      * @return The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).
      * 
      */
-    private final @Nullable String pfx;
+    private @Nullable String pfx;
     /**
      * @return The password encrypting FairPlay certificate in PKCS 12 (pfx) format.
      * 
      */
-    private final @Nullable String pfxPassword;
+    private @Nullable String pfxPassword;
     /**
      * @return The rental and lease key type. Supported values are `DualExpiry`, `PersistentLimited`, `PersistentUnlimited` or `Undefined`.
      * 
      */
-    private final @Nullable String rentalAndLeaseKeyType;
+    private @Nullable String rentalAndLeaseKeyType;
     /**
      * @return The rental duration. Must be greater than 0.
      * 
      */
-    private final @Nullable Integer rentalDurationSeconds;
+    private @Nullable Integer rentalDurationSeconds;
 
-    @CustomType.Constructor
-    private ContentKeyPolicyPolicyOptionFairplayConfiguration(
-        @CustomType.Parameter("ask") @Nullable String ask,
-        @CustomType.Parameter("offlineRentalConfiguration") @Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration,
-        @CustomType.Parameter("pfx") @Nullable String pfx,
-        @CustomType.Parameter("pfxPassword") @Nullable String pfxPassword,
-        @CustomType.Parameter("rentalAndLeaseKeyType") @Nullable String rentalAndLeaseKeyType,
-        @CustomType.Parameter("rentalDurationSeconds") @Nullable Integer rentalDurationSeconds) {
-        this.ask = ask;
-        this.offlineRentalConfiguration = offlineRentalConfiguration;
-        this.pfx = pfx;
-        this.pfxPassword = pfxPassword;
-        this.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
-        this.rentalDurationSeconds = rentalDurationSeconds;
-    }
-
+    private ContentKeyPolicyPolicyOptionFairplayConfiguration() {}
     /**
      * @return The key that must be used as FairPlay Application Secret key.
      * 
@@ -110,7 +95,7 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
     public static Builder builder(ContentKeyPolicyPolicyOptionFairplayConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String ask;
         private @Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration;
@@ -118,11 +103,7 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
         private @Nullable String pfxPassword;
         private @Nullable String rentalAndLeaseKeyType;
         private @Nullable Integer rentalDurationSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ContentKeyPolicyPolicyOptionFairplayConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.ask = defaults.ask;
@@ -133,31 +114,45 @@ public final class ContentKeyPolicyPolicyOptionFairplayConfiguration {
     	      this.rentalDurationSeconds = defaults.rentalDurationSeconds;
         }
 
+        @CustomType.Setter
         public Builder ask(@Nullable String ask) {
             this.ask = ask;
             return this;
         }
+        @CustomType.Setter
         public Builder offlineRentalConfiguration(@Nullable ContentKeyPolicyPolicyOptionFairplayConfigurationOfflineRentalConfiguration offlineRentalConfiguration) {
             this.offlineRentalConfiguration = offlineRentalConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder pfx(@Nullable String pfx) {
             this.pfx = pfx;
             return this;
         }
+        @CustomType.Setter
         public Builder pfxPassword(@Nullable String pfxPassword) {
             this.pfxPassword = pfxPassword;
             return this;
         }
+        @CustomType.Setter
         public Builder rentalAndLeaseKeyType(@Nullable String rentalAndLeaseKeyType) {
             this.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
             return this;
         }
+        @CustomType.Setter
         public Builder rentalDurationSeconds(@Nullable Integer rentalDurationSeconds) {
             this.rentalDurationSeconds = rentalDurationSeconds;
             return this;
-        }        public ContentKeyPolicyPolicyOptionFairplayConfiguration build() {
-            return new ContentKeyPolicyPolicyOptionFairplayConfiguration(ask, offlineRentalConfiguration, pfx, pfxPassword, rentalAndLeaseKeyType, rentalDurationSeconds);
+        }
+        public ContentKeyPolicyPolicyOptionFairplayConfiguration build() {
+            final var o = new ContentKeyPolicyPolicyOptionFairplayConfiguration();
+            o.ask = ask;
+            o.offlineRentalConfiguration = offlineRentalConfiguration;
+            o.pfx = pfx;
+            o.pfxPassword = pfxPassword;
+            o.rentalAndLeaseKeyType = rentalAndLeaseKeyType;
+            o.rentalDurationSeconds = rentalDurationSeconds;
+            return o;
         }
     }
 }

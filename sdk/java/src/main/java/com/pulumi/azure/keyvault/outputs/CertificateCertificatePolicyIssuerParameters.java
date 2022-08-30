@@ -13,13 +13,9 @@ public final class CertificateCertificatePolicyIssuerParameters {
      * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private CertificateCertificatePolicyIssuerParameters(@CustomType.Parameter("name") String name) {
-        this.name = name;
-    }
-
+    private CertificateCertificatePolicyIssuerParameters() {}
     /**
      * @return The name of the Certificate Issuer. Possible values include `Self` (for self-signed certificate), or `Unknown` (for a certificate issuing authority like `Let&#39;s Encrypt` and Azure direct supported ones). Changing this forces a new resource to be created.
      * 
@@ -35,24 +31,24 @@ public final class CertificateCertificatePolicyIssuerParameters {
     public static Builder builder(CertificateCertificatePolicyIssuerParameters defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(CertificateCertificatePolicyIssuerParameters defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public CertificateCertificatePolicyIssuerParameters build() {
-            return new CertificateCertificatePolicyIssuerParameters(name);
+        }
+        public CertificateCertificatePolicyIssuerParameters build() {
+            final var o = new CertificateCertificatePolicyIssuerParameters();
+            o.name = name;
+            return o;
         }
     }
 }

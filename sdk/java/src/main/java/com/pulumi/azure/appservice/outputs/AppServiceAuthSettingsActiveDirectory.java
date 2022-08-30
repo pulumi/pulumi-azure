@@ -16,28 +16,19 @@ public final class AppServiceAuthSettingsActiveDirectory {
      * @return Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
      */
-    private final @Nullable List<String> allowedAudiences;
+    private @Nullable List<String> allowedAudiences;
     /**
      * @return The Client ID of this relying party application. Enables OpenIDConnection authentication with Azure Active Directory.
      * 
      */
-    private final String clientId;
+    private String clientId;
     /**
      * @return The Client Secret of this relying party application. If no secret is provided, implicit flow will be used.
      * 
      */
-    private final @Nullable String clientSecret;
+    private @Nullable String clientSecret;
 
-    @CustomType.Constructor
-    private AppServiceAuthSettingsActiveDirectory(
-        @CustomType.Parameter("allowedAudiences") @Nullable List<String> allowedAudiences,
-        @CustomType.Parameter("clientId") String clientId,
-        @CustomType.Parameter("clientSecret") @Nullable String clientSecret) {
-        this.allowedAudiences = allowedAudiences;
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
-    }
-
+    private AppServiceAuthSettingsActiveDirectory() {}
     /**
      * @return Allowed audience values to consider when validating JWTs issued by Azure Active Directory.
      * 
@@ -67,16 +58,12 @@ public final class AppServiceAuthSettingsActiveDirectory {
     public static Builder builder(AppServiceAuthSettingsActiveDirectory defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedAudiences;
         private String clientId;
         private @Nullable String clientSecret;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceAuthSettingsActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedAudiences = defaults.allowedAudiences;
@@ -84,6 +71,7 @@ public final class AppServiceAuthSettingsActiveDirectory {
     	      this.clientSecret = defaults.clientSecret;
         }
 
+        @CustomType.Setter
         public Builder allowedAudiences(@Nullable List<String> allowedAudiences) {
             this.allowedAudiences = allowedAudiences;
             return this;
@@ -91,15 +79,22 @@ public final class AppServiceAuthSettingsActiveDirectory {
         public Builder allowedAudiences(String... allowedAudiences) {
             return allowedAudiences(List.of(allowedAudiences));
         }
+        @CustomType.Setter
         public Builder clientId(String clientId) {
             this.clientId = Objects.requireNonNull(clientId);
             return this;
         }
+        @CustomType.Setter
         public Builder clientSecret(@Nullable String clientSecret) {
             this.clientSecret = clientSecret;
             return this;
-        }        public AppServiceAuthSettingsActiveDirectory build() {
-            return new AppServiceAuthSettingsActiveDirectory(allowedAudiences, clientId, clientSecret);
+        }
+        public AppServiceAuthSettingsActiveDirectory build() {
+            final var o = new AppServiceAuthSettingsActiveDirectory();
+            o.allowedAudiences = allowedAudiences;
+            o.clientId = clientId;
+            o.clientSecret = clientSecret;
+            return o;
         }
     }
 }

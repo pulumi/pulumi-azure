@@ -15,21 +15,14 @@ public final class DicomServicePrivateEndpoint {
      * @return The ID of the Healthcare DICOM Service.
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return Specifies the name of the Healthcare DICOM Service. Changing this forces a new Healthcare DICOM Service to be created.
      * 
      */
-    private final @Nullable String name;
+    private @Nullable String name;
 
-    @CustomType.Constructor
-    private DicomServicePrivateEndpoint(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("name") @Nullable String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+    private DicomServicePrivateEndpoint() {}
     /**
      * @return The ID of the Healthcare DICOM Service.
      * 
@@ -52,30 +45,32 @@ public final class DicomServicePrivateEndpoint {
     public static Builder builder(DicomServicePrivateEndpoint defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private @Nullable String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DicomServicePrivateEndpoint defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
             return this;
-        }        public DicomServicePrivateEndpoint build() {
-            return new DicomServicePrivateEndpoint(id, name);
+        }
+        public DicomServicePrivateEndpoint build() {
+            final var o = new DicomServicePrivateEndpoint();
+            o.id = id;
+            o.name = name;
+            return o;
         }
     }
 }

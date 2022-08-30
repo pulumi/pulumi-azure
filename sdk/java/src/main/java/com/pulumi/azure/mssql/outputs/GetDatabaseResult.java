@@ -16,90 +16,61 @@ public final class GetDatabaseResult {
      * @return The collation of the database.
      * 
      */
-    private final String collation;
+    private String collation;
     /**
      * @return The id of the elastic pool containing this database.
      * 
      */
-    private final String elasticPoolId;
+    private String elasticPoolId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The license type to apply for this database.
      * 
      */
-    private final String licenseType;
+    private String licenseType;
     /**
      * @return The max size of the database in gigabytes.
      * 
      */
-    private final Integer maxSizeGb;
-    private final String name;
+    private Integer maxSizeGb;
+    private String name;
     /**
      * @return The number of readonly secondary replicas associated with the database to which readonly application intent connections may be routed.
      * 
      */
-    private final Integer readReplicaCount;
+    private Integer readReplicaCount;
     /**
      * @return If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica.
      * 
      */
-    private final Boolean readScale;
-    private final String serverId;
+    private Boolean readScale;
+    private String serverId;
     /**
      * @return The name of the SKU of the database.
      * 
      */
-    private final String skuName;
+    private String skuName;
     /**
      * @return The storage account type used to store backups for this database.
      * 
      */
-    private final String storageAccountType;
+    private String storageAccountType;
     /**
      * @return A mapping of tags to assign to the resource.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      * 
      */
-    private final Boolean zoneRedundant;
+    private Boolean zoneRedundant;
 
-    @CustomType.Constructor
-    private GetDatabaseResult(
-        @CustomType.Parameter("collation") String collation,
-        @CustomType.Parameter("elasticPoolId") String elasticPoolId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("licenseType") String licenseType,
-        @CustomType.Parameter("maxSizeGb") Integer maxSizeGb,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("readReplicaCount") Integer readReplicaCount,
-        @CustomType.Parameter("readScale") Boolean readScale,
-        @CustomType.Parameter("serverId") String serverId,
-        @CustomType.Parameter("skuName") String skuName,
-        @CustomType.Parameter("storageAccountType") String storageAccountType,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneRedundant") Boolean zoneRedundant) {
-        this.collation = collation;
-        this.elasticPoolId = elasticPoolId;
-        this.id = id;
-        this.licenseType = licenseType;
-        this.maxSizeGb = maxSizeGb;
-        this.name = name;
-        this.readReplicaCount = readReplicaCount;
-        this.readScale = readScale;
-        this.serverId = serverId;
-        this.skuName = skuName;
-        this.storageAccountType = storageAccountType;
-        this.tags = tags;
-        this.zoneRedundant = zoneRedundant;
-    }
-
+    private GetDatabaseResult() {}
     /**
      * @return The collation of the database.
      * 
@@ -191,7 +162,7 @@ public final class GetDatabaseResult {
     public static Builder builder(GetDatabaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String collation;
         private String elasticPoolId;
@@ -206,11 +177,7 @@ public final class GetDatabaseResult {
         private String storageAccountType;
         private Map<String,String> tags;
         private Boolean zoneRedundant;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetDatabaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.collation = defaults.collation;
@@ -228,59 +195,87 @@ public final class GetDatabaseResult {
     	      this.zoneRedundant = defaults.zoneRedundant;
         }
 
+        @CustomType.Setter
         public Builder collation(String collation) {
             this.collation = Objects.requireNonNull(collation);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticPoolId(String elasticPoolId) {
             this.elasticPoolId = Objects.requireNonNull(elasticPoolId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder licenseType(String licenseType) {
             this.licenseType = Objects.requireNonNull(licenseType);
             return this;
         }
+        @CustomType.Setter
         public Builder maxSizeGb(Integer maxSizeGb) {
             this.maxSizeGb = Objects.requireNonNull(maxSizeGb);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder readReplicaCount(Integer readReplicaCount) {
             this.readReplicaCount = Objects.requireNonNull(readReplicaCount);
             return this;
         }
+        @CustomType.Setter
         public Builder readScale(Boolean readScale) {
             this.readScale = Objects.requireNonNull(readScale);
             return this;
         }
+        @CustomType.Setter
         public Builder serverId(String serverId) {
             this.serverId = Objects.requireNonNull(serverId);
             return this;
         }
+        @CustomType.Setter
         public Builder skuName(String skuName) {
             this.skuName = Objects.requireNonNull(skuName);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountType(String storageAccountType) {
             this.storageAccountType = Objects.requireNonNull(storageAccountType);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneRedundant(Boolean zoneRedundant) {
             this.zoneRedundant = Objects.requireNonNull(zoneRedundant);
             return this;
-        }        public GetDatabaseResult build() {
-            return new GetDatabaseResult(collation, elasticPoolId, id, licenseType, maxSizeGb, name, readReplicaCount, readScale, serverId, skuName, storageAccountType, tags, zoneRedundant);
+        }
+        public GetDatabaseResult build() {
+            final var o = new GetDatabaseResult();
+            o.collation = collation;
+            o.elasticPoolId = elasticPoolId;
+            o.id = id;
+            o.licenseType = licenseType;
+            o.maxSizeGb = maxSizeGb;
+            o.name = name;
+            o.readReplicaCount = readReplicaCount;
+            o.readScale = readScale;
+            o.serverId = serverId;
+            o.skuName = skuName;
+            o.storageAccountType = storageAccountType;
+            o.tags = tags;
+            o.zoneRedundant = zoneRedundant;
+            return o;
         }
     }
 }

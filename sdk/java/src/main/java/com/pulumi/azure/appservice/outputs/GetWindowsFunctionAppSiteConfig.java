@@ -21,245 +21,174 @@ public final class GetWindowsFunctionAppSiteConfig {
      * @return Is this Windows Function App Always On?.
      * 
      */
-    private final Boolean alwaysOn;
+    private Boolean alwaysOn;
     /**
      * @return The URL of the API definition that describes this Windows Function App.
      * 
      */
-    private final String apiDefinitionUrl;
+    private String apiDefinitionUrl;
     /**
      * @return The ID of the API Management API for this Windows Function App.
      * 
      */
-    private final String apiManagementApiId;
+    private String apiManagementApiId;
     /**
      * @return The App command line to launch.
      * 
      */
-    private final String appCommandLine;
+    private String appCommandLine;
     /**
      * @return The number of workers this function app can scale out to.
      * 
      */
-    private final Integer appScaleLimit;
+    private Integer appScaleLimit;
     /**
      * @return A `app_service_logs` block as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs;
+    private List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs;
     /**
      * @return The Connection String for linking the Windows Function App to Application Insights.
      * 
      */
-    private final String applicationInsightsConnectionString;
+    private String applicationInsightsConnectionString;
     /**
      * @return The Instrumentation Key for connecting the Windows Function App to Application Insights.
      * 
      */
-    private final String applicationInsightsKey;
+    private String applicationInsightsKey;
     /**
      * @return A `application_stack` block as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks;
+    private List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks;
     /**
      * @return A `cors` block as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppSiteConfigCor> cors;
+    private List<GetWindowsFunctionAppSiteConfigCor> cors;
     /**
      * @return A list of Default Documents for the Windows Web App.
      * 
      */
-    private final List<String> defaultDocuments;
+    private List<String> defaultDocuments;
     /**
      * @return Is detailed error logging enabled?
      * 
      */
-    private final Boolean detailedErrorLoggingEnabled;
+    private Boolean detailedErrorLoggingEnabled;
     /**
      * @return The number of minimum instances for this Windows Function App.
      * 
      */
-    private final Integer elasticInstanceMinimum;
+    private Integer elasticInstanceMinimum;
     /**
      * @return State of FTP / FTPS service for this Windows Function App.
      * 
      */
-    private final String ftpsState;
+    private String ftpsState;
     /**
      * @return The amount of time in minutes that a node can be unhealthy before being removed from the load balancer.
      * 
      */
-    private final Integer healthCheckEvictionTimeInMin;
+    private Integer healthCheckEvictionTimeInMin;
     /**
      * @return The path to be checked for this Windows Function App health.
      * 
      */
-    private final String healthCheckPath;
+    private String healthCheckPath;
     /**
      * @return Is the HTTP2 protocol enabled?
      * 
      */
-    private final Boolean http2Enabled;
+    private Boolean http2Enabled;
     /**
      * @return One or more `ip_restriction` blocks as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
+    private List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
     /**
      * @return The Site load balancing mode.
      * 
      */
-    private final String loadBalancingMode;
+    private String loadBalancingMode;
     /**
      * @return The Managed pipeline mode.
      * 
      */
-    private final String managedPipelineMode;
+    private String managedPipelineMode;
     /**
      * @return The minimum version of TLS required for SSL requests.
      * 
      */
-    private final String minimumTlsVersion;
+    private String minimumTlsVersion;
     /**
      * @return The number of pre-warmed instances for this Windows Function App.
      * 
      */
-    private final Integer preWarmedInstanceCount;
+    private Integer preWarmedInstanceCount;
     /**
      * @return Is Remote Debugging enabled?
      * 
      */
-    private final Boolean remoteDebuggingEnabled;
+    private Boolean remoteDebuggingEnabled;
     /**
      * @return The Remote Debugging Version.
      * 
      */
-    private final String remoteDebuggingVersion;
+    private String remoteDebuggingVersion;
     /**
      * @return Is Scale Monitoring of the Functions Runtime enabled?
      * 
      */
-    private final Boolean runtimeScaleMonitoringEnabled;
+    private Boolean runtimeScaleMonitoringEnabled;
     /**
      * @return One or more `scm_ip_restriction` blocks as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
+    private List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
      * @return The minimum version of TLS required for SSL requests to the SCM site.
      * 
      */
-    private final String scmMinimumTlsVersion;
+    private String scmMinimumTlsVersion;
     /**
      * @return The SCM type.
      * 
      */
-    private final String scmType;
+    private String scmType;
     /**
      * @return Is the `ip_restriction` configuration used for the SCM?.
      * 
      */
-    private final Boolean scmUseMainIpRestriction;
+    private Boolean scmUseMainIpRestriction;
     /**
      * @return Is the Windows Function App using a 32-bit worker process?
      * 
      */
-    private final Boolean use32BitWorker;
+    private Boolean use32BitWorker;
     /**
      * @return Are all outbound traffic to NAT Gateways, Network Security Groups and User Defined Routes applied?
      * 
      */
-    private final Boolean vnetRouteAllEnabled;
+    private Boolean vnetRouteAllEnabled;
     /**
      * @return Are Web Sockets enabled?
      * 
      */
-    private final Boolean websocketsEnabled;
+    private Boolean websocketsEnabled;
     /**
      * @return The Windows FX version.
      * 
      */
-    private final String windowsFxVersion;
+    private String windowsFxVersion;
     /**
      * @return The number of Workers for this Windows Function App.
      * 
      */
-    private final Integer workerCount;
+    private Integer workerCount;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppSiteConfig(
-        @CustomType.Parameter("alwaysOn") Boolean alwaysOn,
-        @CustomType.Parameter("apiDefinitionUrl") String apiDefinitionUrl,
-        @CustomType.Parameter("apiManagementApiId") String apiManagementApiId,
-        @CustomType.Parameter("appCommandLine") String appCommandLine,
-        @CustomType.Parameter("appScaleLimit") Integer appScaleLimit,
-        @CustomType.Parameter("appServiceLogs") List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs,
-        @CustomType.Parameter("applicationInsightsConnectionString") String applicationInsightsConnectionString,
-        @CustomType.Parameter("applicationInsightsKey") String applicationInsightsKey,
-        @CustomType.Parameter("applicationStacks") List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks,
-        @CustomType.Parameter("cors") List<GetWindowsFunctionAppSiteConfigCor> cors,
-        @CustomType.Parameter("defaultDocuments") List<String> defaultDocuments,
-        @CustomType.Parameter("detailedErrorLoggingEnabled") Boolean detailedErrorLoggingEnabled,
-        @CustomType.Parameter("elasticInstanceMinimum") Integer elasticInstanceMinimum,
-        @CustomType.Parameter("ftpsState") String ftpsState,
-        @CustomType.Parameter("healthCheckEvictionTimeInMin") Integer healthCheckEvictionTimeInMin,
-        @CustomType.Parameter("healthCheckPath") String healthCheckPath,
-        @CustomType.Parameter("http2Enabled") Boolean http2Enabled,
-        @CustomType.Parameter("ipRestrictions") List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions,
-        @CustomType.Parameter("loadBalancingMode") String loadBalancingMode,
-        @CustomType.Parameter("managedPipelineMode") String managedPipelineMode,
-        @CustomType.Parameter("minimumTlsVersion") String minimumTlsVersion,
-        @CustomType.Parameter("preWarmedInstanceCount") Integer preWarmedInstanceCount,
-        @CustomType.Parameter("remoteDebuggingEnabled") Boolean remoteDebuggingEnabled,
-        @CustomType.Parameter("remoteDebuggingVersion") String remoteDebuggingVersion,
-        @CustomType.Parameter("runtimeScaleMonitoringEnabled") Boolean runtimeScaleMonitoringEnabled,
-        @CustomType.Parameter("scmIpRestrictions") List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions,
-        @CustomType.Parameter("scmMinimumTlsVersion") String scmMinimumTlsVersion,
-        @CustomType.Parameter("scmType") String scmType,
-        @CustomType.Parameter("scmUseMainIpRestriction") Boolean scmUseMainIpRestriction,
-        @CustomType.Parameter("use32BitWorker") Boolean use32BitWorker,
-        @CustomType.Parameter("vnetRouteAllEnabled") Boolean vnetRouteAllEnabled,
-        @CustomType.Parameter("websocketsEnabled") Boolean websocketsEnabled,
-        @CustomType.Parameter("windowsFxVersion") String windowsFxVersion,
-        @CustomType.Parameter("workerCount") Integer workerCount) {
-        this.alwaysOn = alwaysOn;
-        this.apiDefinitionUrl = apiDefinitionUrl;
-        this.apiManagementApiId = apiManagementApiId;
-        this.appCommandLine = appCommandLine;
-        this.appScaleLimit = appScaleLimit;
-        this.appServiceLogs = appServiceLogs;
-        this.applicationInsightsConnectionString = applicationInsightsConnectionString;
-        this.applicationInsightsKey = applicationInsightsKey;
-        this.applicationStacks = applicationStacks;
-        this.cors = cors;
-        this.defaultDocuments = defaultDocuments;
-        this.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
-        this.elasticInstanceMinimum = elasticInstanceMinimum;
-        this.ftpsState = ftpsState;
-        this.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
-        this.healthCheckPath = healthCheckPath;
-        this.http2Enabled = http2Enabled;
-        this.ipRestrictions = ipRestrictions;
-        this.loadBalancingMode = loadBalancingMode;
-        this.managedPipelineMode = managedPipelineMode;
-        this.minimumTlsVersion = minimumTlsVersion;
-        this.preWarmedInstanceCount = preWarmedInstanceCount;
-        this.remoteDebuggingEnabled = remoteDebuggingEnabled;
-        this.remoteDebuggingVersion = remoteDebuggingVersion;
-        this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
-        this.scmIpRestrictions = scmIpRestrictions;
-        this.scmMinimumTlsVersion = scmMinimumTlsVersion;
-        this.scmType = scmType;
-        this.scmUseMainIpRestriction = scmUseMainIpRestriction;
-        this.use32BitWorker = use32BitWorker;
-        this.vnetRouteAllEnabled = vnetRouteAllEnabled;
-        this.websocketsEnabled = websocketsEnabled;
-        this.windowsFxVersion = windowsFxVersion;
-        this.workerCount = workerCount;
-    }
-
+    private GetWindowsFunctionAppSiteConfig() {}
     /**
      * @return Is this Windows Function App Always On?.
      * 
@@ -506,7 +435,7 @@ public final class GetWindowsFunctionAppSiteConfig {
     public static Builder builder(GetWindowsFunctionAppSiteConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private Boolean alwaysOn;
         private String apiDefinitionUrl;
@@ -542,11 +471,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         private Boolean websocketsEnabled;
         private String windowsFxVersion;
         private Integer workerCount;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppSiteConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.alwaysOn = defaults.alwaysOn;
@@ -585,26 +510,32 @@ public final class GetWindowsFunctionAppSiteConfig {
     	      this.workerCount = defaults.workerCount;
         }
 
+        @CustomType.Setter
         public Builder alwaysOn(Boolean alwaysOn) {
             this.alwaysOn = Objects.requireNonNull(alwaysOn);
             return this;
         }
+        @CustomType.Setter
         public Builder apiDefinitionUrl(String apiDefinitionUrl) {
             this.apiDefinitionUrl = Objects.requireNonNull(apiDefinitionUrl);
             return this;
         }
+        @CustomType.Setter
         public Builder apiManagementApiId(String apiManagementApiId) {
             this.apiManagementApiId = Objects.requireNonNull(apiManagementApiId);
             return this;
         }
+        @CustomType.Setter
         public Builder appCommandLine(String appCommandLine) {
             this.appCommandLine = Objects.requireNonNull(appCommandLine);
             return this;
         }
+        @CustomType.Setter
         public Builder appScaleLimit(Integer appScaleLimit) {
             this.appScaleLimit = Objects.requireNonNull(appScaleLimit);
             return this;
         }
+        @CustomType.Setter
         public Builder appServiceLogs(List<GetWindowsFunctionAppSiteConfigAppServiceLog> appServiceLogs) {
             this.appServiceLogs = Objects.requireNonNull(appServiceLogs);
             return this;
@@ -612,14 +543,17 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder appServiceLogs(GetWindowsFunctionAppSiteConfigAppServiceLog... appServiceLogs) {
             return appServiceLogs(List.of(appServiceLogs));
         }
+        @CustomType.Setter
         public Builder applicationInsightsConnectionString(String applicationInsightsConnectionString) {
             this.applicationInsightsConnectionString = Objects.requireNonNull(applicationInsightsConnectionString);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationInsightsKey(String applicationInsightsKey) {
             this.applicationInsightsKey = Objects.requireNonNull(applicationInsightsKey);
             return this;
         }
+        @CustomType.Setter
         public Builder applicationStacks(List<GetWindowsFunctionAppSiteConfigApplicationStack> applicationStacks) {
             this.applicationStacks = Objects.requireNonNull(applicationStacks);
             return this;
@@ -627,6 +561,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder applicationStacks(GetWindowsFunctionAppSiteConfigApplicationStack... applicationStacks) {
             return applicationStacks(List.of(applicationStacks));
         }
+        @CustomType.Setter
         public Builder cors(List<GetWindowsFunctionAppSiteConfigCor> cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
@@ -634,6 +569,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder cors(GetWindowsFunctionAppSiteConfigCor... cors) {
             return cors(List.of(cors));
         }
+        @CustomType.Setter
         public Builder defaultDocuments(List<String> defaultDocuments) {
             this.defaultDocuments = Objects.requireNonNull(defaultDocuments);
             return this;
@@ -641,30 +577,37 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder defaultDocuments(String... defaultDocuments) {
             return defaultDocuments(List.of(defaultDocuments));
         }
+        @CustomType.Setter
         public Builder detailedErrorLoggingEnabled(Boolean detailedErrorLoggingEnabled) {
             this.detailedErrorLoggingEnabled = Objects.requireNonNull(detailedErrorLoggingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder elasticInstanceMinimum(Integer elasticInstanceMinimum) {
             this.elasticInstanceMinimum = Objects.requireNonNull(elasticInstanceMinimum);
             return this;
         }
+        @CustomType.Setter
         public Builder ftpsState(String ftpsState) {
             this.ftpsState = Objects.requireNonNull(ftpsState);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckEvictionTimeInMin(Integer healthCheckEvictionTimeInMin) {
             this.healthCheckEvictionTimeInMin = Objects.requireNonNull(healthCheckEvictionTimeInMin);
             return this;
         }
+        @CustomType.Setter
         public Builder healthCheckPath(String healthCheckPath) {
             this.healthCheckPath = Objects.requireNonNull(healthCheckPath);
             return this;
         }
+        @CustomType.Setter
         public Builder http2Enabled(Boolean http2Enabled) {
             this.http2Enabled = Objects.requireNonNull(http2Enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder ipRestrictions(List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions) {
             this.ipRestrictions = Objects.requireNonNull(ipRestrictions);
             return this;
@@ -672,34 +615,42 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder ipRestrictions(GetWindowsFunctionAppSiteConfigIpRestriction... ipRestrictions) {
             return ipRestrictions(List.of(ipRestrictions));
         }
+        @CustomType.Setter
         public Builder loadBalancingMode(String loadBalancingMode) {
             this.loadBalancingMode = Objects.requireNonNull(loadBalancingMode);
             return this;
         }
+        @CustomType.Setter
         public Builder managedPipelineMode(String managedPipelineMode) {
             this.managedPipelineMode = Objects.requireNonNull(managedPipelineMode);
             return this;
         }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             this.minimumTlsVersion = Objects.requireNonNull(minimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             this.preWarmedInstanceCount = Objects.requireNonNull(preWarmedInstanceCount);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
             this.remoteDebuggingEnabled = Objects.requireNonNull(remoteDebuggingEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder remoteDebuggingVersion(String remoteDebuggingVersion) {
             this.remoteDebuggingVersion = Objects.requireNonNull(remoteDebuggingVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(Boolean runtimeScaleMonitoringEnabled) {
             this.runtimeScaleMonitoringEnabled = Objects.requireNonNull(runtimeScaleMonitoringEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder scmIpRestrictions(List<GetWindowsFunctionAppSiteConfigScmIpRestriction> scmIpRestrictions) {
             this.scmIpRestrictions = Objects.requireNonNull(scmIpRestrictions);
             return this;
@@ -707,39 +658,83 @@ public final class GetWindowsFunctionAppSiteConfig {
         public Builder scmIpRestrictions(GetWindowsFunctionAppSiteConfigScmIpRestriction... scmIpRestrictions) {
             return scmIpRestrictions(List.of(scmIpRestrictions));
         }
+        @CustomType.Setter
         public Builder scmMinimumTlsVersion(String scmMinimumTlsVersion) {
             this.scmMinimumTlsVersion = Objects.requireNonNull(scmMinimumTlsVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder scmType(String scmType) {
             this.scmType = Objects.requireNonNull(scmType);
             return this;
         }
+        @CustomType.Setter
         public Builder scmUseMainIpRestriction(Boolean scmUseMainIpRestriction) {
             this.scmUseMainIpRestriction = Objects.requireNonNull(scmUseMainIpRestriction);
             return this;
         }
+        @CustomType.Setter
         public Builder use32BitWorker(Boolean use32BitWorker) {
             this.use32BitWorker = Objects.requireNonNull(use32BitWorker);
             return this;
         }
+        @CustomType.Setter
         public Builder vnetRouteAllEnabled(Boolean vnetRouteAllEnabled) {
             this.vnetRouteAllEnabled = Objects.requireNonNull(vnetRouteAllEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder websocketsEnabled(Boolean websocketsEnabled) {
             this.websocketsEnabled = Objects.requireNonNull(websocketsEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder windowsFxVersion(String windowsFxVersion) {
             this.windowsFxVersion = Objects.requireNonNull(windowsFxVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder workerCount(Integer workerCount) {
             this.workerCount = Objects.requireNonNull(workerCount);
             return this;
-        }        public GetWindowsFunctionAppSiteConfig build() {
-            return new GetWindowsFunctionAppSiteConfig(alwaysOn, apiDefinitionUrl, apiManagementApiId, appCommandLine, appScaleLimit, appServiceLogs, applicationInsightsConnectionString, applicationInsightsKey, applicationStacks, cors, defaultDocuments, detailedErrorLoggingEnabled, elasticInstanceMinimum, ftpsState, healthCheckEvictionTimeInMin, healthCheckPath, http2Enabled, ipRestrictions, loadBalancingMode, managedPipelineMode, minimumTlsVersion, preWarmedInstanceCount, remoteDebuggingEnabled, remoteDebuggingVersion, runtimeScaleMonitoringEnabled, scmIpRestrictions, scmMinimumTlsVersion, scmType, scmUseMainIpRestriction, use32BitWorker, vnetRouteAllEnabled, websocketsEnabled, windowsFxVersion, workerCount);
+        }
+        public GetWindowsFunctionAppSiteConfig build() {
+            final var o = new GetWindowsFunctionAppSiteConfig();
+            o.alwaysOn = alwaysOn;
+            o.apiDefinitionUrl = apiDefinitionUrl;
+            o.apiManagementApiId = apiManagementApiId;
+            o.appCommandLine = appCommandLine;
+            o.appScaleLimit = appScaleLimit;
+            o.appServiceLogs = appServiceLogs;
+            o.applicationInsightsConnectionString = applicationInsightsConnectionString;
+            o.applicationInsightsKey = applicationInsightsKey;
+            o.applicationStacks = applicationStacks;
+            o.cors = cors;
+            o.defaultDocuments = defaultDocuments;
+            o.detailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
+            o.elasticInstanceMinimum = elasticInstanceMinimum;
+            o.ftpsState = ftpsState;
+            o.healthCheckEvictionTimeInMin = healthCheckEvictionTimeInMin;
+            o.healthCheckPath = healthCheckPath;
+            o.http2Enabled = http2Enabled;
+            o.ipRestrictions = ipRestrictions;
+            o.loadBalancingMode = loadBalancingMode;
+            o.managedPipelineMode = managedPipelineMode;
+            o.minimumTlsVersion = minimumTlsVersion;
+            o.preWarmedInstanceCount = preWarmedInstanceCount;
+            o.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            o.remoteDebuggingVersion = remoteDebuggingVersion;
+            o.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
+            o.scmIpRestrictions = scmIpRestrictions;
+            o.scmMinimumTlsVersion = scmMinimumTlsVersion;
+            o.scmType = scmType;
+            o.scmUseMainIpRestriction = scmUseMainIpRestriction;
+            o.use32BitWorker = use32BitWorker;
+            o.vnetRouteAllEnabled = vnetRouteAllEnabled;
+            o.websocketsEnabled = websocketsEnabled;
+            o.windowsFxVersion = windowsFxVersion;
+            o.workerCount = workerCount;
+            return o;
         }
     }
 }

@@ -15,21 +15,14 @@ public final class ManagedClusterNodeTypeVmSecret {
      * @return One or more `certificates` blocks as defined above.
      * 
      */
-    private final List<ManagedClusterNodeTypeVmSecretCertificate> certificates;
+    private List<ManagedClusterNodeTypeVmSecretCertificate> certificates;
     /**
      * @return The ID of the Vault that contain the certificates.
      * 
      */
-    private final String vaultId;
+    private String vaultId;
 
-    @CustomType.Constructor
-    private ManagedClusterNodeTypeVmSecret(
-        @CustomType.Parameter("certificates") List<ManagedClusterNodeTypeVmSecretCertificate> certificates,
-        @CustomType.Parameter("vaultId") String vaultId) {
-        this.certificates = certificates;
-        this.vaultId = vaultId;
-    }
-
+    private ManagedClusterNodeTypeVmSecret() {}
     /**
      * @return One or more `certificates` blocks as defined above.
      * 
@@ -52,21 +45,18 @@ public final class ManagedClusterNodeTypeVmSecret {
     public static Builder builder(ManagedClusterNodeTypeVmSecret defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ManagedClusterNodeTypeVmSecretCertificate> certificates;
         private String vaultId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ManagedClusterNodeTypeVmSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificates = defaults.certificates;
     	      this.vaultId = defaults.vaultId;
         }
 
+        @CustomType.Setter
         public Builder certificates(List<ManagedClusterNodeTypeVmSecretCertificate> certificates) {
             this.certificates = Objects.requireNonNull(certificates);
             return this;
@@ -74,11 +64,16 @@ public final class ManagedClusterNodeTypeVmSecret {
         public Builder certificates(ManagedClusterNodeTypeVmSecretCertificate... certificates) {
             return certificates(List.of(certificates));
         }
+        @CustomType.Setter
         public Builder vaultId(String vaultId) {
             this.vaultId = Objects.requireNonNull(vaultId);
             return this;
-        }        public ManagedClusterNodeTypeVmSecret build() {
-            return new ManagedClusterNodeTypeVmSecret(certificates, vaultId);
+        }
+        public ManagedClusterNodeTypeVmSecret build() {
+            final var o = new ManagedClusterNodeTypeVmSecret();
+            o.certificates = certificates;
+            o.vaultId = vaultId;
+            return o;
         }
     }
 }

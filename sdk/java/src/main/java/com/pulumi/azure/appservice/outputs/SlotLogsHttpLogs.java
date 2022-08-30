@@ -16,21 +16,14 @@ public final class SlotLogsHttpLogs {
      * @return An `azure_blob_storage` block as defined below.
      * 
      */
-    private final @Nullable SlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
+    private @Nullable SlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
     /**
      * @return A `file_system` block as defined below.
      * 
      */
-    private final @Nullable SlotLogsHttpLogsFileSystem fileSystem;
+    private @Nullable SlotLogsHttpLogsFileSystem fileSystem;
 
-    @CustomType.Constructor
-    private SlotLogsHttpLogs(
-        @CustomType.Parameter("azureBlobStorage") @Nullable SlotLogsHttpLogsAzureBlobStorage azureBlobStorage,
-        @CustomType.Parameter("fileSystem") @Nullable SlotLogsHttpLogsFileSystem fileSystem) {
-        this.azureBlobStorage = azureBlobStorage;
-        this.fileSystem = fileSystem;
-    }
-
+    private SlotLogsHttpLogs() {}
     /**
      * @return An `azure_blob_storage` block as defined below.
      * 
@@ -53,30 +46,32 @@ public final class SlotLogsHttpLogs {
     public static Builder builder(SlotLogsHttpLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable SlotLogsHttpLogsAzureBlobStorage azureBlobStorage;
         private @Nullable SlotLogsHttpLogsFileSystem fileSystem;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SlotLogsHttpLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.azureBlobStorage = defaults.azureBlobStorage;
     	      this.fileSystem = defaults.fileSystem;
         }
 
+        @CustomType.Setter
         public Builder azureBlobStorage(@Nullable SlotLogsHttpLogsAzureBlobStorage azureBlobStorage) {
             this.azureBlobStorage = azureBlobStorage;
             return this;
         }
+        @CustomType.Setter
         public Builder fileSystem(@Nullable SlotLogsHttpLogsFileSystem fileSystem) {
             this.fileSystem = fileSystem;
             return this;
-        }        public SlotLogsHttpLogs build() {
-            return new SlotLogsHttpLogs(azureBlobStorage, fileSystem);
+        }
+        public SlotLogsHttpLogs build() {
+            final var o = new SlotLogsHttpLogs();
+            o.azureBlobStorage = azureBlobStorage;
+            o.fileSystem = fileSystem;
+            return o;
         }
     }
 }

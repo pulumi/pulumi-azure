@@ -19,83 +19,56 @@ public final class GetFhirServiceResult {
      * @return The list of the access policies of the service instance.
      * 
      */
-    private final List<String> accessPolicyObjectIds;
+    private List<String> accessPolicyObjectIds;
     /**
      * @return The `authentication` block as defined below.
      * 
      */
-    private final List<GetFhirServiceAuthentication> authentications;
+    private List<GetFhirServiceAuthentication> authentications;
     /**
      * @return The name of the storage account which the operation configuration information is exported to.
      * 
      */
-    private final String configurationExportStorageAccountName;
+    private String configurationExportStorageAccountName;
     /**
      * @return The list of azure container registry settings used for convert data operation of the service instance.
      * 
      */
-    private final List<String> containerRegistryLoginServerUrls;
+    private List<String> containerRegistryLoginServerUrls;
     /**
      * @return The `cors` block as defined below.
      * 
      */
-    private final List<GetFhirServiceCor> cors;
+    private List<GetFhirServiceCor> cors;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The `identity` block as defined below.
      * 
      */
-    private final List<GetFhirServiceIdentity> identities;
+    private List<GetFhirServiceIdentity> identities;
     /**
      * @return The kind of the Healthcare FHIR Service.
      * 
      */
-    private final String kind;
+    private String kind;
     /**
      * @return The Azure Region where the Healthcare FHIR Service is located.
      * 
      */
-    private final String location;
-    private final String name;
+    private String location;
+    private String name;
     /**
      * @return The map of tags assigned to the Healthcare FHIR Service.
      * 
      */
-    private final @Nullable Map<String,String> tags;
-    private final String workspaceId;
+    private @Nullable Map<String,String> tags;
+    private String workspaceId;
 
-    @CustomType.Constructor
-    private GetFhirServiceResult(
-        @CustomType.Parameter("accessPolicyObjectIds") List<String> accessPolicyObjectIds,
-        @CustomType.Parameter("authentications") List<GetFhirServiceAuthentication> authentications,
-        @CustomType.Parameter("configurationExportStorageAccountName") String configurationExportStorageAccountName,
-        @CustomType.Parameter("containerRegistryLoginServerUrls") List<String> containerRegistryLoginServerUrls,
-        @CustomType.Parameter("cors") List<GetFhirServiceCor> cors,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("identities") List<GetFhirServiceIdentity> identities,
-        @CustomType.Parameter("kind") String kind,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tags") @Nullable Map<String,String> tags,
-        @CustomType.Parameter("workspaceId") String workspaceId) {
-        this.accessPolicyObjectIds = accessPolicyObjectIds;
-        this.authentications = authentications;
-        this.configurationExportStorageAccountName = configurationExportStorageAccountName;
-        this.containerRegistryLoginServerUrls = containerRegistryLoginServerUrls;
-        this.cors = cors;
-        this.id = id;
-        this.identities = identities;
-        this.kind = kind;
-        this.location = location;
-        this.name = name;
-        this.tags = tags;
-        this.workspaceId = workspaceId;
-    }
-
+    private GetFhirServiceResult() {}
     /**
      * @return The list of the access policies of the service instance.
      * 
@@ -180,7 +153,7 @@ public final class GetFhirServiceResult {
     public static Builder builder(GetFhirServiceResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<String> accessPolicyObjectIds;
         private List<GetFhirServiceAuthentication> authentications;
@@ -194,11 +167,7 @@ public final class GetFhirServiceResult {
         private String name;
         private @Nullable Map<String,String> tags;
         private String workspaceId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetFhirServiceResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessPolicyObjectIds = defaults.accessPolicyObjectIds;
@@ -215,6 +184,7 @@ public final class GetFhirServiceResult {
     	      this.workspaceId = defaults.workspaceId;
         }
 
+        @CustomType.Setter
         public Builder accessPolicyObjectIds(List<String> accessPolicyObjectIds) {
             this.accessPolicyObjectIds = Objects.requireNonNull(accessPolicyObjectIds);
             return this;
@@ -222,6 +192,7 @@ public final class GetFhirServiceResult {
         public Builder accessPolicyObjectIds(String... accessPolicyObjectIds) {
             return accessPolicyObjectIds(List.of(accessPolicyObjectIds));
         }
+        @CustomType.Setter
         public Builder authentications(List<GetFhirServiceAuthentication> authentications) {
             this.authentications = Objects.requireNonNull(authentications);
             return this;
@@ -229,10 +200,12 @@ public final class GetFhirServiceResult {
         public Builder authentications(GetFhirServiceAuthentication... authentications) {
             return authentications(List.of(authentications));
         }
+        @CustomType.Setter
         public Builder configurationExportStorageAccountName(String configurationExportStorageAccountName) {
             this.configurationExportStorageAccountName = Objects.requireNonNull(configurationExportStorageAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder containerRegistryLoginServerUrls(List<String> containerRegistryLoginServerUrls) {
             this.containerRegistryLoginServerUrls = Objects.requireNonNull(containerRegistryLoginServerUrls);
             return this;
@@ -240,6 +213,7 @@ public final class GetFhirServiceResult {
         public Builder containerRegistryLoginServerUrls(String... containerRegistryLoginServerUrls) {
             return containerRegistryLoginServerUrls(List.of(containerRegistryLoginServerUrls));
         }
+        @CustomType.Setter
         public Builder cors(List<GetFhirServiceCor> cors) {
             this.cors = Objects.requireNonNull(cors);
             return this;
@@ -247,10 +221,12 @@ public final class GetFhirServiceResult {
         public Builder cors(GetFhirServiceCor... cors) {
             return cors(List.of(cors));
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder identities(List<GetFhirServiceIdentity> identities) {
             this.identities = Objects.requireNonNull(identities);
             return this;
@@ -258,27 +234,46 @@ public final class GetFhirServiceResult {
         public Builder identities(GetFhirServiceIdentity... identities) {
             return identities(List.of(identities));
         }
+        @CustomType.Setter
         public Builder kind(String kind) {
             this.kind = Objects.requireNonNull(kind);
             return this;
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tags(@Nullable Map<String,String> tags) {
             this.tags = tags;
             return this;
         }
+        @CustomType.Setter
         public Builder workspaceId(String workspaceId) {
             this.workspaceId = Objects.requireNonNull(workspaceId);
             return this;
-        }        public GetFhirServiceResult build() {
-            return new GetFhirServiceResult(accessPolicyObjectIds, authentications, configurationExportStorageAccountName, containerRegistryLoginServerUrls, cors, id, identities, kind, location, name, tags, workspaceId);
+        }
+        public GetFhirServiceResult build() {
+            final var o = new GetFhirServiceResult();
+            o.accessPolicyObjectIds = accessPolicyObjectIds;
+            o.authentications = authentications;
+            o.configurationExportStorageAccountName = configurationExportStorageAccountName;
+            o.containerRegistryLoginServerUrls = containerRegistryLoginServerUrls;
+            o.cors = cors;
+            o.id = id;
+            o.identities = identities;
+            o.kind = kind;
+            o.location = location;
+            o.name = name;
+            o.tags = tags;
+            o.workspaceId = workspaceId;
+            return o;
         }
     }
 }

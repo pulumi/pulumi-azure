@@ -11,17 +11,10 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener {
-    private final @Nullable String certificateUrl;
-    private final String protocol;
+    private @Nullable String certificateUrl;
+    private String protocol;
 
-    @CustomType.Constructor
-    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener(
-        @CustomType.Parameter("certificateUrl") @Nullable String certificateUrl,
-        @CustomType.Parameter("protocol") String protocol) {
-        this.certificateUrl = certificateUrl;
-        this.protocol = protocol;
-    }
-
+    private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener() {}
     public Optional<String> certificateUrl() {
         return Optional.ofNullable(this.certificateUrl);
     }
@@ -36,30 +29,32 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static Builder builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String certificateUrl;
         private String protocol;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.certificateUrl = defaults.certificateUrl;
     	      this.protocol = defaults.protocol;
         }
 
+        @CustomType.Setter
         public Builder certificateUrl(@Nullable String certificateUrl) {
             this.certificateUrl = certificateUrl;
             return this;
         }
+        @CustomType.Setter
         public Builder protocol(String protocol) {
             this.protocol = Objects.requireNonNull(protocol);
             return this;
-        }        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener build() {
-            return new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener(certificateUrl, protocol);
+        }
+        public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener build() {
+            final var o = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener();
+            o.certificateUrl = certificateUrl;
+            o.protocol = protocol;
+            return o;
         }
     }
 }

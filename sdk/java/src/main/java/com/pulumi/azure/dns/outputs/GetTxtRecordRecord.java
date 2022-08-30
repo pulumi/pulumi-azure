@@ -13,13 +13,9 @@ public final class GetTxtRecordRecord {
      * @return The value of the record. Max length: 1024 characters
      * 
      */
-    private final String value;
+    private String value;
 
-    @CustomType.Constructor
-    private GetTxtRecordRecord(@CustomType.Parameter("value") String value) {
-        this.value = value;
-    }
-
+    private GetTxtRecordRecord() {}
     /**
      * @return The value of the record. Max length: 1024 characters
      * 
@@ -35,24 +31,24 @@ public final class GetTxtRecordRecord {
     public static Builder builder(GetTxtRecordRecord defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String value;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetTxtRecordRecord defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.value = defaults.value;
         }
 
+        @CustomType.Setter
         public Builder value(String value) {
             this.value = Objects.requireNonNull(value);
             return this;
-        }        public GetTxtRecordRecord build() {
-            return new GetTxtRecordRecord(value);
+        }
+        public GetTxtRecordRecord build() {
+            final var o = new GetTxtRecordRecord();
+            o.value = value;
+            return o;
         }
     }
 }

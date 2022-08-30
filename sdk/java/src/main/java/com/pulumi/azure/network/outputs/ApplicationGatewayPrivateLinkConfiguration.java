@@ -17,28 +17,19 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
      * @return The ID of the Rewrite Rule Set
      * 
      */
-    private final @Nullable String id;
+    private @Nullable String id;
     /**
      * @return One or more `ip_configuration` blocks as defined below.
      * 
      */
-    private final List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations;
+    private List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations;
     /**
      * @return The name of the private link configuration.
      * 
      */
-    private final String name;
+    private String name;
 
-    @CustomType.Constructor
-    private ApplicationGatewayPrivateLinkConfiguration(
-        @CustomType.Parameter("id") @Nullable String id,
-        @CustomType.Parameter("ipConfigurations") List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations,
-        @CustomType.Parameter("name") String name) {
-        this.id = id;
-        this.ipConfigurations = ipConfigurations;
-        this.name = name;
-    }
-
+    private ApplicationGatewayPrivateLinkConfiguration() {}
     /**
      * @return The ID of the Rewrite Rule Set
      * 
@@ -68,16 +59,12 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
     public static Builder builder(ApplicationGatewayPrivateLinkConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String id;
         private List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations;
         private String name;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ApplicationGatewayPrivateLinkConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
@@ -85,10 +72,12 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
     	      this.name = defaults.name;
         }
 
+        @CustomType.Setter
         public Builder id(@Nullable String id) {
             this.id = id;
             return this;
         }
+        @CustomType.Setter
         public Builder ipConfigurations(List<ApplicationGatewayPrivateLinkConfigurationIpConfiguration> ipConfigurations) {
             this.ipConfigurations = Objects.requireNonNull(ipConfigurations);
             return this;
@@ -96,11 +85,17 @@ public final class ApplicationGatewayPrivateLinkConfiguration {
         public Builder ipConfigurations(ApplicationGatewayPrivateLinkConfigurationIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
-        }        public ApplicationGatewayPrivateLinkConfiguration build() {
-            return new ApplicationGatewayPrivateLinkConfiguration(id, ipConfigurations, name);
+        }
+        public ApplicationGatewayPrivateLinkConfiguration build() {
+            final var o = new ApplicationGatewayPrivateLinkConfiguration();
+            o.id = id;
+            o.ipConfigurations = ipConfigurations;
+            o.name = name;
+            return o;
         }
     }
 }

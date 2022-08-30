@@ -16,35 +16,24 @@ public final class ActionGroupEventHubReceiver {
      * @return The resource ID of the respective Event Hub.
      * 
      */
-    private final String eventHubId;
+    private String eventHubId;
     /**
      * @return The name of the EventHub Receiver, must be unique within action group.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Tenant ID for the subscription containing this Event Hub.
      * 
      */
-    private final @Nullable String tenantId;
+    private @Nullable String tenantId;
     /**
      * @return Indicates whether to use common alert schema.
      * 
      */
-    private final @Nullable Boolean useCommonAlertSchema;
+    private @Nullable Boolean useCommonAlertSchema;
 
-    @CustomType.Constructor
-    private ActionGroupEventHubReceiver(
-        @CustomType.Parameter("eventHubId") String eventHubId,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("tenantId") @Nullable String tenantId,
-        @CustomType.Parameter("useCommonAlertSchema") @Nullable Boolean useCommonAlertSchema) {
-        this.eventHubId = eventHubId;
-        this.name = name;
-        this.tenantId = tenantId;
-        this.useCommonAlertSchema = useCommonAlertSchema;
-    }
-
+    private ActionGroupEventHubReceiver() {}
     /**
      * @return The resource ID of the respective Event Hub.
      * 
@@ -81,17 +70,13 @@ public final class ActionGroupEventHubReceiver {
     public static Builder builder(ActionGroupEventHubReceiver defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String eventHubId;
         private String name;
         private @Nullable String tenantId;
         private @Nullable Boolean useCommonAlertSchema;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionGroupEventHubReceiver defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.eventHubId = defaults.eventHubId;
@@ -100,23 +85,33 @@ public final class ActionGroupEventHubReceiver {
     	      this.useCommonAlertSchema = defaults.useCommonAlertSchema;
         }
 
+        @CustomType.Setter
         public Builder eventHubId(String eventHubId) {
             this.eventHubId = Objects.requireNonNull(eventHubId);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(@Nullable String tenantId) {
             this.tenantId = tenantId;
             return this;
         }
+        @CustomType.Setter
         public Builder useCommonAlertSchema(@Nullable Boolean useCommonAlertSchema) {
             this.useCommonAlertSchema = useCommonAlertSchema;
             return this;
-        }        public ActionGroupEventHubReceiver build() {
-            return new ActionGroupEventHubReceiver(eventHubId, name, tenantId, useCommonAlertSchema);
+        }
+        public ActionGroupEventHubReceiver build() {
+            final var o = new ActionGroupEventHubReceiver();
+            o.eventHubId = eventHubId;
+            o.name = name;
+            o.tenantId = tenantId;
+            o.useCommonAlertSchema = useCommonAlertSchema;
+            return o;
         }
     }
 }

@@ -17,56 +17,39 @@ public final class BlobInventoryPolicyRule {
      * @return A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
      * 
      */
-    private final @Nullable BlobInventoryPolicyRuleFilter filter;
+    private @Nullable BlobInventoryPolicyRuleFilter filter;
     /**
      * @return The format of the inventory files. Possible values are `Csv` and `Parquet`.
      * 
      */
-    private final String format;
+    private String format;
     /**
      * @return The name which should be used for this Blob Inventory Policy Rule.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The inventory schedule applied by this rule. Possible values are `Daily` and `Weekly`.
      * 
      */
-    private final String schedule;
+    private String schedule;
     /**
      * @return A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
      * 
      */
-    private final List<String> schemaFields;
+    private List<String> schemaFields;
     /**
      * @return The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
      * 
      */
-    private final String scope;
+    private String scope;
     /**
      * @return The storage container name to store the blob inventory files for this rule.
      * 
      */
-    private final String storageContainerName;
+    private String storageContainerName;
 
-    @CustomType.Constructor
-    private BlobInventoryPolicyRule(
-        @CustomType.Parameter("filter") @Nullable BlobInventoryPolicyRuleFilter filter,
-        @CustomType.Parameter("format") String format,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("schedule") String schedule,
-        @CustomType.Parameter("schemaFields") List<String> schemaFields,
-        @CustomType.Parameter("scope") String scope,
-        @CustomType.Parameter("storageContainerName") String storageContainerName) {
-        this.filter = filter;
-        this.format = format;
-        this.name = name;
-        this.schedule = schedule;
-        this.schemaFields = schemaFields;
-        this.scope = scope;
-        this.storageContainerName = storageContainerName;
-    }
-
+    private BlobInventoryPolicyRule() {}
     /**
      * @return A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
      * 
@@ -124,7 +107,7 @@ public final class BlobInventoryPolicyRule {
     public static Builder builder(BlobInventoryPolicyRule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable BlobInventoryPolicyRuleFilter filter;
         private String format;
@@ -133,11 +116,7 @@ public final class BlobInventoryPolicyRule {
         private List<String> schemaFields;
         private String scope;
         private String storageContainerName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(BlobInventoryPolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filter = defaults.filter;
@@ -149,22 +128,27 @@ public final class BlobInventoryPolicyRule {
     	      this.storageContainerName = defaults.storageContainerName;
         }
 
+        @CustomType.Setter
         public Builder filter(@Nullable BlobInventoryPolicyRuleFilter filter) {
             this.filter = filter;
             return this;
         }
+        @CustomType.Setter
         public Builder format(String format) {
             this.format = Objects.requireNonNull(format);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder schedule(String schedule) {
             this.schedule = Objects.requireNonNull(schedule);
             return this;
         }
+        @CustomType.Setter
         public Builder schemaFields(List<String> schemaFields) {
             this.schemaFields = Objects.requireNonNull(schemaFields);
             return this;
@@ -172,15 +156,26 @@ public final class BlobInventoryPolicyRule {
         public Builder schemaFields(String... schemaFields) {
             return schemaFields(List.of(schemaFields));
         }
+        @CustomType.Setter
         public Builder scope(String scope) {
             this.scope = Objects.requireNonNull(scope);
             return this;
         }
+        @CustomType.Setter
         public Builder storageContainerName(String storageContainerName) {
             this.storageContainerName = Objects.requireNonNull(storageContainerName);
             return this;
-        }        public BlobInventoryPolicyRule build() {
-            return new BlobInventoryPolicyRule(filter, format, name, schedule, schemaFields, scope, storageContainerName);
+        }
+        public BlobInventoryPolicyRule build() {
+            final var o = new BlobInventoryPolicyRule();
+            o.filter = filter;
+            o.format = format;
+            o.name = name;
+            o.schedule = schedule;
+            o.schemaFields = schemaFields;
+            o.scope = scope;
+            o.storageContainerName = storageContainerName;
+            return o;
         }
     }
 }

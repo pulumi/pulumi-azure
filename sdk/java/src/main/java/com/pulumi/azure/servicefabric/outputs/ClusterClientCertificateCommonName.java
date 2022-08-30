@@ -16,24 +16,15 @@ public final class ClusterClientCertificateCommonName {
      * @return The common or subject name of the certificate.
      * 
      */
-    private final String commonName;
+    private String commonName;
     /**
      * @return Does the Client Certificate have Admin Access to the cluster? Non-admin clients can only perform read only operations on the cluster.
      * 
      */
-    private final Boolean isAdmin;
-    private final @Nullable String issuerThumbprint;
+    private Boolean isAdmin;
+    private @Nullable String issuerThumbprint;
 
-    @CustomType.Constructor
-    private ClusterClientCertificateCommonName(
-        @CustomType.Parameter("commonName") String commonName,
-        @CustomType.Parameter("isAdmin") Boolean isAdmin,
-        @CustomType.Parameter("issuerThumbprint") @Nullable String issuerThumbprint) {
-        this.commonName = commonName;
-        this.isAdmin = isAdmin;
-        this.issuerThumbprint = issuerThumbprint;
-    }
-
+    private ClusterClientCertificateCommonName() {}
     /**
      * @return The common or subject name of the certificate.
      * 
@@ -59,16 +50,12 @@ public final class ClusterClientCertificateCommonName {
     public static Builder builder(ClusterClientCertificateCommonName defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String commonName;
         private Boolean isAdmin;
         private @Nullable String issuerThumbprint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterClientCertificateCommonName defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commonName = defaults.commonName;
@@ -76,19 +63,27 @@ public final class ClusterClientCertificateCommonName {
     	      this.issuerThumbprint = defaults.issuerThumbprint;
         }
 
+        @CustomType.Setter
         public Builder commonName(String commonName) {
             this.commonName = Objects.requireNonNull(commonName);
             return this;
         }
+        @CustomType.Setter
         public Builder isAdmin(Boolean isAdmin) {
             this.isAdmin = Objects.requireNonNull(isAdmin);
             return this;
         }
+        @CustomType.Setter
         public Builder issuerThumbprint(@Nullable String issuerThumbprint) {
             this.issuerThumbprint = issuerThumbprint;
             return this;
-        }        public ClusterClientCertificateCommonName build() {
-            return new ClusterClientCertificateCommonName(commonName, isAdmin, issuerThumbprint);
+        }
+        public ClusterClientCertificateCommonName build() {
+            final var o = new ClusterClientCertificateCommonName();
+            o.commonName = commonName;
+            o.isAdmin = isAdmin;
+            o.issuerThumbprint = issuerThumbprint;
+            return o;
         }
     }
 }

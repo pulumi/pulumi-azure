@@ -18,28 +18,19 @@ public final class RegistryNetworkRuleSet {
      * @return The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
      * 
      */
-    private final @Nullable String defaultAction;
+    private @Nullable String defaultAction;
     /**
      * @return One or more `ip_rule` blocks as defined below.
      * 
      */
-    private final @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
+    private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
     /**
      * @return One or more `virtual_network` blocks as defined below.
      * 
      */
-    private final @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
+    private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
 
-    @CustomType.Constructor
-    private RegistryNetworkRuleSet(
-        @CustomType.Parameter("defaultAction") @Nullable String defaultAction,
-        @CustomType.Parameter("ipRules") @Nullable List<RegistryNetworkRuleSetIpRule> ipRules,
-        @CustomType.Parameter("virtualNetworks") @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks) {
-        this.defaultAction = defaultAction;
-        this.ipRules = ipRules;
-        this.virtualNetworks = virtualNetworks;
-    }
-
+    private RegistryNetworkRuleSet() {}
     /**
      * @return The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
      * 
@@ -69,16 +60,12 @@ public final class RegistryNetworkRuleSet {
     public static Builder builder(RegistryNetworkRuleSet defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable String defaultAction;
         private @Nullable List<RegistryNetworkRuleSetIpRule> ipRules;
         private @Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(RegistryNetworkRuleSet defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.defaultAction = defaults.defaultAction;
@@ -86,10 +73,12 @@ public final class RegistryNetworkRuleSet {
     	      this.virtualNetworks = defaults.virtualNetworks;
         }
 
+        @CustomType.Setter
         public Builder defaultAction(@Nullable String defaultAction) {
             this.defaultAction = defaultAction;
             return this;
         }
+        @CustomType.Setter
         public Builder ipRules(@Nullable List<RegistryNetworkRuleSetIpRule> ipRules) {
             this.ipRules = ipRules;
             return this;
@@ -97,14 +86,20 @@ public final class RegistryNetworkRuleSet {
         public Builder ipRules(RegistryNetworkRuleSetIpRule... ipRules) {
             return ipRules(List.of(ipRules));
         }
+        @CustomType.Setter
         public Builder virtualNetworks(@Nullable List<RegistryNetworkRuleSetVirtualNetwork> virtualNetworks) {
             this.virtualNetworks = virtualNetworks;
             return this;
         }
         public Builder virtualNetworks(RegistryNetworkRuleSetVirtualNetwork... virtualNetworks) {
             return virtualNetworks(List.of(virtualNetworks));
-        }        public RegistryNetworkRuleSet build() {
-            return new RegistryNetworkRuleSet(defaultAction, ipRules, virtualNetworks);
+        }
+        public RegistryNetworkRuleSet build() {
+            final var o = new RegistryNetworkRuleSet();
+            o.defaultAction = defaultAction;
+            o.ipRules = ipRules;
+            o.virtualNetworks = virtualNetworks;
+            return o;
         }
     }
 }

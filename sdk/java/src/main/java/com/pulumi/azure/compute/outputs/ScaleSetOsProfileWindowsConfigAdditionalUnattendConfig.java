@@ -13,35 +13,24 @@ public final class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
      * @return Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
      * 
      */
-    private final String component;
+    private String component;
     /**
      * @return Specifies the base-64 encoded XML formatted content that is added to the unattend.xml file for the specified path and component.
      * 
      */
-    private final String content;
+    private String content;
     /**
      * @return Specifies the name of the pass that the content applies to. The only allowable value is `oobeSystem`.
      * 
      */
-    private final String pass;
+    private String pass;
     /**
      * @return Specifies the name of the setting to which the content applies. Possible values are: `FirstLogonCommands` and `AutoLogon`.
      * 
      */
-    private final String settingName;
+    private String settingName;
 
-    @CustomType.Constructor
-    private ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(
-        @CustomType.Parameter("component") String component,
-        @CustomType.Parameter("content") String content,
-        @CustomType.Parameter("pass") String pass,
-        @CustomType.Parameter("settingName") String settingName) {
-        this.component = component;
-        this.content = content;
-        this.pass = pass;
-        this.settingName = settingName;
-    }
-
+    private ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig() {}
     /**
      * @return Specifies the name of the component to configure with the added content. The only allowable value is `Microsoft-Windows-Shell-Setup`.
      * 
@@ -78,17 +67,13 @@ public final class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
     public static Builder builder(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String component;
         private String content;
         private String pass;
         private String settingName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.component = defaults.component;
@@ -97,23 +82,33 @@ public final class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig {
     	      this.settingName = defaults.settingName;
         }
 
+        @CustomType.Setter
         public Builder component(String component) {
             this.component = Objects.requireNonNull(component);
             return this;
         }
+        @CustomType.Setter
         public Builder content(String content) {
             this.content = Objects.requireNonNull(content);
             return this;
         }
+        @CustomType.Setter
         public Builder pass(String pass) {
             this.pass = Objects.requireNonNull(pass);
             return this;
         }
+        @CustomType.Setter
         public Builder settingName(String settingName) {
             this.settingName = Objects.requireNonNull(settingName);
             return this;
-        }        public ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig build() {
-            return new ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(component, content, pass, settingName);
+        }
+        public ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig build() {
+            final var o = new ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig();
+            o.component = component;
+            o.content = content;
+            o.pass = pass;
+            o.settingName = settingName;
+            return o;
         }
     }
 }

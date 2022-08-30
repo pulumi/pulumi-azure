@@ -18,56 +18,39 @@ public final class GroupContainerReadinessProbe {
      * @return Commands to be run to validate container readiness. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<String> execs;
+    private @Nullable List<String> execs;
     /**
      * @return How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer failureThreshold;
+    private @Nullable Integer failureThreshold;
     /**
      * @return The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable List<GroupContainerReadinessProbeHttpGet> httpGets;
+    private @Nullable List<GroupContainerReadinessProbeHttpGet> httpGets;
     /**
      * @return Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer initialDelaySeconds;
+    private @Nullable Integer initialDelaySeconds;
     /**
      * @return How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer periodSeconds;
+    private @Nullable Integer periodSeconds;
     /**
      * @return Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer successThreshold;
+    private @Nullable Integer successThreshold;
     /**
      * @return Number of seconds after which the probe times out. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
      * 
      */
-    private final @Nullable Integer timeoutSeconds;
+    private @Nullable Integer timeoutSeconds;
 
-    @CustomType.Constructor
-    private GroupContainerReadinessProbe(
-        @CustomType.Parameter("execs") @Nullable List<String> execs,
-        @CustomType.Parameter("failureThreshold") @Nullable Integer failureThreshold,
-        @CustomType.Parameter("httpGets") @Nullable List<GroupContainerReadinessProbeHttpGet> httpGets,
-        @CustomType.Parameter("initialDelaySeconds") @Nullable Integer initialDelaySeconds,
-        @CustomType.Parameter("periodSeconds") @Nullable Integer periodSeconds,
-        @CustomType.Parameter("successThreshold") @Nullable Integer successThreshold,
-        @CustomType.Parameter("timeoutSeconds") @Nullable Integer timeoutSeconds) {
-        this.execs = execs;
-        this.failureThreshold = failureThreshold;
-        this.httpGets = httpGets;
-        this.initialDelaySeconds = initialDelaySeconds;
-        this.periodSeconds = periodSeconds;
-        this.successThreshold = successThreshold;
-        this.timeoutSeconds = timeoutSeconds;
-    }
-
+    private GroupContainerReadinessProbe() {}
     /**
      * @return Commands to be run to validate container readiness. Changing this forces a new resource to be created.
      * 
@@ -125,7 +108,7 @@ public final class GroupContainerReadinessProbe {
     public static Builder builder(GroupContainerReadinessProbe defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> execs;
         private @Nullable Integer failureThreshold;
@@ -134,11 +117,7 @@ public final class GroupContainerReadinessProbe {
         private @Nullable Integer periodSeconds;
         private @Nullable Integer successThreshold;
         private @Nullable Integer timeoutSeconds;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GroupContainerReadinessProbe defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.execs = defaults.execs;
@@ -150,6 +129,7 @@ public final class GroupContainerReadinessProbe {
     	      this.timeoutSeconds = defaults.timeoutSeconds;
         }
 
+        @CustomType.Setter
         public Builder execs(@Nullable List<String> execs) {
             this.execs = execs;
             return this;
@@ -157,10 +137,12 @@ public final class GroupContainerReadinessProbe {
         public Builder execs(String... execs) {
             return execs(List.of(execs));
         }
+        @CustomType.Setter
         public Builder failureThreshold(@Nullable Integer failureThreshold) {
             this.failureThreshold = failureThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder httpGets(@Nullable List<GroupContainerReadinessProbeHttpGet> httpGets) {
             this.httpGets = httpGets;
             return this;
@@ -168,23 +150,36 @@ public final class GroupContainerReadinessProbe {
         public Builder httpGets(GroupContainerReadinessProbeHttpGet... httpGets) {
             return httpGets(List.of(httpGets));
         }
+        @CustomType.Setter
         public Builder initialDelaySeconds(@Nullable Integer initialDelaySeconds) {
             this.initialDelaySeconds = initialDelaySeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder periodSeconds(@Nullable Integer periodSeconds) {
             this.periodSeconds = periodSeconds;
             return this;
         }
+        @CustomType.Setter
         public Builder successThreshold(@Nullable Integer successThreshold) {
             this.successThreshold = successThreshold;
             return this;
         }
+        @CustomType.Setter
         public Builder timeoutSeconds(@Nullable Integer timeoutSeconds) {
             this.timeoutSeconds = timeoutSeconds;
             return this;
-        }        public GroupContainerReadinessProbe build() {
-            return new GroupContainerReadinessProbe(execs, failureThreshold, httpGets, initialDelaySeconds, periodSeconds, successThreshold, timeoutSeconds);
+        }
+        public GroupContainerReadinessProbe build() {
+            final var o = new GroupContainerReadinessProbe();
+            o.execs = execs;
+            o.failureThreshold = failureThreshold;
+            o.httpGets = httpGets;
+            o.initialDelaySeconds = initialDelaySeconds;
+            o.periodSeconds = periodSeconds;
+            o.successThreshold = successThreshold;
+            o.timeoutSeconds = timeoutSeconds;
+            return o;
         }
     }
 }

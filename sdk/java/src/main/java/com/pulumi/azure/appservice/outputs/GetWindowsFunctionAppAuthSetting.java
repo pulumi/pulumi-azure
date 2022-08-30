@@ -23,112 +23,79 @@ public final class GetWindowsFunctionAppAuthSetting {
      * @return A `active_directory` block as defined above.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories;
+    private List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories;
     /**
      * @return A map of Login Parameters to send to the OpenID Connect authorization endpoint when a user logs in.
      * 
      */
-    private final Map<String,String> additionalLoginParameters;
+    private Map<String,String> additionalLoginParameters;
     /**
      * @return A list of External URLs that can be redirected to as part of logging in or logging out of the Windows Function App.
      * 
      */
-    private final List<String> allowedExternalRedirectUrls;
+    private List<String> allowedExternalRedirectUrls;
     /**
      * @return The default authentication provider to use when multiple providers are configured.
      * 
      */
-    private final String defaultProvider;
+    private String defaultProvider;
     /**
      * @return Is the Backup Job enabled?
      * 
      */
-    private final Boolean enabled;
+    private Boolean enabled;
     /**
      * @return A `facebook` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingFacebook> facebooks;
+    private List<GetWindowsFunctionAppAuthSettingFacebook> facebooks;
     /**
      * @return A `github` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingGithub> githubs;
+    private List<GetWindowsFunctionAppAuthSettingGithub> githubs;
     /**
      * @return A `google` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingGoogle> googles;
+    private List<GetWindowsFunctionAppAuthSettingGoogle> googles;
     /**
      * @return The OpenID Connect Issuer URI that represents the entity which issues access tokens for this Windows Function App.
      * 
      */
-    private final String issuer;
+    private String issuer;
     /**
      * @return A `microsoft` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingMicrosoft> microsofts;
+    private List<GetWindowsFunctionAppAuthSettingMicrosoft> microsofts;
     /**
      * @return The Runtime Version of the Authentication / Authorization feature in use for the Windows Function App.
      * 
      */
-    private final String runtimeVersion;
+    private String runtimeVersion;
     /**
      * @return The number of hours after session token expiration that a session token can be used to call the token refresh API.
      * 
      */
-    private final Double tokenRefreshExtensionHours;
+    private Double tokenRefreshExtensionHours;
     /**
      * @return Is the durable storing of platform-specific security token that are obtained during login flows enabled?
      * 
      */
-    private final Boolean tokenStoreEnabled;
+    private Boolean tokenStoreEnabled;
     /**
      * @return A `twitter` block as defined below.
      * 
      */
-    private final List<GetWindowsFunctionAppAuthSettingTwitter> twitters;
+    private List<GetWindowsFunctionAppAuthSettingTwitter> twitters;
     /**
      * @return The action to take when an unauthenticated client attempts to access the app.
      * 
      */
-    private final String unauthenticatedClientAction;
+    private String unauthenticatedClientAction;
 
-    @CustomType.Constructor
-    private GetWindowsFunctionAppAuthSetting(
-        @CustomType.Parameter("activeDirectories") List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories,
-        @CustomType.Parameter("additionalLoginParameters") Map<String,String> additionalLoginParameters,
-        @CustomType.Parameter("allowedExternalRedirectUrls") List<String> allowedExternalRedirectUrls,
-        @CustomType.Parameter("defaultProvider") String defaultProvider,
-        @CustomType.Parameter("enabled") Boolean enabled,
-        @CustomType.Parameter("facebooks") List<GetWindowsFunctionAppAuthSettingFacebook> facebooks,
-        @CustomType.Parameter("githubs") List<GetWindowsFunctionAppAuthSettingGithub> githubs,
-        @CustomType.Parameter("googles") List<GetWindowsFunctionAppAuthSettingGoogle> googles,
-        @CustomType.Parameter("issuer") String issuer,
-        @CustomType.Parameter("microsofts") List<GetWindowsFunctionAppAuthSettingMicrosoft> microsofts,
-        @CustomType.Parameter("runtimeVersion") String runtimeVersion,
-        @CustomType.Parameter("tokenRefreshExtensionHours") Double tokenRefreshExtensionHours,
-        @CustomType.Parameter("tokenStoreEnabled") Boolean tokenStoreEnabled,
-        @CustomType.Parameter("twitters") List<GetWindowsFunctionAppAuthSettingTwitter> twitters,
-        @CustomType.Parameter("unauthenticatedClientAction") String unauthenticatedClientAction) {
-        this.activeDirectories = activeDirectories;
-        this.additionalLoginParameters = additionalLoginParameters;
-        this.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
-        this.defaultProvider = defaultProvider;
-        this.enabled = enabled;
-        this.facebooks = facebooks;
-        this.githubs = githubs;
-        this.googles = googles;
-        this.issuer = issuer;
-        this.microsofts = microsofts;
-        this.runtimeVersion = runtimeVersion;
-        this.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
-        this.tokenStoreEnabled = tokenStoreEnabled;
-        this.twitters = twitters;
-        this.unauthenticatedClientAction = unauthenticatedClientAction;
-    }
-
+    private GetWindowsFunctionAppAuthSetting() {}
     /**
      * @return A `active_directory` block as defined above.
      * 
@@ -242,7 +209,7 @@ public final class GetWindowsFunctionAppAuthSetting {
     public static Builder builder(GetWindowsFunctionAppAuthSetting defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories;
         private Map<String,String> additionalLoginParameters;
@@ -259,11 +226,7 @@ public final class GetWindowsFunctionAppAuthSetting {
         private Boolean tokenStoreEnabled;
         private List<GetWindowsFunctionAppAuthSettingTwitter> twitters;
         private String unauthenticatedClientAction;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetWindowsFunctionAppAuthSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.activeDirectories = defaults.activeDirectories;
@@ -283,6 +246,7 @@ public final class GetWindowsFunctionAppAuthSetting {
     	      this.unauthenticatedClientAction = defaults.unauthenticatedClientAction;
         }
 
+        @CustomType.Setter
         public Builder activeDirectories(List<GetWindowsFunctionAppAuthSettingActiveDirectory> activeDirectories) {
             this.activeDirectories = Objects.requireNonNull(activeDirectories);
             return this;
@@ -290,10 +254,12 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder activeDirectories(GetWindowsFunctionAppAuthSettingActiveDirectory... activeDirectories) {
             return activeDirectories(List.of(activeDirectories));
         }
+        @CustomType.Setter
         public Builder additionalLoginParameters(Map<String,String> additionalLoginParameters) {
             this.additionalLoginParameters = Objects.requireNonNull(additionalLoginParameters);
             return this;
         }
+        @CustomType.Setter
         public Builder allowedExternalRedirectUrls(List<String> allowedExternalRedirectUrls) {
             this.allowedExternalRedirectUrls = Objects.requireNonNull(allowedExternalRedirectUrls);
             return this;
@@ -301,14 +267,17 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder allowedExternalRedirectUrls(String... allowedExternalRedirectUrls) {
             return allowedExternalRedirectUrls(List.of(allowedExternalRedirectUrls));
         }
+        @CustomType.Setter
         public Builder defaultProvider(String defaultProvider) {
             this.defaultProvider = Objects.requireNonNull(defaultProvider);
             return this;
         }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             this.enabled = Objects.requireNonNull(enabled);
             return this;
         }
+        @CustomType.Setter
         public Builder facebooks(List<GetWindowsFunctionAppAuthSettingFacebook> facebooks) {
             this.facebooks = Objects.requireNonNull(facebooks);
             return this;
@@ -316,6 +285,7 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder facebooks(GetWindowsFunctionAppAuthSettingFacebook... facebooks) {
             return facebooks(List.of(facebooks));
         }
+        @CustomType.Setter
         public Builder githubs(List<GetWindowsFunctionAppAuthSettingGithub> githubs) {
             this.githubs = Objects.requireNonNull(githubs);
             return this;
@@ -323,6 +293,7 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder githubs(GetWindowsFunctionAppAuthSettingGithub... githubs) {
             return githubs(List.of(githubs));
         }
+        @CustomType.Setter
         public Builder googles(List<GetWindowsFunctionAppAuthSettingGoogle> googles) {
             this.googles = Objects.requireNonNull(googles);
             return this;
@@ -330,10 +301,12 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder googles(GetWindowsFunctionAppAuthSettingGoogle... googles) {
             return googles(List.of(googles));
         }
+        @CustomType.Setter
         public Builder issuer(String issuer) {
             this.issuer = Objects.requireNonNull(issuer);
             return this;
         }
+        @CustomType.Setter
         public Builder microsofts(List<GetWindowsFunctionAppAuthSettingMicrosoft> microsofts) {
             this.microsofts = Objects.requireNonNull(microsofts);
             return this;
@@ -341,18 +314,22 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder microsofts(GetWindowsFunctionAppAuthSettingMicrosoft... microsofts) {
             return microsofts(List.of(microsofts));
         }
+        @CustomType.Setter
         public Builder runtimeVersion(String runtimeVersion) {
             this.runtimeVersion = Objects.requireNonNull(runtimeVersion);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenRefreshExtensionHours(Double tokenRefreshExtensionHours) {
             this.tokenRefreshExtensionHours = Objects.requireNonNull(tokenRefreshExtensionHours);
             return this;
         }
+        @CustomType.Setter
         public Builder tokenStoreEnabled(Boolean tokenStoreEnabled) {
             this.tokenStoreEnabled = Objects.requireNonNull(tokenStoreEnabled);
             return this;
         }
+        @CustomType.Setter
         public Builder twitters(List<GetWindowsFunctionAppAuthSettingTwitter> twitters) {
             this.twitters = Objects.requireNonNull(twitters);
             return this;
@@ -360,11 +337,29 @@ public final class GetWindowsFunctionAppAuthSetting {
         public Builder twitters(GetWindowsFunctionAppAuthSettingTwitter... twitters) {
             return twitters(List.of(twitters));
         }
+        @CustomType.Setter
         public Builder unauthenticatedClientAction(String unauthenticatedClientAction) {
             this.unauthenticatedClientAction = Objects.requireNonNull(unauthenticatedClientAction);
             return this;
-        }        public GetWindowsFunctionAppAuthSetting build() {
-            return new GetWindowsFunctionAppAuthSetting(activeDirectories, additionalLoginParameters, allowedExternalRedirectUrls, defaultProvider, enabled, facebooks, githubs, googles, issuer, microsofts, runtimeVersion, tokenRefreshExtensionHours, tokenStoreEnabled, twitters, unauthenticatedClientAction);
+        }
+        public GetWindowsFunctionAppAuthSetting build() {
+            final var o = new GetWindowsFunctionAppAuthSetting();
+            o.activeDirectories = activeDirectories;
+            o.additionalLoginParameters = additionalLoginParameters;
+            o.allowedExternalRedirectUrls = allowedExternalRedirectUrls;
+            o.defaultProvider = defaultProvider;
+            o.enabled = enabled;
+            o.facebooks = facebooks;
+            o.githubs = githubs;
+            o.googles = googles;
+            o.issuer = issuer;
+            o.microsofts = microsofts;
+            o.runtimeVersion = runtimeVersion;
+            o.tokenRefreshExtensionHours = tokenRefreshExtensionHours;
+            o.tokenStoreEnabled = tokenStoreEnabled;
+            o.twitters = twitters;
+            o.unauthenticatedClientAction = unauthenticatedClientAction;
+            return o;
         }
     }
 }

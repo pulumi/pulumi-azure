@@ -17,35 +17,24 @@ public final class AppServiceLogs {
      * @return An `application_logs` block as defined below.
      * 
      */
-    private final @Nullable AppServiceLogsApplicationLogs applicationLogs;
+    private @Nullable AppServiceLogsApplicationLogs applicationLogs;
     /**
      * @return Should `Detailed error messages` be enabled on this App Service? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean detailedErrorMessagesEnabled;
+    private @Nullable Boolean detailedErrorMessagesEnabled;
     /**
      * @return Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
      * 
      */
-    private final @Nullable Boolean failedRequestTracingEnabled;
+    private @Nullable Boolean failedRequestTracingEnabled;
     /**
      * @return An `http_logs` block as defined below.
      * 
      */
-    private final @Nullable AppServiceLogsHttpLogs httpLogs;
+    private @Nullable AppServiceLogsHttpLogs httpLogs;
 
-    @CustomType.Constructor
-    private AppServiceLogs(
-        @CustomType.Parameter("applicationLogs") @Nullable AppServiceLogsApplicationLogs applicationLogs,
-        @CustomType.Parameter("detailedErrorMessagesEnabled") @Nullable Boolean detailedErrorMessagesEnabled,
-        @CustomType.Parameter("failedRequestTracingEnabled") @Nullable Boolean failedRequestTracingEnabled,
-        @CustomType.Parameter("httpLogs") @Nullable AppServiceLogsHttpLogs httpLogs) {
-        this.applicationLogs = applicationLogs;
-        this.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
-        this.failedRequestTracingEnabled = failedRequestTracingEnabled;
-        this.httpLogs = httpLogs;
-    }
-
+    private AppServiceLogs() {}
     /**
      * @return An `application_logs` block as defined below.
      * 
@@ -82,17 +71,13 @@ public final class AppServiceLogs {
     public static Builder builder(AppServiceLogs defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable AppServiceLogsApplicationLogs applicationLogs;
         private @Nullable Boolean detailedErrorMessagesEnabled;
         private @Nullable Boolean failedRequestTracingEnabled;
         private @Nullable AppServiceLogsHttpLogs httpLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(AppServiceLogs defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationLogs = defaults.applicationLogs;
@@ -101,23 +86,33 @@ public final class AppServiceLogs {
     	      this.httpLogs = defaults.httpLogs;
         }
 
+        @CustomType.Setter
         public Builder applicationLogs(@Nullable AppServiceLogsApplicationLogs applicationLogs) {
             this.applicationLogs = applicationLogs;
             return this;
         }
+        @CustomType.Setter
         public Builder detailedErrorMessagesEnabled(@Nullable Boolean detailedErrorMessagesEnabled) {
             this.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder failedRequestTracingEnabled(@Nullable Boolean failedRequestTracingEnabled) {
             this.failedRequestTracingEnabled = failedRequestTracingEnabled;
             return this;
         }
+        @CustomType.Setter
         public Builder httpLogs(@Nullable AppServiceLogsHttpLogs httpLogs) {
             this.httpLogs = httpLogs;
             return this;
-        }        public AppServiceLogs build() {
-            return new AppServiceLogs(applicationLogs, detailedErrorMessagesEnabled, failedRequestTracingEnabled, httpLogs);
+        }
+        public AppServiceLogs build() {
+            final var o = new AppServiceLogs();
+            o.applicationLogs = applicationLogs;
+            o.detailedErrorMessagesEnabled = detailedErrorMessagesEnabled;
+            o.failedRequestTracingEnabled = failedRequestTracingEnabled;
+            o.httpLogs = httpLogs;
+            return o;
         }
     }
 }

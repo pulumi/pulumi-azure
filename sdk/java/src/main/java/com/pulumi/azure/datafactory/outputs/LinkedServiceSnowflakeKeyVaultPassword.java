@@ -13,21 +13,14 @@ public final class LinkedServiceSnowflakeKeyVaultPassword {
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
      */
-    private final String linkedServiceName;
+    private String linkedServiceName;
     /**
      * @return Specifies the secret name in Azure Key Vault that stores Snowflake password.
      * 
      */
-    private final String secretName;
+    private String secretName;
 
-    @CustomType.Constructor
-    private LinkedServiceSnowflakeKeyVaultPassword(
-        @CustomType.Parameter("linkedServiceName") String linkedServiceName,
-        @CustomType.Parameter("secretName") String secretName) {
-        this.linkedServiceName = linkedServiceName;
-        this.secretName = secretName;
-    }
-
+    private LinkedServiceSnowflakeKeyVaultPassword() {}
     /**
      * @return Specifies the name of an existing Key Vault Data Factory Linked Service.
      * 
@@ -50,30 +43,32 @@ public final class LinkedServiceSnowflakeKeyVaultPassword {
     public static Builder builder(LinkedServiceSnowflakeKeyVaultPassword defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String linkedServiceName;
         private String secretName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinkedServiceSnowflakeKeyVaultPassword defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.linkedServiceName = defaults.linkedServiceName;
     	      this.secretName = defaults.secretName;
         }
 
+        @CustomType.Setter
         public Builder linkedServiceName(String linkedServiceName) {
             this.linkedServiceName = Objects.requireNonNull(linkedServiceName);
             return this;
         }
+        @CustomType.Setter
         public Builder secretName(String secretName) {
             this.secretName = Objects.requireNonNull(secretName);
             return this;
-        }        public LinkedServiceSnowflakeKeyVaultPassword build() {
-            return new LinkedServiceSnowflakeKeyVaultPassword(linkedServiceName, secretName);
+        }
+        public LinkedServiceSnowflakeKeyVaultPassword build() {
+            final var o = new LinkedServiceSnowflakeKeyVaultPassword();
+            o.linkedServiceName = linkedServiceName;
+            o.secretName = secretName;
+            return o;
         }
     }
 }

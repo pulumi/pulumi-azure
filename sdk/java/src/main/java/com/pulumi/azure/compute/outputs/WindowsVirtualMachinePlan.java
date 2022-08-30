@@ -13,28 +13,19 @@ public final class WindowsVirtualMachinePlan {
      * @return Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
      */
-    private final String product;
+    private String product;
     /**
      * @return Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
      */
-    private final String publisher;
+    private String publisher;
 
-    @CustomType.Constructor
-    private WindowsVirtualMachinePlan(
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("product") String product,
-        @CustomType.Parameter("publisher") String publisher) {
-        this.name = name;
-        this.product = product;
-        this.publisher = publisher;
-    }
-
+    private WindowsVirtualMachinePlan() {}
     /**
      * @return Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created.
      * 
@@ -64,16 +55,12 @@ public final class WindowsVirtualMachinePlan {
     public static Builder builder(WindowsVirtualMachinePlan defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String name;
         private String product;
         private String publisher;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(WindowsVirtualMachinePlan defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
@@ -81,19 +68,27 @@ public final class WindowsVirtualMachinePlan {
     	      this.publisher = defaults.publisher;
         }
 
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder product(String product) {
             this.product = Objects.requireNonNull(product);
             return this;
         }
+        @CustomType.Setter
         public Builder publisher(String publisher) {
             this.publisher = Objects.requireNonNull(publisher);
             return this;
-        }        public WindowsVirtualMachinePlan build() {
-            return new WindowsVirtualMachinePlan(name, product, publisher);
+        }
+        public WindowsVirtualMachinePlan build() {
+            final var o = new WindowsVirtualMachinePlan();
+            o.name = name;
+            o.product = product;
+            o.publisher = publisher;
+            return o;
         }
     }
 }

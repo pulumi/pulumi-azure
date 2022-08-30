@@ -18,35 +18,24 @@ public final class DataCollectionRuleDataSources {
      * @return One or more `extension` blocks as defined below.
      * 
      */
-    private final @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
+    private @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
     /**
      * @return One or more `performance_counter` blocks as defined below.
      * 
      */
-    private final @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
+    private @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
     /**
      * @return One or more `syslog` blocks as defined below.
      * 
      */
-    private final @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs;
+    private @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs;
     /**
      * @return One or more `windows_event_log` blocks as defined below.
      * 
      */
-    private final @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
+    private @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
 
-    @CustomType.Constructor
-    private DataCollectionRuleDataSources(
-        @CustomType.Parameter("extensions") @Nullable List<DataCollectionRuleDataSourcesExtension> extensions,
-        @CustomType.Parameter("performanceCounters") @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters,
-        @CustomType.Parameter("syslogs") @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs,
-        @CustomType.Parameter("windowsEventLogs") @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs) {
-        this.extensions = extensions;
-        this.performanceCounters = performanceCounters;
-        this.syslogs = syslogs;
-        this.windowsEventLogs = windowsEventLogs;
-    }
-
+    private DataCollectionRuleDataSources() {}
     /**
      * @return One or more `extension` blocks as defined below.
      * 
@@ -83,17 +72,13 @@ public final class DataCollectionRuleDataSources {
     public static Builder builder(DataCollectionRuleDataSources defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<DataCollectionRuleDataSourcesExtension> extensions;
         private @Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters;
         private @Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs;
         private @Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(DataCollectionRuleDataSources defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.extensions = defaults.extensions;
@@ -102,6 +87,7 @@ public final class DataCollectionRuleDataSources {
     	      this.windowsEventLogs = defaults.windowsEventLogs;
         }
 
+        @CustomType.Setter
         public Builder extensions(@Nullable List<DataCollectionRuleDataSourcesExtension> extensions) {
             this.extensions = extensions;
             return this;
@@ -109,6 +95,7 @@ public final class DataCollectionRuleDataSources {
         public Builder extensions(DataCollectionRuleDataSourcesExtension... extensions) {
             return extensions(List.of(extensions));
         }
+        @CustomType.Setter
         public Builder performanceCounters(@Nullable List<DataCollectionRuleDataSourcesPerformanceCounter> performanceCounters) {
             this.performanceCounters = performanceCounters;
             return this;
@@ -116,6 +103,7 @@ public final class DataCollectionRuleDataSources {
         public Builder performanceCounters(DataCollectionRuleDataSourcesPerformanceCounter... performanceCounters) {
             return performanceCounters(List.of(performanceCounters));
         }
+        @CustomType.Setter
         public Builder syslogs(@Nullable List<DataCollectionRuleDataSourcesSyslog> syslogs) {
             this.syslogs = syslogs;
             return this;
@@ -123,14 +111,21 @@ public final class DataCollectionRuleDataSources {
         public Builder syslogs(DataCollectionRuleDataSourcesSyslog... syslogs) {
             return syslogs(List.of(syslogs));
         }
+        @CustomType.Setter
         public Builder windowsEventLogs(@Nullable List<DataCollectionRuleDataSourcesWindowsEventLog> windowsEventLogs) {
             this.windowsEventLogs = windowsEventLogs;
             return this;
         }
         public Builder windowsEventLogs(DataCollectionRuleDataSourcesWindowsEventLog... windowsEventLogs) {
             return windowsEventLogs(List.of(windowsEventLogs));
-        }        public DataCollectionRuleDataSources build() {
-            return new DataCollectionRuleDataSources(extensions, performanceCounters, syslogs, windowsEventLogs);
+        }
+        public DataCollectionRuleDataSources build() {
+            final var o = new DataCollectionRuleDataSources();
+            o.extensions = extensions;
+            o.performanceCounters = performanceCounters;
+            o.syslogs = syslogs;
+            o.windowsEventLogs = windowsEventLogs;
+            return o;
         }
     }
 }

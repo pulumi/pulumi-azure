@@ -18,28 +18,19 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
      * @return A `requests` block as defined above.
      * 
      */
-    private final @Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests;
+    private @Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests;
     /**
      * @return One or more `slow_request` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
+    private @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
     /**
      * @return One or more `status_code` blocks as defined above.
      * 
      */
-    private final @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
+    private @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
 
-    @CustomType.Constructor
-    private LinuxWebAppSiteConfigAutoHealSettingTrigger(
-        @CustomType.Parameter("requests") @Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests,
-        @CustomType.Parameter("slowRequests") @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests,
-        @CustomType.Parameter("statusCodes") @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
-        this.requests = requests;
-        this.slowRequests = slowRequests;
-        this.statusCodes = statusCodes;
-    }
-
+    private LinuxWebAppSiteConfigAutoHealSettingTrigger() {}
     /**
      * @return A `requests` block as defined above.
      * 
@@ -69,16 +60,12 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
     public static Builder builder(LinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests;
         private @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests;
         private @Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(LinuxWebAppSiteConfigAutoHealSettingTrigger defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.requests = defaults.requests;
@@ -86,10 +73,12 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
     	      this.statusCodes = defaults.statusCodes;
         }
 
+        @CustomType.Setter
         public Builder requests(@Nullable LinuxWebAppSiteConfigAutoHealSettingTriggerRequests requests) {
             this.requests = requests;
             return this;
         }
+        @CustomType.Setter
         public Builder slowRequests(@Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest> slowRequests) {
             this.slowRequests = slowRequests;
             return this;
@@ -97,14 +86,20 @@ public final class LinuxWebAppSiteConfigAutoHealSettingTrigger {
         public Builder slowRequests(LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequest... slowRequests) {
             return slowRequests(List.of(slowRequests));
         }
+        @CustomType.Setter
         public Builder statusCodes(@Nullable List<LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode> statusCodes) {
             this.statusCodes = statusCodes;
             return this;
         }
         public Builder statusCodes(LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCode... statusCodes) {
             return statusCodes(List.of(statusCodes));
-        }        public LinuxWebAppSiteConfigAutoHealSettingTrigger build() {
-            return new LinuxWebAppSiteConfigAutoHealSettingTrigger(requests, slowRequests, statusCodes);
+        }
+        public LinuxWebAppSiteConfigAutoHealSettingTrigger build() {
+            final var o = new LinuxWebAppSiteConfigAutoHealSettingTrigger();
+            o.requests = requests;
+            o.slowRequests = slowRequests;
+            o.statusCodes = statusCodes;
+            return o;
         }
     }
 }

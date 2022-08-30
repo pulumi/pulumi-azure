@@ -16,35 +16,24 @@ public final class ActionRuleSuppressionSuppressionSchedule {
      * @return specifies the recurrence UTC end datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    private final String endDateUtc;
+    private String endDateUtc;
     /**
      * @return specifies the list of dayOfMonth to recurrence. Possible values are between `1` - `31`. Required if `recurrence_type` is `Monthly`.
      * 
      */
-    private final @Nullable List<Integer> recurrenceMonthlies;
+    private @Nullable List<Integer> recurrenceMonthlies;
     /**
      * @return specifies the list of dayOfWeek to recurrence. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and  `Saturday`.
      * 
      */
-    private final @Nullable List<String> recurrenceWeeklies;
+    private @Nullable List<String> recurrenceWeeklies;
     /**
      * @return specifies the recurrence UTC start datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
      */
-    private final String startDateUtc;
+    private String startDateUtc;
 
-    @CustomType.Constructor
-    private ActionRuleSuppressionSuppressionSchedule(
-        @CustomType.Parameter("endDateUtc") String endDateUtc,
-        @CustomType.Parameter("recurrenceMonthlies") @Nullable List<Integer> recurrenceMonthlies,
-        @CustomType.Parameter("recurrenceWeeklies") @Nullable List<String> recurrenceWeeklies,
-        @CustomType.Parameter("startDateUtc") String startDateUtc) {
-        this.endDateUtc = endDateUtc;
-        this.recurrenceMonthlies = recurrenceMonthlies;
-        this.recurrenceWeeklies = recurrenceWeeklies;
-        this.startDateUtc = startDateUtc;
-    }
-
+    private ActionRuleSuppressionSuppressionSchedule() {}
     /**
      * @return specifies the recurrence UTC end datetime (Y-m-d&#39;T&#39;H:M:S&#39;Z&#39;).
      * 
@@ -81,17 +70,13 @@ public final class ActionRuleSuppressionSuppressionSchedule {
     public static Builder builder(ActionRuleSuppressionSuppressionSchedule defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String endDateUtc;
         private @Nullable List<Integer> recurrenceMonthlies;
         private @Nullable List<String> recurrenceWeeklies;
         private String startDateUtc;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ActionRuleSuppressionSuppressionSchedule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.endDateUtc = defaults.endDateUtc;
@@ -100,10 +85,12 @@ public final class ActionRuleSuppressionSuppressionSchedule {
     	      this.startDateUtc = defaults.startDateUtc;
         }
 
+        @CustomType.Setter
         public Builder endDateUtc(String endDateUtc) {
             this.endDateUtc = Objects.requireNonNull(endDateUtc);
             return this;
         }
+        @CustomType.Setter
         public Builder recurrenceMonthlies(@Nullable List<Integer> recurrenceMonthlies) {
             this.recurrenceMonthlies = recurrenceMonthlies;
             return this;
@@ -111,6 +98,7 @@ public final class ActionRuleSuppressionSuppressionSchedule {
         public Builder recurrenceMonthlies(Integer... recurrenceMonthlies) {
             return recurrenceMonthlies(List.of(recurrenceMonthlies));
         }
+        @CustomType.Setter
         public Builder recurrenceWeeklies(@Nullable List<String> recurrenceWeeklies) {
             this.recurrenceWeeklies = recurrenceWeeklies;
             return this;
@@ -118,11 +106,18 @@ public final class ActionRuleSuppressionSuppressionSchedule {
         public Builder recurrenceWeeklies(String... recurrenceWeeklies) {
             return recurrenceWeeklies(List.of(recurrenceWeeklies));
         }
+        @CustomType.Setter
         public Builder startDateUtc(String startDateUtc) {
             this.startDateUtc = Objects.requireNonNull(startDateUtc);
             return this;
-        }        public ActionRuleSuppressionSuppressionSchedule build() {
-            return new ActionRuleSuppressionSuppressionSchedule(endDateUtc, recurrenceMonthlies, recurrenceWeeklies, startDateUtc);
+        }
+        public ActionRuleSuppressionSuppressionSchedule build() {
+            final var o = new ActionRuleSuppressionSuppressionSchedule();
+            o.endDateUtc = endDateUtc;
+            o.recurrenceMonthlies = recurrenceMonthlies;
+            o.recurrenceWeeklies = recurrenceWeeklies;
+            o.startDateUtc = startDateUtc;
+            return o;
         }
     }
 }

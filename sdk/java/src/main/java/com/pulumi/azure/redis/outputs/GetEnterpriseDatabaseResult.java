@@ -14,65 +14,46 @@ public final class GetEnterpriseDatabaseResult {
      * @return The Redis Enterprise Cluster ID that is hosting the Redis Enterprise Database.
      * 
      */
-    private final String clusterId;
+    private String clusterId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
-    private final String id;
+    private String id;
     /**
      * @return The Linked Database Group Nickname for the Redis Enterprise Database instance.
      * 
      */
-    private final String linkedDatabaseGroupNickname;
+    private String linkedDatabaseGroupNickname;
     /**
      * @return The Linked Database list for the Redis Enterprise Database instance.
      * 
      */
-    private final List<String> linkedDatabaseIds;
+    private List<String> linkedDatabaseIds;
     /**
      * @return The Redis Enterprise Database name.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return The Primary Access Key for the Redis Enterprise Database instance.
      * 
      */
-    private final String primaryAccessKey;
+    private String primaryAccessKey;
     /**
      * @deprecated
      * This field is no longer used and will be removed in the next major version of the Azure Provider
      * 
      */
     @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    private final String resourceGroupName;
+    private String resourceGroupName;
     /**
      * @return The Secondary Access Key for the Redis Enterprise Database instance.
      * 
      */
-    private final String secondaryAccessKey;
+    private String secondaryAccessKey;
 
-    @CustomType.Constructor
-    private GetEnterpriseDatabaseResult(
-        @CustomType.Parameter("clusterId") String clusterId,
-        @CustomType.Parameter("id") String id,
-        @CustomType.Parameter("linkedDatabaseGroupNickname") String linkedDatabaseGroupNickname,
-        @CustomType.Parameter("linkedDatabaseIds") List<String> linkedDatabaseIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primaryAccessKey") String primaryAccessKey,
-        @CustomType.Parameter("resourceGroupName") String resourceGroupName,
-        @CustomType.Parameter("secondaryAccessKey") String secondaryAccessKey) {
-        this.clusterId = clusterId;
-        this.id = id;
-        this.linkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
-        this.linkedDatabaseIds = linkedDatabaseIds;
-        this.name = name;
-        this.primaryAccessKey = primaryAccessKey;
-        this.resourceGroupName = resourceGroupName;
-        this.secondaryAccessKey = secondaryAccessKey;
-    }
-
+    private GetEnterpriseDatabaseResult() {}
     /**
      * @return The Redis Enterprise Cluster ID that is hosting the Redis Enterprise Database.
      * 
@@ -139,7 +120,7 @@ public final class GetEnterpriseDatabaseResult {
     public static Builder builder(GetEnterpriseDatabaseResult defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String clusterId;
         private String id;
@@ -149,11 +130,7 @@ public final class GetEnterpriseDatabaseResult {
         private String primaryAccessKey;
         private String resourceGroupName;
         private String secondaryAccessKey;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetEnterpriseDatabaseResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.clusterId = defaults.clusterId;
@@ -166,18 +143,22 @@ public final class GetEnterpriseDatabaseResult {
     	      this.secondaryAccessKey = defaults.secondaryAccessKey;
         }
 
+        @CustomType.Setter
         public Builder clusterId(String clusterId) {
             this.clusterId = Objects.requireNonNull(clusterId);
             return this;
         }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        @CustomType.Setter
         public Builder linkedDatabaseGroupNickname(String linkedDatabaseGroupNickname) {
             this.linkedDatabaseGroupNickname = Objects.requireNonNull(linkedDatabaseGroupNickname);
             return this;
         }
+        @CustomType.Setter
         public Builder linkedDatabaseIds(List<String> linkedDatabaseIds) {
             this.linkedDatabaseIds = Objects.requireNonNull(linkedDatabaseIds);
             return this;
@@ -185,23 +166,37 @@ public final class GetEnterpriseDatabaseResult {
         public Builder linkedDatabaseIds(String... linkedDatabaseIds) {
             return linkedDatabaseIds(List.of(linkedDatabaseIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primaryAccessKey(String primaryAccessKey) {
             this.primaryAccessKey = Objects.requireNonNull(primaryAccessKey);
             return this;
         }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             this.resourceGroupName = Objects.requireNonNull(resourceGroupName);
             return this;
         }
+        @CustomType.Setter
         public Builder secondaryAccessKey(String secondaryAccessKey) {
             this.secondaryAccessKey = Objects.requireNonNull(secondaryAccessKey);
             return this;
-        }        public GetEnterpriseDatabaseResult build() {
-            return new GetEnterpriseDatabaseResult(clusterId, id, linkedDatabaseGroupNickname, linkedDatabaseIds, name, primaryAccessKey, resourceGroupName, secondaryAccessKey);
+        }
+        public GetEnterpriseDatabaseResult build() {
+            final var o = new GetEnterpriseDatabaseResult();
+            o.clusterId = clusterId;
+            o.id = id;
+            o.linkedDatabaseGroupNickname = linkedDatabaseGroupNickname;
+            o.linkedDatabaseIds = linkedDatabaseIds;
+            o.name = name;
+            o.primaryAccessKey = primaryAccessKey;
+            o.resourceGroupName = resourceGroupName;
+            o.secondaryAccessKey = secondaryAccessKey;
+            return o;
         }
     }
 }

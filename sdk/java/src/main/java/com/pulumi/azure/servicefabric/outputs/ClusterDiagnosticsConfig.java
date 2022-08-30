@@ -13,42 +13,29 @@ public final class ClusterDiagnosticsConfig {
      * @return The Blob Endpoint of the Storage Account.
      * 
      */
-    private final String blobEndpoint;
+    private String blobEndpoint;
     /**
      * @return The protected diagnostics storage key name, such as `StorageAccountKey1`.
      * 
      */
-    private final String protectedAccountKeyName;
+    private String protectedAccountKeyName;
     /**
      * @return The Queue Endpoint of the Storage Account.
      * 
      */
-    private final String queueEndpoint;
+    private String queueEndpoint;
     /**
      * @return The name of the Storage Account where the Diagnostics should be sent to.
      * 
      */
-    private final String storageAccountName;
+    private String storageAccountName;
     /**
      * @return The Table Endpoint of the Storage Account.
      * 
      */
-    private final String tableEndpoint;
+    private String tableEndpoint;
 
-    @CustomType.Constructor
-    private ClusterDiagnosticsConfig(
-        @CustomType.Parameter("blobEndpoint") String blobEndpoint,
-        @CustomType.Parameter("protectedAccountKeyName") String protectedAccountKeyName,
-        @CustomType.Parameter("queueEndpoint") String queueEndpoint,
-        @CustomType.Parameter("storageAccountName") String storageAccountName,
-        @CustomType.Parameter("tableEndpoint") String tableEndpoint) {
-        this.blobEndpoint = blobEndpoint;
-        this.protectedAccountKeyName = protectedAccountKeyName;
-        this.queueEndpoint = queueEndpoint;
-        this.storageAccountName = storageAccountName;
-        this.tableEndpoint = tableEndpoint;
-    }
-
+    private ClusterDiagnosticsConfig() {}
     /**
      * @return The Blob Endpoint of the Storage Account.
      * 
@@ -92,18 +79,14 @@ public final class ClusterDiagnosticsConfig {
     public static Builder builder(ClusterDiagnosticsConfig defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String blobEndpoint;
         private String protectedAccountKeyName;
         private String queueEndpoint;
         private String storageAccountName;
         private String tableEndpoint;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterDiagnosticsConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.blobEndpoint = defaults.blobEndpoint;
@@ -113,27 +96,39 @@ public final class ClusterDiagnosticsConfig {
     	      this.tableEndpoint = defaults.tableEndpoint;
         }
 
+        @CustomType.Setter
         public Builder blobEndpoint(String blobEndpoint) {
             this.blobEndpoint = Objects.requireNonNull(blobEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder protectedAccountKeyName(String protectedAccountKeyName) {
             this.protectedAccountKeyName = Objects.requireNonNull(protectedAccountKeyName);
             return this;
         }
+        @CustomType.Setter
         public Builder queueEndpoint(String queueEndpoint) {
             this.queueEndpoint = Objects.requireNonNull(queueEndpoint);
             return this;
         }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             this.storageAccountName = Objects.requireNonNull(storageAccountName);
             return this;
         }
+        @CustomType.Setter
         public Builder tableEndpoint(String tableEndpoint) {
             this.tableEndpoint = Objects.requireNonNull(tableEndpoint);
             return this;
-        }        public ClusterDiagnosticsConfig build() {
-            return new ClusterDiagnosticsConfig(blobEndpoint, protectedAccountKeyName, queueEndpoint, storageAccountName, tableEndpoint);
+        }
+        public ClusterDiagnosticsConfig build() {
+            final var o = new ClusterDiagnosticsConfig();
+            o.blobEndpoint = blobEndpoint;
+            o.protectedAccountKeyName = protectedAccountKeyName;
+            o.queueEndpoint = queueEndpoint;
+            o.storageAccountName = storageAccountName;
+            o.tableEndpoint = tableEndpoint;
+            return o;
         }
     }
 }

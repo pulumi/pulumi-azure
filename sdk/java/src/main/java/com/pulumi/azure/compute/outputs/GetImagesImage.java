@@ -18,49 +18,34 @@ public final class GetImagesImage {
      * @return One or more `data_disk` blocks as defined below.
      * 
      */
-    private final List<GetImagesImageDataDisk> dataDisks;
+    private List<GetImagesImageDataDisk> dataDisks;
     /**
      * @return The supported Azure location where the Image exists.
      * 
      */
-    private final String location;
+    private String location;
     /**
      * @return The name of the Image.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return An `os_disk` block as defined below.
      * 
      */
-    private final List<GetImagesImageOsDisk> osDisks;
+    private List<GetImagesImageOsDisk> osDisks;
     /**
      * @return A mapping of tags assigned to the Image.
      * 
      */
-    private final Map<String,String> tags;
+    private Map<String,String> tags;
     /**
      * @return Is zone resiliency enabled?
      * 
      */
-    private final Boolean zoneResilient;
+    private Boolean zoneResilient;
 
-    @CustomType.Constructor
-    private GetImagesImage(
-        @CustomType.Parameter("dataDisks") List<GetImagesImageDataDisk> dataDisks,
-        @CustomType.Parameter("location") String location,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("osDisks") List<GetImagesImageOsDisk> osDisks,
-        @CustomType.Parameter("tags") Map<String,String> tags,
-        @CustomType.Parameter("zoneResilient") Boolean zoneResilient) {
-        this.dataDisks = dataDisks;
-        this.location = location;
-        this.name = name;
-        this.osDisks = osDisks;
-        this.tags = tags;
-        this.zoneResilient = zoneResilient;
-    }
-
+    private GetImagesImage() {}
     /**
      * @return One or more `data_disk` blocks as defined below.
      * 
@@ -111,7 +96,7 @@ public final class GetImagesImage {
     public static Builder builder(GetImagesImage defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<GetImagesImageDataDisk> dataDisks;
         private String location;
@@ -119,11 +104,7 @@ public final class GetImagesImage {
         private List<GetImagesImageOsDisk> osDisks;
         private Map<String,String> tags;
         private Boolean zoneResilient;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(GetImagesImage defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dataDisks = defaults.dataDisks;
@@ -134,6 +115,7 @@ public final class GetImagesImage {
     	      this.zoneResilient = defaults.zoneResilient;
         }
 
+        @CustomType.Setter
         public Builder dataDisks(List<GetImagesImageDataDisk> dataDisks) {
             this.dataDisks = Objects.requireNonNull(dataDisks);
             return this;
@@ -141,14 +123,17 @@ public final class GetImagesImage {
         public Builder dataDisks(GetImagesImageDataDisk... dataDisks) {
             return dataDisks(List.of(dataDisks));
         }
+        @CustomType.Setter
         public Builder location(String location) {
             this.location = Objects.requireNonNull(location);
             return this;
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder osDisks(List<GetImagesImageOsDisk> osDisks) {
             this.osDisks = Objects.requireNonNull(osDisks);
             return this;
@@ -156,15 +141,25 @@ public final class GetImagesImage {
         public Builder osDisks(GetImagesImageOsDisk... osDisks) {
             return osDisks(List.of(osDisks));
         }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }
+        @CustomType.Setter
         public Builder zoneResilient(Boolean zoneResilient) {
             this.zoneResilient = Objects.requireNonNull(zoneResilient);
             return this;
-        }        public GetImagesImage build() {
-            return new GetImagesImage(dataDisks, location, name, osDisks, tags, zoneResilient);
+        }
+        public GetImagesImage build() {
+            final var o = new GetImagesImage();
+            o.dataDisks = dataDisks;
+            o.location = location;
+            o.name = name;
+            o.osDisks = osDisks;
+            o.tags = tags;
+            o.zoneResilient = zoneResilient;
+            return o;
         }
     }
 }

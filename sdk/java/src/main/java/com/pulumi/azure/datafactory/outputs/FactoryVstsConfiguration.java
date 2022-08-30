@@ -13,49 +13,34 @@ public final class FactoryVstsConfiguration {
      * @return Specifies the VSTS account name.
      * 
      */
-    private final String accountName;
+    private String accountName;
     /**
      * @return Specifies the branch of the repository to get code from.
      * 
      */
-    private final String branchName;
+    private String branchName;
     /**
      * @return Specifies the name of the VSTS project.
      * 
      */
-    private final String projectName;
+    private String projectName;
     /**
      * @return Specifies the name of the git repository.
      * 
      */
-    private final String repositoryName;
+    private String repositoryName;
     /**
      * @return Specifies the root folder within the repository. Set to `/` for the top level.
      * 
      */
-    private final String rootFolder;
+    private String rootFolder;
     /**
      * @return Specifies the Tenant ID associated with the VSTS account.
      * 
      */
-    private final String tenantId;
+    private String tenantId;
 
-    @CustomType.Constructor
-    private FactoryVstsConfiguration(
-        @CustomType.Parameter("accountName") String accountName,
-        @CustomType.Parameter("branchName") String branchName,
-        @CustomType.Parameter("projectName") String projectName,
-        @CustomType.Parameter("repositoryName") String repositoryName,
-        @CustomType.Parameter("rootFolder") String rootFolder,
-        @CustomType.Parameter("tenantId") String tenantId) {
-        this.accountName = accountName;
-        this.branchName = branchName;
-        this.projectName = projectName;
-        this.repositoryName = repositoryName;
-        this.rootFolder = rootFolder;
-        this.tenantId = tenantId;
-    }
-
+    private FactoryVstsConfiguration() {}
     /**
      * @return Specifies the VSTS account name.
      * 
@@ -106,7 +91,7 @@ public final class FactoryVstsConfiguration {
     public static Builder builder(FactoryVstsConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String accountName;
         private String branchName;
@@ -114,11 +99,7 @@ public final class FactoryVstsConfiguration {
         private String repositoryName;
         private String rootFolder;
         private String tenantId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(FactoryVstsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accountName = defaults.accountName;
@@ -129,31 +110,45 @@ public final class FactoryVstsConfiguration {
     	      this.tenantId = defaults.tenantId;
         }
 
+        @CustomType.Setter
         public Builder accountName(String accountName) {
             this.accountName = Objects.requireNonNull(accountName);
             return this;
         }
+        @CustomType.Setter
         public Builder branchName(String branchName) {
             this.branchName = Objects.requireNonNull(branchName);
             return this;
         }
+        @CustomType.Setter
         public Builder projectName(String projectName) {
             this.projectName = Objects.requireNonNull(projectName);
             return this;
         }
+        @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
             this.repositoryName = Objects.requireNonNull(repositoryName);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolder(String rootFolder) {
             this.rootFolder = Objects.requireNonNull(rootFolder);
             return this;
         }
+        @CustomType.Setter
         public Builder tenantId(String tenantId) {
             this.tenantId = Objects.requireNonNull(tenantId);
             return this;
-        }        public FactoryVstsConfiguration build() {
-            return new FactoryVstsConfiguration(accountName, branchName, projectName, repositoryName, rootFolder, tenantId);
+        }
+        public FactoryVstsConfiguration build() {
+            final var o = new FactoryVstsConfiguration();
+            o.accountName = accountName;
+            o.branchName = branchName;
+            o.projectName = projectName;
+            o.repositoryName = repositoryName;
+            o.rootFolder = rootFolder;
+            o.tenantId = tenantId;
+            return o;
         }
     }
 }

@@ -13,21 +13,14 @@ public final class SubscriptionCostManagementExportExportDataStorageLocation {
      * @return The Resource Manager ID of the container where exports will be uploaded.
      * 
      */
-    private final String containerId;
+    private String containerId;
     /**
      * @return The path of the directory where exports will be uploaded.
      * 
      */
-    private final String rootFolderPath;
+    private String rootFolderPath;
 
-    @CustomType.Constructor
-    private SubscriptionCostManagementExportExportDataStorageLocation(
-        @CustomType.Parameter("containerId") String containerId,
-        @CustomType.Parameter("rootFolderPath") String rootFolderPath) {
-        this.containerId = containerId;
-        this.rootFolderPath = rootFolderPath;
-    }
-
+    private SubscriptionCostManagementExportExportDataStorageLocation() {}
     /**
      * @return The Resource Manager ID of the container where exports will be uploaded.
      * 
@@ -50,30 +43,32 @@ public final class SubscriptionCostManagementExportExportDataStorageLocation {
     public static Builder builder(SubscriptionCostManagementExportExportDataStorageLocation defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private String containerId;
         private String rootFolderPath;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(SubscriptionCostManagementExportExportDataStorageLocation defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.containerId = defaults.containerId;
     	      this.rootFolderPath = defaults.rootFolderPath;
         }
 
+        @CustomType.Setter
         public Builder containerId(String containerId) {
             this.containerId = Objects.requireNonNull(containerId);
             return this;
         }
+        @CustomType.Setter
         public Builder rootFolderPath(String rootFolderPath) {
             this.rootFolderPath = Objects.requireNonNull(rootFolderPath);
             return this;
-        }        public SubscriptionCostManagementExportExportDataStorageLocation build() {
-            return new SubscriptionCostManagementExportExportDataStorageLocation(containerId, rootFolderPath);
+        }
+        public SubscriptionCostManagementExportExportDataStorageLocation build() {
+            final var o = new SubscriptionCostManagementExportExportDataStorageLocation();
+            o.containerId = containerId;
+            o.rootFolderPath = rootFolderPath;
+            return o;
         }
     }
 }

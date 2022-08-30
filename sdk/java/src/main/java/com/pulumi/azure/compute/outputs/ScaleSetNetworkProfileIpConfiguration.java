@@ -18,63 +18,44 @@ public final class ScaleSetNetworkProfileIpConfiguration {
      * @return Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
      * 
      */
-    private final @Nullable List<String> applicationGatewayBackendAddressPoolIds;
+    private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
     /**
      * @return Specifies up to `20` application security group IDs.
      * 
      */
-    private final @Nullable List<String> applicationSecurityGroupIds;
+    private @Nullable List<String> applicationSecurityGroupIds;
     /**
      * @return Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
      */
-    private final @Nullable List<String> loadBalancerBackendAddressPoolIds;
+    private @Nullable List<String> loadBalancerBackendAddressPoolIds;
     /**
      * @return Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
      * 
      */
-    private final @Nullable List<String> loadBalancerInboundNatRulesIds;
+    private @Nullable List<String> loadBalancerInboundNatRulesIds;
     /**
      * @return Specifies name of the IP configuration.
      * 
      */
-    private final String name;
+    private String name;
     /**
      * @return Specifies if this ip_configuration is the primary one.
      * 
      */
-    private final Boolean primary;
+    private Boolean primary;
     /**
      * @return Describes a virtual machines scale set IP Configuration&#39;s PublicIPAddress configuration. The public_ip_address_configuration is documented below.
      * 
      */
-    private final @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration;
+    private @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration;
     /**
      * @return Specifies the identifier of the subnet.
      * 
      */
-    private final String subnetId;
+    private String subnetId;
 
-    @CustomType.Constructor
-    private ScaleSetNetworkProfileIpConfiguration(
-        @CustomType.Parameter("applicationGatewayBackendAddressPoolIds") @Nullable List<String> applicationGatewayBackendAddressPoolIds,
-        @CustomType.Parameter("applicationSecurityGroupIds") @Nullable List<String> applicationSecurityGroupIds,
-        @CustomType.Parameter("loadBalancerBackendAddressPoolIds") @Nullable List<String> loadBalancerBackendAddressPoolIds,
-        @CustomType.Parameter("loadBalancerInboundNatRulesIds") @Nullable List<String> loadBalancerInboundNatRulesIds,
-        @CustomType.Parameter("name") String name,
-        @CustomType.Parameter("primary") Boolean primary,
-        @CustomType.Parameter("publicIpAddressConfiguration") @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration,
-        @CustomType.Parameter("subnetId") String subnetId) {
-        this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
-        this.applicationSecurityGroupIds = applicationSecurityGroupIds;
-        this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
-        this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
-        this.name = name;
-        this.primary = primary;
-        this.publicIpAddressConfiguration = publicIpAddressConfiguration;
-        this.subnetId = subnetId;
-    }
-
+    private ScaleSetNetworkProfileIpConfiguration() {}
     /**
      * @return Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
      * 
@@ -139,7 +120,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
     public static Builder builder(ScaleSetNetworkProfileIpConfiguration defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> applicationGatewayBackendAddressPoolIds;
         private @Nullable List<String> applicationSecurityGroupIds;
@@ -149,11 +130,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         private Boolean primary;
         private @Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration;
         private String subnetId;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ScaleSetNetworkProfileIpConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.applicationGatewayBackendAddressPoolIds = defaults.applicationGatewayBackendAddressPoolIds;
@@ -166,6 +143,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
     	      this.subnetId = defaults.subnetId;
         }
 
+        @CustomType.Setter
         public Builder applicationGatewayBackendAddressPoolIds(@Nullable List<String> applicationGatewayBackendAddressPoolIds) {
             this.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
             return this;
@@ -173,6 +151,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         public Builder applicationGatewayBackendAddressPoolIds(String... applicationGatewayBackendAddressPoolIds) {
             return applicationGatewayBackendAddressPoolIds(List.of(applicationGatewayBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder applicationSecurityGroupIds(@Nullable List<String> applicationSecurityGroupIds) {
             this.applicationSecurityGroupIds = applicationSecurityGroupIds;
             return this;
@@ -180,6 +159,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
             return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerBackendAddressPoolIds(@Nullable List<String> loadBalancerBackendAddressPoolIds) {
             this.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
             return this;
@@ -187,6 +167,7 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         public Builder loadBalancerBackendAddressPoolIds(String... loadBalancerBackendAddressPoolIds) {
             return loadBalancerBackendAddressPoolIds(List.of(loadBalancerBackendAddressPoolIds));
         }
+        @CustomType.Setter
         public Builder loadBalancerInboundNatRulesIds(@Nullable List<String> loadBalancerInboundNatRulesIds) {
             this.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
             return this;
@@ -194,23 +175,37 @@ public final class ScaleSetNetworkProfileIpConfiguration {
         public Builder loadBalancerInboundNatRulesIds(String... loadBalancerInboundNatRulesIds) {
             return loadBalancerInboundNatRulesIds(List.of(loadBalancerInboundNatRulesIds));
         }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        @CustomType.Setter
         public Builder primary(Boolean primary) {
             this.primary = Objects.requireNonNull(primary);
             return this;
         }
+        @CustomType.Setter
         public Builder publicIpAddressConfiguration(@Nullable ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration publicIpAddressConfiguration) {
             this.publicIpAddressConfiguration = publicIpAddressConfiguration;
             return this;
         }
+        @CustomType.Setter
         public Builder subnetId(String subnetId) {
             this.subnetId = Objects.requireNonNull(subnetId);
             return this;
-        }        public ScaleSetNetworkProfileIpConfiguration build() {
-            return new ScaleSetNetworkProfileIpConfiguration(applicationGatewayBackendAddressPoolIds, applicationSecurityGroupIds, loadBalancerBackendAddressPoolIds, loadBalancerInboundNatRulesIds, name, primary, publicIpAddressConfiguration, subnetId);
+        }
+        public ScaleSetNetworkProfileIpConfiguration build() {
+            final var o = new ScaleSetNetworkProfileIpConfiguration();
+            o.applicationGatewayBackendAddressPoolIds = applicationGatewayBackendAddressPoolIds;
+            o.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            o.loadBalancerBackendAddressPoolIds = loadBalancerBackendAddressPoolIds;
+            o.loadBalancerInboundNatRulesIds = loadBalancerInboundNatRulesIds;
+            o.name = name;
+            o.primary = primary;
+            o.publicIpAddressConfiguration = publicIpAddressConfiguration;
+            o.subnetId = subnetId;
+            return o;
         }
     }
 }

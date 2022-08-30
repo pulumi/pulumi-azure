@@ -15,21 +15,14 @@ public final class ClusterReverseProxyCertificateCommonNames {
      * @return A `common_names` block as defined below.
      * 
      */
-    private final List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames;
+    private List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames;
     /**
      * @return The X509 Store where the Certificate Exists, such as `My`.
      * 
      */
-    private final String x509StoreName;
+    private String x509StoreName;
 
-    @CustomType.Constructor
-    private ClusterReverseProxyCertificateCommonNames(
-        @CustomType.Parameter("commonNames") List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames,
-        @CustomType.Parameter("x509StoreName") String x509StoreName) {
-        this.commonNames = commonNames;
-        this.x509StoreName = x509StoreName;
-    }
-
+    private ClusterReverseProxyCertificateCommonNames() {}
     /**
      * @return A `common_names` block as defined below.
      * 
@@ -52,21 +45,18 @@ public final class ClusterReverseProxyCertificateCommonNames {
     public static Builder builder(ClusterReverseProxyCertificateCommonNames defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames;
         private String x509StoreName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ClusterReverseProxyCertificateCommonNames defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.commonNames = defaults.commonNames;
     	      this.x509StoreName = defaults.x509StoreName;
         }
 
+        @CustomType.Setter
         public Builder commonNames(List<ClusterReverseProxyCertificateCommonNamesCommonName> commonNames) {
             this.commonNames = Objects.requireNonNull(commonNames);
             return this;
@@ -74,11 +64,16 @@ public final class ClusterReverseProxyCertificateCommonNames {
         public Builder commonNames(ClusterReverseProxyCertificateCommonNamesCommonName... commonNames) {
             return commonNames(List.of(commonNames));
         }
+        @CustomType.Setter
         public Builder x509StoreName(String x509StoreName) {
             this.x509StoreName = Objects.requireNonNull(x509StoreName);
             return this;
-        }        public ClusterReverseProxyCertificateCommonNames build() {
-            return new ClusterReverseProxyCertificateCommonNames(commonNames, x509StoreName);
+        }
+        public ClusterReverseProxyCertificateCommonNames build() {
+            final var o = new ClusterReverseProxyCertificateCommonNames();
+            o.commonNames = commonNames;
+            o.x509StoreName = x509StoreName;
+            return o;
         }
     }
 }

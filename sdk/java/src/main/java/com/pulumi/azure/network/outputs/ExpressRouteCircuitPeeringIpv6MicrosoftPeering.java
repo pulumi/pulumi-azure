@@ -17,28 +17,19 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
      * @return A list of Advertised Public Prefixes.
      * 
      */
-    private final @Nullable List<String> advertisedPublicPrefixes;
+    private @Nullable List<String> advertisedPublicPrefixes;
     /**
      * @return The CustomerASN of the peering.
      * 
      */
-    private final @Nullable Integer customerAsn;
+    private @Nullable Integer customerAsn;
     /**
      * @return The Routing Registry against which the AS number and prefixes are registered. For example:  `ARIN`, `RIPE`, `AFRINIC` etc.
      * 
      */
-    private final @Nullable String routingRegistryName;
+    private @Nullable String routingRegistryName;
 
-    @CustomType.Constructor
-    private ExpressRouteCircuitPeeringIpv6MicrosoftPeering(
-        @CustomType.Parameter("advertisedPublicPrefixes") @Nullable List<String> advertisedPublicPrefixes,
-        @CustomType.Parameter("customerAsn") @Nullable Integer customerAsn,
-        @CustomType.Parameter("routingRegistryName") @Nullable String routingRegistryName) {
-        this.advertisedPublicPrefixes = advertisedPublicPrefixes;
-        this.customerAsn = customerAsn;
-        this.routingRegistryName = routingRegistryName;
-    }
-
+    private ExpressRouteCircuitPeeringIpv6MicrosoftPeering() {}
     /**
      * @return A list of Advertised Public Prefixes.
      * 
@@ -68,16 +59,12 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
     public static Builder builder(ExpressRouteCircuitPeeringIpv6MicrosoftPeering defaults) {
         return new Builder(defaults);
     }
-
+    @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> advertisedPublicPrefixes;
         private @Nullable Integer customerAsn;
         private @Nullable String routingRegistryName;
-
-        public Builder() {
-    	      // Empty
-        }
-
+        public Builder() {}
         public Builder(ExpressRouteCircuitPeeringIpv6MicrosoftPeering defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.advertisedPublicPrefixes = defaults.advertisedPublicPrefixes;
@@ -85,6 +72,7 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
     	      this.routingRegistryName = defaults.routingRegistryName;
         }
 
+        @CustomType.Setter
         public Builder advertisedPublicPrefixes(@Nullable List<String> advertisedPublicPrefixes) {
             this.advertisedPublicPrefixes = advertisedPublicPrefixes;
             return this;
@@ -92,15 +80,22 @@ public final class ExpressRouteCircuitPeeringIpv6MicrosoftPeering {
         public Builder advertisedPublicPrefixes(String... advertisedPublicPrefixes) {
             return advertisedPublicPrefixes(List.of(advertisedPublicPrefixes));
         }
+        @CustomType.Setter
         public Builder customerAsn(@Nullable Integer customerAsn) {
             this.customerAsn = customerAsn;
             return this;
         }
+        @CustomType.Setter
         public Builder routingRegistryName(@Nullable String routingRegistryName) {
             this.routingRegistryName = routingRegistryName;
             return this;
-        }        public ExpressRouteCircuitPeeringIpv6MicrosoftPeering build() {
-            return new ExpressRouteCircuitPeeringIpv6MicrosoftPeering(advertisedPublicPrefixes, customerAsn, routingRegistryName);
+        }
+        public ExpressRouteCircuitPeeringIpv6MicrosoftPeering build() {
+            final var o = new ExpressRouteCircuitPeeringIpv6MicrosoftPeering();
+            o.advertisedPublicPrefixes = advertisedPublicPrefixes;
+            o.customerAsn = customerAsn;
+            o.routingRegistryName = routingRegistryName;
+            return o;
         }
     }
 }
